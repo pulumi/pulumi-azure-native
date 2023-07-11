@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the notification registration details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getNotificationRegistration(args: GetNotificationRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationRegistrationResult> {
 
@@ -45,13 +45,17 @@ export interface GetNotificationRegistrationResult {
     readonly name: string;
     readonly properties: outputs.providerhub.NotificationRegistrationResponseProperties;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.providerhub.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the notification registration details.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getNotificationRegistrationOutput(args: GetNotificationRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getNotificationRegistration(a, opts))

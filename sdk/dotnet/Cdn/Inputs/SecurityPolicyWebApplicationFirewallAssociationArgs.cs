@@ -16,14 +16,14 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     public sealed class SecurityPolicyWebApplicationFirewallAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("domains")]
-        private InputList<Inputs.ResourceReferenceArgs>? _domains;
+        private InputList<Inputs.ActivatedResourceReferenceArgs>? _domains;
 
         /// <summary>
         /// List of domains.
         /// </summary>
-        public InputList<Inputs.ResourceReferenceArgs> Domains
+        public InputList<Inputs.ActivatedResourceReferenceArgs> Domains
         {
-            get => _domains ?? (_domains = new InputList<Inputs.ResourceReferenceArgs>());
+            get => _domains ?? (_domains = new InputList<Inputs.ActivatedResourceReferenceArgs>());
             set => _domains = value;
         }
 

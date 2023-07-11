@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing a read write database.
-    /// API Version: 2021-04-01-preview.
+    /// Azure REST API version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:ReadWriteDatabase")]
     public partial class ReadWriteDatabase : global::Pulumi.CustomResource
@@ -178,7 +178,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string>? SoftDeletePeriod { get; set; }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

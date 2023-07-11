@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
     /// <summary>
-    /// Recovery plan custom details.
+    /// Recovery plan properties.
     /// </summary>
     [OutputType]
     public sealed class RecoveryPlanPropertiesResponse

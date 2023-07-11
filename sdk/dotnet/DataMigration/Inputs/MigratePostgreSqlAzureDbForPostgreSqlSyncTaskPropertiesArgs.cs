@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
     /// </summary>
     public sealed class MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("clientData")]
+        private InputMap<string>? _clientData;
+
+        /// <summary>
+        /// Key value pairs of client data to attach meta data information to task
+        /// </summary>
+        public InputMap<string> ClientData
+        {
+            get => _clientData ?? (_clientData = new InputMap<string>());
+            set => _clientData = value;
+        }
+
         /// <summary>
         /// Task input
         /// </summary>
@@ -23,7 +35,7 @@ namespace Pulumi.AzureNative.DataMigration.Inputs
 
         /// <summary>
         /// Task type.
-        /// Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.Sync'.
+        /// Expected value is 'Migrate.PostgreSql.AzureDbForPostgreSql.SyncV2'.
         /// </summary>
         [Input("taskType", required: true)]
         public Input<string> TaskType { get; set; } = null!;

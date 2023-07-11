@@ -5,42 +5,52 @@
 import * as v20220301preview from "./v20220301preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20221101 from "./v20221101";
+import * as v20230601 from "./v20230601";
 
 export {
     v20220301preview,
     v20220401preview,
     v20221101,
+    v20230601,
 };
+
+export const AuthenticationType = {
+    /**
+     * Use AAD SSO to authenticate the user (this requires internet access).
+     */
+    AAD: "AAD",
+    /**
+     * Use locally stored passwords to authenticate the user.
+     */
+    Password: "Password",
+} as const;
+
+/**
+ * How to authenticate users who access local diagnostics APIs.
+ */
+export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 export const BillingSku = {
     /**
-     * Evaluation package plan
+     * 100 Mbps, 20 active SIMs plan, 2 RANs
      */
-    EvaluationPackage: "EvaluationPackage",
+    G0: "G0",
     /**
-     * Flagship starter package plan
+     * 1 Gbps, 100 active SIMs plan, 5 RANs
      */
-    FlagshipStarterPackage: "FlagshipStarterPackage",
+    G1: "G1",
     /**
-     * Edge site 2Gbps plan
+     * 2 Gbps, 200 active SIMs plan, 10 RANs
      */
-    EdgeSite2GBPS: "EdgeSite2GBPS",
+    G2: "G2",
     /**
-     * Edge site 3Gbps plan
+     * 5 Gbps, 500 active SIMs plan
      */
-    EdgeSite3GBPS: "EdgeSite3GBPS",
+    G5: "G5",
     /**
-     * Edge site 4Gbps plan
+     * 10 Gbps, 1000 active SIMs plan
      */
-    EdgeSite4GBPS: "EdgeSite4GBPS",
-    /**
-     * Medium package plan
-     */
-    MediumPackage: "MediumPackage",
-    /**
-     * Large package plan
-     */
-    LargePackage: "LargePackage",
+    G10: "G10",
 } as const;
 
 /**
@@ -57,6 +67,10 @@ export const CoreNetworkType = {
      * EPC / 4G core
      */
     EPC: "EPC",
+    /**
+     * Combined EPC / 4G and 5G core
+     */
+    EPC_5GC: "EPC + 5GC",
 } as const;
 
 /**
@@ -64,27 +78,29 @@ export const CoreNetworkType = {
  */
 export type CoreNetworkType = (typeof CoreNetworkType)[keyof typeof CoreNetworkType];
 
-export const CreatedByType = {
-    User: "User",
-    Application: "Application",
-    ManagedIdentity: "ManagedIdentity",
-    Key: "Key",
+export const DesiredInstallationState = {
+    /**
+     * Don't install the packet core.
+     */
+    Uninstalled: "Uninstalled",
+    /**
+     * Install the packet core.
+     */
+    Installed: "Installed",
 } as const;
 
 /**
- * The type of identity that last modified the resource.
+ * The desired installation state
  */
-export type CreatedByType = (typeof CreatedByType)[keyof typeof CreatedByType];
+export type DesiredInstallationState = (typeof DesiredInstallationState)[keyof typeof DesiredInstallationState];
 
 export const ManagedServiceIdentityType = {
     None: "None",
-    SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
-    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
 /**
- * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ * Type of managed service identity (currently only UserAssigned allowed).
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
@@ -116,13 +132,13 @@ export type PduSessionType = (typeof PduSessionType)[keyof typeof PduSessionType
 
 export const PlatformType = {
     /**
-     * If this option is chosen, you must set one of "azureStackEdgeDevice", "connectedCluster" or "customLocation". If multiple are set then "customLocation" will take precedence over "connectedCluster" which takes precedence over "azureStackEdgeDevice".
+     * If this option is chosen, you must set one of "azureStackEdgeDevice", "connectedCluster" or "customLocation". If multiple are set, they must be consistent with each other.
      */
     AKS_HCI: "AKS-HCI",
     /**
-     * If this option is chosen, you must set one of "connectedCluster" or "customLocation". If multiple are set then "customLocation" will take precedence over "connectedCluster".
+     * If this option is chosen, you must set one of "azureStackHciCluster", "connectedCluster" or "customLocation". If multiple are set, they must be consistent with each other.
      */
-    BaseVM: "BaseVM",
+    PlatformType_3P_AZURE_STACK_HCI: "3P-AZURE-STACK-HCI",
 } as const;
 
 /**

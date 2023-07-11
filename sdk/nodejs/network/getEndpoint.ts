@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Traffic Manager endpoint.
- * API Version: 2018-08-01.
+ * Azure REST API version: 2022-04-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -36,7 +36,7 @@ export interface GetEndpointArgs {
      */
     profileName: string;
     /**
-     * The name of the resource group containing the Traffic Manager endpoint.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -45,6 +45,10 @@ export interface GetEndpointArgs {
  * Class representing a Traffic Manager endpoint.
  */
 export interface GetEndpointResult {
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+     */
+    readonly alwaysServe?: string;
     /**
      * List of custom headers.
      */
@@ -112,7 +116,7 @@ export interface GetEndpointResult {
 }
 /**
  * Gets a Traffic Manager endpoint.
- * API Version: 2018-08-01.
+ * Azure REST API version: 2022-04-01.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))
@@ -132,7 +136,7 @@ export interface GetEndpointOutputArgs {
      */
     profileName: pulumi.Input<string>;
     /**
-     * The name of the resource group containing the Traffic Manager endpoint.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

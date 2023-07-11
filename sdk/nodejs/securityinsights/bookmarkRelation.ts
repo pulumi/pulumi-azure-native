@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Represents a relation between two resources
- * API Version: 2019-01-01-preview.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
  */
 export class BookmarkRelation extends pulumi.CustomResource {
     /**
@@ -40,7 +43,7 @@ export class BookmarkRelation extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -60,7 +63,11 @@ export class BookmarkRelation extends pulumi.CustomResource {
      */
     public /*out*/ readonly relatedResourceType!: pulumi.Output<string>;
     /**
-     * Azure resource type
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -78,9 +85,6 @@ export class BookmarkRelation extends pulumi.CustomResource {
             if ((!args || args.bookmarkId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bookmarkId'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
-            }
             if ((!args || args.relatedResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
@@ -91,7 +95,6 @@ export class BookmarkRelation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["bookmarkId"] = args ? args.bookmarkId : undefined;
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
             resourceInputs["relationName"] = args ? args.relationName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -101,6 +104,7 @@ export class BookmarkRelation extends pulumi.CustomResource {
             resourceInputs["relatedResourceKind"] = undefined /*out*/;
             resourceInputs["relatedResourceName"] = undefined /*out*/;
             resourceInputs["relatedResourceType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
@@ -109,10 +113,11 @@ export class BookmarkRelation extends pulumi.CustomResource {
             resourceInputs["relatedResourceKind"] = undefined /*out*/;
             resourceInputs["relatedResourceName"] = undefined /*out*/;
             resourceInputs["relatedResourceType"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20210901preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20211001preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220401preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220501preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220601preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220701preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220801preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220901preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20221001preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20221101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20221201preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20230201preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20230401preview:BookmarkRelation" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20210901preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20211001preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220401preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220501preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220601preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220701preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220801preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20220901preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20221001preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20221101preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20221201preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20230201preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20230301preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20230401preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20230501preview:BookmarkRelation" }, { type: "azure-native:securityinsights/v20230601preview:BookmarkRelation" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BookmarkRelation.__pulumiType, name, resourceInputs, opts);
     }
@@ -127,10 +132,6 @@ export interface BookmarkRelationArgs {
      */
     bookmarkId: pulumi.Input<string>;
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
-    /**
      * The resource ID of the related resource
      */
     relatedResourceId: pulumi.Input<string>;
@@ -139,7 +140,7 @@ export interface BookmarkRelationArgs {
      */
     relationName?: pulumi.Input<string>;
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

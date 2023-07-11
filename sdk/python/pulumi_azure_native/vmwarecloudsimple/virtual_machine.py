@@ -298,7 +298,7 @@ class VirtualMachine(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual machine model
-        API Version: 2019-04-01.
+        Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -327,7 +327,7 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual machine model
-        API Version: 2019-04-01.
+        Azure REST API version: 2019-04-01. Prior API version in Azure Native 1.x: 2019-04-01
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

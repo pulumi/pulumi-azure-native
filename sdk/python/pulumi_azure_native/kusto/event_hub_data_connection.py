@@ -24,10 +24,12 @@ class EventHubDataConnectionArgs:
                  compression: Optional[pulumi.Input[Union[str, 'Compression']]] = None,
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[Union[str, 'EventHubDataFormat']]] = None,
+                 database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EventHubDataConnection resource.
@@ -41,10 +43,12 @@ class EventHubDataConnectionArgs:
         :param pulumi.Input[Union[str, 'Compression']] compression: The event hub messages compression type
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[str, 'EventHubDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
+        :param pulumi.Input[Union[str, 'DatabaseRouting']] database_routing: Indication for database routing information from the data connection, by default only database routing information is allowed
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: System properties of the event hub
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] managed_identity_resource_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
+        :param pulumi.Input[str] retrieval_start_date: When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -59,6 +63,10 @@ class EventHubDataConnectionArgs:
             pulumi.set(__self__, "data_connection_name", data_connection_name)
         if data_format is not None:
             pulumi.set(__self__, "data_format", data_format)
+        if database_routing is None:
+            database_routing = 'Single'
+        if database_routing is not None:
+            pulumi.set(__self__, "database_routing", database_routing)
         if event_system_properties is not None:
             pulumi.set(__self__, "event_system_properties", event_system_properties)
         if location is not None:
@@ -67,6 +75,8 @@ class EventHubDataConnectionArgs:
             pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
         if mapping_rule_name is not None:
             pulumi.set(__self__, "mapping_rule_name", mapping_rule_name)
+        if retrieval_start_date is not None:
+            pulumi.set(__self__, "retrieval_start_date", retrieval_start_date)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -180,6 +190,18 @@ class EventHubDataConnectionArgs:
         pulumi.set(self, "data_format", value)
 
     @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> Optional[pulumi.Input[Union[str, 'DatabaseRouting']]]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
+
+    @database_routing.setter
+    def database_routing(self, value: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]]):
+        pulumi.set(self, "database_routing", value)
+
+    @property
     @pulumi.getter(name="eventSystemProperties")
     def event_system_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -228,6 +250,18 @@ class EventHubDataConnectionArgs:
         pulumi.set(self, "mapping_rule_name", value)
 
     @property
+    @pulumi.getter(name="retrievalStartDate")
+    def retrieval_start_date(self) -> Optional[pulumi.Input[str]]:
+        """
+        When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+        """
+        return pulumi.get(self, "retrieval_start_date")
+
+    @retrieval_start_date.setter
+    def retrieval_start_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "retrieval_start_date", value)
+
+    @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -251,6 +285,7 @@ class EventHubDataConnection(pulumi.CustomResource):
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[Union[str, 'EventHubDataFormat']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
                  event_hub_resource_id: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -258,11 +293,12 @@ class EventHubDataConnection(pulumi.CustomResource):
                  managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Class representing an event hub data connection.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -272,6 +308,7 @@ class EventHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[str, 'EventHubDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
         :param pulumi.Input[str] database_name: The name of the database in the Kusto cluster.
+        :param pulumi.Input[Union[str, 'DatabaseRouting']] database_routing: Indication for database routing information from the data connection, by default only database routing information is allowed
         :param pulumi.Input[str] event_hub_resource_id: The resource ID of the event hub to be used to create a data connection.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] event_system_properties: System properties of the event hub
         :param pulumi.Input[str] kind: Kind of the endpoint for the data connection
@@ -280,6 +317,7 @@ class EventHubDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] managed_identity_resource_id: The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
         :param pulumi.Input[str] mapping_rule_name: The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Kusto cluster.
+        :param pulumi.Input[str] retrieval_start_date: When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
         """
         ...
@@ -290,7 +328,7 @@ class EventHubDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an event hub data connection.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param EventHubDataConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -313,6 +351,7 @@ class EventHubDataConnection(pulumi.CustomResource):
                  data_connection_name: Optional[pulumi.Input[str]] = None,
                  data_format: Optional[pulumi.Input[Union[str, 'EventHubDataFormat']]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 database_routing: Optional[pulumi.Input[Union[str, 'DatabaseRouting']]] = None,
                  event_hub_resource_id: Optional[pulumi.Input[str]] = None,
                  event_system_properties: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
@@ -320,6 +359,7 @@ class EventHubDataConnection(pulumi.CustomResource):
                  managed_identity_resource_id: Optional[pulumi.Input[str]] = None,
                  mapping_rule_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 retrieval_start_date: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -342,6 +382,9 @@ class EventHubDataConnection(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
+            if database_routing is None:
+                database_routing = 'Single'
+            __props__.__dict__["database_routing"] = database_routing
             if event_hub_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_resource_id'")
             __props__.__dict__["event_hub_resource_id"] = event_hub_resource_id
@@ -355,11 +398,13 @@ class EventHubDataConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["retrieval_start_date"] = retrieval_start_date
             __props__.__dict__["table_name"] = table_name
+            __props__.__dict__["managed_identity_object_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20190121:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190515:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190907:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20191109:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200215:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200614:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200918:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210101:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210827:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220201:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220707:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221111:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221229:EventHubDataConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20190121:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190515:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20190907:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20191109:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200215:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200614:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20200918:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210101:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20210827:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220201:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20220707:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221111:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20221229:EventHubDataConnection"), pulumi.Alias(type_="azure-native:kusto/v20230502:EventHubDataConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubDataConnection, __self__).__init__(
             'azure-native:kusto:EventHubDataConnection',
@@ -386,14 +431,17 @@ class EventHubDataConnection(pulumi.CustomResource):
         __props__.__dict__["compression"] = None
         __props__.__dict__["consumer_group"] = None
         __props__.__dict__["data_format"] = None
+        __props__.__dict__["database_routing"] = None
         __props__.__dict__["event_hub_resource_id"] = None
         __props__.__dict__["event_system_properties"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["managed_identity_object_id"] = None
         __props__.__dict__["managed_identity_resource_id"] = None
         __props__.__dict__["mapping_rule_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["retrieval_start_date"] = None
         __props__.__dict__["table_name"] = None
         __props__.__dict__["type"] = None
         return EventHubDataConnection(resource_name, opts=opts, __props__=__props__)
@@ -421,6 +469,14 @@ class EventHubDataConnection(pulumi.CustomResource):
         The data format of the message. Optionally the data format can be added to each message.
         """
         return pulumi.get(self, "data_format")
+
+    @property
+    @pulumi.getter(name="databaseRouting")
+    def database_routing(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indication for database routing information from the data connection, by default only database routing information is allowed
+        """
+        return pulumi.get(self, "database_routing")
 
     @property
     @pulumi.getter(name="eventHubResourceId")
@@ -456,6 +512,14 @@ class EventHubDataConnection(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedIdentityObjectId")
+    def managed_identity_object_id(self) -> pulumi.Output[str]:
+        """
+        The object ID of the managedIdentityResourceId
+        """
+        return pulumi.get(self, "managed_identity_object_id")
+
+    @property
     @pulumi.getter(name="managedIdentityResourceId")
     def managed_identity_resource_id(self) -> pulumi.Output[Optional[str]]:
         """
@@ -486,6 +550,14 @@ class EventHubDataConnection(pulumi.CustomResource):
         The provisioned state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="retrievalStartDate")
+    def retrieval_start_date(self) -> pulumi.Output[Optional[str]]:
+        """
+        When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+        """
+        return pulumi.get(self, "retrieval_start_date")
 
     @property
     @pulumi.getter(name="tableName")

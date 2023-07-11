@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the details of an API release.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiRelease(args: GetApiReleaseArgs, opts?: pulumi.InvokeOptions): Promise<GetApiReleaseResult> {
 
@@ -29,7 +29,7 @@ export interface GetApiReleaseArgs {
      */
     releaseId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -51,11 +51,11 @@ export interface GetApiReleaseResult {
      */
     readonly createdDateTime: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -63,7 +63,7 @@ export interface GetApiReleaseResult {
      */
     readonly notes?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -73,7 +73,7 @@ export interface GetApiReleaseResult {
 }
 /**
  * Returns the details of an API release.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getApiReleaseOutput(args: GetApiReleaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiReleaseResult> {
     return pulumi.output(args).apply((a: any) => getApiRelease(a, opts))
@@ -89,7 +89,7 @@ export interface GetApiReleaseOutputArgs {
      */
     releaseId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

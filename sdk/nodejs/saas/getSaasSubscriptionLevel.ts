@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified Subscription Level SaaS.
- * API Version: 2018-03-01-beta.
+ * Azure REST API version: 2018-03-01-beta.
  */
 export function getSaasSubscriptionLevel(args: GetSaasSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetSaasSubscriptionLevelResult> {
 
@@ -58,7 +58,7 @@ export interface GetSaasSubscriptionLevelResult {
 }
 /**
  * Gets information about the specified Subscription Level SaaS.
- * API Version: 2018-03-01-beta.
+ * Azure REST API version: 2018-03-01-beta.
  */
 export function getSaasSubscriptionLevelOutput(args: GetSaasSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSaasSubscriptionLevelResult> {
     return pulumi.output(args).apply((a: any) => getSaasSubscriptionLevel(a, opts))

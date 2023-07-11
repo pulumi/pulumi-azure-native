@@ -96,7 +96,7 @@ def get_workspace_setting(workspace_setting_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceSettingResult:
     """
     Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
-    API Version: 2017-08-01-preview.
+    Azure REST API version: 2017-08-01-preview.
 
 
     :param str workspace_setting_name: Name of the security setting
@@ -119,7 +119,7 @@ def get_workspace_setting_output(workspace_setting_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSettingResult]:
     """
     Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set
-    API Version: 2017-08-01-preview.
+    Azure REST API version: 2017-08-01-preview.
 
 
     :param str workspace_setting_name: Name of the security setting

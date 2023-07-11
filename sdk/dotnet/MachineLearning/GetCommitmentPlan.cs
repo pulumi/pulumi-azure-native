@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearning
     {
         /// <summary>
         /// Retrieve an Azure ML commitment plan by its subscription, resource group and name.
-        /// API Version: 2016-05-01-preview.
+        /// Azure REST API version: 2016-05-01-preview.
         /// </summary>
         public static Task<GetCommitmentPlanResult> InvokeAsync(GetCommitmentPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve an Azure ML commitment plan by its subscription, resource group and name.
-        /// API Version: 2016-05-01-preview.
+        /// Azure REST API version: 2016-05-01-preview.
         /// </summary>
         public static Output<GetCommitmentPlanResult> Invoke(GetCommitmentPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommitmentPlanResult>("azure-native:machinelearning:getCommitmentPlan", args ?? new GetCommitmentPlanInvokeArgs(), options.WithDefaults());

@@ -111,7 +111,7 @@ def get_web_service(region: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebServiceResult:
     """
     Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
-    API Version: 2017-01-01.
+    Azure REST API version: 2017-01-01.
 
 
     :param str region: The region for which encrypted credential parameters are valid.
@@ -141,7 +141,7 @@ def get_web_service_output(region: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebServiceResult]:
     """
     Gets the Web Service Definition as specified by a subscription, resource group, and name. Note that the storage credentials and web service keys are not returned by this call. To get the web service access keys, call List Keys.
-    API Version: 2017-01-01.
+    Azure REST API version: 2017-01-01.
 
 
     :param str region: The region for which encrypted credential parameters are valid.

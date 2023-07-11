@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CostManagement
     {
         /// <summary>
         /// Gets the view for the defined scope by view name.
-        /// API Version: 2019-11-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetViewByScopeResult> InvokeAsync(GetViewByScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the view for the defined scope by view name.
-        /// API Version: 2019-11-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetViewByScopeResult> Invoke(GetViewByScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewByScopeResult>("azure-native:costmanagement:getViewByScope", args ?? new GetViewByScopeInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string CreatedOn;
         /// <summary>
-        /// Selected currency.
+        /// Currency of the current view.
         /// </summary>
         public readonly string Currency;
         /// <summary>
@@ -92,9 +92,9 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly Outputs.ReportConfigDatasetResponse? DataSet;
         /// <summary>
-        /// Selected date range for viewing cost in.
+        /// Date range of the current view.
         /// </summary>
-        public readonly string DateRange;
+        public readonly string? DateRange;
         /// <summary>
         /// User input name of the view. Required.
         /// </summary>
@@ -108,9 +108,9 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Include monetary commitment
+        /// If true, report includes monetary commitment.
         /// </summary>
-        public readonly bool IncludeMonetaryCommitment;
+        public readonly bool? IncludeMonetaryCommitment;
         /// <summary>
         /// List of KPIs to show in Cost Analysis UI.
         /// </summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Date when the user last modified this view.
         /// </summary>
-        public readonly string ModifiedOn;
+        public readonly string? ModifiedOn;
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -160,7 +160,7 @@ namespace Pulumi.AzureNative.CostManagement
 
             Outputs.ReportConfigDatasetResponse? dataSet,
 
-            string dateRange,
+            string? dateRange,
 
             string? displayName,
 
@@ -168,13 +168,13 @@ namespace Pulumi.AzureNative.CostManagement
 
             string id,
 
-            bool includeMonetaryCommitment,
+            bool? includeMonetaryCommitment,
 
             ImmutableArray<Outputs.KpiPropertiesResponse> kpis,
 
             string? metric,
 
-            string modifiedOn,
+            string? modifiedOn,
 
             string name,
 

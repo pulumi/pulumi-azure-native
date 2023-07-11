@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AlertsManagement
 {
     /// <summary>
     /// Action rule object containing target scope, conditions and suppression logic
-    /// API Version: 2019-05-05-preview.
+    /// Azure REST API version: 2019-05-05-preview. Prior API version in Azure Native 1.x: 2019-05-05-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:ActionRuleByName")]
     public partial class ActionRuleByName : global::Pulumi.CustomResource
@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.AlertsManagement
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20190505preview:ActionRuleByName"},
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808:ActionRuleByName"},
                     new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20210808preview:ActionRuleByName"},
+                    new global::Pulumi.Alias { Type = "azure-native:alertsmanagement/v20230501preview:ActionRuleByName"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

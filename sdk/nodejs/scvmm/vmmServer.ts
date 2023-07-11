@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The VmmServers resource definition.
- * API Version: 2020-06-05-preview.
+ * Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
  */
 export class VmmServer extends pulumi.CustomResource {
     /**
@@ -148,7 +148,7 @@ export class VmmServer extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VmmServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm/v20200605preview:VmmServer" }, { type: "azure-native:scvmm/v20220521preview:VmmServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VmmServer.__pulumiType, name, resourceInputs, opts);
     }

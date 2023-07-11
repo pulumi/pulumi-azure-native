@@ -22,7 +22,7 @@ class GetRecordSetResult:
     """
     Describes a DNS record set (a collection of DNS records with the same name and type).
     """
-    def __init__(__self__, a_records=None, aaaa_records=None, caa_records=None, cname_record=None, etag=None, fqdn=None, id=None, metadata=None, mx_records=None, name=None, ns_records=None, provisioning_state=None, ptr_records=None, soa_record=None, srv_records=None, target_resource=None, ttl=None, txt_records=None, type=None):
+    def __init__(__self__, a_records=None, aaaa_records=None, caa_records=None, cname_record=None, ds_records=None, etag=None, fqdn=None, id=None, metadata=None, mx_records=None, name=None, naptr_records=None, ns_records=None, provisioning_state=None, ptr_records=None, soa_record=None, srv_records=None, target_resource=None, tlsa_records=None, ttl=None, txt_records=None, type=None):
         if a_records and not isinstance(a_records, list):
             raise TypeError("Expected argument 'a_records' to be a list")
         pulumi.set(__self__, "a_records", a_records)
@@ -35,6 +35,9 @@ class GetRecordSetResult:
         if cname_record and not isinstance(cname_record, dict):
             raise TypeError("Expected argument 'cname_record' to be a dict")
         pulumi.set(__self__, "cname_record", cname_record)
+        if ds_records and not isinstance(ds_records, list):
+            raise TypeError("Expected argument 'ds_records' to be a list")
+        pulumi.set(__self__, "ds_records", ds_records)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -53,6 +56,9 @@ class GetRecordSetResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if naptr_records and not isinstance(naptr_records, list):
+            raise TypeError("Expected argument 'naptr_records' to be a list")
+        pulumi.set(__self__, "naptr_records", naptr_records)
         if ns_records and not isinstance(ns_records, list):
             raise TypeError("Expected argument 'ns_records' to be a list")
         pulumi.set(__self__, "ns_records", ns_records)
@@ -71,6 +77,9 @@ class GetRecordSetResult:
         if target_resource and not isinstance(target_resource, dict):
             raise TypeError("Expected argument 'target_resource' to be a dict")
         pulumi.set(__self__, "target_resource", target_resource)
+        if tlsa_records and not isinstance(tlsa_records, list):
+            raise TypeError("Expected argument 'tlsa_records' to be a list")
+        pulumi.set(__self__, "tlsa_records", tlsa_records)
         if ttl and not isinstance(ttl, float):
             raise TypeError("Expected argument 'ttl' to be a float")
         pulumi.set(__self__, "ttl", ttl)
@@ -112,6 +121,14 @@ class GetRecordSetResult:
         The CNAME record in the  record set.
         """
         return pulumi.get(self, "cname_record")
+
+    @property
+    @pulumi.getter(name="dsRecords")
+    def ds_records(self) -> Optional[Sequence['outputs.DsRecordResponse']]:
+        """
+        The list of DS records in the record set.
+        """
+        return pulumi.get(self, "ds_records")
 
     @property
     @pulumi.getter
@@ -162,6 +179,14 @@ class GetRecordSetResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="naptrRecords")
+    def naptr_records(self) -> Optional[Sequence['outputs.NaptrRecordResponse']]:
+        """
+        The list of NAPTR records in the record set.
+        """
+        return pulumi.get(self, "naptr_records")
+
+    @property
     @pulumi.getter(name="nsRecords")
     def ns_records(self) -> Optional[Sequence['outputs.NsRecordResponse']]:
         """
@@ -210,6 +235,14 @@ class GetRecordSetResult:
         return pulumi.get(self, "target_resource")
 
     @property
+    @pulumi.getter(name="tlsaRecords")
+    def tlsa_records(self) -> Optional[Sequence['outputs.TlsaRecordResponse']]:
+        """
+        The list of TLSA records in the record set.
+        """
+        return pulumi.get(self, "tlsa_records")
+
+    @property
     @pulumi.getter
     def ttl(self) -> Optional[float]:
         """
@@ -244,18 +277,21 @@ class AwaitableGetRecordSetResult(GetRecordSetResult):
             aaaa_records=self.aaaa_records,
             caa_records=self.caa_records,
             cname_record=self.cname_record,
+            ds_records=self.ds_records,
             etag=self.etag,
             fqdn=self.fqdn,
             id=self.id,
             metadata=self.metadata,
             mx_records=self.mx_records,
             name=self.name,
+            naptr_records=self.naptr_records,
             ns_records=self.ns_records,
             provisioning_state=self.provisioning_state,
             ptr_records=self.ptr_records,
             soa_record=self.soa_record,
             srv_records=self.srv_records,
             target_resource=self.target_resource,
+            tlsa_records=self.tlsa_records,
             ttl=self.ttl,
             txt_records=self.txt_records,
             type=self.type)
@@ -268,12 +304,12 @@ def get_record_set(record_type: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecordSetResult:
     """
     Gets a record set.
-    API Version: 2018-05-01.
+    Azure REST API version: 2023-07-01-preview.
 
 
     :param str record_type: The type of DNS record in this record set.
     :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
     __args__ = dict()
@@ -289,18 +325,21 @@ def get_record_set(record_type: Optional[str] = None,
         aaaa_records=__ret__.aaaa_records,
         caa_records=__ret__.caa_records,
         cname_record=__ret__.cname_record,
+        ds_records=__ret__.ds_records,
         etag=__ret__.etag,
         fqdn=__ret__.fqdn,
         id=__ret__.id,
         metadata=__ret__.metadata,
         mx_records=__ret__.mx_records,
         name=__ret__.name,
+        naptr_records=__ret__.naptr_records,
         ns_records=__ret__.ns_records,
         provisioning_state=__ret__.provisioning_state,
         ptr_records=__ret__.ptr_records,
         soa_record=__ret__.soa_record,
         srv_records=__ret__.srv_records,
         target_resource=__ret__.target_resource,
+        tlsa_records=__ret__.tlsa_records,
         ttl=__ret__.ttl,
         txt_records=__ret__.txt_records,
         type=__ret__.type)
@@ -314,12 +353,12 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecordSetResult]:
     """
     Gets a record set.
-    API Version: 2018-05-01.
+    Azure REST API version: 2023-07-01-preview.
 
 
     :param str record_type: The type of DNS record in this record set.
     :param str relative_record_set_name: The name of the record set, relative to the name of the zone.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
     ...

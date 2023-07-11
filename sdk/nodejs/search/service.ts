@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes an Azure Cognitive Search service and its current state.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-08-01
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -38,6 +38,18 @@ export class Service extends pulumi.CustomResource {
         return obj['__pulumiType'] === Service.__pulumiType;
     }
 
+    /**
+     * Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+     */
+    public readonly authOptions!: pulumi.Output<outputs.search.DataPlaneAuthOptionsResponse | undefined>;
+    /**
+     * When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+     */
+    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+     */
+    public readonly encryptionWithCmk!: pulumi.Output<outputs.search.EncryptionWithCmkResponse | undefined>;
     /**
      * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
      */
@@ -117,6 +129,9 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["authOptions"] = args ? args.authOptions : undefined;
+            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
+            resourceInputs["encryptionWithCmk"] = args ? args.encryptionWithCmk : undefined;
             resourceInputs["hostingMode"] = (args ? args.hostingMode : undefined) ?? "default";
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -136,6 +151,9 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["statusDetails"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["authOptions"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
+            resourceInputs["encryptionWithCmk"] = undefined /*out*/;
             resourceInputs["hostingMode"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -164,6 +182,18 @@ export class Service extends pulumi.CustomResource {
  * The set of arguments for constructing a Service resource.
  */
 export interface ServiceArgs {
+    /**
+     * Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+     */
+    authOptions?: pulumi.Input<inputs.search.DataPlaneAuthOptionsArgs>;
+    /**
+     * When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+     */
+    disableLocalAuth?: pulumi.Input<boolean>;
+    /**
+     * Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+     */
+    encryptionWithCmk?: pulumi.Input<inputs.search.EncryptionWithCmkArgs>;
     /**
      * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
      */

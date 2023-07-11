@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * BaseBackupPolicy resource
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**
@@ -86,7 +86,7 @@ export class BackupPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20210101:BackupPolicy" }, { type: "azure-native:dataprotection/v20210201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210601preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210701:BackupPolicy" }, { type: "azure-native:dataprotection/v20211001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20211201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220101:BackupPolicy" }, { type: "azure-native:dataprotection/v20220201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220301:BackupPolicy" }, { type: "azure-native:dataprotection/v20220331preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220401:BackupPolicy" }, { type: "azure-native:dataprotection/v20220501:BackupPolicy" }, { type: "azure-native:dataprotection/v20220901preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221101preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221201:BackupPolicy" }, { type: "azure-native:dataprotection/v20230101:BackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20210101:BackupPolicy" }, { type: "azure-native:dataprotection/v20210201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210601preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20210701:BackupPolicy" }, { type: "azure-native:dataprotection/v20211001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20211201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220101:BackupPolicy" }, { type: "azure-native:dataprotection/v20220201preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220301:BackupPolicy" }, { type: "azure-native:dataprotection/v20220331preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20220401:BackupPolicy" }, { type: "azure-native:dataprotection/v20220501:BackupPolicy" }, { type: "azure-native:dataprotection/v20220901preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221001preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221101preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20221201:BackupPolicy" }, { type: "azure-native:dataprotection/v20230101:BackupPolicy" }, { type: "azure-native:dataprotection/v20230401preview:BackupPolicy" }, { type: "azure-native:dataprotection/v20230501:BackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -105,7 +105,7 @@ export interface BackupPolicyArgs {
      */
     properties?: pulumi.Input<inputs.dataprotection.BackupPolicyArgs>;
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

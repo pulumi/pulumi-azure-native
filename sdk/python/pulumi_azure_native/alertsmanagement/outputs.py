@@ -14,15 +14,29 @@ from ._enums import *
 __all__ = [
     'ActionGroupResponse',
     'ActionGroupsInformationResponse',
+    'AddActionGroupsResponse',
+    'AlertProcessingRulePropertiesResponse',
     'ConditionResponse',
     'ConditionsResponse',
+    'CorrelateAlertsResponse',
+    'CorrelateByResponse',
+    'DailyRecurrenceResponse',
+    'DetectorParameterDefinitionResponse',
     'DetectorResponse',
     'DiagnosticsResponse',
+    'MonthlyRecurrenceResponse',
+    'PrometheusRuleGroupActionResponse',
+    'PrometheusRuleResolveConfigurationResponse',
+    'PrometheusRuleResponse',
+    'RemoveAllActionGroupsResponse',
+    'ScheduleResponse',
     'ScopeResponse',
     'SuppressionConfigResponse',
     'SuppressionResponse',
     'SuppressionScheduleResponse',
+    'SystemDataResponse',
     'ThrottlingInformationResponse',
+    'WeeklyRecurrenceResponse',
 ]
 
 @pulumi.output_type
@@ -245,18 +259,159 @@ class ActionGroupsInformationResponse(dict):
 
 
 @pulumi.output_type
-class ConditionResponse(dict):
+class AddActionGroupsResponse(dict):
     """
-    condition to trigger an action rule
+    Add action groups to alert processing rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroupIds":
+            suggest = "action_group_ids"
+        elif key == "actionType":
+            suggest = "action_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AddActionGroupsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AddActionGroupsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AddActionGroupsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_group_ids: Sequence[str],
+                 action_type: str):
+        """
+        Add action groups to alert processing rule.
+        :param Sequence[str] action_group_ids: List of action group Ids to add to alert processing rule.
+        :param str action_type: Action that should be applied.
+               Expected value is 'AddActionGroups'.
+        """
+        pulumi.set(__self__, "action_group_ids", action_group_ids)
+        pulumi.set(__self__, "action_type", 'AddActionGroups')
+
+    @property
+    @pulumi.getter(name="actionGroupIds")
+    def action_group_ids(self) -> Sequence[str]:
+        """
+        List of action group Ids to add to alert processing rule.
+        """
+        return pulumi.get(self, "action_group_ids")
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        Action that should be applied.
+        Expected value is 'AddActionGroups'.
+        """
+        return pulumi.get(self, "action_type")
+
+
+@pulumi.output_type
+class AlertProcessingRulePropertiesResponse(dict):
+    """
+    Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
     """
     def __init__(__self__, *,
+                 actions: Sequence[Any],
+                 scopes: Sequence[str],
+                 conditions: Optional[Sequence['outputs.ConditionResponse']] = None,
+                 description: Optional[str] = None,
+                 enabled: Optional[bool] = None,
+                 schedule: Optional['outputs.ScheduleResponse'] = None):
+        """
+        Alert processing rule properties defining scopes, conditions and scheduling logic for alert processing rule.
+        :param Sequence[Union['AddActionGroupsResponse', 'CorrelateAlertsResponse', 'RemoveAllActionGroupsResponse']] actions: Actions to be applied.
+        :param Sequence[str] scopes: Scopes on which alert processing rule will apply.
+        :param Sequence['ConditionResponse'] conditions: Conditions on which alerts will be filtered.
+        :param str description: Description of alert processing rule.
+        :param bool enabled: Indicates if the given alert processing rule is enabled or disabled.
+        :param 'ScheduleResponse' schedule: Scheduling for alert processing rule.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "scopes", scopes)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if enabled is None:
+            enabled = True
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if schedule is not None:
+            pulumi.set(__self__, "schedule", schedule)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[Any]:
+        """
+        Actions to be applied.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence[str]:
+        """
+        Scopes on which alert processing rule will apply.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.ConditionResponse']]:
+        """
+        Conditions on which alerts will be filtered.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of alert processing rule.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Indicates if the given alert processing rule is enabled or disabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def schedule(self) -> Optional['outputs.ScheduleResponse']:
+        """
+        Scheduling for alert processing rule.
+        """
+        return pulumi.get(self, "schedule")
+
+
+@pulumi.output_type
+class ConditionResponse(dict):
+    """
+    Condition to trigger an alert processing rule.
+    """
+    def __init__(__self__, *,
+                 field: Optional[str] = None,
                  operator: Optional[str] = None,
                  values: Optional[Sequence[str]] = None):
         """
-        condition to trigger an action rule
-        :param str operator: operator for a given condition
-        :param Sequence[str] values: list of values to match for a given condition.
+        Condition to trigger an alert processing rule.
+        :param str field: Field for a given condition.
+        :param str operator: Operator for a given condition.
+        :param Sequence[str] values: List of values to match for a given condition.
         """
+        if field is not None:
+            pulumi.set(__self__, "field", field)
         if operator is not None:
             pulumi.set(__self__, "operator", operator)
         if values is not None:
@@ -264,9 +419,17 @@ class ConditionResponse(dict):
 
     @property
     @pulumi.getter
+    def field(self) -> Optional[str]:
+        """
+        Field for a given condition.
+        """
+        return pulumi.get(self, "field")
+
+    @property
+    @pulumi.getter
     def operator(self) -> Optional[str]:
         """
-        operator for a given condition
+        Operator for a given condition.
         """
         return pulumi.get(self, "operator")
 
@@ -274,7 +437,7 @@ class ConditionResponse(dict):
     @pulumi.getter
     def values(self) -> Optional[Sequence[str]]:
         """
-        list of values to match for a given condition.
+        List of values to match for a given condition.
         """
         return pulumi.get(self, "values")
 
@@ -414,6 +577,280 @@ class ConditionsResponse(dict):
 
 
 @pulumi.output_type
+class CorrelateAlertsResponse(dict):
+    """
+    Add logic for alerts correlation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+        elif key == "correlateBy":
+            suggest = "correlate_by"
+        elif key == "correlationInterval":
+            suggest = "correlation_interval"
+        elif key == "notificationsForCorrelatedAlerts":
+            suggest = "notifications_for_correlated_alerts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CorrelateAlertsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CorrelateAlertsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CorrelateAlertsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_type: str,
+                 correlate_by: Sequence['outputs.CorrelateByResponse'],
+                 correlation_interval: str,
+                 priority: int,
+                 notifications_for_correlated_alerts: Optional[str] = None):
+        """
+        Add logic for alerts correlation.
+        :param str action_type: Action that should be applied.
+               Expected value is 'CorrelateAlerts'.
+        :param Sequence['CorrelateByResponse'] correlate_by: The list of conditions for the alerts correlations.
+        :param str correlation_interval: The required duration (in ISO8601 format) for the alerts correlation.
+        :param int priority: The priority of this correlation.
+        :param str notifications_for_correlated_alerts: Indicates how to handle child alerts notifications.
+        """
+        pulumi.set(__self__, "action_type", 'CorrelateAlerts')
+        pulumi.set(__self__, "correlate_by", correlate_by)
+        pulumi.set(__self__, "correlation_interval", correlation_interval)
+        pulumi.set(__self__, "priority", priority)
+        if notifications_for_correlated_alerts is None:
+            notifications_for_correlated_alerts = 'SuppressAlways'
+        if notifications_for_correlated_alerts is not None:
+            pulumi.set(__self__, "notifications_for_correlated_alerts", notifications_for_correlated_alerts)
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        Action that should be applied.
+        Expected value is 'CorrelateAlerts'.
+        """
+        return pulumi.get(self, "action_type")
+
+    @property
+    @pulumi.getter(name="correlateBy")
+    def correlate_by(self) -> Sequence['outputs.CorrelateByResponse']:
+        """
+        The list of conditions for the alerts correlations.
+        """
+        return pulumi.get(self, "correlate_by")
+
+    @property
+    @pulumi.getter(name="correlationInterval")
+    def correlation_interval(self) -> str:
+        """
+        The required duration (in ISO8601 format) for the alerts correlation.
+        """
+        return pulumi.get(self, "correlation_interval")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        The priority of this correlation.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="notificationsForCorrelatedAlerts")
+    def notifications_for_correlated_alerts(self) -> Optional[str]:
+        """
+        Indicates how to handle child alerts notifications.
+        """
+        return pulumi.get(self, "notifications_for_correlated_alerts")
+
+
+@pulumi.output_type
+class CorrelateByResponse(dict):
+    """
+    The logic for the correlation.
+    """
+    def __init__(__self__, *,
+                 field: Optional[str] = None):
+        """
+        The logic for the correlation.
+        :param str field: The JPath of the property that the alerts should be correlated by.
+        """
+        if field is not None:
+            pulumi.set(__self__, "field", field)
+
+    @property
+    @pulumi.getter
+    def field(self) -> Optional[str]:
+        """
+        The JPath of the property that the alerts should be correlated by.
+        """
+        return pulumi.get(self, "field")
+
+
+@pulumi.output_type
+class DailyRecurrenceResponse(dict):
+    """
+    Daily recurrence object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "recurrenceType":
+            suggest = "recurrence_type"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DailyRecurrenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DailyRecurrenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DailyRecurrenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time: str,
+                 recurrence_type: str,
+                 start_time: str):
+        """
+        Daily recurrence object.
+        :param str end_time: End time for recurrence.
+        :param str recurrence_type: Specifies when the recurrence should be applied.
+               Expected value is 'Daily'.
+        :param str start_time: Start time for recurrence.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "recurrence_type", 'Daily')
+        pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> str:
+        """
+        End time for recurrence.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="recurrenceType")
+    def recurrence_type(self) -> str:
+        """
+        Specifies when the recurrence should be applied.
+        Expected value is 'Daily'.
+        """
+        return pulumi.get(self, "recurrence_type")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> str:
+        """
+        Start time for recurrence.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class DetectorParameterDefinitionResponse(dict):
+    """
+    The detector parameter definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayName":
+            suggest = "display_name"
+        elif key == "isMandatory":
+            suggest = "is_mandatory"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DetectorParameterDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DetectorParameterDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DetectorParameterDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 is_mandatory: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        The detector parameter definition.
+        :param str description: The detector parameter description.
+        :param str display_name: The detector parameter display name.
+        :param bool is_mandatory: A value indicating whether this detector parameter is mandatory.
+        :param str name: The detector parameter name.
+        :param str type: The detector parameter type.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if is_mandatory is not None:
+            pulumi.set(__self__, "is_mandatory", is_mandatory)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The detector parameter description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The detector parameter display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="isMandatory")
+    def is_mandatory(self) -> Optional[bool]:
+        """
+        A value indicating whether this detector parameter is mandatory.
+        """
+        return pulumi.get(self, "is_mandatory")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The detector parameter name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The detector parameter type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class DetectorResponse(dict):
     """
     The detector information. By default this is not populated, unless it's specified in expandDetector
@@ -423,6 +860,10 @@ class DetectorResponse(dict):
         suggest = None
         if key == "imagePaths":
             suggest = "image_paths"
+        elif key == "parameterDefinitions":
+            suggest = "parameter_definitions"
+        elif key == "supportedCadences":
+            suggest = "supported_cadences"
         elif key == "supportedResourceTypes":
             suggest = "supported_resource_types"
 
@@ -438,32 +879,42 @@ class DetectorResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 description: str,
                  id: str,
-                 description: Optional[str] = None,
-                 image_paths: Optional[Sequence[str]] = None,
-                 name: Optional[str] = None,
-                 parameters: Optional[Mapping[str, Any]] = None,
-                 supported_resource_types: Optional[Sequence[str]] = None):
+                 image_paths: Sequence[str],
+                 name: str,
+                 parameter_definitions: Sequence['outputs.DetectorParameterDefinitionResponse'],
+                 supported_cadences: Sequence[int],
+                 supported_resource_types: Sequence[str],
+                 parameters: Optional[Mapping[str, Any]] = None):
         """
         The detector information. By default this is not populated, unless it's specified in expandDetector
+        :param str description: The Smart Detector description.
         :param str id: The detector id.
-        :param str description: The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
         :param Sequence[str] image_paths: The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
-        :param str name: The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+        :param str name: The Smart Detector name.
+        :param Sequence['DetectorParameterDefinitionResponse'] parameter_definitions: The Smart Detector parameters definitions.'
+        :param Sequence[int] supported_cadences: The Smart Detector supported cadences.
+        :param Sequence[str] supported_resource_types: The Smart Detector supported resource types.
         :param Mapping[str, Any] parameters: The detector's parameters.'
-        :param Sequence[str] supported_resource_types: The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
         """
+        pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "id", id)
-        if description is not None:
-            pulumi.set(__self__, "description", description)
-        if image_paths is not None:
-            pulumi.set(__self__, "image_paths", image_paths)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "image_paths", image_paths)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parameter_definitions", parameter_definitions)
+        pulumi.set(__self__, "supported_cadences", supported_cadences)
+        pulumi.set(__self__, "supported_resource_types", supported_resource_types)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-        if supported_resource_types is not None:
-            pulumi.set(__self__, "supported_resource_types", supported_resource_types)
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The Smart Detector description.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
@@ -474,16 +925,8 @@ class DetectorResponse(dict):
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        The Smart Detector description. By default this is not populated, unless it's specified in expandDetector
-        """
-        return pulumi.get(self, "description")
-
-    @property
     @pulumi.getter(name="imagePaths")
-    def image_paths(self) -> Optional[Sequence[str]]:
+    def image_paths(self) -> Sequence[str]:
         """
         The Smart Detector image path. By default this is not populated, unless it's specified in expandDetector
         """
@@ -491,11 +934,35 @@ class DetectorResponse(dict):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> str:
         """
-        The Smart Detector name. By default this is not populated, unless it's specified in expandDetector
+        The Smart Detector name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="parameterDefinitions")
+    def parameter_definitions(self) -> Sequence['outputs.DetectorParameterDefinitionResponse']:
+        """
+        The Smart Detector parameters definitions.'
+        """
+        return pulumi.get(self, "parameter_definitions")
+
+    @property
+    @pulumi.getter(name="supportedCadences")
+    def supported_cadences(self) -> Sequence[int]:
+        """
+        The Smart Detector supported cadences.
+        """
+        return pulumi.get(self, "supported_cadences")
+
+    @property
+    @pulumi.getter(name="supportedResourceTypes")
+    def supported_resource_types(self) -> Sequence[str]:
+        """
+        The Smart Detector supported resource types.
+        """
+        return pulumi.get(self, "supported_resource_types")
 
     @property
     @pulumi.getter
@@ -504,14 +971,6 @@ class DetectorResponse(dict):
         The detector's parameters.'
         """
         return pulumi.get(self, "parameters")
-
-    @property
-    @pulumi.getter(name="supportedResourceTypes")
-    def supported_resource_types(self) -> Optional[Sequence[str]]:
-        """
-        The Smart Detector supported resource types. By default this is not populated, unless it's specified in expandDetector
-        """
-        return pulumi.get(self, "supported_resource_types")
 
 
 @pulumi.output_type
@@ -651,6 +1110,466 @@ class DiagnosticsResponse(dict):
         Indicates if the given action rule is enabled or disabled
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class MonthlyRecurrenceResponse(dict):
+    """
+    Monthly recurrence object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfMonth":
+            suggest = "days_of_month"
+        elif key == "recurrenceType":
+            suggest = "recurrence_type"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonthlyRecurrenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonthlyRecurrenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonthlyRecurrenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_of_month: Sequence[int],
+                 recurrence_type: str,
+                 end_time: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        """
+        Monthly recurrence object.
+        :param Sequence[int] days_of_month: Specifies the values for monthly recurrence pattern.
+        :param str recurrence_type: Specifies when the recurrence should be applied.
+               Expected value is 'Monthly'.
+        :param str end_time: End time for recurrence.
+        :param str start_time: Start time for recurrence.
+        """
+        pulumi.set(__self__, "days_of_month", days_of_month)
+        pulumi.set(__self__, "recurrence_type", 'Monthly')
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="daysOfMonth")
+    def days_of_month(self) -> Sequence[int]:
+        """
+        Specifies the values for monthly recurrence pattern.
+        """
+        return pulumi.get(self, "days_of_month")
+
+    @property
+    @pulumi.getter(name="recurrenceType")
+    def recurrence_type(self) -> str:
+        """
+        Specifies when the recurrence should be applied.
+        Expected value is 'Monthly'.
+        """
+        return pulumi.get(self, "recurrence_type")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        End time for recurrence.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Start time for recurrence.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class PrometheusRuleGroupActionResponse(dict):
+    """
+    An alert action. Only relevant for alerts.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroupId":
+            suggest = "action_group_id"
+        elif key == "actionProperties":
+            suggest = "action_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrometheusRuleGroupActionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrometheusRuleGroupActionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrometheusRuleGroupActionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_group_id: Optional[str] = None,
+                 action_properties: Optional[Mapping[str, str]] = None):
+        """
+        An alert action. Only relevant for alerts.
+        :param str action_group_id: The resource id of the action group to use.
+        :param Mapping[str, str] action_properties: The properties of an action group object.
+        """
+        if action_group_id is not None:
+            pulumi.set(__self__, "action_group_id", action_group_id)
+        if action_properties is not None:
+            pulumi.set(__self__, "action_properties", action_properties)
+
+    @property
+    @pulumi.getter(name="actionGroupId")
+    def action_group_id(self) -> Optional[str]:
+        """
+        The resource id of the action group to use.
+        """
+        return pulumi.get(self, "action_group_id")
+
+    @property
+    @pulumi.getter(name="actionProperties")
+    def action_properties(self) -> Optional[Mapping[str, str]]:
+        """
+        The properties of an action group object.
+        """
+        return pulumi.get(self, "action_properties")
+
+
+@pulumi.output_type
+class PrometheusRuleResolveConfigurationResponse(dict):
+    """
+    Specifies the Prometheus alert rule configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResolved":
+            suggest = "auto_resolved"
+        elif key == "timeToResolve":
+            suggest = "time_to_resolve"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrometheusRuleResolveConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrometheusRuleResolveConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrometheusRuleResolveConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resolved: Optional[bool] = None,
+                 time_to_resolve: Optional[str] = None):
+        """
+        Specifies the Prometheus alert rule configuration.
+        :param bool auto_resolved: Enable alert auto-resolution.
+        :param str time_to_resolve: Alert auto-resolution timeout.
+        """
+        if auto_resolved is not None:
+            pulumi.set(__self__, "auto_resolved", auto_resolved)
+        if time_to_resolve is not None:
+            pulumi.set(__self__, "time_to_resolve", time_to_resolve)
+
+    @property
+    @pulumi.getter(name="autoResolved")
+    def auto_resolved(self) -> Optional[bool]:
+        """
+        Enable alert auto-resolution.
+        """
+        return pulumi.get(self, "auto_resolved")
+
+    @property
+    @pulumi.getter(name="timeToResolve")
+    def time_to_resolve(self) -> Optional[str]:
+        """
+        Alert auto-resolution timeout.
+        """
+        return pulumi.get(self, "time_to_resolve")
+
+
+@pulumi.output_type
+class PrometheusRuleResponse(dict):
+    """
+    An Azure Prometheus alerting or recording rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "for":
+            suggest = "for_"
+        elif key == "resolveConfiguration":
+            suggest = "resolve_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrometheusRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrometheusRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrometheusRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expression: str,
+                 actions: Optional[Sequence['outputs.PrometheusRuleGroupActionResponse']] = None,
+                 alert: Optional[str] = None,
+                 annotations: Optional[Mapping[str, str]] = None,
+                 enabled: Optional[bool] = None,
+                 for_: Optional[str] = None,
+                 labels: Optional[Mapping[str, str]] = None,
+                 record: Optional[str] = None,
+                 resolve_configuration: Optional['outputs.PrometheusRuleResolveConfigurationResponse'] = None,
+                 severity: Optional[int] = None):
+        """
+        An Azure Prometheus alerting or recording rule.
+        :param str expression: The PromQL expression to evaluate. https://prometheus.io/docs/prometheus/latest/querying/basics/. Evaluated periodically as given by 'interval', and the result recorded as a new set of time series with the metric name as given by 'record'.
+        :param Sequence['PrometheusRuleGroupActionResponse'] actions: Actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        :param str alert: Alert rule name.
+        :param Mapping[str, str] annotations: The annotations clause specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links. The annotation values can be templated.
+        :param bool enabled: Enable/disable rule.
+        :param str for_: The amount of time alert must be active before firing.
+        :param Mapping[str, str] labels: Labels to add or overwrite before storing the result.
+        :param str record: Recorded metrics name.
+        :param 'PrometheusRuleResolveConfigurationResponse' resolve_configuration: Defines the configuration for resolving fired alerts. Only relevant for alerts.
+        :param int severity: The severity of the alerts fired by the rule. Must be between 0 and 4.
+        """
+        pulumi.set(__self__, "expression", expression)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if alert is not None:
+            pulumi.set(__self__, "alert", alert)
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if for_ is not None:
+            pulumi.set(__self__, "for_", for_)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+        if record is not None:
+            pulumi.set(__self__, "record", record)
+        if resolve_configuration is not None:
+            pulumi.set(__self__, "resolve_configuration", resolve_configuration)
+        if severity is not None:
+            pulumi.set(__self__, "severity", severity)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        """
+        The PromQL expression to evaluate. https://prometheus.io/docs/prometheus/latest/querying/basics/. Evaluated periodically as given by 'interval', and the result recorded as a new set of time series with the metric name as given by 'record'.
+        """
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['outputs.PrometheusRuleGroupActionResponse']]:
+        """
+        Actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def alert(self) -> Optional[str]:
+        """
+        Alert rule name.
+        """
+        return pulumi.get(self, "alert")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Mapping[str, str]]:
+        """
+        The annotations clause specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links. The annotation values can be templated.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enable/disable rule.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="for")
+    def for_(self) -> Optional[str]:
+        """
+        The amount of time alert must be active before firing.
+        """
+        return pulumi.get(self, "for_")
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[Mapping[str, str]]:
+        """
+        Labels to add or overwrite before storing the result.
+        """
+        return pulumi.get(self, "labels")
+
+    @property
+    @pulumi.getter
+    def record(self) -> Optional[str]:
+        """
+        Recorded metrics name.
+        """
+        return pulumi.get(self, "record")
+
+    @property
+    @pulumi.getter(name="resolveConfiguration")
+    def resolve_configuration(self) -> Optional['outputs.PrometheusRuleResolveConfigurationResponse']:
+        """
+        Defines the configuration for resolving fired alerts. Only relevant for alerts.
+        """
+        return pulumi.get(self, "resolve_configuration")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> Optional[int]:
+        """
+        The severity of the alerts fired by the rule. Must be between 0 and 4.
+        """
+        return pulumi.get(self, "severity")
+
+
+@pulumi.output_type
+class RemoveAllActionGroupsResponse(dict):
+    """
+    Indicates if all action groups should be removed.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionType":
+            suggest = "action_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemoveAllActionGroupsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemoveAllActionGroupsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemoveAllActionGroupsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_type: str):
+        """
+        Indicates if all action groups should be removed.
+        :param str action_type: Action that should be applied.
+               Expected value is 'RemoveAllActionGroups'.
+        """
+        pulumi.set(__self__, "action_type", 'RemoveAllActionGroups')
+
+    @property
+    @pulumi.getter(name="actionType")
+    def action_type(self) -> str:
+        """
+        Action that should be applied.
+        Expected value is 'RemoveAllActionGroups'.
+        """
+        return pulumi.get(self, "action_type")
+
+
+@pulumi.output_type
+class ScheduleResponse(dict):
+    """
+    Scheduling configuration for a given alert processing rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "effectiveFrom":
+            suggest = "effective_from"
+        elif key == "effectiveUntil":
+            suggest = "effective_until"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 effective_from: Optional[str] = None,
+                 effective_until: Optional[str] = None,
+                 recurrences: Optional[Sequence[Any]] = None,
+                 time_zone: Optional[str] = None):
+        """
+        Scheduling configuration for a given alert processing rule.
+        :param str effective_from: Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
+        :param str effective_until: Scheduling effective until time. Date-Time in ISO-8601 format without timezone suffix.
+        :param Sequence[Union['DailyRecurrenceResponse', 'MonthlyRecurrenceResponse', 'WeeklyRecurrenceResponse']] recurrences: List of recurrences.
+        :param str time_zone: Scheduling time zone.
+        """
+        if effective_from is not None:
+            pulumi.set(__self__, "effective_from", effective_from)
+        if effective_until is not None:
+            pulumi.set(__self__, "effective_until", effective_until)
+        if recurrences is not None:
+            pulumi.set(__self__, "recurrences", recurrences)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="effectiveFrom")
+    def effective_from(self) -> Optional[str]:
+        """
+        Scheduling effective from time. Date-Time in ISO-8601 format without timezone suffix.
+        """
+        return pulumi.get(self, "effective_from")
+
+    @property
+    @pulumi.getter(name="effectiveUntil")
+    def effective_until(self) -> Optional[str]:
+        """
+        Scheduling effective until time. Date-Time in ISO-8601 format without timezone suffix.
+        """
+        return pulumi.get(self, "effective_until")
+
+    @property
+    @pulumi.getter
+    def recurrences(self) -> Optional[Sequence[Any]]:
+        """
+        List of recurrences.
+        """
+        return pulumi.get(self, "recurrences")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        """
+        Scheduling time zone.
+        """
+        return pulumi.get(self, "time_zone")
 
 
 @pulumi.output_type
@@ -1005,6 +1924,116 @@ class SuppressionScheduleResponse(dict):
 
 
 @pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
 class ThrottlingInformationResponse(dict):
     """
     Optional throttling information for the alert rule.
@@ -1025,5 +2054,87 @@ class ThrottlingInformationResponse(dict):
         The required duration (in ISO8601 format) to wait before notifying on the alert rule again. The time granularity must be in minutes and minimum value is 0 minutes
         """
         return pulumi.get(self, "duration")
+
+
+@pulumi.output_type
+class WeeklyRecurrenceResponse(dict):
+    """
+    Weekly recurrence object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysOfWeek":
+            suggest = "days_of_week"
+        elif key == "recurrenceType":
+            suggest = "recurrence_type"
+        elif key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WeeklyRecurrenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WeeklyRecurrenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WeeklyRecurrenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_of_week: Sequence[str],
+                 recurrence_type: str,
+                 end_time: Optional[str] = None,
+                 start_time: Optional[str] = None):
+        """
+        Weekly recurrence object.
+        :param Sequence[str] days_of_week: Specifies the values for weekly recurrence pattern.
+        :param str recurrence_type: Specifies when the recurrence should be applied.
+               Expected value is 'Weekly'.
+        :param str end_time: End time for recurrence.
+        :param str start_time: Start time for recurrence.
+        """
+        pulumi.set(__self__, "days_of_week", days_of_week)
+        pulumi.set(__self__, "recurrence_type", 'Weekly')
+        if end_time is not None:
+            pulumi.set(__self__, "end_time", end_time)
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+
+    @property
+    @pulumi.getter(name="daysOfWeek")
+    def days_of_week(self) -> Sequence[str]:
+        """
+        Specifies the values for weekly recurrence pattern.
+        """
+        return pulumi.get(self, "days_of_week")
+
+    @property
+    @pulumi.getter(name="recurrenceType")
+    def recurrence_type(self) -> str:
+        """
+        Specifies when the recurrence should be applied.
+        Expected value is 'Weekly'.
+        """
+        return pulumi.get(self, "recurrence_type")
+
+    @property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> Optional[str]:
+        """
+        End time for recurrence.
+        """
+        return pulumi.get(self, "end_time")
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[str]:
+        """
+        Start time for recurrence.
+        """
+        return pulumi.get(self, "start_time")
 
 

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// Retrieves information about a dedicated host group.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetDedicatedHostGroupResult> InvokeAsync(GetDedicatedHostGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostGroupResult>("azure-native:compute:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about a dedicated host group.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetDedicatedHostGroupResult> Invoke(GetDedicatedHostGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedHostGroupResult>("azure-native:compute:getDedicatedHostGroup", args ?? new GetDedicatedHostGroupInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDedicatedHostGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDedicatedHostGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The expand expression to apply on the operation. The response shows the list of instance view of the dedicated hosts under the dedicated host group.
+        /// The expand expression to apply on the operation. 'InstanceView' will retrieve the list of instance views of the dedicated hosts under the dedicated host group. 'UserData' is not supported for dedicated host group.
         /// </summary>
         [Input("expand")]
         public Input<string>? Expand { get; set; }
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.Compute
     public sealed class GetDedicatedHostGroupResult
     {
         /// <summary>
+        /// Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+        /// </summary>
+        public readonly Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities? AdditionalCapabilities;
+        /// <summary>
         /// A list of references to all dedicated hosts in the dedicated host group.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> Hosts;
@@ -108,7 +112,7 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly int PlatformFaultDomainCount;
         /// <summary>
-        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. &lt;br&gt;&lt;br&gt;Minimum api-version: 2020-06-01.
+        /// Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         /// </summary>
         public readonly bool? SupportAutomaticPlacement;
         /// <summary>
@@ -126,6 +130,8 @@ namespace Pulumi.AzureNative.Compute
 
         [OutputConstructor]
         private GetDedicatedHostGroupResult(
+            Outputs.DedicatedHostGroupPropertiesResponseAdditionalCapabilities? additionalCapabilities,
+
             ImmutableArray<Outputs.SubResourceReadOnlyResponse> hosts,
 
             string id,
@@ -146,6 +152,7 @@ namespace Pulumi.AzureNative.Compute
 
             ImmutableArray<string> zones)
         {
+            AdditionalCapabilities = additionalCapabilities;
             Hosts = hosts;
             Id = id;
             InstanceView = instanceView;

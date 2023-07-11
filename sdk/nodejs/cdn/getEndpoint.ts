@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -44,6 +44,10 @@ export interface GetEndpointResult {
      * List of content types on which compression applies. The value should be a valid MIME type.
      */
     readonly contentTypesToCompress?: string[];
+    /**
+     * The custom domains under the endpoint.
+     */
+    readonly customDomains: outputs.cdn.DeepCreatedCustomDomainResponse[];
     /**
      * A reference to the origin group.
      */
@@ -143,7 +147,7 @@ export interface GetEndpointResult {
 }
 /**
  * Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

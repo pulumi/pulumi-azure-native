@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Relay.Outputs
 {
 
     /// <summary>
-    /// Private endpoint object properties.
+    /// PrivateEndpoint information.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointResponse
     {
         /// <summary>
-        /// Full identifier of the private endpoint resource.
+        /// The ARM identifier for Private Endpoint.
         /// </summary>
         public readonly string? Id;
 

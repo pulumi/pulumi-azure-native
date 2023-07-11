@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.Media.Inputs
         [Input("deinterlace")]
         public Input<Inputs.DeinterlaceArgs>? Deinterlace { get; set; }
 
+        /// <summary>
+        /// Describes the properties of a Fade effect applied to the input media.
+        /// </summary>
+        [Input("fadeIn")]
+        public Input<Inputs.FadeArgs>? FadeIn { get; set; }
+
+        /// <summary>
+        /// Describes the properties of a Fade effect applied to the input media.
+        /// </summary>
+        [Input("fadeOut")]
+        public Input<Inputs.FadeArgs>? FadeOut { get; set; }
+
         [Input("overlays")]
         private InputList<Union<Inputs.AudioOverlayArgs, Inputs.VideoOverlayArgs>>? _overlays;
 

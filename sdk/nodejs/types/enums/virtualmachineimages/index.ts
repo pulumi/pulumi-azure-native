@@ -2,17 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20190501preview from "./v20190501preview";
-import * as v20200214 from "./v20200214";
-import * as v20211001 from "./v20211001";
-import * as v20220214 from "./v20220214";
 import * as v20220701 from "./v20220701";
 
 export {
-    v20190501preview,
-    v20200214,
-    v20211001,
-    v20220214,
     v20220701,
 };
 
@@ -29,9 +21,20 @@ export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof Re
 export const SharedImageStorageAccountType = {
     Standard_LRS: "Standard_LRS",
     Standard_ZRS: "Standard_ZRS",
+    Premium_LRS: "Premium_LRS",
 } as const;
 
 /**
- * Storage account type to be used to store the shared image. Omit to use the default (Standard_LRS).
+ * Specifies the storage account type to be used to store the image in this region. Omit to use the default (Standard_LRS).
  */
 export type SharedImageStorageAccountType = (typeof SharedImageStorageAccountType)[keyof typeof SharedImageStorageAccountType];
+
+export const VMBootOptimizationState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabling this field will improve VM boot time by optimizing the final customized image output.
+ */
+export type VMBootOptimizationState = (typeof VMBootOptimizationState)[keyof typeof VMBootOptimizationState];

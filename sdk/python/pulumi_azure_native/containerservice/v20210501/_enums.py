@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'AgentPoolMode',
     'AgentPoolType',
-    'ConnectionStatus',
     'Expander',
     'ExtendedLocationTypes',
     'GPUInstanceProfile',
@@ -27,7 +26,6 @@ __all__ = [
     'ScaleSetEvictionPolicy',
     'ScaleSetPriority',
     'UpgradeChannel',
-    'WeekDay',
 ]
 
 
@@ -57,16 +55,6 @@ class AgentPoolType(str, Enum):
     """
     Use of this is strongly discouraged.
     """
-
-
-class ConnectionStatus(str, Enum):
-    """
-    The private link service connection status.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
 
 
 class Expander(str, Enum):
@@ -334,16 +322,3 @@ class UpgradeChannel(str, Enum):
     """
     Disables auto-upgrades and keeps the cluster at its current version of Kubernetes.
     """
-
-
-class WeekDay(str, Enum):
-    """
-    The day of the week.
-    """
-    SUNDAY = "Sunday"
-    MONDAY = "Monday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-    THURSDAY = "Thursday"
-    FRIDAY = "Friday"
-    SATURDAY = "Saturday"

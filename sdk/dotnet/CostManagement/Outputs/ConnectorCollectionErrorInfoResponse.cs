@@ -17,19 +17,19 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
     public sealed class ConnectorCollectionErrorInfoResponse
     {
         /// <summary>
-        /// Short error code
+        /// Short error message
         /// </summary>
         public readonly string ErrorCode;
         /// <summary>
         /// External Provider error message
         /// </summary>
-        public readonly string ErrorInnerMessage;
+        public readonly string? ErrorInnerMessage;
         /// <summary>
         /// Detailed error message
         /// </summary>
         public readonly string ErrorMessage;
         /// <summary>
-        /// Time the error started occurring (Last time error occurred in lastChecked)
+        /// Time the error started occurring (Last time error occurred in lastRun)
         /// </summary>
         public readonly string ErrorStartTime;
 
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.CostManagement.Outputs
         private ConnectorCollectionErrorInfoResponse(
             string errorCode,
 
-            string errorInnerMessage,
+            string? errorInnerMessage,
 
             string errorMessage,
 

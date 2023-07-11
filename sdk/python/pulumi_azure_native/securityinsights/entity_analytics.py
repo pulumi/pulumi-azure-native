@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = ['EntityAnalyticsArgs', 'EntityAnalytics']
 
@@ -16,23 +17,24 @@ __all__ = ['EntityAnalyticsArgs', 'EntityAnalytics']
 class EntityAnalyticsArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 operational_insights_resource_provider: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
+                 entity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityProviders']]]]] = None,
                  settings_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EntityAnalytics resource.
         :param pulumi.Input[str] kind: The kind of the setting
                Expected value is 'EntityAnalytics'.
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityProviders']]]] entity_providers: The relevant entity providers that are synced
         :param pulumi.Input[str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
         pulumi.set(__self__, "kind", 'EntityAnalytics')
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if entity_providers is not None:
+            pulumi.set(__self__, "entity_providers", entity_providers)
         if settings_name is not None:
             pulumi.set(__self__, "settings_name", settings_name)
 
@@ -48,18 +50,6 @@ class EntityAnalyticsArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter(name="operationalInsightsResourceProvider")
-    def operational_insights_resource_provider(self) -> pulumi.Input[str]:
-        """
-        The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        """
-        return pulumi.get(self, "operational_insights_resource_provider")
-
-    @operational_insights_resource_provider.setter
-    def operational_insights_resource_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operational_insights_resource_provider", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -86,6 +76,18 @@ class EntityAnalyticsArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
+    @pulumi.getter(name="entityProviders")
+    def entity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityProviders']]]]]:
+        """
+        The relevant entity providers that are synced
+        """
+        return pulumi.get(self, "entity_providers")
+
+    @entity_providers.setter
+    def entity_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityProviders']]]]]):
+        pulumi.set(self, "entity_providers", value)
+
+    @property
     @pulumi.getter(name="settingsName")
     def settings_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -103,21 +105,21 @@ class EntityAnalytics(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 entity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityProviders']]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Settings with single toggle.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityProviders']]]] entity_providers: The relevant entity providers that are synced
         :param pulumi.Input[str] kind: The kind of the setting
                Expected value is 'EntityAnalytics'.
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -130,7 +132,7 @@ class EntityAnalytics(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Settings with single toggle.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param EntityAnalyticsArgs args: The arguments to use to populate this resource's properties.
@@ -147,8 +149,8 @@ class EntityAnalytics(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 entity_providers: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityProviders']]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -161,12 +163,10 @@ class EntityAnalytics(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EntityAnalyticsArgs.__new__(EntityAnalyticsArgs)
 
+            __props__.__dict__["entity_providers"] = entity_providers
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'EntityAnalytics'
-            if operational_insights_resource_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -175,11 +175,10 @@ class EntityAnalytics(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
-            __props__.__dict__["is_enabled"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:EntityAnalytics")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:EntityAnalytics"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:EntityAnalytics")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EntityAnalytics, __self__).__init__(
             'azure-native:securityinsights:EntityAnalytics',
@@ -203,13 +202,21 @@ class EntityAnalytics(pulumi.CustomResource):
 
         __props__ = EntityAnalyticsArgs.__new__(EntityAnalyticsArgs)
 
+        __props__.__dict__["entity_providers"] = None
         __props__.__dict__["etag"] = None
-        __props__.__dict__["is_enabled"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return EntityAnalytics(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="entityProviders")
+    def entity_providers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The relevant entity providers that are synced
+        """
+        return pulumi.get(self, "entity_providers")
 
     @property
     @pulumi.getter
@@ -218,14 +225,6 @@ class EntityAnalytics(pulumi.CustomResource):
         Etag of the azure resource
         """
         return pulumi.get(self, "etag")
-
-    @property
-    @pulumi.getter(name="isEnabled")
-    def is_enabled(self) -> pulumi.Output[bool]:
-        """
-        Determines whether the setting is enable or disabled.
-        """
-        return pulumi.get(self, "is_enabled")
 
     @property
     @pulumi.getter
@@ -240,7 +239,7 @@ class EntityAnalytics(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -256,7 +255,7 @@ class EntityAnalytics(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

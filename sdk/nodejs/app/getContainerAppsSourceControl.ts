@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App SourceControl.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getContainerAppsSourceControl(args: GetContainerAppsSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsSourceControlResult> {
 
@@ -77,7 +77,7 @@ export interface GetContainerAppsSourceControlResult {
 }
 /**
  * Container App SourceControl.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getContainerAppsSourceControlOutput(args: GetContainerAppsSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsSourceControlResult> {
     return pulumi.output(args).apply((a: any) => getContainerAppsSourceControl(a, opts))

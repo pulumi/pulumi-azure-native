@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AVS
     {
         /// <summary>
         /// An addon resource
-        /// API Version: 2020-07-17-preview.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonArgs(), options.WithDefaults());
 
         /// <summary>
         /// An addon resource
-        /// API Version: 2020-07-17-preview.
+        /// Azure REST API version: 2022-05-01.
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("azure-native:avs:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
@@ -84,25 +84,17 @@ namespace Pulumi.AzureNative.AVS
     public sealed class GetAddonResult
     {
         /// <summary>
-        /// The type of private cloud addon
-        /// </summary>
-        public readonly string? AddonType;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The SRM license
-        /// </summary>
-        public readonly string? LicenseKey;
         /// <summary>
         /// Resource name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The state of the addon provisioning
+        /// The properties of an addon resource
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly object Properties;
         /// <summary>
         /// Resource type.
         /// </summary>
@@ -110,23 +102,17 @@ namespace Pulumi.AzureNative.AVS
 
         [OutputConstructor]
         private GetAddonResult(
-            string? addonType,
-
             string id,
-
-            string? licenseKey,
 
             string name,
 
-            string provisioningState,
+            object properties,
 
             string type)
         {
-            AddonType = addonType;
             Id = id;
-            LicenseKey = licenseKey;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Type = type;
         }
     }

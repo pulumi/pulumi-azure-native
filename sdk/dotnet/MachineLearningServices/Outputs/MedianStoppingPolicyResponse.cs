@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Defines an early termination policy based on running averages of the primary metric of all runs.
+    /// Defines an early termination policy based on running averages of the primary metric of all runs
     /// </summary>
     [OutputType]
     public sealed class MedianStoppingPolicyResponse

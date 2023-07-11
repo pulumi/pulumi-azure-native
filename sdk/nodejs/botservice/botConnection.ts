@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Bot channel resource definition
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class BotConnection extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class BotConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**

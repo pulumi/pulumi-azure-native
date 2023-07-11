@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The extended info of the manager.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01. Prior API version in Azure Native 1.x: 2017-06-01
  */
 export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**

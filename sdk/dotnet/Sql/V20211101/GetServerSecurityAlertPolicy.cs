@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Sql.V20211101
 {
-    [Obsolete(@"azure-native:sql/v20211101:ServerSecurityAlertPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerSecurityAlertPolicy to guarantee forwards compatibility.")]
     public static class GetServerSecurityAlertPolicy
     {
         /// <summary>

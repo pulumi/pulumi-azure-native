@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Security assessment on a resource
- * API Version: 2020-01-01.
+ * Security assessment on a resource - response format
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01
  */
 export class Assessment extends pulumi.CustomResource {
     /**
@@ -69,7 +69,7 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * The result of the assessment
      */
-    public readonly status!: pulumi.Output<outputs.security.AssessmentStatusResponse>;
+    public readonly status!: pulumi.Output<outputs.security.AssessmentStatusResponseResponse>;
     /**
      * Resource type
      */

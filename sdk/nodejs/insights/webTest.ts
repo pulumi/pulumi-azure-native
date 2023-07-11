@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * An Application Insights web test definition.
- * API Version: 2015-05-01.
+ * An Application Insights WebTest definition.
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2015-05-01
  */
 export class WebTest extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class WebTest extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<outputs.insights.WebTestPropertiesResponseConfiguration | undefined>;
     /**
-     * Purpose/user defined descriptive test for this WebTest.
+     * User defined description for this WebTest.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -55,7 +55,7 @@ export class WebTest extends pulumi.CustomResource {
      */
     public readonly frequency!: pulumi.Output<number | undefined>;
     /**
-     * The kind of web test that this web test watches. Choices are ping and multistep.
+     * The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
@@ -74,6 +74,10 @@ export class WebTest extends pulumi.CustomResource {
      * Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * The collection of request properties
+     */
+    public readonly request!: pulumi.Output<outputs.insights.WebTestPropertiesResponseRequest | undefined>;
     /**
      * Allow for retries should this WebTest fail.
      */
@@ -95,7 +99,11 @@ export class WebTest extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The kind of web test this is, valid choices are ping and multistep.
+     * The collection of validation rule properties
+     */
+    public readonly validationRules!: pulumi.Output<outputs.insights.WebTestPropertiesResponseValidationRules | undefined>;
+    /**
+     * The kind of web test this is, valid choices are ping, multistep and standard.
      */
     public readonly webTestKind!: pulumi.Output<string>;
     /**
@@ -133,11 +141,13 @@ export class WebTest extends pulumi.CustomResource {
             resourceInputs["kind"] = (args ? args.kind : undefined) ?? "ping";
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["locations"] = args ? args.locations : undefined;
+            resourceInputs["request"] = args ? args.request : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["retryEnabled"] = args ? args.retryEnabled : undefined;
             resourceInputs["syntheticMonitorId"] = args ? args.syntheticMonitorId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? 30;
+            resourceInputs["validationRules"] = args ? args.validationRules : undefined;
             resourceInputs["webTestKind"] = (args ? args.webTestKind : undefined) ?? "ping";
             resourceInputs["webTestName"] = args ? args.webTestName : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -153,11 +163,13 @@ export class WebTest extends pulumi.CustomResource {
             resourceInputs["locations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["request"] = undefined /*out*/;
             resourceInputs["retryEnabled"] = undefined /*out*/;
             resourceInputs["syntheticMonitorId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeout"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
+            resourceInputs["validationRules"] = undefined /*out*/;
             resourceInputs["webTestKind"] = undefined /*out*/;
             resourceInputs["webTestName"] = undefined /*out*/;
         }
@@ -177,7 +189,7 @@ export interface WebTestArgs {
      */
     configuration?: pulumi.Input<inputs.insights.WebTestPropertiesConfigurationArgs>;
     /**
-     * Purpose/user defined descriptive test for this WebTest.
+     * User defined description for this WebTest.
      */
     description?: pulumi.Input<string>;
     /**
@@ -189,7 +201,7 @@ export interface WebTestArgs {
      */
     frequency?: pulumi.Input<number>;
     /**
-     * The kind of web test that this web test watches. Choices are ping and multistep.
+     * The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
      */
     kind?: pulumi.Input<enums.insights.WebTestKind>;
     /**
@@ -200,6 +212,10 @@ export interface WebTestArgs {
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
     locations: pulumi.Input<pulumi.Input<inputs.insights.WebTestGeolocationArgs>[]>;
+    /**
+     * The collection of request properties
+     */
+    request?: pulumi.Input<inputs.insights.WebTestPropertiesRequestArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -221,7 +237,11 @@ export interface WebTestArgs {
      */
     timeout?: pulumi.Input<number>;
     /**
-     * The kind of web test this is, valid choices are ping and multistep.
+     * The collection of validation rule properties
+     */
+    validationRules?: pulumi.Input<inputs.insights.WebTestPropertiesValidationRulesArgs>;
+    /**
+     * The kind of web test this is, valid choices are ping, multistep and standard.
      */
     webTestKind: pulumi.Input<enums.insights.WebTestKind>;
     /**

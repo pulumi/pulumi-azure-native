@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Insights.Inputs
         public Input<string>? Category { get; set; }
 
         /// <summary>
+        /// Name of a Diagnostic Log category group for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation.
+        /// </summary>
+        [Input("categoryGroup")]
+        public Input<string>? CategoryGroup { get; set; }
+
+        /// <summary>
         /// a value indicating whether this log is enabled.
         /// </summary>
         [Input("enabled", required: true)]

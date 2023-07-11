@@ -208,7 +208,7 @@ def get_job(account_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Gets a Job.
-    API Version: 2020-05-01.
+    Azure REST API version: 2022-07-01.
 
 
     :param str account_name: The Media Services account name.
@@ -249,7 +249,7 @@ def get_job_output(account_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     Gets a Job.
-    API Version: 2020-05-01.
+    Azure REST API version: 2022-07-01.
 
 
     :param str account_name: The Media Services account name.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearning
     {
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
-        /// API Version: 2016-04-01.
+        /// Azure REST API version: 2019-10-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:machinelearning:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
-        /// API Version: 2016-04-01.
+        /// Azure REST API version: 2019-10-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:machinelearning:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.MachineLearning
         /// </summary>
         public readonly string OwnerEmail;
         /// <summary>
+        /// The sku of the workspace.
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
         /// The regional endpoint for the machine learning studio service which hosts this workspace.
         /// </summary>
         public readonly string StudioEndpoint;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.MachineLearning
 
             string ownerEmail,
 
+            Outputs.SkuResponse? sku,
+
             string studioEndpoint,
 
             ImmutableDictionary<string, string>? tags,
@@ -158,6 +164,7 @@ namespace Pulumi.AzureNative.MachineLearning
             Location = location;
             Name = name;
             OwnerEmail = ownerEmail;
+            Sku = sku;
             StudioEndpoint = studioEndpoint;
             Tags = tags;
             Type = type;

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets all legal agreements that user needs to accept before purchasing a domain.
- * API Version: 2020-10-01.
+ * Description for Gets all legal agreements that user needs to accept before purchasing a domain.
+ * Azure REST API version: 2022-09-01.
  */
 export function listTopLevelDomainAgreements(args: ListTopLevelDomainAgreementsArgs, opts?: pulumi.InvokeOptions): Promise<ListTopLevelDomainAgreementsResult> {
 
@@ -50,8 +50,8 @@ export interface ListTopLevelDomainAgreementsResult {
     readonly value: outputs.domainregistration.TldLegalAgreementResponse[];
 }
 /**
- * Gets all legal agreements that user needs to accept before purchasing a domain.
- * API Version: 2020-10-01.
+ * Description for Gets all legal agreements that user needs to accept before purchasing a domain.
+ * Azure REST API version: 2022-09-01.
  */
 export function listTopLevelDomainAgreementsOutput(args: ListTopLevelDomainAgreementsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListTopLevelDomainAgreementsResult> {
     return pulumi.output(args).apply((a: any) => listTopLevelDomainAgreements(a, opts))

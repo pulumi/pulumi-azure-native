@@ -28,22 +28,34 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<string>? AdminUsername { get; set; }
 
         /// <summary>
+        /// Specifies whether extension operations should be allowed on the virtual machine scale set. This may only be set to False when no extensions are present on the virtual machine scale set.
+        /// </summary>
+        [Input("allowExtensionOperations")]
+        public Input<bool>? AllowExtensionOperations { get; set; }
+
+        /// <summary>
         /// Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 15 characters long.
         /// </summary>
         [Input("computerNamePrefix")]
         public Input<string>? ComputerNamePrefix { get; set; }
 
         /// <summary>
-        /// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. &lt;br&gt;&lt;br&gt; For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
+        /// Specifies a base-64 encoded string of custom data. The base-64 encoded string is decoded to a binary array that is saved as a file on the Virtual Machine. The maximum length of the binary array is 65535 bytes. For using cloud-init for your VM, see [Using cloud-init to customize a Linux VM during creation](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)
         /// </summary>
         [Input("customData")]
         public Input<string>? CustomData { get; set; }
 
         /// <summary>
-        /// Specifies the Linux operating system settings on the virtual machine. &lt;br&gt;&lt;br&gt;For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+        /// Specifies the Linux operating system settings on the virtual machine. For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
         /// </summary>
         [Input("linuxConfiguration")]
         public Input<Inputs.LinuxConfigurationArgs>? LinuxConfiguration { get; set; }
+
+        /// <summary>
+        /// Optional property which must either be set to True or omitted.
+        /// </summary>
+        [Input("requireGuestProvisionSignal")]
+        public Input<bool>? RequireGuestProvisionSignal { get; set; }
 
         [Input("secrets")]
         private InputList<Inputs.VaultSecretGroupArgs>? _secrets;

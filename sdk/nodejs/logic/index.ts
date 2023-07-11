@@ -190,6 +190,11 @@ export const listWorkflowTriggerCallbackUrl: typeof import("./listWorkflowTrigge
 export const listWorkflowTriggerCallbackUrlOutput: typeof import("./listWorkflowTriggerCallbackUrl").listWorkflowTriggerCallbackUrlOutput = null as any;
 utilities.lazyLoad(exports, ["listWorkflowTriggerCallbackUrl","listWorkflowTriggerCallbackUrlOutput"], () => require("./listWorkflowTriggerCallbackUrl"));
 
+export { ListWorkflowVersionCallbackUrlArgs, ListWorkflowVersionCallbackUrlResult, ListWorkflowVersionCallbackUrlOutputArgs } from "./listWorkflowVersionCallbackUrl";
+export const listWorkflowVersionCallbackUrl: typeof import("./listWorkflowVersionCallbackUrl").listWorkflowVersionCallbackUrl = null as any;
+export const listWorkflowVersionCallbackUrlOutput: typeof import("./listWorkflowVersionCallbackUrl").listWorkflowVersionCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowVersionCallbackUrl","listWorkflowVersionCallbackUrlOutput"], () => require("./listWorkflowVersionCallbackUrl"));
+
 export { ListWorkflowVersionTriggerCallbackUrlArgs, ListWorkflowVersionTriggerCallbackUrlResult, ListWorkflowVersionTriggerCallbackUrlOutputArgs } from "./listWorkflowVersionTriggerCallbackUrl";
 export const listWorkflowVersionTriggerCallbackUrl: typeof import("./listWorkflowVersionTriggerCallbackUrl").listWorkflowVersionTriggerCallbackUrl = null as any;
 export const listWorkflowVersionTriggerCallbackUrlOutput: typeof import("./listWorkflowVersionTriggerCallbackUrl").listWorkflowVersionTriggerCallbackUrlOutput = null as any;

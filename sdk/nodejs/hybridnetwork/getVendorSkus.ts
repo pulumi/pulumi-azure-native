@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified sku.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendorSkus(args: GetVendorSkusArgs, opts?: pulumi.InvokeOptions): Promise<GetVendorSkusResult> {
 
@@ -60,6 +60,10 @@ export interface GetVendorSkusResult {
      */
     readonly networkFunctionTemplate?: outputs.hybridnetwork.NetworkFunctionTemplateResponse;
     /**
+     * The network function type.
+     */
+    readonly networkFunctionType?: string;
+    /**
      * Indicates if the vendor sku is in preview mode.
      */
     readonly preview?: boolean;
@@ -72,13 +76,17 @@ export interface GetVendorSkusResult {
      */
     readonly skuType?: string;
     /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets information about the specified sku.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getVendorSkusOutput(args: GetVendorSkusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVendorSkusResult> {
     return pulumi.output(args).apply((a: any) => getVendorSkus(a, opts))

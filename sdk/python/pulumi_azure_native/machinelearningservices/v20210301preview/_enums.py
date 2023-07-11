@@ -5,58 +5,31 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationSharingPolicy',
     'BatchLoggingLevel',
     'BatchOutputAction',
-    'ClusterPurpose',
-    'ComputeInstanceAuthorizationType',
-    'ComputePowerAction',
-    'ComputeType',
-    'ContainerType',
     'ContentsType',
     'CredentialsType',
     'DataBindingMode',
     'DatasetType',
-    'DaysOfWeek',
     'DistributionType',
     'DockerSpecificationType',
     'EarlyTerminationPolicyType',
-    'EncryptionStatus',
     'EndpointAuthMode',
     'EndpointComputeType',
     'Goal',
     'IdentityConfigurationType',
     'ImageAnnotationType',
     'JobType',
-    'LoadBalancerType',
     'MediaType',
     'OperatingSystemType',
     'OriginType',
-    'OsType',
-    'PrivateEndpointServiceConnectionStatus',
-    'RecurrenceFrequency',
     'ReferenceType',
-    'RemoteLoginPortPublicAccess',
     'ResourceIdentityAssignment',
-    'ResourceIdentityType',
     'SamplingAlgorithm',
     'ScaleType',
-    'ScheduleStatus',
     'SecretsType',
-    'SshPublicAccess',
     'TextAnnotationType',
-    'TriggerType',
-    'ValueFormat',
-    'VmPriority',
 ]
-
-
-class ApplicationSharingPolicy(str, Enum):
-    """
-    Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
-    """
-    PERSONAL = "Personal"
-    SHARED = "Shared"
 
 
 class BatchLoggingLevel(str, Enum):
@@ -74,53 +47,6 @@ class BatchOutputAction(str, Enum):
     """
     SUMMARY_ONLY = "SummaryOnly"
     APPEND_ROW = "AppendRow"
-
-
-class ClusterPurpose(str, Enum):
-    """
-    Intended usage of the cluster
-    """
-    FAST_PROD = "FastProd"
-    DENSE_PROD = "DenseProd"
-    DEV_TEST = "DevTest"
-
-
-class ComputeInstanceAuthorizationType(str, Enum):
-    """
-    The Compute Instance Authorization type. Available values are personal (default).
-    """
-    PERSONAL = "personal"
-
-
-class ComputePowerAction(str, Enum):
-    """
-    The compute power action.
-    """
-    START = "Start"
-    STOP = "Stop"
-
-
-class ComputeType(str, Enum):
-    """
-    The type of compute
-    """
-    AKS = "AKS"
-    AML_COMPUTE = "AmlCompute"
-    COMPUTE_INSTANCE = "ComputeInstance"
-    DATA_FACTORY = "DataFactory"
-    VIRTUAL_MACHINE = "VirtualMachine"
-    HD_INSIGHT = "HDInsight"
-    DATABRICKS = "Databricks"
-    DATA_LAKE_ANALYTICS = "DataLakeAnalytics"
-    SYNAPSE_SPARK = "SynapseSpark"
-
-
-class ContainerType(str, Enum):
-    """
-    The type of container to retrieve logs from.
-    """
-    STORAGE_INITIALIZER = "StorageInitializer"
-    INFERENCE_SERVER = "InferenceServer"
 
 
 class ContentsType(str, Enum):
@@ -171,16 +97,6 @@ class DatasetType(str, Enum):
     DATAFLOW = "Dataflow"
 
 
-class DaysOfWeek(str, Enum):
-    SUNDAY = "Sunday"
-    MONDAY = "Monday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-    THURSDAY = "Thursday"
-    FRIDAY = "Friday"
-    SATURDAY = "Saturday"
-
-
 class DistributionType(str, Enum):
     """
     [Required] Specifies the type of distribution framework.
@@ -205,14 +121,6 @@ class EarlyTerminationPolicyType(str, Enum):
     BANDIT = "Bandit"
     MEDIAN_STOPPING = "MedianStopping"
     TRUNCATION_SELECTION = "TruncationSelection"
-
-
-class EncryptionStatus(str, Enum):
-    """
-    Indicates whether or not the encryption is enabled for the workspace.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
 
 
 class EndpointAuthMode(str, Enum):
@@ -267,14 +175,6 @@ class JobType(str, Enum):
     LABELING = "Labeling"
 
 
-class LoadBalancerType(str, Enum):
-    """
-    Load Balancer Type
-    """
-    PUBLIC_IP = "PublicIp"
-    INTERNAL_LOAD_BALANCER = "InternalLoadBalancer"
-
-
 class MediaType(str, Enum):
     """
     [Required] Media type of the job.
@@ -298,39 +198,6 @@ class OriginType(str, Enum):
     SYNAPSE = "Synapse"
 
 
-class OsType(str, Enum):
-    """
-    Compute OS Type
-    """
-    LINUX = "Linux"
-    WINDOWS = "Windows"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"
-    TIMEOUT = "Timeout"
-
-
-class RecurrenceFrequency(str, Enum):
-    """
-    The recurrence frequency.
-    """
-    NOT_SPECIFIED = "NotSpecified"
-    SECOND = "Second"
-    MINUTE = "Minute"
-    HOUR = "Hour"
-    DAY = "Day"
-    WEEK = "Week"
-    MONTH = "Month"
-    YEAR = "Year"
-
-
 class ReferenceType(str, Enum):
     """
     [Required] Specifies the type of asset reference.
@@ -340,15 +207,6 @@ class ReferenceType(str, Enum):
     OUTPUT_PATH = "OutputPath"
 
 
-class RemoteLoginPortPublicAccess(str, Enum):
-    """
-    State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-    NOT_SPECIFIED = "NotSpecified"
-
-
 class ResourceIdentityAssignment(str, Enum):
     """
     Defines values for a ResourceIdentity's type.
@@ -356,16 +214,6 @@ class ResourceIdentityAssignment(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-    NONE = "None"
-
-
-class ResourceIdentityType(str, Enum):
-    """
-    The identity type.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
-    USER_ASSIGNED = "UserAssigned"
     NONE = "None"
 
 
@@ -386,14 +234,6 @@ class ScaleType(str, Enum):
     MANUAL = "Manual"
 
 
-class ScheduleStatus(str, Enum):
-    """
-    The schedule status.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class SecretsType(str, Enum):
     """
     [Required] Credential type used to authentication with storage.
@@ -406,39 +246,8 @@ class SecretsType(str, Enum):
     SQL_ADMIN = "SqlAdmin"
 
 
-class SshPublicAccess(str, Enum):
-    """
-    State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
 class TextAnnotationType(str, Enum):
     """
     Annotation type of text labeling job.
     """
     CLASSIFICATION = "Classification"
-
-
-class TriggerType(str, Enum):
-    """
-    The schedule trigger type.
-    """
-    RECURRENCE = "Recurrence"
-    CRON = "Cron"
-
-
-class ValueFormat(str, Enum):
-    """
-    format for the workspace connection value
-    """
-    JSON = "JSON"
-
-
-class VmPriority(str, Enum):
-    """
-    Virtual Machine priority
-    """
-    DEDICATED = "Dedicated"
-    LOW_PRIORITY = "LowPriority"

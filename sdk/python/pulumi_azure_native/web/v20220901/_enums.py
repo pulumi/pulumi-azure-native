@@ -5,7 +5,6 @@
 from enum import Enum
 
 __all__ = [
-    'ActiveRevisionsMode',
     'AutoHealActionType',
     'AzureResourceType',
     'AzureStorageType',
@@ -21,7 +20,6 @@ __all__ = [
     'FtpsState',
     'HostNameType',
     'HostType',
-    'IngressTransportMethod',
     'IpFilterTag',
     'LoadBalancingMode',
     'LogLevel',
@@ -39,15 +37,6 @@ __all__ = [
     'UnauthenticatedClientAction',
     'UpgradePreference',
 ]
-
-
-class ActiveRevisionsMode(str, Enum):
-    """
-    ActiveRevisionsMode controls how active revisions are handled for the Container app:
-    <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
-    """
-    MULTIPLE = "multiple"
-    SINGLE = "single"
 
 
 class AutoHealActionType(str, Enum):
@@ -190,15 +179,6 @@ class HostType(str, Enum):
     """
     STANDARD = "Standard"
     REPOSITORY = "Repository"
-
-
-class IngressTransportMethod(str, Enum):
-    """
-    Ingress transport protocol
-    """
-    AUTO = "auto"
-    HTTP = "http"
-    HTTP2 = "http2"
 
 
 class IpFilterTag(str, Enum):

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource which represents the managed network connection between Azure Gateways and remote cloud gateways.
- * API Version: 2023-01-01-preview.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2023-01-01-preview
  */
 export class CloudConnection extends pulumi.CustomResource {
     /**

@@ -83,12 +83,7 @@ class WebPubSubHubArgs:
         pulumi.set(self, "hub_name", value)
 
 
-warnings.warn("""azure-native:webpubsub/v20230201:WebPubSubHub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubHub to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class WebPubSubHub(pulumi.CustomResource):
-    warnings.warn("""azure-native:webpubsub/v20230201:WebPubSubHub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubHub to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -137,7 +132,6 @@ class WebPubSubHub(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""WebPubSubHub is deprecated: azure-native:webpubsub/v20230201:WebPubSubHub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubHub to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -159,7 +153,7 @@ class WebPubSubHub(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubHub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubHub"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSubHub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSubHub, __self__).__init__(
             'azure-native:webpubsub/v20230201:WebPubSubHub',

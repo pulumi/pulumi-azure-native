@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
     /// <summary>
     /// Represents a server.
     /// </summary>
-    [Obsolete(@"azure-native:dbforpostgresql/v20221201:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Server to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221201:Server")]
     public partial class Server : global::Pulumi.CustomResource
     {
@@ -89,7 +88,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network properties of a server.
+        /// Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
         /// </summary>
         [Output("network")]
         public Output<Outputs.NetworkResponse?> Network { get; private set; } = null!;
@@ -98,7 +97,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         /// Replicas allowed for a server.
         /// </summary>
         [Output("replicaCapacity")]
-        public Output<int?> ReplicaCapacity { get; private set; } = null!;
+        public Output<int> ReplicaCapacity { get; private set; } = null!;
 
         /// <summary>
         /// Replication role of the server
@@ -111,6 +110,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        /// </summary>
+        [Output("sourceServerResourceId")]
+        public Output<string?> SourceServerResourceId { get; private set; } = null!;
 
         /// <summary>
         /// A state of a server that is visible to user.
@@ -173,6 +178,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Server"},
@@ -181,6 +187,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210615privatepreview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -271,7 +278,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Network properties of a server.
+        /// Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
         /// </summary>
         [Input("network")]
         public Input<Inputs.NetworkArgs>? Network { get; set; }
@@ -281,12 +288,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         /// </summary>
         [Input("pointInTimeUTC")]
         public Input<string>? PointInTimeUTC { get; set; }
-
-        /// <summary>
-        /// Replicas allowed for a server.
-        /// </summary>
-        [Input("replicaCapacity")]
-        public Input<int>? ReplicaCapacity { get; set; }
 
         /// <summary>
         /// Replication role of the server
@@ -313,7 +314,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         /// <summary>
-        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'.
+        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
         /// </summary>
         [Input("sourceServerResourceId")]
         public Input<string>? SourceServerResourceId { get; set; }

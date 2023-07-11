@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a Azure Monitor PrivateLinkScope.
- * API Version: 2019-10-17-preview.
+ * Azure REST API version: 2021-07-01-preview.
  */
 export function getPrivateLinkScope(args: GetPrivateLinkScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkScopeResult> {
 
@@ -36,15 +36,19 @@ export interface GetPrivateLinkScopeArgs {
  */
 export interface GetPrivateLinkScopeResult {
     /**
-     * Azure resource Id
+     * Access mode settings
+     */
+    readonly accessModeSettings: outputs.insights.AccessModeSettingsResponse;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -56,17 +60,21 @@ export interface GetPrivateLinkScopeResult {
      */
     readonly provisioningState: string;
     /**
-     * Resource tags
+     * System data
+     */
+    readonly systemData: outputs.insights.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Returns a Azure Monitor PrivateLinkScope.
- * API Version: 2019-10-17-preview.
+ * Azure REST API version: 2021-07-01-preview.
  */
 export function getPrivateLinkScopeOutput(args: GetPrivateLinkScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkScopeResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkScope(a, opts))

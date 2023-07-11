@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets the alert rule.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getScheduledAlertRule(args: GetScheduledAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledAlertRuleResult> {
 
@@ -20,7 +23,7 @@ export function getScheduledAlertRule(args: GetScheduledAlertRuleArgs, opts?: pu
 
 export interface GetScheduledAlertRuleArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -38,9 +41,17 @@ export interface GetScheduledAlertRuleArgs {
  */
 export interface GetScheduledAlertRuleResult {
     /**
+     * The alert details override settings
+     */
+    readonly alertDetailsOverride?: outputs.securityinsights.AlertDetailsOverrideResponse;
+    /**
      * The Name of the alert rule template used to create this rule.
      */
     readonly alertRuleTemplateName?: string;
+    /**
+     * Dictionary of string key-value pairs of columns to be attached to the alert
+     */
+    readonly customDetails?: {[key: string]: string};
     /**
      * The description of the alert rule.
      */
@@ -54,13 +65,25 @@ export interface GetScheduledAlertRuleResult {
      */
     readonly enabled: boolean;
     /**
+     * Array of the entity mappings of the alert rule
+     */
+    readonly entityMappings?: outputs.securityinsights.EntityMappingResponse[];
+    /**
      * Etag of the azure resource
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * The event grouping settings.
+     */
+    readonly eventGroupingSettings?: outputs.securityinsights.EventGroupingSettingsResponse;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The settings of the incidents that created from alerts triggered by this analytics rule
+     */
+    readonly incidentConfiguration?: outputs.securityinsights.IncidentConfigurationResponse;
     /**
      * The kind of the alert rule
      * Expected value is 'Scheduled'.
@@ -71,7 +94,7 @@ export interface GetScheduledAlertRuleResult {
      */
     readonly lastModifiedUtc: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -99,9 +122,21 @@ export interface GetScheduledAlertRuleResult {
      */
     readonly suppressionEnabled: boolean;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.securityinsights.SystemDataResponse;
+    /**
      * The tactics of the alert rule
      */
     readonly tactics?: string[];
+    /**
+     * The techniques of the alert rule
+     */
+    readonly techniques?: string[];
+    /**
+     * The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
+     */
+    readonly templateVersion?: string;
     /**
      * The operation against the threshold that triggers alert rule.
      */
@@ -111,13 +146,13 @@ export interface GetScheduledAlertRuleResult {
      */
     readonly triggerThreshold: number;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the alert rule.
- * API Version: 2020-01-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getScheduledAlertRule(a, opts))
@@ -125,7 +160,7 @@ export function getScheduledAlertRuleOutput(args: GetScheduledAlertRuleOutputArg
 
 export interface GetScheduledAlertRuleOutputArgs {
     /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

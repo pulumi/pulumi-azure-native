@@ -130,12 +130,7 @@ class JobAgentArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobAgent to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class JobAgent(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobAgent to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -193,7 +188,6 @@ class JobAgent(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""JobAgent is deprecated: azure-native:sql/v20211101:JobAgent is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobAgent to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -218,7 +212,7 @@ class JobAgent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20170301preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20201101preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20210201preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20210501preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20210801preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20211101preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20220201preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20220501preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20220801preview:JobAgent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20170301preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20201101preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20210201preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20210501preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20210801preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20211101preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20220201preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20220501preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20220801preview:JobAgent"), pulumi.Alias(type_="azure-native:sql/v20221101preview:JobAgent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobAgent, __self__).__init__(
             'azure-native:sql/v20211101:JobAgent',

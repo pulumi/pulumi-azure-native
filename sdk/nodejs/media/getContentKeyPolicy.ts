@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of a Content Key Policy in the Media Services account
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getContentKeyPolicy(args: GetContentKeyPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetContentKeyPolicyResult> {
 
@@ -79,7 +79,7 @@ export interface GetContentKeyPolicyResult {
 }
 /**
  * Get the details of a Content Key Policy in the Media Services account
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getContentKeyPolicyOutput(args: GetContentKeyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentKeyPolicyResult> {
     return pulumi.output(args).apply((a: any) => getContentKeyPolicy(a, opts))

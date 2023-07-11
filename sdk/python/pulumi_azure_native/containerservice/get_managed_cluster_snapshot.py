@@ -71,7 +71,7 @@ class GetManagedClusterSnapshotResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -111,7 +111,7 @@ class GetManagedClusterSnapshotResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -146,7 +146,7 @@ def get_managed_cluster_snapshot(resource_group_name: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedClusterSnapshotResult:
     """
     A managed cluster snapshot resource.
-    API Version: 2022-02-02-preview.
+    Azure REST API version: 2023-05-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -176,7 +176,7 @@ def get_managed_cluster_snapshot_output(resource_group_name: Optional[pulumi.Inp
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedClusterSnapshotResult]:
     """
     A managed cluster snapshot resource.
-    API Version: 2022-02-02-preview.
+    Azure REST API version: 2023-05-02-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

@@ -278,7 +278,7 @@ def get_hybrid_aks_cluster(hybrid_aks_cluster_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridAksClusterResult:
     """
     Get the additional details related to the provided Hybrid AKS provisioned cluster.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str hybrid_aks_cluster_name: The name of the Hybrid AKS cluster.
@@ -319,7 +319,7 @@ def get_hybrid_aks_cluster_output(hybrid_aks_cluster_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridAksClusterResult]:
     """
     Get the additional details related to the provided Hybrid AKS provisioned cluster.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2022-12-12-preview.
 
 
     :param str hybrid_aks_cluster_name: The name of the Hybrid AKS cluster.

@@ -49,7 +49,7 @@ class GetSubscriptionNetworkManagerConnectionResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A description of the scope connection.
+        A description of the network manager connection.
         """
         return pulumi.get(self, "description")
 
@@ -121,7 +121,7 @@ def get_subscription_network_manager_connection(network_manager_connection_name:
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionNetworkManagerConnectionResult:
     """
     Get a specified connection created by this subscription.
-    API Version: 2022-02-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_manager_connection_name: Name for the network manager connection.
@@ -146,7 +146,7 @@ def get_subscription_network_manager_connection_output(network_manager_connectio
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionNetworkManagerConnectionResult]:
     """
     Get a specified connection created by this subscription.
-    API Version: 2022-02-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_manager_connection_name: Name for the network manager connection.

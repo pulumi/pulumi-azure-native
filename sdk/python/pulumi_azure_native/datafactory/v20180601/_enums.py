@@ -5,6 +5,8 @@
 from enum import Enum
 
 __all__ = [
+    'ActivityOnInactiveMarkAs',
+    'ActivityState',
     'AzureFunctionActivityMethod',
     'AzureSearchIndexWriteBehaviorType',
     'AzureStorageAuthenticationType',
@@ -12,6 +14,7 @@ __all__ = [
     'BlobEventTypes',
     'CassandraSourceReadConsistencyLevels',
     'ConfigurationType',
+    'ConnectionType',
     'CosmosDbConnectionMode',
     'CredentialReferenceType',
     'DataFlowComputeType',
@@ -22,6 +25,7 @@ __all__ = [
     'DependencyCondition',
     'DynamicsSinkWriteBehavior',
     'FactoryIdentityType',
+    'FrequencyType',
     'FtpAuthenticationType',
     'GlobalParameterType',
     'GoogleAdWordsAuthenticationType',
@@ -39,6 +43,7 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogPricingTier',
     'IntegrationRuntimeType',
     'ManagedVirtualNetworkReferenceType',
+    'MappingType',
     'MongoDbAuthenticationType',
     'NotebookParameterType',
     'NotebookReferenceType',
@@ -52,7 +57,6 @@ __all__ = [
     'RecurrenceFrequency',
     'RestServiceAuthenticationType',
     'SalesforceSinkWriteBehavior',
-    'SalesforceSourceReadBehavior',
     'SapCloudForCustomerSinkWriteBehavior',
     'SapHanaAuthenticationType',
     'ScriptActivityLogDestination',
@@ -81,6 +85,23 @@ __all__ = [
     'WebHookActivityMethod',
     'ZendeskAuthenticationType',
 ]
+
+
+class ActivityOnInactiveMarkAs(str, Enum):
+    """
+    Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+    """
+    SUCCEEDED = "Succeeded"
+    FAILED = "Failed"
+    SKIPPED = "Skipped"
+
+
+class ActivityState(str, Enum):
+    """
+    Activity state. This is an optional property and if not provided, the state will be Active by default.
+    """
+    ACTIVE = "Active"
+    INACTIVE = "Inactive"
 
 
 class AzureFunctionActivityMethod(str, Enum):
@@ -150,6 +171,13 @@ class ConfigurationType(str, Enum):
     DEFAULT = "Default"
     CUSTOMIZED = "Customized"
     ARTIFACT = "Artifact"
+
+
+class ConnectionType(str, Enum):
+    """
+    Type of connection via linked service or dataset.
+    """
+    LINKEDSERVICETYPE = "linkedservicetype"
 
 
 class CosmosDbConnectionMode(str, Enum):
@@ -234,6 +262,15 @@ class FactoryIdentityType(str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+class FrequencyType(str, Enum):
+    """
+    Frequency of period in terms of 'Hour', 'Minute' or 'Second'.
+    """
+    HOUR = "Hour"
+    MINUTE = "Minute"
+    SECOND = "Second"
 
 
 class FtpAuthenticationType(str, Enum):
@@ -386,6 +423,15 @@ class ManagedVirtualNetworkReferenceType(str, Enum):
     MANAGED_VIRTUAL_NETWORK_REFERENCE = "ManagedVirtualNetworkReference"
 
 
+class MappingType(str, Enum):
+    """
+    Type of the CDC attribute mapping. Note: 'Advanced' mapping type is also saved as 'Derived'.
+    """
+    DIRECT = "Direct"
+    DERIVED = "Derived"
+    AGGREGATE = "Aggregate"
+
+
 class MongoDbAuthenticationType(str, Enum):
     """
     The authentication type to be used to connect to the MongoDB database.
@@ -506,14 +552,6 @@ class SalesforceSinkWriteBehavior(str, Enum):
     """
     INSERT = "Insert"
     UPSERT = "Upsert"
-
-
-class SalesforceSourceReadBehavior(str, Enum):
-    """
-    The read behavior for the operation. Default is Query.
-    """
-    QUERY = "Query"
-    QUERY_ALL = "QueryAll"
 
 
 class SapCloudForCustomerSinkWriteBehavior(str, Enum):

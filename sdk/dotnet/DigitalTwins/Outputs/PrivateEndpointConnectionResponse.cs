@@ -24,7 +24,14 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
         /// The resource name.
         /// </summary>
         public readonly string Name;
-        public readonly Outputs.PrivateEndpointConnectionResponseProperties Properties;
+        /// <summary>
+        /// The connection properties.
+        /// </summary>
+        public readonly Outputs.ConnectionPropertiesResponse Properties;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the private endpoint connection.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource type.
         /// </summary>
@@ -36,13 +43,16 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
 
             string name,
 
-            Outputs.PrivateEndpointConnectionResponseProperties properties,
+            Outputs.ConnectionPropertiesResponse properties,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

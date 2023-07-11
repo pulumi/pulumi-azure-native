@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.HybridContainerService
 {
     /// <summary>
     /// The agentPool resource definition
-    /// API Version: 2022-05-01-preview.
+    /// Azure REST API version: 2022-09-01-preview. Prior API version in Azure Native 1.x: 2022-05-01-preview
     /// </summary>
-    [AzureNativeResourceType("azure-native:hybridcontainerservice:agentPool")]
+    [AzureNativeResourceType("azure-native:hybridcontainerservice:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -139,12 +139,12 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AgentPool(string name, AgentPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice:agentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridcontainerservice:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AgentPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice:agentPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridcontainerservice:AgentPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -155,7 +155,11 @@ namespace Pulumi.AzureNative.HybridContainerService
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:agentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:AgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:agentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:agentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -279,16 +283,16 @@ namespace Pulumi.AzureNative.HybridContainerService
         public InputUnion<string, Pulumi.AzureNative.HybridContainerService.OsType>? OsType { get; set; }
 
         /// <summary>
-        /// Parameter for the name of the provisioned cluster
-        /// </summary>
-        [Input("provisionedClustersName", required: true)]
-        public Input<string> ProvisionedClustersName { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Parameter for the name of the provisioned cluster
+        /// </summary>
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
@@ -318,7 +322,6 @@ namespace Pulumi.AzureNative.HybridContainerService
         {
             Count = 1;
             Mode = "User";
-            OsType = "Linux";
         }
         public static new AgentPoolArgs Empty => new AgentPoolArgs();
     }

@@ -135,7 +135,7 @@ def get_static_site_linked_backend_for_build(environment_name: Optional[str] = N
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticSiteLinkedBackendForBuildResult:
     """
     Static Site Linked Backend ARM resource.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str environment_name: The stage site identifier
@@ -170,7 +170,7 @@ def get_static_site_linked_backend_for_build_output(environment_name: Optional[p
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticSiteLinkedBackendForBuildResult]:
     """
     Static Site Linked Backend ARM resource.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str environment_name: The stage site identifier

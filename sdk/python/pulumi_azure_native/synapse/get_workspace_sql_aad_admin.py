@@ -121,11 +121,11 @@ def get_workspace_sql_aad_admin(resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceSqlAadAdminResult:
     """
     Gets a workspace SQL active directory admin
-    API Version: 2021-03-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -149,10 +149,10 @@ def get_workspace_sql_aad_admin_output(resource_group_name: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceSqlAadAdminResult]:
     """
     Gets a workspace SQL active directory admin
-    API Version: 2021-03-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

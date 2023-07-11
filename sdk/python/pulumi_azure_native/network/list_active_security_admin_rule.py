@@ -64,7 +64,7 @@ def list_active_security_admin_rule(network_manager_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListActiveSecurityAdminRuleResult:
     """
     Lists active security admin rules in a network manager.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str network_manager_name: The name of the network manager.
@@ -93,7 +93,7 @@ def list_active_security_admin_rule_output(network_manager_name: Optional[pulumi
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListActiveSecurityAdminRuleResult]:
     """
     Lists active security admin rules in a network manager.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str network_manager_name: The name of the network manager.

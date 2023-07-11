@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Solutions
     {
         /// <summary>
         /// Gets the managed application definition.
-        /// API Version: 2019-07-01.
+        /// Azure REST API version: 2021-07-01.
         /// </summary>
         public static Task<GetApplicationDefinitionResult> InvokeAsync(GetApplicationDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the managed application definition.
-        /// API Version: 2019-07-01.
+        /// Azure REST API version: 2021-07-01.
         /// </summary>
         public static Output<GetApplicationDefinitionResult> Invoke(GetApplicationDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationDefinitionResult>("azure-native:solutions:getApplicationDefinition", args ?? new GetApplicationDefinitionInvokeArgs(), options.WithDefaults());
@@ -152,6 +152,10 @@ namespace Pulumi.AzureNative.Solutions
         /// </summary>
         public readonly string? StorageAccountId;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -202,6 +206,8 @@ namespace Pulumi.AzureNative.Solutions
 
             string? storageAccountId,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -226,6 +232,7 @@ namespace Pulumi.AzureNative.Solutions
             Policies = policies;
             Sku = sku;
             StorageAccountId = storageAccountId;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -19,61 +19,75 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// <summary>
         /// Gets the diagnostics profile.
         /// </summary>
-        public readonly Outputs.DiagnosticsProfileResponse? DiagnosticsProfile;
+        public readonly Outputs.DiagnosticsProfileResponse DiagnosticsProfile;
         /// <summary>
         /// Gets the hardware profile.
         /// </summary>
-        public readonly Outputs.HardwareProfileResponse? HardwareProfile;
+        public readonly Outputs.HardwareProfileResponse HardwareProfile;
+        /// <summary>
+        /// HyperVGeneration of the source VM for which restore point is captured.
+        /// </summary>
+        public readonly string HyperVGeneration;
         /// <summary>
         /// Gets the license type, which is for bring your own license scenario.
         /// </summary>
-        public readonly string? LicenseType;
+        public readonly string LicenseType;
         /// <summary>
         /// Location of the VM from which the restore point was created.
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
         /// Gets the OS profile.
         /// </summary>
-        public readonly Outputs.OSProfileResponse? OsProfile;
+        public readonly Outputs.OSProfileResponse OsProfile;
         /// <summary>
         /// Gets the security profile.
         /// </summary>
-        public readonly Outputs.SecurityProfileResponse? SecurityProfile;
+        public readonly Outputs.SecurityProfileResponse SecurityProfile;
         /// <summary>
         /// Gets the storage profile.
         /// </summary>
         public readonly Outputs.RestorePointSourceVMStorageProfileResponse? StorageProfile;
         /// <summary>
+        /// UserData associated with the source VM for which restore point is captured, which is a base-64 encoded value.
+        /// </summary>
+        public readonly string UserData;
+        /// <summary>
         /// Gets the virtual machine unique id.
         /// </summary>
-        public readonly string? VmId;
+        public readonly string VmId;
 
         [OutputConstructor]
         private RestorePointSourceMetadataResponse(
-            Outputs.DiagnosticsProfileResponse? diagnosticsProfile,
+            Outputs.DiagnosticsProfileResponse diagnosticsProfile,
 
-            Outputs.HardwareProfileResponse? hardwareProfile,
+            Outputs.HardwareProfileResponse hardwareProfile,
 
-            string? licenseType,
+            string hyperVGeneration,
 
-            string? location,
+            string licenseType,
 
-            Outputs.OSProfileResponse? osProfile,
+            string location,
 
-            Outputs.SecurityProfileResponse? securityProfile,
+            Outputs.OSProfileResponse osProfile,
+
+            Outputs.SecurityProfileResponse securityProfile,
 
             Outputs.RestorePointSourceVMStorageProfileResponse? storageProfile,
 
-            string? vmId)
+            string userData,
+
+            string vmId)
         {
             DiagnosticsProfile = diagnosticsProfile;
             HardwareProfile = hardwareProfile;
+            HyperVGeneration = hyperVGeneration;
             LicenseType = licenseType;
             Location = location;
             OsProfile = osProfile;
             SecurityProfile = securityProfile;
             StorageProfile = storageProfile;
+            UserData = userData;
             VmId = vmId;
         }
     }

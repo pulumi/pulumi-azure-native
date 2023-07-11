@@ -99,7 +99,7 @@ def get_active_directory_connector(active_directory_connector_name: Optional[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActiveDirectoryConnectorResult:
     """
     Retrieves an Active Directory connector resource
-    API Version: 2022-03-01-preview.
+    Azure REST API version: 2023-01-15-preview.
 
 
     :param str active_directory_connector_name: The name of the Active Directory connector instance
@@ -128,7 +128,7 @@ def get_active_directory_connector_output(active_directory_connector_name: Optio
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActiveDirectoryConnectorResult]:
     """
     Retrieves an Active Directory connector resource
-    API Version: 2022-03-01-preview.
+    Azure REST API version: 2023-01-15-preview.
 
 
     :param str active_directory_connector_name: The name of the Active Directory connector instance

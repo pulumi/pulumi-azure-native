@@ -129,7 +129,7 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJitNetworkAccessPolicyResult:
     """
     Policies for protecting resources using Just-in-Time access control for the subscription, location
-    API Version: 2020-01-01.
+    Azure REST API version: 2020-01-01.
 
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -161,7 +161,7 @@ def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[str
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJitNetworkAccessPolicyResult]:
     """
     Policies for protecting resources using Just-in-Time access control for the subscription, location
-    API Version: 2020-01-01.
+    Azure REST API version: 2020-01-01.
 
 
     :param str asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations

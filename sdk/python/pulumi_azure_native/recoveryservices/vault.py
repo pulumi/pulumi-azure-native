@@ -26,7 +26,7 @@ class VaultArgs:
                  vault_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Vault resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['IdentityDataArgs'] identity: Identity for the resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input['VaultPropertiesArgs'] properties: Properties of the vault.
@@ -52,7 +52,7 @@ class VaultArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group where the recovery services vault is present.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -148,14 +148,14 @@ class Vault(pulumi.CustomResource):
                  __props__=None):
         """
         Resource information, as returned by the resource provider.
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityDataArgs']] identity: Identity for the resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['VaultPropertiesArgs']] properties: Properties of the vault.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Identifies the unique system identifier for each Azure resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the recovery services vault.
@@ -168,7 +168,7 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information, as returned by the resource provider.
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.
@@ -214,7 +214,7 @@ class Vault(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160601:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20200202:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20201001:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210101:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20211101preview:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220131preview:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220501:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220801:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220910:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:Vault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160601:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20200202:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20201001:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210101:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20211101preview:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220131preview:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220501:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220801:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220910:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20220930preview:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:Vault"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:Vault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Vault, __self__).__init__(
             'azure-native:recoveryservices:Vault',

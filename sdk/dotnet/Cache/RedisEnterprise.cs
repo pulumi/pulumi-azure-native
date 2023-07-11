@@ -11,16 +11,28 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Describes the RedisEnterprise cluster
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:RedisEnterprise")]
     public partial class RedisEnterprise : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Encryption-at-rest configuration for the cluster.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.ClusterPropertiesResponseEncryption?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// DNS name of the cluster endpoint
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -69,6 +81,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("sku")]
         public Output<Outputs.EnterpriseSkuResponse> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -148,6 +166,18 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Input("clusterName")]
         public Input<string>? ClusterName { get; set; }
+
+        /// <summary>
+        /// Encryption-at-rest configuration for the cluster.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.ClusterPropertiesEncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the resource lives

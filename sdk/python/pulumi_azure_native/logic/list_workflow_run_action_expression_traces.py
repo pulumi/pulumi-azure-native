@@ -49,7 +49,7 @@ def list_workflow_run_action_expression_traces(action_name: Optional[str] = None
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkflowRunActionExpressionTracesResult:
     """
     Lists a workflow run expression trace.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str action_name: The workflow action name.
@@ -77,7 +77,7 @@ def list_workflow_run_action_expression_traces_output(action_name: Optional[pulu
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkflowRunActionExpressionTracesResult]:
     """
     Lists a workflow run expression trace.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str action_name: The workflow action name.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified private endpoint connection associated with the container registry.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2022-12-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -31,7 +31,7 @@ export interface GetPrivateEndpointConnectionArgs {
      */
     registryName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -71,7 +71,7 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Get the specified private endpoint connection associated with the container registry.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2022-12-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))
@@ -87,7 +87,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

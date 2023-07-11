@@ -17,8 +17,6 @@ __all__ = [
     'get_job_target_group_output',
 ]
 
-warnings.warn("""azure-native:sql/v20211101:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobTargetGroup to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetJobTargetGroupResult:
     """
@@ -97,7 +95,6 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
     :param str server_name: The name of the server.
     :param str target_group_name: The name of the target group.
     """
-    pulumi.log.warn("""get_job_target_group is deprecated: azure-native:sql/v20211101:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobTargetGroup to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['jobAgentName'] = job_agent_name
     __args__['resourceGroupName'] = resource_group_name
@@ -128,5 +125,4 @@ def get_job_target_group_output(job_agent_name: Optional[pulumi.Input[str]] = No
     :param str server_name: The name of the server.
     :param str target_group_name: The name of the target group.
     """
-    pulumi.log.warn("""get_job_target_group is deprecated: azure-native:sql/v20211101:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobTargetGroup to guarantee forwards compatibility.""")
     ...

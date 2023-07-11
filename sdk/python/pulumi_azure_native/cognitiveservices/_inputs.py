@@ -11,8 +11,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'CognitiveServicesAccountApiPropertiesArgs',
-    'CognitiveServicesAccountPropertiesArgs',
+    'AccountPropertiesArgs',
+    'ApiPropertiesArgs',
     'CommitmentPeriodArgs',
     'CommitmentPlanPropertiesArgs',
     'DeploymentModelArgs',
@@ -22,18 +22,218 @@ __all__ = [
     'IdentityArgs',
     'IpRuleArgs',
     'KeyVaultPropertiesArgs',
+    'MultiRegionSettingsArgs',
     'NetworkRuleSetArgs',
     'PrivateEndpointConnectionPropertiesArgs',
-    'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'RegionSettingArgs',
     'SkuArgs',
-    'UserAssignedIdentityArgs',
     'UserOwnedStorageArgs',
     'VirtualNetworkRuleArgs',
 ]
 
 @pulumi.input_type
-class CognitiveServicesAccountApiPropertiesArgs:
+class AccountPropertiesArgs:
+    def __init__(__self__, *,
+                 allowed_fqdn_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 api_properties: Optional[pulumi.Input['ApiPropertiesArgs']] = None,
+                 custom_sub_domain_name: Optional[pulumi.Input[str]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
+                 dynamic_throttling_enabled: Optional[pulumi.Input[bool]] = None,
+                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+                 locations: Optional[pulumi.Input['MultiRegionSettingsArgs']] = None,
+                 migration_token: Optional[pulumi.Input[str]] = None,
+                 network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 restore: Optional[pulumi.Input[bool]] = None,
+                 restrict_outbound_network_access: Optional[pulumi.Input[bool]] = None,
+                 user_owned_storage: Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]] = None):
+        """
+        Properties of Cognitive Services account.
+        :param pulumi.Input['ApiPropertiesArgs'] api_properties: The api properties for special APIs.
+        :param pulumi.Input[str] custom_sub_domain_name: Optional subdomain name used for token-based authentication.
+        :param pulumi.Input[bool] dynamic_throttling_enabled: The flag to enable dynamic throttling.
+        :param pulumi.Input['EncryptionArgs'] encryption: The encryption properties for this resource.
+        :param pulumi.Input['MultiRegionSettingsArgs'] locations: The multiregion settings of Cognitive Services account.
+        :param pulumi.Input[str] migration_token: Resource migration token.
+        :param pulumi.Input['NetworkRuleSetArgs'] network_acls: A collection of rules governing the accessibility from specific network locations.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this account.
+        :param pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]] user_owned_storage: The storage accounts for this resource.
+        """
+        if allowed_fqdn_list is not None:
+            pulumi.set(__self__, "allowed_fqdn_list", allowed_fqdn_list)
+        if api_properties is not None:
+            pulumi.set(__self__, "api_properties", api_properties)
+        if custom_sub_domain_name is not None:
+            pulumi.set(__self__, "custom_sub_domain_name", custom_sub_domain_name)
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if dynamic_throttling_enabled is not None:
+            pulumi.set(__self__, "dynamic_throttling_enabled", dynamic_throttling_enabled)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if migration_token is not None:
+            pulumi.set(__self__, "migration_token", migration_token)
+        if network_acls is not None:
+            pulumi.set(__self__, "network_acls", network_acls)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if restore is not None:
+            pulumi.set(__self__, "restore", restore)
+        if restrict_outbound_network_access is not None:
+            pulumi.set(__self__, "restrict_outbound_network_access", restrict_outbound_network_access)
+        if user_owned_storage is not None:
+            pulumi.set(__self__, "user_owned_storage", user_owned_storage)
+
+    @property
+    @pulumi.getter(name="allowedFqdnList")
+    def allowed_fqdn_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "allowed_fqdn_list")
+
+    @allowed_fqdn_list.setter
+    def allowed_fqdn_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_fqdn_list", value)
+
+    @property
+    @pulumi.getter(name="apiProperties")
+    def api_properties(self) -> Optional[pulumi.Input['ApiPropertiesArgs']]:
+        """
+        The api properties for special APIs.
+        """
+        return pulumi.get(self, "api_properties")
+
+    @api_properties.setter
+    def api_properties(self, value: Optional[pulumi.Input['ApiPropertiesArgs']]):
+        pulumi.set(self, "api_properties", value)
+
+    @property
+    @pulumi.getter(name="customSubDomainName")
+    def custom_sub_domain_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional subdomain name used for token-based authentication.
+        """
+        return pulumi.get(self, "custom_sub_domain_name")
+
+    @custom_sub_domain_name.setter
+    def custom_sub_domain_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_sub_domain_name", value)
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "disable_local_auth")
+
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
+
+    @property
+    @pulumi.getter(name="dynamicThrottlingEnabled")
+    def dynamic_throttling_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The flag to enable dynamic throttling.
+        """
+        return pulumi.get(self, "dynamic_throttling_enabled")
+
+    @dynamic_throttling_enabled.setter
+    def dynamic_throttling_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dynamic_throttling_enabled", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+        """
+        The encryption properties for this resource.
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input['MultiRegionSettingsArgs']]:
+        """
+        The multiregion settings of Cognitive Services account.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input['MultiRegionSettingsArgs']]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="migrationToken")
+    def migration_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource migration token.
+        """
+        return pulumi.get(self, "migration_token")
+
+    @migration_token.setter
+    def migration_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "migration_token", value)
+
+    @property
+    @pulumi.getter(name="networkAcls")
+    def network_acls(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
+        """
+        A collection of rules governing the accessibility from specific network locations.
+        """
+        return pulumi.get(self, "network_acls")
+
+    @network_acls.setter
+    def network_acls(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
+        pulumi.set(self, "network_acls", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether or not public endpoint access is allowed for this account.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter
+    def restore(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "restore")
+
+    @restore.setter
+    def restore(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restore", value)
+
+    @property
+    @pulumi.getter(name="restrictOutboundNetworkAccess")
+    def restrict_outbound_network_access(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "restrict_outbound_network_access")
+
+    @restrict_outbound_network_access.setter
+    def restrict_outbound_network_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restrict_outbound_network_access", value)
+
+    @property
+    @pulumi.getter(name="userOwnedStorage")
+    def user_owned_storage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]]:
+        """
+        The storage accounts for this resource.
+        """
+        return pulumi.get(self, "user_owned_storage")
+
+    @user_owned_storage.setter
+    def user_owned_storage(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]]):
+        pulumi.set(self, "user_owned_storage", value)
+
+
+@pulumi.input_type
+class ApiPropertiesArgs:
     def __init__(__self__, *,
                  aad_client_id: Optional[pulumi.Input[str]] = None,
                  aad_tenant_id: Optional[pulumi.Input[str]] = None,
@@ -201,126 +401,6 @@ class CognitiveServicesAccountApiPropertiesArgs:
 
 
 @pulumi.input_type
-class CognitiveServicesAccountPropertiesArgs:
-    def __init__(__self__, *,
-                 api_properties: Optional[pulumi.Input['CognitiveServicesAccountApiPropertiesArgs']] = None,
-                 custom_sub_domain_name: Optional[pulumi.Input[str]] = None,
-                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
-                 network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
-                 private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
-                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
-                 user_owned_storage: Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]] = None):
-        """
-        Properties of Cognitive Services account.
-        :param pulumi.Input['CognitiveServicesAccountApiPropertiesArgs'] api_properties: The api properties for special APIs.
-        :param pulumi.Input[str] custom_sub_domain_name: Optional subdomain name used for token-based authentication.
-        :param pulumi.Input['EncryptionArgs'] encryption: The encryption properties for this resource.
-        :param pulumi.Input['NetworkRuleSetArgs'] network_acls: A collection of rules governing the accessibility from specific network locations.
-        :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: The private endpoint connection associated with the Cognitive Services account.
-        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        :param pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]] user_owned_storage: The storage accounts for this resource.
-        """
-        if api_properties is not None:
-            pulumi.set(__self__, "api_properties", api_properties)
-        if custom_sub_domain_name is not None:
-            pulumi.set(__self__, "custom_sub_domain_name", custom_sub_domain_name)
-        if encryption is not None:
-            pulumi.set(__self__, "encryption", encryption)
-        if network_acls is not None:
-            pulumi.set(__self__, "network_acls", network_acls)
-        if private_endpoint_connections is not None:
-            pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
-        if public_network_access is not None:
-            pulumi.set(__self__, "public_network_access", public_network_access)
-        if user_owned_storage is not None:
-            pulumi.set(__self__, "user_owned_storage", user_owned_storage)
-
-    @property
-    @pulumi.getter(name="apiProperties")
-    def api_properties(self) -> Optional[pulumi.Input['CognitiveServicesAccountApiPropertiesArgs']]:
-        """
-        The api properties for special APIs.
-        """
-        return pulumi.get(self, "api_properties")
-
-    @api_properties.setter
-    def api_properties(self, value: Optional[pulumi.Input['CognitiveServicesAccountApiPropertiesArgs']]):
-        pulumi.set(self, "api_properties", value)
-
-    @property
-    @pulumi.getter(name="customSubDomainName")
-    def custom_sub_domain_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Optional subdomain name used for token-based authentication.
-        """
-        return pulumi.get(self, "custom_sub_domain_name")
-
-    @custom_sub_domain_name.setter
-    def custom_sub_domain_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "custom_sub_domain_name", value)
-
-    @property
-    @pulumi.getter
-    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
-        """
-        The encryption properties for this resource.
-        """
-        return pulumi.get(self, "encryption")
-
-    @encryption.setter
-    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
-        pulumi.set(self, "encryption", value)
-
-    @property
-    @pulumi.getter(name="networkAcls")
-    def network_acls(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
-        """
-        A collection of rules governing the accessibility from specific network locations.
-        """
-        return pulumi.get(self, "network_acls")
-
-    @network_acls.setter
-    def network_acls(self, value: Optional[pulumi.Input['NetworkRuleSetArgs']]):
-        pulumi.set(self, "network_acls", value)
-
-    @property
-    @pulumi.getter(name="privateEndpointConnections")
-    def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
-        """
-        The private endpoint connection associated with the Cognitive Services account.
-        """
-        return pulumi.get(self, "private_endpoint_connections")
-
-    @private_endpoint_connections.setter
-    def private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]):
-        pulumi.set(self, "private_endpoint_connections", value)
-
-    @property
-    @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
-        """
-        Whether or not public endpoint access is allowed for this account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
-        """
-        return pulumi.get(self, "public_network_access")
-
-    @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
-        pulumi.set(self, "public_network_access", value)
-
-    @property
-    @pulumi.getter(name="userOwnedStorage")
-    def user_owned_storage(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]]:
-        """
-        The storage accounts for this resource.
-        """
-        return pulumi.get(self, "user_owned_storage")
-
-    @user_owned_storage.setter
-    def user_owned_storage(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserOwnedStorageArgs']]]]):
-        pulumi.set(self, "user_owned_storage", value)
-
-
-@pulumi.input_type
 class CommitmentPeriodArgs:
     def __init__(__self__, *,
                  count: Optional[pulumi.Input[int]] = None,
@@ -364,6 +444,7 @@ class CommitmentPeriodArgs:
 class CommitmentPlanPropertiesArgs:
     def __init__(__self__, *,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
+                 commitment_plan_guid: Optional[pulumi.Input[str]] = None,
                  current: Optional[pulumi.Input['CommitmentPeriodArgs']] = None,
                  hosting_model: Optional[pulumi.Input[Union[str, 'HostingModel']]] = None,
                  next: Optional[pulumi.Input['CommitmentPeriodArgs']] = None,
@@ -371,6 +452,7 @@ class CommitmentPlanPropertiesArgs:
         """
         Properties of Cognitive Services account commitment plan.
         :param pulumi.Input[bool] auto_renew: AutoRenew commitment plan.
+        :param pulumi.Input[str] commitment_plan_guid: Commitment plan guid.
         :param pulumi.Input['CommitmentPeriodArgs'] current: Cognitive Services account commitment period.
         :param pulumi.Input[Union[str, 'HostingModel']] hosting_model: Account hosting model.
         :param pulumi.Input['CommitmentPeriodArgs'] next: Cognitive Services account commitment period.
@@ -378,6 +460,8 @@ class CommitmentPlanPropertiesArgs:
         """
         if auto_renew is not None:
             pulumi.set(__self__, "auto_renew", auto_renew)
+        if commitment_plan_guid is not None:
+            pulumi.set(__self__, "commitment_plan_guid", commitment_plan_guid)
         if current is not None:
             pulumi.set(__self__, "current", current)
         if hosting_model is not None:
@@ -398,6 +482,18 @@ class CommitmentPlanPropertiesArgs:
     @auto_renew.setter
     def auto_renew(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_renew", value)
+
+    @property
+    @pulumi.getter(name="commitmentPlanGuid")
+    def commitment_plan_guid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Commitment plan guid.
+        """
+        return pulumi.get(self, "commitment_plan_guid")
+
+    @commitment_plan_guid.setter
+    def commitment_plan_guid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "commitment_plan_guid", value)
 
     @property
     @pulumi.getter
@@ -453,17 +549,21 @@ class DeploymentModelArgs:
     def __init__(__self__, *,
                  format: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None):
         """
         Properties of Cognitive Services account deployment model.
         :param pulumi.Input[str] format: Deployment model format.
         :param pulumi.Input[str] name: Deployment model name.
-        :param pulumi.Input[str] version: Deployment model version.
+        :param pulumi.Input[str] source: Optional. Deployment model source ARM resource ID.
+        :param pulumi.Input[str] version: Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         """
         if format is not None:
             pulumi.set(__self__, "format", format)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -493,9 +593,21 @@ class DeploymentModelArgs:
 
     @property
     @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional. Deployment model source ARM resource ID.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Deployment model version.
+        Optional. Deployment model version. If version is not specified, a default version will be assigned. The default version is different for different models and might change when there is new version available for a model. Default version for a model could be found from list models API.
         """
         return pulumi.get(self, "version")
 
@@ -508,16 +620,24 @@ class DeploymentModelArgs:
 class DeploymentPropertiesArgs:
     def __init__(__self__, *,
                  model: Optional[pulumi.Input['DeploymentModelArgs']] = None,
-                 scale_settings: Optional[pulumi.Input['DeploymentScaleSettingsArgs']] = None):
+                 rai_policy_name: Optional[pulumi.Input[str]] = None,
+                 scale_settings: Optional[pulumi.Input['DeploymentScaleSettingsArgs']] = None,
+                 version_upgrade_option: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]] = None):
         """
         Properties of Cognitive Services account deployment.
         :param pulumi.Input['DeploymentModelArgs'] model: Properties of Cognitive Services account deployment model.
+        :param pulumi.Input[str] rai_policy_name: The name of RAI policy.
         :param pulumi.Input['DeploymentScaleSettingsArgs'] scale_settings: Properties of Cognitive Services account deployment model.
+        :param pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']] version_upgrade_option: Deployment model version upgrade option.
         """
         if model is not None:
             pulumi.set(__self__, "model", model)
+        if rai_policy_name is not None:
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if scale_settings is not None:
             pulumi.set(__self__, "scale_settings", scale_settings)
+        if version_upgrade_option is not None:
+            pulumi.set(__self__, "version_upgrade_option", version_upgrade_option)
 
     @property
     @pulumi.getter
@@ -532,6 +652,18 @@ class DeploymentPropertiesArgs:
         pulumi.set(self, "model", value)
 
     @property
+    @pulumi.getter(name="raiPolicyName")
+    def rai_policy_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of RAI policy.
+        """
+        return pulumi.get(self, "rai_policy_name")
+
+    @rai_policy_name.setter
+    def rai_policy_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rai_policy_name", value)
+
+    @property
     @pulumi.getter(name="scaleSettings")
     def scale_settings(self) -> Optional[pulumi.Input['DeploymentScaleSettingsArgs']]:
         """
@@ -542,6 +674,18 @@ class DeploymentPropertiesArgs:
     @scale_settings.setter
     def scale_settings(self, value: Optional[pulumi.Input['DeploymentScaleSettingsArgs']]):
         pulumi.set(self, "scale_settings", value)
+
+    @property
+    @pulumi.getter(name="versionUpgradeOption")
+    def version_upgrade_option(self) -> Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]:
+        """
+        Deployment model version upgrade option.
+        """
+        return pulumi.get(self, "version_upgrade_option")
+
+    @version_upgrade_option.setter
+    def version_upgrade_option(self, value: Optional[pulumi.Input[Union[str, 'DeploymentModelVersionUpgradeOption']]]):
+        pulumi.set(self, "version_upgrade_option", value)
 
 
 @pulumi.input_type
@@ -629,12 +773,12 @@ class EncryptionArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['IdentityType']] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Managed service identity.
-        :param pulumi.Input['IdentityType'] type: Type of managed service identity.
-        :param pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        Identity for the resource.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -643,26 +787,26 @@ class IdentityArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['IdentityType']]:
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
-        Type of managed service identity.
+        The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['IdentityType']]):
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -692,6 +836,7 @@ class IpRuleArgs:
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
+                 identity_client_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_vault_uri: Optional[pulumi.Input[str]] = None,
                  key_version: Optional[pulumi.Input[str]] = None):
@@ -701,12 +846,23 @@ class KeyVaultPropertiesArgs:
         :param pulumi.Input[str] key_vault_uri: Uri of KeyVault
         :param pulumi.Input[str] key_version: Version of the Key from KeyVault
         """
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
         if key_name is not None:
             pulumi.set(__self__, "key_name", key_name)
         if key_vault_uri is not None:
             pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
 
     @property
     @pulumi.getter(name="keyName")
@@ -743,6 +899,42 @@ class KeyVaultPropertiesArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
+class MultiRegionSettingsArgs:
+    def __init__(__self__, *,
+                 regions: Optional[pulumi.Input[Sequence[pulumi.Input['RegionSettingArgs']]]] = None,
+                 routing_method: Optional[pulumi.Input[Union[str, 'RoutingMethods']]] = None):
+        """
+        The multiregion settings Cognitive Services account.
+        :param pulumi.Input[Union[str, 'RoutingMethods']] routing_method: Multiregion routing methods.
+        """
+        if regions is not None:
+            pulumi.set(__self__, "regions", regions)
+        if routing_method is not None:
+            pulumi.set(__self__, "routing_method", routing_method)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegionSettingArgs']]]]:
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegionSettingArgs']]]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="routingMethod")
+    def routing_method(self) -> Optional[pulumi.Input[Union[str, 'RoutingMethods']]]:
+        """
+        Multiregion routing methods.
+        """
+        return pulumi.get(self, "routing_method")
+
+    @routing_method.setter
+    def routing_method(self, value: Optional[pulumi.Input[Union[str, 'RoutingMethods']]]):
+        pulumi.set(self, "routing_method", value)
 
 
 @pulumi.input_type
@@ -841,46 +1033,6 @@ class PrivateEndpointConnectionPropertiesArgs:
 
 
 @pulumi.input_type
-class PrivateEndpointConnectionArgs:
-    def __init__(__self__, *,
-                 location: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']] = None):
-        """
-        The Private Endpoint Connection resource.
-        :param pulumi.Input[str] location: The location of the private endpoint connection
-        :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: Resource properties.
-        """
-        if location is not None:
-            pulumi.set(__self__, "location", location)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The location of the private endpoint connection
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']]:
-        """
-        Resource properties.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['PrivateEndpointConnectionPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
-
-@pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  actions_required: Optional[pulumi.Input[str]] = None,
@@ -937,20 +1089,92 @@ class PrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
+class RegionSettingArgs:
+    def __init__(__self__, *,
+                 customsubdomain: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        The call rate limit Cognitive Services account.
+        :param pulumi.Input[str] customsubdomain: Maps the region to the regional custom subdomain.
+        :param pulumi.Input[str] name: Name of the region.
+        :param pulumi.Input[float] value: A value for priority or weighted routing methods.
+        """
+        if customsubdomain is not None:
+            pulumi.set(__self__, "customsubdomain", customsubdomain)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def customsubdomain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Maps the region to the regional custom subdomain.
+        """
+        return pulumi.get(self, "customsubdomain")
+
+    @customsubdomain.setter
+    def customsubdomain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customsubdomain", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the region.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        A value for priority or weighted routing methods.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: pulumi.Input[str],
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 tier: Optional[pulumi.Input[Union[str, 'SkuTier']]] = None):
         """
-        The SKU of the cognitive services account.
-        :param pulumi.Input[str] name: Gets or sets the sku name. Required for account creation, optional for update.
+        The resource model definition representing SKU
+        :param pulumi.Input[str] name: The name of the SKU. Ex - P3. It is typically a letter+number code
+        :param pulumi.Input[int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        :param pulumi.Input[str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
+        :param pulumi.Input[str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param pulumi.Input[Union[str, 'SkuTier']] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Gets or sets the sku name. Required for account creation, optional for update.
+        The name of the SKU. Ex - P3. It is typically a letter+number code
         """
         return pulumi.get(self, "name")
 
@@ -958,57 +1182,77 @@ class SkuArgs:
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
+        """
+        return pulumi.get(self, "capacity")
 
-@pulumi.input_type
-class UserAssignedIdentityArgs:
-    def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[str]] = None,
-                 principal_id: Optional[pulumi.Input[str]] = None):
-        """
-        User-assigned managed identity.
-        :param pulumi.Input[str] client_id: Client App Id associated with this identity.
-        :param pulumi.Input[str] principal_id: Azure Active Directory principal ID associated with this Identity.
-        """
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
 
     @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
         """
-        Client App Id associated with this identity.
+        If the service has different generations of hardware, for the same SKU, then that can be captured here.
         """
-        return pulumi.get(self, "client_id")
+        return pulumi.get(self, "family")
 
-    @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "client_id", value)
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
         """
-        Azure Active Directory principal ID associated with this Identity.
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         """
-        return pulumi.get(self, "principal_id")
+        return pulumi.get(self, "size")
 
-    @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "principal_id", value)
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[Union[str, 'SkuTier']]]:
+        """
+        This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[Union[str, 'SkuTier']]]):
+        pulumi.set(self, "tier", value)
 
 
 @pulumi.input_type
 class UserOwnedStorageArgs:
     def __init__(__self__, *,
+                 identity_client_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None):
         """
         The user owned storage for Cognitive Services account.
         :param pulumi.Input[str] resource_id: Full resource id of a Microsoft.Storage resource.
         """
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_client_id", value)
 
     @property
     @pulumi.getter(name="resourceId")

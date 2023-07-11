@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
     public sealed class MigrateSqlServerSqlMITaskPropertiesResponse
     {
         /// <summary>
+        /// Key value pairs of client data to attach meta data information to task
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ClientData;
+        /// <summary>
         /// Array of command properties.
         /// </summary>
         public readonly ImmutableArray<Union<Outputs.MigrateMISyncCompleteCommandPropertiesResponse, Outputs.MigrateSyncCompleteCommandPropertiesResponse>> Commands;
@@ -44,6 +48,8 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
         [OutputConstructor]
         private MigrateSqlServerSqlMITaskPropertiesResponse(
+            ImmutableDictionary<string, string>? clientData,
+
             ImmutableArray<Union<Outputs.MigrateMISyncCompleteCommandPropertiesResponse, Outputs.MigrateSyncCompleteCommandPropertiesResponse>> commands,
 
             ImmutableArray<Outputs.ODataErrorResponse> errors,
@@ -56,6 +62,7 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             string taskType)
         {
+            ClientData = clientData;
             Commands = commands;
             Errors = errors;
             Input = input;

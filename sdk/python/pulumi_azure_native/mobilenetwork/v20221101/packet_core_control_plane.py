@@ -363,7 +363,7 @@ class PacketCoreControlPlane(pulumi.CustomResource):
             __props__.__dict__["rollback_version"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork:PacketCoreControlPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:mobilenetwork:PacketCoreControlPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20220401preview:PacketCoreControlPlane"), pulumi.Alias(type_="azure-native:mobilenetwork/v20230601:PacketCoreControlPlane")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PacketCoreControlPlane, __self__).__init__(
             'azure-native:mobilenetwork/v20221101:PacketCoreControlPlane',

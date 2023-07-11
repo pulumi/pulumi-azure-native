@@ -10,27 +10,31 @@ export const getLedger: typeof import("./getLedger").getLedger = null as any;
 export const getLedgerOutput: typeof import("./getLedger").getLedgerOutput = null as any;
 utilities.lazyLoad(exports, ["getLedger","getLedgerOutput"], () => require("./getLedger"));
 
+export { GetManagedCCFArgs, GetManagedCCFResult, GetManagedCCFOutputArgs } from "./getManagedCCF";
+export const getManagedCCF: typeof import("./getManagedCCF").getManagedCCF = null as any;
+export const getManagedCCFOutput: typeof import("./getManagedCCF").getManagedCCFOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedCCF","getManagedCCFOutput"], () => require("./getManagedCCF"));
+
 export { LedgerArgs } from "./ledger";
 export type Ledger = import("./ledger").Ledger;
 export const Ledger: typeof import("./ledger").Ledger = null as any;
 utilities.lazyLoad(exports, ["Ledger"], () => require("./ledger"));
+
+export { ManagedCCFArgs } from "./managedCCF";
+export type ManagedCCF = import("./managedCCF").ManagedCCF;
+export const ManagedCCF: typeof import("./managedCCF").ManagedCCF = null as any;
+utilities.lazyLoad(exports, ["ManagedCCF"], () => require("./managedCCF"));
 
 
 // Export enums:
 export * from "../types/enums/confidentialledger";
 
 // Export sub-modules:
-import * as v20201201preview from "./v20201201preview";
-import * as v20210513preview from "./v20210513preview";
 import * as v20220513 from "./v20220513";
-import * as v20220908preview from "./v20220908preview";
 import * as v20230126preview from "./v20230126preview";
 
 export {
-    v20201201preview,
-    v20210513preview,
     v20220513,
-    v20220908preview,
     v20230126preview,
 };
 
@@ -40,6 +44,8 @@ const _module = {
         switch (type) {
             case "azure-native:confidentialledger:Ledger":
                 return new Ledger(name, <any>undefined, { urn })
+            case "azure-native:confidentialledger:ManagedCCF":
+                return new ManagedCCF(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

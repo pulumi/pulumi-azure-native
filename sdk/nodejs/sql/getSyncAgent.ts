@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a sync agent.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getSyncAgent(args: GetSyncAgentArgs, opts?: pulumi.InvokeOptions): Promise<GetSyncAgentResult> {
 
@@ -76,7 +76,7 @@ export interface GetSyncAgentResult {
 }
 /**
  * Gets a sync agent.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getSyncAgentOutput(args: GetSyncAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncAgentResult> {
     return pulumi.output(args).apply((a: any) => getSyncAgent(a, opts))

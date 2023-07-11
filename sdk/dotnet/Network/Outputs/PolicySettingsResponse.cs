@@ -17,9 +17,25 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class PolicySettingsResponse
     {
         /// <summary>
+        /// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
+        /// </summary>
+        public readonly string? CustomBlockResponseBody;
+        /// <summary>
+        /// If the action type is block, customer can override the response status code.
+        /// </summary>
+        public readonly int? CustomBlockResponseStatusCode;
+        /// <summary>
+        /// Whether allow WAF to enforce file upload limits.
+        /// </summary>
+        public readonly bool? FileUploadEnforcement;
+        /// <summary>
         /// Maximum file upload size in Mb for WAF.
         /// </summary>
         public readonly int? FileUploadLimitInMb;
+        /// <summary>
+        /// To scrub sensitive log fields
+        /// </summary>
+        public readonly Outputs.PolicySettingsResponseLogScrubbing? LogScrubbing;
         /// <summary>
         /// Maximum request body size in Kb for WAF.
         /// </summary>
@@ -33,13 +49,29 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly bool? RequestBodyCheck;
         /// <summary>
+        /// Whether allow WAF to enforce request body limits.
+        /// </summary>
+        public readonly bool? RequestBodyEnforcement;
+        /// <summary>
+        /// Max inspection limit in KB for request body inspection for WAF.
+        /// </summary>
+        public readonly int? RequestBodyInspectLimitInKB;
+        /// <summary>
         /// The state of the policy.
         /// </summary>
         public readonly string? State;
 
         [OutputConstructor]
         private PolicySettingsResponse(
+            string? customBlockResponseBody,
+
+            int? customBlockResponseStatusCode,
+
+            bool? fileUploadEnforcement,
+
             int? fileUploadLimitInMb,
+
+            Outputs.PolicySettingsResponseLogScrubbing? logScrubbing,
 
             int? maxRequestBodySizeInKb,
 
@@ -47,12 +79,22 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             bool? requestBodyCheck,
 
+            bool? requestBodyEnforcement,
+
+            int? requestBodyInspectLimitInKB,
+
             string? state)
         {
+            CustomBlockResponseBody = customBlockResponseBody;
+            CustomBlockResponseStatusCode = customBlockResponseStatusCode;
+            FileUploadEnforcement = fileUploadEnforcement;
             FileUploadLimitInMb = fileUploadLimitInMb;
+            LogScrubbing = logScrubbing;
             MaxRequestBodySizeInKb = maxRequestBodySizeInKb;
             Mode = mode;
             RequestBodyCheck = requestBodyCheck;
+            RequestBodyEnforcement = requestBodyEnforcement;
+            RequestBodyInspectLimitInKB = requestBodyInspectLimitInKB;
             State = state;
         }
     }

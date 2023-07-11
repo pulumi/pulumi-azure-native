@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Service Token
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getOnlineEndpointToken(args: GetOnlineEndpointTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetOnlineEndpointTokenResult> {
 
@@ -38,7 +38,7 @@ export interface GetOnlineEndpointTokenArgs {
  */
 export interface GetOnlineEndpointTokenResult {
     /**
-     * Access token.
+     * Access token for endpoint authentication.
      */
     readonly accessToken?: string;
     /**
@@ -56,7 +56,7 @@ export interface GetOnlineEndpointTokenResult {
 }
 /**
  * Service Token
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getOnlineEndpointTokenOutput(args: GetOnlineEndpointTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOnlineEndpointTokenResult> {
     return pulumi.output(args).apply((a: any) => getOnlineEndpointToken(a, opts))

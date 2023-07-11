@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Workload group operations for a sql pool
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:SqlPoolWorkloadGroup")]
     public partial class SqlPoolWorkloadGroup : global::Pulumi.CustomResource
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string>? WorkloadGroupName { get; set; }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

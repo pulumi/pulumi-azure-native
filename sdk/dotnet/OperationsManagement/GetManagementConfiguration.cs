@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationsManagement
     {
         /// <summary>
         /// Retrieves the user ManagementConfiguration.
-        /// API Version: 2015-11-01-preview.
+        /// Azure REST API version: 2015-11-01-preview.
         /// </summary>
         public static Task<GetManagementConfigurationResult> InvokeAsync(GetManagementConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementConfigurationResult>("azure-native:operationsmanagement:getManagementConfiguration", args ?? new GetManagementConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the user ManagementConfiguration.
-        /// API Version: 2015-11-01-preview.
+        /// Azure REST API version: 2015-11-01-preview.
         /// </summary>
         public static Output<GetManagementConfigurationResult> Invoke(GetManagementConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementConfigurationResult>("azure-native:operationsmanagement:getManagementConfiguration", args ?? new GetManagementConfigurationInvokeArgs(), options.WithDefaults());

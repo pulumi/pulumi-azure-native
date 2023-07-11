@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['PoolArgs', 'Pool']
 
@@ -24,6 +25,7 @@ class PoolArgs:
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  pool_name: Optional[pulumi.Input[str]] = None,
+                 stop_on_disconnect: Optional[pulumi.Input['StopOnDisconnectConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Pool resource.
@@ -32,9 +34,10 @@ class PoolArgs:
         :param pulumi.Input[Union[str, 'LocalAdminStatus']] local_administrator: Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.
         :param pulumi.Input[str] network_connection_name: Name of a Network Connection in parent Project of this Pool
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] pool_name: Name of the pool.
+        :param pulumi.Input['StopOnDisconnectConfigurationArgs'] stop_on_disconnect: Stop on disconnect configuration settings for Dev Boxes created in this pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
@@ -47,6 +50,8 @@ class PoolArgs:
             pulumi.set(__self__, "location", location)
         if pool_name is not None:
             pulumi.set(__self__, "pool_name", pool_name)
+        if stop_on_disconnect is not None:
+            pulumi.set(__self__, "stop_on_disconnect", stop_on_disconnect)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -114,7 +119,7 @@ class PoolArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -147,6 +152,18 @@ class PoolArgs:
         pulumi.set(self, "pool_name", value)
 
     @property
+    @pulumi.getter(name="stopOnDisconnect")
+    def stop_on_disconnect(self) -> Optional[pulumi.Input['StopOnDisconnectConfigurationArgs']]:
+        """
+        Stop on disconnect configuration settings for Dev Boxes created in this pool.
+        """
+        return pulumi.get(self, "stop_on_disconnect")
+
+    @stop_on_disconnect.setter
+    def stop_on_disconnect(self, value: Optional[pulumi.Input['StopOnDisconnectConfigurationArgs']]):
+        pulumi.set(self, "stop_on_disconnect", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -172,11 +189,12 @@ class Pool(pulumi.CustomResource):
                  pool_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 stop_on_disconnect: Optional[pulumi.Input[pulumi.InputType['StopOnDisconnectConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         A pool of Virtual Machines.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,7 +205,8 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] network_connection_name: Name of a Network Connection in parent Project of this Pool
         :param pulumi.Input[str] pool_name: Name of the pool.
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['StopOnDisconnectConfigurationArgs']] stop_on_disconnect: Stop on disconnect configuration settings for Dev Boxes created in this pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -198,7 +217,7 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A pool of Virtual Machines.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.
@@ -223,6 +242,7 @@ class Pool(pulumi.CustomResource):
                  pool_name: Optional[pulumi.Input[str]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 stop_on_disconnect: Optional[pulumi.Input[pulumi.InputType['StopOnDisconnectConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -253,12 +273,15 @@ class Pool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["stop_on_disconnect"] = stop_on_disconnect
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["health_status"] = None
+            __props__.__dict__["health_status_details"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Pool"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-native:devcenter:Pool',
@@ -283,12 +306,15 @@ class Pool(pulumi.CustomResource):
         __props__ = PoolArgs.__new__(PoolArgs)
 
         __props__.__dict__["dev_box_definition_name"] = None
+        __props__.__dict__["health_status"] = None
+        __props__.__dict__["health_status_details"] = None
         __props__.__dict__["license_type"] = None
         __props__.__dict__["local_administrator"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_connection_name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["stop_on_disconnect"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -301,6 +327,22 @@ class Pool(pulumi.CustomResource):
         Name of a Dev Box definition in parent Project of this Pool
         """
         return pulumi.get(self, "dev_box_definition_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> pulumi.Output[str]:
+        """
+        Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="healthStatusDetails")
+    def health_status_details(self) -> pulumi.Output[Sequence['outputs.HealthStatusDetailResponse']]:
+        """
+        Details on the Pool health status to help diagnose issues. This is only populated when the pool status indicates the pool is in a non-healthy state
+        """
+        return pulumi.get(self, "health_status_details")
 
     @property
     @pulumi.getter(name="licenseType")
@@ -349,6 +391,14 @@ class Pool(pulumi.CustomResource):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="stopOnDisconnect")
+    def stop_on_disconnect(self) -> pulumi.Output[Optional['outputs.StopOnDisconnectConfigurationResponse']]:
+        """
+        Stop on disconnect configuration settings for Dev Boxes created in this pool.
+        """
+        return pulumi.get(self, "stop_on_disconnect")
 
     @property
     @pulumi.getter(name="systemData")

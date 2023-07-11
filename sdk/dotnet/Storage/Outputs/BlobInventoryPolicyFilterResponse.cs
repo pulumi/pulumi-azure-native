@@ -11,25 +11,33 @@ namespace Pulumi.AzureNative.Storage.Outputs
 {
 
     /// <summary>
-    /// An object that defines the blob inventory rule filter conditions.
+    /// An object that defines the blob inventory rule filter conditions. For 'Blob' definition.objectType all filter properties are applicable, 'blobTypes' is required and others are optional. For 'Container' definition.objectType only prefixMatch is applicable and is optional.
     /// </summary>
     [OutputType]
     public sealed class BlobInventoryPolicyFilterResponse
     {
         /// <summary>
-        /// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs.
+        /// An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'.
         /// </summary>
         public readonly ImmutableArray<string> BlobTypes;
         /// <summary>
-        /// Includes blob versions in blob inventory when value set to true.
+        /// An array of strings with maximum 10 blob prefixes to be excluded from the inventory.
+        /// </summary>
+        public readonly ImmutableArray<string> ExcludePrefix;
+        /// <summary>
+        /// Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded.
         /// </summary>
         public readonly bool? IncludeBlobVersions;
         /// <summary>
-        /// Includes blob snapshots in blob inventory when value set to true.
+        /// For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded.
+        /// </summary>
+        public readonly bool? IncludeDeleted;
+        /// <summary>
+        /// Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded.
         /// </summary>
         public readonly bool? IncludeSnapshots;
         /// <summary>
-        /// An array of strings for blob prefixes to be matched.
+        /// An array of strings with maximum 10 blob prefixes to be included in the inventory.
         /// </summary>
         public readonly ImmutableArray<string> PrefixMatch;
 
@@ -37,14 +45,20 @@ namespace Pulumi.AzureNative.Storage.Outputs
         private BlobInventoryPolicyFilterResponse(
             ImmutableArray<string> blobTypes,
 
+            ImmutableArray<string> excludePrefix,
+
             bool? includeBlobVersions,
+
+            bool? includeDeleted,
 
             bool? includeSnapshots,
 
             ImmutableArray<string> prefixMatch)
         {
             BlobTypes = blobTypes;
+            ExcludePrefix = excludePrefix;
             IncludeBlobVersions = includeBlobVersions;
+            IncludeDeleted = includeDeleted;
             IncludeSnapshots = includeSnapshots;
             PrefixMatch = prefixMatch;
         }

@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.StorageCache.Inputs
 {
 
     /// <summary>
-    /// SKU for the Cache.
+    /// SKU for the cache.
     /// </summary>
     public sealed class CacheSkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SKU name for this Cache.
+        /// SKU name for this cache.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

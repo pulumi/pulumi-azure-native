@@ -106,10 +106,10 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListWorkspaceNotebookAccessTokenResult:
     """
     return notebook access token and refresh token
-    API Version: 2021-01-01.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     __args__ = dict()
@@ -135,10 +135,10 @@ def list_workspace_notebook_access_token_output(resource_group_name: Optional[pu
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListWorkspaceNotebookAccessTokenResult]:
     """
     return notebook access token and refresh token
-    API Version: 2021-01-01.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str resource_group_name: Name of the resource group in which workspace is located.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
     ...

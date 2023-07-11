@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
     /// <summary>
     /// Represents a relation between two resources
     /// </summary>
-    [Obsolete(@"azure-native:securityinsights/v20230201:IncidentRelation is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:IncidentRelation to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:securityinsights/v20230201:IncidentRelation")]
     public partial class IncidentRelation : global::Pulumi.CustomResource
     {
@@ -109,7 +108,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221101preview:IncidentRelation"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:IncidentRelation"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:IncidentRelation"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:IncidentRelation"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:IncidentRelation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

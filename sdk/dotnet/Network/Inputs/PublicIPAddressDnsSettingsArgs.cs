@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         public Input<string>? DomainNameLabel { get; set; }
 
         /// <summary>
+        /// The domain name label scope. If a domain name label and a domain name label scope are specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system with a hashed value includes in FQDN.
+        /// </summary>
+        [Input("domainNameLabelScope")]
+        public Input<Pulumi.AzureNative.Network.PublicIpAddressDnsSettingsDomainNameLabelScope>? DomainNameLabelScope { get; set; }
+
+        /// <summary>
         /// The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
         /// </summary>
         [Input("fqdn")]

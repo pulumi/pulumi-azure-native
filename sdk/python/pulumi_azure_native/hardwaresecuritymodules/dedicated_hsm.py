@@ -20,6 +20,7 @@ class DedicatedHsmArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  location: Optional[pulumi.Input[str]] = None,
+                 management_network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
                  stamp_id: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,7 @@ class DedicatedHsmArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the resource belongs.
         :param pulumi.Input['SkuArgs'] sku: SKU details
         :param pulumi.Input[str] location: The supported Azure location where the dedicated HSM should be created.
+        :param pulumi.Input['NetworkProfileArgs'] management_network_profile: Specifies the management network interfaces of the dedicated hsm.
         :param pulumi.Input[str] name: Name of the dedicated Hsm
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Specifies the network interfaces of the dedicated hsm.
         :param pulumi.Input[str] stamp_id: This field will be used when RP does not support Availability zones.
@@ -40,6 +42,8 @@ class DedicatedHsmArgs:
         pulumi.set(__self__, "sku", sku)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if management_network_profile is not None:
+            pulumi.set(__self__, "management_network_profile", management_network_profile)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_profile is not None:
@@ -86,6 +90,18 @@ class DedicatedHsmArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="managementNetworkProfile")
+    def management_network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+        """
+        Specifies the management network interfaces of the dedicated hsm.
+        """
+        return pulumi.get(self, "management_network_profile")
+
+    @management_network_profile.setter
+    def management_network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+        pulumi.set(self, "management_network_profile", value)
 
     @property
     @pulumi.getter
@@ -154,6 +170,7 @@ class DedicatedHsm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 management_network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -164,11 +181,12 @@ class DedicatedHsm(pulumi.CustomResource):
                  __props__=None):
         """
         Resource information with extended details.
-        API Version: 2018-10-31-preview.
+        Azure REST API version: 2021-11-30. Prior API version in Azure Native 1.x: 2018-10-31-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the dedicated HSM should be created.
+        :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] management_network_profile: Specifies the management network interfaces of the dedicated hsm.
         :param pulumi.Input[str] name: Name of the dedicated Hsm
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: Specifies the network interfaces of the dedicated hsm.
         :param pulumi.Input[str] resource_group_name: The name of the Resource Group to which the resource belongs.
@@ -185,7 +203,7 @@ class DedicatedHsm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information with extended details.
-        API Version: 2018-10-31-preview.
+        Azure REST API version: 2021-11-30. Prior API version in Azure Native 1.x: 2018-10-31-preview
 
         :param str resource_name: The name of the resource.
         :param DedicatedHsmArgs args: The arguments to use to populate this resource's properties.
@@ -203,6 +221,7 @@ class DedicatedHsm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 management_network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  network_profile: Optional[pulumi.Input[pulumi.InputType['NetworkProfileArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -220,6 +239,7 @@ class DedicatedHsm(pulumi.CustomResource):
             __props__ = DedicatedHsmArgs.__new__(DedicatedHsmArgs)
 
             __props__.__dict__["location"] = location
+            __props__.__dict__["management_network_profile"] = management_network_profile
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
             if resource_group_name is None and not opts.urn:
@@ -233,6 +253,7 @@ class DedicatedHsm(pulumi.CustomResource):
             __props__.__dict__["zones"] = zones
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status_message"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm"), pulumi.Alias(type_="azure-native:hardwaresecuritymodules/v20211130:DedicatedHsm")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -259,12 +280,14 @@ class DedicatedHsm(pulumi.CustomResource):
         __props__ = DedicatedHsmArgs.__new__(DedicatedHsmArgs)
 
         __props__.__dict__["location"] = None
+        __props__.__dict__["management_network_profile"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_profile"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["stamp_id"] = None
         __props__.__dict__["status_message"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["zones"] = None
@@ -277,6 +300,14 @@ class DedicatedHsm(pulumi.CustomResource):
         The supported Azure location where the dedicated HSM should be created.
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="managementNetworkProfile")
+    def management_network_profile(self) -> pulumi.Output[Optional['outputs.NetworkProfileResponse']]:
+        """
+        Specifies the management network interfaces of the dedicated hsm.
+        """
+        return pulumi.get(self, "management_network_profile")
 
     @property
     @pulumi.getter
@@ -325,6 +356,14 @@ class DedicatedHsm(pulumi.CustomResource):
         Resource Status Message.
         """
         return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the specified token.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2022-12-01.
  */
 export function getToken(args: GetTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetTokenResult> {
 
@@ -27,7 +27,7 @@ export interface GetTokenArgs {
      */
     registryName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -79,7 +79,7 @@ export interface GetTokenResult {
 }
 /**
  * Gets the properties of the specified token.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2022-12-01.
  */
 export function getTokenOutput(args: GetTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTokenResult> {
     return pulumi.output(args).apply((a: any) => getToken(a, opts))
@@ -91,7 +91,7 @@ export interface GetTokenOutputArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

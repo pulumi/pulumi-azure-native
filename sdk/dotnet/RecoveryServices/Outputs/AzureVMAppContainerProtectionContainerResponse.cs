@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? OperationType;
         /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        public readonly string? ProtectableObjectType;
+        /// <summary>
         /// Status of registration of the container with the Recovery Services Vault.
         /// </summary>
         public readonly string? RegistrationStatus;
@@ -77,6 +81,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? operationType,
 
+            string? protectableObjectType,
+
             string? registrationStatus,
 
             string? sourceResourceId,
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             HealthStatus = healthStatus;
             LastUpdatedTime = lastUpdatedTime;
             OperationType = operationType;
+            ProtectableObjectType = protectableObjectType;
             RegistrationStatus = registrationStatus;
             SourceResourceId = sourceResourceId;
             WorkloadType = workloadType;

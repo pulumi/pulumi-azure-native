@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"gopkg.in/yaml.v3"
 )
 
@@ -24,7 +24,7 @@ const (
 
 const ExclusionAllVersions = "*"
 
-// providerCuration contains manual  edits to the automatically determined API versions for a resource provider
+// providerCuration contains manual edits to the automatically determined API versions for a resource provider
 type providerCuration struct {
 	// Exclude these resources from the provider. Used when generating the final vN.json from vN-config.yaml.
 	// The value is the API version to exclude, or `*` to exclude all versions.
@@ -42,6 +42,7 @@ type providerCuration struct {
 // Curations contains manual edits to the automatically determined API versions
 type Curations map[openapi.ProviderName]providerCuration
 
+// The error is returned when the exclusion is specified but the range doesn't include the requested version
 func (curation providerCuration) IsExcluded(resourceName openapi.ResourceName, apiVersion openapi.ApiVersion) (bool, error) {
 	if curation.Exclusions == nil {
 		return false, nil
@@ -53,7 +54,8 @@ func (curation providerCuration) IsExcluded(resourceName openapi.ResourceName, a
 	if excludedMaxVersion == ExclusionAllVersions {
 		return true, nil
 	}
-	if apiVersion > excludedMaxVersion {
+
+	if openapi.CompareApiVersions(apiVersion, excludedMaxVersion) > 0 {
 		return false, fmt.Errorf("version %s is greater than %s", apiVersion, excludedMaxVersion)
 	}
 	return true, nil

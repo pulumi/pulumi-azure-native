@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Storage resource for managedEnvironment.
- *
- * @deprecated azure-native:app/v20221001:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ManagedEnvironmentsStorage to guarantee forwards compatibility.
  */
 export class ManagedEnvironmentsStorage extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ManagedEnvironmentsStorage extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedEnvironmentsStorage {
-        pulumi.log.warn("ManagedEnvironmentsStorage is deprecated: azure-native:app/v20221001:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ManagedEnvironmentsStorage to guarantee forwards compatibility.")
         return new ManagedEnvironmentsStorage(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +61,7 @@ export class ManagedEnvironmentsStorage extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:app/v20221001:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ManagedEnvironmentsStorage to guarantee forwards compatibility. */
     constructor(name: string, args: ManagedEnvironmentsStorageArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagedEnvironmentsStorage is deprecated: azure-native:app/v20221001:ManagedEnvironmentsStorage is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ManagedEnvironmentsStorage to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -90,7 +85,7 @@ export class ManagedEnvironmentsStorage extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220101preview:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220301:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220601preview:ManagedEnvironmentsStorage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220101preview:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220301:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20220601preview:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20221101preview:ManagedEnvironmentsStorage" }, { type: "azure-native:app/v20230401preview:ManagedEnvironmentsStorage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedEnvironmentsStorage.__pulumiType, name, resourceInputs, opts);
     }

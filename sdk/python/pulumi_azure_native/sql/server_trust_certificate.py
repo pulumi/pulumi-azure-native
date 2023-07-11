@@ -93,7 +93,7 @@ class ServerTrustCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
-        API Version: 2021-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +110,7 @@ class ServerTrustCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
-        API Version: 2021-05-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2021-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param ServerTrustCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -151,7 +151,7 @@ class ServerTrustCertificate(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerTrustCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerTrustCertificate"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerTrustCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerTrustCertificate, __self__).__init__(
             'azure-native:sql:ServerTrustCertificate',

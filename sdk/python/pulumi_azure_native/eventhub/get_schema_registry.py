@@ -165,7 +165,7 @@ def get_schema_registry(namespace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSchemaRegistryResult:
     """
     Gets the details of an EventHub schema group.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The Namespace name
@@ -200,7 +200,7 @@ def get_schema_registry_output(namespace_name: Optional[pulumi.Input[str]] = Non
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaRegistryResult]:
     """
     Gets the details of an EventHub schema group.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The Namespace name

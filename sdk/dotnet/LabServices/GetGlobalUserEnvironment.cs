@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.LabServices
     {
         /// <summary>
         /// Gets the virtual machine details
-        /// API Version: 2018-10-15.
+        /// Azure REST API version: 2018-10-15.
         /// </summary>
         public static Task<GetGlobalUserEnvironmentResult> InvokeAsync(GetGlobalUserEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGlobalUserEnvironmentResult>("azure-native:labservices:getGlobalUserEnvironment", args ?? new GetGlobalUserEnvironmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the virtual machine details
-        /// API Version: 2018-10-15.
+        /// Azure REST API version: 2018-10-15.
         /// </summary>
         public static Output<GetGlobalUserEnvironmentResult> Invoke(GetGlobalUserEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalUserEnvironmentResult>("azure-native:labservices:getGlobalUserEnvironment", args ?? new GetGlobalUserEnvironmentInvokeArgs(), options.WithDefaults());

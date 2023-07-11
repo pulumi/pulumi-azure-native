@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a private endpoint connection.
- * API Version: 2019-10-17-preview.
+ * Azure REST API version: 2021-07-01-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -37,37 +37,37 @@ export interface GetPrivateEndpointConnectionArgs {
 }
 
 /**
- * A private endpoint connection
+ * The Private Endpoint Connection resource.
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * Private endpoint which the connection belongs to.
+     * The resource of private end point.
      */
-    readonly privateEndpoint?: outputs.insights.PrivateEndpointPropertyResponse;
+    readonly privateEndpoint?: outputs.insights.PrivateEndpointResponse;
     /**
-     * Connection state of the private endpoint connection.
+     * A collection of information about the state of the connection between service consumer and provider.
      */
-    readonly privateLinkServiceConnectionState?: outputs.insights.PrivateLinkServiceConnectionStatePropertyResponse;
+    readonly privateLinkServiceConnectionState: outputs.insights.PrivateLinkServiceConnectionStateResponse;
     /**
-     * State of the private endpoint connection.
+     * The provisioning state of the private endpoint connection resource.
      */
     readonly provisioningState: string;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a private endpoint connection.
- * API Version: 2019-10-17-preview.
+ * Azure REST API version: 2021-07-01-preview.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

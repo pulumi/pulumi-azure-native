@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.IoTSecurity
     {
         /// <summary>
         /// Get device group
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2021-02-01-preview.
         /// </summary>
         public static Task<GetDeviceGroupResult> InvokeAsync(GetDeviceGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeviceGroupResult>("azure-native:iotsecurity:getDeviceGroup", args ?? new GetDeviceGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get device group
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2021-02-01-preview.
         /// </summary>
         public static Output<GetDeviceGroupResult> Invoke(GetDeviceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeviceGroupResult>("azure-native:iotsecurity:getDeviceGroup", args ?? new GetDeviceGroupInvokeArgs(), options.WithDefaults());

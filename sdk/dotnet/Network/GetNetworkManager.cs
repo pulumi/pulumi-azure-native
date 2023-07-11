@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Network Manager.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetNetworkManagerResult> InvokeAsync(GetNetworkManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerResult>("azure-native:network:getNetworkManager", args ?? new GetNetworkManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Network Manager.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetNetworkManagerResult> Invoke(GetNetworkManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerResult>("azure-native:network:getNetworkManager", args ?? new GetNetworkManagerInvokeArgs(), options.WithDefaults());
@@ -76,10 +76,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A friendly name for the network manager.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -102,11 +98,15 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Scope of Network Manager.
         /// </summary>
-        public readonly Outputs.NetworkManagerPropertiesResponseNetworkManagerScopes? NetworkManagerScopes;
+        public readonly Outputs.NetworkManagerPropertiesResponseNetworkManagerScopes NetworkManagerScopes;
         /// <summary>
-        /// The provisioning state of the scope assignment resource.
+        /// The provisioning state of the network manager resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
@@ -124,8 +124,6 @@ namespace Pulumi.AzureNative.Network
         private GetNetworkManagerResult(
             string? description,
 
-            string? displayName,
-
             string etag,
 
             string? id,
@@ -136,9 +134,11 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<string> networkManagerScopeAccesses,
 
-            Outputs.NetworkManagerPropertiesResponseNetworkManagerScopes? networkManagerScopes,
+            Outputs.NetworkManagerPropertiesResponseNetworkManagerScopes networkManagerScopes,
 
             string provisioningState,
+
+            string resourceGuid,
 
             Outputs.SystemDataResponse systemData,
 
@@ -147,7 +147,6 @@ namespace Pulumi.AzureNative.Network
             string type)
         {
             Description = description;
-            DisplayName = displayName;
             Etag = etag;
             Id = id;
             Location = location;
@@ -155,6 +154,7 @@ namespace Pulumi.AzureNative.Network
             NetworkManagerScopeAccesses = networkManagerScopeAccesses;
             NetworkManagerScopes = networkManagerScopes;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SystemData = systemData;
             Tags = tags;
             Type = type;

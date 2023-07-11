@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Represents subscription registered features
+    /// Represents subscription registered features.
     /// </summary>
     public sealed class CustomerSubscriptionRegisteredFeatures : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of subscription registered feature
+        /// Name of subscription registered feature.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// State of subscription registered feature
+        /// State of subscription registered feature.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }

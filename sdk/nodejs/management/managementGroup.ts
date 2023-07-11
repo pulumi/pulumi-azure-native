@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The management group details.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2021-04-01. Prior API version in Azure Native 1.x: 2020-05-01
  */
 export class ManagementGroup extends pulumi.CustomResource {
     /**

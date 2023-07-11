@@ -5,8 +5,27 @@
 from enum import Enum
 
 __all__ = [
+    'Kind',
+    'Name',
     'SigningKey',
 ]
+
+
+class Kind(str, Enum):
+    """
+    Get or Set Kind property.
+    """
+    GEN1 = "Gen1"
+    GEN2 = "Gen2"
+
+
+class Name(str, Enum):
+    """
+    The name of the SKU, in standard format (such as S0).
+    """
+    S0 = "S0"
+    S1 = "S1"
+    G2 = "G2"
 
 
 class SigningKey(str, Enum):

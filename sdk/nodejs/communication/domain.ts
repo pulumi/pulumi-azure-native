@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A class representing a Domains resource.
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -83,10 +83,6 @@ export class Domain extends pulumi.CustomResource {
      */
     public readonly userEngagementTracking!: pulumi.Output<string | undefined>;
     /**
-     * Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
-     */
-    public readonly validSenderUsernames!: pulumi.Output<{[key: string]: string} | undefined>;
-    /**
      * List of DnsRecord
      */
     public /*out*/ readonly verificationRecords!: pulumi.Output<outputs.communication.DomainPropertiesResponseVerificationRecords>;
@@ -122,7 +118,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["userEngagementTracking"] = args ? args.userEngagementTracking : undefined;
-            resourceInputs["validSenderUsernames"] = args ? args.validSenderUsernames : undefined;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["fromSenderDomain"] = undefined /*out*/;
             resourceInputs["mailFromSenderDomain"] = undefined /*out*/;
@@ -144,12 +139,11 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["userEngagementTracking"] = undefined /*out*/;
-            resourceInputs["validSenderUsernames"] = undefined /*out*/;
             resourceInputs["verificationRecords"] = undefined /*out*/;
             resourceInputs["verificationStates"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:Domain" }, { type: "azure-native:communication/v20220701preview:Domain" }, { type: "azure-native:communication/v20230331:Domain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication/v20211001preview:Domain" }, { type: "azure-native:communication/v20220701preview:Domain" }, { type: "azure-native:communication/v20230301preview:Domain" }, { type: "azure-native:communication/v20230331:Domain" }, { type: "azure-native:communication/v20230401preview:Domain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Domain.__pulumiType, name, resourceInputs, opts);
     }
@@ -187,8 +181,4 @@ export interface DomainArgs {
      * Describes whether user engagement tracking is enabled or disabled.
      */
     userEngagementTracking?: pulumi.Input<string | enums.communication.UserEngagementTracking>;
-    /**
-     * Collection of valid sender usernames. This is a key-value pair where key=username and value=display name.
-     */
-    validSenderUsernames?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

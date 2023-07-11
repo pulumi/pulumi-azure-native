@@ -73,7 +73,7 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayBackendHealthOnDemandResult:
     """
     Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -123,7 +123,7 @@ def get_application_gateway_backend_health_on_demand_output(application_gateway_
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayBackendHealthOnDemandResult]:
     """
     Gets the backend health for given combination of backend pool and http setting of the specified application gateway in a resource group.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str application_gateway_name: The name of the application gateway.

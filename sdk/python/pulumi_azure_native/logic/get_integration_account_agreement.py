@@ -207,7 +207,7 @@ def get_integration_account_agreement(agreement_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountAgreementResult:
     """
     Gets an integration account agreement.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str agreement_name: The integration account agreement name.
@@ -245,7 +245,7 @@ def get_integration_account_agreement_output(agreement_name: Optional[pulumi.Inp
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountAgreementResult]:
     """
     Gets an integration account agreement.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str agreement_name: The integration account agreement name.

@@ -230,7 +230,7 @@ class FlowLog(pulumi.CustomResource):
                  __props__=None):
         """
         A flow log resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +255,7 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A flow log resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param FlowLogArgs args: The arguments to use to populate this resource's properties.
@@ -318,7 +318,7 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["target_resource_guid"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20191101:FlowLog"), pulumi.Alias(type_="azure-native:network/v20191201:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200301:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200401:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200501:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200601:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200701:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200801:FlowLog"), pulumi.Alias(type_="azure-native:network/v20201101:FlowLog"), pulumi.Alias(type_="azure-native:network/v20210201:FlowLog"), pulumi.Alias(type_="azure-native:network/v20210301:FlowLog"), pulumi.Alias(type_="azure-native:network/v20210501:FlowLog"), pulumi.Alias(type_="azure-native:network/v20210801:FlowLog"), pulumi.Alias(type_="azure-native:network/v20220101:FlowLog"), pulumi.Alias(type_="azure-native:network/v20220501:FlowLog"), pulumi.Alias(type_="azure-native:network/v20220701:FlowLog"), pulumi.Alias(type_="azure-native:network/v20220901:FlowLog")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20191101:FlowLog"), pulumi.Alias(type_="azure-native:network/v20191201:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200301:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200401:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200501:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200601:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200701:FlowLog"), pulumi.Alias(type_="azure-native:network/v20200801:FlowLog"), pulumi.Alias(type_="azure-native:network/v20201101:FlowLog"), pulumi.Alias(type_="azure-native:network/v20210201:FlowLog"), pulumi.Alias(type_="azure-native:network/v20210301:FlowLog"), pulumi.Alias(type_="azure-native:network/v20210501:FlowLog"), pulumi.Alias(type_="azure-native:network/v20210801:FlowLog"), pulumi.Alias(type_="azure-native:network/v20220101:FlowLog"), pulumi.Alias(type_="azure-native:network/v20220501:FlowLog"), pulumi.Alias(type_="azure-native:network/v20220701:FlowLog"), pulumi.Alias(type_="azure-native:network/v20220901:FlowLog"), pulumi.Alias(type_="azure-native:network/v20221101:FlowLog"), pulumi.Alias(type_="azure-native:network/v20230201:FlowLog")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FlowLog, __self__).__init__(
             'azure-native:network:FlowLog',

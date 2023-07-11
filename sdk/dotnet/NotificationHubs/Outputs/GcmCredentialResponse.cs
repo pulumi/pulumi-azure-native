@@ -17,22 +17,14 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
     public sealed class GcmCredentialResponse
     {
         /// <summary>
-        /// The FCM legacy endpoint. Default value is 'https://fcm.googleapis.com/fcm/send'
+        /// Description of a NotificationHub GcmCredential.
         /// </summary>
-        public readonly string? GcmEndpoint;
-        /// <summary>
-        /// The Google API key.
-        /// </summary>
-        public readonly string? GoogleApiKey;
+        public readonly Outputs.GcmCredentialPropertiesResponse Properties;
 
         [OutputConstructor]
-        private GcmCredentialResponse(
-            string? gcmEndpoint,
-
-            string? googleApiKey)
+        private GcmCredentialResponse(Outputs.GcmCredentialPropertiesResponse properties)
         {
-            GcmEndpoint = gcmEndpoint;
-            GoogleApiKey = googleApiKey;
+            Properties = properties;
         }
     }
 }

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// A short term retention policy.
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:BackupShortTermRetentionPolicy")]
     public partial class BackupShortTermRetentionPolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        /// </summary>
+        [Output("diffBackupIntervalInHours")]
+        public Output<int?> DiffBackupIntervalInHours { get; private set; } = null!;
+
         /// <summary>
         /// Resource name.
         /// </summary>
@@ -71,6 +77,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:BackupShortTermRetentionPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:BackupShortTermRetentionPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:BackupShortTermRetentionPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -99,6 +106,12 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
+
+        /// <summary>
+        /// The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        /// </summary>
+        [Input("diffBackupIntervalInHours")]
+        public Input<int>? DiffBackupIntervalInHours { get; set; }
 
         /// <summary>
         /// The policy name. Should always be "default".

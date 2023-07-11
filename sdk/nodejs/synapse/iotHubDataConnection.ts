@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing an iot hub data connection.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export class IotHubDataConnection extends pulumi.CustomResource {
     /**
@@ -225,7 +225,7 @@ export interface IotHubDataConnectionArgs {
      */
     tableName?: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

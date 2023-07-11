@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Devices.Outputs
     public sealed class IotHubPropertiesResponse
     {
         /// <summary>
+        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Iot Hub.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedFqdnList;
+        /// <summary>
         /// The shared access policies you can use to secure a connection to the IoT hub.
         /// </summary>
         public readonly ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleResponse> AuthorizationPolicies;
@@ -29,9 +33,33 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string? Comments;
         /// <summary>
+        /// The device streams properties of iothub.
+        /// </summary>
+        public readonly Outputs.IotHubPropertiesResponseDeviceStreams? DeviceStreams;
+        /// <summary>
+        /// If true, all device(including Edge devices but excluding modules) scoped SAS keys cannot be used for authentication.
+        /// </summary>
+        public readonly bool? DisableDeviceSAS;
+        /// <summary>
+        /// If true, SAS tokens with Iot hub scoped SAS keys cannot be used for authentication.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
+        /// If true, all module scoped SAS keys cannot be used for authentication.
+        /// </summary>
+        public readonly bool? DisableModuleSAS;
+        /// <summary>
+        /// This property when set to true, will enable data residency, thus, disabling disaster recovery.
+        /// </summary>
+        public readonly bool? EnableDataResidency;
+        /// <summary>
         /// If True, file upload notifications are enabled.
         /// </summary>
         public readonly bool? EnableFileUploadNotifications;
+        /// <summary>
+        /// The encryption properties for the IoT hub.
+        /// </summary>
+        public readonly Outputs.EncryptionPropertiesDescriptionResponse? Encryption;
         /// <summary>
         /// The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
         /// </summary>
@@ -48,6 +76,10 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// The IP filter rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.IpFilterRuleResponse> IpFilterRules;
+        /// <summary>
+        /// This property specifies the IP Version the hub is currently utilizing.
+        /// </summary>
+        public readonly string? IpVersion;
         /// <summary>
         /// Primary and secondary location for iot hub
         /// </summary>
@@ -77,6 +109,14 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
+        /// If true, egress from IotHub will be restricted to only the allowed FQDNs that are configured via allowedFqdnList.
+        /// </summary>
+        public readonly bool? RestrictOutboundNetworkAccess;
+        /// <summary>
+        /// This property store root certificate related information
+        /// </summary>
+        public readonly Outputs.RootCertificatePropertiesResponse? RootCertificate;
+        /// <summary>
         /// The routing related properties of the IoT hub. See: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messaging
         /// </summary>
         public readonly Outputs.RoutingPropertiesResponse? Routing;
@@ -91,13 +131,27 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
         [OutputConstructor]
         private IotHubPropertiesResponse(
+            ImmutableArray<string> allowedFqdnList,
+
             ImmutableArray<Outputs.SharedAccessSignatureAuthorizationRuleResponse> authorizationPolicies,
 
             Outputs.CloudToDevicePropertiesResponse? cloudToDevice,
 
             string? comments,
 
+            Outputs.IotHubPropertiesResponseDeviceStreams? deviceStreams,
+
+            bool? disableDeviceSAS,
+
+            bool? disableLocalAuth,
+
+            bool? disableModuleSAS,
+
+            bool? enableDataResidency,
+
             bool? enableFileUploadNotifications,
+
+            Outputs.EncryptionPropertiesDescriptionResponse? encryption,
 
             ImmutableDictionary<string, Outputs.EventHubPropertiesResponse>? eventHubEndpoints,
 
@@ -106,6 +160,8 @@ namespace Pulumi.AzureNative.Devices.Outputs
             string hostName,
 
             ImmutableArray<Outputs.IpFilterRuleResponse> ipFilterRules,
+
+            string? ipVersion,
 
             ImmutableArray<Outputs.IotHubLocationDescriptionResponse> locations,
 
@@ -121,20 +177,32 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             string? publicNetworkAccess,
 
+            bool? restrictOutboundNetworkAccess,
+
+            Outputs.RootCertificatePropertiesResponse? rootCertificate,
+
             Outputs.RoutingPropertiesResponse? routing,
 
             string state,
 
             ImmutableDictionary<string, Outputs.StorageEndpointPropertiesResponse>? storageEndpoints)
         {
+            AllowedFqdnList = allowedFqdnList;
             AuthorizationPolicies = authorizationPolicies;
             CloudToDevice = cloudToDevice;
             Comments = comments;
+            DeviceStreams = deviceStreams;
+            DisableDeviceSAS = disableDeviceSAS;
+            DisableLocalAuth = disableLocalAuth;
+            DisableModuleSAS = disableModuleSAS;
+            EnableDataResidency = enableDataResidency;
             EnableFileUploadNotifications = enableFileUploadNotifications;
+            Encryption = encryption;
             EventHubEndpoints = eventHubEndpoints;
             Features = features;
             HostName = hostName;
             IpFilterRules = ipFilterRules;
+            IpVersion = ipVersion;
             Locations = locations;
             MessagingEndpoints = messagingEndpoints;
             MinTlsVersion = minTlsVersion;
@@ -142,6 +210,8 @@ namespace Pulumi.AzureNative.Devices.Outputs
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            RestrictOutboundNetworkAccess = restrictOutboundNetworkAccess;
+            RootCertificate = rootCertificate;
             Routing = routing;
             State = state;
             StorageEndpoints = storageEndpoints;

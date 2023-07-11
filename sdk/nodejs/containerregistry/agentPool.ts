@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * The agentpool that has the ARM resource and properties.
  * The agentpool will have all information to create an agent pool.
- * API Version: 2019-06-01-preview.
+ * Azure REST API version: 2019-06-01-preview. Prior API version in Azure Native 1.x: 2019-06-01-preview
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

@@ -23,7 +23,7 @@ class GatewayArgs:
                  location_data: Optional[pulumi.Input['ResourceLocationDataContractArgs']] = None):
         """
         The set of arguments for constructing a Gateway resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] description: Gateway description
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
@@ -42,7 +42,7 @@ class GatewayArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -112,14 +112,14 @@ class Gateway(pulumi.CustomResource):
                  __props__=None):
         """
         Gateway details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Gateway description
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
         :param pulumi.Input[pulumi.InputType['ResourceLocationDataContractArgs']] location_data: Gateway location.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
         ...
@@ -130,7 +130,7 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Gateway details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.
@@ -172,7 +172,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Gateway")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Gateway"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Gateway")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Gateway, __self__).__init__(
             'azure-native:apimanagement:Gateway',
@@ -222,7 +222,7 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -230,7 +230,7 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

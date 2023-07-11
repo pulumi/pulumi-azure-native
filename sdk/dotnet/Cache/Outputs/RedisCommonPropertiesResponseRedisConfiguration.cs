@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Cache.Outputs
     public sealed class RedisCommonPropertiesResponseRedisConfiguration
     {
         /// <summary>
+        /// Specifies whether the aof backup is enabled
+        /// </summary>
+        public readonly string? AofBackupEnabled;
+        /// <summary>
         /// First storage account connection string
         /// </summary>
         public readonly string? AofStorageConnectionString0;
@@ -24,6 +28,10 @@ namespace Pulumi.AzureNative.Cache.Outputs
         /// Second storage account connection string
         /// </summary>
         public readonly string? AofStorageConnectionString1;
+        /// <summary>
+        /// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        /// </summary>
+        public readonly string? Authnotrequired;
         /// <summary>
         /// The max clients config
         /// </summary>
@@ -45,11 +53,19 @@ namespace Pulumi.AzureNative.Cache.Outputs
         /// </summary>
         public readonly string? MaxmemoryReserved;
         /// <summary>
+        /// Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
+        /// </summary>
+        public readonly string PreferredDataArchiveAuthMethod;
+        /// <summary>
+        /// Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+        /// </summary>
+        public readonly string? PreferredDataPersistenceAuthMethod;
+        /// <summary>
         /// Specifies whether the rdb backup is enabled
         /// </summary>
         public readonly string? RdbBackupEnabled;
         /// <summary>
-        /// Specifies the frequency for creating rdb backup
+        /// Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
         /// </summary>
         public readonly string? RdbBackupFrequency;
         /// <summary>
@@ -60,12 +76,24 @@ namespace Pulumi.AzureNative.Cache.Outputs
         /// The storage account connection string for storing rdb file
         /// </summary>
         public readonly string? RdbStorageConnectionString;
+        /// <summary>
+        /// SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
+        /// </summary>
+        public readonly string? StorageSubscriptionId;
+        /// <summary>
+        /// Zonal Configuration
+        /// </summary>
+        public readonly string ZonalConfiguration;
 
         [OutputConstructor]
         private RedisCommonPropertiesResponseRedisConfiguration(
+            string? aofBackupEnabled,
+
             string? aofStorageConnectionString0,
 
             string? aofStorageConnectionString1,
+
+            string? authnotrequired,
 
             string maxclients,
 
@@ -77,25 +105,39 @@ namespace Pulumi.AzureNative.Cache.Outputs
 
             string? maxmemoryReserved,
 
+            string preferredDataArchiveAuthMethod,
+
+            string? preferredDataPersistenceAuthMethod,
+
             string? rdbBackupEnabled,
 
             string? rdbBackupFrequency,
 
             string? rdbBackupMaxSnapshotCount,
 
-            string? rdbStorageConnectionString)
+            string? rdbStorageConnectionString,
+
+            string? storageSubscriptionId,
+
+            string zonalConfiguration)
         {
+            AofBackupEnabled = aofBackupEnabled;
             AofStorageConnectionString0 = aofStorageConnectionString0;
             AofStorageConnectionString1 = aofStorageConnectionString1;
+            Authnotrequired = authnotrequired;
             Maxclients = maxclients;
             MaxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
             MaxmemoryDelta = maxmemoryDelta;
             MaxmemoryPolicy = maxmemoryPolicy;
             MaxmemoryReserved = maxmemoryReserved;
+            PreferredDataArchiveAuthMethod = preferredDataArchiveAuthMethod;
+            PreferredDataPersistenceAuthMethod = preferredDataPersistenceAuthMethod;
             RdbBackupEnabled = rdbBackupEnabled;
             RdbBackupFrequency = rdbBackupFrequency;
             RdbBackupMaxSnapshotCount = rdbBackupMaxSnapshotCount;
             RdbStorageConnectionString = rdbStorageConnectionString;
+            StorageSubscriptionId = storageSubscriptionId;
+            ZonalConfiguration = zonalConfiguration;
         }
     }
 }

@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Gateway hostname configuration details.
- *
- * @deprecated azure-native:apimanagement/v20220801:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration to guarantee forwards compatibility.
  */
 export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GatewayHostnameConfiguration {
-        pulumi.log.warn("GatewayHostnameConfiguration is deprecated: azure-native:apimanagement/v20220801:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration to guarantee forwards compatibility.")
         return new GatewayHostnameConfiguration(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,9 +74,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration to guarantee forwards compatibility. */
     constructor(name: string, args: GatewayHostnameConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GatewayHostnameConfiguration is deprecated: azure-native:apimanagement/v20220801:GatewayHostnameConfiguration is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -115,7 +110,7 @@ export class GatewayHostnameConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20201201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20201201:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20210801:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration" }, { type: "azure-native:apimanagement/v20230301preview:GatewayHostnameConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayHostnameConfiguration.__pulumiType, name, resourceInputs, opts);
     }

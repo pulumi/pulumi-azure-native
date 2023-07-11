@@ -22,6 +22,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         public InputUnion<string, Pulumi.AzureNative.DocumentDB.AuthenticationMethod>? AuthenticationMethod { get; set; }
 
         /// <summary>
+        /// Whether Cassandra audit logging is enabled
+        /// </summary>
+        [Input("cassandraAuditLoggingEnabled")]
+        public Input<bool>? CassandraAuditLoggingEnabled { get; set; }
+
+        /// <summary>
         /// Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version.
         /// </summary>
         [Input("cassandraVersion")]
@@ -44,6 +50,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         /// </summary>
         [Input("clusterNameOverride")]
         public Input<string>? ClusterNameOverride { get; set; }
+
+        /// <summary>
+        /// Whether the cluster and associated data centers has been deallocated.
+        /// </summary>
+        [Input("deallocated")]
+        public Input<bool>? Deallocated { get; set; }
 
         /// <summary>
         /// Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/&lt;subscription id&gt;/resourceGroups/&lt;resource group&gt;/providers/Microsoft.Network/virtualNetworks/&lt;virtual network&gt;/subnets/&lt;subnet&gt;'
@@ -76,7 +88,7 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         }
 
         /// <summary>
-        /// Number of hours to wait between taking a backup of the cluster. To disable backups, set this property to 0.
+        /// (Deprecated) Number of hours to wait between taking a backup of the cluster.
         /// </summary>
         [Input("hoursBetweenBackups")]
         public Input<int>? HoursBetweenBackups { get; set; }
@@ -92,6 +104,12 @@ namespace Pulumi.AzureNative.DocumentDB.Inputs
         /// </summary>
         [Input("prometheusEndpoint")]
         public Input<Inputs.SeedNodeArgs>? PrometheusEndpoint { get; set; }
+
+        /// <summary>
+        /// Error related to resource provisioning.
+        /// </summary>
+        [Input("provisionError")]
+        public Input<Inputs.CassandraErrorArgs>? ProvisionError { get; set; }
 
         /// <summary>
         /// The status of the resource at the time the operation was called.

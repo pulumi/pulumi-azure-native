@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
- * API Version: 2019-04-01.
+ * Azure REST API version: 2019-04-01.
  */
 export function listControllerConnectionDetails(args: ListControllerConnectionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListControllerConnectionDetailsResult> {
 
@@ -44,7 +44,7 @@ export interface ListControllerConnectionDetailsResult {
 }
 /**
  * Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.
- * API Version: 2019-04-01.
+ * Azure REST API version: 2019-04-01.
  */
 export function listControllerConnectionDetailsOutput(args: ListControllerConnectionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListControllerConnectionDetailsResult> {
     return pulumi.output(args).apply((a: any) => listControllerConnectionDetails(a, opts))

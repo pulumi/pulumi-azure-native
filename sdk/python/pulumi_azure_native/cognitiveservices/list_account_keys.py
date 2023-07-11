@@ -61,7 +61,7 @@ def list_account_keys(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountKeysResult:
     """
     Lists the account keys for the specified Cognitive Services account.
-    API Version: 2017-04-18.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -84,7 +84,7 @@ def list_account_keys_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
     Lists the account keys for the specified Cognitive Services account.
-    API Version: 2017-04-18.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.

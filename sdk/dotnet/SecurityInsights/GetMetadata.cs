@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Get a Metadata.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetMetadataResult> InvokeAsync(GetMetadataArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Metadata.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetMetadataResult> Invoke(GetMetadataInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetadataResult>("azure-native:securityinsights:getMetadata", args ?? new GetMetadataInvokeArgs(), options.WithDefaults());
@@ -34,12 +34,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("metadataName", required: true)]
         public string MetadataName { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -66,12 +60,6 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("metadataName", required: true)]
         public Input<string> MetadataName { get; set; } = null!;
-
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -108,6 +96,14 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? ContentId;
         /// <summary>
+        /// Schema version of the content. Can be used to distinguish between different flow based on the schema version
+        /// </summary>
+        public readonly string? ContentSchemaVersion;
+        /// <summary>
+        /// The custom version of the content. A optional free text
+        /// </summary>
+        public readonly string? CustomVersion;
+        /// <summary>
         /// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
         /// </summary>
         public readonly Outputs.MetadataDependenciesResponse? Dependencies;
@@ -120,7 +116,11 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? FirstPublishDate;
         /// <summary>
-        /// Azure resource Id
+        /// the icon identifier. this id can later be fetched from the solution template
+        /// </summary>
+        public readonly string? Icon;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -132,13 +132,21 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? LastPublishDate;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
         /// Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
         /// </summary>
         public readonly string ParentId;
+        /// <summary>
+        /// preview image file names. These will be taken from the solution artifacts
+        /// </summary>
+        public readonly ImmutableArray<string> PreviewImages;
+        /// <summary>
+        /// preview image file names. These will be taken from the solution artifacts. used for dark theme support
+        /// </summary>
+        public readonly ImmutableArray<string> PreviewImagesDark;
         /// <summary>
         /// Providers for the solution content item
         /// </summary>
@@ -156,7 +164,15 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource type
+        /// the tactics the resource covers
+        /// </summary>
+        public readonly ImmutableArray<string> ThreatAnalysisTactics;
+        /// <summary>
+        /// the techniques the resource covers, these have to be aligned with the tactics being used
+        /// </summary>
+        public readonly ImmutableArray<string> ThreatAnalysisTechniques;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -172,11 +188,17 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string? contentId,
 
+            string? contentSchemaVersion,
+
+            string? customVersion,
+
             Outputs.MetadataDependenciesResponse? dependencies,
 
             string? etag,
 
             string? firstPublishDate,
+
+            string? icon,
 
             string id,
 
@@ -188,6 +210,10 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string parentId,
 
+            ImmutableArray<string> previewImages,
+
+            ImmutableArray<string> previewImagesDark,
+
             ImmutableArray<string> providers,
 
             Outputs.MetadataSourceResponse? source,
@@ -196,6 +222,10 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             Outputs.SystemDataResponse systemData,
 
+            ImmutableArray<string> threatAnalysisTactics,
+
+            ImmutableArray<string> threatAnalysisTechniques,
+
             string type,
 
             string? version)
@@ -203,18 +233,25 @@ namespace Pulumi.AzureNative.SecurityInsights
             Author = author;
             Categories = categories;
             ContentId = contentId;
+            ContentSchemaVersion = contentSchemaVersion;
+            CustomVersion = customVersion;
             Dependencies = dependencies;
             Etag = etag;
             FirstPublishDate = firstPublishDate;
+            Icon = icon;
             Id = id;
             Kind = kind;
             LastPublishDate = lastPublishDate;
             Name = name;
             ParentId = parentId;
+            PreviewImages = previewImages;
+            PreviewImagesDark = previewImagesDark;
             Providers = providers;
             Source = source;
             Support = support;
             SystemData = systemData;
+            ThreatAnalysisTactics = threatAnalysisTactics;
+            ThreatAnalysisTechniques = threatAnalysisTechniques;
             Type = type;
             Version = version;
         }

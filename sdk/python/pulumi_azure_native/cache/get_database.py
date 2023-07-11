@@ -22,7 +22,7 @@ class GetDatabaseResult:
     """
     Describes a database on the RedisEnterprise cluster
     """
-    def __init__(__self__, client_protocol=None, clustering_policy=None, eviction_policy=None, id=None, modules=None, name=None, persistence=None, port=None, provisioning_state=None, resource_state=None, type=None):
+    def __init__(__self__, client_protocol=None, clustering_policy=None, eviction_policy=None, geo_replication=None, id=None, modules=None, name=None, persistence=None, port=None, provisioning_state=None, resource_state=None, system_data=None, type=None):
         if client_protocol and not isinstance(client_protocol, str):
             raise TypeError("Expected argument 'client_protocol' to be a str")
         pulumi.set(__self__, "client_protocol", client_protocol)
@@ -32,6 +32,9 @@ class GetDatabaseResult:
         if eviction_policy and not isinstance(eviction_policy, str):
             raise TypeError("Expected argument 'eviction_policy' to be a str")
         pulumi.set(__self__, "eviction_policy", eviction_policy)
+        if geo_replication and not isinstance(geo_replication, dict):
+            raise TypeError("Expected argument 'geo_replication' to be a dict")
+        pulumi.set(__self__, "geo_replication", geo_replication)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -53,6 +56,9 @@ class GetDatabaseResult:
         if resource_state and not isinstance(resource_state, str):
             raise TypeError("Expected argument 'resource_state' to be a str")
         pulumi.set(__self__, "resource_state", resource_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -80,6 +86,14 @@ class GetDatabaseResult:
         Redis eviction policy - default is VolatileLRU
         """
         return pulumi.get(self, "eviction_policy")
+
+    @property
+    @pulumi.getter(name="geoReplication")
+    def geo_replication(self) -> Optional['outputs.DatabasePropertiesResponseGeoReplication']:
+        """
+        Optional set of properties to configure geo replication for this database.
+        """
+        return pulumi.get(self, "geo_replication")
 
     @property
     @pulumi.getter
@@ -138,6 +152,14 @@ class GetDatabaseResult:
         return pulumi.get(self, "resource_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -155,6 +177,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             client_protocol=self.client_protocol,
             clustering_policy=self.clustering_policy,
             eviction_policy=self.eviction_policy,
+            geo_replication=self.geo_replication,
             id=self.id,
             modules=self.modules,
             name=self.name,
@@ -162,6 +185,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             port=self.port,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -171,7 +195,7 @@ def get_database(cluster_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
     Gets information about a database in a RedisEnterprise cluster.
-    API Version: 2021-03-01.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.
@@ -189,6 +213,7 @@ def get_database(cluster_name: Optional[str] = None,
         client_protocol=__ret__.client_protocol,
         clustering_policy=__ret__.clustering_policy,
         eviction_policy=__ret__.eviction_policy,
+        geo_replication=__ret__.geo_replication,
         id=__ret__.id,
         modules=__ret__.modules,
         name=__ret__.name,
@@ -196,6 +221,7 @@ def get_database(cluster_name: Optional[str] = None,
         port=__ret__.port,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -206,7 +232,7 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets information about a database in a RedisEnterprise cluster.
-    API Version: 2021-03-01.
+    Azure REST API version: 2023-03-01-preview.
 
 
     :param str cluster_name: The name of the RedisEnterprise cluster.

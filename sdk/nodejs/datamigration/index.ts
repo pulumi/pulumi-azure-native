@@ -35,6 +35,11 @@ export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
 
+export { GetServiceTaskArgs, GetServiceTaskResult, GetServiceTaskOutputArgs } from "./getServiceTask";
+export const getServiceTask: typeof import("./getServiceTask").getServiceTask = null as any;
+export const getServiceTaskOutput: typeof import("./getServiceTask").getServiceTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceTask","getServiceTaskOutput"], () => require("./getServiceTask"));
+
 export { GetSqlMigrationServiceArgs, GetSqlMigrationServiceResult, GetSqlMigrationServiceOutputArgs } from "./getSqlMigrationService";
 export const getSqlMigrationService: typeof import("./getSqlMigrationService").getSqlMigrationService = null as any;
 export const getSqlMigrationServiceOutput: typeof import("./getSqlMigrationService").getSqlMigrationServiceOutput = null as any;
@@ -65,6 +70,11 @@ export type Service = import("./service").Service;
 export const Service: typeof import("./service").Service = null as any;
 utilities.lazyLoad(exports, ["Service"], () => require("./service"));
 
+export { ServiceTaskArgs } from "./serviceTask";
+export type ServiceTask = import("./serviceTask").ServiceTask;
+export const ServiceTask: typeof import("./serviceTask").ServiceTask = null as any;
+utilities.lazyLoad(exports, ["ServiceTask"], () => require("./serviceTask"));
+
 export { SqlMigrationServiceArgs } from "./sqlMigrationService";
 export type SqlMigrationService = import("./sqlMigrationService").SqlMigrationService;
 export const SqlMigrationService: typeof import("./sqlMigrationService").SqlMigrationService = null as any;
@@ -80,25 +90,13 @@ utilities.lazyLoad(exports, ["Task"], () => require("./task"));
 export * from "../types/enums/datamigration";
 
 // Export sub-modules:
-import * as v20171115preview from "./v20171115preview";
-import * as v20180315preview from "./v20180315preview";
-import * as v20180331preview from "./v20180331preview";
-import * as v20180419 from "./v20180419";
-import * as v20180715preview from "./v20180715preview";
 import * as v20210630 from "./v20210630";
 import * as v20211030preview from "./v20211030preview";
-import * as v20220130preview from "./v20220130preview";
 import * as v20220330preview from "./v20220330preview";
 
 export {
-    v20171115preview,
-    v20180315preview,
-    v20180331preview,
-    v20180419,
-    v20180715preview,
     v20210630,
     v20211030preview,
-    v20220130preview,
     v20220330preview,
 };
 
@@ -114,6 +112,8 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "azure-native:datamigration:Service":
                 return new Service(name, <any>undefined, { urn })
+            case "azure-native:datamigration:ServiceTask":
+                return new ServiceTask(name, <any>undefined, { urn })
             case "azure-native:datamigration:SqlMigrationService":
                 return new SqlMigrationService(name, <any>undefined, { urn })
             case "azure-native:datamigration:Task":

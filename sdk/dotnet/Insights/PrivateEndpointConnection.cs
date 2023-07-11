@@ -10,38 +10,38 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
-    /// A private endpoint connection
-    /// API Version: 2019-10-17-preview.
+    /// The Private Endpoint Connection resource.
+    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Private endpoint which the connection belongs to.
+        /// The resource of private end point.
         /// </summary>
         [Output("privateEndpoint")]
-        public Output<Outputs.PrivateEndpointPropertyResponse?> PrivateEndpoint { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointResponse?> PrivateEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
         [Output("privateLinkServiceConnectionState")]
-        public Output<Outputs.PrivateLinkServiceConnectionStatePropertyResponse?> PrivateLinkServiceConnectionState { get; private set; } = null!;
+        public Output<Outputs.PrivateLinkServiceConnectionStateResponse> PrivateLinkServiceConnectionState { get; private set; } = null!;
 
         /// <summary>
-        /// State of the private endpoint connection.
+        /// The provisioning state of the private endpoint connection resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -97,22 +97,16 @@ namespace Pulumi.AzureNative.Insights
     public sealed class PrivateEndpointConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Private endpoint which the connection belongs to.
-        /// </summary>
-        [Input("privateEndpoint")]
-        public Input<Inputs.PrivateEndpointPropertyArgs>? PrivateEndpoint { get; set; }
-
-        /// <summary>
         /// The name of the private endpoint connection.
         /// </summary>
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
         /// <summary>
-        /// Connection state of the private endpoint connection.
+        /// A collection of information about the state of the connection between service consumer and provider.
         /// </summary>
-        [Input("privateLinkServiceConnectionState")]
-        public Input<Inputs.PrivateLinkServiceConnectionStatePropertyArgs>? PrivateLinkServiceConnectionState { get; set; }
+        [Input("privateLinkServiceConnectionState", required: true)]
+        public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

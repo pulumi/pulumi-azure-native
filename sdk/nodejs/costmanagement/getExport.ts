@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the export for the defined scope by export name.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
 
@@ -23,7 +23,7 @@ export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Pro
 
 export interface GetExportArgs {
     /**
-     * May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
+     * May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
      */
     expand?: string;
     /**
@@ -65,11 +65,15 @@ export interface GetExportResult {
      */
     readonly name: string;
     /**
-     * If the export has an active schedule, provides an estimate of the next execution time.
+     * If the export has an active schedule, provides an estimate of the next run time.
      */
     readonly nextRunTimeEstimate: string;
     /**
-     * If requested, has the most recent execution history for the export.
+     * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
+     */
+    readonly partitionData?: boolean;
+    /**
+     * If requested, has the most recent run history for the export.
      */
     readonly runHistory?: outputs.costmanagement.ExportExecutionListResultResponse;
     /**
@@ -83,7 +87,7 @@ export interface GetExportResult {
 }
 /**
  * The operation to get the export for the defined scope by export name.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExportResult> {
     return pulumi.output(args).apply((a: any) => getExport(a, opts))
@@ -91,7 +95,7 @@ export function getExportOutput(args: GetExportOutputArgs, opts?: pulumi.InvokeO
 
 export interface GetExportOutputArgs {
     /**
-     * May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 executions of the export.
+     * May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
      */
     expand?: pulumi.Input<string>;
     /**

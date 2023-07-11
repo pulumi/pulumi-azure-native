@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.Web.V20210201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppFtpAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20190801:WebAppFtpAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppFtpAllowed"},
                     new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppFtpAllowed"},

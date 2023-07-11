@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**
@@ -55,6 +55,14 @@ export class BlobContainer extends pulumi.CustomResource {
      */
     public readonly denyEncryptionScopeOverride!: pulumi.Output<boolean | undefined>;
     /**
+     * Enable NFSv3 all squash on blob container.
+     */
+    public readonly enableNfsV3AllSquash!: pulumi.Output<boolean | undefined>;
+    /**
+     * Enable NFSv3 root squash on blob container.
+     */
+    public readonly enableNfsV3RootSquash!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource Etag.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
@@ -70,6 +78,10 @@ export class BlobContainer extends pulumi.CustomResource {
      * The ImmutabilityPolicy property of the container.
      */
     public /*out*/ readonly immutabilityPolicy!: pulumi.Output<outputs.storage.ImmutabilityPolicyPropertiesResponse>;
+    /**
+     * The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+     */
+    public readonly immutableStorageWithVersioning!: pulumi.Output<outputs.storage.ImmutableStorageWithVersioningResponse | undefined>;
     /**
      * Returns the date and time the container was last modified.
      */
@@ -136,6 +148,9 @@ export class BlobContainer extends pulumi.CustomResource {
             resourceInputs["containerName"] = args ? args.containerName : undefined;
             resourceInputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
             resourceInputs["denyEncryptionScopeOverride"] = args ? args.denyEncryptionScopeOverride : undefined;
+            resourceInputs["enableNfsV3AllSquash"] = args ? args.enableNfsV3AllSquash : undefined;
+            resourceInputs["enableNfsV3RootSquash"] = args ? args.enableNfsV3RootSquash : undefined;
+            resourceInputs["immutableStorageWithVersioning"] = args ? args.immutableStorageWithVersioning : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["publicAccess"] = args ? args.publicAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -159,10 +174,13 @@ export class BlobContainer extends pulumi.CustomResource {
             resourceInputs["deleted"] = undefined /*out*/;
             resourceInputs["deletedTime"] = undefined /*out*/;
             resourceInputs["denyEncryptionScopeOverride"] = undefined /*out*/;
+            resourceInputs["enableNfsV3AllSquash"] = undefined /*out*/;
+            resourceInputs["enableNfsV3RootSquash"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hasImmutabilityPolicy"] = undefined /*out*/;
             resourceInputs["hasLegalHold"] = undefined /*out*/;
             resourceInputs["immutabilityPolicy"] = undefined /*out*/;
+            resourceInputs["immutableStorageWithVersioning"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["leaseDuration"] = undefined /*out*/;
             resourceInputs["leaseState"] = undefined /*out*/;
@@ -202,6 +220,18 @@ export interface BlobContainerArgs {
      * Block override of encryption scope from the container default.
      */
     denyEncryptionScopeOverride?: pulumi.Input<boolean>;
+    /**
+     * Enable NFSv3 all squash on blob container.
+     */
+    enableNfsV3AllSquash?: pulumi.Input<boolean>;
+    /**
+     * Enable NFSv3 root squash on blob container.
+     */
+    enableNfsV3RootSquash?: pulumi.Input<boolean>;
+    /**
+     * The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+     */
+    immutableStorageWithVersioning?: pulumi.Input<inputs.storage.ImmutableStorageWithVersioningArgs>;
     /**
      * A name-value pair to associate with the container as metadata.
      */

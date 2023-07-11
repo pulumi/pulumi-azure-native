@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes the suppression rule
- * API Version: 2019-01-01-preview.
+ * Azure REST API version: 2019-01-01-preview. Prior API version in Azure Native 1.x: 2019-01-01-preview
  */
 export class AlertsSuppressionRule extends pulumi.CustomResource {
     /**

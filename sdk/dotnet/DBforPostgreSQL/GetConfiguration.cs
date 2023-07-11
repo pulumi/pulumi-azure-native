@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     {
         /// <summary>
         /// Gets information about a configuration of server.
-        /// API Version: 2017-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about a configuration of server.
-        /// API Version: 2017-12-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
@@ -100,9 +100,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// Configuration documentation link.
+        /// </summary>
+        public readonly string DocumentationLink;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Configuration is pending restart or not.
+        /// </summary>
+        public readonly bool IsConfigPendingRestart;
+        /// <summary>
+        /// Configuration dynamic or static.
+        /// </summary>
+        public readonly bool IsDynamicConfig;
+        /// <summary>
+        /// Configuration read-only or not.
+        /// </summary>
+        public readonly bool IsReadOnly;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -112,9 +128,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string? Source;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Configuration unit.
+        /// </summary>
+        public readonly string Unit;
         /// <summary>
         /// Value of the configuration.
         /// </summary>
@@ -130,13 +154,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
 
             string description,
 
+            string documentationLink,
+
             string id,
+
+            bool isConfigPendingRestart,
+
+            bool isDynamicConfig,
+
+            bool isReadOnly,
 
             string name,
 
             string? source,
 
+            Outputs.SystemDataResponse systemData,
+
             string type,
+
+            string unit,
 
             string? value)
         {
@@ -144,10 +180,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             DataType = dataType;
             DefaultValue = defaultValue;
             Description = description;
+            DocumentationLink = documentationLink;
             Id = id;
+            IsConfigPendingRestart = isConfigPendingRestart;
+            IsDynamicConfig = isDynamicConfig;
+            IsReadOnly = isReadOnly;
             Name = name;
             Source = source;
+            SystemData = systemData;
             Type = type;
+            Unit = unit;
             Value = value;
         }
     }

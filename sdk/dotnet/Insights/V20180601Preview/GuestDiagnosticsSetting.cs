@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
     /// <summary>
     /// Virtual machine guest diagnostics settings resource.
     /// </summary>
-    [AzureNativeResourceType("azure-native:insights/v20180601preview:guestDiagnosticsSetting")]
+    [AzureNativeResourceType("azure-native:insights/v20180601preview:GuestDiagnosticsSetting")]
     public partial class GuestDiagnosticsSetting : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -63,12 +63,12 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public GuestDiagnosticsSetting(string name, GuestDiagnosticsSettingArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:insights/v20180601preview:guestDiagnosticsSetting", name, args ?? new GuestDiagnosticsSettingArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:insights/v20180601preview:GuestDiagnosticsSetting", name, args ?? new GuestDiagnosticsSettingArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private GuestDiagnosticsSetting(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:insights/v20180601preview:guestDiagnosticsSetting", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:insights/v20180601preview:GuestDiagnosticsSetting", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -79,6 +79,8 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:insights/v20180601preview:guestDiagnosticsSetting"},
+                    new global::Pulumi.Alias { Type = "azure-native:insights:GuestDiagnosticsSetting"},
                     new global::Pulumi.Alias { Type = "azure-native:insights:guestDiagnosticsSetting"},
                 },
             };

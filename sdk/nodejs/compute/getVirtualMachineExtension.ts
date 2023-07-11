@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the extension.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineExtension(args: GetVirtualMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineExtensionResult> {
 
@@ -68,7 +68,7 @@ export interface GetVirtualMachineExtensionResult {
     /**
      * Resource location
      */
-    readonly location: string;
+    readonly location?: string;
     /**
      * Resource name
      */
@@ -77,6 +77,14 @@ export interface GetVirtualMachineExtensionResult {
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
     readonly protectedSettings?: any;
+    /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    readonly protectedSettingsFromKeyVault?: outputs.compute.KeyVaultSecretReferenceResponse;
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    readonly provisionAfterExtensions?: string[];
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -89,6 +97,10 @@ export interface GetVirtualMachineExtensionResult {
      * Json formatted public settings for the extension.
      */
     readonly settings?: any;
+    /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    readonly suppressFailures?: boolean;
     /**
      * Resource tags
      */
@@ -104,7 +116,7 @@ export interface GetVirtualMachineExtensionResult {
 }
 /**
  * The operation to get the extension.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineExtensionOutput(args: GetVirtualMachineExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineExtension(a, opts))

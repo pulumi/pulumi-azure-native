@@ -6,10 +6,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .change_data_capture import *
 from .credential_operation import *
 from .data_flow import *
 from .dataset import *
 from .factory import *
+from .get_change_data_capture import *
 from .get_credential_operation import *
 from .get_data_flow import *
 from .get_dataset import *
@@ -42,11 +44,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.datafactory.v20170901preview as __v20170901preview
-    v20170901preview = __v20170901preview
     import pulumi_azure_native.datafactory.v20180601 as __v20180601
     v20180601 = __v20180601
 else:
-    v20170901preview = _utilities.lazy_import('pulumi_azure_native.datafactory.v20170901preview')
     v20180601 = _utilities.lazy_import('pulumi_azure_native.datafactory.v20180601')
 

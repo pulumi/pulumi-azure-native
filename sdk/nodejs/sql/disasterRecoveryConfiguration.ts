@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a disaster recovery configuration.
- * API Version: 2014-04-01.
+ * Azure REST API version: 2014-04-01. Prior API version in Azure Native 1.x: 2014-04-01
  */
 export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**

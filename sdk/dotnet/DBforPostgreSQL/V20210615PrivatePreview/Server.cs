@@ -148,6 +148,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20200214privatepreview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210410privatepreview:Server"},
@@ -156,6 +157,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Server"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20221201:Server"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Server"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

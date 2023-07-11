@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes a DNS zone.
-    /// API Version: 2018-05-01.
+    /// Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2018-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Zone")]
     public partial class Zone : global::Pulumi.CustomResource
@@ -71,6 +71,18 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.SubResourceResponse>> ResolutionVirtualNetworks { get; private set; } = null!;
 
         /// <summary>
+        /// The list of signing keys.
+        /// </summary>
+        [Output("signingKeys")]
+        public Output<ImmutableArray<Outputs.SigningKeyResponse>> SigningKeys { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -119,6 +131,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20171001:Zone"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180301preview:Zone"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20180501:Zone"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:Zone"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -173,7 +186,7 @@ namespace Pulumi.AzureNative.Network
         }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

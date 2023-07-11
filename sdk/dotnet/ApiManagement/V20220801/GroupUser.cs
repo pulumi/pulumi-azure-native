@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// User details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:GroupUser is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GroupUser to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:GroupUser")]
     public partial class GroupUser : global::Pulumi.CustomResource
     {
@@ -115,6 +114,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:GroupUser"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:GroupUser"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:GroupUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:GroupUser"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:GroupUser"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

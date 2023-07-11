@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the symmetric encrypted public encryption key of the manager.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function listManagerPublicEncryptionKey(args: ListManagerPublicEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<ListManagerPublicEncryptionKeyResult> {
 
@@ -47,7 +47,7 @@ export interface ListManagerPublicEncryptionKeyResult {
 }
 /**
  * Returns the symmetric encrypted public encryption key of the manager.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function listManagerPublicEncryptionKeyOutput(args: ListManagerPublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListManagerPublicEncryptionKeyResult> {
     return pulumi.output(args).apply((a: any) => listManagerPublicEncryptionKey(a, opts))

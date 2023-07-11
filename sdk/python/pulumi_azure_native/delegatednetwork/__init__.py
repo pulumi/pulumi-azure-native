@@ -17,11 +17,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.delegatednetwork.v20200808preview as __v20200808preview
-    v20200808preview = __v20200808preview
     import pulumi_azure_native.delegatednetwork.v20210315 as __v20210315
     v20210315 = __v20210315
+    import pulumi_azure_native.delegatednetwork.v20230518preview as __v20230518preview
+    v20230518preview = __v20230518preview
 else:
-    v20200808preview = _utilities.lazy_import('pulumi_azure_native.delegatednetwork.v20200808preview')
     v20210315 = _utilities.lazy_import('pulumi_azure_native.delegatednetwork.v20210315')
+    v20230518preview = _utilities.lazy_import('pulumi_azure_native.delegatednetwork.v20230518preview')
 

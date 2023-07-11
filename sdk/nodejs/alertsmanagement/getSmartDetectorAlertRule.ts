@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific Smart Detector alert rule.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
 
@@ -53,7 +53,7 @@ export interface GetSmartDetectorAlertRuleResult {
      */
     readonly detector: outputs.alertsmanagement.DetectorResponse;
     /**
-     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 5 minutes.
+     * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
      */
     readonly frequency: string;
     /**
@@ -95,7 +95,7 @@ export interface GetSmartDetectorAlertRuleResult {
 }
 /**
  * Get a specific Smart Detector alert rule.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getSmartDetectorAlertRuleOutput(args: GetSmartDetectorAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSmartDetectorAlertRuleResult> {
     return pulumi.output(args).apply((a: any) => getSmartDetectorAlertRule(a, opts))

@@ -22,10 +22,13 @@ class GetAppServiceEnvironmentResult:
     """
     App Service Environment ARM resource.
     """
-    def __init__(__self__, cluster_settings=None, dedicated_host_count=None, dns_suffix=None, front_end_scale_factor=None, has_linux_workers=None, id=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, provisioning_state=None, status=None, suspended=None, tags=None, type=None, user_whitelisted_ip_ranges=None, virtual_network=None):
+    def __init__(__self__, cluster_settings=None, custom_dns_suffix_configuration=None, dedicated_host_count=None, dns_suffix=None, front_end_scale_factor=None, has_linux_workers=None, id=None, internal_load_balancing_mode=None, ipssl_address_count=None, kind=None, location=None, maximum_number_of_machines=None, multi_role_count=None, multi_size=None, name=None, networking_configuration=None, provisioning_state=None, status=None, suspended=None, tags=None, type=None, upgrade_availability=None, upgrade_preference=None, user_whitelisted_ip_ranges=None, virtual_network=None, zone_redundant=None):
         if cluster_settings and not isinstance(cluster_settings, list):
             raise TypeError("Expected argument 'cluster_settings' to be a list")
         pulumi.set(__self__, "cluster_settings", cluster_settings)
+        if custom_dns_suffix_configuration and not isinstance(custom_dns_suffix_configuration, dict):
+            raise TypeError("Expected argument 'custom_dns_suffix_configuration' to be a dict")
+        pulumi.set(__self__, "custom_dns_suffix_configuration", custom_dns_suffix_configuration)
         if dedicated_host_count and not isinstance(dedicated_host_count, int):
             raise TypeError("Expected argument 'dedicated_host_count' to be a int")
         pulumi.set(__self__, "dedicated_host_count", dedicated_host_count)
@@ -65,6 +68,9 @@ class GetAppServiceEnvironmentResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if networking_configuration and not isinstance(networking_configuration, dict):
+            raise TypeError("Expected argument 'networking_configuration' to be a dict")
+        pulumi.set(__self__, "networking_configuration", networking_configuration)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -80,12 +86,21 @@ class GetAppServiceEnvironmentResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if upgrade_availability and not isinstance(upgrade_availability, str):
+            raise TypeError("Expected argument 'upgrade_availability' to be a str")
+        pulumi.set(__self__, "upgrade_availability", upgrade_availability)
+        if upgrade_preference and not isinstance(upgrade_preference, str):
+            raise TypeError("Expected argument 'upgrade_preference' to be a str")
+        pulumi.set(__self__, "upgrade_preference", upgrade_preference)
         if user_whitelisted_ip_ranges and not isinstance(user_whitelisted_ip_ranges, list):
             raise TypeError("Expected argument 'user_whitelisted_ip_ranges' to be a list")
         pulumi.set(__self__, "user_whitelisted_ip_ranges", user_whitelisted_ip_ranges)
         if virtual_network and not isinstance(virtual_network, dict):
             raise TypeError("Expected argument 'virtual_network' to be a dict")
         pulumi.set(__self__, "virtual_network", virtual_network)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
 
     @property
     @pulumi.getter(name="clusterSettings")
@@ -96,8 +111,16 @@ class GetAppServiceEnvironmentResult:
         return pulumi.get(self, "cluster_settings")
 
     @property
+    @pulumi.getter(name="customDnsSuffixConfiguration")
+    def custom_dns_suffix_configuration(self) -> Optional['outputs.CustomDnsSuffixConfigurationResponse']:
+        """
+        Full view of the custom domain suffix configuration for ASEv3.
+        """
+        return pulumi.get(self, "custom_dns_suffix_configuration")
+
+    @property
     @pulumi.getter(name="dedicatedHostCount")
-    def dedicated_host_count(self) -> int:
+    def dedicated_host_count(self) -> Optional[int]:
         """
         Dedicated Host Count
         """
@@ -200,6 +223,14 @@ class GetAppServiceEnvironmentResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkingConfiguration")
+    def networking_configuration(self) -> Optional['outputs.AseV3NetworkingConfigurationResponse']:
+        """
+        Full view of networking configuration for an ASE.
+        """
+        return pulumi.get(self, "networking_configuration")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -241,10 +272,26 @@ class GetAppServiceEnvironmentResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="upgradeAvailability")
+    def upgrade_availability(self) -> str:
+        """
+        Whether an upgrade is available for this App Service Environment.
+        """
+        return pulumi.get(self, "upgrade_availability")
+
+    @property
+    @pulumi.getter(name="upgradePreference")
+    def upgrade_preference(self) -> Optional[str]:
+        """
+        Upgrade Preference
+        """
+        return pulumi.get(self, "upgrade_preference")
+
+    @property
     @pulumi.getter(name="userWhitelistedIpRanges")
     def user_whitelisted_ip_ranges(self) -> Optional[Sequence[str]]:
         """
-        User added list of IP Ranges allowed on ASE db
+        User added ip ranges to whitelist on ASE db
         """
         return pulumi.get(self, "user_whitelisted_ip_ranges")
 
@@ -256,6 +303,14 @@ class GetAppServiceEnvironmentResult:
         """
         return pulumi.get(self, "virtual_network")
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        Whether or not this App Service Environment is zone-redundant.
+        """
+        return pulumi.get(self, "zone_redundant")
+
 
 class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
     # pylint: disable=using-constant-test
@@ -264,6 +319,7 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
             yield self
         return GetAppServiceEnvironmentResult(
             cluster_settings=self.cluster_settings,
+            custom_dns_suffix_configuration=self.custom_dns_suffix_configuration,
             dedicated_host_count=self.dedicated_host_count,
             dns_suffix=self.dns_suffix,
             front_end_scale_factor=self.front_end_scale_factor,
@@ -277,21 +333,25 @@ class AwaitableGetAppServiceEnvironmentResult(GetAppServiceEnvironmentResult):
             multi_role_count=self.multi_role_count,
             multi_size=self.multi_size,
             name=self.name,
+            networking_configuration=self.networking_configuration,
             provisioning_state=self.provisioning_state,
             status=self.status,
             suspended=self.suspended,
             tags=self.tags,
             type=self.type,
+            upgrade_availability=self.upgrade_availability,
+            upgrade_preference=self.upgrade_preference,
             user_whitelisted_ip_ranges=self.user_whitelisted_ip_ranges,
-            virtual_network=self.virtual_network)
+            virtual_network=self.virtual_network,
+            zone_redundant=self.zone_redundant)
 
 
 def get_app_service_environment(name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppServiceEnvironmentResult:
     """
-    Get the properties of an App Service Environment.
-    API Version: 2020-12-01.
+    Description for Get the properties of an App Service Environment.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service Environment.
@@ -305,6 +365,7 @@ def get_app_service_environment(name: Optional[str] = None,
 
     return AwaitableGetAppServiceEnvironmentResult(
         cluster_settings=__ret__.cluster_settings,
+        custom_dns_suffix_configuration=__ret__.custom_dns_suffix_configuration,
         dedicated_host_count=__ret__.dedicated_host_count,
         dns_suffix=__ret__.dns_suffix,
         front_end_scale_factor=__ret__.front_end_scale_factor,
@@ -318,13 +379,17 @@ def get_app_service_environment(name: Optional[str] = None,
         multi_role_count=__ret__.multi_role_count,
         multi_size=__ret__.multi_size,
         name=__ret__.name,
+        networking_configuration=__ret__.networking_configuration,
         provisioning_state=__ret__.provisioning_state,
         status=__ret__.status,
         suspended=__ret__.suspended,
         tags=__ret__.tags,
         type=__ret__.type,
+        upgrade_availability=__ret__.upgrade_availability,
+        upgrade_preference=__ret__.upgrade_preference,
         user_whitelisted_ip_ranges=__ret__.user_whitelisted_ip_ranges,
-        virtual_network=__ret__.virtual_network)
+        virtual_network=__ret__.virtual_network,
+        zone_redundant=__ret__.zone_redundant)
 
 
 @_utilities.lift_output_func(get_app_service_environment)
@@ -332,8 +397,8 @@ def get_app_service_environment_output(name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
     """
-    Get the properties of an App Service Environment.
-    API Version: 2020-12-01.
+    Description for Get the properties of an App Service Environment.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the App Service Environment.

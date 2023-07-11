@@ -9,27 +9,27 @@ import * as utilities from "../utilities";
 
 /**
  * Get installed extension details by extension id.
- * API Version: 2020-05-12-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getExtension(args: GetExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetExtensionResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:agfoodplatform:getExtension", {
+        "dataManagerForAgricultureResourceName": args.dataManagerForAgricultureResourceName,
         "extensionId": args.extensionId,
-        "farmBeatsResourceName": args.farmBeatsResourceName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetExtensionArgs {
     /**
+     * DataManagerForAgriculture resource name.
+     */
+    dataManagerForAgricultureResourceName: string;
+    /**
      * Id of extension resource.
      */
     extensionId: string;
-    /**
-     * FarmBeats resource name.
-     */
-    farmBeatsResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -40,6 +40,10 @@ export interface GetExtensionArgs {
  * Extension resource.
  */
 export interface GetExtensionResult {
+    /**
+     * Additional Api Properties.
+     */
+    readonly additionalApiProperties: {[key: string]: outputs.agfoodplatform.ApiPropertiesResponse};
     /**
      * The ETag value to implement optimistic concurrency.
      */
@@ -61,7 +65,7 @@ export interface GetExtensionResult {
      */
     readonly extensionId: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -73,7 +77,7 @@ export interface GetExtensionResult {
      */
     readonly name: string;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.agfoodplatform.SystemDataResponse;
     /**
@@ -83,7 +87,7 @@ export interface GetExtensionResult {
 }
 /**
  * Get installed extension details by extension id.
- * API Version: 2020-05-12-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionResult> {
     return pulumi.output(args).apply((a: any) => getExtension(a, opts))
@@ -91,13 +95,13 @@ export function getExtensionOutput(args: GetExtensionOutputArgs, opts?: pulumi.I
 
 export interface GetExtensionOutputArgs {
     /**
+     * DataManagerForAgriculture resource name.
+     */
+    dataManagerForAgricultureResourceName: pulumi.Input<string>;
+    /**
      * Id of extension resource.
      */
     extensionId: pulumi.Input<string>;
-    /**
-     * FarmBeats resource name.
-     */
-    farmBeatsResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

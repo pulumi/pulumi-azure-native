@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection to an azure resource
- *
- * @deprecated azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebPubSubPrivateEndpointConnection {
-        pulumi.log.warn("WebPubSubPrivateEndpointConnection is deprecated: azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.")
         return new WebPubSubPrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +73,7 @@ export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: WebPubSubPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebPubSubPrivateEndpointConnection is deprecated: azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -108,7 +103,7 @@ export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

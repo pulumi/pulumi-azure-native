@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Resources
 {
     /// <summary>
     /// Resource group information.
-    /// API Version: 2019-05-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2019-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:ResourceGroup")]
     public partial class ResourceGroup : global::Pulumi.CustomResource

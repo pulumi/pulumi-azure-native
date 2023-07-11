@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2021-09-01-preview.
+ * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2021-09-01-preview
  */
 export class DataCollectionEndpoint extends pulumi.CustomResource {
     /**
@@ -51,6 +51,14 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Failover configuration on this endpoint. This property is READ-ONLY.
+     */
+    public /*out*/ readonly failoverConfiguration!: pulumi.Output<outputs.insights.DataCollectionEndpointResponseFailoverConfiguration>;
+    /**
+     * Managed service identity of the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.insights.DataCollectionEndpointResourceResponseIdentity | undefined>;
+    /**
      * The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
      */
     public readonly immutableId!: pulumi.Output<string | undefined>;
@@ -67,6 +75,14 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly logsIngestion!: pulumi.Output<outputs.insights.DataCollectionEndpointResponseLogsIngestion | undefined>;
     /**
+     * Metadata for the resource. This property is READ-ONLY.
+     */
+    public /*out*/ readonly metadata!: pulumi.Output<outputs.insights.DataCollectionEndpointResponseMetadata>;
+    /**
+     * The endpoint used by clients to ingest metrics.
+     */
+    public /*out*/ readonly metricsIngestion!: pulumi.Output<outputs.insights.DataCollectionEndpointResponseMetricsIngestion | undefined>;
+    /**
      * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -74,6 +90,10 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
      * Network access control rules for the endpoints.
      */
     public readonly networkAcls!: pulumi.Output<outputs.insights.DataCollectionEndpointResponseNetworkAcls | undefined>;
+    /**
+     * List of Azure Monitor Private Link Scope Resources to which this data collection endpoint resource is associated. This property is READ-ONLY.
+     */
+    public /*out*/ readonly privateLinkScopedResources!: pulumi.Output<outputs.insights.PrivateLinkScopedResourceResponse[]>;
     /**
      * The resource provisioning state. This property is READ-ONLY.
      */
@@ -107,6 +127,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             }
             resourceInputs["dataCollectionEndpointName"] = args ? args.dataCollectionEndpointName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["immutableId"] = args ? args.immutableId : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -115,8 +136,12 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["configurationAccess"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["failoverConfiguration"] = undefined /*out*/;
             resourceInputs["logsIngestion"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["metricsIngestion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateLinkScopedResources"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -124,12 +149,17 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["configurationAccess"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["failoverConfiguration"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["immutableId"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["logsIngestion"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
+            resourceInputs["metricsIngestion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkAcls"] = undefined /*out*/;
+            resourceInputs["privateLinkScopedResources"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -154,6 +184,10 @@ export interface DataCollectionEndpointArgs {
      * Description of the data collection endpoint.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Managed service identity of the resource.
+     */
+    identity?: pulumi.Input<inputs.insights.DataCollectionEndpointResourceIdentityArgs>;
     /**
      * The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
      */

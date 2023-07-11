@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a hub setting.
  */
-/** @deprecated azure-native:webpubsub/v20230201:WebPubSubHub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubHub to guarantee forwards compatibility. */
 export function getWebPubSubHub(args: GetWebPubSubHubArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubHubResult> {
-    pulumi.log.warn("getWebPubSubHub is deprecated: azure-native:webpubsub/v20230201:WebPubSubHub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubHub to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:webpubsub/v20230201:getWebPubSubHub", {
@@ -65,7 +63,6 @@ export interface GetWebPubSubHubResult {
 /**
  * Get a hub setting.
  */
-/** @deprecated azure-native:webpubsub/v20230201:WebPubSubHub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubHub to guarantee forwards compatibility. */
 export function getWebPubSubHubOutput(args: GetWebPubSubHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubHubResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubHub(a, opts))
 }

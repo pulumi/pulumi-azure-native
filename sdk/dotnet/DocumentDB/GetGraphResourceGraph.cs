@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DocumentDB
     {
         /// <summary>
         /// Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
-        /// API Version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Task<GetGraphResourceGraphResult> InvokeAsync(GetGraphResourceGraphArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the Graph resource under an existing Azure Cosmos DB database account with the provided name.
-        /// API Version: 2021-07-01-preview.
+        /// Azure REST API version: 2023-03-15-preview.
         /// </summary>
         public static Output<GetGraphResourceGraphResult> Invoke(GetGraphResourceGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphResourceGraphResult>("azure-native:documentdb:getGraphResourceGraph", args ?? new GetGraphResourceGraphInvokeArgs(), options.WithDefaults());

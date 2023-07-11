@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerService
     {
         /// <summary>
         /// Gets the details of the managed OpenShift cluster with a specified resource group and name.
-        /// API Version: 2019-04-30.
+        /// Azure REST API version: 2019-10-27-preview.
         /// </summary>
         public static Task<GetOpenShiftManagedClusterResult> InvokeAsync(GetOpenShiftManagedClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenShiftManagedClusterResult>("azure-native:containerservice:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the managed OpenShift cluster with a specified resource group and name.
-        /// API Version: 2019-04-30.
+        /// Azure REST API version: 2019-10-27-preview.
         /// </summary>
         public static Output<GetOpenShiftManagedClusterResult> Invoke(GetOpenShiftManagedClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenShiftManagedClusterResult>("azure-native:containerservice:getOpenShiftManagedCluster", args ?? new GetOpenShiftManagedClusterInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly Outputs.OpenShiftManagedClusterMasterPoolProfileResponse? MasterPoolProfile;
         /// <summary>
+        /// Configures Log Analytics integration.
+        /// </summary>
+        public readonly Outputs.OpenShiftManagedClusterMonitorProfileResponse? MonitorProfile;
+        /// <summary>
         /// Resource name
         /// </summary>
         public readonly string Name;
@@ -120,9 +124,13 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Service generated FQDN for OpenShift API server.
+        /// Service generated FQDN or private IP for OpenShift API server.
         /// </summary>
         public readonly string PublicHostname;
+        /// <summary>
+        /// Allows node rotation
+        /// </summary>
+        public readonly bool? RefreshCluster;
         /// <summary>
         /// Configuration for OpenShift router(s).
         /// </summary>
@@ -152,6 +160,8 @@ namespace Pulumi.AzureNative.ContainerService
 
             Outputs.OpenShiftManagedClusterMasterPoolProfileResponse? masterPoolProfile,
 
+            Outputs.OpenShiftManagedClusterMonitorProfileResponse? monitorProfile,
+
             string name,
 
             Outputs.NetworkProfileResponse? networkProfile,
@@ -163,6 +173,8 @@ namespace Pulumi.AzureNative.ContainerService
             string provisioningState,
 
             string publicHostname,
+
+            bool? refreshCluster,
 
             ImmutableArray<Outputs.OpenShiftRouterProfileResponse> routerProfiles,
 
@@ -177,12 +189,14 @@ namespace Pulumi.AzureNative.ContainerService
             Id = id;
             Location = location;
             MasterPoolProfile = masterPoolProfile;
+            MonitorProfile = monitorProfile;
             Name = name;
             NetworkProfile = networkProfile;
             OpenShiftVersion = openShiftVersion;
             Plan = plan;
             ProvisioningState = provisioningState;
             PublicHostname = publicHostname;
+            RefreshCluster = refreshCluster;
             RouterProfiles = routerProfiles;
             Tags = tags;
             Type = type;

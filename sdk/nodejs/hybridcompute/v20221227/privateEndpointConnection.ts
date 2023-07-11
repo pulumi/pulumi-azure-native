@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection
- *
- * @deprecated azure-native:hybridcompute/v20221227:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnection {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: azure-native:hybridcompute/v20221227:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateEndpointConnection to guarantee forwards compatibility.")
         return new PrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +61,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:hybridcompute/v20221227:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: azure-native:hybridcompute/v20221227:PrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -90,7 +85,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210517preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210520:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20211210preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20220310:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20220510preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20220811preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20221110:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20221227preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:hybridcompute:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20200815preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210128preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210422preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210517preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210520:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20210610preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20211210preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20220310:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20220510preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20220811preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20221110:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20221227preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20230315preview:PrivateEndpointConnection" }, { type: "azure-native:hybridcompute/v20230425preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

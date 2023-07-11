@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Billing type PAV2 meter details
+    /// Billing type PAV2 meter details.
     /// </summary>
     [OutputType]
     public sealed class Pav2MeterDetailsResponse
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly string MeterGuid;
         /// <summary>
-        /// Billing unit applicable for Pav2 billing
+        /// Billing unit applicable for Pav2 billing.
         /// </summary>
         public readonly double Multiplier;
 

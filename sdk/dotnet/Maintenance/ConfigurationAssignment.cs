@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Maintenance
 {
     /// <summary>
     /// Configuration Assignment
-    /// API Version: 2021-04-01-preview.
+    /// Azure REST API version: 2022-11-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance:ConfigurationAssignment")]
     public partial class ConfigurationAssignment : global::Pulumi.CustomResource

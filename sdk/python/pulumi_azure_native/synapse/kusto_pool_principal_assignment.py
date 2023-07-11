@@ -31,7 +31,7 @@ class KustoPoolPrincipalAssignmentArgs:
         :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: Principal type.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ClusterPrincipalRole']] role: Cluster principal role.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
         """
@@ -110,7 +110,7 @@ class KustoPoolPrincipalAssignmentArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -159,7 +159,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a cluster principal assignment.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +170,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ClusterPrincipalRole']] role: Cluster principal role.
         :param pulumi.Input[str] tenant_id: The tenant id of the principal
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload
@@ -180,7 +180,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a cluster principal assignment.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2021-06-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param KustoPoolPrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -234,6 +234,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
+            __props__.__dict__["aad_object_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -264,6 +265,7 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
 
         __props__ = KustoPoolPrincipalAssignmentArgs.__new__(KustoPoolPrincipalAssignmentArgs)
 
+        __props__.__dict__["aad_object_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
@@ -275,6 +277,14 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = None
         __props__.__dict__["type"] = None
         return KustoPoolPrincipalAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aadObjectId")
+    def aad_object_id(self) -> pulumi.Output[str]:
+        """
+        The service principal object id in AAD (Azure active directory)
+        """
+        return pulumi.get(self, "aad_object_id")
 
     @property
     @pulumi.getter

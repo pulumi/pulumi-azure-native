@@ -21,19 +21,23 @@ namespace Pulumi.AzureNative.Compute.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AdditionalUnattendContentResponse> AdditionalUnattendContent;
         /// <summary>
-        /// Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. &lt;br&gt;&lt;br&gt; For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
+        /// Indicates whether Automatic Updates is enabled for the Windows virtual machine. Default value is true. For virtual machine scale sets, this property can be updated and updates will take effect on OS reprovisioning.
         /// </summary>
         public readonly bool? EnableAutomaticUpdates;
+        /// <summary>
+        /// Indicates whether VMAgent Platform Updates is enabled for the Windows virtual machine. Default value is false.
+        /// </summary>
+        public readonly bool? EnableVMAgentPlatformUpdates;
         /// <summary>
         /// [Preview Feature] Specifies settings related to VM Guest Patching on Windows.
         /// </summary>
         public readonly Outputs.PatchSettingsResponse? PatchSettings;
         /// <summary>
-        /// Indicates whether virtual machine agent should be provisioned on the virtual machine. &lt;br&gt;&lt;br&gt; When this property is not specified in the request body, default behavior is to set it to true.  This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
+        /// Indicates whether virtual machine agent should be provisioned on the virtual machine. When this property is not specified in the request body, it is set to true by default. This will ensure that VM Agent is installed on the VM so that extensions can be added to the VM later.
         /// </summary>
         public readonly bool? ProvisionVMAgent;
         /// <summary>
-        /// Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". &lt;br&gt;&lt;br&gt; Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
+        /// Specifies the time zone of the virtual machine. e.g. "Pacific Standard Time". Possible values can be [TimeZoneInfo.Id](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.id?#System_TimeZoneInfo_Id) value from time zones returned by [TimeZoneInfo.GetSystemTimeZones](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.getsystemtimezones).
         /// </summary>
         public readonly string? TimeZone;
         /// <summary>
@@ -47,6 +51,8 @@ namespace Pulumi.AzureNative.Compute.Outputs
 
             bool? enableAutomaticUpdates,
 
+            bool? enableVMAgentPlatformUpdates,
+
             Outputs.PatchSettingsResponse? patchSettings,
 
             bool? provisionVMAgent,
@@ -57,6 +63,7 @@ namespace Pulumi.AzureNative.Compute.Outputs
         {
             AdditionalUnattendContent = additionalUnattendContent;
             EnableAutomaticUpdates = enableAutomaticUpdates;
+            EnableVMAgentPlatformUpdates = enableVMAgentPlatformUpdates;
             PatchSettings = patchSettings;
             ProvisionVMAgent = provisionVMAgent;
             TimeZone = timeZone;

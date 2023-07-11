@@ -24,17 +24,6 @@ export const CreatedByType = {
  */
 export type CreatedByType = (typeof CreatedByType)[keyof typeof CreatedByType];
 
-export const DiagnosticLevel = {
-    Off: "Off",
-    Basic: "Basic",
-    Enhanced: "Enhanced",
-} as const;
-
-/**
- * Desired level of diagnostic data emitted by the cluster.
- */
-export type DiagnosticLevel = (typeof DiagnosticLevel)[keyof typeof DiagnosticLevel];
-
 export const DiskFileFormat = {
     Vhdx: "vhdx",
     Vhd: "vhd",
@@ -131,17 +120,6 @@ export const PrivateIPAllocationMethodEnum = {
  */
 export type PrivateIPAllocationMethodEnum = (typeof PrivateIPAllocationMethodEnum)[keyof typeof PrivateIPAllocationMethodEnum];
 
-export const ProvisioningAction = {
-    Install: "install",
-    Uninstall: "uninstall",
-    Repair: "repair",
-} as const;
-
-/**
- * The guest agent provisioning action.
- */
-export type ProvisioningAction = (typeof ProvisioningAction)[keyof typeof ProvisioningAction];
-
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;
@@ -150,13 +128,3 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
-
-export const WindowsServerSubscription = {
-    Disabled: "Disabled",
-    Enabled: "Enabled",
-} as const;
-
-/**
- * Desired state of Windows Server Subscription.
- */
-export type WindowsServerSubscription = (typeof WindowsServerSubscription)[keyof typeof WindowsServerSubscription];

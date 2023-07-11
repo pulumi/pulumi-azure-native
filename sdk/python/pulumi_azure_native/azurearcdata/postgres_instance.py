@@ -30,7 +30,7 @@ class PostgresInstanceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] postgres_instance_name: Name of PostgresInstance
+        :param pulumi.Input[str] postgres_instance_name: Name of Postgres Instance
         :param pulumi.Input['PostgresInstanceSkuArgs'] sku: Resource sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -99,7 +99,7 @@ class PostgresInstanceArgs:
     @pulumi.getter(name="postgresInstanceName")
     def postgres_instance_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of PostgresInstance
+        Name of Postgres Instance
         """
         return pulumi.get(self, "postgres_instance_name")
 
@@ -147,13 +147,13 @@ class PostgresInstance(pulumi.CustomResource):
                  __props__=None):
         """
         A Postgres Instance.
-        API Version: 2021-06-01-preview.
+        Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] postgres_instance_name: Name of PostgresInstance
+        :param pulumi.Input[str] postgres_instance_name: Name of Postgres Instance
         :param pulumi.Input[pulumi.InputType['PostgresInstancePropertiesArgs']] properties: null
         :param pulumi.Input[str] resource_group_name: The name of the Azure resource group
         :param pulumi.Input[pulumi.InputType['PostgresInstanceSkuArgs']] sku: Resource sku.
@@ -167,7 +167,7 @@ class PostgresInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Postgres Instance.
-        API Version: 2021-06-01-preview.
+        Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param PostgresInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -214,7 +214,7 @@ class PostgresInstance(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:PostgresInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurearcdata/v20210601preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20210701preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220301preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20220615preview:PostgresInstance"), pulumi.Alias(type_="azure-native:azurearcdata/v20230115preview:PostgresInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PostgresInstance, __self__).__init__(
             'azure-native:azurearcdata:PostgresInstance',
@@ -292,7 +292,7 @@ class PostgresInstance(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -308,7 +308,7 @@ class PostgresInstance(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

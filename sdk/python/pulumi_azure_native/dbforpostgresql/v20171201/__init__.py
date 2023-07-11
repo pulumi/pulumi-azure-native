@@ -6,19 +6,7 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .configuration import *
-from .database import *
-from .firewall_rule import *
-from .get_configuration import *
-from .get_database import *
-from .get_firewall_rule import *
 from .get_server import *
-from .get_server_administrator import *
-from .get_server_security_alert_policy import *
-from .get_virtual_network_rule import *
 from .server import *
-from .server_administrator import *
-from .server_security_alert_policy import *
-from .virtual_network_rule import *
 from ._inputs import *
 from . import outputs

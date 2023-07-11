@@ -47,6 +47,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public ProbeSettingsArgs()
         {
+            FailureThreshold = 30;
+            Period = "PT10S";
+            SuccessThreshold = 1;
+            Timeout = "PT2S";
         }
         public static new ProbeSettingsArgs Empty => new ProbeSettingsArgs();
     }

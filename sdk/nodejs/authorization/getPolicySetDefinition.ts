@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * This operation retrieves the policy set definition in the given subscription with the given name.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
 
@@ -67,13 +67,17 @@ export interface GetPolicySetDefinitionResult {
      */
     readonly policyType?: string;
     /**
+     * The system metadata relating to this resource.
+     */
+    readonly systemData: outputs.authorization.SystemDataResponse;
+    /**
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
     readonly type: string;
 }
 /**
  * This operation retrieves the policy set definition in the given subscription with the given name.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getPolicySetDefinitionOutput(args: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicySetDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getPolicySetDefinition(a, opts))

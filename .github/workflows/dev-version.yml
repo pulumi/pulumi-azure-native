@@ -24,6 +24,8 @@ jobs:
           LAST_VERSION=$(echo "${GH_VERSION}" | cut -f1)
           # Use semver NPM CLI tool to find next minimal version
           NEXT_VERSION=$(npx -y semver --increment patch "${LAST_VERSION}")
+          # TODO: Remove after v2 release https://github.com/pulumi/pulumi-azure-native/issues/2482
+          NEXT_VERSION=2.0.0
           # Include an always-increasing number to order correctly
           TIMESTAMP=$(date +%s)
           # Indicate the commit the build came from

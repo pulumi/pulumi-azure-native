@@ -27,7 +27,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
         /// <summary>
         /// The properties that are associated with a function.
         /// </summary>
-        public readonly Outputs.ScalarFunctionPropertiesResponse? Properties;
+        public readonly Union<Outputs.AggregateFunctionPropertiesResponse, Outputs.ScalarFunctionPropertiesResponse>? Properties;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.Outputs
 
             string? name,
 
-            Outputs.ScalarFunctionPropertiesResponse? properties,
+            Union<Outputs.AggregateFunctionPropertiesResponse, Outputs.ScalarFunctionPropertiesResponse>? properties,
 
             string type)
         {

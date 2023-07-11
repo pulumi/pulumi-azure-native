@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * REST model used to encapsulate the user visible state of a PrivateEndpoint.
- * API Version: 2020-07-07.
+ * Azure REST API version: 2020-07-07.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -67,7 +67,7 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * REST model used to encapsulate the user visible state of a PrivateEndpoint.
- * API Version: 2020-07-07.
+ * Azure REST API version: 2020-07-07.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

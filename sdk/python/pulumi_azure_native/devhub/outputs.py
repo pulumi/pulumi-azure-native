@@ -359,6 +359,8 @@ class WorkflowRunResponse(dict):
             suggest = "last_run_at"
         elif key == "workflowRunURL":
             suggest = "workflow_run_url"
+        elif key == "workflowRunStatus":
+            suggest = "workflow_run_status"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in WorkflowRunResponse. Access the value via the '{suggest}' property getter instead.")
@@ -374,15 +376,19 @@ class WorkflowRunResponse(dict):
     def __init__(__self__, *,
                  last_run_at: str,
                  succeeded: bool,
-                 workflow_run_url: str):
+                 workflow_run_url: str,
+                 workflow_run_status: Optional[str] = None):
         """
         :param str last_run_at: The timestamp of the last workflow run.
         :param bool succeeded: Describes if the workflow run succeeded.
         :param str workflow_run_url: URL to the run of the workflow.
+        :param str workflow_run_status: Describes the status of the workflow run
         """
         pulumi.set(__self__, "last_run_at", last_run_at)
         pulumi.set(__self__, "succeeded", succeeded)
         pulumi.set(__self__, "workflow_run_url", workflow_run_url)
+        if workflow_run_status is not None:
+            pulumi.set(__self__, "workflow_run_status", workflow_run_status)
 
     @property
     @pulumi.getter(name="lastRunAt")
@@ -407,5 +413,13 @@ class WorkflowRunResponse(dict):
         URL to the run of the workflow.
         """
         return pulumi.get(self, "workflow_run_url")
+
+    @property
+    @pulumi.getter(name="workflowRunStatus")
+    def workflow_run_status(self) -> Optional[str]:
+        """
+        Describes the status of the workflow run
+        """
+        return pulumi.get(self, "workflow_run_status")
 
 

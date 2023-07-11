@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// API Version Set Contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:ApiVersionSet is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiVersionSet to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiVersionSet")]
     public partial class ApiVersionSet : global::Pulumi.CustomResource
     {
@@ -97,6 +96,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ApiVersionSet"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ApiVersionSet"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ApiVersionSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ApiVersionSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

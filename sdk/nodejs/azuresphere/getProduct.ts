@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
 
@@ -67,7 +67,7 @@ export interface GetProductResult {
 }
 /**
  * Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
     return pulumi.output(args).apply((a: any) => getProduct(a, opts))

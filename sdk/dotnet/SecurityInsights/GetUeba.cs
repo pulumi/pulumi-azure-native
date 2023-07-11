@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a setting.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetUebaResult> InvokeAsync(GetUebaArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUebaResult>("azure-native:securityinsights:getUeba", args ?? new GetUebaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a setting.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetUebaResult> Invoke(GetUebaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUebaResult>("azure-native:securityinsights:getUeba", args ?? new GetUebaInvokeArgs(), options.WithDefaults());
@@ -29,12 +29,6 @@ namespace Pulumi.AzureNative.SecurityInsights
 
     public sealed class GetUebaArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
-
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
@@ -61,12 +55,6 @@ namespace Pulumi.AzureNative.SecurityInsights
 
     public sealed class GetUebaInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
@@ -104,7 +92,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -113,7 +101,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -121,7 +109,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

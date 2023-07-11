@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Sql
     {
         /// <summary>
         /// Gets a database.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:sql:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a database.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:sql:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
@@ -132,13 +132,29 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string FailoverGroupId;
         /// <summary>
-        /// The number of secondary replicas associated with the database that are used to provide high availability.
+        /// The Client id used for cross tenant per database CMK scenario
+        /// </summary>
+        public readonly string? FederatedClientId;
+        /// <summary>
+        /// The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         public readonly int? HighAvailabilityReplicaCount;
         /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The Azure Active Directory identity of the database.
+        /// </summary>
+        public readonly Outputs.DatabaseIdentityResponse? Identity;
+        /// <summary>
+        /// Infra encryption is enabled for this database.
+        /// </summary>
+        public readonly bool IsInfraEncryptionEnabled;
+        /// <summary>
+        /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+        /// </summary>
+        public readonly bool? IsLedgerOn;
         /// <summary>
         /// Kind of database. This is metadata used for the Azure portal experience.
         /// </summary>
@@ -180,7 +196,7 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string PausedDate;
         /// <summary>
-        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+        /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         public readonly string? ReadScale;
         /// <summary>
@@ -256,9 +272,17 @@ namespace Pulumi.AzureNative.Sql
 
             string failoverGroupId,
 
+            string? federatedClientId,
+
             int? highAvailabilityReplicaCount,
 
             string id,
+
+            Outputs.DatabaseIdentityResponse? identity,
+
+            bool isInfraEncryptionEnabled,
+
+            bool? isLedgerOn,
 
             string kind,
 
@@ -312,8 +336,12 @@ namespace Pulumi.AzureNative.Sql
             EarliestRestoreDate = earliestRestoreDate;
             ElasticPoolId = elasticPoolId;
             FailoverGroupId = failoverGroupId;
+            FederatedClientId = federatedClientId;
             HighAvailabilityReplicaCount = highAvailabilityReplicaCount;
             Id = id;
+            Identity = identity;
+            IsInfraEncryptionEnabled = isInfraEncryptionEnabled;
+            IsLedgerOn = isLedgerOn;
             Kind = kind;
             LicenseType = licenseType;
             Location = location;

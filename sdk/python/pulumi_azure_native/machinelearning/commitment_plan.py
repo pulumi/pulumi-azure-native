@@ -113,7 +113,7 @@ class CommitmentPlan(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure ML commitment plan resource.
-        API Version: 2016-05-01-preview.
+        Azure REST API version: 2016-05-01-preview. Prior API version in Azure Native 1.x: 2016-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class CommitmentPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure ML commitment plan resource.
-        API Version: 2016-05-01-preview.
+        Azure REST API version: 2016-05-01-preview. Prior API version in Azure Native 1.x: 2016-05-01-preview
 
         :param str resource_name: The name of the resource.
         :param CommitmentPlanInitArgs args: The arguments to use to populate this resource's properties.

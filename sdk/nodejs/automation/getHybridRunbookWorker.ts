@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve a hybrid runbook worker.
- * API Version: 2021-06-22.
+ * Azure REST API version: 2022-08-08.
  */
 export function getHybridRunbookWorker(args: GetHybridRunbookWorkerArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridRunbookWorkerResult> {
 
@@ -88,7 +88,7 @@ export interface GetHybridRunbookWorkerResult {
 }
 /**
  * Retrieve a hybrid runbook worker.
- * API Version: 2021-06-22.
+ * Azure REST API version: 2022-08-08.
  */
 export function getHybridRunbookWorkerOutput(args: GetHybridRunbookWorkerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridRunbookWorkerResult> {
     return pulumi.output(args).apply((a: any) => getHybridRunbookWorker(a, opts))

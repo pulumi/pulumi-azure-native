@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Channel info.
- * API Version: 2021-10-15-preview.
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview
  */
 export class Channel extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class Channel extends pulumi.CustomResource {
     }
 
     /**
-     * The type of the event channel which represents the  direction flow of events.
+     * The type of the event channel which represents the direction flow of events.
      */
     public readonly channelType!: pulumi.Output<string | undefined>;
     /**
@@ -55,10 +55,6 @@ export class Channel extends pulumi.CustomResource {
      * Name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-     */
-    public readonly partnerDestinationInfo!: pulumi.Output<outputs.eventgrid.WebhookPartnerDestinationInfoResponse | undefined>;
     /**
      * This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
      */
@@ -101,7 +97,6 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["channelType"] = args ? args.channelType : undefined;
             resourceInputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
             resourceInputs["messageForActivation"] = args ? args.messageForActivation : undefined;
-            resourceInputs["partnerDestinationInfo"] = args ? (args.partnerDestinationInfo ? pulumi.output(args.partnerDestinationInfo).apply(inputs.eventgrid.webhookPartnerDestinationInfoArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
             resourceInputs["partnerTopicInfo"] = args ? args.partnerTopicInfo : undefined;
             resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
@@ -115,7 +110,6 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["expirationTimeIfNotActivatedUtc"] = undefined /*out*/;
             resourceInputs["messageForActivation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["partnerDestinationInfo"] = undefined /*out*/;
             resourceInputs["partnerTopicInfo"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readinessState"] = undefined /*out*/;
@@ -123,7 +117,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:Channel" }, { type: "azure-native:eventgrid/v20220615:Channel" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:Channel" }, { type: "azure-native:eventgrid/v20220615:Channel" }, { type: "azure-native:eventgrid/v20230601preview:Channel" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Channel.__pulumiType, name, resourceInputs, opts);
     }
@@ -138,7 +132,7 @@ export interface ChannelArgs {
      */
     channelName?: pulumi.Input<string>;
     /**
-     * The type of the event channel which represents the  direction flow of events.
+     * The type of the event channel which represents the direction flow of events.
      */
     channelType?: pulumi.Input<string | enums.eventgrid.ChannelType>;
     /**
@@ -150,10 +144,6 @@ export interface ChannelArgs {
      * Context or helpful message that can be used during the approval process by the subscriber.
      */
     messageForActivation?: pulumi.Input<string>;
-    /**
-     * This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-     */
-    partnerDestinationInfo?: pulumi.Input<inputs.eventgrid.WebhookPartnerDestinationInfoArgs>;
     /**
      * Name of the partner namespace.
      */

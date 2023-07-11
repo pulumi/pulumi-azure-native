@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.BotService
     {
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-09-15.
         /// </summary>
         public static Task<ListBotConnectionWithSecretsResult> InvokeAsync(ListBotConnectionWithSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListBotConnectionWithSecretsResult>("azure-native:botservice:listBotConnectionWithSecrets", args ?? new ListBotConnectionWithSecretsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Connection Setting registration for a Bot Service
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-09-15.
         /// </summary>
         public static Output<ListBotConnectionWithSecretsResult> Invoke(ListBotConnectionWithSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListBotConnectionWithSecretsResult>("azure-native:botservice:listBotConnectionWithSecrets", args ?? new ListBotConnectionWithSecretsInvokeArgs(), options.WithDefaults());
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.BotService
     public sealed class ListBotConnectionWithSecretsResult
     {
         /// <summary>
-        /// Entity Tag
+        /// Entity Tag.
         /// </summary>
         public readonly string? Etag;
         /// <summary>

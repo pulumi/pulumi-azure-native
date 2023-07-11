@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a project environment type.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getProjectEnvironmentType(args: GetProjectEnvironmentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectEnvironmentTypeResult> {
 
@@ -31,7 +31,7 @@ export interface GetProjectEnvironmentTypeArgs {
      */
     projectName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -91,7 +91,7 @@ export interface GetProjectEnvironmentTypeResult {
 }
 /**
  * Gets a project environment type.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getProjectEnvironmentTypeOutput(args: GetProjectEnvironmentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectEnvironmentTypeResult> {
     return pulumi.output(args).apply((a: any) => getProjectEnvironmentType(a, opts))
@@ -107,7 +107,7 @@ export interface GetProjectEnvironmentTypeOutputArgs {
      */
     projectName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

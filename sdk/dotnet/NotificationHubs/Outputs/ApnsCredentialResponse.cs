@@ -17,64 +17,14 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
     public sealed class ApnsCredentialResponse
     {
         /// <summary>
-        /// The APNS certificate. Specify if using Certificate Authentication Mode.
+        /// Description of a NotificationHub ApnsCredential.
         /// </summary>
-        public readonly string? ApnsCertificate;
-        /// <summary>
-        /// The issuer (iss) registered claim key. The value is a 10-character TeamId, obtained from your developer account. Specify if using Token Authentication Mode.
-        /// </summary>
-        public readonly string? AppId;
-        /// <summary>
-        /// The name of the application or BundleId. Specify if using Token Authentication Mode.
-        /// </summary>
-        public readonly string? AppName;
-        /// <summary>
-        /// The APNS certificate password if it exists.
-        /// </summary>
-        public readonly string? CertificateKey;
-        /// <summary>
-        /// The APNS endpoint of this credential. If using Certificate Authentication Mode and Sandbox specify 'gateway.sandbox.push.apple.com'. If using Certificate Authentication Mode and Production specify 'gateway.push.apple.com'. If using Token Authentication Mode and Sandbox specify 'https://api.development.push.apple.com:443/3/device'. If using Token Authentication Mode and Production specify 'https://api.push.apple.com:443/3/device'.
-        /// </summary>
-        public readonly string? Endpoint;
-        /// <summary>
-        /// A 10-character key identifier (kid) key, obtained from your developer account. Specify if using Token Authentication Mode.
-        /// </summary>
-        public readonly string? KeyId;
-        /// <summary>
-        /// The APNS certificate thumbprint. Specify if using Certificate Authentication Mode.
-        /// </summary>
-        public readonly string? Thumbprint;
-        /// <summary>
-        /// Provider Authentication Token, obtained through your developer account. Specify if using Token Authentication Mode.
-        /// </summary>
-        public readonly string? Token;
+        public readonly Outputs.ApnsCredentialPropertiesResponse Properties;
 
         [OutputConstructor]
-        private ApnsCredentialResponse(
-            string? apnsCertificate,
-
-            string? appId,
-
-            string? appName,
-
-            string? certificateKey,
-
-            string? endpoint,
-
-            string? keyId,
-
-            string? thumbprint,
-
-            string? token)
+        private ApnsCredentialResponse(Outputs.ApnsCredentialPropertiesResponse properties)
         {
-            ApnsCertificate = apnsCertificate;
-            AppId = appId;
-            AppName = appName;
-            CertificateKey = certificateKey;
-            Endpoint = endpoint;
-            KeyId = keyId;
-            Thumbprint = thumbprint;
-            Token = token;
+            Properties = properties;
         }
     }
 }

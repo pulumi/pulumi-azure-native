@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get an application group.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Task<GetApplicationGroupResult> InvokeAsync(GetApplicationGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationGroupResult>("azure-native:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get an application group.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Output<GetApplicationGroupResult> Invoke(GetApplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationGroupResult>("azure-native:desktopvirtualization:getApplicationGroup", args ?? new GetApplicationGroupInvokeArgs(), options.WithDefaults());
@@ -113,10 +113,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// </summary>
         public readonly string? ManagedBy;
         /// <summary>
-        /// The registration info of HostPool.
-        /// </summary>
-        public readonly Outputs.MigrationRequestPropertiesResponse? MigrationRequest;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -126,6 +122,10 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public readonly string ObjectId;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -163,8 +163,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             string? managedBy,
 
-            Outputs.MigrationRequestPropertiesResponse? migrationRequest,
-
             string name,
 
             string objectId,
@@ -172,6 +170,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
             Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -190,11 +190,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Kind = kind;
             Location = location;
             ManagedBy = managedBy;
-            MigrationRequest = migrationRequest;
             Name = name;
             ObjectId = objectId;
             Plan = plan;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             WorkspaceArmPath = workspaceArmPath;

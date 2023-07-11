@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified job.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
 
@@ -55,7 +55,7 @@ export interface GetJobResult {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    readonly details?: outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse;
+    readonly details?: outputs.databox.DataBoxCustomerDiskJobDetailsResponse | outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse;
     /**
      * Top level error for the job.
      */
@@ -97,6 +97,14 @@ export interface GetJobResult {
      */
     readonly name: string;
     /**
+     * The Editable status for Reverse Shipping Address and Contact Info
+     */
+    readonly reverseShippingDetailsUpdate: string;
+    /**
+     * The Editable status for Reverse Transport preferences
+     */
+    readonly reverseTransportPreferenceUpdate: string;
+    /**
      * The sku type.
      */
     readonly sku: outputs.databox.SkuResponse;
@@ -127,7 +135,7 @@ export interface GetJobResult {
 }
 /**
  * Gets information about the specified job.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))

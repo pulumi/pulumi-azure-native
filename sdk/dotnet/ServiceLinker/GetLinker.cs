@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ServiceLinker
     {
         /// <summary>
         /// Returns Linker resource for a given name.
-        /// API Version: 2021-11-01-preview.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Task<GetLinkerResult> InvokeAsync(GetLinkerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns Linker resource for a given name.
-        /// API Version: 2021-11-01-preview.
+        /// Azure REST API version: 2022-11-01-preview.
         /// </summary>
         public static Output<GetLinkerResult> Invoke(GetLinkerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkerResult>("azure-native:servicelinker:getLinker", args ?? new GetLinkerInvokeArgs(), options.WithDefaults());
@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         public readonly string? ClientType;
         /// <summary>
+        /// The connection information consumed by applications, including secrets, connection strings.
+        /// </summary>
+        public readonly Outputs.ConfigurationInfoResponse? ConfigurationInfo;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -92,17 +96,25 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The network solution.
+        /// </summary>
+        public readonly Outputs.PublicNetworkSolutionResponse? PublicNetworkSolution;
+        /// <summary>
+        /// connection scope in source service.
+        /// </summary>
+        public readonly string? Scope;
+        /// <summary>
         /// An option to store secret value in secure place
         /// </summary>
         public readonly Outputs.SecretStoreResponse? SecretStore;
         /// <summary>
-        /// The system data.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The resource Id of target service.
+        /// The target service properties
         /// </summary>
-        public readonly string? TargetId;
+        public readonly object? TargetService;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -118,17 +130,23 @@ namespace Pulumi.AzureNative.ServiceLinker
 
             string? clientType,
 
+            Outputs.ConfigurationInfoResponse? configurationInfo,
+
             string id,
 
             string name,
 
             string provisioningState,
 
+            Outputs.PublicNetworkSolutionResponse? publicNetworkSolution,
+
+            string? scope,
+
             Outputs.SecretStoreResponse? secretStore,
 
             Outputs.SystemDataResponse systemData,
 
-            string? targetId,
+            object? targetService,
 
             string type,
 
@@ -136,12 +154,15 @@ namespace Pulumi.AzureNative.ServiceLinker
         {
             AuthInfo = authInfo;
             ClientType = clientType;
+            ConfigurationInfo = configurationInfo;
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            PublicNetworkSolution = publicNetworkSolution;
+            Scope = scope;
             SecretStore = secretStore;
             SystemData = systemData;
-            TargetId = targetId;
+            TargetService = targetService;
             Type = type;
             VNetSolution = vNetSolution;
         }

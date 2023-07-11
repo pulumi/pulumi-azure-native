@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
     public sealed class VolumeGroupVolumePropertiesResponse
     {
         /// <summary>
+        /// Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel
+        /// </summary>
+        public readonly double ActualThroughputMibps;
+        /// <summary>
         /// Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
         /// </summary>
         public readonly string? AvsDataStore;
@@ -53,6 +57,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly Outputs.VolumePropertiesResponseDataProtection? DataProtection;
         /// <summary>
+        /// Data store resource unique identifier
+        /// </summary>
+        public readonly ImmutableArray<string> DataStoreResourceId;
+        /// <summary>
         /// Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
         /// </summary>
         public readonly double? DefaultGroupQuotaInKiBs;
@@ -61,17 +69,29 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly double? DefaultUserQuotaInKiBs;
         /// <summary>
+        /// If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
+        /// </summary>
+        public readonly bool? DeleteBaseSnapshot;
+        /// <summary>
         /// Flag indicating whether subvolume operations are enabled on the volume
         /// </summary>
         public readonly string? EnableSubvolumes;
         /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'
+        /// Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01.
+        /// </summary>
+        public readonly bool Encrypted;
+        /// <summary>
+        /// Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
         /// </summary>
         public readonly string? EncryptionKeySource;
         /// <summary>
         /// Set of export policy rules
         /// </summary>
         public readonly Outputs.VolumePropertiesResponseExportPolicy? ExportPolicy;
+        /// <summary>
+        /// Flag indicating whether file access logs are enabled for the volume, based on active diagnostic settings present on the volume.
+        /// </summary>
+        public readonly string FileAccessLogs;
         /// <summary>
         /// Unique FileSystem Identifier.
         /// </summary>
@@ -85,6 +105,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly bool? IsDefaultQuotaEnabled;
         /// <summary>
+        /// Specifies whether volume is a Large Volume or Regular Volume.
+        /// </summary>
+        public readonly bool? IsLargeVolume;
+        /// <summary>
         /// Restoring
         /// </summary>
         public readonly bool? IsRestoring;
@@ -92,6 +116,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
         /// </summary>
         public readonly bool? KerberosEnabled;
+        /// <summary>
+        /// The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
+        /// </summary>
+        public readonly string? KeyVaultPrivateEndpointResourceId;
         /// <summary>
         /// Specifies whether LDAP is enabled or not for a given NFS volume.
         /// </summary>
@@ -117,6 +145,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string NetworkSiblingSetId;
         /// <summary>
+        /// Id of the snapshot or backup that the volume is restored from.
+        /// </summary>
+        public readonly string OriginatingResourceId;
+        /// <summary>
         /// Application specific placement rules for the particular volume
         /// </summary>
         public readonly ImmutableArray<Outputs.PlacementKeyValuePairsResponse> PlacementRules;
@@ -124,6 +156,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// Set of protocol types, default NFSv3, CIFS for SMB protocol
         /// </summary>
         public readonly ImmutableArray<string> ProtocolTypes;
+        /// <summary>
+        /// The availability zone where the volume is provisioned. This refers to the logical availability zone where the volume resides.
+        /// </summary>
+        public readonly string ProvisionedAvailabilityZone;
         /// <summary>
         /// Azure lifecycle management
         /// </summary>
@@ -141,6 +177,10 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? ServiceLevel;
         /// <summary>
+        /// Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        /// </summary>
+        public readonly string? SmbAccessBasedEnumeration;
+        /// <summary>
         /// Enables continuously available share property for smb volume. Only applicable for SMB volume
         /// </summary>
         public readonly bool? SmbContinuouslyAvailable;
@@ -149,7 +189,11 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly bool? SmbEncryption;
         /// <summary>
-        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (default to true).
+        /// Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+        /// </summary>
+        public readonly string? SmbNonBrowsable;
+        /// <summary>
+        /// If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
         /// </summary>
         public readonly bool? SnapshotDirectoryVisible;
         /// <summary>
@@ -182,7 +226,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
         /// </summary>
         public readonly string? UnixPermissions;
         /// <summary>
-        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB. Specified in bytes.
+        /// Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume. Specified in bytes.
         /// </summary>
         public readonly double UsageThreshold;
         /// <summary>
@@ -200,6 +244,8 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
         [OutputConstructor]
         private VolumeGroupVolumePropertiesResponse(
+            double actualThroughputMibps,
+
             string? avsDataStore,
 
             string? backupId,
@@ -218,15 +264,23 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             Outputs.VolumePropertiesResponseDataProtection? dataProtection,
 
+            ImmutableArray<string> dataStoreResourceId,
+
             double? defaultGroupQuotaInKiBs,
 
             double? defaultUserQuotaInKiBs,
 
+            bool? deleteBaseSnapshot,
+
             string? enableSubvolumes,
+
+            bool encrypted,
 
             string? encryptionKeySource,
 
             Outputs.VolumePropertiesResponseExportPolicy? exportPolicy,
+
+            string fileAccessLogs,
 
             string fileSystemId,
 
@@ -234,9 +288,13 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             bool? isDefaultQuotaEnabled,
 
+            bool? isLargeVolume,
+
             bool? isRestoring,
 
             bool? kerberosEnabled,
+
+            string? keyVaultPrivateEndpointResourceId,
 
             bool? ldapEnabled,
 
@@ -250,9 +308,13 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string networkSiblingSetId,
 
+            string originatingResourceId,
+
             ImmutableArray<Outputs.PlacementKeyValuePairsResponse> placementRules,
 
             ImmutableArray<string> protocolTypes,
+
+            string provisionedAvailabilityZone,
 
             string provisioningState,
 
@@ -262,9 +324,13 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? serviceLevel,
 
+            string? smbAccessBasedEnumeration,
+
             bool? smbContinuouslyAvailable,
 
             bool? smbEncryption,
+
+            string? smbNonBrowsable,
 
             bool? snapshotDirectoryVisible,
 
@@ -292,6 +358,7 @@ namespace Pulumi.AzureNative.NetApp.Outputs
 
             string? volumeType)
         {
+            ActualThroughputMibps = actualThroughputMibps;
             AvsDataStore = avsDataStore;
             BackupId = backupId;
             BaremetalTenantId = baremetalTenantId;
@@ -301,30 +368,40 @@ namespace Pulumi.AzureNative.NetApp.Outputs
             CoolnessPeriod = coolnessPeriod;
             CreationToken = creationToken;
             DataProtection = dataProtection;
+            DataStoreResourceId = dataStoreResourceId;
             DefaultGroupQuotaInKiBs = defaultGroupQuotaInKiBs;
             DefaultUserQuotaInKiBs = defaultUserQuotaInKiBs;
+            DeleteBaseSnapshot = deleteBaseSnapshot;
             EnableSubvolumes = enableSubvolumes;
+            Encrypted = encrypted;
             EncryptionKeySource = encryptionKeySource;
             ExportPolicy = exportPolicy;
+            FileAccessLogs = fileAccessLogs;
             FileSystemId = fileSystemId;
             Id = id;
             IsDefaultQuotaEnabled = isDefaultQuotaEnabled;
+            IsLargeVolume = isLargeVolume;
             IsRestoring = isRestoring;
             KerberosEnabled = kerberosEnabled;
+            KeyVaultPrivateEndpointResourceId = keyVaultPrivateEndpointResourceId;
             LdapEnabled = ldapEnabled;
             MaximumNumberOfFiles = maximumNumberOfFiles;
             MountTargets = mountTargets;
             Name = name;
             NetworkFeatures = networkFeatures;
             NetworkSiblingSetId = networkSiblingSetId;
+            OriginatingResourceId = originatingResourceId;
             PlacementRules = placementRules;
             ProtocolTypes = protocolTypes;
+            ProvisionedAvailabilityZone = provisionedAvailabilityZone;
             ProvisioningState = provisioningState;
             ProximityPlacementGroup = proximityPlacementGroup;
             SecurityStyle = securityStyle;
             ServiceLevel = serviceLevel;
+            SmbAccessBasedEnumeration = smbAccessBasedEnumeration;
             SmbContinuouslyAvailable = smbContinuouslyAvailable;
             SmbEncryption = smbEncryption;
+            SmbNonBrowsable = smbNonBrowsable;
             SnapshotDirectoryVisible = snapshotDirectoryVisible;
             SnapshotId = snapshotId;
             StorageToNetworkProximity = storageToNetworkProximity;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// A Big Data pool
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:BigDataPool")]
     public partial class BigDataPool : global::Pulumi.CustomResource
@@ -32,13 +32,13 @@ namespace Pulumi.AzureNative.Synapse
         /// The cache size
         /// </summary>
         [Output("cacheSize")]
-        public Output<int?> CacheSize { get; private set; } = null!;
+        public Output<int> CacheSize { get; private set; } = null!;
 
         /// <summary>
         /// The time when the Big Data pool was created.
         /// </summary>
         [Output("creationDate")]
-        public Output<string?> CreationDate { get; private set; } = null!;
+        public Output<string> CreationDate { get; private set; } = null!;
 
         /// <summary>
         /// List of custom libraries/packages associated with the spark pool.
@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("dynamicExecutorAllocation")]
         public Output<Outputs.DynamicExecutorAllocationResponse?> DynamicExecutorAllocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether autotune is required or not.
+        /// </summary>
+        [Output("isAutotuneEnabled")]
+        public Output<bool?> IsAutotuneEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Whether compute isolation is required or not.
@@ -122,7 +128,7 @@ namespace Pulumi.AzureNative.Synapse
         /// Spark configuration file to specify additional properties
         /// </summary>
         [Output("sparkConfigProperties")]
-        public Output<Outputs.LibraryRequirementsResponse?> SparkConfigProperties { get; private set; } = null!;
+        public Output<Outputs.SparkConfigPropertiesResponse?> SparkConfigProperties { get; private set; } = null!;
 
         /// <summary>
         /// The Spark events folder
@@ -221,18 +227,6 @@ namespace Pulumi.AzureNative.Synapse
         [Input("bigDataPoolName")]
         public Input<string>? BigDataPoolName { get; set; }
 
-        /// <summary>
-        /// The cache size
-        /// </summary>
-        [Input("cacheSize")]
-        public Input<int>? CacheSize { get; set; }
-
-        /// <summary>
-        /// The time when the Big Data pool was created.
-        /// </summary>
-        [Input("creationDate")]
-        public Input<string>? CreationDate { get; set; }
-
         [Input("customLibraries")]
         private InputList<Inputs.LibraryInfoArgs>? _customLibraries;
 
@@ -262,6 +256,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Input("force")]
         public Input<bool>? Force { get; set; }
+
+        /// <summary>
+        /// Whether autotune is required or not.
+        /// </summary>
+        [Input("isAutotuneEnabled")]
+        public Input<bool>? IsAutotuneEnabled { get; set; }
 
         /// <summary>
         /// Whether compute isolation is required or not.
@@ -321,7 +321,7 @@ namespace Pulumi.AzureNative.Synapse
         /// Spark configuration file to specify additional properties
         /// </summary>
         [Input("sparkConfigProperties")]
-        public Input<Inputs.LibraryRequirementsArgs>? SparkConfigProperties { get; set; }
+        public Input<Inputs.SparkConfigPropertiesArgs>? SparkConfigProperties { get; set; }
 
         /// <summary>
         /// The Spark events folder
@@ -348,7 +348,7 @@ namespace Pulumi.AzureNative.Synapse
         }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

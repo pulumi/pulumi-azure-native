@@ -22,13 +22,16 @@ class GetExpressRoutePortResult:
     """
     ExpressRoutePort resource definition.
     """
-    def __init__(__self__, allocation_date=None, bandwidth_in_gbps=None, circuits=None, encapsulation=None, etag=None, ether_type=None, id=None, identity=None, links=None, location=None, mtu=None, name=None, peering_location=None, provisioned_bandwidth_in_gbps=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
+    def __init__(__self__, allocation_date=None, bandwidth_in_gbps=None, billing_type=None, circuits=None, encapsulation=None, etag=None, ether_type=None, id=None, identity=None, links=None, location=None, mtu=None, name=None, peering_location=None, provisioned_bandwidth_in_gbps=None, provisioning_state=None, resource_guid=None, tags=None, type=None):
         if allocation_date and not isinstance(allocation_date, str):
             raise TypeError("Expected argument 'allocation_date' to be a str")
         pulumi.set(__self__, "allocation_date", allocation_date)
         if bandwidth_in_gbps and not isinstance(bandwidth_in_gbps, int):
             raise TypeError("Expected argument 'bandwidth_in_gbps' to be a int")
         pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        if billing_type and not isinstance(billing_type, str):
+            raise TypeError("Expected argument 'billing_type' to be a str")
+        pulumi.set(__self__, "billing_type", billing_type)
         if circuits and not isinstance(circuits, list):
             raise TypeError("Expected argument 'circuits' to be a list")
         pulumi.set(__self__, "circuits", circuits)
@@ -93,6 +96,14 @@ class GetExpressRoutePortResult:
         Bandwidth of procured ports in Gbps.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
+
+    @property
+    @pulumi.getter(name="billingType")
+    def billing_type(self) -> Optional[str]:
+        """
+        The billing type of the ExpressRoutePort resource.
+        """
+        return pulumi.get(self, "billing_type")
 
     @property
     @pulumi.getter
@@ -231,6 +242,7 @@ class AwaitableGetExpressRoutePortResult(GetExpressRoutePortResult):
         return GetExpressRoutePortResult(
             allocation_date=self.allocation_date,
             bandwidth_in_gbps=self.bandwidth_in_gbps,
+            billing_type=self.billing_type,
             circuits=self.circuits,
             encapsulation=self.encapsulation,
             etag=self.etag,
@@ -254,7 +266,7 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetExpressRoutePortResult:
     """
     Retrieves the requested ExpressRoutePort resource.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str express_route_port_name: The name of ExpressRoutePort.
@@ -269,6 +281,7 @@ def get_express_route_port(express_route_port_name: Optional[str] = None,
     return AwaitableGetExpressRoutePortResult(
         allocation_date=__ret__.allocation_date,
         bandwidth_in_gbps=__ret__.bandwidth_in_gbps,
+        billing_type=__ret__.billing_type,
         circuits=__ret__.circuits,
         encapsulation=__ret__.encapsulation,
         etag=__ret__.etag,
@@ -293,7 +306,7 @@ def get_express_route_port_output(express_route_port_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExpressRoutePortResult]:
     """
     Retrieves the requested ExpressRoutePort resource.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str express_route_port_name: The name of ExpressRoutePort.

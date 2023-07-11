@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets a hybrid connection configuration by its name.
- * API Version: 2020-12-01.
+ * Description for Gets a hybrid connection configuration by its name.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppRelayServiceConnection(args: GetWebAppRelayServiceConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppRelayServiceConnectionResult> {
 
@@ -62,8 +62,8 @@ export interface GetWebAppRelayServiceConnectionResult {
     readonly type: string;
 }
 /**
- * Gets a hybrid connection configuration by its name.
- * API Version: 2020-12-01.
+ * Description for Gets a hybrid connection configuration by its name.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppRelayServiceConnectionOutput(args: GetWebAppRelayServiceConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppRelayServiceConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppRelayServiceConnection(a, opts))

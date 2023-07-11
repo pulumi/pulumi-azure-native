@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Specifications of the configurations
+    /// Specification of the configurations.
     /// </summary>
     [OutputType]
     public sealed class SpecificationResponse
     {
         /// <summary>
-        /// Name of the specification
+        /// Name of the specification.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Value of the specification
+        /// Value of the specification.
         /// </summary>
         public readonly string Value;
 

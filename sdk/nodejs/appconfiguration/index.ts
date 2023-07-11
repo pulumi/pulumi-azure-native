@@ -25,15 +25,15 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetReplicaArgs, GetReplicaResult, GetReplicaOutputArgs } from "./getReplica";
+export const getReplica: typeof import("./getReplica").getReplica = null as any;
+export const getReplicaOutput: typeof import("./getReplica").getReplicaOutput = null as any;
+utilities.lazyLoad(exports, ["getReplica","getReplicaOutput"], () => require("./getReplica"));
+
 export { KeyValueArgs } from "./keyValue";
 export type KeyValue = import("./keyValue").KeyValue;
 export const KeyValue: typeof import("./keyValue").KeyValue = null as any;
 utilities.lazyLoad(exports, ["KeyValue"], () => require("./keyValue"));
-
-export { ListConfigurationStoreKeyValueArgs, ListConfigurationStoreKeyValueResult, ListConfigurationStoreKeyValueOutputArgs } from "./listConfigurationStoreKeyValue";
-export const listConfigurationStoreKeyValue: typeof import("./listConfigurationStoreKeyValue").listConfigurationStoreKeyValue = null as any;
-export const listConfigurationStoreKeyValueOutput: typeof import("./listConfigurationStoreKeyValue").listConfigurationStoreKeyValueOutput = null as any;
-utilities.lazyLoad(exports, ["listConfigurationStoreKeyValue","listConfigurationStoreKeyValueOutput"], () => require("./listConfigurationStoreKeyValue"));
 
 export { ListConfigurationStoreKeysArgs, ListConfigurationStoreKeysResult, ListConfigurationStoreKeysOutputArgs } from "./listConfigurationStoreKeys";
 export const listConfigurationStoreKeys: typeof import("./listConfigurationStoreKeys").listConfigurationStoreKeys = null as any;
@@ -45,32 +45,19 @@ export type PrivateEndpointConnection = import("./privateEndpointConnection").Pr
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
+export { ReplicaArgs } from "./replica";
+export type Replica = import("./replica").Replica;
+export const Replica: typeof import("./replica").Replica = null as any;
+utilities.lazyLoad(exports, ["Replica"], () => require("./replica"));
+
 
 // Export enums:
 export * from "../types/enums/appconfiguration";
 
 // Export sub-modules:
-import * as v20190201preview from "./v20190201preview";
-import * as v20191001 from "./v20191001";
-import * as v20191101preview from "./v20191101preview";
-import * as v20200601 from "./v20200601";
-import * as v20200701preview from "./v20200701preview";
-import * as v20210301preview from "./v20210301preview";
-import * as v20211001preview from "./v20211001preview";
-import * as v20220301preview from "./v20220301preview";
-import * as v20220501 from "./v20220501";
 import * as v20230301 from "./v20230301";
 
 export {
-    v20190201preview,
-    v20191001,
-    v20191101preview,
-    v20200601,
-    v20200701preview,
-    v20210301preview,
-    v20211001preview,
-    v20220301preview,
-    v20220501,
     v20230301,
 };
 
@@ -84,6 +71,8 @@ const _module = {
                 return new KeyValue(name, <any>undefined, { urn })
             case "azure-native:appconfiguration:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:appconfiguration:Replica":
+                return new Replica(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

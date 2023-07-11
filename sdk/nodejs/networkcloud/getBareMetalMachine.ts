@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided bare metal machine.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBareMetalMachine(args: GetBareMetalMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetBareMetalMachineResult> {
 
@@ -32,6 +32,10 @@ export interface GetBareMetalMachineArgs {
 }
 
 export interface GetBareMetalMachineResult {
+    /**
+     * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+     */
+    readonly associatedResourceIds: string[];
     /**
      * The connection string for the baseboard management controller including IP address and protocol.
      */
@@ -77,11 +81,11 @@ export interface GetBareMetalMachineResult {
      */
     readonly hardwareValidationStatus: outputs.networkcloud.HardwareValidationStatusResponse;
     /**
-     * The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
+     * Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
      */
     readonly hybridAksClustersAssociatedIds: string[];
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -165,13 +169,13 @@ export interface GetBareMetalMachineResult {
      */
     readonly type: string;
     /**
-     * The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
+     * Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
      */
     readonly virtualMachinesAssociatedIds: string[];
 }
 /**
  * Get properties of the provided bare metal machine.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBareMetalMachineOutput(args: GetBareMetalMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBareMetalMachineResult> {
     return pulumi.output(args).apply((a: any) => getBareMetalMachine(a, opts))

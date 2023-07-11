@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         /// <summary>
         /// null
         /// </summary>
-        [Input("domainControllers", required: true)]
-        public Input<Inputs.ActiveDirectoryDomainControllersArgs> DomainControllers { get; set; } = null!;
+        [Input("domainControllers")]
+        public Input<Inputs.ActiveDirectoryDomainControllersArgs>? DomainControllers { get; set; }
 
         /// <summary>
         /// NETBIOS name of the Active Directory domain.

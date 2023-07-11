@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get GitHub Access Token.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getFactoryGitHubAccessToken(args: GetFactoryGitHubAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetFactoryGitHubAccessTokenResult> {
 
@@ -62,7 +62,7 @@ export interface GetFactoryGitHubAccessTokenResult {
 }
 /**
  * Get GitHub Access Token.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getFactoryGitHubAccessTokenOutput(args: GetFactoryGitHubAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFactoryGitHubAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => getFactoryGitHubAccessToken(a, opts))

@@ -10,20 +10,10 @@ export const getManagedCluster: typeof import("./getManagedCluster").getManagedC
 export const getManagedClusterOutput: typeof import("./getManagedCluster").getManagedClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedCluster","getManagedClusterOutput"], () => require("./getManagedCluster"));
 
-export { GetNodeTypeArgs, GetNodeTypeResult, GetNodeTypeOutputArgs } from "./getNodeType";
-export const getNodeType: typeof import("./getNodeType").getNodeType = null as any;
-export const getNodeTypeOutput: typeof import("./getNodeType").getNodeTypeOutput = null as any;
-utilities.lazyLoad(exports, ["getNodeType","getNodeTypeOutput"], () => require("./getNodeType"));
-
 export { ManagedClusterArgs } from "./managedCluster";
 export type ManagedCluster = import("./managedCluster").ManagedCluster;
 export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
 utilities.lazyLoad(exports, ["ManagedCluster"], () => require("./managedCluster"));
-
-export { NodeTypeArgs } from "./nodeType";
-export type NodeType = import("./nodeType").NodeType;
-export const NodeType: typeof import("./nodeType").NodeType = null as any;
-utilities.lazyLoad(exports, ["NodeType"], () => require("./nodeType"));
 
 
 // Export enums:
@@ -35,8 +25,6 @@ const _module = {
         switch (type) {
             case "azure-native:servicefabric/v20200101preview:ManagedCluster":
                 return new ManagedCluster(name, <any>undefined, { urn })
-            case "azure-native:servicefabric/v20200101preview:NodeType":
-                return new NodeType(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -218,7 +218,7 @@ def get_factory(factory_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFactoryResult:
     """
     Gets a factory.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.
@@ -254,7 +254,7 @@ def get_factory_output(factory_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFactoryResult]:
     """
     Gets a factory.
-    API Version: 2018-06-01.
+    Azure REST API version: 2018-06-01.
 
 
     :param str factory_name: The factory name.

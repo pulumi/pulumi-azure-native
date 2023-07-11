@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly Rules name mapping to the any Rules or secret related information.
-    /// API Version: 2020-09-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Rule")]
     public partial class Rule : global::Pulumi.CustomResource
@@ -56,6 +56,12 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the rule set containing the rule.
+        /// </summary>
+        [Output("ruleSetName")]
+        public Output<string> RuleSetName { get; private set; } = null!;
+
+        /// <summary>
         /// Read only system data
         /// </summary>
         [Output("systemData")]
@@ -96,6 +102,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Rule"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Rule"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Rule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Rule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,7 +163,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<int> Order { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;

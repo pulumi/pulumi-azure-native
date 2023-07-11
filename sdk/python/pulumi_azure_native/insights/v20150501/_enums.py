@@ -5,24 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'ApplicationType',
     'FavoriteType',
-    'FlowType',
-    'IngestionMode',
     'ItemScope',
     'ItemType',
-    'RequestSource',
     'SharedTypeKind',
-    'WebTestKind',
 ]
-
-
-class ApplicationType(str, Enum):
-    """
-    Type of application being monitored.
-    """
-    WEB = "web"
-    OTHER = "other"
 
 
 class FavoriteType(str, Enum):
@@ -31,22 +18,6 @@ class FavoriteType(str, Enum):
     """
     SHARED = "shared"
     USER = "user"
-
-
-class FlowType(str, Enum):
-    """
-    Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
-    """
-    BLUEFIELD = "Bluefield"
-
-
-class IngestionMode(str, Enum):
-    """
-    Indicates the flow of the ingestion.
-    """
-    APPLICATION_INSIGHTS = "ApplicationInsights"
-    APPLICATION_INSIGHTS_WITH_DIAGNOSTIC_SETTINGS = "ApplicationInsightsWithDiagnosticSettings"
-    LOG_ANALYTICS = "LogAnalytics"
 
 
 class ItemScope(str, Enum):
@@ -67,24 +38,9 @@ class ItemType(str, Enum):
     FUNCTION = "function"
 
 
-class RequestSource(str, Enum):
-    """
-    Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
-    """
-    REST = "rest"
-
-
 class SharedTypeKind(str, Enum):
     """
     Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
     """
     SHARED = "shared"
     USER = "user"
-
-
-class WebTestKind(str, Enum):
-    """
-    The kind of web test this is, valid choices are ping and multistep.
-    """
-    PING = "ping"
-    MULTISTEP = "multistep"

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class Device extends pulumi.CustomResource {
     /**
@@ -49,7 +49,11 @@ export class Device extends pulumi.CustomResource {
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    public readonly dataBoxEdgeDeviceStatus!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly dataBoxEdgeDeviceStatus!: pulumi.Output<string>;
+    /**
+     * The details of data-residency related properties for this resource
+     */
+    public readonly dataResidency!: pulumi.Output<outputs.databoxedge.DataResidencyResponse | undefined>;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */
@@ -91,7 +95,7 @@ export class Device extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.databoxedge.ResourceIdentityResponse | undefined>;
     /**
-     * The etag for the devices.
+     * The kind of the device.
      */
     public /*out*/ readonly kind!: pulumi.Output<string>;
     /**
@@ -153,7 +157,7 @@ export class Device extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataBoxEdgeDeviceStatus"] = args ? args.dataBoxEdgeDeviceStatus : undefined;
+            resourceInputs["dataResidency"] = args ? args.dataResidency : undefined;
             resourceInputs["deviceName"] = args ? args.deviceName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -162,6 +166,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["configuredRoleTypes"] = undefined /*out*/;
             resourceInputs["culture"] = undefined /*out*/;
+            resourceInputs["dataBoxEdgeDeviceStatus"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["deviceHcsVersion"] = undefined /*out*/;
             resourceInputs["deviceLocalCapacity"] = undefined /*out*/;
@@ -184,6 +189,7 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["configuredRoleTypes"] = undefined /*out*/;
             resourceInputs["culture"] = undefined /*out*/;
             resourceInputs["dataBoxEdgeDeviceStatus"] = undefined /*out*/;
+            resourceInputs["dataResidency"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["deviceHcsVersion"] = undefined /*out*/;
             resourceInputs["deviceLocalCapacity"] = undefined /*out*/;
@@ -219,9 +225,9 @@ export class Device extends pulumi.CustomResource {
  */
 export interface DeviceArgs {
     /**
-     * The status of the Data Box Edge/Gateway device.
+     * The details of data-residency related properties for this resource
      */
-    dataBoxEdgeDeviceStatus?: pulumi.Input<string | enums.databoxedge.DataBoxEdgeDeviceStatus>;
+    dataResidency?: pulumi.Input<inputs.databoxedge.DataResidencyArgs>;
     /**
      * The device name.
      */

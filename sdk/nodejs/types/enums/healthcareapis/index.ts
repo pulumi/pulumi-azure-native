@@ -2,33 +2,40 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20180820preview from "./v20180820preview";
-import * as v20190916 from "./v20190916";
-import * as v20200315 from "./v20200315";
-import * as v20200330 from "./v20200330";
-import * as v20210111 from "./v20210111";
-import * as v20210601preview from "./v20210601preview";
-import * as v20211101 from "./v20211101";
-import * as v20220131preview from "./v20220131preview";
-import * as v20220515 from "./v20220515";
-import * as v20220601 from "./v20220601";
 import * as v20221001preview from "./v20221001preview";
-import * as v20221201 from "./v20221201";
+import * as v20230228 from "./v20230228";
 
 export {
-    v20180820preview,
-    v20190916,
-    v20200315,
-    v20200330,
-    v20210111,
-    v20210601preview,
-    v20211101,
-    v20220131preview,
-    v20220515,
-    v20220601,
     v20221001preview,
-    v20221201,
+    v20230228,
 };
+
+export const AnalyticsConnectorDataDestinationType = {
+    Datalake: "datalake",
+} as const;
+
+/**
+ * Type of data destination.
+ */
+export type AnalyticsConnectorDataDestinationType = (typeof AnalyticsConnectorDataDestinationType)[keyof typeof AnalyticsConnectorDataDestinationType];
+
+export const AnalyticsConnectorDataSourceType = {
+    Fhirservice: "fhirservice",
+} as const;
+
+/**
+ * Type of data source.
+ */
+export type AnalyticsConnectorDataSourceType = (typeof AnalyticsConnectorDataSourceType)[keyof typeof AnalyticsConnectorDataSourceType];
+
+export const AnalyticsConnectorMappingType = {
+    FhirToParquet: "fhirToParquet",
+} as const;
+
+/**
+ * Type of data mapping.
+ */
+export type AnalyticsConnectorMappingType = (typeof AnalyticsConnectorMappingType)[keyof typeof AnalyticsConnectorMappingType];
 
 export const FhirResourceVersionPolicy = {
     No_version: "no-version",
@@ -50,6 +57,16 @@ export const FhirServiceKind = {
  * The kind of the service.
  */
 export type FhirServiceKind = (typeof FhirServiceKind)[keyof typeof FhirServiceKind];
+
+export const FhirServiceVersion = {
+    STU3: "STU3",
+    R4: "R4",
+} as const;
+
+/**
+ * The kind of FHIR Service.
+ */
+export type FhirServiceVersion = (typeof FhirServiceVersion)[keyof typeof FhirServiceVersion];
 
 export const IotIdentityResolutionType = {
     Create: "Create",

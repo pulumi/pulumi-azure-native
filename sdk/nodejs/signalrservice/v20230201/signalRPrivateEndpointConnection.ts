@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection to an azure resource
- *
- * @deprecated azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection to guarantee forwards compatibility.
  */
 export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SignalRPrivateEndpointConnection {
-        pulumi.log.warn("SignalRPrivateEndpointConnection is deprecated: azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection to guarantee forwards compatibility.")
         return new SignalRPrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -76,9 +73,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection to guarantee forwards compatibility. */
     constructor(name: string, args: SignalRPrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SignalRPrivateEndpointConnection is deprecated: azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -108,7 +103,7 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20230601preview:SignalRPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

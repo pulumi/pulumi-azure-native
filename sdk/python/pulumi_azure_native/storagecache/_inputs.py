@@ -11,6 +11,11 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AmlFilesystemEncryptionSettingsArgs',
+    'AmlFilesystemHsmSettingsArgs',
+    'AmlFilesystemHsmArgs',
+    'AmlFilesystemIdentityArgs',
+    'AmlFilesystemMaintenanceWindowArgs',
     'BlobNfsTargetArgs',
     'CacheActiveDirectorySettingsCredentialsArgs',
     'CacheActiveDirectorySettingsArgs',
@@ -20,6 +25,7 @@ __all__ = [
     'CacheNetworkSettingsArgs',
     'CacheSecuritySettingsArgs',
     'CacheSkuArgs',
+    'CacheUpgradeSettingsArgs',
     'CacheUsernameDownloadSettingsCredentialsArgs',
     'CacheUsernameDownloadSettingsArgs',
     'ClfsTargetArgs',
@@ -29,23 +35,217 @@ __all__ = [
     'Nfs3TargetArgs',
     'NfsAccessPolicyArgs',
     'NfsAccessRuleArgs',
+    'SkuName',
+    'SkuNameArgs',
     'UnknownTargetArgs',
 ]
+
+@pulumi.input_type
+class AmlFilesystemEncryptionSettingsArgs:
+    def __init__(__self__, *,
+                 key_encryption_key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None):
+        """
+        AML file system encryption settings.
+        :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the encryption key in Key Vault.
+        """
+        if key_encryption_key is not None:
+            pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKey")
+    def key_encryption_key(self) -> Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]:
+        """
+        Specifies the location of the encryption key in Key Vault.
+        """
+        return pulumi.get(self, "key_encryption_key")
+
+    @key_encryption_key.setter
+    def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]):
+        pulumi.set(self, "key_encryption_key", value)
+
+
+@pulumi.input_type
+class AmlFilesystemHsmSettingsArgs:
+    def __init__(__self__, *,
+                 container: pulumi.Input[str],
+                 logging_container: pulumi.Input[str],
+                 import_prefix: Optional[pulumi.Input[str]] = None):
+        """
+        AML file system HSM settings.
+        :param pulumi.Input[str] container: Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
+        :param pulumi.Input[str] logging_container: Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
+        :param pulumi.Input[str] import_prefix: Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        """
+        pulumi.set(__self__, "container", container)
+        pulumi.set(__self__, "logging_container", logging_container)
+        if import_prefix is None:
+            import_prefix = '/'
+        if import_prefix is not None:
+            pulumi.set(__self__, "import_prefix", import_prefix)
+
+    @property
+    @pulumi.getter
+    def container(self) -> pulumi.Input[str]:
+        """
+        Resource ID of storage container used for hydrating the namespace and archiving from the namespace. The resource provider must have permission to create SAS tokens on the storage account.
+        """
+        return pulumi.get(self, "container")
+
+    @container.setter
+    def container(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container", value)
+
+    @property
+    @pulumi.getter(name="loggingContainer")
+    def logging_container(self) -> pulumi.Input[str]:
+        """
+        Resource ID of storage container used for logging events and errors.  Must be a separate container in the same storage account as the hydration and archive container. The resource provider must have permission to create SAS tokens on the storage account.
+        """
+        return pulumi.get(self, "logging_container")
+
+    @logging_container.setter
+    def logging_container(self, value: pulumi.Input[str]):
+        pulumi.set(self, "logging_container", value)
+
+    @property
+    @pulumi.getter(name="importPrefix")
+    def import_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        Only blobs in the non-logging container that start with this path/prefix get hydrated into the cluster namespace.
+        """
+        return pulumi.get(self, "import_prefix")
+
+    @import_prefix.setter
+    def import_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "import_prefix", value)
+
+
+@pulumi.input_type
+class AmlFilesystemHsmArgs:
+    def __init__(__self__, *,
+                 settings: Optional[pulumi.Input['AmlFilesystemHsmSettingsArgs']] = None):
+        """
+        Hydration and archive settings and status
+        :param pulumi.Input['AmlFilesystemHsmSettingsArgs'] settings: Specifies HSM settings of the AML file system.
+        """
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['AmlFilesystemHsmSettingsArgs']]:
+        """
+        Specifies HSM settings of the AML file system.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['AmlFilesystemHsmSettingsArgs']]):
+        pulumi.set(self, "settings", value)
+
+
+@pulumi.input_type
+class AmlFilesystemIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['AmlFilesystemIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed Identity properties.
+        :param pulumi.Input['AmlFilesystemIdentityType'] type: The type of identity used for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['AmlFilesystemIdentityType']]:
+        """
+        The type of identity used for the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['AmlFilesystemIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class AmlFilesystemMaintenanceWindowArgs:
+    def __init__(__self__, *,
+                 day_of_week: Optional[pulumi.Input['MaintenanceDayOfWeekType']] = None,
+                 time_of_day_utc: Optional[pulumi.Input[str]] = None):
+        """
+        Start time of a 30-minute weekly maintenance window.
+        :param pulumi.Input['MaintenanceDayOfWeekType'] day_of_week: Day of the week on which the maintenance window will occur.
+        :param pulumi.Input[str] time_of_day_utc: The time of day (in UTC) to start the maintenance window.
+        """
+        if day_of_week is not None:
+            pulumi.set(__self__, "day_of_week", day_of_week)
+        if time_of_day_utc is not None:
+            pulumi.set(__self__, "time_of_day_utc", time_of_day_utc)
+
+    @property
+    @pulumi.getter(name="dayOfWeek")
+    def day_of_week(self) -> Optional[pulumi.Input['MaintenanceDayOfWeekType']]:
+        """
+        Day of the week on which the maintenance window will occur.
+        """
+        return pulumi.get(self, "day_of_week")
+
+    @day_of_week.setter
+    def day_of_week(self, value: Optional[pulumi.Input['MaintenanceDayOfWeekType']]):
+        pulumi.set(self, "day_of_week", value)
+
+    @property
+    @pulumi.getter(name="timeOfDayUTC")
+    def time_of_day_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        The time of day (in UTC) to start the maintenance window.
+        """
+        return pulumi.get(self, "time_of_day_utc")
+
+    @time_of_day_utc.setter
+    def time_of_day_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_of_day_utc", value)
+
 
 @pulumi.input_type
 class BlobNfsTargetArgs:
     def __init__(__self__, *,
                  target: Optional[pulumi.Input[str]] = None,
-                 usage_model: Optional[pulumi.Input[str]] = None):
+                 usage_model: Optional[pulumi.Input[str]] = None,
+                 verification_timer: Optional[pulumi.Input[int]] = None,
+                 write_back_timer: Optional[pulumi.Input[int]] = None):
         """
         Properties pertaining to the BlobNfsTarget.
         :param pulumi.Input[str] target: Resource ID of the storage container.
         :param pulumi.Input[str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
+        :param pulumi.Input[int] verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        :param pulumi.Input[int] write_back_timer: Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
         """
         if target is not None:
             pulumi.set(__self__, "target", target)
         if usage_model is not None:
             pulumi.set(__self__, "usage_model", usage_model)
+        if verification_timer is not None:
+            pulumi.set(__self__, "verification_timer", verification_timer)
+        if write_back_timer is not None:
+            pulumi.set(__self__, "write_back_timer", write_back_timer)
 
     @property
     @pulumi.getter
@@ -71,31 +271,44 @@ class BlobNfsTargetArgs:
     def usage_model(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "usage_model", value)
 
+    @property
+    @pulumi.getter(name="verificationTimer")
+    def verification_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        """
+        return pulumi.get(self, "verification_timer")
+
+    @verification_timer.setter
+    def verification_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "verification_timer", value)
+
+    @property
+    @pulumi.getter(name="writeBackTimer")
+    def write_back_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+        """
+        return pulumi.get(self, "write_back_timer")
+
+    @write_back_timer.setter
+    def write_back_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_back_timer", value)
+
 
 @pulumi.input_type
 class CacheActiveDirectorySettingsCredentialsArgs:
     def __init__(__self__, *,
-                 password: pulumi.Input[str],
-                 username: pulumi.Input[str]):
+                 username: pulumi.Input[str],
+                 password: Optional[pulumi.Input[str]] = None):
         """
         Active Directory admin credentials used to join the HPC Cache to a domain.
-        :param pulumi.Input[str] password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         :param pulumi.Input[str] username: Username of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        :param pulumi.Input[str] password: Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
         """
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-
-    @property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[str]:
-        """
-        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[str]):
-        pulumi.set(self, "password", value)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
 
     @property
     @pulumi.getter
@@ -108,6 +321,18 @@ class CacheActiveDirectorySettingsCredentialsArgs:
     @username.setter
     def username(self, value: pulumi.Input[str]):
         pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Plain text password of the Active Directory domain administrator. This value is stored encrypted and not returned on response.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
 
 
 @pulumi.input_type
@@ -253,19 +478,23 @@ class CacheDirectorySettingsArgs:
 @pulumi.input_type
 class CacheEncryptionSettingsArgs:
     def __init__(__self__, *,
-                 key_encryption_key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None):
+                 key_encryption_key: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']] = None,
+                 rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Cache encryption settings.
-        :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the key encryption key in Key Vault.
+        :param pulumi.Input['KeyVaultKeyReferenceArgs'] key_encryption_key: Specifies the location of the key encryption key in key vault.
+        :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
         """
         if key_encryption_key is not None:
             pulumi.set(__self__, "key_encryption_key", key_encryption_key)
+        if rotation_to_latest_key_version_enabled is not None:
+            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
 
     @property
     @pulumi.getter(name="keyEncryptionKey")
     def key_encryption_key(self) -> Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]:
         """
-        Specifies the location of the key encryption key in Key Vault.
+        Specifies the location of the key encryption key in key vault.
         """
         return pulumi.get(self, "key_encryption_key")
 
@@ -273,17 +502,33 @@ class CacheEncryptionSettingsArgs:
     def key_encryption_key(self, value: Optional[pulumi.Input['KeyVaultKeyReferenceArgs']]):
         pulumi.set(self, "key_encryption_key", value)
 
+    @property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the service will automatically rotate to the newest version of the key in the key vault.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
+
+    @rotation_to_latest_key_version_enabled.setter
+    def rotation_to_latest_key_version_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rotation_to_latest_key_version_enabled", value)
+
 
 @pulumi.input_type
 class CacheIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['CacheIdentityType']] = None):
+                 type: Optional[pulumi.Input['CacheIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Cache identity properties.
         :param pulumi.Input['CacheIdentityType'] type: The type of identity used for the cache
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -296,6 +541,18 @@ class CacheIdentityArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['CacheIdentityType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A dictionary where each key is a user assigned identity resource ID, and each key's value is an empty dictionary.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -403,8 +660,8 @@ class CacheSkuArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        SKU for the Cache.
-        :param pulumi.Input[str] name: SKU name for this Cache.
+        SKU for the cache.
+        :param pulumi.Input[str] name: SKU name for this cache.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -413,13 +670,53 @@ class CacheSkuArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        SKU name for this Cache.
+        SKU name for this cache.
         """
         return pulumi.get(self, "name")
 
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CacheUpgradeSettingsArgs:
+    def __init__(__self__, *,
+                 scheduled_time: Optional[pulumi.Input[str]] = None,
+                 upgrade_schedule_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Cache Upgrade Settings.
+        :param pulumi.Input[str] scheduled_time: When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        :param pulumi.Input[bool] upgrade_schedule_enabled: True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        if scheduled_time is not None:
+            pulumi.set(__self__, "scheduled_time", scheduled_time)
+        if upgrade_schedule_enabled is not None:
+            pulumi.set(__self__, "upgrade_schedule_enabled", upgrade_schedule_enabled)
+
+    @property
+    @pulumi.getter(name="scheduledTime")
+    def scheduled_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        When upgradeScheduleEnabled is true, this field holds the user-chosen upgrade time. At the user-chosen time, the firmware update will automatically be installed on the cache.
+        """
+        return pulumi.get(self, "scheduled_time")
+
+    @scheduled_time.setter
+    def scheduled_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scheduled_time", value)
+
+    @property
+    @pulumi.getter(name="upgradeScheduleEnabled")
+    def upgrade_schedule_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True if the user chooses to select an installation time between now and firmwareUpdateDeadline. Else the firmware will automatically be installed after firmwareUpdateDeadline if not triggered earlier via the upgrade operation.
+        """
+        return pulumi.get(self, "upgrade_schedule_enabled")
+
+    @upgrade_schedule_enabled.setter
+    def upgrade_schedule_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "upgrade_schedule_enabled", value)
 
 
 @pulumi.input_type
@@ -490,12 +787,16 @@ class CacheUsernameDownloadSettingsArgs:
         :param pulumi.Input[str] user_file_uri: The URI of the file containing user information (in /etc/passwd file format). This field must be populated when 'usernameSource' is set to 'File'.
         :param pulumi.Input[Union[str, 'UsernameSource']] username_source: This setting determines how the cache gets username and group names for clients.
         """
+        if auto_download_certificate is None:
+            auto_download_certificate = False
         if auto_download_certificate is not None:
             pulumi.set(__self__, "auto_download_certificate", auto_download_certificate)
         if ca_certificate_uri is not None:
             pulumi.set(__self__, "ca_certificate_uri", ca_certificate_uri)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
+        if encrypt_ldap_connection is None:
+            encrypt_ldap_connection = False
         if encrypt_ldap_connection is not None:
             pulumi.set(__self__, "encrypt_ldap_connection", encrypt_ldap_connection)
         if extended_groups is not None:
@@ -506,6 +807,8 @@ class CacheUsernameDownloadSettingsArgs:
             pulumi.set(__self__, "ldap_base_dn", ldap_base_dn)
         if ldap_server is not None:
             pulumi.set(__self__, "ldap_server", ldap_server)
+        if require_valid_certificate is None:
+            require_valid_certificate = False
         if require_valid_certificate is not None:
             pulumi.set(__self__, "require_valid_certificate", require_valid_certificate)
         if user_file_uri is not None:
@@ -677,7 +980,7 @@ class KeyVaultKeyReferenceSourceVaultArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
         """
-        Describes a resource Id to source Key Vault.
+        Describes a resource Id to source key vault.
         :param pulumi.Input[str] id: Resource Id.
         """
         if id is not None:
@@ -702,9 +1005,9 @@ class KeyVaultKeyReferenceArgs:
                  key_url: pulumi.Input[str],
                  source_vault: pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs']):
         """
-        Describes a reference to Key Vault Key.
-        :param pulumi.Input[str] key_url: The URL referencing a key encryption key in Key Vault.
-        :param pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs'] source_vault: Describes a resource Id to source Key Vault.
+        Describes a reference to key vault key.
+        :param pulumi.Input[str] key_url: The URL referencing a key encryption key in key vault.
+        :param pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs'] source_vault: Describes a resource Id to source key vault.
         """
         pulumi.set(__self__, "key_url", key_url)
         pulumi.set(__self__, "source_vault", source_vault)
@@ -713,7 +1016,7 @@ class KeyVaultKeyReferenceArgs:
     @pulumi.getter(name="keyUrl")
     def key_url(self) -> pulumi.Input[str]:
         """
-        The URL referencing a key encryption key in Key Vault.
+        The URL referencing a key encryption key in key vault.
         """
         return pulumi.get(self, "key_url")
 
@@ -725,7 +1028,7 @@ class KeyVaultKeyReferenceArgs:
     @pulumi.getter(name="sourceVault")
     def source_vault(self) -> pulumi.Input['KeyVaultKeyReferenceSourceVaultArgs']:
         """
-        Describes a resource Id to source Key Vault.
+        Describes a resource Id to source key vault.
         """
         return pulumi.get(self, "source_vault")
 
@@ -743,7 +1046,7 @@ class NamespaceJunctionArgs:
                  target_path: Optional[pulumi.Input[str]] = None):
         """
         A namespace junction.
-        :param pulumi.Input[str] namespace_path: Namespace path on a Cache for a Storage Target.
+        :param pulumi.Input[str] namespace_path: Namespace path on a cache for a Storage Target.
         :param pulumi.Input[str] nfs_access_policy: Name of the access policy applied to this junction.
         :param pulumi.Input[str] nfs_export: NFS export where targetPath exists.
         :param pulumi.Input[str] target_path: Path in Storage Target to which namespacePath points.
@@ -763,7 +1066,7 @@ class NamespaceJunctionArgs:
     @pulumi.getter(name="namespacePath")
     def namespace_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Namespace path on a Cache for a Storage Target.
+        Namespace path on a cache for a Storage Target.
         """
         return pulumi.get(self, "namespace_path")
 
@@ -812,16 +1115,24 @@ class NamespaceJunctionArgs:
 class Nfs3TargetArgs:
     def __init__(__self__, *,
                  target: Optional[pulumi.Input[str]] = None,
-                 usage_model: Optional[pulumi.Input[str]] = None):
+                 usage_model: Optional[pulumi.Input[str]] = None,
+                 verification_timer: Optional[pulumi.Input[int]] = None,
+                 write_back_timer: Optional[pulumi.Input[int]] = None):
         """
         Properties pertaining to the Nfs3Target
         :param pulumi.Input[str] target: IP address or host name of an NFSv3 host (e.g., 10.0.44.44).
         :param pulumi.Input[str] usage_model: Identifies the StorageCache usage model to be used for this storage target.
+        :param pulumi.Input[int] verification_timer: Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        :param pulumi.Input[int] write_back_timer: Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
         """
         if target is not None:
             pulumi.set(__self__, "target", target)
         if usage_model is not None:
             pulumi.set(__self__, "usage_model", usage_model)
+        if verification_timer is not None:
+            pulumi.set(__self__, "verification_timer", verification_timer)
+        if write_back_timer is not None:
+            pulumi.set(__self__, "write_back_timer", write_back_timer)
 
     @property
     @pulumi.getter
@@ -846,6 +1157,30 @@ class Nfs3TargetArgs:
     @usage_model.setter
     def usage_model(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "usage_model", value)
+
+    @property
+    @pulumi.getter(name="verificationTimer")
+    def verification_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time (in seconds) the cache waits before it checks the back-end storage for file updates.
+        """
+        return pulumi.get(self, "verification_timer")
+
+    @verification_timer.setter
+    def verification_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "verification_timer", value)
+
+    @property
+    @pulumi.getter(name="writeBackTimer")
+    def write_back_timer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time (in seconds) the cache waits after the last file change before it copies the changed file to back-end storage.
+        """
+        return pulumi.get(self, "write_back_timer")
+
+    @write_back_timer.setter
+    def write_back_timer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_back_timer", value)
 
 
 @pulumi.input_type
@@ -1018,6 +1353,54 @@ class NfsAccessRuleArgs:
     @suid.setter
     def suid(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "suid", value)
+
+
+@pulumi.input_type
+class SkuName:
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        SKU for the resource.
+        :param str name: SKU name for this resource.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        SKU name for this resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class SkuNameArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        SKU for the resource.
+        :param pulumi.Input[str] name: SKU name for this resource.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        SKU name for this resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path"
+	"regexp"
 	"strings"
 	"text/template"
 	"time"
@@ -13,9 +15,9 @@ import (
 	"github.com/segmentio/encoding/json"
 
 	"github.com/hashicorp/hcl/v2"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/debug"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/pcl"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 
 	"github.com/pulumi/pulumi-java/pkg/codegen/java"
 	yaml "github.com/pulumi/pulumi-yaml/pkg/pulumiyaml/codegen"
@@ -183,6 +185,8 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 			}
 		}
 
+		// Reset in case an example overwrote this path.
+		importRenderData.SampleResID = resource.Path
 		err = renderImportToSchema(pkgSpec, pulumiToken, &importRenderData)
 		if err != nil {
 			return err
@@ -236,12 +240,13 @@ type programGenFn func(*hcl2.Program) (map[string][]byte, hcl.Diagnostics, error
 func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body, languages []string,
 	bindOptions ...hcl2.BindOption) (languageToExampleProgram, error) {
 	programBody := fmt.Sprintf("%v", body)
-	switch example.Location {
+
 	// TODO: Remove this once https://github.com/pulumi/pulumi/issues/12832 is fixed.
-	case "azure-rest-api-specs/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/preview/2021-03-01-preview/examples/metadata/PutMetadata.json":
+	if match, err := path.Match("azure-rest-api-specs/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/*/*/examples/metadata/PutMetadata.json", example.Location); match || err != nil {
 		fmt.Printf("Skipping generating example program %s\n%s\n", example.Location, programBody)
-		return nil, nil
+		return nil, err
 	}
+
 	debug.Log("Generating example programs for %s\n%s\n", example.Location, programBody)
 	parser := syntax.NewParser()
 	if err := parser.ParseFile(strings.NewReader(programBody), "program.pp"); err != nil {
@@ -275,7 +280,7 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 		case "dotnet":
 			files, err = recoverableProgramGen(programBody, program, dotnet.GenerateProgram)
 		case "go":
-			files, err = recoverableProgramGen(programBody, program, gogen.GenerateProgram)
+			files, err = recoverableProgramGen(programBody, program, GeneratePatchedGoProgram)
 		case "nodejs":
 			files, err = recoverableProgramGen(programBody, program, nodejs.GenerateProgram)
 		case "python":
@@ -425,4 +430,25 @@ $ pulumi import {{ .Token }} {{ .SampleResName }} {{ .SampleResID }}
 	res.Description += b.String()
 	pkgSpec.Resources[resourceName] = res
 	return nil
+}
+
+// GeneratePatchedGoProgram generates a Go program from the given HCL2 program, but patches the
+// generated import paths to adjust for the submodules being their own modules. For example:
+// "github.com/pulumi/pulumi-azure-native-sdk/v2/resources" -> "github.com/pulumi/pulumi-azure-native-sdk/resources/v2"
+// "github.com/pulumi/pulumi-azure-native-sdk/v2/resources/v20210203" -> "github.com/pulumi/pulumi-azure-native-sdk/resources/v2/v20210203"
+func GeneratePatchedGoProgram(program *hcl2.Program) (map[string][]byte, hcl.Diagnostics, error) {
+	prog, diags, err := gogen.GenerateProgram(program)
+	if err != nil {
+		return nil, diags, err
+	}
+	// Match prefix: github.com/pulumi/pulumi-azure-native-sdk
+	// Capture version segment `\/v\d+`
+	// Capture next path segment: `/[^"\/]*`
+	// Capture rest of path: `[^"]*"`
+	matchModuleImports := regexp.MustCompile(`"github\.com\/pulumi\/pulumi-azure-native-sdk(\/v\d+)(\/[^"\/]*)([^"]*)"`)
+	for k, v := range prog {
+		// Move version to after the module segment
+		prog[k] = matchModuleImports.ReplaceAll(v, []byte(`"github.com/pulumi/pulumi-azure-native-sdk${2}${1}${3}"`))
+	}
+	return prog, diags, nil
 }

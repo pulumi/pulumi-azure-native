@@ -29,11 +29,11 @@ __all__ = [
 class ArmIdentityArgs:
     def __init__(__self__, *,
                  identity_type: Optional[pulumi.Input[str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of ARM identities associated with the IoT DPS resource.
         :param pulumi.Input[str] identity_type: Identity type. Only allowed values are SystemAssigned and UserAssigned. Comma separated if both for ex: SystemAssigned,UserAssigned.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The set of UserAssigned identities associated with the IoT DPS resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of UserAssigned identities associated with the IoT DPS resource.
         """
         if identity_type is not None:
             pulumi.set(__self__, "identity_type", identity_type)
@@ -54,14 +54,14 @@ class ArmIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The set of UserAssigned identities associated with the IoT DPS resource.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

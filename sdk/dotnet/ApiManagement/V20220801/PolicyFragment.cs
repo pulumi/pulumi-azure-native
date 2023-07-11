@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Policy fragment contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:PolicyFragment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PolicyFragment to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:PolicyFragment")]
     public partial class PolicyFragment : global::Pulumi.CustomResource
     {
@@ -74,6 +73,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement:PolicyFragment"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:PolicyFragment"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:PolicyFragment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:PolicyFragment"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:PolicyFragment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

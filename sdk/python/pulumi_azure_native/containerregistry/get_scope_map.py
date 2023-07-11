@@ -137,11 +137,11 @@ def get_scope_map(registry_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScopeMapResult:
     """
     Gets the properties of the specified scope map.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_map_name: The name of the scope map.
     """
     __args__ = dict()
@@ -169,11 +169,11 @@ def get_scope_map_output(registry_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScopeMapResult]:
     """
     Gets the properties of the specified scope map.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str scope_map_name: The name of the scope map.
     """
     ...

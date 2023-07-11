@@ -22,7 +22,7 @@ class GetDiagnosticSettingResult:
     """
     The diagnostic setting resource.
     """
-    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, log_analytics_destination_type=None, logs=None, metrics=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
+    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, log_analytics_destination_type=None, logs=None, marketplace_partner_id=None, metrics=None, name=None, service_bus_rule_id=None, storage_account_id=None, system_data=None, type=None, workspace_id=None):
         if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
             raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
         pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
@@ -38,6 +38,9 @@ class GetDiagnosticSettingResult:
         if logs and not isinstance(logs, list):
             raise TypeError("Expected argument 'logs' to be a list")
         pulumi.set(__self__, "logs", logs)
+        if marketplace_partner_id and not isinstance(marketplace_partner_id, str):
+            raise TypeError("Expected argument 'marketplace_partner_id' to be a str")
+        pulumi.set(__self__, "marketplace_partner_id", marketplace_partner_id)
         if metrics and not isinstance(metrics, list):
             raise TypeError("Expected argument 'metrics' to be a list")
         pulumi.set(__self__, "metrics", metrics)
@@ -50,6 +53,9 @@ class GetDiagnosticSettingResult:
         if storage_account_id and not isinstance(storage_account_id, str):
             raise TypeError("Expected argument 'storage_account_id' to be a str")
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -77,7 +83,7 @@ class GetDiagnosticSettingResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -98,6 +104,14 @@ class GetDiagnosticSettingResult:
         return pulumi.get(self, "logs")
 
     @property
+    @pulumi.getter(name="marketplacePartnerId")
+    def marketplace_partner_id(self) -> Optional[str]:
+        """
+        The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        """
+        return pulumi.get(self, "marketplace_partner_id")
+
+    @property
     @pulumi.getter
     def metrics(self) -> Optional[Sequence['outputs.MetricSettingsResponse']]:
         """
@@ -109,7 +123,7 @@ class GetDiagnosticSettingResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -130,10 +144,18 @@ class GetDiagnosticSettingResult:
         return pulumi.get(self, "storage_account_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata related to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -157,10 +179,12 @@ class AwaitableGetDiagnosticSettingResult(GetDiagnosticSettingResult):
             id=self.id,
             log_analytics_destination_type=self.log_analytics_destination_type,
             logs=self.logs,
+            marketplace_partner_id=self.marketplace_partner_id,
             metrics=self.metrics,
             name=self.name,
             service_bus_rule_id=self.service_bus_rule_id,
             storage_account_id=self.storage_account_id,
+            system_data=self.system_data,
             type=self.type,
             workspace_id=self.workspace_id)
 
@@ -170,7 +194,7 @@ def get_diagnostic_setting(name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDiagnosticSettingResult:
     """
     Gets the active diagnostic settings for the specified resource.
-    API Version: 2017-05-01-preview.
+    Azure REST API version: 2021-05-01-preview.
 
 
     :param str name: The name of the diagnostic setting.
@@ -188,10 +212,12 @@ def get_diagnostic_setting(name: Optional[str] = None,
         id=__ret__.id,
         log_analytics_destination_type=__ret__.log_analytics_destination_type,
         logs=__ret__.logs,
+        marketplace_partner_id=__ret__.marketplace_partner_id,
         metrics=__ret__.metrics,
         name=__ret__.name,
         service_bus_rule_id=__ret__.service_bus_rule_id,
         storage_account_id=__ret__.storage_account_id,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         workspace_id=__ret__.workspace_id)
 
@@ -202,7 +228,7 @@ def get_diagnostic_setting_output(name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiagnosticSettingResult]:
     """
     Gets the active diagnostic settings for the specified resource.
-    API Version: 2017-05-01-preview.
+    Azure REST API version: 2021-05-01-preview.
 
 
     :param str name: The name of the diagnostic setting.

@@ -16,10 +16,28 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
     public sealed class DataControllerPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Username and password for basic login authentication.
+        /// Deprecated. Azure Arc Data Services data controller no longer expose any endpoint. All traffic are exposed through Kubernetes native API.
         /// </summary>
         [Input("basicLoginInformation")]
         public Input<Inputs.BasicLoginInformationArgs>? BasicLoginInformation { get; set; }
+
+        /// <summary>
+        /// If a CustomLocation is provided, this contains the ARM id of the connected cluster the custom location belongs to.
+        /// </summary>
+        [Input("clusterId")]
+        public Input<string>? ClusterId { get; set; }
+
+        /// <summary>
+        /// If a CustomLocation is provided, this contains the ARM id of the extension the custom location belongs to.
+        /// </summary>
+        [Input("extensionId")]
+        public Input<string>? ExtensionId { get; set; }
+
+        /// <summary>
+        /// The infrastructure the data controller is running on.
+        /// </summary>
+        [Input("infrastructure")]
+        public Input<Pulumi.AzureNative.AzureArcData.Infrastructure>? Infrastructure { get; set; }
 
         /// <summary>
         /// The raw kubernetes information
@@ -40,13 +58,25 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<Inputs.LogAnalyticsWorkspaceConfigArgs>? LogAnalyticsWorkspaceConfig { get; set; }
 
         /// <summary>
+        /// Login credential for logs dashboard on the Kubernetes cluster.
+        /// </summary>
+        [Input("logsDashboardCredential")]
+        public Input<Inputs.BasicLoginInformationArgs>? LogsDashboardCredential { get; set; }
+
+        /// <summary>
+        /// Login credential for metrics dashboard on the Kubernetes cluster.
+        /// </summary>
+        [Input("metricsDashboardCredential")]
+        public Input<Inputs.BasicLoginInformationArgs>? MetricsDashboardCredential { get; set; }
+
+        /// <summary>
         /// Properties from the Kubernetes data controller
         /// </summary>
         [Input("onPremiseProperty")]
         public Input<Inputs.OnPremisePropertyArgs>? OnPremiseProperty { get; set; }
 
         /// <summary>
-        /// Service principal for uploading billing, metrics and logs.
+        /// Deprecated. Service principal is deprecated in favor of Arc Kubernetes service extension managed identity.
         /// </summary>
         [Input("uploadServicePrincipal")]
         public Input<Inputs.UploadServicePrincipalArgs>? UploadServicePrincipal { get; set; }
@@ -59,6 +89,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
 
         public DataControllerPropertiesArgs()
         {
+            Infrastructure = Pulumi.AzureNative.AzureArcData.Infrastructure.Other;
         }
         public static new DataControllerPropertiesArgs Empty => new DataControllerPropertiesArgs();
     }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataProtection
     {
         /// <summary>
         /// Gets a backup instance with name in a backup vault
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetBackupInstanceResult> InvokeAsync(GetBackupInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBackupInstanceResult>("azure-native:dataprotection:getBackupInstance", args ?? new GetBackupInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a backup instance with name in a backup vault
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetBackupInstanceResult> Invoke(GetBackupInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBackupInstanceResult>("azure-native:dataprotection:getBackupInstance", args ?? new GetBackupInstanceInvokeArgs(), options.WithDefaults());
@@ -30,13 +30,13 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class GetBackupInstanceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the backup instance
+        /// The name of the backup instance.
         /// </summary>
         [Input("backupInstanceName", required: true)]
         public string BackupInstanceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -56,13 +56,13 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class GetBackupInstanceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the backup instance
+        /// The name of the backup instance.
         /// </summary>
         [Input("backupInstanceName", required: true)]
         public Input<string> BackupInstanceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -84,11 +84,11 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class GetBackupInstanceResult
     {
         /// <summary>
-        /// Resource Id represents the complete path to the resource.
+        /// Proxy Resource Id represents the complete path to the resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name associated with the resource.
+        /// Proxy Resource name associated with the resource.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -100,7 +100,11 @@ namespace Pulumi.AzureNative.DataProtection
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+        /// Proxy Resource tags.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         /// </summary>
         public readonly string Type;
 
@@ -114,12 +118,15 @@ namespace Pulumi.AzureNative.DataProtection
 
             Outputs.SystemDataResponse systemData,
 
+            ImmutableDictionary<string, string>? tags,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
             SystemData = systemData;
+            Tags = tags;
             Type = type;
         }
     }

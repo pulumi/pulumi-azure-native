@@ -2,21 +2,25 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20210915preview from "./v20210915preview";
-import * as v20220701preview from "./v20220701preview";
-import * as v20221001preview from "./v20221001preview";
-import * as v20230401preview from "./v20230401preview";
+import * as v20230415preview from "./v20230415preview";
 
 export {
-    v20210915preview,
-    v20220701preview,
-    v20221001preview,
-    v20230401preview,
+    v20230415preview,
 };
+
+export const FilterType = {
+    Simple: "Simple",
+} as const;
+
+/**
+ * Enum that discriminates between filter types. Currently only `Simple` type is supported.
+ */
+export type FilterType = (typeof FilterType)[keyof typeof FilterType];
 
 export const ResourceIdentityType = {
     None: "None",
     SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
 } as const;
 
 /**
@@ -25,10 +29,8 @@ export const ResourceIdentityType = {
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SelectorType = {
-    Percent: "Percent",
-    Random: "Random",
-    Tag: "Tag",
     List: "List",
+    Query: "Query",
 } as const;
 
 /**

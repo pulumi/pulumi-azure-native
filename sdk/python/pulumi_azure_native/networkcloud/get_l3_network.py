@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetL3NetworkResult:
-    def __init__(__self__, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_ipam_enabled=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, ip_allocation_type=None, ipv4_connected_prefix=None, ipv6_connected_prefix=None, l3_isolation_domain_id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None, vlan=None):
+    def __init__(__self__, associated_resource_ids=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_ipam_enabled=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, ip_allocation_type=None, ipv4_connected_prefix=None, ipv6_connected_prefix=None, l3_isolation_domain_id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None, vlan=None):
+        if associated_resource_ids and not isinstance(associated_resource_ids, list):
+            raise TypeError("Expected argument 'associated_resource_ids' to be a list")
+        pulumi.set(__self__, "associated_resource_ids", associated_resource_ids)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -85,6 +88,14 @@ class GetL3NetworkResult:
         pulumi.set(__self__, "vlan", vlan)
 
     @property
+    @pulumi.getter(name="associatedResourceIds")
+    def associated_resource_ids(self) -> Sequence[str]:
+        """
+        The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        """
+        return pulumi.get(self, "associated_resource_ids")
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> str:
         """
@@ -120,7 +131,7 @@ class GetL3NetworkResult:
     @pulumi.getter(name="hybridAksClustersAssociatedIds")
     def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
         """
-        The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
+        Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
         """
         return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
 
@@ -128,7 +139,7 @@ class GetL3NetworkResult:
     @pulumi.getter(name="hybridAksIpamEnabled")
     def hybrid_aks_ipam_enabled(self) -> Optional[str]:
         """
-        The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
         """
         return pulumi.get(self, "hybrid_aks_ipam_enabled")
 
@@ -136,7 +147,7 @@ class GetL3NetworkResult:
     @pulumi.getter(name="hybridAksPluginType")
     def hybrid_aks_plugin_type(self) -> Optional[str]:
         """
-        The network plugin type for Hybrid AKS.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         """
         return pulumi.get(self, "hybrid_aks_plugin_type")
 
@@ -144,7 +155,7 @@ class GetL3NetworkResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -242,7 +253,7 @@ class GetL3NetworkResult:
     @pulumi.getter(name="virtualMachinesAssociatedIds")
     def virtual_machines_associated_ids(self) -> Sequence[str]:
         """
-        The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
+        Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
         """
         return pulumi.get(self, "virtual_machines_associated_ids")
 
@@ -261,6 +272,7 @@ class AwaitableGetL3NetworkResult(GetL3NetworkResult):
         if False:
             yield self
         return GetL3NetworkResult(
+            associated_resource_ids=self.associated_resource_ids,
             cluster_id=self.cluster_id,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
@@ -289,7 +301,7 @@ def get_l3_network(l3_network_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetL3NetworkResult:
     """
     Get properties of the provided layer 3 (L3) network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str l3_network_name: The name of the L3 network.
@@ -302,6 +314,7 @@ def get_l3_network(l3_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getL3Network', __args__, opts=opts, typ=GetL3NetworkResult).value
 
     return AwaitableGetL3NetworkResult(
+        associated_resource_ids=__ret__.associated_resource_ids,
         cluster_id=__ret__.cluster_id,
         detailed_status=__ret__.detailed_status,
         detailed_status_message=__ret__.detailed_status_message,
@@ -331,7 +344,7 @@ def get_l3_network_output(l3_network_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetL3NetworkResult]:
     """
     Get properties of the provided layer 3 (L3) network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str l3_network_name: The name of the L3 network.

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
     /// <summary>
     /// The agentPool resource definition
     /// </summary>
-    [AzureNativeResourceType("azure-native:hybridcontainerservice/v20220501preview:agentPool")]
+    [AzureNativeResourceType("azure-native:hybridcontainerservice/v20220501preview:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -138,12 +138,12 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AgentPool(string name, AgentPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice/v20220501preview:agentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:hybridcontainerservice/v20220501preview:AgentPool", name, args ?? new AgentPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AgentPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:hybridcontainerservice/v20220501preview:agentPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:hybridcontainerservice/v20220501preview:AgentPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -154,7 +154,11 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220501preview:agentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:AgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice:agentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:hybridcontainerservice/v20220901preview:agentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -5,20 +5,50 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AccessPolicyArgs } from "./accessPolicy";
+export type AccessPolicy = import("./accessPolicy").AccessPolicy;
+export const AccessPolicy: typeof import("./accessPolicy").AccessPolicy = null as any;
+utilities.lazyLoad(exports, ["AccessPolicy"], () => require("./accessPolicy"));
+
+export { AccessPolicyAssignmentArgs } from "./accessPolicyAssignment";
+export type AccessPolicyAssignment = import("./accessPolicyAssignment").AccessPolicyAssignment;
+export const AccessPolicyAssignment: typeof import("./accessPolicyAssignment").AccessPolicyAssignment = null as any;
+utilities.lazyLoad(exports, ["AccessPolicyAssignment"], () => require("./accessPolicyAssignment"));
+
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
+export { EnterprisePrivateEndpointConnectionArgs } from "./enterprisePrivateEndpointConnection";
+export type EnterprisePrivateEndpointConnection = import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection;
+export const EnterprisePrivateEndpointConnection: typeof import("./enterprisePrivateEndpointConnection").EnterprisePrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["EnterprisePrivateEndpointConnection"], () => require("./enterprisePrivateEndpointConnection"));
 
 export { FirewallRuleArgs } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
 utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
 
+export { GetAccessPolicyArgs, GetAccessPolicyResult, GetAccessPolicyOutputArgs } from "./getAccessPolicy";
+export const getAccessPolicy: typeof import("./getAccessPolicy").getAccessPolicy = null as any;
+export const getAccessPolicyOutput: typeof import("./getAccessPolicy").getAccessPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicy","getAccessPolicyOutput"], () => require("./getAccessPolicy"));
+
+export { GetAccessPolicyAssignmentArgs, GetAccessPolicyAssignmentResult, GetAccessPolicyAssignmentOutputArgs } from "./getAccessPolicyAssignment";
+export const getAccessPolicyAssignment: typeof import("./getAccessPolicyAssignment").getAccessPolicyAssignment = null as any;
+export const getAccessPolicyAssignmentOutput: typeof import("./getAccessPolicyAssignment").getAccessPolicyAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPolicyAssignment","getAccessPolicyAssignmentOutput"], () => require("./getAccessPolicyAssignment"));
+
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+
+export { GetEnterprisePrivateEndpointConnectionArgs, GetEnterprisePrivateEndpointConnectionResult, GetEnterprisePrivateEndpointConnectionOutputArgs } from "./getEnterprisePrivateEndpointConnection";
+export const getEnterprisePrivateEndpointConnection: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnection = null as any;
+export const getEnterprisePrivateEndpointConnectionOutput: typeof import("./getEnterprisePrivateEndpointConnection").getEnterprisePrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterprisePrivateEndpointConnection","getEnterprisePrivateEndpointConnectionOutput"], () => require("./getEnterprisePrivateEndpointConnection"));
 
 export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
 export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
@@ -90,52 +120,32 @@ utilities.lazyLoad(exports, ["RedisEnterprise"], () => require("./redisEnterpris
 export * from "../types/enums/cache";
 
 // Export sub-modules:
-import * as v20150801 from "./v20150801";
-import * as v20160401 from "./v20160401";
-import * as v20170201 from "./v20170201";
-import * as v20171001 from "./v20171001";
-import * as v20180301 from "./v20180301";
-import * as v20190701 from "./v20190701";
 import * as v20200601 from "./v20200601";
 import * as v20201001preview from "./v20201001preview";
-import * as v20201201 from "./v20201201";
-import * as v20210201preview from "./v20210201preview";
-import * as v20210301 from "./v20210301";
-import * as v20210601 from "./v20210601";
-import * as v20210801 from "./v20210801";
-import * as v20220101 from "./v20220101";
-import * as v20220501 from "./v20220501";
-import * as v20220601 from "./v20220601";
-import * as v20221101preview from "./v20221101preview";
 import * as v20230301preview from "./v20230301preview";
+import * as v20230401 from "./v20230401";
+import * as v20230501preview from "./v20230501preview";
 
 export {
-    v20150801,
-    v20160401,
-    v20170201,
-    v20171001,
-    v20180301,
-    v20190701,
     v20200601,
     v20201001preview,
-    v20201201,
-    v20210201preview,
-    v20210301,
-    v20210601,
-    v20210801,
-    v20220101,
-    v20220501,
-    v20220601,
-    v20221101preview,
     v20230301preview,
+    v20230401,
+    v20230501preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:cache:AccessPolicy":
+                return new AccessPolicy(name, <any>undefined, { urn })
+            case "azure-native:cache:AccessPolicyAssignment":
+                return new AccessPolicyAssignment(name, <any>undefined, { urn })
             case "azure-native:cache:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:cache:EnterprisePrivateEndpointConnection":
+                return new EnterprisePrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:cache:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure-native:cache:LinkedServer":

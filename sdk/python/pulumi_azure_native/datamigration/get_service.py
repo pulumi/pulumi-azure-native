@@ -22,7 +22,7 @@ class GetServiceResult:
     """
     A Database Migration Service resource
     """
-    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, tags=None, type=None, virtual_subnet_id=None):
+    def __init__(__self__, etag=None, id=None, kind=None, location=None, name=None, provisioning_state=None, public_key=None, sku=None, system_data=None, tags=None, type=None, virtual_nic_id=None, virtual_subnet_id=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -47,12 +47,18 @@ class GetServiceResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if virtual_nic_id and not isinstance(virtual_nic_id, str):
+            raise TypeError("Expected argument 'virtual_nic_id' to be a str")
+        pulumi.set(__self__, "virtual_nic_id", virtual_nic_id)
         if virtual_subnet_id and not isinstance(virtual_subnet_id, str):
             raise TypeError("Expected argument 'virtual_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_subnet_id", virtual_subnet_id)
@@ -122,6 +128,14 @@ class GetServiceResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -136,6 +150,14 @@ class GetServiceResult:
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNicId")
+    def virtual_nic_id(self) -> Optional[str]:
+        """
+        The ID of the Microsoft.Network/networkInterfaces resource which the service have
+        """
+        return pulumi.get(self, "virtual_nic_id")
 
     @property
     @pulumi.getter(name="virtualSubnetId")
@@ -160,8 +182,10 @@ class AwaitableGetServiceResult(GetServiceResult):
             provisioning_state=self.provisioning_state,
             public_key=self.public_key,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
+            virtual_nic_id=self.virtual_nic_id,
             virtual_subnet_id=self.virtual_subnet_id)
 
 
@@ -170,7 +194,7 @@ def get_service(group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
-    API Version: 2018-04-19.
+    Azure REST API version: 2021-06-30.
 
 
     :param str group_name: Name of the resource group
@@ -191,8 +215,10 @@ def get_service(group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_key=__ret__.public_key,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
+        virtual_nic_id=__ret__.virtual_nic_id,
         virtual_subnet_id=__ret__.virtual_subnet_id)
 
 
@@ -202,7 +228,7 @@ def get_service_output(group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
-    API Version: 2018-04-19.
+    Azure REST API version: 2021-06-30.
 
 
     :param str group_name: Name of the resource group

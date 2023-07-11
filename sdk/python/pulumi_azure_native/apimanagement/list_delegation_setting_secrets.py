@@ -49,7 +49,7 @@ def list_delegation_setting_secrets(resource_group_name: Optional[str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDelegationSettingSecretsResult:
     """
     Gets the secret validation key of the DelegationSettings.
-    API Version: 2020-12-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.
@@ -71,7 +71,7 @@ def list_delegation_setting_secrets_output(resource_group_name: Optional[pulumi.
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDelegationSettingSecretsResult]:
     """
     Gets the secret validation key of the DelegationSettings.
-    API Version: 2020-12-01.
+    Azure REST API version: 2021-08-01.
 
 
     :param str resource_group_name: The name of the resource group.

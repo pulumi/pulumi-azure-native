@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Subvolume Information properties
- * API Version: 2021-10-01.
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01
  */
 export class Subvolume extends pulumi.CustomResource {
     /**
@@ -55,7 +55,7 @@ export class Subvolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**
@@ -107,7 +107,7 @@ export class Subvolume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20211001:Subvolume" }, { type: "azure-native:netapp/v20220101:Subvolume" }, { type: "azure-native:netapp/v20220301:Subvolume" }, { type: "azure-native:netapp/v20220501:Subvolume" }, { type: "azure-native:netapp/v20220901:Subvolume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20211001:Subvolume" }, { type: "azure-native:netapp/v20220101:Subvolume" }, { type: "azure-native:netapp/v20220301:Subvolume" }, { type: "azure-native:netapp/v20220501:Subvolume" }, { type: "azure-native:netapp/v20220901:Subvolume" }, { type: "azure-native:netapp/v20221101:Subvolume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Subvolume.__pulumiType, name, resourceInputs, opts);
     }
@@ -134,7 +134,7 @@ export interface SubvolumeArgs {
      */
     poolName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

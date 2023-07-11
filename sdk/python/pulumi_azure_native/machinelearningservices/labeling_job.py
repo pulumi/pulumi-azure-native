@@ -12,34 +12,45 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['LabelingJobArgs', 'LabelingJob']
+__all__ = ['LabelingJobInitArgs', 'LabelingJob']
 
 @pulumi.input_type
-class LabelingJobArgs:
+class LabelingJobInitArgs:
     def __init__(__self__, *,
+                 labeling_job_properties: pulumi.Input['LabelingJobArgs'],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
-                 labeling_job_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['LabelingJobPropertiesArgs']] = None):
+                 id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LabelingJob resource.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
+        :param pulumi.Input['LabelingJobArgs'] labeling_job_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
-        :param pulumi.Input[str] labeling_job_id: Name and identifier for LabelingJob.
-        :param pulumi.Input['LabelingJobPropertiesArgs'] properties: Definition of a labeling job.
+        :param pulumi.Input[str] id: The name and identifier for the LabelingJob.
         """
+        pulumi.set(__self__, "labeling_job_properties", labeling_job_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-        if labeling_job_id is not None:
-            pulumi.set(__self__, "labeling_job_id", labeling_job_id)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="labelingJobProperties")
+    def labeling_job_properties(self) -> pulumi.Input['LabelingJobArgs']:
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "labeling_job_properties")
+
+    @labeling_job_properties.setter
+    def labeling_job_properties(self, value: pulumi.Input['LabelingJobArgs']):
+        pulumi.set(self, "labeling_job_properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group in which workspace is located.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -60,28 +71,16 @@ class LabelingJobArgs:
         pulumi.set(self, "workspace_name", value)
 
     @property
-    @pulumi.getter(name="labelingJobId")
-    def labeling_job_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name and identifier for LabelingJob.
-        """
-        return pulumi.get(self, "labeling_job_id")
-
-    @labeling_job_id.setter
-    def labeling_job_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "labeling_job_id", value)
-
-    @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['LabelingJobPropertiesArgs']]:
+    def id(self) -> Optional[pulumi.Input[str]]:
         """
-        Definition of a labeling job.
+        The name and identifier for the LabelingJob.
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "id")
 
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['LabelingJobPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 class LabelingJob(pulumi.CustomResource):
@@ -89,39 +88,39 @@ class LabelingJob(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labeling_job_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['LabelingJobPropertiesArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 labeling_job_properties: Optional[pulumi.Input[pulumi.InputType['LabelingJobArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Machine Learning labeling job object wrapped into ARM resource envelope.
-        API Version: 2020-09-01-preview.
+        Azure Resource Manager resource envelope.
+        Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] labeling_job_id: Name and identifier for LabelingJob.
-        :param pulumi.Input[pulumi.InputType['LabelingJobPropertiesArgs']] properties: Definition of a labeling job.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group in which workspace is located.
+        :param pulumi.Input[str] id: The name and identifier for the LabelingJob.
+        :param pulumi.Input[pulumi.InputType['LabelingJobArgs']] labeling_job_properties: [Required] Additional attributes of the entity.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: Name of Azure Machine Learning workspace.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: LabelingJobArgs,
+                 args: LabelingJobInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Machine Learning labeling job object wrapped into ARM resource envelope.
-        API Version: 2020-09-01-preview.
+        Azure Resource Manager resource envelope.
+        Azure REST API version: 2023-04-01-preview. Prior API version in Azure Native 1.x: 2020-09-01-preview
 
         :param str resource_name: The name of the resource.
-        :param LabelingJobArgs args: The arguments to use to populate this resource's properties.
+        :param LabelingJobInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(LabelingJobArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(LabelingJobInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -130,8 +129,8 @@ class LabelingJob(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 labeling_job_id: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['LabelingJobPropertiesArgs']]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 labeling_job_properties: Optional[pulumi.Input[pulumi.InputType['LabelingJobArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -141,10 +140,12 @@ class LabelingJob(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = LabelingJobArgs.__new__(LabelingJobArgs)
+            __props__ = LabelingJobInitArgs.__new__(LabelingJobInitArgs)
 
-            __props__.__dict__["labeling_job_id"] = labeling_job_id
-            __props__.__dict__["properties"] = properties
+            __props__.__dict__["id"] = id
+            if labeling_job_properties is None and not opts.urn:
+                raise TypeError("Missing required property 'labeling_job_properties'")
+            __props__.__dict__["labeling_job_properties"] = labeling_job_properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -154,7 +155,7 @@ class LabelingJob(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:LabelingJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200901preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20210301preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220601preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221001preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20221201preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230201preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230401preview:LabelingJob"), pulumi.Alias(type_="azure-native:machinelearningservices/v20230601preview:LabelingJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LabelingJob, __self__).__init__(
             'azure-native:machinelearningservices:LabelingJob',
@@ -176,35 +177,35 @@ class LabelingJob(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = LabelingJobArgs.__new__(LabelingJobArgs)
+        __props__ = LabelingJobInitArgs.__new__(LabelingJobInitArgs)
 
+        __props__.__dict__["labeling_job_properties"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return LabelingJob(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    @pulumi.getter(name="labelingJobProperties")
+    def labeling_job_properties(self) -> pulumi.Output['outputs.LabelingJobResponse']:
         """
-        The name of the resource entity.
+        [Required] Additional attributes of the entity.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "labeling_job_properties")
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.LabelingJobPropertiesResponse']:
+    def name(self) -> pulumi.Output[str]:
         """
-        Definition of a labeling job.
+        The name of the resource
         """
-        return pulumi.get(self, "properties")
+        return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -212,7 +213,7 @@ class LabelingJob(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The resource provider and type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

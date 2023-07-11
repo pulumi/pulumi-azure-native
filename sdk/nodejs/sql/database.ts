@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A database resource.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -87,9 +87,25 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly failoverGroupId!: pulumi.Output<string>;
     /**
-     * The number of secondary replicas associated with the database that are used to provide high availability.
+     * The Client id used for cross tenant per database CMK scenario
+     */
+    public readonly federatedClientId!: pulumi.Output<string | undefined>;
+    /**
+     * The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
      */
     public readonly highAvailabilityReplicaCount!: pulumi.Output<number | undefined>;
+    /**
+     * The Azure Active Directory identity of the database.
+     */
+    public readonly identity!: pulumi.Output<outputs.sql.DatabaseIdentityResponse | undefined>;
+    /**
+     * Infra encryption is enabled for this database.
+     */
+    public /*out*/ readonly isInfraEncryptionEnabled!: pulumi.Output<boolean>;
+    /**
+     * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+     */
+    public readonly isLedgerOn!: pulumi.Output<boolean | undefined>;
     /**
      * Kind of database. This is metadata used for the Azure portal experience.
      */
@@ -131,7 +147,7 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly pausedDate!: pulumi.Output<string>;
     /**
-     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     public readonly readScale!: pulumi.Output<string | undefined>;
     /**
@@ -204,7 +220,10 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["createMode"] = args ? args.createMode : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["elasticPoolId"] = args ? args.elasticPoolId : undefined;
+            resourceInputs["federatedClientId"] = args ? args.federatedClientId : undefined;
             resourceInputs["highAvailabilityReplicaCount"] = args ? args.highAvailabilityReplicaCount : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["isLedgerOn"] = args ? args.isLedgerOn : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["longTermRetentionBackupResourceId"] = args ? args.longTermRetentionBackupResourceId : undefined;
@@ -224,6 +243,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
             resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
+            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             resourceInputs["creationDate"] = undefined /*out*/;
@@ -234,6 +254,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["defaultSecondaryLocation"] = undefined /*out*/;
             resourceInputs["earliestRestoreDate"] = undefined /*out*/;
             resourceInputs["failoverGroupId"] = undefined /*out*/;
+            resourceInputs["isInfraEncryptionEnabled"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["maxLogSizeBytes"] = undefined /*out*/;
@@ -256,7 +277,11 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["earliestRestoreDate"] = undefined /*out*/;
             resourceInputs["elasticPoolId"] = undefined /*out*/;
             resourceInputs["failoverGroupId"] = undefined /*out*/;
+            resourceInputs["federatedClientId"] = undefined /*out*/;
             resourceInputs["highAvailabilityReplicaCount"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
+            resourceInputs["isInfraEncryptionEnabled"] = undefined /*out*/;
+            resourceInputs["isLedgerOn"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["licenseType"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -279,7 +304,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:Database" }, { type: "azure-native:sql/v20170301preview:Database" }, { type: "azure-native:sql/v20171001preview:Database" }, { type: "azure-native:sql/v20190601preview:Database" }, { type: "azure-native:sql/v20200202preview:Database" }, { type: "azure-native:sql/v20200801preview:Database" }, { type: "azure-native:sql/v20201101preview:Database" }, { type: "azure-native:sql/v20210201preview:Database" }, { type: "azure-native:sql/v20210501preview:Database" }, { type: "azure-native:sql/v20210801preview:Database" }, { type: "azure-native:sql/v20211101:Database" }, { type: "azure-native:sql/v20211101preview:Database" }, { type: "azure-native:sql/v20220201preview:Database" }, { type: "azure-native:sql/v20220501preview:Database" }, { type: "azure-native:sql/v20220801preview:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:Database" }, { type: "azure-native:sql/v20170301preview:Database" }, { type: "azure-native:sql/v20171001preview:Database" }, { type: "azure-native:sql/v20190601preview:Database" }, { type: "azure-native:sql/v20200202preview:Database" }, { type: "azure-native:sql/v20200801preview:Database" }, { type: "azure-native:sql/v20201101preview:Database" }, { type: "azure-native:sql/v20210201preview:Database" }, { type: "azure-native:sql/v20210501preview:Database" }, { type: "azure-native:sql/v20210801preview:Database" }, { type: "azure-native:sql/v20211101:Database" }, { type: "azure-native:sql/v20211101preview:Database" }, { type: "azure-native:sql/v20220201preview:Database" }, { type: "azure-native:sql/v20220501preview:Database" }, { type: "azure-native:sql/v20220801preview:Database" }, { type: "azure-native:sql/v20221101preview:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }
@@ -330,9 +355,21 @@ export interface DatabaseArgs {
      */
     elasticPoolId?: pulumi.Input<string>;
     /**
-     * The number of secondary replicas associated with the database that are used to provide high availability.
+     * The Client id used for cross tenant per database CMK scenario
+     */
+    federatedClientId?: pulumi.Input<string>;
+    /**
+     * The number of secondary replicas associated with the database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
      */
     highAvailabilityReplicaCount?: pulumi.Input<number>;
+    /**
+     * The Azure Active Directory identity of the database.
+     */
+    identity?: pulumi.Input<inputs.sql.DatabaseIdentityArgs>;
+    /**
+     * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
+     */
+    isLedgerOn?: pulumi.Input<boolean>;
     /**
      * The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
      */
@@ -358,7 +395,7 @@ export interface DatabaseArgs {
      */
     minCapacity?: pulumi.Input<number>;
     /**
-     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+     * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     readScale?: pulumi.Input<string | enums.sql.DatabaseReadScale>;
     /**
@@ -372,7 +409,7 @@ export interface DatabaseArgs {
     /**
      * The storage account type to be used to store backups for this database.
      */
-    requestedBackupStorageRedundancy?: pulumi.Input<string | enums.sql.RequestedBackupStorageRedundancy>;
+    requestedBackupStorageRedundancy?: pulumi.Input<string | enums.sql.BackupStorageRedundancy>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -419,6 +456,22 @@ export interface DatabaseArgs {
      * The resource identifier of the source database associated with create operation of this database.
      */
     sourceDatabaseId?: pulumi.Input<string>;
+    /**
+     * The resource identifier of the source associated with the create operation of this database.
+     * 
+     * This property is only supported for DataWarehouse edition and allows to restore across subscriptions.
+     * 
+     * When sourceResourceId is specified, sourceDatabaseId, recoverableDatabaseId, restorableDroppedDatabaseId and sourceDatabaseDeletionDate must not be specified and CreateMode must be PointInTimeRestore, Restore or Recover.
+     * 
+     * When createMode is PointInTimeRestore, sourceResourceId must be the resource ID of the existing database or existing sql pool, and restorePointInTime must be specified.
+     * 
+     * When createMode is Restore, sourceResourceId must be the resource ID of restorable dropped database or restorable dropped sql pool.
+     * 
+     * When createMode is Recover, sourceResourceId must be the resource ID of recoverable database or recoverable sql pool.
+     * 
+     * When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
+     */
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

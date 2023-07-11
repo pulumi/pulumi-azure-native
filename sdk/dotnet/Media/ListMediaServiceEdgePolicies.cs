@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Media
     public static class ListMediaServiceEdgePolicies
     {
         /// <summary>
-        /// List the media edge policies associated with the Media Services account.
-        /// API Version: 2020-05-01.
+        /// List all the media edge policies associated with the Media Services account.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<ListMediaServiceEdgePoliciesResult> InvokeAsync(ListMediaServiceEdgePoliciesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// List the media edge policies associated with the Media Services account.
-        /// API Version: 2020-05-01.
+        /// List all the media edge policies associated with the Media Services account.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<ListMediaServiceEdgePoliciesResult> Invoke(ListMediaServiceEdgePoliciesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListMediaServiceEdgePoliciesResult>("azure-native:media:listMediaServiceEdgePolicies", args ?? new ListMediaServiceEdgePoliciesInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the details of an Account Filter in the Media Services account.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAccountFilter(args: GetAccountFilterArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountFilterResult> {
 
@@ -71,7 +71,7 @@ export interface GetAccountFilterResult {
 }
 /**
  * Get the details of an Account Filter in the Media Services account.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2023-01-01.
  */
 export function getAccountFilterOutput(args: GetAccountFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountFilterResult> {
     return pulumi.output(args).apply((a: any) => getAccountFilter(a, opts))

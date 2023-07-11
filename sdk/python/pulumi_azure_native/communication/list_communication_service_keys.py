@@ -85,7 +85,7 @@ def list_communication_service_keys(communication_service_name: Optional[str] = 
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListCommunicationServiceKeysResult:
     """
     Get the access keys of the CommunicationService resource.
-    API Version: 2020-08-20.
+    Azure REST API version: 2023-03-31.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.
@@ -110,7 +110,7 @@ def list_communication_service_keys_output(communication_service_name: Optional[
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListCommunicationServiceKeysResult]:
     """
     Get the access keys of the CommunicationService resource.
-    API Version: 2020-08-20.
+    Azure REST API version: 2023-03-31.
 
 
     :param str communication_service_name: The name of the CommunicationService resource.

@@ -22,7 +22,7 @@ class GetConnectedRegistryResult:
     """
     An object that represents a connected registry for a container registry.
     """
-    def __init__(__self__, activation=None, client_token_ids=None, connection_state=None, id=None, last_activity_time=None, logging=None, login_server=None, mode=None, name=None, parent=None, provisioning_state=None, status_details=None, system_data=None, type=None, version=None):
+    def __init__(__self__, activation=None, client_token_ids=None, connection_state=None, id=None, last_activity_time=None, logging=None, login_server=None, mode=None, name=None, notifications_list=None, parent=None, provisioning_state=None, status_details=None, system_data=None, type=None, version=None):
         if activation and not isinstance(activation, dict):
             raise TypeError("Expected argument 'activation' to be a dict")
         pulumi.set(__self__, "activation", activation)
@@ -50,6 +50,9 @@ class GetConnectedRegistryResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if notifications_list and not isinstance(notifications_list, list):
+            raise TypeError("Expected argument 'notifications_list' to be a list")
+        pulumi.set(__self__, "notifications_list", notifications_list)
         if parent and not isinstance(parent, dict):
             raise TypeError("Expected argument 'parent' to be a dict")
         pulumi.set(__self__, "parent", parent)
@@ -142,6 +145,14 @@ class GetConnectedRegistryResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="notificationsList")
+    def notifications_list(self) -> Optional[Sequence[str]]:
+        """
+        The list of notifications subscription information for the connected registry.
+        """
+        return pulumi.get(self, "notifications_list")
+
+    @property
     @pulumi.getter
     def parent(self) -> 'outputs.ParentPropertiesResponse':
         """
@@ -205,6 +216,7 @@ class AwaitableGetConnectedRegistryResult(GetConnectedRegistryResult):
             login_server=self.login_server,
             mode=self.mode,
             name=self.name,
+            notifications_list=self.notifications_list,
             parent=self.parent,
             provisioning_state=self.provisioning_state,
             status_details=self.status_details,
@@ -219,12 +231,12 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectedRegistryResult:
     """
     Gets the properties of the connected registry.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str connected_registry_name: The name of the connected registry.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['connectedRegistryName'] = connected_registry_name
@@ -243,6 +255,7 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
         login_server=__ret__.login_server,
         mode=__ret__.mode,
         name=__ret__.name,
+        notifications_list=__ret__.notifications_list,
         parent=__ret__.parent,
         provisioning_state=__ret__.provisioning_state,
         status_details=__ret__.status_details,
@@ -258,11 +271,11 @@ def get_connected_registry_output(connected_registry_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectedRegistryResult]:
     """
     Gets the properties of the connected registry.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str connected_registry_name: The name of the connected registry.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Domain service.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class DomainService extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class DomainService extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainService.__pulumiType;
     }
 
+    /**
+     * Configuration diagnostics data containing latest execution from client.
+     */
+    public readonly configDiagnostics!: pulumi.Output<outputs.aad.ConfigDiagnosticsResponse | undefined>;
     /**
      * Deployment Id
      */
@@ -99,9 +103,17 @@ export class DomainService extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
+     * The unique sync application id of the Azure AD Domain Services deployment.
+     */
+    public /*out*/ readonly syncApplicationId!: pulumi.Output<string>;
+    /**
      * SyncOwner ReplicaSet Id
      */
     public /*out*/ readonly syncOwner!: pulumi.Output<string>;
+    /**
+     * All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+     */
+    public readonly syncScope!: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
@@ -137,6 +149,7 @@ export class DomainService extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["configDiagnostics"] = args ? args.configDiagnostics : undefined;
             resourceInputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["domainSecuritySettings"] = args ? (args.domainSecuritySettings ? pulumi.output(args.domainSecuritySettings).apply(inputs.aad.domainSecuritySettingsArgsProvideDefaults) : undefined) : undefined;
@@ -149,18 +162,21 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["resourceForestSettings"] = args ? args.resourceForestSettings : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["syncScope"] = (args ? args.syncScope : undefined) ?? "All";
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["migrationProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["syncApplicationId"] = undefined /*out*/;
             resourceInputs["syncOwner"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         } else {
+            resourceInputs["configDiagnostics"] = undefined /*out*/;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["domainConfigurationType"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;
@@ -176,7 +192,9 @@ export class DomainService extends pulumi.CustomResource {
             resourceInputs["replicaSets"] = undefined /*out*/;
             resourceInputs["resourceForestSettings"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["syncApplicationId"] = undefined /*out*/;
             resourceInputs["syncOwner"] = undefined /*out*/;
+            resourceInputs["syncScope"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
@@ -194,6 +212,10 @@ export class DomainService extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainService resource.
  */
 export interface DomainServiceArgs {
+    /**
+     * Configuration diagnostics data containing latest execution from client.
+     */
+    configDiagnostics?: pulumi.Input<inputs.aad.ConfigDiagnosticsArgs>;
     /**
      * Domain Configuration Type
      */
@@ -242,6 +264,10 @@ export interface DomainServiceArgs {
      * Sku Type
      */
     sku?: pulumi.Input<string>;
+    /**
+     * All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+     */
+    syncScope?: pulumi.Input<string | enums.aad.SyncScope>;
     /**
      * Resource tags
      */

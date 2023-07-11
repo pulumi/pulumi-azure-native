@@ -79,7 +79,7 @@ def list_user_assigned_identity_associated_resources(filter: Optional[str] = Non
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListUserAssignedIdentityAssociatedResourcesResult:
     """
     Lists the associated resources for this identity.
-    API Version: 2022-01-31-preview.
+    Azure REST API version: 2022-01-31-preview.
 
 
     :param str filter: OData filter expression to apply to the query.
@@ -118,7 +118,7 @@ def list_user_assigned_identity_associated_resources_output(filter: Optional[pul
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListUserAssignedIdentityAssociatedResourcesResult]:
     """
     Lists the associated resources for this identity.
-    API Version: 2022-01-31-preview.
+    Azure REST API version: 2022-01-31-preview.
 
 
     :param str filter: OData filter expression to apply to the query.

@@ -22,13 +22,19 @@ class GetBackupPolicyResult:
     """
     Backup policy information
     """
-    def __init__(__self__, daily_backups_to_keep=None, enabled=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None, yearly_backups_to_keep=None):
+    def __init__(__self__, backup_policy_id=None, daily_backups_to_keep=None, enabled=None, etag=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None):
+        if backup_policy_id and not isinstance(backup_policy_id, str):
+            raise TypeError("Expected argument 'backup_policy_id' to be a str")
+        pulumi.set(__self__, "backup_policy_id", backup_policy_id)
         if daily_backups_to_keep and not isinstance(daily_backups_to_keep, int):
             raise TypeError("Expected argument 'daily_backups_to_keep' to be a int")
         pulumi.set(__self__, "daily_backups_to_keep", daily_backups_to_keep)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
+        if etag and not isinstance(etag, str):
+            raise TypeError("Expected argument 'etag' to be a str")
+        pulumi.set(__self__, "etag", etag)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -44,6 +50,9 @@ class GetBackupPolicyResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -59,9 +68,14 @@ class GetBackupPolicyResult:
         if weekly_backups_to_keep and not isinstance(weekly_backups_to_keep, int):
             raise TypeError("Expected argument 'weekly_backups_to_keep' to be a int")
         pulumi.set(__self__, "weekly_backups_to_keep", weekly_backups_to_keep)
-        if yearly_backups_to_keep and not isinstance(yearly_backups_to_keep, int):
-            raise TypeError("Expected argument 'yearly_backups_to_keep' to be a int")
-        pulumi.set(__self__, "yearly_backups_to_keep", yearly_backups_to_keep)
+
+    @property
+    @pulumi.getter(name="backupPolicyId")
+    def backup_policy_id(self) -> str:
+        """
+        Backup Policy Resource ID
+        """
+        return pulumi.get(self, "backup_policy_id")
 
     @property
     @pulumi.getter(name="dailyBackupsToKeep")
@@ -81,9 +95,17 @@ class GetBackupPolicyResult:
 
     @property
     @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -91,7 +113,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -107,7 +129,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of backup policy
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -120,10 +142,18 @@ class GetBackupPolicyResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -131,13 +161,13 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="volumeBackups")
-    def volume_backups(self) -> Optional[Sequence['outputs.VolumeBackupsResponse']]:
+    def volume_backups(self) -> Sequence['outputs.VolumeBackupsResponse']:
         """
         A list of volumes assigned to this policy
         """
@@ -145,7 +175,7 @@ class GetBackupPolicyResult:
 
     @property
     @pulumi.getter(name="volumesAssigned")
-    def volumes_assigned(self) -> Optional[int]:
+    def volumes_assigned(self) -> int:
         """
         Volumes using current backup policy
         """
@@ -159,14 +189,6 @@ class GetBackupPolicyResult:
         """
         return pulumi.get(self, "weekly_backups_to_keep")
 
-    @property
-    @pulumi.getter(name="yearlyBackupsToKeep")
-    def yearly_backups_to_keep(self) -> Optional[int]:
-        """
-        Yearly backups count to keep
-        """
-        return pulumi.get(self, "yearly_backups_to_keep")
-
 
 class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
     # pylint: disable=using-constant-test
@@ -174,19 +196,21 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
         if False:
             yield self
         return GetBackupPolicyResult(
+            backup_policy_id=self.backup_policy_id,
             daily_backups_to_keep=self.daily_backups_to_keep,
             enabled=self.enabled,
+            etag=self.etag,
             id=self.id,
             location=self.location,
             monthly_backups_to_keep=self.monthly_backups_to_keep,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             volume_backups=self.volume_backups,
             volumes_assigned=self.volumes_assigned,
-            weekly_backups_to_keep=self.weekly_backups_to_keep,
-            yearly_backups_to_keep=self.yearly_backups_to_keep)
+            weekly_backups_to_keep=self.weekly_backups_to_keep)
 
 
 def get_backup_policy(account_name: Optional[str] = None,
@@ -195,12 +219,12 @@ def get_backup_policy(account_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBackupPolicyResult:
     """
     Get a particular backup Policy
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -210,19 +234,21 @@ def get_backup_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult).value
 
     return AwaitableGetBackupPolicyResult(
+        backup_policy_id=__ret__.backup_policy_id,
         daily_backups_to_keep=__ret__.daily_backups_to_keep,
         enabled=__ret__.enabled,
+        etag=__ret__.etag,
         id=__ret__.id,
         location=__ret__.location,
         monthly_backups_to_keep=__ret__.monthly_backups_to_keep,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         volume_backups=__ret__.volume_backups,
         volumes_assigned=__ret__.volumes_assigned,
-        weekly_backups_to_keep=__ret__.weekly_backups_to_keep,
-        yearly_backups_to_keep=__ret__.yearly_backups_to_keep)
+        weekly_backups_to_keep=__ret__.weekly_backups_to_keep)
 
 
 @_utilities.lift_output_func(get_backup_policy)
@@ -232,11 +258,11 @@ def get_backup_policy_output(account_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
     Get a particular backup Policy
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The name of the NetApp account
     :param str backup_policy_name: Backup policy Name which uniquely identify backup policy.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

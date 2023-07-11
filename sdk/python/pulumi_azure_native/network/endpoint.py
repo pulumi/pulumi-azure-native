@@ -20,6 +20,7 @@ class EndpointInitArgs:
                  endpoint_type: pulumi.Input[str],
                  profile_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 always_serve: Optional[pulumi.Input[Union[str, 'AlwaysServe']]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
@@ -41,7 +42,8 @@ class EndpointInitArgs:
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[str] endpoint_type: The type of the Traffic Manager endpoint to be created or updated.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager endpoint to be created or updated.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[str, 'AlwaysServe']] always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]] custom_headers: List of custom headers.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         :param pulumi.Input[Union[str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
@@ -63,6 +65,8 @@ class EndpointInitArgs:
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if always_serve is not None:
+            pulumi.set(__self__, "always_serve", always_serve)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if endpoint_location is not None:
@@ -126,13 +130,25 @@ class EndpointInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group containing the Traffic Manager endpoint to be created or updated.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="alwaysServe")
+    def always_serve(self) -> Optional[pulumi.Input[Union[str, 'AlwaysServe']]]:
+        """
+        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        """
+        return pulumi.get(self, "always_serve")
+
+    @always_serve.setter
+    def always_serve(self, value: Optional[pulumi.Input[Union[str, 'AlwaysServe']]]):
+        pulumi.set(self, "always_serve", value)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -344,6 +360,7 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_serve: Optional[pulumi.Input[Union[str, 'AlwaysServe']]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
@@ -367,10 +384,11 @@ class Endpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a Traffic Manager endpoint.
-        API Version: 2018-08-01.
+        Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'AlwaysServe']] always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]] custom_headers: List of custom headers.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         :param pulumi.Input[Union[str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
@@ -385,7 +403,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the resource
         :param pulumi.Input[float] priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[str] profile_name: The name of the Traffic Manager profile.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group containing the Traffic Manager endpoint to be created or updated.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesSubnetsArgs']]]] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         :param pulumi.Input[str] target: The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param pulumi.Input[str] target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
@@ -400,7 +418,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Traffic Manager endpoint.
-        API Version: 2018-08-01.
+        Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01
 
         :param str resource_name: The name of the resource.
         :param EndpointInitArgs args: The arguments to use to populate this resource's properties.
@@ -417,6 +435,7 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_serve: Optional[pulumi.Input[Union[str, 'AlwaysServe']]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointPropertiesCustomHeadersArgs']]]]] = None,
                  endpoint_location: Optional[pulumi.Input[str]] = None,
                  endpoint_monitor_status: Optional[pulumi.Input[Union[str, 'EndpointMonitorStatus']]] = None,
@@ -446,6 +465,7 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointInitArgs.__new__(EndpointInitArgs)
 
+            __props__.__dict__["always_serve"] = always_serve
             __props__.__dict__["custom_headers"] = custom_headers
             __props__.__dict__["endpoint_location"] = endpoint_location
             __props__.__dict__["endpoint_monitor_status"] = endpoint_monitor_status
@@ -472,7 +492,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["target_resource_id"] = target_resource_id
             __props__.__dict__["type"] = type
             __props__.__dict__["weight"] = weight
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180401:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180801:Endpoint"), pulumi.Alias(type_="azure-native:network/v20220401preview:Endpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20151101:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20170501:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180201:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180301:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180401:Endpoint"), pulumi.Alias(type_="azure-native:network/v20180801:Endpoint"), pulumi.Alias(type_="azure-native:network/v20220401:Endpoint"), pulumi.Alias(type_="azure-native:network/v20220401preview:Endpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Endpoint, __self__).__init__(
             'azure-native:network:Endpoint',
@@ -496,6 +516,7 @@ class Endpoint(pulumi.CustomResource):
 
         __props__ = EndpointInitArgs.__new__(EndpointInitArgs)
 
+        __props__.__dict__["always_serve"] = None
         __props__.__dict__["custom_headers"] = None
         __props__.__dict__["endpoint_location"] = None
         __props__.__dict__["endpoint_monitor_status"] = None
@@ -512,6 +533,14 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["type"] = None
         __props__.__dict__["weight"] = None
         return Endpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="alwaysServe")
+    def always_serve(self) -> pulumi.Output[Optional[str]]:
+        """
+        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        """
+        return pulumi.get(self, "always_serve")
 
     @property
     @pulumi.getter(name="customHeaders")

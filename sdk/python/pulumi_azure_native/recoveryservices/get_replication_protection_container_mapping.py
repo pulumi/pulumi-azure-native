@@ -101,7 +101,7 @@ def get_replication_protection_container_mapping(fabric_name: Optional[str] = No
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationProtectionContainerMappingResult:
     """
     Gets the details of a protection container mapping.
-    API Version: 2018-07-10.
+    Azure REST API version: 2023-04-01.
 
 
     :param str fabric_name: Fabric name.
@@ -136,7 +136,7 @@ def get_replication_protection_container_mapping_output(fabric_name: Optional[pu
                                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationProtectionContainerMappingResult]:
     """
     Gets the details of a protection container mapping.
-    API Version: 2018-07-10.
+    Azure REST API version: 2023-04-01.
 
 
     :param str fabric_name: Fabric name.

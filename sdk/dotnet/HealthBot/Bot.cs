@@ -10,12 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.HealthBot
 {
     /// <summary>
-    /// HealthBot resource definition
-    /// API Version: 2020-12-08.
+    /// Azure Health Bot resource definition
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-12-08
     /// </summary>
     [AzureNativeResourceType("azure-native:healthbot:Bot")]
     public partial class Bot : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The identity of the Azure Health Bot.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -29,13 +35,13 @@ namespace Pulumi.AzureNative.HealthBot
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The set of properties specific to Healthbot resource.
+        /// The set of properties specific to Azure Health Bot resource.
         /// </summary>
         [Output("properties")]
         public Output<Outputs.HealthBotPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// SKU of the HealthBot.
+        /// SKU of the Azure Health Bot.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse> Sku { get; private set; } = null!;
@@ -90,6 +96,7 @@ namespace Pulumi.AzureNative.HealthBot
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210610:Bot"},
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20210824:Bot"},
                     new global::Pulumi.Alias { Type = "azure-native:healthbot/v20220808:Bot"},
+                    new global::Pulumi.Alias { Type = "azure-native:healthbot/v20230501:Bot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,10 +127,22 @@ namespace Pulumi.AzureNative.HealthBot
         public Input<string>? BotName { get; set; }
 
         /// <summary>
+        /// The identity of the Azure Health Bot.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The set of properties specific to Azure Health Bot resource.
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.HealthBotPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the Bot resource group in the user subscription.
@@ -132,7 +151,7 @@ namespace Pulumi.AzureNative.HealthBot
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// SKU of the HealthBot.
+        /// SKU of the Azure Health Bot.
         /// </summary>
         [Input("sku", required: true)]
         public Input<Inputs.SkuArgs> Sku { get; set; } = null!;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a network manager security user configuration rule collection.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetUserRuleCollectionResult> InvokeAsync(GetUserRuleCollectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserRuleCollectionResult>("azure-native:network:getUserRuleCollection", args ?? new GetUserRuleCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a network manager security user configuration rule collection.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetUserRuleCollectionResult> Invoke(GetUserRuleCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserRuleCollectionResult>("azure-native:network:getUserRuleCollection", args ?? new GetUserRuleCollectionInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetUserRuleCollectionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public string ConfigurationName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetUserRuleCollectionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -100,13 +100,9 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> AppliesToGroups;
         /// <summary>
-        /// A description of the rule collection.
+        /// A description of the user rule collection.
         /// </summary>
         public readonly string? Description;
-        /// <summary>
-        /// A display name of the rule collection.
-        /// </summary>
-        public readonly string? DisplayName;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -138,8 +134,6 @@ namespace Pulumi.AzureNative.Network
 
             string? description,
 
-            string? displayName,
-
             string etag,
 
             string id,
@@ -154,7 +148,6 @@ namespace Pulumi.AzureNative.Network
         {
             AppliesToGroups = appliesToGroups;
             Description = description;
-            DisplayName = displayName;
             Etag = etag;
             Id = id;
             Name = name;

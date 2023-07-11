@@ -20,13 +20,15 @@ class BackupInstanceInitArgs:
                  resource_group_name: pulumi.Input[str],
                  vault_name: pulumi.Input[str],
                  backup_instance_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['BackupInstanceArgs']] = None):
+                 properties: Optional[pulumi.Input['BackupInstanceArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a BackupInstance resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
-        :param pulumi.Input[str] backup_instance_name: The name of the backup instance
+        :param pulumi.Input[str] backup_instance_name: The name of the backup instance.
         :param pulumi.Input['BackupInstanceArgs'] properties: BackupInstanceResource properties
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Proxy Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
@@ -34,12 +36,14 @@ class BackupInstanceInitArgs:
             pulumi.set(__self__, "backup_instance_name", backup_instance_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group where the backup vault is present.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -63,7 +67,7 @@ class BackupInstanceInitArgs:
     @pulumi.getter(name="backupInstanceName")
     def backup_instance_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the backup instance
+        The name of the backup instance.
         """
         return pulumi.get(self, "backup_instance_name")
 
@@ -83,6 +87,18 @@ class BackupInstanceInitArgs:
     def properties(self, value: Optional[pulumi.Input['BackupInstanceArgs']]):
         pulumi.set(self, "properties", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Proxy Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 class BackupInstance(pulumi.CustomResource):
     @overload
@@ -92,17 +108,19 @@ class BackupInstance(pulumi.CustomResource):
                  backup_instance_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['BackupInstanceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         BackupInstance Resource
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] backup_instance_name: The name of the backup instance
+        :param pulumi.Input[str] backup_instance_name: The name of the backup instance.
         :param pulumi.Input[pulumi.InputType['BackupInstanceArgs']] properties: BackupInstanceResource properties
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Proxy Resource tags.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
         ...
@@ -113,7 +131,7 @@ class BackupInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         BackupInstance Resource
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param BackupInstanceInitArgs args: The arguments to use to populate this resource's properties.
@@ -133,6 +151,7 @@ class BackupInstance(pulumi.CustomResource):
                  backup_instance_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['BackupInstanceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -148,13 +167,14 @@ class BackupInstance(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["tags"] = tags
             if vault_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20230401preview:BackupInstance"), pulumi.Alias(type_="azure-native:dataprotection/v20230501:BackupInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupInstance, __self__).__init__(
             'azure-native:dataprotection:BackupInstance',
@@ -181,6 +201,7 @@ class BackupInstance(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return BackupInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -188,7 +209,7 @@ class BackupInstance(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name associated with the resource.
+        Proxy Resource name associated with the resource.
         """
         return pulumi.get(self, "name")
 
@@ -210,9 +231,17 @@ class BackupInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Proxy Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+        Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
         """
         return pulumi.get(self, "type")
 

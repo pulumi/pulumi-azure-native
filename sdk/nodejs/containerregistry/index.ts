@@ -10,10 +10,25 @@ export type AgentPool = import("./agentPool").AgentPool;
 export const AgentPool: typeof import("./agentPool").AgentPool = null as any;
 utilities.lazyLoad(exports, ["AgentPool"], () => require("./agentPool"));
 
+export { BuildStepArgs } from "./buildStep";
+export type BuildStep = import("./buildStep").BuildStep;
+export const BuildStep: typeof import("./buildStep").BuildStep = null as any;
+utilities.lazyLoad(exports, ["BuildStep"], () => require("./buildStep"));
+
+export { CacheRuleArgs } from "./cacheRule";
+export type CacheRule = import("./cacheRule").CacheRule;
+export const CacheRule: typeof import("./cacheRule").CacheRule = null as any;
+utilities.lazyLoad(exports, ["CacheRule"], () => require("./cacheRule"));
+
 export { ConnectedRegistryArgs } from "./connectedRegistry";
 export type ConnectedRegistry = import("./connectedRegistry").ConnectedRegistry;
 export const ConnectedRegistry: typeof import("./connectedRegistry").ConnectedRegistry = null as any;
 utilities.lazyLoad(exports, ["ConnectedRegistry"], () => require("./connectedRegistry"));
+
+export { CredentialSetArgs } from "./credentialSet";
+export type CredentialSet = import("./credentialSet").CredentialSet;
+export const CredentialSet: typeof import("./credentialSet").CredentialSet = null as any;
+utilities.lazyLoad(exports, ["CredentialSet"], () => require("./credentialSet"));
 
 export { ExportPipelineArgs } from "./exportPipeline";
 export type ExportPipeline = import("./exportPipeline").ExportPipeline;
@@ -30,10 +45,25 @@ export const getBuildLogLink: typeof import("./getBuildLogLink").getBuildLogLink
 export const getBuildLogLinkOutput: typeof import("./getBuildLogLink").getBuildLogLinkOutput = null as any;
 utilities.lazyLoad(exports, ["getBuildLogLink","getBuildLogLinkOutput"], () => require("./getBuildLogLink"));
 
+export { GetBuildStepArgs, GetBuildStepResult, GetBuildStepOutputArgs } from "./getBuildStep";
+export const getBuildStep: typeof import("./getBuildStep").getBuildStep = null as any;
+export const getBuildStepOutput: typeof import("./getBuildStep").getBuildStepOutput = null as any;
+utilities.lazyLoad(exports, ["getBuildStep","getBuildStepOutput"], () => require("./getBuildStep"));
+
+export { GetCacheRuleArgs, GetCacheRuleResult, GetCacheRuleOutputArgs } from "./getCacheRule";
+export const getCacheRule: typeof import("./getCacheRule").getCacheRule = null as any;
+export const getCacheRuleOutput: typeof import("./getCacheRule").getCacheRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getCacheRule","getCacheRuleOutput"], () => require("./getCacheRule"));
+
 export { GetConnectedRegistryArgs, GetConnectedRegistryResult, GetConnectedRegistryOutputArgs } from "./getConnectedRegistry";
 export const getConnectedRegistry: typeof import("./getConnectedRegistry").getConnectedRegistry = null as any;
 export const getConnectedRegistryOutput: typeof import("./getConnectedRegistry").getConnectedRegistryOutput = null as any;
 utilities.lazyLoad(exports, ["getConnectedRegistry","getConnectedRegistryOutput"], () => require("./getConnectedRegistry"));
+
+export { GetCredentialSetArgs, GetCredentialSetResult, GetCredentialSetOutputArgs } from "./getCredentialSet";
+export const getCredentialSet: typeof import("./getCredentialSet").getCredentialSet = null as any;
+export const getCredentialSetOutput: typeof import("./getCredentialSet").getCredentialSetOutput = null as any;
+utilities.lazyLoad(exports, ["getCredentialSet","getCredentialSetOutput"], () => require("./getCredentialSet"));
 
 export { GetExportPipelineArgs, GetExportPipelineResult, GetExportPipelineOutputArgs } from "./getExportPipeline";
 export const getExportPipeline: typeof import("./getExportPipeline").getExportPipeline = null as any;
@@ -207,42 +237,22 @@ export * from "../types/enums/containerregistry";
 // Export sub-modules:
 import * as v20160627preview from "./v20160627preview";
 import * as v20170301 from "./v20170301";
-import * as v20170601preview from "./v20170601preview";
-import * as v20171001 from "./v20171001";
 import * as v20180201preview from "./v20180201preview";
 import * as v20180901 from "./v20180901";
 import * as v20190401 from "./v20190401";
 import * as v20190501 from "./v20190501";
-import * as v20190501preview from "./v20190501preview";
 import * as v20190601preview from "./v20190601preview";
-import * as v20191201preview from "./v20191201preview";
-import * as v20201101preview from "./v20201101preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20210801preview from "./v20210801preview";
-import * as v20210901 from "./v20210901";
-import * as v20211201preview from "./v20211201preview";
-import * as v20220201preview from "./v20220201preview";
 import * as v20221201 from "./v20221201";
 import * as v20230101preview from "./v20230101preview";
 
 export {
     v20160627preview,
     v20170301,
-    v20170601preview,
-    v20171001,
     v20180201preview,
     v20180901,
     v20190401,
     v20190501,
-    v20190501preview,
     v20190601preview,
-    v20191201preview,
-    v20201101preview,
-    v20210601preview,
-    v20210801preview,
-    v20210901,
-    v20211201preview,
-    v20220201preview,
     v20221201,
     v20230101preview,
 };
@@ -253,8 +263,14 @@ const _module = {
         switch (type) {
             case "azure-native:containerregistry:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
+            case "azure-native:containerregistry:BuildStep":
+                return new BuildStep(name, <any>undefined, { urn })
+            case "azure-native:containerregistry:CacheRule":
+                return new CacheRule(name, <any>undefined, { urn })
             case "azure-native:containerregistry:ConnectedRegistry":
                 return new ConnectedRegistry(name, <any>undefined, { urn })
+            case "azure-native:containerregistry:CredentialSet":
+                return new CredentialSet(name, <any>undefined, { urn })
             case "azure-native:containerregistry:ExportPipeline":
                 return new ExportPipeline(name, <any>undefined, { urn })
             case "azure-native:containerregistry:ImportPipeline":

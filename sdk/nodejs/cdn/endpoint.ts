@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Endpoint extends pulumi.CustomResource {
      * List of content types on which compression applies. The value should be a valid MIME type.
      */
     public readonly contentTypesToCompress!: pulumi.Output<string[] | undefined>;
+    /**
+     * The custom domains under the endpoint.
+     */
+    public /*out*/ readonly customDomains!: pulumi.Output<outputs.cdn.DeepCreatedCustomDomainResponse[]>;
     /**
      * A reference to the origin group.
      */
@@ -176,6 +180,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["urlSigningKeys"] = args ? args.urlSigningKeys : undefined;
             resourceInputs["webApplicationFirewallPolicyLink"] = args ? args.webApplicationFirewallPolicyLink : undefined;
+            resourceInputs["customDomains"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -184,6 +189,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["contentTypesToCompress"] = undefined /*out*/;
+            resourceInputs["customDomains"] = undefined /*out*/;
             resourceInputs["defaultOriginGroup"] = undefined /*out*/;
             resourceInputs["deliveryPolicy"] = undefined /*out*/;
             resourceInputs["geoFilters"] = undefined /*out*/;
@@ -209,7 +215,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["webApplicationFirewallPolicyLink"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:Endpoint" }, { type: "azure-native:cdn/v20160402:Endpoint" }, { type: "azure-native:cdn/v20161002:Endpoint" }, { type: "azure-native:cdn/v20170402:Endpoint" }, { type: "azure-native:cdn/v20171012:Endpoint" }, { type: "azure-native:cdn/v20190415:Endpoint" }, { type: "azure-native:cdn/v20190615:Endpoint" }, { type: "azure-native:cdn/v20190615preview:Endpoint" }, { type: "azure-native:cdn/v20191231:Endpoint" }, { type: "azure-native:cdn/v20200331:Endpoint" }, { type: "azure-native:cdn/v20200415:Endpoint" }, { type: "azure-native:cdn/v20200901:Endpoint" }, { type: "azure-native:cdn/v20210601:Endpoint" }, { type: "azure-native:cdn/v20220501preview:Endpoint" }, { type: "azure-native:cdn/v20221101preview:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20150601:Endpoint" }, { type: "azure-native:cdn/v20160402:Endpoint" }, { type: "azure-native:cdn/v20161002:Endpoint" }, { type: "azure-native:cdn/v20170402:Endpoint" }, { type: "azure-native:cdn/v20171012:Endpoint" }, { type: "azure-native:cdn/v20190415:Endpoint" }, { type: "azure-native:cdn/v20190615:Endpoint" }, { type: "azure-native:cdn/v20190615preview:Endpoint" }, { type: "azure-native:cdn/v20191231:Endpoint" }, { type: "azure-native:cdn/v20200331:Endpoint" }, { type: "azure-native:cdn/v20200415:Endpoint" }, { type: "azure-native:cdn/v20200901:Endpoint" }, { type: "azure-native:cdn/v20210601:Endpoint" }, { type: "azure-native:cdn/v20220501preview:Endpoint" }, { type: "azure-native:cdn/v20221101preview:Endpoint" }, { type: "azure-native:cdn/v20230501:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }

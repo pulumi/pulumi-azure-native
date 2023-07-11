@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a Log Analytics cluster instance.
-        /// API Version: 2020-10-01.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:operationalinsights:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Log Analytics cluster instance.
-        /// API Version: 2020-10-01.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:operationalinsights:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());

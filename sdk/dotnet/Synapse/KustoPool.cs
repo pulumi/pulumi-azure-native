@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing a Kusto kusto pool.
-    /// API Version: 2021-04-01-preview.
+    /// Azure REST API version: 2021-06-01-preview.
     /// </summary>
-    [AzureNativeResourceType("azure-native:synapse:kustoPool")]
+    [AzureNativeResourceType("azure-native:synapse:KustoPool")]
     public partial class KustoPool : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -23,16 +23,28 @@ namespace Pulumi.AzureNative.Synapse
         public Output<string> DataIngestionUri { get; private set; } = null!;
 
         /// <summary>
-        /// The engine type
+        /// A boolean value that indicates if the purge operations are enabled.
         /// </summary>
-        [Output("engineType")]
-        public Output<string?> EngineType { get; private set; } = null!;
+        [Output("enablePurge")]
+        public Output<bool?> EnablePurge { get; private set; } = null!;
+
+        /// <summary>
+        /// A boolean value that indicates if the streaming ingest is enabled.
+        /// </summary>
+        [Output("enableStreamingIngest")]
+        public Output<bool?> EnableStreamingIngest { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// List of the Kusto Pool's language extensions.
+        /// </summary>
+        [Output("languageExtensions")]
+        public Output<Outputs.LanguageExtensionsListResponse> LanguageExtensions { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -45,6 +57,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Optimized auto scale definition.
+        /// </summary>
+        [Output("optimizedAutoscale")]
+        public Output<Outputs.OptimizedAutoscaleResponse?> OptimizedAutoscale { get; private set; } = null!;
 
         /// <summary>
         /// The provisioned state of the resource.
@@ -97,8 +115,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The workspace unique identifier.
         /// </summary>
-        [Output("workspaceUid")]
-        public Output<string?> WorkspaceUid { get; private set; } = null!;
+        [Output("workspaceUID")]
+        public Output<string?> WorkspaceUID { get; private set; } = null!;
 
 
         /// <summary>
@@ -109,12 +127,12 @@ namespace Pulumi.AzureNative.Synapse
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public KustoPool(string name, KustoPoolArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:synapse:kustoPool", name, args ?? new KustoPoolArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:synapse:KustoPool", name, args ?? new KustoPoolArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private KustoPool(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:synapse:kustoPool", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:synapse:KustoPool", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -125,8 +143,8 @@ namespace Pulumi.AzureNative.Synapse
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:kustoPool"},
-                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:kustoPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:KustoPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:KustoPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -151,10 +169,16 @@ namespace Pulumi.AzureNative.Synapse
     public sealed class KustoPoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The engine type
+        /// A boolean value that indicates if the purge operations are enabled.
         /// </summary>
-        [Input("engineType")]
-        public InputUnion<string, Pulumi.AzureNative.Synapse.EngineType>? EngineType { get; set; }
+        [Input("enablePurge")]
+        public Input<bool>? EnablePurge { get; set; }
+
+        /// <summary>
+        /// A boolean value that indicates if the streaming ingest is enabled.
+        /// </summary>
+        [Input("enableStreamingIngest")]
+        public Input<bool>? EnableStreamingIngest { get; set; }
 
         /// <summary>
         /// The name of the Kusto pool.
@@ -167,6 +191,12 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// Optimized auto scale definition.
+        /// </summary>
+        [Input("optimizedAutoscale")]
+        public Input<Inputs.OptimizedAutoscaleArgs>? OptimizedAutoscale { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -193,7 +223,7 @@ namespace Pulumi.AzureNative.Synapse
         }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -201,11 +231,13 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The workspace unique identifier.
         /// </summary>
-        [Input("workspaceUid")]
-        public Input<string>? WorkspaceUid { get; set; }
+        [Input("workspaceUID")]
+        public Input<string>? WorkspaceUID { get; set; }
 
         public KustoPoolArgs()
         {
+            EnablePurge = false;
+            EnableStreamingIngest = false;
         }
         public static new KustoPoolArgs Empty => new KustoPoolArgs();
     }

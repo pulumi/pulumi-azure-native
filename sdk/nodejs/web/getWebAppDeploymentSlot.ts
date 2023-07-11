@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get a deployment by its ID for an app, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get a deployment by its ID for an app, or a deployment slot.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppDeploymentSlot(args: GetWebAppDeploymentSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppDeploymentSlotResult> {
 
@@ -96,8 +96,8 @@ export interface GetWebAppDeploymentSlotResult {
     readonly type: string;
 }
 /**
- * Get a deployment by its ID for an app, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get a deployment by its ID for an app, or a deployment slot.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppDeploymentSlotOutput(args: GetWebAppDeploymentSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppDeploymentSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppDeploymentSlot(a, opts))

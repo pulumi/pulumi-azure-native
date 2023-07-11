@@ -27,25 +27,29 @@ class WebTestArgs:
                  frequency: Optional[pulumi.Input[int]] = None,
                  kind: Optional[pulumi.Input['WebTestKind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 request: Optional[pulumi.Input['WebTestPropertiesRequestArgs']] = None,
                  retry_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
+                 validation_rules: Optional[pulumi.Input['WebTestPropertiesValidationRulesArgs']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a WebTest resource.
         :param pulumi.Input[Sequence[pulumi.Input['WebTestGeolocationArgs']]] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
-        :param pulumi.Input['WebTestKind'] web_test_kind: The kind of web test this is, valid choices are ping and multistep.
+        :param pulumi.Input['WebTestKind'] web_test_kind: The kind of web test this is, valid choices are ping, multistep and standard.
         :param pulumi.Input['WebTestPropertiesConfigurationArgs'] configuration: An XML configuration specification for a WebTest.
-        :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
+        :param pulumi.Input[str] description: User defined description for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default value is 300.
-        :param pulumi.Input['WebTestKind'] kind: The kind of web test that this web test watches. Choices are ping and multistep.
+        :param pulumi.Input['WebTestKind'] kind: The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
         :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input['WebTestPropertiesRequestArgs'] request: The collection of request properties
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default value is 30.
+        :param pulumi.Input['WebTestPropertiesValidationRulesArgs'] validation_rules: The collection of validation rule properties
         :param pulumi.Input[str] web_test_name: User defined name if this WebTest.
         """
         pulumi.set(__self__, "locations", locations)
@@ -70,6 +74,8 @@ class WebTestArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if request is not None:
+            pulumi.set(__self__, "request", request)
         if retry_enabled is not None:
             pulumi.set(__self__, "retry_enabled", retry_enabled)
         if tags is not None:
@@ -78,6 +84,8 @@ class WebTestArgs:
             timeout = 30
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
+        if validation_rules is not None:
+            pulumi.set(__self__, "validation_rules", validation_rules)
         if web_test_name is not None:
             pulumi.set(__self__, "web_test_name", web_test_name)
 
@@ -121,7 +129,7 @@ class WebTestArgs:
     @pulumi.getter(name="webTestKind")
     def web_test_kind(self) -> pulumi.Input['WebTestKind']:
         """
-        The kind of web test this is, valid choices are ping and multistep.
+        The kind of web test this is, valid choices are ping, multistep and standard.
         """
         return pulumi.get(self, "web_test_kind")
 
@@ -145,7 +153,7 @@ class WebTestArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Purpose/user defined descriptive test for this WebTest.
+        User defined description for this WebTest.
         """
         return pulumi.get(self, "description")
 
@@ -181,7 +189,7 @@ class WebTestArgs:
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input['WebTestKind']]:
         """
-        The kind of web test that this web test watches. Choices are ping and multistep.
+        The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
         """
         return pulumi.get(self, "kind")
 
@@ -200,6 +208,18 @@ class WebTestArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def request(self) -> Optional[pulumi.Input['WebTestPropertiesRequestArgs']]:
+        """
+        The collection of request properties
+        """
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: Optional[pulumi.Input['WebTestPropertiesRequestArgs']]):
+        pulumi.set(self, "request", value)
 
     @property
     @pulumi.getter(name="retryEnabled")
@@ -238,6 +258,18 @@ class WebTestArgs:
         pulumi.set(self, "timeout", value)
 
     @property
+    @pulumi.getter(name="validationRules")
+    def validation_rules(self) -> Optional[pulumi.Input['WebTestPropertiesValidationRulesArgs']]:
+        """
+        The collection of validation rule properties
+        """
+        return pulumi.get(self, "validation_rules")
+
+    @validation_rules.setter
+    def validation_rules(self, value: Optional[pulumi.Input['WebTestPropertiesValidationRulesArgs']]):
+        pulumi.set(self, "validation_rules", value)
+
+    @property
     @pulumi.getter(name="webTestName")
     def web_test_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -262,33 +294,37 @@ class WebTest(pulumi.CustomResource):
                  kind: Optional[pulumi.Input['WebTestKind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]]] = None,
+                 request: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_enabled: Optional[pulumi.Input[bool]] = None,
                  synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
+                 validation_rules: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesValidationRulesArgs']]] = None,
                  web_test_kind: Optional[pulumi.Input['WebTestKind']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        An Application Insights web test definition.
-        API Version: 2015-05-01.
+        An Application Insights WebTest definition.
+        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2015-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']] configuration: An XML configuration specification for a WebTest.
-        :param pulumi.Input[str] description: Purpose/user defined descriptive test for this WebTest.
+        :param pulumi.Input[str] description: User defined description for this WebTest.
         :param pulumi.Input[bool] enabled: Is the test actively being monitored.
         :param pulumi.Input[int] frequency: Interval in seconds between test runs for this WebTest. Default value is 300.
-        :param pulumi.Input['WebTestKind'] kind: The kind of web test that this web test watches. Choices are ping and multistep.
+        :param pulumi.Input['WebTestKind'] kind: The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]] locations: A list of where to physically run the tests from to give global coverage for accessibility of your application.
+        :param pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']] request: The collection of request properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] retry_enabled: Allow for retries should this WebTest fail.
         :param pulumi.Input[str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
         :param pulumi.Input[int] timeout: Seconds until this WebTest will timeout and fail. Default value is 30.
-        :param pulumi.Input['WebTestKind'] web_test_kind: The kind of web test this is, valid choices are ping and multistep.
+        :param pulumi.Input[pulumi.InputType['WebTestPropertiesValidationRulesArgs']] validation_rules: The collection of validation rule properties
+        :param pulumi.Input['WebTestKind'] web_test_kind: The kind of web test this is, valid choices are ping, multistep and standard.
         :param pulumi.Input[str] web_test_name: User defined name if this WebTest.
         """
         ...
@@ -298,8 +334,8 @@ class WebTest(pulumi.CustomResource):
                  args: WebTestArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        An Application Insights web test definition.
-        API Version: 2015-05-01.
+        An Application Insights WebTest definition.
+        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2015-05-01
 
         :param str resource_name: The name of the resource.
         :param WebTestArgs args: The arguments to use to populate this resource's properties.
@@ -323,11 +359,13 @@ class WebTest(pulumi.CustomResource):
                  kind: Optional[pulumi.Input['WebTestKind']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebTestGeolocationArgs']]]]] = None,
+                 request: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesRequestArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  retry_enabled: Optional[pulumi.Input[bool]] = None,
                  synthetic_monitor_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
+                 validation_rules: Optional[pulumi.Input[pulumi.InputType['WebTestPropertiesValidationRulesArgs']]] = None,
                  web_test_kind: Optional[pulumi.Input['WebTestKind']] = None,
                  web_test_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -352,6 +390,7 @@ class WebTest(pulumi.CustomResource):
             if locations is None and not opts.urn:
                 raise TypeError("Missing required property 'locations'")
             __props__.__dict__["locations"] = locations
+            __props__.__dict__["request"] = request
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -363,6 +402,7 @@ class WebTest(pulumi.CustomResource):
             if timeout is None:
                 timeout = 30
             __props__.__dict__["timeout"] = timeout
+            __props__.__dict__["validation_rules"] = validation_rules
             if web_test_kind is None:
                 web_test_kind = 'ping'
             if web_test_kind is None and not opts.urn:
@@ -405,11 +445,13 @@ class WebTest(pulumi.CustomResource):
         __props__.__dict__["locations"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["request"] = None
         __props__.__dict__["retry_enabled"] = None
         __props__.__dict__["synthetic_monitor_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["timeout"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["validation_rules"] = None
         __props__.__dict__["web_test_kind"] = None
         __props__.__dict__["web_test_name"] = None
         return WebTest(resource_name, opts=opts, __props__=__props__)
@@ -426,7 +468,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Purpose/user defined descriptive test for this WebTest.
+        User defined description for this WebTest.
         """
         return pulumi.get(self, "description")
 
@@ -450,7 +492,7 @@ class WebTest(pulumi.CustomResource):
     @pulumi.getter
     def kind(self) -> pulumi.Output[Optional[str]]:
         """
-        The kind of web test that this web test watches. Choices are ping and multistep.
+        The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
         """
         return pulumi.get(self, "kind")
 
@@ -485,6 +527,14 @@ class WebTest(pulumi.CustomResource):
         Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def request(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesResponseRequest']]:
+        """
+        The collection of request properties
+        """
+        return pulumi.get(self, "request")
 
     @property
     @pulumi.getter(name="retryEnabled")
@@ -527,10 +577,18 @@ class WebTest(pulumi.CustomResource):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="validationRules")
+    def validation_rules(self) -> pulumi.Output[Optional['outputs.WebTestPropertiesResponseValidationRules']]:
+        """
+        The collection of validation rule properties
+        """
+        return pulumi.get(self, "validation_rules")
+
+    @property
     @pulumi.getter(name="webTestKind")
     def web_test_kind(self) -> pulumi.Output[str]:
         """
-        The kind of web test this is, valid choices are ping and multistep.
+        The kind of web test this is, valid choices are ping, multistep and standard.
         """
         return pulumi.get(self, "web_test_kind")
 

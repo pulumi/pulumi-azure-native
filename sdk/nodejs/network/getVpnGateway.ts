@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a virtual wan vpn gateway.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVpnGateway(args: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
 
@@ -43,6 +43,10 @@ export interface GetVpnGatewayResult {
      * List of all vpn connections to the gateway.
      */
     readonly connections?: outputs.network.VpnConnectionResponse[];
+    /**
+     * Enable BGP routes translation for NAT on this VpnGateway.
+     */
+    readonly enableBgpRouteTranslationForNat?: boolean;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -94,7 +98,7 @@ export interface GetVpnGatewayResult {
 }
 /**
  * Retrieves the details of a virtual wan vpn gateway.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVpnGatewayOutput(args: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))

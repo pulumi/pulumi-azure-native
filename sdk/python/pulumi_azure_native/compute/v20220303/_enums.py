@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'Architecture',
     'ConfidentialVMEncryptionType',
+    'EdgeZoneStorageAccountType',
     'GalleryApplicationCustomActionParameterType',
     'GalleryExtendedLocationType',
     'GallerySharingPermissionTypes',
@@ -34,6 +35,16 @@ class ConfidentialVMEncryptionType(str, Enum):
     ENCRYPTED_VM_GUEST_STATE_ONLY_WITH_PMK = "EncryptedVMGuestStateOnlyWithPmk"
     ENCRYPTED_WITH_PMK = "EncryptedWithPmk"
     ENCRYPTED_WITH_CMK = "EncryptedWithCmk"
+
+
+class EdgeZoneStorageAccountType(str, Enum):
+    """
+    Specifies the storage account type to be used to store the image. This property is not updatable.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    STANDARD_ZRS = "Standard_ZRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    PREMIUM_LRS = "Premium_LRS"
 
 
 class GalleryApplicationCustomActionParameterType(str, Enum):

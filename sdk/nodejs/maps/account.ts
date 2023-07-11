@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
- * API Version: 2018-05-01.
+ * Azure REST API version: 2021-02-01. Prior API version in Azure Native 1.x: 2018-05-01
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -39,27 +39,35 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * The location of the resource.
+     * Get or Set Kind property.
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
+    /**
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the Maps Account, which is unique within a Resource Group.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The map account properties.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.maps.MapsAccountPropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.maps.MapsAccountPropertiesResponse>;
     /**
      * The SKU of this account.
      */
     public readonly sku!: pulumi.Output<outputs.maps.SkuResponse>;
     /**
-     * Gets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+     * The system meta data relating to this resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.maps.SystemDataResponse>;
     /**
-     * Azure resource type.
+     * Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -81,18 +89,22 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.maps.mapsAccountPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -112,11 +124,19 @@ export interface AccountArgs {
      */
     accountName?: pulumi.Input<string>;
     /**
-     * The location of the resource.
+     * Get or Set Kind property.
+     */
+    kind?: pulumi.Input<string | enums.maps.Kind>;
+    /**
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the Azure Resource Group.
+     * The map account properties.
+     */
+    properties?: pulumi.Input<inputs.maps.MapsAccountPropertiesArgs>;
+    /**
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -124,7 +144,7 @@ export interface AccountArgs {
      */
     sku: pulumi.Input<inputs.maps.SkuArgs>;
     /**
-     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

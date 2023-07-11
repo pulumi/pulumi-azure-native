@@ -98,7 +98,7 @@ def get_notebook_workspace(account_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNotebookWorkspaceResult:
     """
     Gets the notebook workspace for a Cosmos DB account.
-    API Version: 2021-03-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -127,7 +127,7 @@ def get_notebook_workspace_output(account_name: Optional[pulumi.Input[str]] = No
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotebookWorkspaceResult]:
     """
     Gets the notebook workspace for a Cosmos DB account.
-    API Version: 2021-03-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.

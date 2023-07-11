@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get a certificate.
- * API Version: 2020-12-01.
+ * Description for Get a certificate.
+ * Azure REST API version: 2022-09-01.
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -141,8 +141,8 @@ export interface GetCertificateResult {
     readonly valid: boolean;
 }
 /**
- * Get a certificate.
- * API Version: 2020-12-01.
+ * Description for Get a certificate.
+ * Azure REST API version: 2022-09-01.
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

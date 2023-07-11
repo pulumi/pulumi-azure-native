@@ -35,10 +35,11 @@ class ManagedInstanceArgs:
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  proxy_override: Optional[pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 requested_backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 service_principal: Optional[pulumi.Input['ServicePrincipalArgs']] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
-                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -69,11 +70,12 @@ class ManagedInstanceArgs:
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']] proxy_override: Connection type used for connecting to the instance.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Whether or not the public data endpoint is enabled.
+        :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] requested_backup_storage_redundancy: The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        :param pulumi.Input['SkuArgs'] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+        :param pulumi.Input['ServicePrincipalArgs'] service_principal: The managed instance's service principal.
+        :param pulumi.Input['SkuArgs'] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         :param pulumi.Input[str] source_managed_instance_id: The resource identifier of the source managed instance associated with create operation of this instance.
-        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-        :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+        :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         :param pulumi.Input[str] subnet_id: Subnet resource ID for the managed instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] timezone_id: Id of the timezone. Allowed values are timezones supported by Windows.
@@ -120,14 +122,16 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "proxy_override", proxy_override)
         if public_data_endpoint_enabled is not None:
             pulumi.set(__self__, "public_data_endpoint_enabled", public_data_endpoint_enabled)
+        if requested_backup_storage_redundancy is not None:
+            pulumi.set(__self__, "requested_backup_storage_redundancy", requested_backup_storage_redundancy)
         if restore_point_in_time is not None:
             pulumi.set(__self__, "restore_point_in_time", restore_point_in_time)
+        if service_principal is not None:
+            pulumi.set(__self__, "service_principal", service_principal)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if source_managed_instance_id is not None:
             pulumi.set(__self__, "source_managed_instance_id", source_managed_instance_id)
-        if storage_account_type is not None:
-            pulumi.set(__self__, "storage_account_type", storage_account_type)
         if storage_size_in_gb is not None:
             pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
         if subnet_id is not None:
@@ -362,6 +366,18 @@ class ManagedInstanceArgs:
         pulumi.set(self, "public_data_endpoint_enabled", value)
 
     @property
+    @pulumi.getter(name="requestedBackupStorageRedundancy")
+    def requested_backup_storage_redundancy(self) -> Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]:
+        """
+        The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        """
+        return pulumi.get(self, "requested_backup_storage_redundancy")
+
+    @requested_backup_storage_redundancy.setter
+    def requested_backup_storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]):
+        pulumi.set(self, "requested_backup_storage_redundancy", value)
+
+    @property
     @pulumi.getter(name="restorePointInTime")
     def restore_point_in_time(self) -> Optional[pulumi.Input[str]]:
         """
@@ -374,10 +390,22 @@ class ManagedInstanceArgs:
         pulumi.set(self, "restore_point_in_time", value)
 
     @property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> Optional[pulumi.Input['ServicePrincipalArgs']]:
+        """
+        The managed instance's service principal.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @service_principal.setter
+    def service_principal(self, value: Optional[pulumi.Input['ServicePrincipalArgs']]):
+        pulumi.set(self, "service_principal", value)
+
+    @property
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
-        Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+        Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         """
         return pulumi.get(self, "sku")
 
@@ -398,22 +426,10 @@ class ManagedInstanceArgs:
         pulumi.set(self, "source_managed_instance_id", value)
 
     @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> Optional[pulumi.Input[Union[str, 'StorageAccountType']]]:
-        """
-        The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @storage_account_type.setter
-    def storage_account_type(self, value: Optional[pulumi.Input[Union[str, 'StorageAccountType']]]):
-        pulumi.set(self, "storage_account_type", value)
-
-    @property
     @pulumi.getter(name="storageSizeInGB")
     def storage_size_in_gb(self) -> Optional[pulumi.Input[int]]:
         """
-        Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+        Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         """
         return pulumi.get(self, "storage_size_in_gb")
 
@@ -509,11 +525,12 @@ class ManagedInstance(pulumi.CustomResource):
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  proxy_override: Optional[pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 requested_backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 service_principal: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
-                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -523,7 +540,7 @@ class ManagedInstance(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure SQL managed instance.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -548,12 +565,13 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
         :param pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']] proxy_override: Connection type used for connecting to the instance.
         :param pulumi.Input[bool] public_data_endpoint_enabled: Whether or not the public data endpoint is enabled.
+        :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] requested_backup_storage_redundancy: The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] restore_point_in_time: Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+        :param pulumi.Input[pulumi.InputType['ServicePrincipalArgs']] service_principal: The managed instance's service principal.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         :param pulumi.Input[str] source_managed_instance_id: The resource identifier of the source managed instance associated with create operation of this instance.
-        :param pulumi.Input[Union[str, 'StorageAccountType']] storage_account_type: The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-        :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+        :param pulumi.Input[int] storage_size_in_gb: Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         :param pulumi.Input[str] subnet_id: Subnet resource ID for the managed instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] timezone_id: Id of the timezone. Allowed values are timezones supported by Windows.
@@ -573,7 +591,7 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure SQL managed instance.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceArgs args: The arguments to use to populate this resource's properties.
@@ -607,11 +625,12 @@ class ManagedInstance(pulumi.CustomResource):
                  primary_user_assigned_identity_id: Optional[pulumi.Input[str]] = None,
                  proxy_override: Optional[pulumi.Input[Union[str, 'ManagedInstanceProxyOverride']]] = None,
                  public_data_endpoint_enabled: Optional[pulumi.Input[bool]] = None,
+                 requested_backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_point_in_time: Optional[pulumi.Input[str]] = None,
+                 service_principal: Optional[pulumi.Input[pulumi.InputType['ServicePrincipalArgs']]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  source_managed_instance_id: Optional[pulumi.Input[str]] = None,
-                 storage_account_type: Optional[pulumi.Input[Union[str, 'StorageAccountType']]] = None,
                  storage_size_in_gb: Optional[pulumi.Input[int]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -644,19 +663,21 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["primary_user_assigned_identity_id"] = primary_user_assigned_identity_id
             __props__.__dict__["proxy_override"] = proxy_override
             __props__.__dict__["public_data_endpoint_enabled"] = public_data_endpoint_enabled
+            __props__.__dict__["requested_backup_storage_redundancy"] = requested_backup_storage_redundancy
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restore_point_in_time"] = restore_point_in_time
+            __props__.__dict__["service_principal"] = service_principal
             __props__.__dict__["sku"] = sku
             __props__.__dict__["source_managed_instance_id"] = source_managed_instance_id
-            __props__.__dict__["storage_account_type"] = storage_account_type
             __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timezone_id"] = timezone_id
             __props__.__dict__["v_cores"] = v_cores
             __props__.__dict__["zone_redundant"] = zone_redundant
+            __props__.__dict__["current_backup_storage_redundancy"] = None
             __props__.__dict__["dns_zone"] = None
             __props__.__dict__["fully_qualified_domain_name"] = None
             __props__.__dict__["name"] = None
@@ -664,7 +685,7 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstance, __self__).__init__(
             'azure-native:sql:ManagedInstance',
@@ -691,6 +712,7 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["administrator_login"] = None
         __props__.__dict__["administrators"] = None
         __props__.__dict__["collation"] = None
+        __props__.__dict__["current_backup_storage_redundancy"] = None
         __props__.__dict__["dns_zone"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
         __props__.__dict__["identity"] = None
@@ -706,9 +728,10 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["proxy_override"] = None
         __props__.__dict__["public_data_endpoint_enabled"] = None
+        __props__.__dict__["requested_backup_storage_redundancy"] = None
+        __props__.__dict__["service_principal"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["state"] = None
-        __props__.__dict__["storage_account_type"] = None
         __props__.__dict__["storage_size_in_gb"] = None
         __props__.__dict__["subnet_id"] = None
         __props__.__dict__["tags"] = None
@@ -741,6 +764,14 @@ class ManagedInstance(pulumi.CustomResource):
         Collation of the managed instance.
         """
         return pulumi.get(self, "collation")
+
+    @property
+    @pulumi.getter(name="currentBackupStorageRedundancy")
+    def current_backup_storage_redundancy(self) -> pulumi.Output[str]:
+        """
+        The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        """
+        return pulumi.get(self, "current_backup_storage_redundancy")
 
     @property
     @pulumi.getter(name="dnsZone")
@@ -860,10 +891,26 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "public_data_endpoint_enabled")
 
     @property
+    @pulumi.getter(name="requestedBackupStorageRedundancy")
+    def requested_backup_storage_redundancy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+        """
+        return pulumi.get(self, "requested_backup_storage_redundancy")
+
+    @property
+    @pulumi.getter(name="servicePrincipal")
+    def service_principal(self) -> pulumi.Output[Optional['outputs.ServicePrincipalResponse']]:
+        """
+        The managed instance's service principal.
+        """
+        return pulumi.get(self, "service_principal")
+
+    @property
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        Managed instance SKU. Allowed values for sku.name: GP_Gen4, GP_Gen5, BC_Gen4, BC_Gen5
+        Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
         """
         return pulumi.get(self, "sku")
 
@@ -876,18 +923,10 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "state")
 
     @property
-    @pulumi.getter(name="storageAccountType")
-    def storage_account_type(self) -> pulumi.Output[Optional[str]]:
-        """
-        The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
-        """
-        return pulumi.get(self, "storage_account_type")
-
-    @property
     @pulumi.getter(name="storageSizeInGB")
     def storage_size_in_gb(self) -> pulumi.Output[Optional[int]]:
         """
-        Storage size in GB. Minimum value: 32. Maximum value: 8192. Increments of 32 GB allowed only.
+        Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
         """
         return pulumi.get(self, "storage_size_in_gb")
 

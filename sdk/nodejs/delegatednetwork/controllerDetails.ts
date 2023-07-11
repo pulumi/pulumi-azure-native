@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a DNC controller.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15
  */
 export class ControllerDetails extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class ControllerDetails extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork/v20200808preview:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20210315:ControllerDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork/v20200808preview:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20210315:ControllerDetails" }, { type: "azure-native:delegatednetwork/v20230518preview:ControllerDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ControllerDetails.__pulumiType, name, resourceInputs, opts);
     }

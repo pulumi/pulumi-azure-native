@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of the connected registry.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getConnectedRegistry(args: GetConnectedRegistryArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectedRegistryResult> {
 
@@ -31,7 +31,7 @@ export interface GetConnectedRegistryArgs {
      */
     registryName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -77,6 +77,10 @@ export interface GetConnectedRegistryResult {
      */
     readonly name: string;
     /**
+     * The list of notifications subscription information for the connected registry.
+     */
+    readonly notificationsList?: string[];
+    /**
      * The parent of the connected registry.
      */
     readonly parent: outputs.containerregistry.ParentPropertiesResponse;
@@ -103,7 +107,7 @@ export interface GetConnectedRegistryResult {
 }
 /**
  * Gets the properties of the connected registry.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getConnectedRegistryOutput(args: GetConnectedRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectedRegistryResult> {
     return pulumi.output(args).apply((a: any) => getConnectedRegistry(a, opts))
@@ -119,7 +123,7 @@ export interface GetConnectedRegistryOutputArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

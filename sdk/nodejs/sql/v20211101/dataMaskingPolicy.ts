@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A database data masking policy.
- *
- * @deprecated azure-native:sql/v20211101:DataMaskingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DataMaskingPolicy to guarantee forwards compatibility.
  */
 export class DataMaskingPolicy extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DataMaskingPolicy {
-        pulumi.log.warn("DataMaskingPolicy is deprecated: azure-native:sql/v20211101:DataMaskingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DataMaskingPolicy to guarantee forwards compatibility.")
         return new DataMaskingPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -80,9 +77,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20211101:DataMaskingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DataMaskingPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: DataMaskingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DataMaskingPolicy is deprecated: azure-native:sql/v20211101:DataMaskingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DataMaskingPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -121,7 +116,7 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:DataMaskingPolicy" }, { type: "azure-native:sql/v20140401:DataMaskingPolicy" }, { type: "azure-native:sql/v20220201preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220501preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220801preview:DataMaskingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:DataMaskingPolicy" }, { type: "azure-native:sql/v20140401:DataMaskingPolicy" }, { type: "azure-native:sql/v20220201preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220501preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20220801preview:DataMaskingPolicy" }, { type: "azure-native:sql/v20221101preview:DataMaskingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataMaskingPolicy.__pulumiType, name, resourceInputs, opts);
     }

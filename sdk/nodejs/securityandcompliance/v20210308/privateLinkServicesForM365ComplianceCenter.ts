@@ -24,7 +24,7 @@ export class PrivateLinkServicesForM365ComplianceCenter extends pulumi.CustomRes
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter';
+    public static readonly __pulumiType = 'azure-native:securityandcompliance/v20210308:PrivateLinkServicesForM365ComplianceCenter';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicesForM365ComplianceCenter.  This is designed to work even
@@ -114,7 +114,7 @@ export class PrivateLinkServicesForM365ComplianceCenter extends pulumi.CustomRes
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210308:privateLinkServicesForM365ComplianceCenter" }, { type: "azure-native:securityandcompliance:PrivateLinkServicesForM365ComplianceCenter" }, { type: "azure-native:securityandcompliance:privateLinkServicesForM365ComplianceCenter" }, { type: "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForM365ComplianceCenter" }, { type: "azure-native:securityandcompliance/v20210111:privateLinkServicesForM365ComplianceCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForM365ComplianceCenter.__pulumiType, name, resourceInputs, opts);
     }

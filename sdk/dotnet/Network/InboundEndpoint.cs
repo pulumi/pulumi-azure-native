@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Describes an inbound endpoint for a DNS resolver.
-    /// API Version: 2020-04-01-preview.
+    /// Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:InboundEndpoint")]
     public partial class InboundEndpoint : global::Pulumi.CustomResource
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Network
         [Input("inboundEndpointName")]
         public Input<string>? InboundEndpointName { get; set; }
 
-        [Input("ipConfigurations")]
+        [Input("ipConfigurations", required: true)]
         private InputList<Inputs.InboundEndpointIPConfigurationArgs>? _ipConfigurations;
 
         /// <summary>

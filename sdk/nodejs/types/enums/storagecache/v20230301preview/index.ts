@@ -61,30 +61,6 @@ export const NfsAccessRuleScope = {
  */
 export type NfsAccessRuleScope = (typeof NfsAccessRuleScope)[keyof typeof NfsAccessRuleScope];
 
-export const OperationalStateType = {
-    Ready: "Ready",
-    Busy: "Busy",
-    Suspended: "Suspended",
-    Flushing: "Flushing",
-} as const;
-
-/**
- * Storage target operational state.
- */
-export type OperationalStateType = (typeof OperationalStateType)[keyof typeof OperationalStateType];
-
-export const StorageTargetType = {
-    Nfs3: "nfs3",
-    Clfs: "clfs",
-    Unknown: "unknown",
-    BlobNfs: "blobNfs",
-} as const;
-
-/**
- * Type of the Storage Target.
- */
-export type StorageTargetType = (typeof StorageTargetType)[keyof typeof StorageTargetType];
-
 export const UsernameSource = {
     AD: "AD",
     LDAP: "LDAP",

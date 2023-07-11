@@ -10,10 +10,30 @@ export type AgentPool = import("./agentPool").AgentPool;
 export const AgentPool: typeof import("./agentPool").AgentPool = null as any;
 utilities.lazyLoad(exports, ["AgentPool"], () => require("./agentPool"));
 
+export { FleetArgs } from "./fleet";
+export type Fleet = import("./fleet").Fleet;
+export const Fleet: typeof import("./fleet").Fleet = null as any;
+utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
+
+export { FleetMemberArgs } from "./fleetMember";
+export type FleetMember = import("./fleetMember").FleetMember;
+export const FleetMember: typeof import("./fleetMember").FleetMember = null as any;
+utilities.lazyLoad(exports, ["FleetMember"], () => require("./fleetMember"));
+
 export { GetAgentPoolArgs, GetAgentPoolResult, GetAgentPoolOutputArgs } from "./getAgentPool";
 export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null as any;
 export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getAgentPool","getAgentPoolOutput"], () => require("./getAgentPool"));
+
+export { GetFleetArgs, GetFleetResult, GetFleetOutputArgs } from "./getFleet";
+export const getFleet: typeof import("./getFleet").getFleet = null as any;
+export const getFleetOutput: typeof import("./getFleet").getFleetOutput = null as any;
+utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getFleet"));
+
+export { GetFleetMemberArgs, GetFleetMemberResult, GetFleetMemberOutputArgs } from "./getFleetMember";
+export const getFleetMember: typeof import("./getFleetMember").getFleetMember = null as any;
+export const getFleetMemberOutput: typeof import("./getFleetMember").getFleetMemberOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetMember","getFleetMemberOutput"], () => require("./getFleetMember"));
 
 export { GetMaintenanceConfigurationArgs, GetMaintenanceConfigurationResult, GetMaintenanceConfigurationOutputArgs } from "./getMaintenanceConfiguration";
 export const getMaintenanceConfiguration: typeof import("./getMaintenanceConfiguration").getMaintenanceConfiguration = null as any;
@@ -49,6 +69,16 @@ export { GetTrustedAccessRoleBindingArgs, GetTrustedAccessRoleBindingResult, Get
 export const getTrustedAccessRoleBinding: typeof import("./getTrustedAccessRoleBinding").getTrustedAccessRoleBinding = null as any;
 export const getTrustedAccessRoleBindingOutput: typeof import("./getTrustedAccessRoleBinding").getTrustedAccessRoleBindingOutput = null as any;
 utilities.lazyLoad(exports, ["getTrustedAccessRoleBinding","getTrustedAccessRoleBindingOutput"], () => require("./getTrustedAccessRoleBinding"));
+
+export { GetUpdateRunArgs, GetUpdateRunResult, GetUpdateRunOutputArgs } from "./getUpdateRun";
+export const getUpdateRun: typeof import("./getUpdateRun").getUpdateRun = null as any;
+export const getUpdateRunOutput: typeof import("./getUpdateRun").getUpdateRunOutput = null as any;
+utilities.lazyLoad(exports, ["getUpdateRun","getUpdateRunOutput"], () => require("./getUpdateRun"));
+
+export { ListFleetCredentialsArgs, ListFleetCredentialsResult, ListFleetCredentialsOutputArgs } from "./listFleetCredentials";
+export const listFleetCredentials: typeof import("./listFleetCredentials").listFleetCredentials = null as any;
+export const listFleetCredentialsOutput: typeof import("./listFleetCredentials").listFleetCredentialsOutput = null as any;
+utilities.lazyLoad(exports, ["listFleetCredentials","listFleetCredentialsOutput"], () => require("./listFleetCredentials"));
 
 export { ListManagedClusterAccessProfileArgs, ListManagedClusterAccessProfileResult, ListManagedClusterAccessProfileOutputArgs } from "./listManagedClusterAccessProfile";
 export const listManagedClusterAccessProfile: typeof import("./listManagedClusterAccessProfile").listManagedClusterAccessProfile = null as any;
@@ -105,125 +135,42 @@ export type TrustedAccessRoleBinding = import("./trustedAccessRoleBinding").Trus
 export const TrustedAccessRoleBinding: typeof import("./trustedAccessRoleBinding").TrustedAccessRoleBinding = null as any;
 utilities.lazyLoad(exports, ["TrustedAccessRoleBinding"], () => require("./trustedAccessRoleBinding"));
 
+export { UpdateRunArgs } from "./updateRun";
+export type UpdateRun = import("./updateRun").UpdateRun;
+export const UpdateRun: typeof import("./updateRun").UpdateRun = null as any;
+utilities.lazyLoad(exports, ["UpdateRun"], () => require("./updateRun"));
+
 
 // Export enums:
 export * from "../types/enums/containerservice";
 
 // Export sub-modules:
-import * as v20151101preview from "./v20151101preview";
-import * as v20160330 from "./v20160330";
-import * as v20160930 from "./v20160930";
-import * as v20170131 from "./v20170131";
-import * as v20170831 from "./v20170831";
-import * as v20180331 from "./v20180331";
-import * as v20180801preview from "./v20180801preview";
-import * as v20180930preview from "./v20180930preview";
-import * as v20190201 from "./v20190201";
-import * as v20190401 from "./v20190401";
-import * as v20190430 from "./v20190430";
 import * as v20190601 from "./v20190601";
-import * as v20190801 from "./v20190801";
-import * as v20190930preview from "./v20190930preview";
-import * as v20191001 from "./v20191001";
 import * as v20191027preview from "./v20191027preview";
-import * as v20191101 from "./v20191101";
-import * as v20200101 from "./v20200101";
-import * as v20200201 from "./v20200201";
 import * as v20200301 from "./v20200301";
-import * as v20200401 from "./v20200401";
 import * as v20200601 from "./v20200601";
-import * as v20200701 from "./v20200701";
-import * as v20200901 from "./v20200901";
-import * as v20201101 from "./v20201101";
-import * as v20201201 from "./v20201201";
 import * as v20210201 from "./v20210201";
-import * as v20210301 from "./v20210301";
 import * as v20210501 from "./v20210501";
-import * as v20210701 from "./v20210701";
 import * as v20210801 from "./v20210801";
-import * as v20210901 from "./v20210901";
-import * as v20211001 from "./v20211001";
-import * as v20211101preview from "./v20211101preview";
-import * as v20220101 from "./v20220101";
-import * as v20220102preview from "./v20220102preview";
-import * as v20220201 from "./v20220201";
-import * as v20220202preview from "./v20220202preview";
-import * as v20220301 from "./v20220301";
-import * as v20220302preview from "./v20220302preview";
-import * as v20220401 from "./v20220401";
 import * as v20220402preview from "./v20220402preview";
-import * as v20220502preview from "./v20220502preview";
-import * as v20220601 from "./v20220601";
-import * as v20220602preview from "./v20220602preview";
-import * as v20220701 from "./v20220701";
 import * as v20220702preview from "./v20220702preview";
-import * as v20220802preview from "./v20220802preview";
-import * as v20220803preview from "./v20220803preview";
-import * as v20220901 from "./v20220901";
-import * as v20220902preview from "./v20220902preview";
-import * as v20221002preview from "./v20221002preview";
-import * as v20221101 from "./v20221101";
-import * as v20221102preview from "./v20221102preview";
-import * as v20230101 from "./v20230101";
-import * as v20230102preview from "./v20230102preview";
+import * as v20230315preview from "./v20230315preview";
+import * as v20230401 from "./v20230401";
+import * as v20230502preview from "./v20230502preview";
 
 export {
-    v20151101preview,
-    v20160330,
-    v20160930,
-    v20170131,
-    v20170831,
-    v20180331,
-    v20180801preview,
-    v20180930preview,
-    v20190201,
-    v20190401,
-    v20190430,
     v20190601,
-    v20190801,
-    v20190930preview,
-    v20191001,
     v20191027preview,
-    v20191101,
-    v20200101,
-    v20200201,
     v20200301,
-    v20200401,
     v20200601,
-    v20200701,
-    v20200901,
-    v20201101,
-    v20201201,
     v20210201,
-    v20210301,
     v20210501,
-    v20210701,
     v20210801,
-    v20210901,
-    v20211001,
-    v20211101preview,
-    v20220101,
-    v20220102preview,
-    v20220201,
-    v20220202preview,
-    v20220301,
-    v20220302preview,
-    v20220401,
     v20220402preview,
-    v20220502preview,
-    v20220601,
-    v20220602preview,
-    v20220701,
     v20220702preview,
-    v20220802preview,
-    v20220803preview,
-    v20220901,
-    v20220902preview,
-    v20221002preview,
-    v20221101,
-    v20221102preview,
-    v20230101,
-    v20230102preview,
+    v20230315preview,
+    v20230401,
+    v20230502preview,
 };
 
 const _module = {
@@ -232,6 +179,10 @@ const _module = {
         switch (type) {
             case "azure-native:containerservice:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
+            case "azure-native:containerservice:Fleet":
+                return new Fleet(name, <any>undefined, { urn })
+            case "azure-native:containerservice:FleetMember":
+                return new FleetMember(name, <any>undefined, { urn })
             case "azure-native:containerservice:MaintenanceConfiguration":
                 return new MaintenanceConfiguration(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedCluster":
@@ -246,6 +197,8 @@ const _module = {
                 return new Snapshot(name, <any>undefined, { urn })
             case "azure-native:containerservice:TrustedAccessRoleBinding":
                 return new TrustedAccessRoleBinding(name, <any>undefined, { urn })
+            case "azure-native:containerservice:UpdateRun":
+                return new UpdateRun(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

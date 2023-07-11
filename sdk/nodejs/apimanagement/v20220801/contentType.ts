@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Content type contract details.
- *
- * @deprecated azure-native:apimanagement/v20220801:ContentType is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentType to guarantee forwards compatibility.
  */
 export class ContentType extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ContentType extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ContentType {
-        pulumi.log.warn("ContentType is deprecated: azure-native:apimanagement/v20220801:ContentType is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentType to guarantee forwards compatibility.")
         return new ContentType(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class ContentType extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:ContentType is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentType to guarantee forwards compatibility. */
     constructor(name: string, args: ContentTypeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ContentType is deprecated: azure-native:apimanagement/v20220801:ContentType is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentType to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -94,7 +89,7 @@ export class ContentType extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ContentType" }, { type: "azure-native:apimanagement/v20191201:ContentType" }, { type: "azure-native:apimanagement/v20200601preview:ContentType" }, { type: "azure-native:apimanagement/v20201201:ContentType" }, { type: "azure-native:apimanagement/v20210101preview:ContentType" }, { type: "azure-native:apimanagement/v20210401preview:ContentType" }, { type: "azure-native:apimanagement/v20210801:ContentType" }, { type: "azure-native:apimanagement/v20211201preview:ContentType" }, { type: "azure-native:apimanagement/v20220401preview:ContentType" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ContentType" }, { type: "azure-native:apimanagement/v20191201:ContentType" }, { type: "azure-native:apimanagement/v20200601preview:ContentType" }, { type: "azure-native:apimanagement/v20201201:ContentType" }, { type: "azure-native:apimanagement/v20210101preview:ContentType" }, { type: "azure-native:apimanagement/v20210401preview:ContentType" }, { type: "azure-native:apimanagement/v20210801:ContentType" }, { type: "azure-native:apimanagement/v20211201preview:ContentType" }, { type: "azure-native:apimanagement/v20220401preview:ContentType" }, { type: "azure-native:apimanagement/v20220901preview:ContentType" }, { type: "azure-native:apimanagement/v20230301preview:ContentType" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentType.__pulumiType, name, resourceInputs, opts);
     }

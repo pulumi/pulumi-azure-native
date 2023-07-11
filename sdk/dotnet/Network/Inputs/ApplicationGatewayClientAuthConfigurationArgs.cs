@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.Network.Inputs
         [Input("verifyClientCertIssuerDN")]
         public Input<bool>? VerifyClientCertIssuerDN { get; set; }
 
+        /// <summary>
+        /// Verify client certificate revocation status.
+        /// </summary>
+        [Input("verifyClientRevocation")]
+        public InputUnion<string, Pulumi.AzureNative.Network.ApplicationGatewayClientRevocationOptions>? VerifyClientRevocation { get; set; }
+
         public ApplicationGatewayClientAuthConfigurationArgs()
         {
         }

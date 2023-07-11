@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Rule Group resource.
-    /// API Version: 2020-04-01.
+    /// Azure REST API version: 2020-04-01. Prior API version in Azure Native 1.x: 2020-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FirewallPolicyRuleGroup")]
     public partial class FirewallPolicyRuleGroup : global::Pulumi.CustomResource

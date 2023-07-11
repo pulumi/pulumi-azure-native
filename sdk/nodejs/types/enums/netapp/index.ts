@@ -2,60 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20170815 from "./v20170815";
-import * as v20190501 from "./v20190501";
-import * as v20190601 from "./v20190601";
-import * as v20190701 from "./v20190701";
-import * as v20190801 from "./v20190801";
-import * as v20191001 from "./v20191001";
-import * as v20191101 from "./v20191101";
-import * as v20200201 from "./v20200201";
-import * as v20200301 from "./v20200301";
-import * as v20200501 from "./v20200501";
-import * as v20200601 from "./v20200601";
-import * as v20200701 from "./v20200701";
-import * as v20200801 from "./v20200801";
-import * as v20200901 from "./v20200901";
-import * as v20201101 from "./v20201101";
-import * as v20201201 from "./v20201201";
-import * as v20210201 from "./v20210201";
-import * as v20210401 from "./v20210401";
-import * as v20210401preview from "./v20210401preview";
-import * as v20210601 from "./v20210601";
-import * as v20210801 from "./v20210801";
 import * as v20211001 from "./v20211001";
-import * as v20220101 from "./v20220101";
-import * as v20220301 from "./v20220301";
 import * as v20220501 from "./v20220501";
-import * as v20220901 from "./v20220901";
+import * as v20221101 from "./v20221101";
 
 export {
-    v20170815,
-    v20190501,
-    v20190601,
-    v20190701,
-    v20190801,
-    v20191001,
-    v20191101,
-    v20200201,
-    v20200301,
-    v20200501,
-    v20200601,
-    v20200701,
-    v20200801,
-    v20200901,
-    v20201101,
-    v20201201,
-    v20210201,
-    v20210401,
-    v20210401preview,
-    v20210601,
-    v20210801,
     v20211001,
-    v20220101,
-    v20220301,
     v20220501,
-    v20220901,
+    v20221101,
 };
 
 export const ApplicationType = {
@@ -109,6 +63,38 @@ export const EnableSubvolumes = {
  */
 export type EnableSubvolumes = (typeof EnableSubvolumes)[keyof typeof EnableSubvolumes];
 
+export const EncryptionKeySource = {
+    /**
+     * Microsoft-managed key encryption
+     */
+    Microsoft_NetApp: "Microsoft.NetApp",
+    /**
+     * Customer-managed key encryption
+     */
+    Microsoft_KeyVault: "Microsoft.KeyVault",
+} as const;
+
+/**
+ * Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
+ */
+export type EncryptionKeySource = (typeof EncryptionKeySource)[keyof typeof EncryptionKeySource];
+
+export const EncryptionType = {
+    /**
+     * EncryptionType Single, volumes will use single encryption at rest
+     */
+    Single: "Single",
+    /**
+     * EncryptionType Double, volumes will use double encryption at rest
+     */
+    Double: "Double",
+} as const;
+
+/**
+ * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
 export const EndpointType = {
     Src: "src",
     Dst: "dst",
@@ -118,6 +104,34 @@ export const EndpointType = {
  * Indicates whether the local volume is the source or destination for the Volume Replication
  */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
+
+export const KeySource = {
+    /**
+     * Microsoft-managed key encryption
+     */
+    Microsoft_NetApp: "Microsoft.NetApp",
+    /**
+     * Customer-managed key encryption
+     */
+    Microsoft_KeyVault: "Microsoft.KeyVault",
+} as const;
+
+/**
+ * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+ */
+export type KeySource = (typeof KeySource)[keyof typeof KeySource];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const NetworkFeatures = {
     /**
@@ -195,6 +209,38 @@ export const ServiceLevel = {
  * The service level of the file system
  */
 export type ServiceLevel = (typeof ServiceLevel)[keyof typeof ServiceLevel];
+
+export const SmbAccessBasedEnumeration = {
+    /**
+     * smbAccessBasedEnumeration share setting is disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * smbAccessBasedEnumeration share setting is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Enables access based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
+ */
+export type SmbAccessBasedEnumeration = (typeof SmbAccessBasedEnumeration)[keyof typeof SmbAccessBasedEnumeration];
+
+export const SmbNonBrowsable = {
+    /**
+     * smbNonBrowsable share setting is disabled
+     */
+    Disabled: "Disabled",
+    /**
+     * smbNonBrowsable share setting is enabled
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * Enables non browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
+ */
+export type SmbNonBrowsable = (typeof SmbNonBrowsable)[keyof typeof SmbNonBrowsable];
 
 export const Type = {
     /**

@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AcceptedAudiencesResponse',
     'AzureSkuResponse',
     'DatabasePrincipalResponse',
     'DatabaseStatisticsResponse',
@@ -22,6 +23,7 @@ __all__ = [
     'LanguageExtensionResponse',
     'LanguageExtensionsListResponse',
     'OptimizedAutoscaleResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
     'SystemDataResponse',
@@ -29,6 +31,29 @@ __all__ = [
     'TrustedExternalTenantResponse',
     'VirtualNetworkConfigurationResponse',
 ]
+
+@pulumi.output_type
+class AcceptedAudiencesResponse(dict):
+    """
+    Represents an accepted audience trusted by the cluster.
+    """
+    def __init__(__self__, *,
+                 value: Optional[str] = None):
+        """
+        Represents an accepted audience trusted by the cluster.
+        :param str value: GUID or valid URL representing an accepted audience.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        GUID or valid URL representing an accepted audience.
+        """
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class AzureSkuResponse(dict):
@@ -197,16 +222,22 @@ class FollowerDatabaseDefinitionResponse(dict):
     def __init__(__self__, *,
                  attached_database_configuration_name: str,
                  cluster_resource_id: str,
-                 database_name: str):
+                 database_name: str,
+                 database_share_origin: str,
+                 table_level_sharing_properties: 'outputs.TableLevelSharingPropertiesResponse'):
         """
         A class representing follower database request.
         :param str attached_database_configuration_name: Resource name of the attached database configuration in the follower cluster.
         :param str cluster_resource_id: Resource id of the cluster that follows a database owned by this cluster.
         :param str database_name: The database name owned by this cluster that was followed. * in case following all databases.
+        :param str database_share_origin: The origin of the following setup.
+        :param 'TableLevelSharingPropertiesResponse' table_level_sharing_properties: Table level sharing specifications
         """
         pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "database_share_origin", database_share_origin)
+        pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
 
     @property
     @pulumi.getter(name="attachedDatabaseConfigurationName")
@@ -231,6 +262,22 @@ class FollowerDatabaseDefinitionResponse(dict):
         The database name owned by this cluster that was followed. * in case following all databases.
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="databaseShareOrigin")
+    def database_share_origin(self) -> str:
+        """
+        The origin of the following setup.
+        """
+        return pulumi.get(self, "database_share_origin")
+
+    @property
+    @pulumi.getter(name="tableLevelSharingProperties")
+    def table_level_sharing_properties(self) -> 'outputs.TableLevelSharingPropertiesResponse':
+        """
+        Table level sharing specifications
+        """
+        return pulumi.get(self, "table_level_sharing_properties")
 
 
 @pulumi.output_type
@@ -387,8 +434,8 @@ class KeyVaultPropertiesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 key_name: str,
-                 key_vault_uri: str,
+                 key_name: Optional[str] = None,
+                 key_vault_uri: Optional[str] = None,
                  key_version: Optional[str] = None,
                  user_identity: Optional[str] = None):
         """
@@ -398,8 +445,10 @@ class KeyVaultPropertiesResponse(dict):
         :param str key_version: The version of the key vault key.
         :param str user_identity: The user assigned identity (ARM resource id) that has access to the key.
         """
-        pulumi.set(__self__, "key_name", key_name)
-        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
         if key_version is not None:
             pulumi.set(__self__, "key_version", key_version)
         if user_identity is not None:
@@ -407,7 +456,7 @@ class KeyVaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> str:
+    def key_name(self) -> Optional[str]:
         """
         The name of the key vault key.
         """
@@ -415,7 +464,7 @@ class KeyVaultPropertiesResponse(dict):
 
     @property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> str:
+    def key_vault_uri(self) -> Optional[str]:
         """
         The Uri of the key vault.
         """
@@ -446,7 +495,9 @@ class LanguageExtensionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "languageExtensionName":
+        if key == "languageExtensionImageName":
+            suggest = "language_extension_image_name"
+        elif key == "languageExtensionName":
             suggest = "language_extension_name"
 
         if suggest:
@@ -461,13 +512,25 @@ class LanguageExtensionResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 language_extension_image_name: Optional[str] = None,
                  language_extension_name: Optional[str] = None):
         """
         The language extension object.
+        :param str language_extension_image_name: The language extension image name.
         :param str language_extension_name: The language extension name.
         """
+        if language_extension_image_name is not None:
+            pulumi.set(__self__, "language_extension_image_name", language_extension_image_name)
         if language_extension_name is not None:
             pulumi.set(__self__, "language_extension_name", language_extension_name)
+
+    @property
+    @pulumi.getter(name="languageExtensionImageName")
+    def language_extension_image_name(self) -> Optional[str]:
+        """
+        The language extension image name.
+        """
+        return pulumi.get(self, "language_extension_image_name")
 
     @property
     @pulumi.getter(name="languageExtensionName")
@@ -571,6 +634,130 @@ class OptimizedAutoscaleResponse(dict):
         The version of the template defined, for instance 1.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    A private endpoint connection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: str,
+                 id: str,
+                 name: str,
+                 private_endpoint: 'outputs.PrivateEndpointPropertyResponse',
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStatePropertyResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str):
+        """
+        A private endpoint connection
+        :param str group_id: Group id of the private endpoint.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection State of the Private Endpoint Connection.
+        :param str provisioning_state: Provisioning state of the private endpoint.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        Group id of the private endpoint.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointPropertyResponse':
+        """
+        Private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStatePropertyResponse':
+        """
+        Connection State of the Private Endpoint Connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        Provisioning state of the private endpoint.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -780,6 +967,10 @@ class TableLevelSharingPropertiesResponse(dict):
             suggest = "external_tables_to_exclude"
         elif key == "externalTablesToInclude":
             suggest = "external_tables_to_include"
+        elif key == "functionsToExclude":
+            suggest = "functions_to_exclude"
+        elif key == "functionsToInclude":
+            suggest = "functions_to_include"
         elif key == "materializedViewsToExclude":
             suggest = "materialized_views_to_exclude"
         elif key == "materializedViewsToInclude":
@@ -803,15 +994,19 @@ class TableLevelSharingPropertiesResponse(dict):
     def __init__(__self__, *,
                  external_tables_to_exclude: Optional[Sequence[str]] = None,
                  external_tables_to_include: Optional[Sequence[str]] = None,
+                 functions_to_exclude: Optional[Sequence[str]] = None,
+                 functions_to_include: Optional[Sequence[str]] = None,
                  materialized_views_to_exclude: Optional[Sequence[str]] = None,
                  materialized_views_to_include: Optional[Sequence[str]] = None,
                  tables_to_exclude: Optional[Sequence[str]] = None,
                  tables_to_include: Optional[Sequence[str]] = None):
         """
         Tables that will be included and excluded in the follower database
-        :param Sequence[str] external_tables_to_exclude: List of external tables exclude from the follower database
+        :param Sequence[str] external_tables_to_exclude: List of external tables to exclude from the follower database
         :param Sequence[str] external_tables_to_include: List of external tables to include in the follower database
-        :param Sequence[str] materialized_views_to_exclude: List of materialized views exclude from the follower database
+        :param Sequence[str] functions_to_exclude: List of functions to exclude from the follower database
+        :param Sequence[str] functions_to_include: List of functions to include in the follower database
+        :param Sequence[str] materialized_views_to_exclude: List of materialized views to exclude from the follower database
         :param Sequence[str] materialized_views_to_include: List of materialized views to include in the follower database
         :param Sequence[str] tables_to_exclude: List of tables to exclude from the follower database
         :param Sequence[str] tables_to_include: List of tables to include in the follower database
@@ -820,6 +1015,10 @@ class TableLevelSharingPropertiesResponse(dict):
             pulumi.set(__self__, "external_tables_to_exclude", external_tables_to_exclude)
         if external_tables_to_include is not None:
             pulumi.set(__self__, "external_tables_to_include", external_tables_to_include)
+        if functions_to_exclude is not None:
+            pulumi.set(__self__, "functions_to_exclude", functions_to_exclude)
+        if functions_to_include is not None:
+            pulumi.set(__self__, "functions_to_include", functions_to_include)
         if materialized_views_to_exclude is not None:
             pulumi.set(__self__, "materialized_views_to_exclude", materialized_views_to_exclude)
         if materialized_views_to_include is not None:
@@ -833,7 +1032,7 @@ class TableLevelSharingPropertiesResponse(dict):
     @pulumi.getter(name="externalTablesToExclude")
     def external_tables_to_exclude(self) -> Optional[Sequence[str]]:
         """
-        List of external tables exclude from the follower database
+        List of external tables to exclude from the follower database
         """
         return pulumi.get(self, "external_tables_to_exclude")
 
@@ -846,10 +1045,26 @@ class TableLevelSharingPropertiesResponse(dict):
         return pulumi.get(self, "external_tables_to_include")
 
     @property
+    @pulumi.getter(name="functionsToExclude")
+    def functions_to_exclude(self) -> Optional[Sequence[str]]:
+        """
+        List of functions to exclude from the follower database
+        """
+        return pulumi.get(self, "functions_to_exclude")
+
+    @property
+    @pulumi.getter(name="functionsToInclude")
+    def functions_to_include(self) -> Optional[Sequence[str]]:
+        """
+        List of functions to include in the follower database
+        """
+        return pulumi.get(self, "functions_to_include")
+
+    @property
     @pulumi.getter(name="materializedViewsToExclude")
     def materialized_views_to_exclude(self) -> Optional[Sequence[str]]:
         """
-        List of materialized views exclude from the follower database
+        List of materialized views to exclude from the follower database
         """
         return pulumi.get(self, "materialized_views_to_exclude")
 

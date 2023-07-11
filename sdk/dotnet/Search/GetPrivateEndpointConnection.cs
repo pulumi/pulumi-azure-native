@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Search
     {
         /// <summary>
         /// Gets the details of the private endpoint connection to the search service in the given resource group.
-        /// API Version: 2020-08-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetPrivateEndpointConnectionResult> InvokeAsync(GetPrivateEndpointConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointConnectionResult>("azure-native:search:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the private endpoint connection to the search service in the given resource group.
-        /// API Version: 2020-08-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetPrivateEndpointConnectionResult> Invoke(GetPrivateEndpointConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointConnectionResult>("azure-native:search:getPrivateEndpointConnection", args ?? new GetPrivateEndpointConnectionInvokeArgs(), options.WithDefaults());

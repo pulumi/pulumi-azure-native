@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A server blob auditing policy.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ServerBlobAuditingPolicy extends pulumi.CustomResource {
     /**
@@ -71,6 +71,10 @@ export class ServerBlobAuditingPolicy extends pulumi.CustomResource {
      * USER_CHANGE_PASSWORD_GROUP
      * BATCH_STARTED_GROUP
      * BATCH_COMPLETED_GROUP
+     * DBCC_GROUP
+     * DATABASE_OWNERSHIP_CHANGE_GROUP
+     * DATABASE_CHANGE_GROUP
+     * LEDGER_OPERATION_GROUP
      * 
      * These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
      * 
@@ -125,6 +129,10 @@ export class ServerBlobAuditingPolicy extends pulumi.CustomResource {
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
     public readonly isDevopsAuditEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether Managed Identity is used to access blob storage
+     */
+    public readonly isManagedIdentityInUse!: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */
@@ -183,6 +191,7 @@ export class ServerBlobAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["blobAuditingPolicyName"] = args ? args.blobAuditingPolicyName : undefined;
             resourceInputs["isAzureMonitorTargetEnabled"] = args ? args.isAzureMonitorTargetEnabled : undefined;
             resourceInputs["isDevopsAuditEnabled"] = args ? args.isDevopsAuditEnabled : undefined;
+            resourceInputs["isManagedIdentityInUse"] = args ? args.isManagedIdentityInUse : undefined;
             resourceInputs["isStorageSecondaryKeyInUse"] = args ? args.isStorageSecondaryKeyInUse : undefined;
             resourceInputs["queueDelayMs"] = args ? args.queueDelayMs : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -198,6 +207,7 @@ export class ServerBlobAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["auditActionsAndGroups"] = undefined /*out*/;
             resourceInputs["isAzureMonitorTargetEnabled"] = undefined /*out*/;
             resourceInputs["isDevopsAuditEnabled"] = undefined /*out*/;
+            resourceInputs["isManagedIdentityInUse"] = undefined /*out*/;
             resourceInputs["isStorageSecondaryKeyInUse"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["queueDelayMs"] = undefined /*out*/;
@@ -208,7 +218,7 @@ export class ServerBlobAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220801preview:ServerBlobAuditingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220201preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220501preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220801preview:ServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20221101preview:ServerBlobAuditingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerBlobAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -251,6 +261,10 @@ export interface ServerBlobAuditingPolicyArgs {
      * USER_CHANGE_PASSWORD_GROUP
      * BATCH_STARTED_GROUP
      * BATCH_COMPLETED_GROUP
+     * DBCC_GROUP
+     * DATABASE_OWNERSHIP_CHANGE_GROUP
+     * DATABASE_CHANGE_GROUP
+     * LEDGER_OPERATION_GROUP
      * 
      * These are groups that cover all sql statements and stored procedures executed against the database, and should not be used in combination with other groups as this will result in duplicate audit logs.
      * 
@@ -309,6 +323,10 @@ export interface ServerBlobAuditingPolicyArgs {
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
     isDevopsAuditEnabled?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether Managed Identity is used to access blob storage
+     */
+    isManagedIdentityInUse?: pulumi.Input<boolean>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */

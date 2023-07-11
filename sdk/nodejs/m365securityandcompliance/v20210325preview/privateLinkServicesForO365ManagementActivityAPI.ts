@@ -24,7 +24,7 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForO365ManagementActivityAPI';
+    public static readonly __pulumiType = 'azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForO365ManagementActivityAPI';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicesForO365ManagementActivityAPI.  This is designed to work even
@@ -114,7 +114,7 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance:privateLinkServicesForO365ManagementActivityAPI" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:m365securityandcompliance:PrivateLinkServicesForO365ManagementActivityAPI" }, { type: "azure-native:m365securityandcompliance:privateLinkServicesForO365ManagementActivityAPI" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForO365ManagementActivityAPI.__pulumiType, name, resourceInputs, opts);
     }

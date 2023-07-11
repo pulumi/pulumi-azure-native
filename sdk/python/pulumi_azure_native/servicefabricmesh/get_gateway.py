@@ -206,7 +206,7 @@ def get_gateway(gateway_resource_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGatewayResult:
     """
     Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str gateway_resource_name: The identity of the gateway.
@@ -241,7 +241,7 @@ def get_gateway_output(gateway_resource_name: Optional[pulumi.Input[str]] = None
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Gets the information about the gateway resource with the given name. The information include the description and other properties of the gateway.
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str gateway_resource_name: The identity of the gateway.

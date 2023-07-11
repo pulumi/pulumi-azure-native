@@ -21,6 +21,7 @@ class DiskEncryptionSetArgs:
                  active_key: Optional[pulumi.Input['KeyForDiskEncryptionSetArgs']] = None,
                  disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetType']]] = None,
+                 federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['EncryptionSetIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None,
@@ -29,8 +30,9 @@ class DiskEncryptionSetArgs:
         The set of arguments for constructing a DiskEncryptionSet resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['KeyForDiskEncryptionSetArgs'] active_key: The key vault key which is currently used by this disk encryption set.
-        :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[Union[str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
+        :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
         :param pulumi.Input['EncryptionSetIdentityArgs'] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
@@ -43,6 +45,8 @@ class DiskEncryptionSetArgs:
             pulumi.set(__self__, "disk_encryption_set_name", disk_encryption_set_name)
         if encryption_type is not None:
             pulumi.set(__self__, "encryption_type", encryption_type)
+        if federated_client_id is not None:
+            pulumi.set(__self__, "federated_client_id", federated_client_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -80,7 +84,7 @@ class DiskEncryptionSetArgs:
     @pulumi.getter(name="diskEncryptionSetName")
     def disk_encryption_set_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         """
         return pulumi.get(self, "disk_encryption_set_name")
 
@@ -99,6 +103,18 @@ class DiskEncryptionSetArgs:
     @encryption_type.setter
     def encryption_type(self, value: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetType']]]):
         pulumi.set(self, "encryption_type", value)
+
+    @property
+    @pulumi.getter(name="federatedClientId")
+    def federated_client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
+        """
+        return pulumi.get(self, "federated_client_id")
+
+    @federated_client_id.setter
+    def federated_client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "federated_client_id", value)
 
     @property
     @pulumi.getter
@@ -157,6 +173,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  active_key: Optional[pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']]] = None,
                  disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetType']]] = None,
+                 federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -165,13 +182,14 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  __props__=None):
         """
         disk encryption set resource.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']] active_key: The key vault key which is currently used by this disk encryption set.
-        :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        :param pulumi.Input[str] disk_encryption_set_name: The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         :param pulumi.Input[Union[str, 'DiskEncryptionSetType']] encryption_type: The type of key used to encrypt the data of the disk.
+        :param pulumi.Input[str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
         :param pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']] identity: The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -186,7 +204,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         disk encryption set resource.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param DiskEncryptionSetArgs args: The arguments to use to populate this resource's properties.
@@ -206,6 +224,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  active_key: Optional[pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']]] = None,
                  disk_encryption_set_name: Optional[pulumi.Input[str]] = None,
                  encryption_type: Optional[pulumi.Input[Union[str, 'DiskEncryptionSetType']]] = None,
+                 federated_client_id: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['EncryptionSetIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -223,6 +242,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__.__dict__["active_key"] = active_key
             __props__.__dict__["disk_encryption_set_name"] = disk_encryption_set_name
             __props__.__dict__["encryption_type"] = encryption_type
+            __props__.__dict__["federated_client_id"] = federated_client_id
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -230,12 +250,13 @@ class DiskEncryptionSet(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rotation_to_latest_key_version_enabled"] = rotation_to_latest_key_version_enabled
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["auto_key_rotation_error"] = None
             __props__.__dict__["last_key_rotation_timestamp"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["previous_keys"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20220702:DiskEncryptionSet")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190701:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20191101:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200501:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200630:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20200930:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20201201:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20210401:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20210801:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20211201:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20220302:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20220702:DiskEncryptionSet"), pulumi.Alias(type_="azure-native:compute/v20230102:DiskEncryptionSet")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DiskEncryptionSet, __self__).__init__(
             'azure-native:compute:DiskEncryptionSet',
@@ -260,7 +281,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
         __props__ = DiskEncryptionSetArgs.__new__(DiskEncryptionSetArgs)
 
         __props__.__dict__["active_key"] = None
+        __props__.__dict__["auto_key_rotation_error"] = None
         __props__.__dict__["encryption_type"] = None
+        __props__.__dict__["federated_client_id"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["last_key_rotation_timestamp"] = None
         __props__.__dict__["location"] = None
@@ -281,12 +304,28 @@ class DiskEncryptionSet(pulumi.CustomResource):
         return pulumi.get(self, "active_key")
 
     @property
+    @pulumi.getter(name="autoKeyRotationError")
+    def auto_key_rotation_error(self) -> pulumi.Output['outputs.ApiErrorResponse']:
+        """
+        The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+        """
+        return pulumi.get(self, "auto_key_rotation_error")
+
+    @property
     @pulumi.getter(name="encryptionType")
     def encryption_type(self) -> pulumi.Output[Optional[str]]:
         """
         The type of key used to encrypt the data of the disk.
         """
         return pulumi.get(self, "encryption_type")
+
+    @property
+    @pulumi.getter(name="federatedClientId")
+    def federated_client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
+        """
+        return pulumi.get(self, "federated_client_id")
 
     @property
     @pulumi.getter

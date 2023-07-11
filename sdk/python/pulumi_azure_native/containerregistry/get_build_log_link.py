@@ -50,7 +50,7 @@ def get_build_log_link(build_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildLogLinkResult:
     """
     Gets a link to download the build logs.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str build_id: The build ID.
@@ -75,7 +75,7 @@ def get_build_log_link_output(build_id: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildLogLinkResult]:
     """
     Gets a link to download the build logs.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str build_id: The build ID.

@@ -147,7 +147,7 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInstanceFailoverGroupResult:
     """
     Gets a failover group.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2021-11-01.
 
 
     :param str failover_group_name: The name of the failover group.
@@ -180,7 +180,7 @@ def get_instance_failover_group_output(failover_group_name: Optional[pulumi.Inpu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceFailoverGroupResult]:
     """
     Gets a failover group.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2021-11-01.
 
 
     :param str failover_group_name: The name of the failover group.

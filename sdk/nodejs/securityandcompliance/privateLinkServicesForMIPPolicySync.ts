@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * API Version: 2021-03-08.
+ * Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08
  */
 export class PrivateLinkServicesForMIPPolicySync extends pulumi.CustomResource {
     /**
@@ -25,7 +25,7 @@ export class PrivateLinkServicesForMIPPolicySync extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync';
+    public static readonly __pulumiType = 'azure-native:securityandcompliance:PrivateLinkServicesForMIPPolicySync';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicesForMIPPolicySync.  This is designed to work even
@@ -115,7 +115,7 @@ export class PrivateLinkServicesForMIPPolicySync extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityandcompliance:privateLinkServicesForMIPPolicySync" }, { type: "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForMIPPolicySync" }, { type: "azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForMIPPolicySync.__pulumiType, name, resourceInputs, opts);
     }

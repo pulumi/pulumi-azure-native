@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets a link to download the build logs.
-        /// API Version: 2018-02-01-preview.
+        /// Azure REST API version: 2018-02-01-preview.
         /// </summary>
         public static Task<GetBuildLogLinkResult> InvokeAsync(GetBuildLogLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildLogLinkResult>("azure-native:containerregistry:getBuildLogLink", args ?? new GetBuildLogLinkArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a link to download the build logs.
-        /// API Version: 2018-02-01-preview.
+        /// Azure REST API version: 2018-02-01-preview.
         /// </summary>
         public static Output<GetBuildLogLinkResult> Invoke(GetBuildLogLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBuildLogLinkResult>("azure-native:containerregistry:getBuildLogLink", args ?? new GetBuildLogLinkInvokeArgs(), options.WithDefaults());

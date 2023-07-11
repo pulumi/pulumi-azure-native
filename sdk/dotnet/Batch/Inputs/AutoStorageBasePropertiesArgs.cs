@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.Batch.Inputs
     public sealed class AutoStorageBasePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The authentication mode which the Batch service will use to manage the auto-storage account.
+        /// </summary>
+        [Input("authenticationMode")]
+        public Input<Pulumi.AzureNative.Batch.AutoStorageAuthenticationMode>? AuthenticationMode { get; set; }
+
+        /// <summary>
+        /// The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage.
+        /// </summary>
+        [Input("nodeIdentityReference")]
+        public Input<Inputs.ComputeNodeIdentityReferenceArgs>? NodeIdentityReference { get; set; }
+
+        /// <summary>
         /// The resource ID of the storage account to be used for auto-storage account.
         /// </summary>
         [Input("storageAccountId", required: true)]
@@ -23,6 +35,7 @@ namespace Pulumi.AzureNative.Batch.Inputs
 
         public AutoStorageBasePropertiesArgs()
         {
+            AuthenticationMode = Pulumi.AzureNative.Batch.AutoStorageAuthenticationMode.StorageKeys;
         }
         public static new AutoStorageBasePropertiesArgs Empty => new AutoStorageBasePropertiesArgs();
     }

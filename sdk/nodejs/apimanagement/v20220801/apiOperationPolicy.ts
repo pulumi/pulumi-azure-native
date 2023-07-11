@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy Contract details.
- *
- * @deprecated azure-native:apimanagement/v20220801:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperationPolicy to guarantee forwards compatibility.
  */
 export class ApiOperationPolicy extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiOperationPolicy {
-        pulumi.log.warn("ApiOperationPolicy is deprecated: azure-native:apimanagement/v20220801:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperationPolicy to guarantee forwards compatibility.")
         return new ApiOperationPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +61,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperationPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: ApiOperationPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiOperationPolicy is deprecated: azure-native:apimanagement/v20220801:ApiOperationPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperationPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -101,7 +96,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20170301:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20190101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20201201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210101preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210401preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210801:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20211201preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20220401preview:ApiOperationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20170301:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20190101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20201201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210101preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210401preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210801:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20211201preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20220401preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20220901preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20230301preview:ApiOperationPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiOperationPolicy.__pulumiType, name, resourceInputs, opts);
     }

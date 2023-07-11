@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Disk pool.
- * API Version: 2020-03-15-preview.
+ * Azure REST API version: 2021-08-01.
  */
 export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskPoolResult> {
 
@@ -22,7 +22,7 @@ export function getDiskPool(args: GetDiskPoolArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetDiskPoolArgs {
     /**
-     * The name of the Disk pool.
+     * The name of the Disk Pool.
      */
     diskPoolName: string;
     /**
@@ -32,19 +32,19 @@ export interface GetDiskPoolArgs {
 }
 
 /**
- * Response for Disk pool request.
+ * Response for Disk Pool request.
  */
 export interface GetDiskPoolResult {
     /**
-     * List of additional capabilities for Disk pool.
+     * List of additional capabilities for Disk Pool.
      */
     readonly additionalCapabilities?: string[];
     /**
-     * Logical zone for Disk pool resource; example: ["1"].
+     * Logical zone for Disk Pool resource; example: ["1"].
      */
     readonly availabilityZones: string[];
     /**
-     * List of Azure Managed Disks to attach to a Disk pool. Can attach 8 disks at most.
+     * List of Azure Managed Disks to attach to a Disk Pool.
      */
     readonly disks?: outputs.storagepool.DiskResponse[];
     /**
@@ -56,6 +56,14 @@ export interface GetDiskPoolResult {
      */
     readonly location: string;
     /**
+     * Azure resource id. Indicates if this resource is managed by another Azure resource.
+     */
+    readonly managedBy: string;
+    /**
+     * List of Azure resource ids that manage this resource.
+     */
+    readonly managedByExtended: string[];
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -64,11 +72,11 @@ export interface GetDiskPoolResult {
      */
     readonly provisioningState: string;
     /**
-     * Operational status of the Disk pool.
+     * Operational status of the Disk Pool.
      */
     readonly status: string;
     /**
-     * Azure Resource ID of a Subnet for the Disk pool.
+     * Azure Resource ID of a Subnet for the Disk Pool.
      */
     readonly subnetId: string;
     /**
@@ -80,9 +88,9 @@ export interface GetDiskPoolResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Determines the SKU of VM deployed for Disk pool
+     * Sku tier
      */
-    readonly tier: string;
+    readonly tier?: string;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
@@ -90,7 +98,7 @@ export interface GetDiskPoolResult {
 }
 /**
  * Get a Disk pool.
- * API Version: 2020-03-15-preview.
+ * Azure REST API version: 2021-08-01.
  */
 export function getDiskPoolOutput(args: GetDiskPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskPoolResult> {
     return pulumi.output(args).apply((a: any) => getDiskPool(a, opts))
@@ -98,7 +106,7 @@ export function getDiskPoolOutput(args: GetDiskPoolOutputArgs, opts?: pulumi.Inv
 
 export interface GetDiskPoolOutputArgs {
     /**
-     * The name of the Disk pool.
+     * The name of the Disk Pool.
      */
     diskPoolName: pulumi.Input<string>;
     /**

@@ -19,32 +19,37 @@ class DevBoxDefinitionArgs:
     def __init__(__self__, *,
                  dev_center_name: pulumi.Input[str],
                  image_reference: pulumi.Input['ImageReferenceArgs'],
-                 os_storage_type: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
                  dev_box_definition_name: Optional[pulumi.Input[str]] = None,
+                 hibernate_support: Optional[pulumi.Input[Union[str, 'HibernateSupport']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 os_storage_type: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DevBoxDefinition resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input['ImageReferenceArgs'] image_reference: Image reference information.
-        :param pulumi.Input[str] os_storage_type: The storage type used for the Operating System disk of Dev Boxes created using this definition.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU for Dev Boxes created using this definition.
         :param pulumi.Input[str] dev_box_definition_name: The name of the Dev Box definition.
+        :param pulumi.Input[Union[str, 'HibernateSupport']] hibernate_support: Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] os_storage_type: The storage type used for the Operating System disk of Dev Boxes created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
         pulumi.set(__self__, "image_reference", image_reference)
-        pulumi.set(__self__, "os_storage_type", os_storage_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if dev_box_definition_name is not None:
             pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
+        if hibernate_support is not None:
+            pulumi.set(__self__, "hibernate_support", hibernate_support)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if os_storage_type is not None:
+            pulumi.set(__self__, "os_storage_type", os_storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -73,22 +78,10 @@ class DevBoxDefinitionArgs:
         pulumi.set(self, "image_reference", value)
 
     @property
-    @pulumi.getter(name="osStorageType")
-    def os_storage_type(self) -> pulumi.Input[str]:
-        """
-        The storage type used for the Operating System disk of Dev Boxes created using this definition.
-        """
-        return pulumi.get(self, "os_storage_type")
-
-    @os_storage_type.setter
-    def os_storage_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "os_storage_type", value)
-
-    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -121,6 +114,18 @@ class DevBoxDefinitionArgs:
         pulumi.set(self, "dev_box_definition_name", value)
 
     @property
+    @pulumi.getter(name="hibernateSupport")
+    def hibernate_support(self) -> Optional[pulumi.Input[Union[str, 'HibernateSupport']]]:
+        """
+        Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+        """
+        return pulumi.get(self, "hibernate_support")
+
+    @hibernate_support.setter
+    def hibernate_support(self, value: Optional[pulumi.Input[Union[str, 'HibernateSupport']]]):
+        pulumi.set(self, "hibernate_support", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -131,6 +136,18 @@ class DevBoxDefinitionArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="osStorageType")
+    def os_storage_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The storage type used for the Operating System disk of Dev Boxes created using this definition.
+        """
+        return pulumi.get(self, "os_storage_type")
+
+    @os_storage_type.setter
+    def os_storage_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "os_storage_type", value)
 
     @property
     @pulumi.getter
@@ -152,6 +169,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
+                 hibernate_support: Optional[pulumi.Input[Union[str, 'HibernateSupport']]] = None,
                  image_reference: Optional[pulumi.Input[pulumi.InputType['ImageReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_storage_type: Optional[pulumi.Input[str]] = None,
@@ -161,16 +179,17 @@ class DevBoxDefinition(pulumi.CustomResource):
                  __props__=None):
         """
         Represents a definition for a Developer Machine.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_box_definition_name: The name of the Dev Box definition.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
+        :param pulumi.Input[Union[str, 'HibernateSupport']] hibernate_support: Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
         :param pulumi.Input[pulumi.InputType['ImageReferenceArgs']] image_reference: Image reference information.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] os_storage_type: The storage type used for the Operating System disk of Dev Boxes created using this definition.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The SKU for Dev Boxes created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -182,7 +201,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a definition for a Developer Machine.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param DevBoxDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -201,6 +220,7 @@ class DevBoxDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dev_box_definition_name: Optional[pulumi.Input[str]] = None,
                  dev_center_name: Optional[pulumi.Input[str]] = None,
+                 hibernate_support: Optional[pulumi.Input[Union[str, 'HibernateSupport']]] = None,
                  image_reference: Optional[pulumi.Input[pulumi.InputType['ImageReferenceArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  os_storage_type: Optional[pulumi.Input[str]] = None,
@@ -220,12 +240,11 @@ class DevBoxDefinition(pulumi.CustomResource):
             if dev_center_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_name'")
             __props__.__dict__["dev_center_name"] = dev_center_name
+            __props__.__dict__["hibernate_support"] = hibernate_support
             if image_reference is None and not opts.urn:
                 raise TypeError("Missing required property 'image_reference'")
             __props__.__dict__["image_reference"] = image_reference
             __props__.__dict__["location"] = location
-            if os_storage_type is None and not opts.urn:
-                raise TypeError("Missing required property 'os_storage_type'")
             __props__.__dict__["os_storage_type"] = os_storage_type
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -241,7 +260,7 @@ class DevBoxDefinition(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:DevBoxDefinition")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:DevBoxDefinition"), pulumi.Alias(type_="azure-native:devcenter/v20230401:DevBoxDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DevBoxDefinition, __self__).__init__(
             'azure-native:devcenter:DevBoxDefinition',
@@ -266,6 +285,7 @@ class DevBoxDefinition(pulumi.CustomResource):
         __props__ = DevBoxDefinitionArgs.__new__(DevBoxDefinitionArgs)
 
         __props__.__dict__["active_image_reference"] = None
+        __props__.__dict__["hibernate_support"] = None
         __props__.__dict__["image_reference"] = None
         __props__.__dict__["image_validation_error_details"] = None
         __props__.__dict__["image_validation_status"] = None
@@ -286,6 +306,14 @@ class DevBoxDefinition(pulumi.CustomResource):
         Image reference information for the currently active image (only populated during updates).
         """
         return pulumi.get(self, "active_image_reference")
+
+    @property
+    @pulumi.getter(name="hibernateSupport")
+    def hibernate_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+        """
+        return pulumi.get(self, "hibernate_support")
 
     @property
     @pulumi.getter(name="imageReference")
@@ -329,7 +357,7 @@ class DevBoxDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osStorageType")
-    def os_storage_type(self) -> pulumi.Output[str]:
+    def os_storage_type(self) -> pulumi.Output[Optional[str]]:
         """
         The storage type used for the Operating System disk of Dev Boxes created using this definition.
         """

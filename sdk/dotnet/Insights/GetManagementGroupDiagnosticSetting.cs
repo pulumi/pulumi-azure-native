@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets the active management group diagnostic settings for the specified resource.
-        /// API Version: 2020-01-01-preview.
+        /// Azure REST API version: 2021-05-01-preview.
         /// </summary>
         public static Task<GetManagementGroupDiagnosticSettingResult> InvokeAsync(GetManagementGroupDiagnosticSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupDiagnosticSettingResult>("azure-native:insights:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the active management group diagnostic settings for the specified resource.
-        /// API Version: 2020-01-01-preview.
+        /// Azure REST API version: 2021-05-01-preview.
         /// </summary>
         public static Output<GetManagementGroupDiagnosticSettingResult> Invoke(GetManagementGroupDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupDiagnosticSettingResult>("azure-native:insights:getManagementGroupDiagnosticSetting", args ?? new GetManagementGroupDiagnosticSettingInvokeArgs(), options.WithDefaults());
@@ -80,19 +80,19 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string? EventHubName;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Location of the resource
-        /// </summary>
-        public readonly string? Location;
         /// <summary>
         /// The list of logs settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagementGroupLogSettingsResponse> Logs;
         /// <summary>
-        /// Azure resource name
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        public readonly string? MarketplacePartnerId;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -104,7 +104,11 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string? StorageAccountId;
         /// <summary>
-        /// Azure resource type
+        /// The system metadata related to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -120,15 +124,17 @@ namespace Pulumi.AzureNative.Insights
 
             string id,
 
-            string? location,
-
             ImmutableArray<Outputs.ManagementGroupLogSettingsResponse> logs,
+
+            string? marketplacePartnerId,
 
             string name,
 
             string? serviceBusRuleId,
 
             string? storageAccountId,
+
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
@@ -137,11 +143,12 @@ namespace Pulumi.AzureNative.Insights
             EventHubAuthorizationRuleId = eventHubAuthorizationRuleId;
             EventHubName = eventHubName;
             Id = id;
-            Location = location;
             Logs = logs;
+            MarketplacePartnerId = marketplacePartnerId;
             Name = name;
             ServiceBusRuleId = serviceBusRuleId;
             StorageAccountId = storageAccountId;
+            SystemData = systemData;
             Type = type;
             WorkspaceId = workspaceId;
         }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Properties for the database account.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-04-01-preview
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -45,7 +45,7 @@ export class Service extends pulumi.CustomResource {
     /**
      * Services response resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.DataTransferServiceResourcePropertiesResponse | outputs.documentdb.SqlDedicatedGatewayServiceResourcePropertiesResponse>;
+    public /*out*/ readonly properties!: pulumi.Output<outputs.documentdb.DataTransferServiceResourcePropertiesResponse | outputs.documentdb.GraphAPIComputeServiceResourcePropertiesResponse | outputs.documentdb.MaterializedViewsBuilderServiceResourcePropertiesResponse | outputs.documentdb.SqlDedicatedGatewayServiceResourcePropertiesResponse>;
     /**
      * The type of Azure resource.
      */
@@ -83,7 +83,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210401preview:Service" }, { type: "azure-native:documentdb/v20210701preview:Service" }, { type: "azure-native:documentdb/v20211015preview:Service" }, { type: "azure-native:documentdb/v20211115preview:Service" }, { type: "azure-native:documentdb/v20220215preview:Service" }, { type: "azure-native:documentdb/v20220515:Service" }, { type: "azure-native:documentdb/v20220515preview:Service" }, { type: "azure-native:documentdb/v20220815:Service" }, { type: "azure-native:documentdb/v20220815preview:Service" }, { type: "azure-native:documentdb/v20221115:Service" }, { type: "azure-native:documentdb/v20230315:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210401preview:Service" }, { type: "azure-native:documentdb/v20210701preview:Service" }, { type: "azure-native:documentdb/v20211015preview:Service" }, { type: "azure-native:documentdb/v20211115preview:Service" }, { type: "azure-native:documentdb/v20220215preview:Service" }, { type: "azure-native:documentdb/v20220515:Service" }, { type: "azure-native:documentdb/v20220515preview:Service" }, { type: "azure-native:documentdb/v20220815:Service" }, { type: "azure-native:documentdb/v20220815preview:Service" }, { type: "azure-native:documentdb/v20221115:Service" }, { type: "azure-native:documentdb/v20221115preview:Service" }, { type: "azure-native:documentdb/v20230301preview:Service" }, { type: "azure-native:documentdb/v20230315:Service" }, { type: "azure-native:documentdb/v20230315preview:Service" }, { type: "azure-native:documentdb/v20230415:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

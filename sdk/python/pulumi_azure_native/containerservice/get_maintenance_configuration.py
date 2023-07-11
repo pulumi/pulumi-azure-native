@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetMaintenanceConfigurationResult:
     """
-    maintenance configuration.
+    See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
     """
     def __init__(__self__, id=None, name=None, not_allowed_time=None, system_data=None, time_in_week=None, type=None):
         if id and not isinstance(id, str):
@@ -70,7 +70,7 @@ class GetMaintenanceConfigurationResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        The system metadata relating to this resource.
         """
         return pulumi.get(self, "system_data")
 
@@ -78,7 +78,7 @@ class GetMaintenanceConfigurationResult:
     @pulumi.getter(name="timeInWeek")
     def time_in_week(self) -> Optional[Sequence['outputs.TimeInWeekResponse']]:
         """
-        Weekday time slots allowed to upgrade.
+        If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         """
         return pulumi.get(self, "time_in_week")
 
@@ -110,12 +110,12 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
                                   resource_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaintenanceConfigurationResult:
     """
-    Gets the details of maintenance configurations by managed cluster and resource group.
-    API Version: 2021-03-01.
+    See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+    Azure REST API version: 2023-04-01.
 
 
     :param str config_name: The name of the maintenance configuration.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
     __args__ = dict()
@@ -140,12 +140,12 @@ def get_maintenance_configuration_output(config_name: Optional[pulumi.Input[str]
                                          resource_name: Optional[pulumi.Input[str]] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMaintenanceConfigurationResult]:
     """
-    Gets the details of maintenance configurations by managed cluster and resource group.
-    API Version: 2021-03-01.
+    See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+    Azure REST API version: 2023-04-01.
 
 
     :param str config_name: The name of the maintenance configuration.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str resource_name: The name of the managed cluster resource.
     """
     ...

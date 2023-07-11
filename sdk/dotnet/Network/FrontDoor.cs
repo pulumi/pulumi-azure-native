@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
-    /// API Version: 2020-05-01.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FrontDoor")]
     public partial class FrontDoor : global::Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("enabledState")]
         public Output<string?> EnabledState { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-Value pair representing additional properties for frontdoor.
+        /// </summary>
+        [Output("extendedProperties")]
+        public Output<ImmutableDictionary<string, string>> ExtendedProperties { get; private set; } = null!;
 
         /// <summary>
         /// A friendly name for the frontDoor

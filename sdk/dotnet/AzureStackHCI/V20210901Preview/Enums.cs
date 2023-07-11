@@ -72,38 +72,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     }
 
     /// <summary>
-    /// Desired level of diagnostic data emitted by the cluster.
-    /// </summary>
-    [EnumType]
-    public readonly struct DiagnosticLevel : IEquatable<DiagnosticLevel>
-    {
-        private readonly string _value;
-
-        private DiagnosticLevel(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DiagnosticLevel Off { get; } = new DiagnosticLevel("Off");
-        public static DiagnosticLevel Basic { get; } = new DiagnosticLevel("Basic");
-        public static DiagnosticLevel Enhanced { get; } = new DiagnosticLevel("Enhanced");
-
-        public static bool operator ==(DiagnosticLevel left, DiagnosticLevel right) => left.Equals(right);
-        public static bool operator !=(DiagnosticLevel left, DiagnosticLevel right) => !left.Equals(right);
-
-        public static explicit operator string(DiagnosticLevel value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DiagnosticLevel other && Equals(other);
-        public bool Equals(DiagnosticLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The format of the actual VHD file [vhd, vhdx]
     /// </summary>
     [EnumType]
@@ -389,38 +357,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     }
 
     /// <summary>
-    /// The guest agent provisioning action.
-    /// </summary>
-    [EnumType]
-    public readonly struct ProvisioningAction : IEquatable<ProvisioningAction>
-    {
-        private readonly string _value;
-
-        private ProvisioningAction(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ProvisioningAction Install { get; } = new ProvisioningAction("install");
-        public static ProvisioningAction Uninstall { get; } = new ProvisioningAction("uninstall");
-        public static ProvisioningAction Repair { get; } = new ProvisioningAction("repair");
-
-        public static bool operator ==(ProvisioningAction left, ProvisioningAction right) => left.Equals(right);
-        public static bool operator !=(ProvisioningAction left, ProvisioningAction right) => !left.Equals(right);
-
-        public static explicit operator string(ProvisioningAction value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProvisioningAction other && Equals(other);
-        public bool Equals(ProvisioningAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The identity type.
     /// </summary>
     [EnumType]
@@ -443,37 +379,6 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Desired state of Windows Server Subscription.
-    /// </summary>
-    [EnumType]
-    public readonly struct WindowsServerSubscription : IEquatable<WindowsServerSubscription>
-    {
-        private readonly string _value;
-
-        private WindowsServerSubscription(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static WindowsServerSubscription Disabled { get; } = new WindowsServerSubscription("Disabled");
-        public static WindowsServerSubscription Enabled { get; } = new WindowsServerSubscription("Enabled");
-
-        public static bool operator ==(WindowsServerSubscription left, WindowsServerSubscription right) => left.Equals(right);
-        public static bool operator !=(WindowsServerSubscription left, WindowsServerSubscription right) => !left.Equals(right);
-
-        public static explicit operator string(WindowsServerSubscription value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is WindowsServerSubscription other && Equals(other);
-        public bool Equals(WindowsServerSubscription other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

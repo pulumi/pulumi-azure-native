@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.OperationalInsights
     {
         /// <summary>
         /// Gets a workspace instance.
-        /// API Version: 2020-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a workspace instance.
-        /// API Version: 2020-10-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:operationalinsights:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -80,9 +80,13 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// </summary>
         public readonly string CustomerId;
         /// <summary>
-        /// The ETag of the workspace.
+        /// The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
         /// </summary>
-        public readonly string? ETag;
+        public readonly string? DefaultDataCollectionRuleResourceId;
+        /// <summary>
+        /// The etag of the workspace.
+        /// </summary>
+        public readonly string? Etag;
         /// <summary>
         /// Workspace features.
         /// </summary>
@@ -95,6 +99,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -114,7 +122,7 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The provisioning state of the workspace.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The network access type for accessing Log Analytics ingestion.
         /// </summary>
@@ -131,6 +139,10 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// The SKU of the workspace.
         /// </summary>
         public readonly Outputs.WorkspaceSkuResponse? Sku;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -150,13 +162,17 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             string customerId,
 
-            string? eTag,
+            string? defaultDataCollectionRuleResourceId,
+
+            string? etag,
 
             Outputs.WorkspaceFeaturesResponse? features,
 
             bool? forceCmkForQuery,
 
             string id,
+
+            Outputs.IdentityResponse? identity,
 
             string location,
 
@@ -166,7 +182,7 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             ImmutableArray<Outputs.PrivateLinkScopedResourceResponse> privateLinkScopedResources,
 
-            string? provisioningState,
+            string provisioningState,
 
             string? publicNetworkAccessForIngestion,
 
@@ -176,6 +192,8 @@ namespace Pulumi.AzureNative.OperationalInsights
 
             Outputs.WorkspaceSkuResponse? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -184,10 +202,12 @@ namespace Pulumi.AzureNative.OperationalInsights
         {
             CreatedDate = createdDate;
             CustomerId = customerId;
-            ETag = eTag;
+            DefaultDataCollectionRuleResourceId = defaultDataCollectionRuleResourceId;
+            Etag = etag;
             Features = features;
             ForceCmkForQuery = forceCmkForQuery;
             Id = id;
+            Identity = identity;
             Location = location;
             ModifiedDate = modifiedDate;
             Name = name;
@@ -197,6 +217,7 @@ namespace Pulumi.AzureNative.OperationalInsights
             PublicNetworkAccessForQuery = publicNetworkAccessForQuery;
             RetentionInDays = retentionInDays;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             WorkspaceCapping = workspaceCapping;

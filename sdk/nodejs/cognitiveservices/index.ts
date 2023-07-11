@@ -15,6 +15,11 @@ export type CommitmentPlan = import("./commitmentPlan").CommitmentPlan;
 export const CommitmentPlan: typeof import("./commitmentPlan").CommitmentPlan = null as any;
 utilities.lazyLoad(exports, ["CommitmentPlan"], () => require("./commitmentPlan"));
 
+export { CommitmentPlanAssociationArgs } from "./commitmentPlanAssociation";
+export type CommitmentPlanAssociation = import("./commitmentPlanAssociation").CommitmentPlanAssociation;
+export const CommitmentPlanAssociation: typeof import("./commitmentPlanAssociation").CommitmentPlanAssociation = null as any;
+utilities.lazyLoad(exports, ["CommitmentPlanAssociation"], () => require("./commitmentPlanAssociation"));
+
 export { DeploymentArgs } from "./deployment";
 export type Deployment = import("./deployment").Deployment;
 export const Deployment: typeof import("./deployment").Deployment = null as any;
@@ -30,6 +35,11 @@ export const getCommitmentPlan: typeof import("./getCommitmentPlan").getCommitme
 export const getCommitmentPlanOutput: typeof import("./getCommitmentPlan").getCommitmentPlanOutput = null as any;
 utilities.lazyLoad(exports, ["getCommitmentPlan","getCommitmentPlanOutput"], () => require("./getCommitmentPlan"));
 
+export { GetCommitmentPlanAssociationArgs, GetCommitmentPlanAssociationResult, GetCommitmentPlanAssociationOutputArgs } from "./getCommitmentPlanAssociation";
+export const getCommitmentPlanAssociation: typeof import("./getCommitmentPlanAssociation").getCommitmentPlanAssociation = null as any;
+export const getCommitmentPlanAssociationOutput: typeof import("./getCommitmentPlanAssociation").getCommitmentPlanAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getCommitmentPlanAssociation","getCommitmentPlanAssociationOutput"], () => require("./getCommitmentPlanAssociation"));
+
 export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
 export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
 export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
@@ -39,6 +49,11 @@ export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, G
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
+export { GetSharedCommitmentPlanArgs, GetSharedCommitmentPlanResult, GetSharedCommitmentPlanOutputArgs } from "./getSharedCommitmentPlan";
+export const getSharedCommitmentPlan: typeof import("./getSharedCommitmentPlan").getSharedCommitmentPlan = null as any;
+export const getSharedCommitmentPlanOutput: typeof import("./getSharedCommitmentPlan").getSharedCommitmentPlanOutput = null as any;
+utilities.lazyLoad(exports, ["getSharedCommitmentPlan","getSharedCommitmentPlanOutput"], () => require("./getSharedCommitmentPlan"));
 
 export { ListAccountKeysArgs, ListAccountKeysResult, ListAccountKeysOutputArgs } from "./listAccountKeys";
 export const listAccountKeys: typeof import("./listAccountKeys").listAccountKeys = null as any;
@@ -50,27 +65,22 @@ export type PrivateEndpointConnection = import("./privateEndpointConnection").Pr
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
+export { SharedCommitmentPlanArgs } from "./sharedCommitmentPlan";
+export type SharedCommitmentPlan = import("./sharedCommitmentPlan").SharedCommitmentPlan;
+export const SharedCommitmentPlan: typeof import("./sharedCommitmentPlan").SharedCommitmentPlan = null as any;
+utilities.lazyLoad(exports, ["SharedCommitmentPlan"], () => require("./sharedCommitmentPlan"));
+
 
 // Export enums:
 export * from "../types/enums/cognitiveservices";
 
 // Export sub-modules:
-import * as v20160201preview from "./v20160201preview";
 import * as v20170418 from "./v20170418";
-import * as v20210430 from "./v20210430";
-import * as v20211001 from "./v20211001";
-import * as v20220301 from "./v20220301";
-import * as v20221001 from "./v20221001";
-import * as v20221201 from "./v20221201";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20160201preview,
     v20170418,
-    v20210430,
-    v20211001,
-    v20220301,
-    v20221001,
-    v20221201,
+    v20230501,
 };
 
 const _module = {
@@ -81,10 +91,14 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:CommitmentPlan":
                 return new CommitmentPlan(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:CommitmentPlanAssociation":
+                return new CommitmentPlanAssociation(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:Deployment":
                 return new Deployment(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:SharedCommitmentPlan":
+                return new SharedCommitmentPlan(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

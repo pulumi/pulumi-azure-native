@@ -13,7 +13,6 @@ from ._enums import *
 __all__ = [
     'ADLSGen2StorageAccountPathArgs',
     'BlobStorageAccountPathArgs',
-    'IdentityArgs',
 ]
 
 @pulumi.input_type
@@ -124,29 +123,5 @@ class BlobStorageAccountPathArgs:
     @provider_path.setter
     def provider_path(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "provider_path", value)
-
-
-@pulumi.input_type
-class IdentityArgs:
-    def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[str, 'Type']]] = None):
-        """
-        Identity of resource
-        :param pulumi.Input[Union[str, 'Type']] type: Identity Type
-        """
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[str, 'Type']]]:
-        """
-        Identity Type
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[str, 'Type']]]):
-        pulumi.set(self, "type", value)
 
 

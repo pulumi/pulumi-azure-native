@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL managed instance administrator.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ManagedInstanceAdministrator extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20210801preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20211101:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20211101preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20220201preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20220501preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20220801preview:ManagedInstanceAdministrator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20170301preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20200202preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20200801preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20201101preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20210201preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20210501preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20210801preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20211101:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20211101preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20220201preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20220501preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20220801preview:ManagedInstanceAdministrator" }, { type: "azure-native:sql/v20221101preview:ManagedInstanceAdministrator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstanceAdministrator.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets properties of a specified container. 
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetBlobContainerResult> InvokeAsync(GetBlobContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerResult>("azure-native:storage:getBlobContainer", args ?? new GetBlobContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a specified container. 
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetBlobContainerResult> Invoke(GetBlobContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerResult>("azure-native:storage:getBlobContainer", args ?? new GetBlobContainerInvokeArgs(), options.WithDefaults());
@@ -100,6 +100,14 @@ namespace Pulumi.AzureNative.Storage
         /// </summary>
         public readonly bool? DenyEncryptionScopeOverride;
         /// <summary>
+        /// Enable NFSv3 all squash on blob container.
+        /// </summary>
+        public readonly bool? EnableNfsV3AllSquash;
+        /// <summary>
+        /// Enable NFSv3 root squash on blob container.
+        /// </summary>
+        public readonly bool? EnableNfsV3RootSquash;
+        /// <summary>
         /// Resource Etag.
         /// </summary>
         public readonly string Etag;
@@ -119,6 +127,10 @@ namespace Pulumi.AzureNative.Storage
         /// The ImmutabilityPolicy property of the container.
         /// </summary>
         public readonly Outputs.ImmutabilityPolicyPropertiesResponse ImmutabilityPolicy;
+        /// <summary>
+        /// The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
+        /// </summary>
+        public readonly Outputs.ImmutableStorageWithVersioningResponse? ImmutableStorageWithVersioning;
         /// <summary>
         /// Returns the date and time the container was last modified.
         /// </summary>
@@ -174,6 +186,10 @@ namespace Pulumi.AzureNative.Storage
 
             bool? denyEncryptionScopeOverride,
 
+            bool? enableNfsV3AllSquash,
+
+            bool? enableNfsV3RootSquash,
+
             string etag,
 
             bool hasImmutabilityPolicy,
@@ -183,6 +199,8 @@ namespace Pulumi.AzureNative.Storage
             string id,
 
             Outputs.ImmutabilityPolicyPropertiesResponse immutabilityPolicy,
+
+            Outputs.ImmutableStorageWithVersioningResponse? immutableStorageWithVersioning,
 
             string lastModifiedTime,
 
@@ -210,11 +228,14 @@ namespace Pulumi.AzureNative.Storage
             Deleted = deleted;
             DeletedTime = deletedTime;
             DenyEncryptionScopeOverride = denyEncryptionScopeOverride;
+            EnableNfsV3AllSquash = enableNfsV3AllSquash;
+            EnableNfsV3RootSquash = enableNfsV3RootSquash;
             Etag = etag;
             HasImmutabilityPolicy = hasImmutabilityPolicy;
             HasLegalHold = hasLegalHold;
             Id = id;
             ImmutabilityPolicy = immutabilityPolicy;
+            ImmutableStorageWithVersioning = immutableStorageWithVersioning;
             LastModifiedTime = lastModifiedTime;
             LeaseDuration = leaseDuration;
             LeaseState = leaseState;

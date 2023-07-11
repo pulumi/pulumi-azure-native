@@ -15,26 +15,27 @@ namespace Pulumi.AzureNative.AVS.Inputs
     /// </summary>
     public sealed class DiskPoolVolumeArgs : global::Pulumi.ResourceArgs
     {
-        [Input("endpoints")]
-        private InputList<string>? _endpoints;
+        /// <summary>
+        /// Name of the LUN to be used for datastore
+        /// </summary>
+        [Input("lunName", required: true)]
+        public Input<string> LunName { get; set; } = null!;
 
         /// <summary>
-        /// iSCSI provider target IP address list
+        /// Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
         /// </summary>
-        public InputList<string> Endpoints
-        {
-            get => _endpoints ?? (_endpoints = new InputList<string>());
-            set => _endpoints = value;
-        }
+        [Input("mountOption")]
+        public InputUnion<string, Pulumi.AzureNative.AVS.MountOptionEnum>? MountOption { get; set; }
 
         /// <summary>
-        /// Name of the LUN to be used
+        /// Azure resource ID of the iSCSI target
         /// </summary>
-        [Input("lunName")]
-        public Input<string>? LunName { get; set; }
+        [Input("targetId", required: true)]
+        public Input<string> TargetId { get; set; } = null!;
 
         public DiskPoolVolumeArgs()
         {
+            MountOption = "MOUNT";
         }
         public static new DiskPoolVolumeArgs Empty => new DiskPoolVolumeArgs();
     }

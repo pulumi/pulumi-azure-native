@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the queue with the specified queue name, under the specified account if it exists.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
 
@@ -57,7 +57,7 @@ export interface GetQueueResult {
 }
 /**
  * Gets the queue with the specified queue name, under the specified account if it exists.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueResult> {
     return pulumi.output(args).apply((a: any) => getQueue(a, opts))

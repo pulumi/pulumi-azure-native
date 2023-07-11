@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A provider instance associated with SAP monitor.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
  */
 export class ProviderInstance extends pulumi.CustomResource {
     /**
@@ -43,7 +43,7 @@ export class ProviderInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.ProviderInstancePropertiesResponseErrors>;
     /**
-     * Managed service identity (user assigned identities)
+     * [currently not in use] Managed service identity(user assigned identities)
      */
     public readonly identity!: pulumi.Output<outputs.workloads.UserAssignedServiceIdentityResponse | undefined>;
     /**
@@ -51,7 +51,7 @@ export class ProviderInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Defines the provider instance errors.
+     * Defines the provider specific properties.
      */
     public readonly providerSettings!: pulumi.Output<outputs.workloads.DB2ProviderInstancePropertiesResponse | outputs.workloads.HanaDbProviderInstancePropertiesResponse | outputs.workloads.MsSqlServerProviderInstancePropertiesResponse | outputs.workloads.PrometheusHaClusterProviderInstancePropertiesResponse | outputs.workloads.PrometheusOSProviderInstancePropertiesResponse | outputs.workloads.SapNetWeaverProviderInstancePropertiesResponse | undefined>;
     /**
@@ -115,7 +115,7 @@ export class ProviderInstance extends pulumi.CustomResource {
  */
 export interface ProviderInstanceArgs {
     /**
-     * Managed service identity (user assigned identities)
+     * [currently not in use] Managed service identity(user assigned identities)
      */
     identity?: pulumi.Input<inputs.workloads.UserAssignedServiceIdentityArgs>;
     /**
@@ -127,7 +127,7 @@ export interface ProviderInstanceArgs {
      */
     providerInstanceName?: pulumi.Input<string>;
     /**
-     * Defines the provider instance errors.
+     * Defines the provider specific properties.
      */
     providerSettings?: pulumi.Input<inputs.workloads.DB2ProviderInstancePropertiesArgs | inputs.workloads.HanaDbProviderInstancePropertiesArgs | inputs.workloads.MsSqlServerProviderInstancePropertiesArgs | inputs.workloads.PrometheusHaClusterProviderInstancePropertiesArgs | inputs.workloads.PrometheusOSProviderInstancePropertiesArgs | inputs.workloads.SapNetWeaverProviderInstancePropertiesArgs>;
     /**

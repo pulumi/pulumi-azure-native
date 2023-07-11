@@ -22,22 +22,30 @@ class GetEnvironmentContainerResult:
     """
     Azure Resource Manager resource envelope.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, environment_container_properties=None, id=None, name=None, system_data=None, type=None):
+        if environment_container_properties and not isinstance(environment_container_properties, dict):
+            raise TypeError("Expected argument 'environment_container_properties' to be a dict")
+        pulumi.set(__self__, "environment_container_properties", environment_container_properties)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if properties and not isinstance(properties, dict):
-            raise TypeError("Expected argument 'properties' to be a dict")
-        pulumi.set(__self__, "properties", properties)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="environmentContainerProperties")
+    def environment_container_properties(self) -> 'outputs.EnvironmentContainerResponse':
+        """
+        [Required] Additional attributes of the entity.
+        """
+        return pulumi.get(self, "environment_container_properties")
 
     @property
     @pulumi.getter
@@ -56,18 +64,10 @@ class GetEnvironmentContainerResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter
-    def properties(self) -> 'outputs.EnvironmentContainerResponse':
-        """
-        [Required] Additional attributes of the entity.
-        """
-        return pulumi.get(self, "properties")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        System data associated with resource provider
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -86,9 +86,9 @@ class AwaitableGetEnvironmentContainerResult(GetEnvironmentContainerResult):
         if False:
             yield self
         return GetEnvironmentContainerResult(
+            environment_container_properties=self.environment_container_properties,
             id=self.id,
             name=self.name,
-            properties=self.properties,
             system_data=self.system_data,
             type=self.type)
 
@@ -99,10 +99,10 @@ def get_environment_container(name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentContainerResult:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str name: Container name.
+    :param str name: Container name. This is case-sensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """
@@ -114,9 +114,9 @@ def get_environment_container(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getEnvironmentContainer', __args__, opts=opts, typ=GetEnvironmentContainerResult).value
 
     return AwaitableGetEnvironmentContainerResult(
+        environment_container_properties=__ret__.environment_container_properties,
         id=__ret__.id,
         name=__ret__.name,
-        properties=__ret__.properties,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -128,10 +128,10 @@ def get_environment_container_output(name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentContainerResult]:
     """
     Azure Resource Manager resource envelope.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
-    :param str name: Container name.
+    :param str name: Container name. This is case-sensitive.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: Name of Azure Machine Learning workspace.
     """

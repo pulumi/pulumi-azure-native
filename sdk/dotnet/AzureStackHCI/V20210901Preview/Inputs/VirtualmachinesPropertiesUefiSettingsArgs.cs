@@ -20,6 +20,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview.Inputs
 
         public VirtualmachinesPropertiesUefiSettingsArgs()
         {
+            SecureBootEnabled = false;
         }
         public static new VirtualmachinesPropertiesUefiSettingsArgs Empty => new VirtualmachinesPropertiesUefiSettingsArgs();
     }

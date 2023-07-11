@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
 {
 
     /// <summary>
-    /// Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow.
+    /// Gets or sets the file share configuration where the transport directory fileshare is created and mounted as a part of the create infra flow. Please pre-create the resource group you intend to place the transport directory in. The storage account and fileshare will be auto-created by the ACSS and doesn’t need to pre-created.
     /// </summary>
     public sealed class CreateAndMountFileShareConfigurationArgs : global::Pulumi.ResourceArgs
     {
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Workloads.Inputs
         public Input<string> ConfigurationType { get; set; } = null!;
 
         /// <summary>
-        /// The name of file share resource group. The app rg is used in case of missing input.
+        /// The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input.
         /// </summary>
         [Input("resourceGroup")]
         public Input<string>? ResourceGroup { get; set; }

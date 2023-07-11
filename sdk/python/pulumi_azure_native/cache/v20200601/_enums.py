@@ -5,38 +5,11 @@
 from enum import Enum
 
 __all__ = [
-    'DayOfWeek',
-    'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
-    'ReplicationRole',
     'SkuFamily',
     'SkuName',
     'TlsVersion',
 ]
-
-
-class DayOfWeek(str, Enum):
-    """
-    Day of the week when a cache can be patched.
-    """
-    MONDAY = "Monday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-    THURSDAY = "Thursday"
-    FRIDAY = "Friday"
-    SATURDAY = "Saturday"
-    SUNDAY = "Sunday"
-    EVERYDAY = "Everyday"
-    WEEKEND = "Weekend"
-
-
-class PrivateEndpointServiceConnectionStatus(str, Enum):
-    """
-    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
 
 
 class PublicNetworkAccess(str, Enum):
@@ -45,14 +18,6 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
-
-
-class ReplicationRole(str, Enum):
-    """
-    Role of the linked server.
-    """
-    PRIMARY = "Primary"
-    SECONDARY = "Secondary"
 
 
 class SkuFamily(str, Enum):

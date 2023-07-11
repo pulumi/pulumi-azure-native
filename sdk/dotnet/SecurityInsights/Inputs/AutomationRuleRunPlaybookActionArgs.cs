@@ -15,22 +15,16 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
     /// </summary>
     public sealed class AutomationRuleRunPlaybookActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The configuration of the run playbook automation rule action
-        /// </summary>
-        [Input("actionConfiguration", required: true)]
-        public Input<Inputs.AutomationRuleRunPlaybookActionActionConfigurationArgs> ActionConfiguration { get; set; } = null!;
+        [Input("actionConfiguration")]
+        public Input<Inputs.PlaybookActionPropertiesArgs>? ActionConfiguration { get; set; }
 
         /// <summary>
-        /// The type of the automation rule action
+        /// The type of the automation rule action.
         /// Expected value is 'RunPlaybook'.
         /// </summary>
         [Input("actionType", required: true)]
         public Input<string> ActionType { get; set; } = null!;
 
-        /// <summary>
-        /// The order of execution of the automation rule action
-        /// </summary>
         [Input("order", required: true)]
         public Input<int> Order { get; set; } = null!;
 

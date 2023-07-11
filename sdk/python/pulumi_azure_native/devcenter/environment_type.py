@@ -22,7 +22,7 @@ class EnvironmentTypeArgs:
         """
         The set of arguments for constructing a EnvironmentType resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -49,7 +49,7 @@ class EnvironmentTypeArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -94,13 +94,13 @@ class EnvironmentType(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an environment type.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[str] environment_type_name: The name of the environment type.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -111,7 +111,7 @@ class EnvironmentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an environment type.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param EnvironmentTypeArgs args: The arguments to use to populate this resource's properties.
@@ -153,7 +153,7 @@ class EnvironmentType(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:EnvironmentType")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:EnvironmentType"), pulumi.Alias(type_="azure-native:devcenter/v20230401:EnvironmentType")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EnvironmentType, __self__).__init__(
             'azure-native:devcenter:EnvironmentType',

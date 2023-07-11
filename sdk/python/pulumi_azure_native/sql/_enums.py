@@ -7,12 +7,15 @@ from enum import Enum
 __all__ = [
     'AdministratorType',
     'AutoExecuteStatus',
+    'BackupStorageRedundancy',
     'BlobAuditingPolicyState',
     'CatalogCollationType',
     'CreateMode',
     'DataMaskingState',
+    'DatabaseIdentityType',
     'DatabaseLicenseType',
     'DatabaseReadScale',
+    'DayOfWeek',
     'ElasticPoolLicenseType',
     'GeoBackupPolicyState',
     'IdentityType',
@@ -33,18 +36,21 @@ __all__ = [
     'ReadOnlyEndpointFailoverPolicy',
     'ReadWriteEndpointFailoverPolicy',
     'ReplicationMode',
-    'RequestedBackupStorageRedundancy',
     'SampleName',
     'SecondaryType',
+    'SecurityAlertPolicyEmailAccountAdmins',
+    'SecurityAlertPolicyState',
+    'SecurityAlertPolicyUseServerDefault',
     'SecurityAlertsPolicyState',
     'SensitivityLabelRank',
     'ServerKeyType',
-    'ServerPublicNetworkAccess',
-    'StorageAccountType',
+    'ServerNetworkAccessFlag',
+    'ServicePrincipalType',
+    'SqlVulnerabilityAssessmentState',
     'SyncConflictResolutionPolicy',
     'SyncDirection',
     'SyncMemberDbType',
-    'TransparentDataEncryptionStatus',
+    'TransparentDataEncryptionState',
 ]
 
 
@@ -62,6 +68,16 @@ class AutoExecuteStatus(str, Enum):
     ENABLED = "Enabled"
     DISABLED = "Disabled"
     DEFAULT = "Default"
+
+
+class BackupStorageRedundancy(str, Enum):
+    """
+    The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+    """
+    GEO = "Geo"
+    LOCAL = "Local"
+    ZONE = "Zone"
+    GEO_ZONE = "GeoZone"
 
 
 class BlobAuditingPolicyState(str, Enum):
@@ -116,8 +132,16 @@ class DataMaskingState(str, Enum):
     """
     The state of the data masking policy.
     """
-    DISABLED = "Disabled"
     ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class DatabaseIdentityType(str, Enum):
+    """
+    The identity type
+    """
+    NONE = "None"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class DatabaseLicenseType(str, Enum):
@@ -130,10 +154,23 @@ class DatabaseLicenseType(str, Enum):
 
 class DatabaseReadScale(str, Enum):
     """
-    The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+    The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class DayOfWeek(str, Enum):
+    """
+    Stop day.
+    """
+    SUNDAY = "Sunday"
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
 
 
 class ElasticPoolLicenseType(str, Enum):
@@ -148,8 +185,8 @@ class GeoBackupPolicyState(str, Enum):
     """
     The state of the geo backup policy.
     """
-    DISABLED = "Disabled"
     ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class IdentityType(str, Enum):
@@ -308,15 +345,6 @@ class ReplicationMode(str, Enum):
     SYNC = "Sync"
 
 
-class RequestedBackupStorageRedundancy(str, Enum):
-    """
-    The storage account type to be used to store backups for this database.
-    """
-    GEO = "Geo"
-    LOCAL = "Local"
-    ZONE = "Zone"
-
-
 class SampleName(str, Enum):
     """
     The name of the sample schema to apply when creating this database.
@@ -332,6 +360,31 @@ class SecondaryType(str, Enum):
     """
     GEO = "Geo"
     NAMED = "Named"
+
+
+class SecurityAlertPolicyEmailAccountAdmins(str, Enum):
+    """
+    Specifies that the alert is sent to the account administrators.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class SecurityAlertPolicyState(str, Enum):
+    """
+    Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+    """
+    NEW = "New"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class SecurityAlertPolicyUseServerDefault(str, Enum):
+    """
+    Specifies whether to use the default server policy.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SecurityAlertsPolicyState(str, Enum):
@@ -358,21 +411,28 @@ class ServerKeyType(str, Enum):
     AZURE_KEY_VAULT = "AzureKeyVault"
 
 
-class ServerPublicNetworkAccess(str, Enum):
+class ServerNetworkAccessFlag(str, Enum):
     """
-    Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
 
 
-class StorageAccountType(str, Enum):
+class ServicePrincipalType(str, Enum):
     """
-    The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
+    Service principal type.
     """
-    GRS = "GRS"
-    LRS = "LRS"
-    ZRS = "ZRS"
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class SqlVulnerabilityAssessmentState(str, Enum):
+    """
+    Specifies the state of the SQL Vulnerability Assessment, whether it is enabled or disabled or a state has not been applied yet on the specific database or server.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class SyncConflictResolutionPolicy(str, Enum):
@@ -400,9 +460,9 @@ class SyncMemberDbType(str, Enum):
     SQL_SERVER_DATABASE = "SqlServerDatabase"
 
 
-class TransparentDataEncryptionStatus(str, Enum):
+class TransparentDataEncryptionState(str, Enum):
     """
-    The status of the database transparent data encryption.
+    Specifies the state of the transparent data encryption.
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"

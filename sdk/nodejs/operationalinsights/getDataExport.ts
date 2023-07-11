@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a data export instance.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getDataExport(args: GetDataExportArgs, opts?: pulumi.InvokeOptions): Promise<GetDataExportResult> {
 
@@ -80,7 +80,7 @@ export interface GetDataExportResult {
 }
 /**
  * Gets a data export instance.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2020-08-01.
  */
 export function getDataExportOutput(args: GetDataExportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataExportResult> {
     return pulumi.output(args).apply((a: any) => getDataExport(a, opts))

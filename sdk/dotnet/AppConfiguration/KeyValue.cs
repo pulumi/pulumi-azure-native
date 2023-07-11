@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppConfiguration
 {
     /// <summary>
     /// The key-value resource along with all resource properties.
-    /// API Version: 2020-07-01-preview.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-07-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:KeyValue")]
     public partial class KeyValue : global::Pulumi.CustomResource

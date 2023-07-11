@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * disk encryption set resource.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
@@ -43,9 +43,17 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      */
     public readonly activeKey!: pulumi.Output<outputs.compute.KeyForDiskEncryptionSetResponse | undefined>;
     /**
+     * The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+     */
+    public /*out*/ readonly autoKeyRotationError!: pulumi.Output<outputs.compute.ApiErrorResponse>;
+    /**
      * The type of key used to encrypt the data of the disk.
      */
     public readonly encryptionType!: pulumi.Output<string | undefined>;
+    /**
+     * Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
+     */
+    public readonly federatedClientId!: pulumi.Output<string | undefined>;
     /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */
@@ -100,11 +108,13 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["activeKey"] = args ? args.activeKey : undefined;
             resourceInputs["diskEncryptionSetName"] = args ? args.diskEncryptionSetName : undefined;
             resourceInputs["encryptionType"] = args ? args.encryptionType : undefined;
+            resourceInputs["federatedClientId"] = args ? args.federatedClientId : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["rotationToLatestKeyVersionEnabled"] = args ? args.rotationToLatestKeyVersionEnabled : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoKeyRotationError"] = undefined /*out*/;
             resourceInputs["lastKeyRotationTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["previousKeys"] = undefined /*out*/;
@@ -112,7 +122,9 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activeKey"] = undefined /*out*/;
+            resourceInputs["autoKeyRotationError"] = undefined /*out*/;
             resourceInputs["encryptionType"] = undefined /*out*/;
+            resourceInputs["federatedClientId"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["lastKeyRotationTimestamp"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -124,7 +136,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200501:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-native:compute/v20201201:DiskEncryptionSet" }, { type: "azure-native:compute/v20210401:DiskEncryptionSet" }, { type: "azure-native:compute/v20210801:DiskEncryptionSet" }, { type: "azure-native:compute/v20211201:DiskEncryptionSet" }, { type: "azure-native:compute/v20220302:DiskEncryptionSet" }, { type: "azure-native:compute/v20220702:DiskEncryptionSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:compute/v20190701:DiskEncryptionSet" }, { type: "azure-native:compute/v20191101:DiskEncryptionSet" }, { type: "azure-native:compute/v20200501:DiskEncryptionSet" }, { type: "azure-native:compute/v20200630:DiskEncryptionSet" }, { type: "azure-native:compute/v20200930:DiskEncryptionSet" }, { type: "azure-native:compute/v20201201:DiskEncryptionSet" }, { type: "azure-native:compute/v20210401:DiskEncryptionSet" }, { type: "azure-native:compute/v20210801:DiskEncryptionSet" }, { type: "azure-native:compute/v20211201:DiskEncryptionSet" }, { type: "azure-native:compute/v20220302:DiskEncryptionSet" }, { type: "azure-native:compute/v20220702:DiskEncryptionSet" }, { type: "azure-native:compute/v20230102:DiskEncryptionSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DiskEncryptionSet.__pulumiType, name, resourceInputs, opts);
     }
@@ -139,13 +151,17 @@ export interface DiskEncryptionSetArgs {
      */
     activeKey?: pulumi.Input<inputs.compute.KeyForDiskEncryptionSetArgs>;
     /**
-     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskEncryptionSetName?: pulumi.Input<string>;
     /**
      * The type of key used to encrypt the data of the disk.
      */
     encryptionType?: pulumi.Input<string | enums.compute.DiskEncryptionSetType>;
+    /**
+     * Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
+     */
+    federatedClientId?: pulumi.Input<string>;
     /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */

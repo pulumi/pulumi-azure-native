@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     /// <summary>
     /// Domain Topic.
     /// </summary>
-    [Obsolete(@"azure-native:eventgrid/v20220615:DomainTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopic to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20220615:DomainTopic")]
     public partial class DomainTopic : global::Pulumi.CustomResource
     {
@@ -75,6 +74,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:DomainTopic"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:DomainTopic"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:DomainTopic"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:DomainTopic"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

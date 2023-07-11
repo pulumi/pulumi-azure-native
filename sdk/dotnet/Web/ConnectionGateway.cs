@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// The gateway definition
-    /// API Version: 2016-06-01.
+    /// Azure REST API version: 2016-06-01. Prior API version in Azure Native 1.x: 2016-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:web:ConnectionGateway")]
     public partial class ConnectionGateway : global::Pulumi.CustomResource

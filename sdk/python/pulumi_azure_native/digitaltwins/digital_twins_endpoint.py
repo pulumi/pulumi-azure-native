@@ -95,7 +95,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         DigitalTwinsInstance endpoint resource.
-        API Version: 2020-12-01.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +112,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         DigitalTwinsInstance endpoint resource.
-        API Version: 2020-12-01.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param DigitalTwinsEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -153,6 +153,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20220531:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20221031:DigitalTwinsEndpoint"), pulumi.Alias(type_="azure-native:digitaltwins/v20230131:DigitalTwinsEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -180,6 +181,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return DigitalTwinsEndpoint(resource_name, opts=opts, __props__=__props__)
 
@@ -198,6 +200,14 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
         DigitalTwinsInstance endpoint resource properties.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

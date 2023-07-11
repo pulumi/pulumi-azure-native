@@ -18,7 +18,6 @@ __all__ = ['ActivityCustomEntityQueryArgs', 'ActivityCustomEntityQuery']
 class ActivityCustomEntityQueryArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 operational_insights_resource_provider: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  content: Optional[pulumi.Input[str]] = None,
@@ -35,7 +34,6 @@ class ActivityCustomEntityQueryArgs:
         The set of arguments for constructing a ActivityCustomEntityQuery resource.
         :param pulumi.Input[str] kind: The kind of the entity query that supports put request.
                Expected value is 'Activity'.
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] content: The entity query content to display in timeline
@@ -50,7 +48,6 @@ class ActivityCustomEntityQueryArgs:
         :param pulumi.Input[str] title: The entity query title
         """
         pulumi.set(__self__, "kind", 'Activity')
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if content is not None:
@@ -86,18 +83,6 @@ class ActivityCustomEntityQueryArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter(name="operationalInsightsResourceProvider")
-    def operational_insights_resource_provider(self) -> pulumi.Input[str]:
-        """
-        The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        """
-        return pulumi.get(self, "operational_insights_resource_provider")
-
-    @operational_insights_resource_provider.setter
-    def operational_insights_resource_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operational_insights_resource_provider", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -256,7 +241,6 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
                  entity_query_id: Optional[pulumi.Input[str]] = None,
                  input_entity_type: Optional[pulumi.Input[Union[str, 'EntityType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  query_definitions: Optional[pulumi.Input[pulumi.InputType['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']]] = None,
                  required_input_fields_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -266,7 +250,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
                  __props__=None):
         """
         Represents Activity entity query.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,7 +262,6 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
         :param pulumi.Input[Union[str, 'EntityType']] input_entity_type: The type of the query's source entity
         :param pulumi.Input[str] kind: The kind of the entity query that supports put request.
                Expected value is 'Activity'.
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[pulumi.InputType['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']] query_definitions: The Activity query definitions
         :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]] required_input_fields_sets: List of the fields of the source entity that are required to run the query
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -294,7 +277,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents Activity entity query.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param ActivityCustomEntityQueryArgs args: The arguments to use to populate this resource's properties.
@@ -318,7 +301,6 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
                  entity_query_id: Optional[pulumi.Input[str]] = None,
                  input_entity_type: Optional[pulumi.Input[Union[str, 'EntityType']]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  query_definitions: Optional[pulumi.Input[pulumi.InputType['ActivityEntityQueriesPropertiesQueryDefinitionsArgs']]] = None,
                  required_input_fields_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -343,9 +325,6 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Activity'
-            if operational_insights_resource_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             __props__.__dict__["query_definitions"] = query_definitions
             __props__.__dict__["required_input_fields_sets"] = required_input_fields_sets
             if resource_group_name is None and not opts.urn:
@@ -362,7 +341,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:ActivityCustomEntityQuery")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:ActivityCustomEntityQuery"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:ActivityCustomEntityQuery")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ActivityCustomEntityQuery, __self__).__init__(
             'azure-native:securityinsights:ActivityCustomEntityQuery',
@@ -481,7 +460,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -529,7 +508,7 @@ class ActivityCustomEntityQuery(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

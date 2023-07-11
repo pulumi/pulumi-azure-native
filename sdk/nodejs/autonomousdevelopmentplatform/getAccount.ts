@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the properties of an ADP account
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -70,7 +70,7 @@ export interface GetAccountResult {
 }
 /**
  * Gets the properties of an ADP account
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

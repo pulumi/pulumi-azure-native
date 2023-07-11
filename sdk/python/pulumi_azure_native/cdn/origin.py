@@ -279,7 +279,7 @@ class Origin(pulumi.CustomResource):
                  __props__=None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        API Version: 2020-09-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -307,7 +307,7 @@ class Origin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
-        API Version: 2020-09-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param OriginArgs args: The arguments to use to populate this resource's properties.
@@ -377,7 +377,7 @@ class Origin(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:Origin"), pulumi.Alias(type_="azure-native:cdn/v20160402:Origin"), pulumi.Alias(type_="azure-native:cdn/v20191231:Origin"), pulumi.Alias(type_="azure-native:cdn/v20200331:Origin"), pulumi.Alias(type_="azure-native:cdn/v20200415:Origin"), pulumi.Alias(type_="azure-native:cdn/v20200901:Origin"), pulumi.Alias(type_="azure-native:cdn/v20210601:Origin"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Origin"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Origin")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20150601:Origin"), pulumi.Alias(type_="azure-native:cdn/v20160402:Origin"), pulumi.Alias(type_="azure-native:cdn/v20191231:Origin"), pulumi.Alias(type_="azure-native:cdn/v20200331:Origin"), pulumi.Alias(type_="azure-native:cdn/v20200415:Origin"), pulumi.Alias(type_="azure-native:cdn/v20200901:Origin"), pulumi.Alias(type_="azure-native:cdn/v20210601:Origin"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Origin"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Origin"), pulumi.Alias(type_="azure-native:cdn/v20230501:Origin")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Origin, __self__).__init__(
             'azure-native:cdn:Origin',

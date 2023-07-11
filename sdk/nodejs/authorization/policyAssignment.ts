@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy assignment.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**
@@ -75,6 +75,10 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     public readonly notScopes!: pulumi.Output<string[] | undefined>;
     /**
+     * The policy property value override.
+     */
+    public readonly overrides!: pulumi.Output<outputs.authorization.OverrideResponse[] | undefined>;
+    /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
     public readonly parameters!: pulumi.Output<{[key: string]: outputs.authorization.ParameterValuesValueResponse} | undefined>;
@@ -83,9 +87,17 @@ export class PolicyAssignment extends pulumi.CustomResource {
      */
     public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
     /**
+     * The resource selector list to filter policies by resource properties.
+     */
+    public readonly resourceSelectors!: pulumi.Output<outputs.authorization.ResourceSelectorResponse[] | undefined>;
+    /**
      * The scope for the policy assignment.
      */
     public readonly scope!: pulumi.Output<string>;
+    /**
+     * The system metadata relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
     /**
      * The type of the policy assignment.
      */
@@ -113,11 +125,14 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["metadata"] = args ? args.metadata : undefined;
             resourceInputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
             resourceInputs["notScopes"] = args ? args.notScopes : undefined;
+            resourceInputs["overrides"] = args ? args.overrides : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["policyAssignmentName"] = args ? args.policyAssignmentName : undefined;
             resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
+            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
@@ -129,9 +144,12 @@ export class PolicyAssignment extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nonComplianceMessages"] = undefined /*out*/;
             resourceInputs["notScopes"] = undefined /*out*/;
+            resourceInputs["overrides"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["policyDefinitionId"] = undefined /*out*/;
+            resourceInputs["resourceSelectors"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -178,6 +196,10 @@ export interface PolicyAssignmentArgs {
      */
     notScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The policy property value override.
+     */
+    overrides?: pulumi.Input<pulumi.Input<inputs.authorization.OverrideArgs>[]>;
+    /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
     parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterValuesValueArgs>}>;
@@ -189,6 +211,10 @@ export interface PolicyAssignmentArgs {
      * The ID of the policy definition or policy set definition being assigned.
      */
     policyDefinitionId?: pulumi.Input<string>;
+    /**
+     * The resource selector list to filter policies by resource properties.
+     */
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.authorization.ResourceSelectorArgs>[]>;
     /**
      * The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

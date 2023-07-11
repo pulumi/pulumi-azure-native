@@ -14,6 +14,10 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
     public sealed class GremlinGraphGetPropertiesResponseResource
     {
         /// <summary>
+        /// Analytical TTL.
+        /// </summary>
+        public readonly double? AnalyticalStorageTtl;
+        /// <summary>
         /// The conflict resolution policy for the graph.
         /// </summary>
         public readonly Outputs.ConflictResolutionPolicyResponse? ConflictResolutionPolicy;
@@ -52,6 +56,8 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
         [OutputConstructor]
         private GremlinGraphGetPropertiesResponseResource(
+            double? analyticalStorageTtl,
+
             Outputs.ConflictResolutionPolicyResponse? conflictResolutionPolicy,
 
             int? defaultTtl,
@@ -70,6 +76,7 @@ namespace Pulumi.AzureNative.DocumentDB.Outputs
 
             Outputs.UniqueKeyPolicyResponse? uniqueKeyPolicy)
         {
+            AnalyticalStorageTtl = analyticalStorageTtl;
             ConflictResolutionPolicy = conflictResolutionPolicy;
             DefaultTtl = defaultTtl;
             Etag = etag;

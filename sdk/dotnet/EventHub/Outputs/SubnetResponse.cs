@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.EventHub.Outputs
         /// <summary>
         /// Resource ID of Virtual Network Subnet
         /// </summary>
-        public readonly string Id;
+        public readonly string? Id;
 
         [OutputConstructor]
-        private SubnetResponse(string id)
+        private SubnetResponse(string? id)
         {
             Id = id;
         }

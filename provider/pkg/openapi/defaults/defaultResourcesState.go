@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi/paths"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 )
 
 // defaultResourcesStateRaw is a map non-normalized paths. It's handy to have paths as they are in the Open API spec's
@@ -37,7 +37,8 @@ var defaultResourcesStateRaw = map[string]map[string]interface{}{
 		"state": "Disabled",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/networkRuleSets/default": {
-		"defaultAction": "Deny",
+		"defaultAction":       "Deny",
+		"publicNetworkAccess": "Disabled",
 	},
 	"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures": {
 		"currentBillingFeatures": []string{"Basic"},

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a description for the specified Private Endpoint Connection name.
- * API Version: 2018-01-01-preview.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -45,6 +45,10 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly id: string;
     /**
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -61,13 +65,17 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly provisioningState?: string;
     /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     readonly type: string;
 }
 /**
  * Gets a description for the specified Private Endpoint Connection name.
- * API Version: 2018-01-01-preview.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

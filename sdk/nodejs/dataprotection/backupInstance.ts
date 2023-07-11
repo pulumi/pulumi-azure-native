@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * BackupInstance Resource
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class BackupInstance extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class BackupInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Resource name associated with the resource.
+     * Proxy Resource name associated with the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -51,7 +51,11 @@ export class BackupInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.dataprotection.SystemDataResponse>;
     /**
-     * Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
+     * Proxy Resource tags.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Proxy Resource type represents the complete path of the form Namespace/ResourceType/ResourceType/...
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -75,6 +79,7 @@ export class BackupInstance extends pulumi.CustomResource {
             resourceInputs["backupInstanceName"] = args ? args.backupInstanceName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vaultName"] = args ? args.vaultName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -83,10 +88,11 @@ export class BackupInstance extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20210101:BackupInstance" }, { type: "azure-native:dataprotection/v20210201preview:BackupInstance" }, { type: "azure-native:dataprotection/v20210601preview:BackupInstance" }, { type: "azure-native:dataprotection/v20210701:BackupInstance" }, { type: "azure-native:dataprotection/v20211001preview:BackupInstance" }, { type: "azure-native:dataprotection/v20211201preview:BackupInstance" }, { type: "azure-native:dataprotection/v20220101:BackupInstance" }, { type: "azure-native:dataprotection/v20220201preview:BackupInstance" }, { type: "azure-native:dataprotection/v20220301:BackupInstance" }, { type: "azure-native:dataprotection/v20220331preview:BackupInstance" }, { type: "azure-native:dataprotection/v20220401:BackupInstance" }, { type: "azure-native:dataprotection/v20220501:BackupInstance" }, { type: "azure-native:dataprotection/v20220901preview:BackupInstance" }, { type: "azure-native:dataprotection/v20221001preview:BackupInstance" }, { type: "azure-native:dataprotection/v20221101preview:BackupInstance" }, { type: "azure-native:dataprotection/v20221201:BackupInstance" }, { type: "azure-native:dataprotection/v20230101:BackupInstance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dataprotection/v20210101:BackupInstance" }, { type: "azure-native:dataprotection/v20210201preview:BackupInstance" }, { type: "azure-native:dataprotection/v20210601preview:BackupInstance" }, { type: "azure-native:dataprotection/v20210701:BackupInstance" }, { type: "azure-native:dataprotection/v20211001preview:BackupInstance" }, { type: "azure-native:dataprotection/v20211201preview:BackupInstance" }, { type: "azure-native:dataprotection/v20220101:BackupInstance" }, { type: "azure-native:dataprotection/v20220201preview:BackupInstance" }, { type: "azure-native:dataprotection/v20220301:BackupInstance" }, { type: "azure-native:dataprotection/v20220331preview:BackupInstance" }, { type: "azure-native:dataprotection/v20220401:BackupInstance" }, { type: "azure-native:dataprotection/v20220501:BackupInstance" }, { type: "azure-native:dataprotection/v20220901preview:BackupInstance" }, { type: "azure-native:dataprotection/v20221001preview:BackupInstance" }, { type: "azure-native:dataprotection/v20221101preview:BackupInstance" }, { type: "azure-native:dataprotection/v20221201:BackupInstance" }, { type: "azure-native:dataprotection/v20230101:BackupInstance" }, { type: "azure-native:dataprotection/v20230401preview:BackupInstance" }, { type: "azure-native:dataprotection/v20230501:BackupInstance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BackupInstance.__pulumiType, name, resourceInputs, opts);
     }
@@ -97,7 +103,7 @@ export class BackupInstance extends pulumi.CustomResource {
  */
 export interface BackupInstanceArgs {
     /**
-     * The name of the backup instance
+     * The name of the backup instance.
      */
     backupInstanceName?: pulumi.Input<string>;
     /**
@@ -105,9 +111,13 @@ export interface BackupInstanceArgs {
      */
     properties?: pulumi.Input<inputs.dataprotection.BackupInstanceArgs>;
     /**
-     * The name of the resource group where the backup vault is present.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Proxy Resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the backup vault.
      */

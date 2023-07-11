@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a VirtualHub.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetVirtualHubResult> InvokeAsync(GetVirtualHubArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a VirtualHub.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetVirtualHubResult> Invoke(GetVirtualHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubResult>("azure-native:network:getVirtualHub", args ?? new GetVirtualHubInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.SubResourceResponse? ExpressRouteGateway;
         /// <summary>
+        /// The hubRoutingPreference of this VirtualHub.
+        /// </summary>
+        public readonly string? HubRoutingPreference;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -103,6 +107,10 @@ namespace Pulumi.AzureNative.Network
         /// List of references to IpConfigurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> IpConfigurations;
+        /// <summary>
+        /// Kind of service virtual hub. This is metadata used for the Azure portal experience for Route Server.
+        /// </summary>
+        public readonly string Kind;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -116,9 +124,17 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.SubResourceResponse? P2SVpnGateway;
         /// <summary>
+        /// The preferred gateway to route on-prem traffic
+        /// </summary>
+        public readonly string? PreferredRoutingGateway;
+        /// <summary>
         /// The provisioning state of the virtual hub resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// List of references to RouteMaps.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> RouteMaps;
         /// <summary>
         /// The routeTable associated with this virtual hub.
         /// </summary>
@@ -156,6 +172,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly double? VirtualRouterAsn;
         /// <summary>
+        /// The VirtualHub Router autoscale configuration.
+        /// </summary>
+        public readonly Outputs.VirtualRouterAutoScaleConfigurationResponse? VirtualRouterAutoScaleConfiguration;
+        /// <summary>
         /// VirtualRouter IPs.
         /// </summary>
         public readonly ImmutableArray<string> VirtualRouterIps;
@@ -182,9 +202,13 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.SubResourceResponse? expressRouteGateway,
 
+            string? hubRoutingPreference,
+
             string? id,
 
             ImmutableArray<Outputs.SubResourceResponse> ipConfigurations,
+
+            string kind,
 
             string location,
 
@@ -192,7 +216,11 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.SubResourceResponse? p2SVpnGateway,
 
+            string? preferredRoutingGateway,
+
             string provisioningState,
+
+            ImmutableArray<Outputs.SubResourceResponse> routeMaps,
 
             Outputs.VirtualHubRouteTableResponse? routeTable,
 
@@ -212,6 +240,8 @@ namespace Pulumi.AzureNative.Network
 
             double? virtualRouterAsn,
 
+            Outputs.VirtualRouterAutoScaleConfigurationResponse? virtualRouterAutoScaleConfiguration,
+
             ImmutableArray<string> virtualRouterIps,
 
             Outputs.SubResourceResponse? virtualWan,
@@ -224,12 +254,16 @@ namespace Pulumi.AzureNative.Network
             BgpConnections = bgpConnections;
             Etag = etag;
             ExpressRouteGateway = expressRouteGateway;
+            HubRoutingPreference = hubRoutingPreference;
             Id = id;
             IpConfigurations = ipConfigurations;
+            Kind = kind;
             Location = location;
             Name = name;
             P2SVpnGateway = p2SVpnGateway;
+            PreferredRoutingGateway = preferredRoutingGateway;
             ProvisioningState = provisioningState;
+            RouteMaps = routeMaps;
             RouteTable = routeTable;
             RoutingState = routingState;
             SecurityPartnerProvider = securityPartnerProvider;
@@ -239,6 +273,7 @@ namespace Pulumi.AzureNative.Network
             Type = type;
             VirtualHubRouteTableV2s = virtualHubRouteTableV2s;
             VirtualRouterAsn = virtualRouterAsn;
+            VirtualRouterAutoScaleConfiguration = virtualRouterAutoScaleConfiguration;
             VirtualRouterIps = virtualRouterIps;
             VirtualWan = virtualWan;
             VpnGateway = vpnGateway;

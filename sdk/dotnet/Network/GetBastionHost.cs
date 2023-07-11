@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Bastion Host.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetBastionHostResult> InvokeAsync(GetBastionHostArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBastionHostResult>("azure-native:network:getBastionHost", args ?? new GetBastionHostArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Bastion Host.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetBastionHostResult> Invoke(GetBastionHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBastionHostResult>("azure-native:network:getBastionHost", args ?? new GetBastionHostInvokeArgs(), options.WithDefaults());
@@ -72,9 +72,33 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetBastionHostResult
     {
         /// <summary>
+        /// Enable/Disable Copy/Paste feature of the Bastion Host resource.
+        /// </summary>
+        public readonly bool? DisableCopyPaste;
+        /// <summary>
         /// FQDN for the endpoint on which bastion host is accessible.
         /// </summary>
         public readonly string? DnsName;
+        /// <summary>
+        /// Enable/Disable File Copy feature of the Bastion Host resource.
+        /// </summary>
+        public readonly bool? EnableFileCopy;
+        /// <summary>
+        /// Enable/Disable IP Connect feature of the Bastion Host resource.
+        /// </summary>
+        public readonly bool? EnableIpConnect;
+        /// <summary>
+        /// Enable/Disable Kerberos feature of the Bastion Host resource.
+        /// </summary>
+        public readonly bool? EnableKerberos;
+        /// <summary>
+        /// Enable/Disable Shareable Link of the Bastion Host resource.
+        /// </summary>
+        public readonly bool? EnableShareableLink;
+        /// <summary>
+        /// Enable/Disable Tunneling feature of the Bastion Host resource.
+        /// </summary>
+        public readonly bool? EnableTunneling;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -100,6 +124,14 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// The scale units for the Bastion Host resource.
+        /// </summary>
+        public readonly int? ScaleUnits;
+        /// <summary>
+        /// The sku of this Bastion Host.
+        /// </summary>
+        public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -110,7 +142,19 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetBastionHostResult(
+            bool? disableCopyPaste,
+
             string? dnsName,
+
+            bool? enableFileCopy,
+
+            bool? enableIpConnect,
+
+            bool? enableKerberos,
+
+            bool? enableShareableLink,
+
+            bool? enableTunneling,
 
             string etag,
 
@@ -124,17 +168,29 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            int? scaleUnits,
+
+            Outputs.SkuResponse? sku,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            DisableCopyPaste = disableCopyPaste;
             DnsName = dnsName;
+            EnableFileCopy = enableFileCopy;
+            EnableIpConnect = enableIpConnect;
+            EnableKerberos = enableKerberos;
+            EnableShareableLink = enableShareableLink;
+            EnableTunneling = enableTunneling;
             Etag = etag;
             Id = id;
             IpConfigurations = ipConfigurations;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            ScaleUnits = scaleUnits;
+            Sku = sku;
             Tags = tags;
             Type = type;
         }

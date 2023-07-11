@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string PrivateLinkServiceID;
         /// <summary>
-        /// RequiredMembers of the resource
+        /// The RequiredMembers of the resource
         /// </summary>
         public readonly ImmutableArray<string> RequiredMembers;
         /// <summary>

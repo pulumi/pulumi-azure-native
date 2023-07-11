@@ -21,6 +21,9 @@ class PrivateCloudArgs:
                  network_block: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['SkuArgs'],
+                 availability: Optional[pulumi.Input['AvailabilityPropertiesArgs']] = None,
+                 encryption: Optional[pulumi.Input['EncryptionArgs']] = None,
+                 identity: Optional[pulumi.Input['PrivateCloudIdentityArgs']] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]]] = None,
                  internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -34,6 +37,9 @@ class PrivateCloudArgs:
         :param pulumi.Input[str] network_block: The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The private cloud SKU
+        :param pulumi.Input['AvailabilityPropertiesArgs'] availability: Properties describing how the cloud is distributed across availability zones
+        :param pulumi.Input['EncryptionArgs'] encryption: Customer managed key encryption, can be enabled or disabled
+        :param pulumi.Input['PrivateCloudIdentityArgs'] identity: The identity of the private cloud, if configured.
         :param pulumi.Input[Sequence[pulumi.Input['IdentitySourceArgs']]] identity_sources: vCenter Single Sign On Identity Sources
         :param pulumi.Input[Union[str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[str] location: Resource location
@@ -46,6 +52,12 @@ class PrivateCloudArgs:
         pulumi.set(__self__, "network_block", network_block)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if availability is not None:
+            pulumi.set(__self__, "availability", availability)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if identity_sources is not None:
             pulumi.set(__self__, "identity_sources", identity_sources)
         if internet is None:
@@ -110,6 +122,42 @@ class PrivateCloudArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @property
+    @pulumi.getter
+    def availability(self) -> Optional[pulumi.Input['AvailabilityPropertiesArgs']]:
+        """
+        Properties describing how the cloud is distributed across availability zones
+        """
+        return pulumi.get(self, "availability")
+
+    @availability.setter
+    def availability(self, value: Optional[pulumi.Input['AvailabilityPropertiesArgs']]):
+        pulumi.set(self, "availability", value)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional[pulumi.Input['EncryptionArgs']]:
+        """
+        Customer managed key encryption, can be enabled or disabled
+        """
+        return pulumi.get(self, "encryption")
+
+    @encryption.setter
+    def encryption(self, value: Optional[pulumi.Input['EncryptionArgs']]):
+        pulumi.set(self, "encryption", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['PrivateCloudIdentityArgs']]:
+        """
+        The identity of the private cloud, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['PrivateCloudIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="identitySources")
@@ -201,6 +249,9 @@ class PrivateCloud(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability: Optional[pulumi.Input[pulumi.InputType['AvailabilityPropertiesArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['PrivateCloudIdentityArgs']]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]]] = None,
                  internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -215,10 +266,13 @@ class PrivateCloud(pulumi.CustomResource):
                  __props__=None):
         """
         A private cloud resource
-        API Version: 2020-03-20.
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['AvailabilityPropertiesArgs']] availability: Properties describing how the cloud is distributed across availability zones
+        :param pulumi.Input[pulumi.InputType['EncryptionArgs']] encryption: Customer managed key encryption, can be enabled or disabled
+        :param pulumi.Input[pulumi.InputType['PrivateCloudIdentityArgs']] identity: The identity of the private cloud, if configured.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]] identity_sources: vCenter Single Sign On Identity Sources
         :param pulumi.Input[Union[str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[str] location: Resource location
@@ -239,7 +293,7 @@ class PrivateCloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private cloud resource
-        API Version: 2020-03-20.
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20
 
         :param str resource_name: The name of the resource.
         :param PrivateCloudArgs args: The arguments to use to populate this resource's properties.
@@ -256,6 +310,9 @@ class PrivateCloud(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 availability: Optional[pulumi.Input[pulumi.InputType['AvailabilityPropertiesArgs']]] = None,
+                 encryption: Optional[pulumi.Input[pulumi.InputType['EncryptionArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['PrivateCloudIdentityArgs']]] = None,
                  identity_sources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]]] = None,
                  internet: Optional[pulumi.Input[Union[str, 'InternetEnum']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -276,6 +333,9 @@ class PrivateCloud(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateCloudArgs.__new__(PrivateCloudArgs)
 
+            __props__.__dict__["availability"] = availability
+            __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["identity_sources"] = identity_sources
             if internet is None:
                 internet = 'Disabled'
@@ -299,11 +359,14 @@ class PrivateCloud(pulumi.CustomResource):
             __props__.__dict__["vcenter_password"] = vcenter_password
             __props__.__dict__["circuit"] = None
             __props__.__dict__["endpoints"] = None
+            __props__.__dict__["external_cloud_links"] = None
             __props__.__dict__["management_network"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["nsx_public_ip_quota_raised"] = None
             __props__.__dict__["nsxt_certificate_thumbprint"] = None
             __props__.__dict__["provisioning_network"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["secondary_circuit"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["vcenter_certificate_thumbprint"] = None
             __props__.__dict__["vmotion_network"] = None
@@ -331,8 +394,12 @@ class PrivateCloud(pulumi.CustomResource):
 
         __props__ = PrivateCloudArgs.__new__(PrivateCloudArgs)
 
+        __props__.__dict__["availability"] = None
         __props__.__dict__["circuit"] = None
+        __props__.__dict__["encryption"] = None
         __props__.__dict__["endpoints"] = None
+        __props__.__dict__["external_cloud_links"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["identity_sources"] = None
         __props__.__dict__["internet"] = None
         __props__.__dict__["location"] = None
@@ -340,10 +407,12 @@ class PrivateCloud(pulumi.CustomResource):
         __props__.__dict__["management_network"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_block"] = None
+        __props__.__dict__["nsx_public_ip_quota_raised"] = None
         __props__.__dict__["nsxt_certificate_thumbprint"] = None
         __props__.__dict__["nsxt_password"] = None
         __props__.__dict__["provisioning_network"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["secondary_circuit"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -351,6 +420,14 @@ class PrivateCloud(pulumi.CustomResource):
         __props__.__dict__["vcenter_password"] = None
         __props__.__dict__["vmotion_network"] = None
         return PrivateCloud(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def availability(self) -> pulumi.Output[Optional['outputs.AvailabilityPropertiesResponse']]:
+        """
+        Properties describing how the cloud is distributed across availability zones
+        """
+        return pulumi.get(self, "availability")
 
     @property
     @pulumi.getter
@@ -362,11 +439,35 @@ class PrivateCloud(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def encryption(self) -> pulumi.Output[Optional['outputs.EncryptionResponse']]:
+        """
+        Customer managed key encryption, can be enabled or disabled
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
     def endpoints(self) -> pulumi.Output['outputs.EndpointsResponse']:
         """
         The endpoints
         """
         return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter(name="externalCloudLinks")
+    def external_cloud_links(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Array of cloud link IDs from other clouds that connect to this one
+        """
+        return pulumi.get(self, "external_cloud_links")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.PrivateCloudIdentityResponse']]:
+        """
+        The identity of the private cloud, if configured.
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="identitySources")
@@ -425,6 +526,14 @@ class PrivateCloud(pulumi.CustomResource):
         return pulumi.get(self, "network_block")
 
     @property
+    @pulumi.getter(name="nsxPublicIpQuotaRaised")
+    def nsx_public_ip_quota_raised(self) -> pulumi.Output[str]:
+        """
+        Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024
+        """
+        return pulumi.get(self, "nsx_public_ip_quota_raised")
+
+    @property
     @pulumi.getter(name="nsxtCertificateThumbprint")
     def nsxt_certificate_thumbprint(self) -> pulumi.Output[str]:
         """
@@ -455,6 +564,14 @@ class PrivateCloud(pulumi.CustomResource):
         The provisioning state
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="secondaryCircuit")
+    def secondary_circuit(self) -> pulumi.Output[Optional['outputs.CircuitResponse']]:
+        """
+        A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+        """
+        return pulumi.get(self, "secondary_circuit")
 
     @property
     @pulumi.getter

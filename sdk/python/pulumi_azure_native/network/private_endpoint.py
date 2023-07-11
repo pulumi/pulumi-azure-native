@@ -18,9 +18,12 @@ __all__ = ['PrivateEndpointArgs', 'PrivateEndpoint']
 class PrivateEndpointArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
+                 application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]]] = None,
                  custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDnsConfigPropertiesFormatArgs']]]] = None,
+                 custom_network_interface_name: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointIPConfigurationArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -30,9 +33,12 @@ class PrivateEndpointArgs:
         """
         The set of arguments for constructing a PrivateEndpoint resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]] application_security_groups: Application security groups in which the private endpoint IP configuration is included.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDnsConfigPropertiesFormatArgs']]] custom_dns_configs: An array of custom dns configurations.
+        :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the load balancer.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointIPConfigurationArgs']]] ip_configurations: A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
@@ -41,12 +47,18 @@ class PrivateEndpointArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if application_security_groups is not None:
+            pulumi.set(__self__, "application_security_groups", application_security_groups)
         if custom_dns_configs is not None:
             pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
+        if custom_network_interface_name is not None:
+            pulumi.set(__self__, "custom_network_interface_name", custom_network_interface_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if manual_private_link_service_connections is not None:
@@ -73,6 +85,18 @@ class PrivateEndpointArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="applicationSecurityGroups")
+    def application_security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]]]:
+        """
+        Application security groups in which the private endpoint IP configuration is included.
+        """
+        return pulumi.get(self, "application_security_groups")
+
+    @application_security_groups.setter
+    def application_security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]]]):
+        pulumi.set(self, "application_security_groups", value)
+
+    @property
     @pulumi.getter(name="customDnsConfigs")
     def custom_dns_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomDnsConfigPropertiesFormatArgs']]]]:
         """
@@ -83,6 +107,18 @@ class PrivateEndpointArgs:
     @custom_dns_configs.setter
     def custom_dns_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomDnsConfigPropertiesFormatArgs']]]]):
         pulumi.set(self, "custom_dns_configs", value)
+
+    @property
+    @pulumi.getter(name="customNetworkInterfaceName")
+    def custom_network_interface_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The custom name of the network interface attached to the private endpoint.
+        """
+        return pulumi.get(self, "custom_network_interface_name")
+
+    @custom_network_interface_name.setter
+    def custom_network_interface_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_network_interface_name", value)
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -107,6 +143,18 @@ class PrivateEndpointArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointIPConfigurationArgs']]]]:
+        """
+        A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointIPConfigurationArgs']]]]):
+        pulumi.set(self, "ip_configurations", value)
 
     @property
     @pulumi.getter
@@ -186,9 +234,12 @@ class PrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
                  custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]]] = None,
+                 custom_network_interface_name: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -199,13 +250,16 @@ class PrivateEndpoint(pulumi.CustomResource):
                  __props__=None):
         """
         Private endpoint resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]] application_security_groups: Application security groups in which the private endpoint IP configuration is included.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]] custom_dns_configs: An array of custom dns configurations.
+        :param pulumi.Input[str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the load balancer.
         :param pulumi.Input[str] id: Resource ID.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointIPConfigurationArgs']]]] ip_configurations: A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         :param pulumi.Input[str] private_endpoint_name: The name of the private endpoint.
@@ -222,7 +276,7 @@ class PrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private endpoint resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointArgs args: The arguments to use to populate this resource's properties.
@@ -239,9 +293,12 @@ class PrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 application_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationSecurityGroupArgs']]]]] = None,
                  custom_dns_configs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]]] = None,
+                 custom_network_interface_name: Optional[pulumi.Input[str]] = None,
                  extended_location: Optional[pulumi.Input[pulumi.InputType['ExtendedLocationArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointIPConfigurationArgs']]]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  manual_private_link_service_connections: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionArgs']]]]] = None,
                  private_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -258,9 +315,12 @@ class PrivateEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PrivateEndpointArgs.__new__(PrivateEndpointArgs)
 
+            __props__.__dict__["application_security_groups"] = application_security_groups
             __props__.__dict__["custom_dns_configs"] = custom_dns_configs
+            __props__.__dict__["custom_network_interface_name"] = custom_network_interface_name
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["id"] = id
+            __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["manual_private_link_service_connections"] = manual_private_link_service_connections
             __props__.__dict__["private_endpoint_name"] = private_endpoint_name
@@ -275,7 +335,7 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__.__dict__["network_interfaces"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20181001:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20181101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20181201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190401:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190601:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190701:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190801:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190901:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20191101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20191201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200301:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200401:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200501:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200701:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200801:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20201101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20210201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20210301:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20210501:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20210801:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20220101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20220501:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20220701:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20220901:PrivateEndpoint")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20180801:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20181001:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20181101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20181201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190401:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190601:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190701:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190801:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20190901:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20191101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20191201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200301:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200401:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200501:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200701:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20200801:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20201101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20210201:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20210301:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20210501:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20210801:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20220101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20220501:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20220701:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20220901:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20221101:PrivateEndpoint"), pulumi.Alias(type_="azure-native:network/v20230201:PrivateEndpoint")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpoint, __self__).__init__(
             'azure-native:network:PrivateEndpoint',
@@ -299,9 +359,12 @@ class PrivateEndpoint(pulumi.CustomResource):
 
         __props__ = PrivateEndpointArgs.__new__(PrivateEndpointArgs)
 
+        __props__.__dict__["application_security_groups"] = None
         __props__.__dict__["custom_dns_configs"] = None
+        __props__.__dict__["custom_network_interface_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["extended_location"] = None
+        __props__.__dict__["ip_configurations"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["manual_private_link_service_connections"] = None
         __props__.__dict__["name"] = None
@@ -314,12 +377,28 @@ class PrivateEndpoint(pulumi.CustomResource):
         return PrivateEndpoint(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="applicationSecurityGroups")
+    def application_security_groups(self) -> pulumi.Output[Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]]:
+        """
+        Application security groups in which the private endpoint IP configuration is included.
+        """
+        return pulumi.get(self, "application_security_groups")
+
+    @property
     @pulumi.getter(name="customDnsConfigs")
     def custom_dns_configs(self) -> pulumi.Output[Optional[Sequence['outputs.CustomDnsConfigPropertiesFormatResponse']]]:
         """
         An array of custom dns configurations.
         """
         return pulumi.get(self, "custom_dns_configs")
+
+    @property
+    @pulumi.getter(name="customNetworkInterfaceName")
+    def custom_network_interface_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The custom name of the network interface attached to the private endpoint.
+        """
+        return pulumi.get(self, "custom_network_interface_name")
 
     @property
     @pulumi.getter
@@ -336,6 +415,14 @@ class PrivateEndpoint(pulumi.CustomResource):
         The extended location of the load balancer.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.PrivateEndpointIPConfigurationResponse']]]:
+        """
+        A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+        """
+        return pulumi.get(self, "ip_configurations")
 
     @property
     @pulumi.getter

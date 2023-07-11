@@ -22,7 +22,7 @@ class GetWebAppSlotResult:
     """
     A web app, a mobile app backend, or an API app.
     """
-    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None):
+    def __init__(__self__, availability_state=None, client_affinity_enabled=None, client_cert_enabled=None, client_cert_exclusion_paths=None, client_cert_mode=None, container_size=None, custom_domain_verification_id=None, daily_memory_time_quota=None, default_host_name=None, enabled=None, enabled_host_names=None, extended_location=None, host_name_ssl_states=None, host_names=None, host_names_disabled=None, hosting_environment_profile=None, https_only=None, hyper_v=None, id=None, identity=None, in_progress_operation_id=None, is_default_container=None, is_xenon=None, key_vault_reference_identity=None, kind=None, last_modified_time_utc=None, location=None, managed_environment_id=None, max_number_of_workers=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, redundancy_mode=None, repository_site_name=None, reserved=None, resource_group=None, scm_site_also_stopped=None, server_farm_id=None, site_config=None, slot_swap_status=None, state=None, storage_account_required=None, suspended_till=None, tags=None, target_swap_slot=None, traffic_manager_host_names=None, type=None, usage_state=None, virtual_network_subnet_id=None, vnet_content_share_enabled=None, vnet_image_pull_enabled=None, vnet_route_all_enabled=None):
         if availability_state and not isinstance(availability_state, str):
             raise TypeError("Expected argument 'availability_state' to be a str")
         pulumi.set(__self__, "availability_state", availability_state)
@@ -56,6 +56,9 @@ class GetWebAppSlotResult:
         if enabled_host_names and not isinstance(enabled_host_names, list):
             raise TypeError("Expected argument 'enabled_host_names' to be a list")
         pulumi.set(__self__, "enabled_host_names", enabled_host_names)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if host_name_ssl_states and not isinstance(host_name_ssl_states, list):
             raise TypeError("Expected argument 'host_name_ssl_states' to be a list")
         pulumi.set(__self__, "host_name_ssl_states", host_name_ssl_states)
@@ -101,6 +104,9 @@ class GetWebAppSlotResult:
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
+        if managed_environment_id and not isinstance(managed_environment_id, str):
+            raise TypeError("Expected argument 'managed_environment_id' to be a str")
+        pulumi.set(__self__, "managed_environment_id", managed_environment_id)
         if max_number_of_workers and not isinstance(max_number_of_workers, int):
             raise TypeError("Expected argument 'max_number_of_workers' to be a int")
         pulumi.set(__self__, "max_number_of_workers", max_number_of_workers)
@@ -113,6 +119,9 @@ class GetWebAppSlotResult:
         if possible_outbound_ip_addresses and not isinstance(possible_outbound_ip_addresses, str):
             raise TypeError("Expected argument 'possible_outbound_ip_addresses' to be a str")
         pulumi.set(__self__, "possible_outbound_ip_addresses", possible_outbound_ip_addresses)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if redundancy_mode and not isinstance(redundancy_mode, str):
             raise TypeError("Expected argument 'redundancy_mode' to be a str")
         pulumi.set(__self__, "redundancy_mode", redundancy_mode)
@@ -164,6 +173,15 @@ class GetWebAppSlotResult:
         if virtual_network_subnet_id and not isinstance(virtual_network_subnet_id, str):
             raise TypeError("Expected argument 'virtual_network_subnet_id' to be a str")
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
+        if vnet_content_share_enabled and not isinstance(vnet_content_share_enabled, bool):
+            raise TypeError("Expected argument 'vnet_content_share_enabled' to be a bool")
+        pulumi.set(__self__, "vnet_content_share_enabled", vnet_content_share_enabled)
+        if vnet_image_pull_enabled and not isinstance(vnet_image_pull_enabled, bool):
+            raise TypeError("Expected argument 'vnet_image_pull_enabled' to be a bool")
+        pulumi.set(__self__, "vnet_image_pull_enabled", vnet_image_pull_enabled)
+        if vnet_route_all_enabled and not isinstance(vnet_route_all_enabled, bool):
+            raise TypeError("Expected argument 'vnet_route_all_enabled' to be a bool")
+        pulumi.set(__self__, "vnet_route_all_enabled", vnet_route_all_enabled)
 
     @property
     @pulumi.getter(name="availabilityState")
@@ -256,6 +274,14 @@ class GetWebAppSlotResult:
         the app is not served on those hostnames.
         """
         return pulumi.get(self, "enabled_host_names")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        Extended Location.
+        """
+        return pulumi.get(self, "extended_location")
 
     @property
     @pulumi.getter(name="hostNameSslStates")
@@ -380,6 +406,14 @@ class GetWebAppSlotResult:
         return pulumi.get(self, "location")
 
     @property
+    @pulumi.getter(name="managedEnvironmentId")
+    def managed_environment_id(self) -> Optional[str]:
+        """
+        Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
+        """
+        return pulumi.get(self, "managed_environment_id")
+
+    @property
     @pulumi.getter(name="maxNumberOfWorkers")
     def max_number_of_workers(self) -> int:
         """
@@ -411,6 +445,14 @@ class GetWebAppSlotResult:
         List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
         """
         return pulumi.get(self, "possible_outbound_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="redundancyMode")
@@ -549,6 +591,30 @@ class GetWebAppSlotResult:
         """
         return pulumi.get(self, "virtual_network_subnet_id")
 
+    @property
+    @pulumi.getter(name="vnetContentShareEnabled")
+    def vnet_content_share_enabled(self) -> Optional[bool]:
+        """
+        To enable accessing content over virtual network
+        """
+        return pulumi.get(self, "vnet_content_share_enabled")
+
+    @property
+    @pulumi.getter(name="vnetImagePullEnabled")
+    def vnet_image_pull_enabled(self) -> Optional[bool]:
+        """
+        To enable pulling image over Virtual Network
+        """
+        return pulumi.get(self, "vnet_image_pull_enabled")
+
+    @property
+    @pulumi.getter(name="vnetRouteAllEnabled")
+    def vnet_route_all_enabled(self) -> Optional[bool]:
+        """
+        Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        """
+        return pulumi.get(self, "vnet_route_all_enabled")
+
 
 class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
     # pylint: disable=using-constant-test
@@ -567,6 +633,7 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             default_host_name=self.default_host_name,
             enabled=self.enabled,
             enabled_host_names=self.enabled_host_names,
+            extended_location=self.extended_location,
             host_name_ssl_states=self.host_name_ssl_states,
             host_names=self.host_names,
             host_names_disabled=self.host_names_disabled,
@@ -582,10 +649,12 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             kind=self.kind,
             last_modified_time_utc=self.last_modified_time_utc,
             location=self.location,
+            managed_environment_id=self.managed_environment_id,
             max_number_of_workers=self.max_number_of_workers,
             name=self.name,
             outbound_ip_addresses=self.outbound_ip_addresses,
             possible_outbound_ip_addresses=self.possible_outbound_ip_addresses,
+            public_network_access=self.public_network_access,
             redundancy_mode=self.redundancy_mode,
             repository_site_name=self.repository_site_name,
             reserved=self.reserved,
@@ -602,7 +671,10 @@ class AwaitableGetWebAppSlotResult(GetWebAppSlotResult):
             traffic_manager_host_names=self.traffic_manager_host_names,
             type=self.type,
             usage_state=self.usage_state,
-            virtual_network_subnet_id=self.virtual_network_subnet_id)
+            virtual_network_subnet_id=self.virtual_network_subnet_id,
+            vnet_content_share_enabled=self.vnet_content_share_enabled,
+            vnet_image_pull_enabled=self.vnet_image_pull_enabled,
+            vnet_route_all_enabled=self.vnet_route_all_enabled)
 
 
 def get_web_app_slot(name: Optional[str] = None,
@@ -610,8 +682,8 @@ def get_web_app_slot(name: Optional[str] = None,
                      slot: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppSlotResult:
     """
-    Gets the details of a web, mobile, or API app.
-    API Version: 2020-12-01.
+    Description for Gets the details of a web, mobile, or API app.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.
@@ -637,6 +709,7 @@ def get_web_app_slot(name: Optional[str] = None,
         default_host_name=__ret__.default_host_name,
         enabled=__ret__.enabled,
         enabled_host_names=__ret__.enabled_host_names,
+        extended_location=__ret__.extended_location,
         host_name_ssl_states=__ret__.host_name_ssl_states,
         host_names=__ret__.host_names,
         host_names_disabled=__ret__.host_names_disabled,
@@ -652,10 +725,12 @@ def get_web_app_slot(name: Optional[str] = None,
         kind=__ret__.kind,
         last_modified_time_utc=__ret__.last_modified_time_utc,
         location=__ret__.location,
+        managed_environment_id=__ret__.managed_environment_id,
         max_number_of_workers=__ret__.max_number_of_workers,
         name=__ret__.name,
         outbound_ip_addresses=__ret__.outbound_ip_addresses,
         possible_outbound_ip_addresses=__ret__.possible_outbound_ip_addresses,
+        public_network_access=__ret__.public_network_access,
         redundancy_mode=__ret__.redundancy_mode,
         repository_site_name=__ret__.repository_site_name,
         reserved=__ret__.reserved,
@@ -672,7 +747,10 @@ def get_web_app_slot(name: Optional[str] = None,
         traffic_manager_host_names=__ret__.traffic_manager_host_names,
         type=__ret__.type,
         usage_state=__ret__.usage_state,
-        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
+        virtual_network_subnet_id=__ret__.virtual_network_subnet_id,
+        vnet_content_share_enabled=__ret__.vnet_content_share_enabled,
+        vnet_image_pull_enabled=__ret__.vnet_image_pull_enabled,
+        vnet_route_all_enabled=__ret__.vnet_route_all_enabled)
 
 
 @_utilities.lift_output_func(get_web_app_slot)
@@ -681,8 +759,8 @@ def get_web_app_slot_output(name: Optional[pulumi.Input[str]] = None,
                             slot: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppSlotResult]:
     """
-    Gets the details of a web, mobile, or API app.
-    API Version: 2020-12-01.
+    Description for Gets the details of a web, mobile, or API app.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the app.

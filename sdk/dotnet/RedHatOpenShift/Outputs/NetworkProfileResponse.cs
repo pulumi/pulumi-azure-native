@@ -17,11 +17,11 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
     public sealed class NetworkProfileResponse
     {
         /// <summary>
-        /// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+        /// The CIDR used for OpenShift/Kubernetes Pods.
         /// </summary>
         public readonly string? PodCidr;
         /// <summary>
-        /// The CIDR used for OpenShift/Kubernetes Services (immutable).
+        /// The CIDR used for OpenShift/Kubernetes Services.
         /// </summary>
         public readonly string? ServiceCidr;
 

@@ -148,7 +148,7 @@ class SystemTopic(pulumi.CustomResource):
                  __props__=None):
         """
         EventGrid System Topic.
-        API Version: 2021-06-01-preview.
+        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +168,7 @@ class SystemTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid System Topic.
-        API Version: 2021-06-01-preview.
+        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param SystemTopicArgs args: The arguments to use to populate this resource's properties.
@@ -215,7 +215,7 @@ class SystemTopic(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:SystemTopic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:SystemTopic"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:SystemTopic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SystemTopic, __self__).__init__(
             'azure-native:eventgrid:SystemTopic',

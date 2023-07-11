@@ -10,89 +10,53 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NotificationHubs
 {
     /// <summary>
-    /// Description of a NotificationHub Resource.
-    /// API Version: 2017-04-01.
+    /// Notification Hub Resource.
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NotificationHub")]
     public partial class NotificationHub : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The AdmCredential of the created NotificationHub
-        /// </summary>
-        [Output("admCredential")]
-        public Output<Outputs.AdmCredentialResponse?> AdmCredential { get; private set; } = null!;
-
-        /// <summary>
-        /// The ApnsCredential of the created NotificationHub
-        /// </summary>
-        [Output("apnsCredential")]
-        public Output<Outputs.ApnsCredentialResponse?> ApnsCredential { get; private set; } = null!;
-
-        /// <summary>
-        /// The AuthorizationRules of the created NotificationHub
-        /// </summary>
-        [Output("authorizationRules")]
-        public Output<ImmutableArray<Outputs.SharedAccessAuthorizationRulePropertiesResponse>> AuthorizationRules { get; private set; } = null!;
-
-        /// <summary>
-        /// The BaiduCredential of the created NotificationHub
-        /// </summary>
-        [Output("baiduCredential")]
-        public Output<Outputs.BaiduCredentialResponse?> BaiduCredential { get; private set; } = null!;
-
-        /// <summary>
-        /// The GcmCredential of the created NotificationHub
-        /// </summary>
-        [Output("gcmCredential")]
-        public Output<Outputs.GcmCredentialResponse?> GcmCredential { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The MpnsCredential of the created NotificationHub
-        /// </summary>
-        [Output("mpnsCredential")]
-        public Output<Outputs.MpnsCredentialResponse?> MpnsCredential { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The RegistrationTtl of the created NotificationHub
+        /// NotificationHub properties.
         /// </summary>
-        [Output("registrationTtl")]
-        public Output<string?> RegistrationTtl { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Outputs.NotificationHubPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// The sku of the created namespace
+        /// The Sku description for a namespace
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The WnsCredential of the created NotificationHub
-        /// </summary>
-        [Output("wnsCredential")]
-        public Output<Outputs.WnsCredentialResponse?> WnsCredential { get; private set; } = null!;
 
 
         /// <summary>
@@ -122,6 +86,7 @@ namespace Pulumi.AzureNative.NotificationHubs
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20140901:NotificationHub"},
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHub"},
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20170401:NotificationHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230101preview:NotificationHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,85 +111,37 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class NotificationHubArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AdmCredential of the created NotificationHub
-        /// </summary>
-        [Input("admCredential")]
-        public Input<Inputs.AdmCredentialArgs>? AdmCredential { get; set; }
-
-        /// <summary>
-        /// The ApnsCredential of the created NotificationHub
-        /// </summary>
-        [Input("apnsCredential")]
-        public Input<Inputs.ApnsCredentialArgs>? ApnsCredential { get; set; }
-
-        [Input("authorizationRules")]
-        private InputList<Inputs.SharedAccessAuthorizationRulePropertiesArgs>? _authorizationRules;
-
-        /// <summary>
-        /// The AuthorizationRules of the created NotificationHub
-        /// </summary>
-        public InputList<Inputs.SharedAccessAuthorizationRulePropertiesArgs> AuthorizationRules
-        {
-            get => _authorizationRules ?? (_authorizationRules = new InputList<Inputs.SharedAccessAuthorizationRulePropertiesArgs>());
-            set => _authorizationRules = value;
-        }
-
-        /// <summary>
-        /// The BaiduCredential of the created NotificationHub
-        /// </summary>
-        [Input("baiduCredential")]
-        public Input<Inputs.BaiduCredentialArgs>? BaiduCredential { get; set; }
-
-        /// <summary>
-        /// The GcmCredential of the created NotificationHub
-        /// </summary>
-        [Input("gcmCredential")]
-        public Input<Inputs.GcmCredentialArgs>? GcmCredential { get; set; }
-
-        /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The MpnsCredential of the created NotificationHub
-        /// </summary>
-        [Input("mpnsCredential")]
-        public Input<Inputs.MpnsCredentialArgs>? MpnsCredential { get; set; }
-
-        /// <summary>
-        /// The NotificationHub name.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
-        /// The namespace name.
+        /// Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The notification hub name.
+        /// Notification Hub name
         /// </summary>
         [Input("notificationHubName")]
         public Input<string>? NotificationHubName { get; set; }
 
         /// <summary>
-        /// The RegistrationTtl of the created NotificationHub
+        /// NotificationHub properties.
         /// </summary>
-        [Input("registrationTtl")]
-        public Input<string>? RegistrationTtl { get; set; }
+        [Input("properties")]
+        public Input<Inputs.NotificationHubPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The sku of the created namespace
+        /// The Sku description for a namespace
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
@@ -233,19 +150,13 @@ namespace Pulumi.AzureNative.NotificationHubs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// The WnsCredential of the created NotificationHub
-        /// </summary>
-        [Input("wnsCredential")]
-        public Input<Inputs.WnsCredentialArgs>? WnsCredential { get; set; }
 
         public NotificationHubArgs()
         {

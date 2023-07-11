@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
     public sealed class SqlServerInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Status of Azure Defender.
+        /// </summary>
+        [Input("azureDefenderStatus")]
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.DefenderStatus>? AzureDefenderStatus { get; set; }
+
+        /// <summary>
+        /// Timestamp of last Azure Defender status update.
+        /// </summary>
+        [Input("azureDefenderStatusLastUpdated")]
+        public Input<string>? AzureDefenderStatusLastUpdated { get; set; }
+
+        /// <summary>
         /// SQL Server collation.
         /// </summary>
         [Input("collation")]
@@ -28,6 +40,12 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<string> ContainerResourceId { get; set; } = null!;
 
         /// <summary>
+        /// The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
+        /// </summary>
+        [Input("cores")]
+        public Input<string>? Cores { get; set; }
+
+        /// <summary>
         /// SQL Server current version.
         /// </summary>
         [Input("currentVersion")]
@@ -37,7 +55,13 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         /// SQL Server edition.
         /// </summary>
         [Input("edition")]
-        public Input<string>? Edition { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.EditionType>? Edition { get; set; }
+
+        /// <summary>
+        /// Type of host for Azure Arc SQL Server
+        /// </summary>
+        [Input("hostType")]
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.HostType>? HostType { get; set; }
 
         /// <summary>
         /// SQL Server instance name.
@@ -49,7 +73,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         /// SQL Server license type.
         /// </summary>
         [Input("licenseType")]
-        public Input<string>? LicenseType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.ArcSqlServerLicenseType>? LicenseType { get; set; }
 
         /// <summary>
         /// SQL Server update level.
@@ -67,7 +91,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         /// The cloud connectivity status.
         /// </summary>
         [Input("status", required: true)]
-        public Input<string> Status { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.ConnectionStatus> Status { get; set; } = null!;
 
         /// <summary>
         /// Dynamic TCP ports used by SQL Server.
@@ -91,7 +115,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         /// SQL Server version.
         /// </summary>
         [Input("version")]
-        public Input<string>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.SqlVersion>? Version { get; set; }
 
         public SqlServerInstancePropertiesArgs()
         {

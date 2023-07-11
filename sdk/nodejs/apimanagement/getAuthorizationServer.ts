@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the authorization server specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getAuthorizationServer(args: GetAuthorizationServerArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationServerResult> {
 
@@ -27,7 +27,7 @@ export interface GetAuthorizationServerArgs {
      */
     authsid: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -85,11 +85,11 @@ export interface GetAuthorizationServerResult {
      */
     readonly grantTypes: string[];
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -113,13 +113,21 @@ export interface GetAuthorizationServerResult {
      */
     readonly tokenEndpoint?: string;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
+     */
+    readonly useInApiDocumentation?: boolean;
+    /**
+     * If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
+     */
+    readonly useInTestConsole?: boolean;
 }
 /**
  * Gets the details of the authorization server specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getAuthorizationServerOutput(args: GetAuthorizationServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationServerResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationServer(a, opts))
@@ -131,7 +139,7 @@ export interface GetAuthorizationServerOutputArgs {
      */
     authsid: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Returns ServiceEndpoint resources for a given name.
  */
-/** @deprecated azure-native:recommendationsservice/v20220201:ServiceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:ServiceEndpoint to guarantee forwards compatibility. */
 export function getServiceEndpoint(args: GetServiceEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointResult> {
-    pulumi.log.warn("getServiceEndpoint is deprecated: azure-native:recommendationsservice/v20220201:ServiceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:ServiceEndpoint to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:recommendationsservice/v20220201:getServiceEndpoint", {
@@ -73,7 +71,6 @@ export interface GetServiceEndpointResult {
 /**
  * Returns ServiceEndpoint resources for a given name.
  */
-/** @deprecated azure-native:recommendationsservice/v20220201:ServiceEndpoint is being removed in the next major version of this provider. Upgrade to at least azure-native:recommendationsservice/v20220301preview:ServiceEndpoint to guarantee forwards compatibility. */
 export function getServiceEndpointOutput(args: GetServiceEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpoint(a, opts))
 }

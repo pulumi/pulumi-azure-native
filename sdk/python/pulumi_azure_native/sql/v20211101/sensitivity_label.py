@@ -202,12 +202,7 @@ class SensitivityLabelArgs:
         pulumi.set(self, "sensitivity_label_source", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class SensitivityLabel(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SensitivityLabel to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -279,7 +274,6 @@ class SensitivityLabel(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SensitivityLabel is deprecated: azure-native:sql/v20211101:SensitivityLabel is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:SensitivityLabel to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -316,7 +310,7 @@ class SensitivityLabel(pulumi.CustomResource):
             __props__.__dict__["managed_by"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20170301preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20200202preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20200801preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20201101preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20210201preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20210501preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20210801preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20211101preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20220201preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20220501preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20220801preview:SensitivityLabel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20170301preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20200202preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20200801preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20201101preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20210201preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20210501preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20210801preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20211101preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20220201preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20220501preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20220801preview:SensitivityLabel"), pulumi.Alias(type_="azure-native:sql/v20221101preview:SensitivityLabel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SensitivityLabel, __self__).__init__(
             'azure-native:sql/v20211101:SensitivityLabel',

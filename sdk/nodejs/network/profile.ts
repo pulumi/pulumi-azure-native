@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Traffic Manager profile.
- * API Version: 2018-08-01.
+ * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01
  */
 export class Profile extends pulumi.CustomResource {
     /**
@@ -131,7 +131,7 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20151101:Profile" }, { type: "azure-native:network/v20170301:Profile" }, { type: "azure-native:network/v20170501:Profile" }, { type: "azure-native:network/v20180201:Profile" }, { type: "azure-native:network/v20180301:Profile" }, { type: "azure-native:network/v20180401:Profile" }, { type: "azure-native:network/v20180801:Profile" }, { type: "azure-native:network/v20220401preview:Profile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20151101:Profile" }, { type: "azure-native:network/v20170301:Profile" }, { type: "azure-native:network/v20170501:Profile" }, { type: "azure-native:network/v20180201:Profile" }, { type: "azure-native:network/v20180301:Profile" }, { type: "azure-native:network/v20180401:Profile" }, { type: "azure-native:network/v20180801:Profile" }, { type: "azure-native:network/v20220401:Profile" }, { type: "azure-native:network/v20220401preview:Profile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Profile.__pulumiType, name, resourceInputs, opts);
     }
@@ -182,7 +182,7 @@ export interface ProfileArgs {
      */
     profileStatus?: pulumi.Input<string | enums.network.ProfileStatus>;
     /**
-     * The name of the resource group containing the Traffic Manager profile.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto pool principalAssignment.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getKustoPoolPrincipalAssignment(args: GetKustoPoolPrincipalAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetKustoPoolPrincipalAssignmentResult> {
 
@@ -36,7 +36,7 @@ export interface GetKustoPoolPrincipalAssignmentArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -45,6 +45,10 @@ export interface GetKustoPoolPrincipalAssignmentArgs {
  * Class representing a cluster principal assignment.
  */
 export interface GetKustoPoolPrincipalAssignmentResult {
+    /**
+     * The service principal object id in AAD (Azure active directory)
+     */
+    readonly aadObjectId: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -92,7 +96,7 @@ export interface GetKustoPoolPrincipalAssignmentResult {
 }
 /**
  * Gets a Kusto pool principalAssignment.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export function getKustoPoolPrincipalAssignmentOutput(args: GetKustoPoolPrincipalAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKustoPoolPrincipalAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getKustoPoolPrincipalAssignment(a, opts))
@@ -112,7 +116,7 @@ export interface GetKustoPoolPrincipalAssignmentOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

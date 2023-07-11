@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CostManagement
 {
     /// <summary>
     /// An export resource.
-    /// API Version: 2020-06-01.
+    /// Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Export")]
     public partial class Export : global::Pulumi.CustomResource
@@ -47,13 +47,19 @@ namespace Pulumi.AzureNative.CostManagement
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// If the export has an active schedule, provides an estimate of the next execution time.
+        /// If the export has an active schedule, provides an estimate of the next run time.
         /// </summary>
         [Output("nextRunTimeEstimate")]
         public Output<string> NextRunTimeEstimate { get; private set; } = null!;
 
         /// <summary>
-        /// If requested, has the most recent execution history for the export.
+        /// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
+        /// </summary>
+        [Output("partitionData")]
+        public Output<bool?> PartitionData { get; private set; } = null!;
+
+        /// <summary>
+        /// If requested, has the most recent run history for the export.
         /// </summary>
         [Output("runHistory")]
         public Output<Outputs.ExportExecutionListResultResponse?> RunHistory { get; private set; } = null!;
@@ -104,6 +110,8 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20210101:Export"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20211001:Export"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221001:Export"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:Export"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:Export"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,6 +164,12 @@ namespace Pulumi.AzureNative.CostManagement
         /// </summary>
         [Input("format")]
         public InputUnion<string, Pulumi.AzureNative.CostManagement.FormatType>? Format { get; set; }
+
+        /// <summary>
+        /// If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
+        /// </summary>
+        [Input("partitionData")]
+        public Input<bool>? PartitionData { get; set; }
 
         /// <summary>
         /// Has schedule information for the export.

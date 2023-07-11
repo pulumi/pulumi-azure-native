@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class AzureStorageContainerResponse
     {
         /// <summary>
+        /// Whether storage account lock is to be acquired for this container or not.
+        /// </summary>
+        public readonly string? AcquireStorageAccountLock;
+        /// <summary>
         /// Type of backup management for the container.
         /// </summary>
         public readonly string? BackupManagementType;
@@ -36,6 +40,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// Status of health of the container.
         /// </summary>
         public readonly string? HealthStatus;
+        /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        public readonly string? ProtectableObjectType;
         /// <summary>
         /// Number of items backed up in this container.
         /// </summary>
@@ -59,6 +67,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
         [OutputConstructor]
         private AzureStorageContainerResponse(
+            string? acquireStorageAccountLock,
+
             string? backupManagementType,
 
             string containerType,
@@ -66,6 +76,8 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             string? friendlyName,
 
             string? healthStatus,
+
+            string? protectableObjectType,
 
             double? protectedItemCount,
 
@@ -77,10 +89,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? storageAccountVersion)
         {
+            AcquireStorageAccountLock = acquireStorageAccountLock;
             BackupManagementType = backupManagementType;
             ContainerType = containerType;
             FriendlyName = friendlyName;
             HealthStatus = healthStatus;
+            ProtectableObjectType = protectableObjectType;
             ProtectedItemCount = protectedItemCount;
             RegistrationStatus = registrationStatus;
             ResourceGroup = resourceGroup;

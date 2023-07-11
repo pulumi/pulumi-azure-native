@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the schedule identified by schedule name.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2022-08-08.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
 
@@ -111,7 +111,7 @@ export interface GetScheduleResult {
 }
 /**
  * Retrieve the schedule identified by schedule name.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2022-08-08.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))

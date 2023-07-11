@@ -18,13 +18,18 @@ __all__ = [
     'IdentityArgs',
     'ManagementLockOwnerArgs',
     'NonComplianceMessageArgs',
+    'OverrideArgs',
     'ParameterDefinitionsValueMetadataArgs',
     'ParameterDefinitionsValueArgs',
     'ParameterValuesValueArgs',
     'PermissionArgs',
     'PolicyDefinitionGroupArgs',
     'PolicyDefinitionReferenceArgs',
+    'PolicyVariableColumnArgs',
+    'PolicyVariableValueColumnValueArgs',
     'PrivateLinkAssociationPropertiesArgs',
+    'ResourceSelectorArgs',
+    'SelectorArgs',
 ]
 
 @pulumi.input_type
@@ -334,25 +339,41 @@ class AccessReviewScopeArgs:
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        Identity for the resource.
-        :param pulumi.Input['ResourceIdentityType'] type: The identity type. This is the only required field when adding a system assigned identity to a resource.
+        Identity for the resource.  Policy assignments support a maximum of one identity.  That is either a system assigned identity or a single user assigned identity.
+        :param pulumi.Input['ResourceIdentityType'] type: The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
         """
-        The identity type. This is the only required field when adding a system assigned identity to a resource.
+        The identity type. This is the only required field when adding a system or user assigned identity to a resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The user identity associated with the policy. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -416,6 +437,62 @@ class NonComplianceMessageArgs:
     @policy_definition_reference_id.setter
     def policy_definition_reference_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_definition_reference_id", value)
+
+
+@pulumi.input_type
+class OverrideArgs:
+    def __init__(__self__, *,
+                 kind: Optional[pulumi.Input[Union[str, 'OverrideKind']]] = None,
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        The policy property value override.
+        :param pulumi.Input[Union[str, 'OverrideKind']] kind: The override kind.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]] selectors: The list of the selector expressions.
+        :param pulumi.Input[str] value: The value to override the policy property.
+        """
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if selectors is not None:
+            pulumi.set(__self__, "selectors", selectors)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'OverrideKind']]]:
+        """
+        The override kind.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'OverrideKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]:
+        """
+        The list of the selector expressions.
+        """
+        return pulumi.get(self, "selectors")
+
+    @selectors.setter
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]):
+        pulumi.set(self, "selectors", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value to override the policy property.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -817,6 +894,67 @@ class PolicyDefinitionReferenceArgs:
 
 
 @pulumi.input_type
+class PolicyVariableColumnArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str]):
+        """
+        The variable column.
+        :param pulumi.Input[str] column_name: The name of this policy variable column.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        """
+        The name of this policy variable column.
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+
+@pulumi.input_type
+class PolicyVariableValueColumnValueArgs:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str],
+                 column_value: Any):
+        """
+        The name value tuple for this variable value column.
+        :param pulumi.Input[str] column_name: Column name for the variable value
+        :param Any column_value: Column value for the variable value; this can be an integer, double, boolean, null or a string.
+        """
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "column_value", column_value)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        """
+        Column name for the variable value
+        """
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter(name="columnValue")
+    def column_value(self) -> Any:
+        """
+        Column value for the variable value; this can be an integer, double, boolean, null or a string.
+        """
+        return pulumi.get(self, "column_value")
+
+    @column_value.setter
+    def column_value(self, value: Any):
+        pulumi.set(self, "column_value", value)
+
+
+@pulumi.input_type
 class PrivateLinkAssociationPropertiesArgs:
     def __init__(__self__, *,
                  private_link: Optional[pulumi.Input[str]] = None,
@@ -849,5 +987,101 @@ class PrivateLinkAssociationPropertiesArgs:
     @public_network_access.setter
     def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessOptions']]]):
         pulumi.set(self, "public_network_access", value)
+
+
+@pulumi.input_type
+class ResourceSelectorArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 selectors: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]] = None):
+        """
+        The resource selector to filter policies by resource properties.
+        :param pulumi.Input[str] name: The name of the resource selector.
+        :param pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]] selectors: The list of the selector expressions.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if selectors is not None:
+            pulumi.set(__self__, "selectors", selectors)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource selector.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]:
+        """
+        The list of the selector expressions.
+        """
+        return pulumi.get(self, "selectors")
+
+    @selectors.setter
+    def selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]]):
+        pulumi.set(self, "selectors", value)
+
+
+@pulumi.input_type
+class SelectorArgs:
+    def __init__(__self__, *,
+                 in_: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'SelectorKind']]] = None,
+                 not_in: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The selector expression.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] in_: The list of values to filter in.
+        :param pulumi.Input[Union[str, 'SelectorKind']] kind: The selector kind.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] not_in: The list of values to filter out.
+        """
+        if in_ is not None:
+            pulumi.set(__self__, "in_", in_)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if not_in is not None:
+            pulumi.set(__self__, "not_in", not_in)
+
+    @property
+    @pulumi.getter(name="in")
+    def in_(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of values to filter in.
+        """
+        return pulumi.get(self, "in_")
+
+    @in_.setter
+    def in_(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "in_", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'SelectorKind']]]:
+        """
+        The selector kind.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'SelectorKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="notIn")
+    def not_in(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of values to filter out.
+        """
+        return pulumi.get(self, "not_in")
+
+    @not_in.setter
+    def not_in(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "not_in", value)
 
 

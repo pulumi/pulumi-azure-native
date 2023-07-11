@@ -20,6 +20,11 @@ export type AlertsSuppressionRule = import("./alertsSuppressionRule").AlertsSupp
 export const AlertsSuppressionRule: typeof import("./alertsSuppressionRule").AlertsSuppressionRule = null as any;
 utilities.lazyLoad(exports, ["AlertsSuppressionRule"], () => require("./alertsSuppressionRule"));
 
+export { APICollectionArgs } from "./apicollection";
+export type APICollection = import("./apicollection").APICollection;
+export const APICollection: typeof import("./apicollection").APICollection = null as any;
+utilities.lazyLoad(exports, ["APICollection"], () => require("./apicollection"));
+
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
@@ -35,6 +40,11 @@ export type AssessmentMetadataInSubscription = import("./assessmentMetadataInSub
 export const AssessmentMetadataInSubscription: typeof import("./assessmentMetadataInSubscription").AssessmentMetadataInSubscription = null as any;
 utilities.lazyLoad(exports, ["AssessmentMetadataInSubscription"], () => require("./assessmentMetadataInSubscription"));
 
+export { AssessmentsMetadataSubscriptionArgs } from "./assessmentsMetadataSubscription";
+export type AssessmentsMetadataSubscription = import("./assessmentsMetadataSubscription").AssessmentsMetadataSubscription;
+export const AssessmentsMetadataSubscription: typeof import("./assessmentsMetadataSubscription").AssessmentsMetadataSubscription = null as any;
+utilities.lazyLoad(exports, ["AssessmentsMetadataSubscription"], () => require("./assessmentsMetadataSubscription"));
+
 export { AssignmentArgs } from "./assignment";
 export type Assignment = import("./assignment").Assignment;
 export const Assignment: typeof import("./assignment").Assignment = null as any;
@@ -44,6 +54,11 @@ export { AutomationArgs } from "./automation";
 export type Automation = import("./automation").Automation;
 export const Automation: typeof import("./automation").Automation = null as any;
 utilities.lazyLoad(exports, ["Automation"], () => require("./automation"));
+
+export { AzureServersSettingArgs } from "./azureServersSetting";
+export type AzureServersSetting = import("./azureServersSetting").AzureServersSetting;
+export const AzureServersSetting: typeof import("./azureServersSetting").AzureServersSetting = null as any;
+utilities.lazyLoad(exports, ["AzureServersSetting"], () => require("./azureServersSetting"));
 
 export { ConnectorArgs } from "./connector";
 export type Connector = import("./connector").Connector;
@@ -64,6 +79,11 @@ export { DeviceSecurityGroupArgs } from "./deviceSecurityGroup";
 export type DeviceSecurityGroup = import("./deviceSecurityGroup").DeviceSecurityGroup;
 export const DeviceSecurityGroup: typeof import("./deviceSecurityGroup").DeviceSecurityGroup = null as any;
 utilities.lazyLoad(exports, ["DeviceSecurityGroup"], () => require("./deviceSecurityGroup"));
+
+export { GetAPICollectionArgs, GetAPICollectionResult, GetAPICollectionOutputArgs } from "./getAPICollection";
+export const getAPICollection: typeof import("./getAPICollection").getAPICollection = null as any;
+export const getAPICollectionOutput: typeof import("./getAPICollection").getAPICollectionOutput = null as any;
+utilities.lazyLoad(exports, ["getAPICollection","getAPICollectionOutput"], () => require("./getAPICollection"));
 
 export { GetAdaptiveApplicationControlArgs, GetAdaptiveApplicationControlResult, GetAdaptiveApplicationControlOutputArgs } from "./getAdaptiveApplicationControl";
 export const getAdaptiveApplicationControl: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControl = null as any;
@@ -95,6 +115,11 @@ export const getAssessmentMetadataInSubscription: typeof import("./getAssessment
 export const getAssessmentMetadataInSubscriptionOutput: typeof import("./getAssessmentMetadataInSubscription").getAssessmentMetadataInSubscriptionOutput = null as any;
 utilities.lazyLoad(exports, ["getAssessmentMetadataInSubscription","getAssessmentMetadataInSubscriptionOutput"], () => require("./getAssessmentMetadataInSubscription"));
 
+export { GetAssessmentsMetadataSubscriptionArgs, GetAssessmentsMetadataSubscriptionResult, GetAssessmentsMetadataSubscriptionOutputArgs } from "./getAssessmentsMetadataSubscription";
+export const getAssessmentsMetadataSubscription: typeof import("./getAssessmentsMetadataSubscription").getAssessmentsMetadataSubscription = null as any;
+export const getAssessmentsMetadataSubscriptionOutput: typeof import("./getAssessmentsMetadataSubscription").getAssessmentsMetadataSubscriptionOutput = null as any;
+utilities.lazyLoad(exports, ["getAssessmentsMetadataSubscription","getAssessmentsMetadataSubscriptionOutput"], () => require("./getAssessmentsMetadataSubscription"));
+
 export { GetAssignmentArgs, GetAssignmentResult, GetAssignmentOutputArgs } from "./getAssignment";
 export const getAssignment: typeof import("./getAssignment").getAssignment = null as any;
 export const getAssignmentOutput: typeof import("./getAssignment").getAssignmentOutput = null as any;
@@ -104,6 +129,11 @@ export { GetAutomationArgs, GetAutomationResult, GetAutomationOutputArgs } from 
 export const getAutomation: typeof import("./getAutomation").getAutomation = null as any;
 export const getAutomationOutput: typeof import("./getAutomation").getAutomationOutput = null as any;
 utilities.lazyLoad(exports, ["getAutomation","getAutomationOutput"], () => require("./getAutomation"));
+
+export { GetAzureServersSettingArgs, GetAzureServersSettingResult, GetAzureServersSettingOutputArgs } from "./getAzureServersSetting";
+export const getAzureServersSetting: typeof import("./getAzureServersSetting").getAzureServersSetting = null as any;
+export const getAzureServersSettingOutput: typeof import("./getAzureServersSetting").getAzureServersSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getAzureServersSetting","getAzureServersSettingOutput"], () => require("./getAzureServersSetting"));
 
 export { GetConnectorArgs, GetConnectorResult, GetConnectorOutputArgs } from "./getConnector";
 export const getConnector: typeof import("./getConnector").getConnector = null as any;
@@ -124,6 +154,16 @@ export { GetDeviceSecurityGroupArgs, GetDeviceSecurityGroupResult, GetDeviceSecu
 export const getDeviceSecurityGroup: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroup = null as any;
 export const getDeviceSecurityGroupOutput: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getDeviceSecurityGroup","getDeviceSecurityGroupOutput"], () => require("./getDeviceSecurityGroup"));
+
+export { GetGovernanceAssignmentArgs, GetGovernanceAssignmentResult, GetGovernanceAssignmentOutputArgs } from "./getGovernanceAssignment";
+export const getGovernanceAssignment: typeof import("./getGovernanceAssignment").getGovernanceAssignment = null as any;
+export const getGovernanceAssignmentOutput: typeof import("./getGovernanceAssignment").getGovernanceAssignmentOutput = null as any;
+utilities.lazyLoad(exports, ["getGovernanceAssignment","getGovernanceAssignmentOutput"], () => require("./getGovernanceAssignment"));
+
+export { GetGovernanceRuleArgs, GetGovernanceRuleResult, GetGovernanceRuleOutputArgs } from "./getGovernanceRule";
+export const getGovernanceRule: typeof import("./getGovernanceRule").getGovernanceRule = null as any;
+export const getGovernanceRuleOutput: typeof import("./getGovernanceRule").getGovernanceRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getGovernanceRule","getGovernanceRuleOutput"], () => require("./getGovernanceRule"));
 
 export { GetIngestionSettingArgs, GetIngestionSettingResult, GetIngestionSettingOutputArgs } from "./getIngestionSetting";
 export const getIngestionSetting: typeof import("./getIngestionSetting").getIngestionSetting = null as any;
@@ -155,6 +195,11 @@ export const getSecurityContact: typeof import("./getSecurityContact").getSecuri
 export const getSecurityContactOutput: typeof import("./getSecurityContact").getSecurityContactOutput = null as any;
 utilities.lazyLoad(exports, ["getSecurityContact","getSecurityContactOutput"], () => require("./getSecurityContact"));
 
+export { GetSecurityOperatorArgs, GetSecurityOperatorResult, GetSecurityOperatorOutputArgs } from "./getSecurityOperator";
+export const getSecurityOperator: typeof import("./getSecurityOperator").getSecurityOperator = null as any;
+export const getSecurityOperatorOutput: typeof import("./getSecurityOperator").getSecurityOperatorOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityOperator","getSecurityOperatorOutput"], () => require("./getSecurityOperator"));
+
 export { GetServerVulnerabilityAssessmentArgs, GetServerVulnerabilityAssessmentResult, GetServerVulnerabilityAssessmentOutputArgs } from "./getServerVulnerabilityAssessment";
 export const getServerVulnerabilityAssessment: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessment = null as any;
 export const getServerVulnerabilityAssessmentOutput: typeof import("./getServerVulnerabilityAssessment").getServerVulnerabilityAssessmentOutput = null as any;
@@ -174,6 +219,16 @@ export { GetWorkspaceSettingArgs, GetWorkspaceSettingResult, GetWorkspaceSetting
 export const getWorkspaceSetting: typeof import("./getWorkspaceSetting").getWorkspaceSetting = null as any;
 export const getWorkspaceSettingOutput: typeof import("./getWorkspaceSetting").getWorkspaceSettingOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkspaceSetting","getWorkspaceSettingOutput"], () => require("./getWorkspaceSetting"));
+
+export { GovernanceAssignmentArgs } from "./governanceAssignment";
+export type GovernanceAssignment = import("./governanceAssignment").GovernanceAssignment;
+export const GovernanceAssignment: typeof import("./governanceAssignment").GovernanceAssignment = null as any;
+utilities.lazyLoad(exports, ["GovernanceAssignment"], () => require("./governanceAssignment"));
+
+export { GovernanceRuleArgs } from "./governanceRule";
+export type GovernanceRule = import("./governanceRule").GovernanceRule;
+export const GovernanceRule: typeof import("./governanceRule").GovernanceRule = null as any;
+utilities.lazyLoad(exports, ["GovernanceRule"], () => require("./governanceRule"));
 
 export { IngestionSettingArgs } from "./ingestionSetting";
 export type IngestionSetting = import("./ingestionSetting").IngestionSetting;
@@ -215,6 +270,11 @@ export type SecurityContact = import("./securityContact").SecurityContact;
 export const SecurityContact: typeof import("./securityContact").SecurityContact = null as any;
 utilities.lazyLoad(exports, ["SecurityContact"], () => require("./securityContact"));
 
+export { SecurityOperatorArgs } from "./securityOperator";
+export type SecurityOperator = import("./securityOperator").SecurityOperator;
+export const SecurityOperator: typeof import("./securityOperator").SecurityOperator = null as any;
+utilities.lazyLoad(exports, ["SecurityOperator"], () => require("./securityOperator"));
+
 export { ServerVulnerabilityAssessmentArgs } from "./serverVulnerabilityAssessment";
 export type ServerVulnerabilityAssessment = import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment;
 export const ServerVulnerabilityAssessment: typeof import("./serverVulnerabilityAssessment").ServerVulnerabilityAssessment = null as any;
@@ -240,50 +300,50 @@ utilities.lazyLoad(exports, ["WorkspaceSetting"], () => require("./workspaceSett
 export * from "../types/enums/security";
 
 // Export sub-modules:
-import * as v20150601preview from "./v20150601preview";
 import * as v20170801preview from "./v20170801preview";
 import * as v20190101 from "./v20190101";
 import * as v20190101preview from "./v20190101preview";
 import * as v20190801 from "./v20190801";
 import * as v20200101 from "./v20200101";
 import * as v20200101preview from "./v20200101preview";
-import * as v20200701preview from "./v20200701preview";
 import * as v20210115preview from "./v20210115preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801preview from "./v20210801preview";
-import * as v20211201preview from "./v20211201preview";
 import * as v20220101preview from "./v20220101preview";
-import * as v20220501preview from "./v20220501preview";
 import * as v20220701preview from "./v20220701preview";
-import * as v20220801preview from "./v20220801preview";
 import * as v20221120preview from "./v20221120preview";
+import * as v20230101preview from "./v20230101preview";
+import * as v20230201preview from "./v20230201preview";
+import * as v20230301preview from "./v20230301preview";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20150601preview,
     v20170801preview,
     v20190101,
     v20190101preview,
     v20190801,
     v20200101,
     v20200101preview,
-    v20200701preview,
     v20210115preview,
     v20210601,
     v20210701preview,
     v20210801preview,
-    v20211201preview,
     v20220101preview,
-    v20220501preview,
     v20220701preview,
-    v20220801preview,
     v20221120preview,
+    v20230101preview,
+    v20230201preview,
+    v20230301preview,
+    v20230501,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:security:APICollection":
+                return new APICollection(name, <any>undefined, { urn })
             case "azure-native:security:AdaptiveApplicationControl":
                 return new AdaptiveApplicationControl(name, <any>undefined, { urn })
             case "azure-native:security:AdvancedThreatProtection":
@@ -296,10 +356,14 @@ const _module = {
                 return new Assessment(name, <any>undefined, { urn })
             case "azure-native:security:AssessmentMetadataInSubscription":
                 return new AssessmentMetadataInSubscription(name, <any>undefined, { urn })
+            case "azure-native:security:AssessmentsMetadataSubscription":
+                return new AssessmentsMetadataSubscription(name, <any>undefined, { urn })
             case "azure-native:security:Assignment":
                 return new Assignment(name, <any>undefined, { urn })
             case "azure-native:security:Automation":
                 return new Automation(name, <any>undefined, { urn })
+            case "azure-native:security:AzureServersSetting":
+                return new AzureServersSetting(name, <any>undefined, { urn })
             case "azure-native:security:Connector":
                 return new Connector(name, <any>undefined, { urn })
             case "azure-native:security:CustomAssessmentAutomation":
@@ -308,6 +372,10 @@ const _module = {
                 return new CustomEntityStoreAssignment(name, <any>undefined, { urn })
             case "azure-native:security:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
+            case "azure-native:security:GovernanceAssignment":
+                return new GovernanceAssignment(name, <any>undefined, { urn })
+            case "azure-native:security:GovernanceRule":
+                return new GovernanceRule(name, <any>undefined, { urn })
             case "azure-native:security:IngestionSetting":
                 return new IngestionSetting(name, <any>undefined, { urn })
             case "azure-native:security:IotSecuritySolution":
@@ -320,6 +388,8 @@ const _module = {
                 return new SecurityConnectorApplication(name, <any>undefined, { urn })
             case "azure-native:security:SecurityContact":
                 return new SecurityContact(name, <any>undefined, { urn })
+            case "azure-native:security:SecurityOperator":
+                return new SecurityOperator(name, <any>undefined, { urn })
             case "azure-native:security:ServerVulnerabilityAssessment":
                 return new ServerVulnerabilityAssessment(name, <any>undefined, { urn })
             case "azure-native:security:SqlVulnerabilityAssessmentBaselineRule":

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Virtual Router.
- * API Version: 2022-01-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualRouter(args: GetVirtualRouterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualRouterResult> {
 
@@ -91,7 +91,7 @@ export interface GetVirtualRouterResult {
 }
 /**
  * Gets the specified Virtual Router.
- * API Version: 2022-01-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualRouterOutput(args: GetVirtualRouterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualRouterResult> {
     return pulumi.output(args).apply((a: any) => getVirtualRouter(a, opts))

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate details.
- *
- * @deprecated azure-native:apimanagement/v20220801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Certificate to guarantee forwards compatibility.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Certificate {
-        pulumi.log.warn("Certificate is deprecated: azure-native:apimanagement/v20220801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Certificate to guarantee forwards compatibility.")
         return new Certificate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +69,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Certificate to guarantee forwards compatibility. */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Certificate is deprecated: azure-native:apimanagement/v20220801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Certificate to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -104,7 +99,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Certificate" }, { type: "azure-native:apimanagement/v20160707:Certificate" }, { type: "azure-native:apimanagement/v20161010:Certificate" }, { type: "azure-native:apimanagement/v20170301:Certificate" }, { type: "azure-native:apimanagement/v20180101:Certificate" }, { type: "azure-native:apimanagement/v20180601preview:Certificate" }, { type: "azure-native:apimanagement/v20190101:Certificate" }, { type: "azure-native:apimanagement/v20191201:Certificate" }, { type: "azure-native:apimanagement/v20191201preview:Certificate" }, { type: "azure-native:apimanagement/v20200601preview:Certificate" }, { type: "azure-native:apimanagement/v20201201:Certificate" }, { type: "azure-native:apimanagement/v20210101preview:Certificate" }, { type: "azure-native:apimanagement/v20210401preview:Certificate" }, { type: "azure-native:apimanagement/v20210801:Certificate" }, { type: "azure-native:apimanagement/v20211201preview:Certificate" }, { type: "azure-native:apimanagement/v20220401preview:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:Certificate" }, { type: "azure-native:apimanagement/v20160707:Certificate" }, { type: "azure-native:apimanagement/v20161010:Certificate" }, { type: "azure-native:apimanagement/v20170301:Certificate" }, { type: "azure-native:apimanagement/v20180101:Certificate" }, { type: "azure-native:apimanagement/v20180601preview:Certificate" }, { type: "azure-native:apimanagement/v20190101:Certificate" }, { type: "azure-native:apimanagement/v20191201:Certificate" }, { type: "azure-native:apimanagement/v20191201preview:Certificate" }, { type: "azure-native:apimanagement/v20200601preview:Certificate" }, { type: "azure-native:apimanagement/v20201201:Certificate" }, { type: "azure-native:apimanagement/v20210101preview:Certificate" }, { type: "azure-native:apimanagement/v20210401preview:Certificate" }, { type: "azure-native:apimanagement/v20210801:Certificate" }, { type: "azure-native:apimanagement/v20211201preview:Certificate" }, { type: "azure-native:apimanagement/v20220401preview:Certificate" }, { type: "azure-native:apimanagement/v20220901preview:Certificate" }, { type: "azure-native:apimanagement/v20230301preview:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

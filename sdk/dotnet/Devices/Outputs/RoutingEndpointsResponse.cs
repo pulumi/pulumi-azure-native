@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Devices.Outputs
     public sealed class RoutingEndpointsResponse
     {
         /// <summary>
+        /// The list of Cosmos DB collection endpoints that IoT hub routes messages to, based on the routing rules.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RoutingCosmosDBSqlApiPropertiesResponse> CosmosDBSqlCollections;
+        /// <summary>
         /// The list of Event Hubs endpoints that IoT hub routes messages to, based on the routing rules. This list does not include the built-in Event Hubs endpoint.
         /// </summary>
         public readonly ImmutableArray<Outputs.RoutingEventHubPropertiesResponse> EventHubs;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
         [OutputConstructor]
         private RoutingEndpointsResponse(
+            ImmutableArray<Outputs.RoutingCosmosDBSqlApiPropertiesResponse> cosmosDBSqlCollections,
+
             ImmutableArray<Outputs.RoutingEventHubPropertiesResponse> eventHubs,
 
             ImmutableArray<Outputs.RoutingServiceBusQueueEndpointPropertiesResponse> serviceBusQueues,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             ImmutableArray<Outputs.RoutingStorageContainerPropertiesResponse> storageContainers)
         {
+            CosmosDBSqlCollections = cosmosDBSqlCollections;
             EventHubs = eventHubs;
             ServiceBusQueues = serviceBusQueues;
             ServiceBusTopics = serviceBusTopics;

@@ -142,7 +142,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a cluster principal assignment.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a cluster principal assignment.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param ClusterPrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -212,12 +212,13 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["aad_object_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["tenant_name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20191109:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200215:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200614:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200918:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210101:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210827:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20220201:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20220707:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20221111:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20221229:ClusterPrincipalAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20191109:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200215:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200614:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200918:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210101:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210827:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20220201:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20220707:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20221111:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20221229:ClusterPrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20230502:ClusterPrincipalAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ClusterPrincipalAssignment, __self__).__init__(
             'azure-native:kusto:ClusterPrincipalAssignment',
@@ -241,6 +242,7 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
 
         __props__ = ClusterPrincipalAssignmentArgs.__new__(ClusterPrincipalAssignmentArgs)
 
+        __props__.__dict__["aad_object_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
@@ -251,6 +253,14 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = None
         __props__.__dict__["type"] = None
         return ClusterPrincipalAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aadObjectId")
+    def aad_object_id(self) -> pulumi.Output[str]:
+        """
+        The service principal object id in AAD (Azure active directory)
+        """
+        return pulumi.get(self, "aad_object_id")
 
     @property
     @pulumi.getter

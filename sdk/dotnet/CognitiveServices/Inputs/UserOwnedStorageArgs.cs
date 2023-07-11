@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
     /// </summary>
     public sealed class UserOwnedStorageArgs : global::Pulumi.ResourceArgs
     {
+        [Input("identityClientId")]
+        public Input<string>? IdentityClientId { get; set; }
+
         /// <summary>
         /// Full resource id of a Microsoft.Storage resource.
         /// </summary>

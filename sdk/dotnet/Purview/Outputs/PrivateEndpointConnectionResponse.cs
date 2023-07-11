@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.Purview.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.ProxyResourceResponseSystemData SystemData;
+        /// <summary>
         /// Gets or sets the type.
         /// </summary>
         public readonly string Type;
@@ -53,6 +57,8 @@ namespace Pulumi.AzureNative.Purview.Outputs
 
             string provisioningState,
 
+            Outputs.ProxyResourceResponseSystemData systemData,
+
             string type)
         {
             Id = id;
@@ -60,6 +66,7 @@ namespace Pulumi.AzureNative.Purview.Outputs
             PrivateEndpoint = privateEndpoint;
             PrivateLinkServiceConnectionState = privateLinkServiceConnectionState;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

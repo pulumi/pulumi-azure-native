@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Job Resource.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class Job extends pulumi.CustomResource {
     /**
@@ -53,7 +53,7 @@ export class Job extends pulumi.CustomResource {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    public readonly details!: pulumi.Output<outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse | undefined>;
+    public readonly details!: pulumi.Output<outputs.databox.DataBoxCustomerDiskJobDetailsResponse | outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse | undefined>;
     /**
      * Top level error for the job.
      */
@@ -90,6 +90,14 @@ export class Job extends pulumi.CustomResource {
      * Name of the object.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The Editable status for Reverse Shipping Address and Contact Info
+     */
+    public /*out*/ readonly reverseShippingDetailsUpdate!: pulumi.Output<string>;
+    /**
+     * The Editable status for Reverse Transport preferences
+     */
+    public /*out*/ readonly reverseTransportPreferenceUpdate!: pulumi.Output<string>;
     /**
      * The sku type.
      */
@@ -157,6 +165,8 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["isPrepareToShipEnabled"] = undefined /*out*/;
             resourceInputs["isShippingAddressEditable"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["reverseShippingDetailsUpdate"] = undefined /*out*/;
+            resourceInputs["reverseTransportPreferenceUpdate"] = undefined /*out*/;
             resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -175,6 +185,8 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["isShippingAddressEditable"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["reverseShippingDetailsUpdate"] = undefined /*out*/;
+            resourceInputs["reverseTransportPreferenceUpdate"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["startTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -205,7 +217,7 @@ export interface JobArgs {
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    details?: pulumi.Input<inputs.databox.DataBoxDiskJobDetailsArgs | inputs.databox.DataBoxHeavyJobDetailsArgs | inputs.databox.DataBoxJobDetailsArgs>;
+    details?: pulumi.Input<inputs.databox.DataBoxCustomerDiskJobDetailsArgs | inputs.databox.DataBoxDiskJobDetailsArgs | inputs.databox.DataBoxHeavyJobDetailsArgs | inputs.databox.DataBoxJobDetailsArgs>;
     /**
      * Msi identity of the resource
      */

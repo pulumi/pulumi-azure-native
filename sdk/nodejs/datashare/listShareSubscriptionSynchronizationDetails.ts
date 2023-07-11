@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List synchronization details
- * API Version: 2020-09-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function listShareSubscriptionSynchronizationDetails(args: ListShareSubscriptionSynchronizationDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListShareSubscriptionSynchronizationDetailsResult> {
 
@@ -71,7 +71,7 @@ export interface ListShareSubscriptionSynchronizationDetailsResult {
 }
 /**
  * List synchronization details
- * API Version: 2020-09-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function listShareSubscriptionSynchronizationDetailsOutput(args: ListShareSubscriptionSynchronizationDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListShareSubscriptionSynchronizationDetailsResult> {
     return pulumi.output(args).apply((a: any) => listShareSubscriptionSynchronizationDetails(a, opts))

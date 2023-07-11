@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Definition of generic ARM proxy resource.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview
  */
 export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     /**
@@ -36,6 +39,10 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     }
 
     /**
+     * The resource ID of the data collection endpoint that is to be associated.
+     */
+    public readonly dataCollectionEndpointId!: pulumi.Output<string | undefined>;
+    /**
      * The resource ID of the data collection rule that is to be associated.
      */
     public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
@@ -48,6 +55,10 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Metadata about the resource
+     */
+    public /*out*/ readonly metadata!: pulumi.Output<outputs.insights.DataCollectionRuleAssociationResponseMetadata>;
+    /**
      * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -55,6 +66,10 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
      * The resource provisioning state.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData>;
     /**
      * The type of the resource.
      */
@@ -75,19 +90,25 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceUri'");
             }
             resourceInputs["associationName"] = args ? args.associationName : undefined;
+            resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
             resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["dataCollectionEndpointId"] = undefined /*out*/;
             resourceInputs["dataCollectionRuleId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -105,6 +126,10 @@ export interface DataCollectionRuleAssociationArgs {
      * The name of the association. The name is case insensitive.
      */
     associationName?: pulumi.Input<string>;
+    /**
+     * The resource ID of the data collection endpoint that is to be associated.
+     */
+    dataCollectionEndpointId?: pulumi.Input<string>;
     /**
      * The resource ID of the data collection rule that is to be associated.
      */

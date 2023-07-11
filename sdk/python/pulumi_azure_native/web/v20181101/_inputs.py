@@ -12,32 +12,21 @@ from ._enums import *
 
 __all__ = [
     'ApiDefinitionInfoArgs',
-    'ApplicationLogsConfigArgs',
     'AutoHealActionsArgs',
     'AutoHealCustomActionArgs',
     'AutoHealRulesArgs',
     'AutoHealTriggersArgs',
-    'AzureBlobStorageApplicationLogsConfigArgs',
-    'AzureBlobStorageHttpLogsConfigArgs',
     'AzureStorageInfoValueArgs',
-    'AzureTableStorageApplicationLogsConfigArgs',
     'BackupSchedule',
-    'BackupScheduleArgs',
     'CloningInfoArgs',
     'ConnStringInfoArgs',
-    'ConnStringValueTypePairArgs',
     'CorsSettingsArgs',
     'DatabaseBackupSetting',
-    'DatabaseBackupSettingArgs',
-    'EnabledConfigArgs',
     'ExperimentsArgs',
-    'FileSystemApplicationLogsConfigArgs',
-    'FileSystemHttpLogsConfigArgs',
     'GeoDistributionArgs',
     'HandlerMappingArgs',
     'HostNameSslStateArgs',
     'HostingEnvironmentProfileArgs',
-    'HttpLogsConfigArgs',
     'IpSecurityRestrictionArgs',
     'ManagedServiceIdentityArgs',
     'NameValuePairArgs',
@@ -74,62 +63,6 @@ class ApiDefinitionInfoArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
-
-
-@pulumi.input_type
-class ApplicationLogsConfigArgs:
-    def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs']] = None,
-                 azure_table_storage: Optional[pulumi.Input['AzureTableStorageApplicationLogsConfigArgs']] = None,
-                 file_system: Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']] = None):
-        """
-        Application logs configuration.
-        :param pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs'] azure_blob_storage: Application logs to blob storage configuration.
-        :param pulumi.Input['AzureTableStorageApplicationLogsConfigArgs'] azure_table_storage: Application logs to azure table storage configuration.
-        :param pulumi.Input['FileSystemApplicationLogsConfigArgs'] file_system: Application logs to file system configuration.
-        """
-        if azure_blob_storage is not None:
-            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
-        if azure_table_storage is not None:
-            pulumi.set(__self__, "azure_table_storage", azure_table_storage)
-        if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
-
-    @property
-    @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs']]:
-        """
-        Application logs to blob storage configuration.
-        """
-        return pulumi.get(self, "azure_blob_storage")
-
-    @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['AzureBlobStorageApplicationLogsConfigArgs']]):
-        pulumi.set(self, "azure_blob_storage", value)
-
-    @property
-    @pulumi.getter(name="azureTableStorage")
-    def azure_table_storage(self) -> Optional[pulumi.Input['AzureTableStorageApplicationLogsConfigArgs']]:
-        """
-        Application logs to azure table storage configuration.
-        """
-        return pulumi.get(self, "azure_table_storage")
-
-    @azure_table_storage.setter
-    def azure_table_storage(self, value: Optional[pulumi.Input['AzureTableStorageApplicationLogsConfigArgs']]):
-        pulumi.set(self, "azure_table_storage", value)
-
-    @property
-    @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']]:
-        """
-        Application logs to file system configuration.
-        """
-        return pulumi.get(self, "file_system")
-
-    @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['FileSystemApplicationLogsConfigArgs']]):
-        pulumi.set(self, "file_system", value)
 
 
 @pulumi.input_type
@@ -344,126 +277,6 @@ class AutoHealTriggersArgs:
 
 
 @pulumi.input_type
-class AzureBlobStorageApplicationLogsConfigArgs:
-    def __init__(__self__, *,
-                 level: Optional[pulumi.Input['LogLevel']] = None,
-                 retention_in_days: Optional[pulumi.Input[int]] = None,
-                 sas_url: Optional[pulumi.Input[str]] = None):
-        """
-        Application logs azure blob storage configuration.
-        :param pulumi.Input['LogLevel'] level: Log level.
-        :param pulumi.Input[int] retention_in_days: Retention in days.
-               Remove blobs older than X days.
-               0 or lower means no retention.
-        :param pulumi.Input[str] sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
-        """
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if sas_url is not None:
-            pulumi.set(__self__, "sas_url", sas_url)
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[pulumi.Input['LogLevel']]:
-        """
-        Log level.
-        """
-        return pulumi.get(self, "level")
-
-    @level.setter
-    def level(self, value: Optional[pulumi.Input['LogLevel']]):
-        pulumi.set(self, "level", value)
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Retention in days.
-        Remove blobs older than X days.
-        0 or lower means no retention.
-        """
-        return pulumi.get(self, "retention_in_days")
-
-    @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retention_in_days", value)
-
-    @property
-    @pulumi.getter(name="sasUrl")
-    def sas_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        SAS url to a azure blob container with read/write/list/delete permissions.
-        """
-        return pulumi.get(self, "sas_url")
-
-    @sas_url.setter
-    def sas_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sas_url", value)
-
-
-@pulumi.input_type
-class AzureBlobStorageHttpLogsConfigArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 retention_in_days: Optional[pulumi.Input[int]] = None,
-                 sas_url: Optional[pulumi.Input[str]] = None):
-        """
-        Http logs to azure blob storage configuration.
-        :param pulumi.Input[bool] enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        :param pulumi.Input[int] retention_in_days: Retention in days.
-               Remove blobs older than X days.
-               0 or lower means no retention.
-        :param pulumi.Input[str] sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if sas_url is not None:
-            pulumi.set(__self__, "sas_url", sas_url)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Retention in days.
-        Remove blobs older than X days.
-        0 or lower means no retention.
-        """
-        return pulumi.get(self, "retention_in_days")
-
-    @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retention_in_days", value)
-
-    @property
-    @pulumi.getter(name="sasUrl")
-    def sas_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        SAS url to a azure blob container with read/write/list/delete permissions.
-        """
-        return pulumi.get(self, "sas_url")
-
-    @sas_url.setter
-    def sas_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "sas_url", value)
-
-
-@pulumi.input_type
 class AzureStorageInfoValueArgs:
     def __init__(__self__, *,
                  access_key: Optional[pulumi.Input[str]] = None,
@@ -549,45 +362,6 @@ class AzureStorageInfoValueArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input['AzureStorageType']]):
         pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class AzureTableStorageApplicationLogsConfigArgs:
-    def __init__(__self__, *,
-                 sas_url: pulumi.Input[str],
-                 level: Optional[pulumi.Input['LogLevel']] = None):
-        """
-        Application logs to Azure table storage configuration.
-        :param pulumi.Input[str] sas_url: SAS URL to an Azure table with add/query/delete permissions.
-        :param pulumi.Input['LogLevel'] level: Log level.
-        """
-        pulumi.set(__self__, "sas_url", sas_url)
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-
-    @property
-    @pulumi.getter(name="sasUrl")
-    def sas_url(self) -> pulumi.Input[str]:
-        """
-        SAS URL to an Azure table with add/query/delete permissions.
-        """
-        return pulumi.get(self, "sas_url")
-
-    @sas_url.setter
-    def sas_url(self, value: pulumi.Input[str]):
-        pulumi.set(self, "sas_url", value)
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[pulumi.Input['LogLevel']]:
-        """
-        Log level.
-        """
-        return pulumi.get(self, "level")
-
-    @level.setter
-    def level(self, value: Optional[pulumi.Input['LogLevel']]):
-        pulumi.set(self, "level", value)
 
 
 @pulumi.input_type
@@ -679,98 +453,6 @@ class BackupSchedule:
 
     @start_time.setter
     def start_time(self, value: Optional[str]):
-        pulumi.set(self, "start_time", value)
-
-
-@pulumi.input_type
-class BackupScheduleArgs:
-    def __init__(__self__, *,
-                 frequency_interval: pulumi.Input[int],
-                 frequency_unit: pulumi.Input['FrequencyUnit'],
-                 keep_at_least_one_backup: pulumi.Input[bool],
-                 retention_period_in_days: pulumi.Input[int],
-                 start_time: Optional[pulumi.Input[str]] = None):
-        """
-        Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
-        :param pulumi.Input[int] frequency_interval: How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-        :param pulumi.Input['FrequencyUnit'] frequency_unit: The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-        :param pulumi.Input[bool] keep_at_least_one_backup: True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-        :param pulumi.Input[int] retention_period_in_days: After how many days backups should be deleted.
-        :param pulumi.Input[str] start_time: When the schedule should start working.
-        """
-        if frequency_interval is None:
-            frequency_interval = 7
-        pulumi.set(__self__, "frequency_interval", frequency_interval)
-        if frequency_unit is None:
-            frequency_unit = 'Day'
-        pulumi.set(__self__, "frequency_unit", frequency_unit)
-        if keep_at_least_one_backup is None:
-            keep_at_least_one_backup = True
-        pulumi.set(__self__, "keep_at_least_one_backup", keep_at_least_one_backup)
-        if retention_period_in_days is None:
-            retention_period_in_days = 30
-        pulumi.set(__self__, "retention_period_in_days", retention_period_in_days)
-        if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
-
-    @property
-    @pulumi.getter(name="frequencyInterval")
-    def frequency_interval(self) -> pulumi.Input[int]:
-        """
-        How often the backup should be executed (e.g. for weekly backup, this should be set to 7 and FrequencyUnit should be set to Day)
-        """
-        return pulumi.get(self, "frequency_interval")
-
-    @frequency_interval.setter
-    def frequency_interval(self, value: pulumi.Input[int]):
-        pulumi.set(self, "frequency_interval", value)
-
-    @property
-    @pulumi.getter(name="frequencyUnit")
-    def frequency_unit(self) -> pulumi.Input['FrequencyUnit']:
-        """
-        The unit of time for how often the backup should be executed (e.g. for weekly backup, this should be set to Day and FrequencyInterval should be set to 7)
-        """
-        return pulumi.get(self, "frequency_unit")
-
-    @frequency_unit.setter
-    def frequency_unit(self, value: pulumi.Input['FrequencyUnit']):
-        pulumi.set(self, "frequency_unit", value)
-
-    @property
-    @pulumi.getter(name="keepAtLeastOneBackup")
-    def keep_at_least_one_backup(self) -> pulumi.Input[bool]:
-        """
-        True if the retention policy should always keep at least one backup in the storage account, regardless how old it is; false otherwise.
-        """
-        return pulumi.get(self, "keep_at_least_one_backup")
-
-    @keep_at_least_one_backup.setter
-    def keep_at_least_one_backup(self, value: pulumi.Input[bool]):
-        pulumi.set(self, "keep_at_least_one_backup", value)
-
-    @property
-    @pulumi.getter(name="retentionPeriodInDays")
-    def retention_period_in_days(self) -> pulumi.Input[int]:
-        """
-        After how many days backups should be deleted.
-        """
-        return pulumi.get(self, "retention_period_in_days")
-
-    @retention_period_in_days.setter
-    def retention_period_in_days(self, value: pulumi.Input[int]):
-        pulumi.set(self, "retention_period_in_days", value)
-
-    @property
-    @pulumi.getter(name="startTime")
-    def start_time(self) -> Optional[pulumi.Input[str]]:
-        """
-        When the schedule should start working.
-        """
-        return pulumi.get(self, "start_time")
-
-    @start_time.setter
-    def start_time(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "start_time", value)
 
 
@@ -1024,44 +706,6 @@ class ConnStringInfoArgs:
 
 
 @pulumi.input_type
-class ConnStringValueTypePairArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input['ConnectionStringType'],
-                 value: pulumi.Input[str]):
-        """
-        Database connection string value to type pair.
-        :param pulumi.Input['ConnectionStringType'] type: Type of database.
-        :param pulumi.Input[str] value: Value of pair.
-        """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['ConnectionStringType']:
-        """
-        Type of database.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['ConnectionStringType']):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> pulumi.Input[str]:
-        """
-        Value of pair.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: pulumi.Input[str]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class CorsSettingsArgs:
     def __init__(__self__, *,
                  allowed_origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1177,99 +821,6 @@ class DatabaseBackupSetting:
 
 
 @pulumi.input_type
-class DatabaseBackupSettingArgs:
-    def __init__(__self__, *,
-                 database_type: pulumi.Input[Union[str, 'DatabaseType']],
-                 connection_string: Optional[pulumi.Input[str]] = None,
-                 connection_string_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        Database backup settings.
-        :param pulumi.Input[Union[str, 'DatabaseType']] database_type: Database type (e.g. SqlAzure / MySql).
-        :param pulumi.Input[str] connection_string: Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
-        :param pulumi.Input[str] connection_string_name: Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-               This is used during restore with overwrite connection strings options.
-        """
-        pulumi.set(__self__, "database_type", database_type)
-        if connection_string is not None:
-            pulumi.set(__self__, "connection_string", connection_string)
-        if connection_string_name is not None:
-            pulumi.set(__self__, "connection_string_name", connection_string_name)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter(name="databaseType")
-    def database_type(self) -> pulumi.Input[Union[str, 'DatabaseType']]:
-        """
-        Database type (e.g. SqlAzure / MySql).
-        """
-        return pulumi.get(self, "database_type")
-
-    @database_type.setter
-    def database_type(self, value: pulumi.Input[Union[str, 'DatabaseType']]):
-        pulumi.set(self, "database_type", value)
-
-    @property
-    @pulumi.getter(name="connectionString")
-    def connection_string(self) -> Optional[pulumi.Input[str]]:
-        """
-        Contains a connection string to a database which is being backed up or restored. If the restore should happen to a new database, the database name inside is the new one.
-        """
-        return pulumi.get(self, "connection_string")
-
-    @connection_string.setter
-    def connection_string(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "connection_string", value)
-
-    @property
-    @pulumi.getter(name="connectionStringName")
-    def connection_string_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Contains a connection string name that is linked to the SiteConfig.ConnectionStrings.
-        This is used during restore with overwrite connection strings options.
-        """
-        return pulumi.get(self, "connection_string_name")
-
-    @connection_string_name.setter
-    def connection_string_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "connection_string_name", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class EnabledConfigArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        Enabled configuration.
-        :param pulumi.Input[bool] enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-
-@pulumi.input_type
 class ExperimentsArgs:
     def __init__(__self__, *,
                  ramp_up_rules: Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]] = None):
@@ -1291,96 +842,6 @@ class ExperimentsArgs:
     @ramp_up_rules.setter
     def ramp_up_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RampUpRuleArgs']]]]):
         pulumi.set(self, "ramp_up_rules", value)
-
-
-@pulumi.input_type
-class FileSystemApplicationLogsConfigArgs:
-    def __init__(__self__, *,
-                 level: Optional[pulumi.Input['LogLevel']] = None):
-        """
-        Application logs to file system configuration.
-        :param pulumi.Input['LogLevel'] level: Log level.
-        """
-        if level is None:
-            level = 'Off'
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[pulumi.Input['LogLevel']]:
-        """
-        Log level.
-        """
-        return pulumi.get(self, "level")
-
-    @level.setter
-    def level(self, value: Optional[pulumi.Input['LogLevel']]):
-        pulumi.set(self, "level", value)
-
-
-@pulumi.input_type
-class FileSystemHttpLogsConfigArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None,
-                 retention_in_days: Optional[pulumi.Input[int]] = None,
-                 retention_in_mb: Optional[pulumi.Input[int]] = None):
-        """
-        Http logs to file system configuration.
-        :param pulumi.Input[bool] enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        :param pulumi.Input[int] retention_in_days: Retention in days.
-               Remove files older than X days.
-               0 or lower means no retention.
-        :param pulumi.Input[int] retention_in_mb: Maximum size in megabytes that http log files can use.
-               When reached old log files will be removed to make space for new ones.
-               Value can range between 25 and 100.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if retention_in_mb is not None:
-            pulumi.set(__self__, "retention_in_mb", retention_in_mb)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[pulumi.Input[int]]:
-        """
-        Retention in days.
-        Remove files older than X days.
-        0 or lower means no retention.
-        """
-        return pulumi.get(self, "retention_in_days")
-
-    @retention_in_days.setter
-    def retention_in_days(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retention_in_days", value)
-
-    @property
-    @pulumi.getter(name="retentionInMb")
-    def retention_in_mb(self) -> Optional[pulumi.Input[int]]:
-        """
-        Maximum size in megabytes that http log files can use.
-        When reached old log files will be removed to make space for new ones.
-        Value can range between 25 and 100.
-        """
-        return pulumi.get(self, "retention_in_mb")
-
-    @retention_in_mb.setter
-    def retention_in_mb(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "retention_in_mb", value)
 
 
 @pulumi.input_type
@@ -1609,46 +1070,6 @@ class HostingEnvironmentProfileArgs:
 
 
 @pulumi.input_type
-class HttpLogsConfigArgs:
-    def __init__(__self__, *,
-                 azure_blob_storage: Optional[pulumi.Input['AzureBlobStorageHttpLogsConfigArgs']] = None,
-                 file_system: Optional[pulumi.Input['FileSystemHttpLogsConfigArgs']] = None):
-        """
-        Http logs configuration.
-        :param pulumi.Input['AzureBlobStorageHttpLogsConfigArgs'] azure_blob_storage: Http logs to azure blob storage configuration.
-        :param pulumi.Input['FileSystemHttpLogsConfigArgs'] file_system: Http logs to file system configuration.
-        """
-        if azure_blob_storage is not None:
-            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
-        if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
-
-    @property
-    @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional[pulumi.Input['AzureBlobStorageHttpLogsConfigArgs']]:
-        """
-        Http logs to azure blob storage configuration.
-        """
-        return pulumi.get(self, "azure_blob_storage")
-
-    @azure_blob_storage.setter
-    def azure_blob_storage(self, value: Optional[pulumi.Input['AzureBlobStorageHttpLogsConfigArgs']]):
-        pulumi.set(self, "azure_blob_storage", value)
-
-    @property
-    @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional[pulumi.Input['FileSystemHttpLogsConfigArgs']]:
-        """
-        Http logs to file system configuration.
-        """
-        return pulumi.get(self, "file_system")
-
-    @file_system.setter
-    def file_system(self, value: Optional[pulumi.Input['FileSystemHttpLogsConfigArgs']]):
-        pulumi.set(self, "file_system", value)
-
-
-@pulumi.input_type
 class IpSecurityRestrictionArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[str]] = None,
@@ -1826,11 +1247,11 @@ class IpSecurityRestrictionArgs:
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'ManagedServiceIdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Managed service identity.
         :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -1851,14 +1272,14 @@ class ManagedServiceIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 

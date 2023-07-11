@@ -102,7 +102,7 @@ github.com/matryer/is v1.2.0/go.mod h1:2fLPjFQM9rhQ15aVEtbuwhJinnOqrmgXPNdZsdwlW
 github.com/mattn/go-colorable v0.1.8 h1:c1ghPdyEDarC70ftn0y+A/Ee++9zz8ljHG1b13eJ0s8=
 github.com/mattn/go-colorable v0.1.8/go.mod h1:u6P/XSegPjTcexA+o6vUJrdnUu04hMope9wVRipJSqc=
 github.com/mattn/go-isatty v0.0.12/go.mod h1:cbi8OIDigv2wuxKPP5vlRcQ1OAZbq2CE4Kysco4FUpU=
-github.com/mattn/go-isatty v0.0.16 h1:bq3VjFmv/sOjHtdEhmkEV4x1AJtvUvOJ2PFAZ5+peKQ=
+github.com/mattn/go-isatty v0.0.19 h1:JITubQf0MOLdlGRuRq+jtsDlekdYPia9ZFsB8h/APPA=
 github.com/mattn/go-runewidth v0.0.8 h1:3tS41NlGYSmhhe/8fhGRzc+z3AYCw1Fe1WAyLuujKs0=
 github.com/mattn/go-runewidth v0.0.8/go.mod h1:H031xJmbD/WCDINGzjvQ9THkh0rPKHF+m2gUSrubnMI=
 github.com/mitchellh/go-homedir v1.1.0 h1:lukF9ziXFxDFPkA1vsr5zpc1XuPDn/wFntq5mG+4E0Y=
@@ -123,12 +123,6 @@ github.com/pkg/term v1.1.0/go.mod h1:E25nymQcrSllhX42Ok8MRm1+hyBdHY0dCeiKZ9jpNGw
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/pulumi-azure-native-sdk v1.83.1 h1:f28dlBiPeQvIiHoUuZ5Gcsh/RJ9WUA3Da6/WGjen/tc=
-github.com/pulumi/pulumi-azure-native-sdk v1.83.1/go.mod h1:Q4CuPQ5ubNYUZqiKq/sPdJaeGyaMFZyI7O1BJPYlUQA=
-github.com/pulumi/pulumi-azure-native-sdk/resources v1.83.1 h1:fZAzD31+OJtPWXsDE6LkKKMBWYn6INUoPw1cA7A4GVo=
-github.com/pulumi/pulumi-azure-native-sdk/resources v1.83.1/go.mod h1:yCsO91CUf9FlpWiLOXpMWbpoFa8lC1f6z3TagbAISqQ=
-github.com/pulumi/pulumi-azure-native-sdk/storage v1.83.1 h1:gPmK7AfF0UH7OnfnktxQ/DW+5VL5Gf9BeMsdapxB5RA=
-github.com/pulumi/pulumi-azure-native-sdk/storage v1.83.1/go.mod h1:UAdsVIXVVCSm2ggrvvLR1ZrH3HGX/6Hp2/ThGgBmY+s=
 github.com/pulumi/pulumi/sdk/v3 v3.44.2 h1:hBHR4J6kBLJSXFBEa41OPGkyOkJKiMGxewjsaESwnlg=
 github.com/pulumi/pulumi/sdk/v3 v3.44.2/go.mod h1:N5jL+cw5KiOeMn9bwvRuPQEAhbE3KPq2wSb/Kw+6HuY=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=

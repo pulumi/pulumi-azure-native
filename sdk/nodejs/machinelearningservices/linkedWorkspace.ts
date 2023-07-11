@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Linked workspace.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2020-05-15-preview. Prior API version in Azure Native 1.x: 2020-03-01
  */
 export class LinkedWorkspace extends pulumi.CustomResource {
     /**
@@ -80,7 +80,7 @@ export class LinkedWorkspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200301:LinkedWorkspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20200501preview:LinkedWorkspace" }, { type: "azure-native:machinelearningservices/v20200515preview:LinkedWorkspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedWorkspace.__pulumiType, name, resourceInputs, opts);
     }

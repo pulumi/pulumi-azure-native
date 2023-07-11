@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A custom domain
- *
- * @deprecated azure-native:webpubsub/v20230201:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain to guarantee forwards compatibility.
  */
 export class WebPubSubCustomDomain extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class WebPubSubCustomDomain extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WebPubSubCustomDomain {
-        pulumi.log.warn("WebPubSubCustomDomain is deprecated: azure-native:webpubsub/v20230201:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain to guarantee forwards compatibility.")
         return new WebPubSubCustomDomain(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +69,7 @@ export class WebPubSubCustomDomain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:webpubsub/v20230201:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain to guarantee forwards compatibility. */
     constructor(name: string, args: WebPubSubCustomDomainArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WebPubSubCustomDomain is deprecated: azure-native:webpubsub/v20230201:WebPubSubCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -107,7 +102,7 @@ export class WebPubSubCustomDomain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubCustomDomain.__pulumiType, name, resourceInputs, opts);
     }

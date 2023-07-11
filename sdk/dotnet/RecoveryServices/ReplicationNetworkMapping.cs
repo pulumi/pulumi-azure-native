@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices
 {
     /// <summary>
     /// Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-    /// API Version: 2018-07-10.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationNetworkMapping")]
     public partial class ReplicationNetworkMapping : global::Pulumi.CustomResource
@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20221001:ReplicationNetworkMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230101:ReplicationNetworkMapping"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230201:ReplicationNetworkMapping"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230401:ReplicationNetworkMapping"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,8 +132,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Input properties for creating network mapping.
         /// </summary>
-        [Input("properties")]
-        public Input<Inputs.CreateNetworkMappingInputPropertiesArgs>? Properties { get; set; }
+        [Input("properties", required: true)]
+        public Input<Inputs.CreateNetworkMappingInputPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

@@ -17,7 +17,13 @@ class AllowCrashDumpCollection(str, Enum):
     Flag to define if the user allows for crash dump collection.
     """
     ENABLED = "Enabled"
+    """
+    Crash dump collection enabled
+    """
     DISABLED = "Disabled"
+    """
+    Crash dump collection disabled
+    """
 
 
 class OSFeedType(str, Enum):
@@ -25,7 +31,13 @@ class OSFeedType(str, Enum):
     Operating system feed type of the device group.
     """
     RETAIL = "Retail"
+    """
+    Retail OS feed type.
+    """
     RETAIL_EVAL = "RetailEval"
+    """
+    Retail evaluation OS feed type.
+    """
 
 
 class RegionalDataBoundary(str, Enum):
@@ -33,7 +45,13 @@ class RegionalDataBoundary(str, Enum):
     Regional data boundary for an image
     """
     NONE = "None"
+    """
+    No data boundary
+    """
     EU = "EU"
+    """
+    EU data boundary
+    """
 
 
 class UpdatePolicy(str, Enum):
@@ -41,4 +59,10 @@ class UpdatePolicy(str, Enum):
     Update policy of the device group.
     """
     UPDATE_ALL = "UpdateAll"
+    """
+    Update all policy.
+    """
     NO3RD_PARTY_APP_UPDATES = "No3rdPartyAppUpdates"
+    """
+    No update for 3rd party app policy.
+    """

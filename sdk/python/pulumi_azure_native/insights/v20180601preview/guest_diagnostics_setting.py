@@ -204,10 +204,10 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:guestDiagnosticsSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20180601preview:guestDiagnosticsSetting"), pulumi.Alias(type_="azure-native:insights:GuestDiagnosticsSetting"), pulumi.Alias(type_="azure-native:insights:guestDiagnosticsSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestDiagnosticsSetting, __self__).__init__(
-            'azure-native:insights/v20180601preview:guestDiagnosticsSetting',
+            'azure-native:insights/v20180601preview:GuestDiagnosticsSetting',
             resource_name,
             __props__,
             opts)

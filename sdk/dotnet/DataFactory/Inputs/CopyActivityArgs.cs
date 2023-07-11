@@ -87,6 +87,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        [Input("onInactiveMarkAs")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityOnInactiveMarkAs>? OnInactiveMarkAs { get; set; }
+
         [Input("outputs")]
         private InputList<Inputs.DatasetReferenceArgs>? _outputs;
 
@@ -164,6 +170,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("stagingSettings")]
         public Input<Inputs.StagingSettingsArgs>? StagingSettings { get; set; }
+
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        [Input("state")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityState>? State { get; set; }
 
         /// <summary>
         /// Copy activity translator. If not specified, tabular translator is used.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Description of the WCF relay resource.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2017-04-01
  */
 export class WCFRelay extends pulumi.CustomResource {
     /**
@@ -51,7 +51,11 @@ export class WCFRelay extends pulumi.CustomResource {
      */
     public /*out*/ readonly listenerCount!: pulumi.Output<number>;
     /**
-     * Resource name.
+     * The geo-location where the resource lives
+     */
+    public /*out*/ readonly location!: pulumi.Output<string>;
+    /**
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -67,7 +71,11 @@ export class WCFRelay extends pulumi.CustomResource {
      */
     public readonly requiresTransportSecurity!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource type.
+     * The system meta data relating to this resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.relay.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -106,17 +114,21 @@ export class WCFRelay extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["isDynamic"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["isDynamic"] = undefined /*out*/;
             resourceInputs["listenerCount"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["relayType"] = undefined /*out*/;
             resourceInputs["requiresClientAuthorization"] = undefined /*out*/;
             resourceInputs["requiresTransportSecurity"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["userMetadata"] = undefined /*out*/;

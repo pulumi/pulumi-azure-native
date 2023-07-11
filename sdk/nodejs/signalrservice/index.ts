@@ -25,6 +25,11 @@ export const getSignalRPrivateEndpointConnection: typeof import("./getSignalRPri
 export const getSignalRPrivateEndpointConnectionOutput: typeof import("./getSignalRPrivateEndpointConnection").getSignalRPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getSignalRPrivateEndpointConnection","getSignalRPrivateEndpointConnectionOutput"], () => require("./getSignalRPrivateEndpointConnection"));
 
+export { GetSignalRReplicaArgs, GetSignalRReplicaResult, GetSignalRReplicaOutputArgs } from "./getSignalRReplica";
+export const getSignalRReplica: typeof import("./getSignalRReplica").getSignalRReplica = null as any;
+export const getSignalRReplicaOutput: typeof import("./getSignalRReplica").getSignalRReplicaOutput = null as any;
+utilities.lazyLoad(exports, ["getSignalRReplica","getSignalRReplicaOutput"], () => require("./getSignalRReplica"));
+
 export { GetSignalRSharedPrivateLinkResourceArgs, GetSignalRSharedPrivateLinkResourceResult, GetSignalRSharedPrivateLinkResourceOutputArgs } from "./getSignalRSharedPrivateLinkResource";
 export const getSignalRSharedPrivateLinkResource: typeof import("./getSignalRSharedPrivateLinkResource").getSignalRSharedPrivateLinkResource = null as any;
 export const getSignalRSharedPrivateLinkResourceOutput: typeof import("./getSignalRSharedPrivateLinkResource").getSignalRSharedPrivateLinkResourceOutput = null as any;
@@ -55,6 +60,11 @@ export type SignalRPrivateEndpointConnection = import("./signalRPrivateEndpointC
 export const SignalRPrivateEndpointConnection: typeof import("./signalRPrivateEndpointConnection").SignalRPrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["SignalRPrivateEndpointConnection"], () => require("./signalRPrivateEndpointConnection"));
 
+export { SignalRReplicaArgs } from "./signalRReplica";
+export type SignalRReplica = import("./signalRReplica").SignalRReplica;
+export const SignalRReplica: typeof import("./signalRReplica").SignalRReplica = null as any;
+utilities.lazyLoad(exports, ["SignalRReplica"], () => require("./signalRReplica"));
+
 export { SignalRSharedPrivateLinkResourceArgs } from "./signalRSharedPrivateLinkResource";
 export type SignalRSharedPrivateLinkResource = import("./signalRSharedPrivateLinkResource").SignalRSharedPrivateLinkResource;
 export const SignalRSharedPrivateLinkResource: typeof import("./signalRSharedPrivateLinkResource").SignalRSharedPrivateLinkResource = null as any;
@@ -65,30 +75,14 @@ utilities.lazyLoad(exports, ["SignalRSharedPrivateLinkResource"], () => require(
 export * from "../types/enums/signalrservice";
 
 // Export sub-modules:
-import * as v20180301preview from "./v20180301preview";
-import * as v20181001 from "./v20181001";
-import * as v20200501 from "./v20200501";
-import * as v20200701preview from "./v20200701preview";
-import * as v20210401preview from "./v20210401preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20210901preview from "./v20210901preview";
-import * as v20211001 from "./v20211001";
-import * as v20220201 from "./v20220201";
-import * as v20220801preview from "./v20220801preview";
 import * as v20230201 from "./v20230201";
+import * as v20230301preview from "./v20230301preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
-    v20180301preview,
-    v20181001,
-    v20200501,
-    v20200701preview,
-    v20210401preview,
-    v20210601preview,
-    v20210901preview,
-    v20211001,
-    v20220201,
-    v20220801preview,
     v20230201,
+    v20230301preview,
+    v20230601preview,
 };
 
 const _module = {
@@ -103,6 +97,8 @@ const _module = {
                 return new SignalRCustomDomain(name, <any>undefined, { urn })
             case "azure-native:signalrservice:SignalRPrivateEndpointConnection":
                 return new SignalRPrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:signalrservice:SignalRReplica":
+                return new SignalRReplica(name, <any>undefined, { urn })
             case "azure-native:signalrservice:SignalRSharedPrivateLinkResource":
                 return new SignalRSharedPrivateLinkResource(name, <any>undefined, { urn })
             default:

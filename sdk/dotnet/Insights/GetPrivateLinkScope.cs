@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Returns a Azure Monitor PrivateLinkScope.
-        /// API Version: 2019-10-17-preview.
+        /// Azure REST API version: 2021-07-01-preview.
         /// </summary>
         public static Task<GetPrivateLinkScopeResult> InvokeAsync(GetPrivateLinkScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateLinkScopeResult>("azure-native:insights:getPrivateLinkScope", args ?? new GetPrivateLinkScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a Azure Monitor PrivateLinkScope.
-        /// API Version: 2019-10-17-preview.
+        /// Azure REST API version: 2021-07-01-preview.
         /// </summary>
         public static Output<GetPrivateLinkScopeResult> Invoke(GetPrivateLinkScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateLinkScopeResult>("azure-native:insights:getPrivateLinkScope", args ?? new GetPrivateLinkScopeInvokeArgs(), options.WithDefaults());
@@ -72,15 +72,19 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetPrivateLinkScopeResult
     {
         /// <summary>
-        /// Azure resource Id
+        /// Access mode settings
+        /// </summary>
+        public readonly Outputs.AccessModeSettingsResponse AccessModeSettings;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -92,16 +96,22 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Resource tags
+        /// System data
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetPrivateLinkScopeResult(
+            Outputs.AccessModeSettingsResponse accessModeSettings,
+
             string id,
 
             string location,
@@ -112,15 +122,19 @@ namespace Pulumi.AzureNative.Insights
 
             string provisioningState,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
+            AccessModeSettings = accessModeSettings;
             Id = id;
             Location = location;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

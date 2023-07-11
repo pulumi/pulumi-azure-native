@@ -16,10 +16,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class OnlineEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// [Required] Inference endpoint authentication mode type
+        /// [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
         /// </summary>
         [Input("authMode", required: true)]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.EndpointAuthMode> AuthMode { get; set; } = null!;
+
+        /// <summary>
+        /// ARM resource ID of the compute if it exists.
+        /// optional
+        /// </summary>
+        [Input("compute")]
+        public Input<string>? Compute { get; set; }
 
         /// <summary>
         /// Description of the inference endpoint.
@@ -34,6 +41,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         [Input("keys")]
         public Input<Inputs.EndpointAuthKeysArgs>? Keys { get; set; }
 
+        [Input("mirrorTraffic")]
+        private InputMap<int>? _mirrorTraffic;
+
+        /// <summary>
+        /// Percentage of traffic to be mirrored to each deployment without using returned scoring. Traffic values need to sum to utmost 50.
+        /// </summary>
+        public InputMap<int> MirrorTraffic
+        {
+            get => _mirrorTraffic ?? (_mirrorTraffic = new InputMap<int>());
+            set => _mirrorTraffic = value;
+        }
+
         [Input("properties")]
         private InputMap<string>? _properties;
 
@@ -47,17 +66,16 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         }
 
         /// <summary>
-        /// ARM resource ID of the compute if it exists.
-        /// optional
+        /// Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
         /// </summary>
-        [Input("target")]
-        public Input<string>? Target { get; set; }
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.PublicNetworkAccessType>? PublicNetworkAccess { get; set; }
 
         [Input("traffic")]
         private InputMap<int>? _traffic;
 
         /// <summary>
-        /// Traffic rules on how the traffic will be routed across deployments.
+        /// Percentage of traffic from endpoint to divert to each deployment. Traffic values need to sum to 100.
         /// </summary>
         public InputMap<int> Traffic
         {
@@ -67,6 +85,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public OnlineEndpointArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
         public static new OnlineEndpointArgs Empty => new OnlineEndpointArgs();
     }

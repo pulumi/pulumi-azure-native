@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Purview
 {
     /// <summary>
     /// A private endpoint connection class.
-    /// API Version: 2020-12-01-preview.
+    /// Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:purview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.ProxyResourceResponseSystemData> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the type.
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.Purview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20201201preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20210701:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:purview/v20211201:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

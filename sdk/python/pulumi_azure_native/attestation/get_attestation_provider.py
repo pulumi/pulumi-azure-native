@@ -22,7 +22,7 @@ class GetAttestationProviderResult:
     """
     Attestation service response message.
     """
-    def __init__(__self__, attest_uri=None, id=None, location=None, name=None, private_endpoint_connections=None, status=None, system_data=None, tags=None, trust_model=None, type=None):
+    def __init__(__self__, attest_uri=None, id=None, location=None, name=None, private_endpoint_connections=None, public_network_access=None, status=None, system_data=None, tags=None, tpm_attestation_authentication=None, trust_model=None, type=None):
         if attest_uri and not isinstance(attest_uri, str):
             raise TypeError("Expected argument 'attest_uri' to be a str")
         pulumi.set(__self__, "attest_uri", attest_uri)
@@ -38,6 +38,9 @@ class GetAttestationProviderResult:
         if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
             raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -47,6 +50,9 @@ class GetAttestationProviderResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tpm_attestation_authentication and not isinstance(tpm_attestation_authentication, str):
+            raise TypeError("Expected argument 'tpm_attestation_authentication' to be a str")
+        pulumi.set(__self__, "tpm_attestation_authentication", tpm_attestation_authentication)
         if trust_model and not isinstance(trust_model, str):
             raise TypeError("Expected argument 'trust_model' to be a str")
         pulumi.set(__self__, "trust_model", trust_model)
@@ -95,6 +101,14 @@ class GetAttestationProviderResult:
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[str]:
         """
@@ -117,6 +131,14 @@ class GetAttestationProviderResult:
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tpmAttestationAuthentication")
+    def tpm_attestation_authentication(self) -> Optional[str]:
+        """
+        The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+        """
+        return pulumi.get(self, "tpm_attestation_authentication")
 
     @property
     @pulumi.getter(name="trustModel")
@@ -146,9 +168,11 @@ class AwaitableGetAttestationProviderResult(GetAttestationProviderResult):
             location=self.location,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
+            public_network_access=self.public_network_access,
             status=self.status,
             system_data=self.system_data,
             tags=self.tags,
+            tpm_attestation_authentication=self.tpm_attestation_authentication,
             trust_model=self.trust_model,
             type=self.type)
 
@@ -158,7 +182,7 @@ def get_attestation_provider(provider_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttestationProviderResult:
     """
     Get the status of Attestation Provider.
-    API Version: 2020-10-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str provider_name: Name of the attestation provider.
@@ -176,9 +200,11 @@ def get_attestation_provider(provider_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         private_endpoint_connections=__ret__.private_endpoint_connections,
+        public_network_access=__ret__.public_network_access,
         status=__ret__.status,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
+        tpm_attestation_authentication=__ret__.tpm_attestation_authentication,
         trust_model=__ret__.trust_model,
         type=__ret__.type)
 
@@ -189,7 +215,7 @@ def get_attestation_provider_output(provider_name: Optional[pulumi.Input[str]] =
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttestationProviderResult]:
     """
     Get the status of Attestation Provider.
-    API Version: 2020-10-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str provider_name: Name of the attestation provider.

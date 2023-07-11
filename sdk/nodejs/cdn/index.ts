@@ -165,38 +165,12 @@ utilities.lazyLoad(exports, ["SecurityPolicy"], () => require("./securityPolicy"
 export * from "../types/enums/cdn";
 
 // Export sub-modules:
-import * as v20150601 from "./v20150601";
-import * as v20160402 from "./v20160402";
-import * as v20161002 from "./v20161002";
-import * as v20170402 from "./v20170402";
-import * as v20171012 from "./v20171012";
-import * as v20190415 from "./v20190415";
-import * as v20190615 from "./v20190615";
-import * as v20190615preview from "./v20190615preview";
-import * as v20191231 from "./v20191231";
-import * as v20200331 from "./v20200331";
-import * as v20200415 from "./v20200415";
 import * as v20200901 from "./v20200901";
-import * as v20210601 from "./v20210601";
-import * as v20220501preview from "./v20220501preview";
-import * as v20221101preview from "./v20221101preview";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20150601,
-    v20160402,
-    v20161002,
-    v20170402,
-    v20171012,
-    v20190415,
-    v20190615,
-    v20190615preview,
-    v20191231,
-    v20200331,
-    v20200415,
     v20200901,
-    v20210601,
-    v20220501preview,
-    v20221101preview,
+    v20230501,
 };
 
 const _module = {

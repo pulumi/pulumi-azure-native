@@ -52,7 +52,7 @@ def list_device_failover_tars(manager_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDeviceFailoverTarsResult:
     """
     Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str manager_name: The manager name
@@ -80,7 +80,7 @@ def list_device_failover_tars_output(manager_name: Optional[pulumi.Input[str]] =
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDeviceFailoverTarsResult]:
     """
     Given a list of volume containers to be failed over from a source device, this method returns the eligibility result, as a failover target, for all devices under that resource.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str manager_name: The manager name

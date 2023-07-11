@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class ConfigurationServiceGitRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Resource Id of CA certificate for https URL of Git repository.
+        /// </summary>
+        [Input("caCertResourceId")]
+        public Input<string>? CaCertResourceId { get; set; }
+
+        /// <summary>
+        /// Git libraries used to support various repository providers
+        /// </summary>
+        [Input("gitImplementation")]
+        public InputUnion<string, Pulumi.AzureNative.AppPlatform.GitImplementation>? GitImplementation { get; set; }
+
+        /// <summary>
         /// Public sshKey of git repository.
         /// </summary>
         [Input("hostKey")]

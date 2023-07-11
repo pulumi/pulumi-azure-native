@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DeploymentManager
 {
     /// <summary>
     /// The resource that defines the source location where the artifacts are located.
-    /// API Version: 2019-11-01-preview.
+    /// Azure REST API version: 2019-11-01-preview. Prior API version in Azure Native 1.x: 2019-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager:ArtifactSource")]
     public partial class ArtifactSource : global::Pulumi.CustomResource

@@ -61,22 +61,20 @@ def get_entity_insights(add_default_extended_time_range: Optional[bool] = None,
                         end_time: Optional[str] = None,
                         entity_id: Optional[str] = None,
                         insight_query_ids: Optional[Sequence[str]] = None,
-                        operational_insights_resource_provider: Optional[str] = None,
                         resource_group_name: Optional[str] = None,
                         start_time: Optional[str] = None,
                         workspace_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEntityInsightsResult:
     """
     Execute Insights for an entity.
-    API Version: 2019-01-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param bool add_default_extended_time_range: Indicates if query time range should be extended with default time range of the query. Default value is false
     :param str end_time: The end timeline date, so the results returned are before this date.
     :param str entity_id: entity ID
     :param Sequence[str] insight_query_ids: List of Insights Query Id. If empty, default value is all insights of this entity
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str start_time: The start timeline date, so the results returned are after this date.
     :param str workspace_name: The name of the workspace.
     """
@@ -85,7 +83,6 @@ def get_entity_insights(add_default_extended_time_range: Optional[bool] = None,
     __args__['endTime'] = end_time
     __args__['entityId'] = entity_id
     __args__['insightQueryIds'] = insight_query_ids
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['startTime'] = start_time
     __args__['workspaceName'] = workspace_name
@@ -102,22 +99,20 @@ def get_entity_insights_output(add_default_extended_time_range: Optional[pulumi.
                                end_time: Optional[pulumi.Input[str]] = None,
                                entity_id: Optional[pulumi.Input[str]] = None,
                                insight_query_ids: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
-                               operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                                resource_group_name: Optional[pulumi.Input[str]] = None,
                                start_time: Optional[pulumi.Input[str]] = None,
                                workspace_name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityInsightsResult]:
     """
     Execute Insights for an entity.
-    API Version: 2019-01-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param bool add_default_extended_time_range: Indicates if query time range should be extended with default time range of the query. Default value is false
     :param str end_time: The end timeline date, so the results returned are before this date.
     :param str entity_id: entity ID
     :param Sequence[str] insight_query_ids: List of Insights Query Id. If empty, default value is all insights of this entity
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-    :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str start_time: The start timeline date, so the results returned are after this date.
     :param str workspace_name: The name of the workspace.
     """

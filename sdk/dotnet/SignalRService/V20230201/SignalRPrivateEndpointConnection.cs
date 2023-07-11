@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
     /// <summary>
     /// A private endpoint connection to an azure resource
     /// </summary>
-    [Obsolete(@"azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection")]
     public partial class SignalRPrivateEndpointConnection : global::Pulumi.CustomResource
     {
@@ -92,6 +91,8 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -38,4 +38,78 @@ namespace Pulumi.AzureNative.Attestation
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccessType : IEquatable<PublicNetworkAccessType>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccessType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enables public network connectivity to the Attestation Provider REST APIs.
+        /// </summary>
+        public static PublicNetworkAccessType Enabled { get; } = new PublicNetworkAccessType("Enabled");
+        /// <summary>
+        /// Disables public network connectivity to the Attestation Provider REST APIs.
+        /// </summary>
+        public static PublicNetworkAccessType Disabled { get; } = new PublicNetworkAccessType("Disabled");
+
+        public static bool operator ==(PublicNetworkAccessType left, PublicNetworkAccessType right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccessType left, PublicNetworkAccessType right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccessType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccessType other && Equals(other);
+        public bool Equals(PublicNetworkAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+    /// </summary>
+    [EnumType]
+    public readonly struct TpmAttestationAuthenticationType : IEquatable<TpmAttestationAuthenticationType>
+    {
+        private readonly string _value;
+
+        private TpmAttestationAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enables the requirement of authentication for TPM Attestation REST APIs.
+        /// </summary>
+        public static TpmAttestationAuthenticationType Enabled { get; } = new TpmAttestationAuthenticationType("Enabled");
+        /// <summary>
+        /// Disables the requirement of authentication for TPM Attestation REST APIs.
+        /// </summary>
+        public static TpmAttestationAuthenticationType Disabled { get; } = new TpmAttestationAuthenticationType("Disabled");
+
+        public static bool operator ==(TpmAttestationAuthenticationType left, TpmAttestationAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(TpmAttestationAuthenticationType left, TpmAttestationAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(TpmAttestationAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TpmAttestationAuthenticationType other && Equals(other);
+        public bool Equals(TpmAttestationAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

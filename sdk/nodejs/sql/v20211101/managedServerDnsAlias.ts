@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A managed server DNS alias.
- *
- * @deprecated azure-native:sql/v20211101:ManagedServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedServerDnsAlias to guarantee forwards compatibility.
  */
 export class ManagedServerDnsAlias extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagedServerDnsAlias {
-        pulumi.log.warn("ManagedServerDnsAlias is deprecated: azure-native:sql/v20211101:ManagedServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedServerDnsAlias to guarantee forwards compatibility.")
         return new ManagedServerDnsAlias(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,9 +58,7 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20211101:ManagedServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedServerDnsAlias to guarantee forwards compatibility. */
     constructor(name: string, args: ManagedServerDnsAliasArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagedServerDnsAlias is deprecated: azure-native:sql/v20211101:ManagedServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedServerDnsAlias to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -88,7 +83,7 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20211101preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220201preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220501preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220801preview:ManagedServerDnsAlias" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20211101preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220201preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220501preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20220801preview:ManagedServerDnsAlias" }, { type: "azure-native:sql/v20221101preview:ManagedServerDnsAlias" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedServerDnsAlias.__pulumiType, name, resourceInputs, opts);
     }

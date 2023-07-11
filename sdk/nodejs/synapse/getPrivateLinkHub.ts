@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a privateLinkHub
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getPrivateLinkHub(args: GetPrivateLinkHubArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkHubResult> {
 
@@ -66,7 +66,7 @@ export interface GetPrivateLinkHubResult {
 }
 /**
  * Gets a privateLinkHub
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getPrivateLinkHubOutput(args: GetPrivateLinkHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkHubResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkHub(a, opts))

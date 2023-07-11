@@ -17,28 +17,13 @@ namespace Pulumi.AzureNative.DeviceUpdate.Outputs
     public sealed class IotHubSettingsResponse
     {
         /// <summary>
-        /// EventHub connection string.
-        /// </summary>
-        public readonly string? EventHubConnectionString;
-        /// <summary>
-        /// IoTHub connection string.
-        /// </summary>
-        public readonly string? IoTHubConnectionString;
-        /// <summary>
         /// IoTHub resource ID
         /// </summary>
         public readonly string ResourceId;
 
         [OutputConstructor]
-        private IotHubSettingsResponse(
-            string? eventHubConnectionString,
-
-            string? ioTHubConnectionString,
-
-            string resourceId)
+        private IotHubSettingsResponse(string resourceId)
         {
-            EventHubConnectionString = eventHubConnectionString;
-            IoTHubConnectionString = ioTHubConnectionString;
             ResourceId = resourceId;
         }
     }

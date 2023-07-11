@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get the specified private endpoint connection associated with a SignalR resource.
- * API Version: 2020-05-01.
+ * Get the specified private endpoint connection
+ * Azure REST API version: 2023-02-01.
  */
 export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRPrivateEndpointConnectionResult> {
 
@@ -23,7 +23,7 @@ export function getSignalRPrivateEndpointConnection(args: GetSignalRPrivateEndpo
 
 export interface GetSignalRPrivateEndpointConnectionArgs {
     /**
-     * The name of the private endpoint connection associated with the SignalR resource.
+     * The name of the private endpoint connection
      */
     privateEndpointConnectionName: string;
     /**
@@ -31,15 +31,19 @@ export interface GetSignalRPrivateEndpointConnectionArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the SignalR resource.
+     * The name of the resource.
      */
     resourceName: string;
 }
 
 /**
- * A private endpoint connection to SignalR resource
+ * A private endpoint connection to an azure resource
  */
 export interface GetSignalRPrivateEndpointConnectionResult {
+    /**
+     * Group IDs
+     */
+    readonly groupIds: string[];
     /**
      * Fully qualified resource Id for the resource.
      */
@@ -49,25 +53,29 @@ export interface GetSignalRPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     readonly privateEndpoint?: outputs.signalrservice.PrivateEndpointResponse;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     readonly privateLinkServiceConnectionState?: outputs.signalrservice.PrivateLinkServiceConnectionStateResponse;
     /**
-     * Provisioning state of the private endpoint connection
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.signalrservice.SystemDataResponse;
     /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
     readonly type: string;
 }
 /**
- * Get the specified private endpoint connection associated with a SignalR resource.
- * API Version: 2020-05-01.
+ * Get the specified private endpoint connection
+ * Azure REST API version: 2023-02-01.
  */
 export function getSignalRPrivateEndpointConnectionOutput(args: GetSignalRPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getSignalRPrivateEndpointConnection(a, opts))
@@ -75,7 +83,7 @@ export function getSignalRPrivateEndpointConnectionOutput(args: GetSignalRPrivat
 
 export interface GetSignalRPrivateEndpointConnectionOutputArgs {
     /**
-     * The name of the private endpoint connection associated with the SignalR resource.
+     * The name of the private endpoint connection
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**
@@ -83,7 +91,7 @@ export interface GetSignalRPrivateEndpointConnectionOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the SignalR resource.
+     * The name of the resource.
      */
     resourceName: pulumi.Input<string>;
 }

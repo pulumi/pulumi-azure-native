@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Active message associated with project.
+    /// Active message associated with project
     /// </summary>
     [OutputType]
     public sealed class StatusMessageResponse
@@ -23,9 +23,9 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// <summary>
         /// Time in UTC at which the message was created.
         /// </summary>
-        public readonly string CreatedTimeUtc;
+        public readonly string CreatedDateTime;
         /// <summary>
-        /// Severity level of the status message.
+        /// Severity level of message.
         /// </summary>
         public readonly string Level;
         /// <summary>
@@ -37,14 +37,14 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private StatusMessageResponse(
             string code,
 
-            string createdTimeUtc,
+            string createdDateTime,
 
             string level,
 
             string message)
         {
             Code = code;
-            CreatedTimeUtc = createdTimeUtc;
+            CreatedDateTime = createdDateTime;
             Level = level;
             Message = message;
         }

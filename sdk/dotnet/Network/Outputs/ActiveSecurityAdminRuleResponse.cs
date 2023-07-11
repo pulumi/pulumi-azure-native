@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         /// </summary>
-        public readonly int? Priority;
+        public readonly int Priority;
         /// <summary>
         /// Network protocol this rule applies to.
         /// </summary>
@@ -77,6 +77,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Deployment region.
         /// </summary>
         public readonly string? Region;
+        /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
         /// <summary>
         /// Groups for rule collection
         /// </summary>
@@ -126,13 +130,15 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string kind,
 
-            int? priority,
+            int priority,
 
             string protocol,
 
             string provisioningState,
 
             string? region,
+
+            string resourceGuid,
 
             ImmutableArray<Outputs.NetworkManagerSecurityGroupItemResponse> ruleCollectionAppliesToGroups,
 
@@ -161,6 +167,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Protocol = protocol;
             ProvisioningState = provisioningState;
             Region = region;
+            ResourceGuid = resourceGuid;
             RuleCollectionAppliesToGroups = ruleCollectionAppliesToGroups;
             RuleCollectionDescription = ruleCollectionDescription;
             RuleCollectionDisplayName = ruleCollectionDisplayName;

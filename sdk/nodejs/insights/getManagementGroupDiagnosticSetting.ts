@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the active management group diagnostic settings for the specified resource.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2021-05-01-preview.
  */
 export function getManagementGroupDiagnosticSetting(args: GetManagementGroupDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupDiagnosticSettingResult> {
 
@@ -44,19 +44,19 @@ export interface GetManagementGroupDiagnosticSettingResult {
      */
     readonly eventHubName?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * Location of the resource
-     */
-    readonly location?: string;
     /**
      * The list of logs settings.
      */
     readonly logs?: outputs.insights.ManagementGroupLogSettingsResponse[];
     /**
-     * Azure resource name
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    readonly marketplacePartnerId?: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -68,7 +68,11 @@ export interface GetManagementGroupDiagnosticSettingResult {
      */
     readonly storageAccountId?: string;
     /**
-     * Azure resource type
+     * The system metadata related to this resource.
+     */
+    readonly systemData: outputs.insights.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -78,7 +82,7 @@ export interface GetManagementGroupDiagnosticSettingResult {
 }
 /**
  * Gets the active management group diagnostic settings for the specified resource.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2021-05-01-preview.
  */
 export function getManagementGroupDiagnosticSettingOutput(args: GetManagementGroupDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupDiagnosticSettingResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroupDiagnosticSetting(a, opts))

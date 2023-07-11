@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A Geo backup policy.
- *
- * @deprecated azure-native:sql/v20211101:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.
  */
 export class GeoBackupPolicy extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GeoBackupPolicy {
-        pulumi.log.warn("GeoBackupPolicy is deprecated: azure-native:sql/v20211101:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.")
         return new GeoBackupPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -72,9 +69,7 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20211101:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: GeoBackupPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GeoBackupPolicy is deprecated: azure-native:sql/v20211101:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -109,7 +104,7 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:GeoBackupPolicy" }, { type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-native:sql/v20220201preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220501preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220801preview:GeoBackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:GeoBackupPolicy" }, { type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-native:sql/v20220201preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220501preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220801preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20221101preview:GeoBackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GeoBackupPolicy.__pulumiType, name, resourceInputs, opts);
     }

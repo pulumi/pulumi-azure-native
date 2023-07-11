@@ -20,11 +20,6 @@ export type BatchAccount = import("./batchAccount").BatchAccount;
 export const BatchAccount: typeof import("./batchAccount").BatchAccount = null as any;
 utilities.lazyLoad(exports, ["BatchAccount"], () => require("./batchAccount"));
 
-export { CertificateArgs } from "./certificate";
-export type Certificate = import("./certificate").Certificate;
-export const Certificate: typeof import("./certificate").Certificate = null as any;
-utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
-
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
@@ -39,11 +34,6 @@ export { GetBatchAccountArgs, GetBatchAccountResult, GetBatchAccountOutputArgs }
 export const getBatchAccount: typeof import("./getBatchAccount").getBatchAccount = null as any;
 export const getBatchAccountOutput: typeof import("./getBatchAccount").getBatchAccountOutput = null as any;
 utilities.lazyLoad(exports, ["getBatchAccount","getBatchAccountOutput"], () => require("./getBatchAccount"));
-
-export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
-export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
-export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
-utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
 
 export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
 export const getPool: typeof import("./getPool").getPool = null as any;
@@ -65,38 +55,14 @@ utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
 export * from "../types/enums/batch";
 
 // Export sub-modules:
-import * as v20151201 from "./v20151201";
-import * as v20170101 from "./v20170101";
-import * as v20170501 from "./v20170501";
-import * as v20170901 from "./v20170901";
-import * as v20181201 from "./v20181201";
-import * as v20190401 from "./v20190401";
-import * as v20190801 from "./v20190801";
-import * as v20200301 from "./v20200301";
-import * as v20200501 from "./v20200501";
-import * as v20200901 from "./v20200901";
-import * as v20210101 from "./v20210101";
-import * as v20210601 from "./v20210601";
 import * as v20220101 from "./v20220101";
 import * as v20220601 from "./v20220601";
-import * as v20221001 from "./v20221001";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20151201,
-    v20170101,
-    v20170501,
-    v20170901,
-    v20181201,
-    v20190401,
-    v20190801,
-    v20200301,
-    v20200501,
-    v20200901,
-    v20210101,
-    v20210601,
     v20220101,
     v20220601,
-    v20221001,
+    v20230501,
 };
 
 const _module = {
@@ -109,8 +75,6 @@ const _module = {
                 return new ApplicationPackage(name, <any>undefined, { urn })
             case "azure-native:batch:BatchAccount":
                 return new BatchAccount(name, <any>undefined, { urn })
-            case "azure-native:batch:Certificate":
-                return new Certificate(name, <any>undefined, { urn })
             case "azure-native:batch:Pool":
                 return new Pool(name, <any>undefined, { urn })
             default:

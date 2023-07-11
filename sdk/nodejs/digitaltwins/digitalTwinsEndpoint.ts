@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * DigitalTwinsInstance endpoint resource.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.digitaltwins.EventGridResponse | outputs.digitaltwins.EventHubResponse | outputs.digitaltwins.ServiceBusResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.digitaltwins.SystemDataResponse>;
+    /**
      * The resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -76,10 +80,12 @@ export class DigitalTwinsEndpoint extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

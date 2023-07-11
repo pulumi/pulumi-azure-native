@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// </summary>
         public readonly Outputs.DatasourceSetResponse? DataSourceSetInfo;
         /// <summary>
+        /// Credentials to use to authenticate with data source provider.
+        /// </summary>
+        public readonly Outputs.SecretStoreBasedAuthCredentialsResponse? DatasourceAuthCredentials;
+        /// <summary>
         /// Gets or sets the Backup Instance friendly name.
         /// </summary>
         public readonly string? FriendlyName;
@@ -49,6 +53,10 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
         /// Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+        /// </summary>
+        public readonly string? ValidationType;
 
         [OutputConstructor]
         private BackupInstanceResponse(
@@ -57,6 +65,8 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
             Outputs.DatasourceResponse dataSourceInfo,
 
             Outputs.DatasourceSetResponse? dataSourceSetInfo,
+
+            Outputs.SecretStoreBasedAuthCredentialsResponse? datasourceAuthCredentials,
 
             string? friendlyName,
 
@@ -68,17 +78,21 @@ namespace Pulumi.AzureNative.DataProtection.Outputs
 
             Outputs.ProtectionStatusDetailsResponse protectionStatus,
 
-            string provisioningState)
+            string provisioningState,
+
+            string? validationType)
         {
             CurrentProtectionState = currentProtectionState;
             DataSourceInfo = dataSourceInfo;
             DataSourceSetInfo = dataSourceSetInfo;
+            DatasourceAuthCredentials = datasourceAuthCredentials;
             FriendlyName = friendlyName;
             ObjectType = objectType;
             PolicyInfo = policyInfo;
             ProtectionErrorDetails = protectionErrorDetails;
             ProtectionStatus = protectionStatus;
             ProvisioningState = provisioningState;
+            ValidationType = validationType;
         }
     }
 }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPDiskConfigurations(args: GetSAPDiskConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPDiskConfigurationsResult> {
 
@@ -61,13 +61,13 @@ export interface GetSAPDiskConfigurationsArgs {
  */
 export interface GetSAPDiskConfigurationsResult {
     /**
-     * Gets the list of Disk Configurations.
+     * The disk configuration for the db volume. For HANA, Required volumes are: ['hana/data', 'hana/log', hana/shared', 'usr/sap', 'os'], Optional volume : ['backup'].
      */
-    readonly diskConfigurations?: outputs.workloads.SAPDiskConfigurationResponse[];
+    readonly volumeConfigurations?: {[key: string]: outputs.workloads.SAPDiskConfigurationResponse};
 }
 /**
  * Get the SAP Disk Configuration Layout prod/non-prod SAP System.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPDiskConfigurationsOutput(args: GetSAPDiskConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPDiskConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => getSAPDiskConfigurations(a, opts))

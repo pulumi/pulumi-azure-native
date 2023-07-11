@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HDInsight
 {
     /// <summary>
     /// The HDInsight cluster application
-    /// API Version: 2018-06-01-preview.
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2018-06-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight:Application")]
     public partial class Application : global::Pulumi.CustomResource
@@ -35,13 +35,19 @@ namespace Pulumi.AzureNative.HDInsight
         public Output<Outputs.ApplicationPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The tags for the application.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -74,6 +80,7 @@ namespace Pulumi.AzureNative.HDInsight
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20210601:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

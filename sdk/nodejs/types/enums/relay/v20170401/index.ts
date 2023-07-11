@@ -9,31 +9,3 @@ export const AccessRights = {
 } as const;
 
 export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
-
-export const Relaytype = {
-    NetTcp: "NetTcp",
-    Http: "Http",
-} as const;
-
-/**
- * WCF relay type.
- */
-export type Relaytype = (typeof Relaytype)[keyof typeof Relaytype];
-
-export const SkuName = {
-    Standard: "Standard",
-} as const;
-
-/**
- * Name of this SKU.
- */
-export type SkuName = (typeof SkuName)[keyof typeof SkuName];
-
-export const SkuTier = {
-    Standard: "Standard",
-} as const;
-
-/**
- * The tier of this SKU.
- */
-export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetTableResult',
@@ -21,13 +22,16 @@ class GetTableResult:
     """
     Properties of the table, including Id, resource name, resource type.
     """
-    def __init__(__self__, id=None, name=None, table_name=None, type=None):
+    def __init__(__self__, id=None, name=None, signed_identifiers=None, table_name=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if signed_identifiers and not isinstance(signed_identifiers, list):
+            raise TypeError("Expected argument 'signed_identifiers' to be a list")
+        pulumi.set(__self__, "signed_identifiers", signed_identifiers)
         if table_name and not isinstance(table_name, str):
             raise TypeError("Expected argument 'table_name' to be a str")
         pulumi.set(__self__, "table_name", table_name)
@@ -50,6 +54,14 @@ class GetTableResult:
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="signedIdentifiers")
+    def signed_identifiers(self) -> Optional[Sequence['outputs.TableSignedIdentifierResponse']]:
+        """
+        List of stored access policies specified on the table.
+        """
+        return pulumi.get(self, "signed_identifiers")
 
     @property
     @pulumi.getter(name="tableName")
@@ -76,6 +88,7 @@ class AwaitableGetTableResult(GetTableResult):
         return GetTableResult(
             id=self.id,
             name=self.name,
+            signed_identifiers=self.signed_identifiers,
             table_name=self.table_name,
             type=self.type)
 
@@ -86,7 +99,7 @@ def get_table(account_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
     Gets the table with the specified table name, under the specified account if it exists.
-    API Version: 2021-02-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -103,6 +116,7 @@ def get_table(account_name: Optional[str] = None,
     return AwaitableGetTableResult(
         id=__ret__.id,
         name=__ret__.name,
+        signed_identifiers=__ret__.signed_identifiers,
         table_name=__ret__.table_name,
         type=__ret__.type)
 
@@ -114,7 +128,7 @@ def get_table_output(account_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTableResult]:
     """
     Gets the table with the specified table name, under the specified account if it exists.
-    API Version: 2021-02-01.
+    Azure REST API version: 2022-09-01.
 
 
     :param str account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.

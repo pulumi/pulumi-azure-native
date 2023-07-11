@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specific private end point connection by specific private link service in the resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getPrivateLinkServicePrivateEndpointConnection(args: GetPrivateLinkServicePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateLinkServicePrivateEndpointConnectionResult> {
 
@@ -66,6 +66,10 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionResult {
      */
     readonly privateEndpoint: outputs.network.PrivateEndpointResponse;
     /**
+     * The location of the private endpoint.
+     */
+    readonly privateEndpointLocation: string;
+    /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
     readonly privateLinkServiceConnectionState?: outputs.network.PrivateLinkServiceConnectionStateResponse;
@@ -80,7 +84,7 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionResult {
 }
 /**
  * Get the specific private end point connection by specific private link service in the resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getPrivateLinkServicePrivateEndpointConnectionOutput(args: GetPrivateLinkServicePrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateLinkServicePrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateLinkServicePrivateEndpointConnection(a, opts))

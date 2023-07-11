@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Definition of generic ARM proxy resource.
-    /// API Version: 2019-11-01-preview.
+    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2019-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionRuleAssociation")]
     public partial class DataCollectionRuleAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The resource ID of the data collection endpoint that is to be associated.
+        /// </summary>
+        [Output("dataCollectionEndpointId")]
+        public Output<string?> DataCollectionEndpointId { get; private set; } = null!;
+
         /// <summary>
         /// The resource ID of the data collection rule that is to be associated.
         /// </summary>
@@ -35,6 +41,12 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata about the resource
+        /// </summary>
+        [Output("metadata")]
+        public Output<Outputs.DataCollectionRuleAssociationResponseMetadata> Metadata { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         [Output("name")]
@@ -45,6 +57,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -109,6 +127,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("associationName")]
         public Input<string>? AssociationName { get; set; }
+
+        /// <summary>
+        /// The resource ID of the data collection endpoint that is to be associated.
+        /// </summary>
+        [Input("dataCollectionEndpointId")]
+        public Input<string>? DataCollectionEndpointId { get; set; }
 
         /// <summary>
         /// The resource ID of the data collection rule that is to be associated.

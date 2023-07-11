@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     {
         /// <summary>
         /// Gets the reference data set with the specified name in the specified environment.
-        /// API Version: 2020-05-15.
+        /// Azure REST API version: 2020-05-15.
         /// </summary>
         public static Task<GetReferenceDataSetResult> InvokeAsync(GetReferenceDataSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReferenceDataSetResult>("azure-native:timeseriesinsights:getReferenceDataSet", args ?? new GetReferenceDataSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the reference data set with the specified name in the specified environment.
-        /// API Version: 2020-05-15.
+        /// Azure REST API version: 2020-05-15.
         /// </summary>
         public static Output<GetReferenceDataSetResult> Invoke(GetReferenceDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReferenceDataSetResult>("azure-native:timeseriesinsights:getReferenceDataSet", args ?? new GetReferenceDataSetInvokeArgs(), options.WithDefaults());

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getContentType(args: GetContentTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetContentTypeResult> {
 
@@ -24,7 +24,7 @@ export interface GetContentTypeArgs {
      */
     contentTypeId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -42,11 +42,11 @@ export interface GetContentTypeResult {
      */
     readonly description?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -54,7 +54,7 @@ export interface GetContentTypeResult {
      */
     readonly schema?: any;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -64,7 +64,7 @@ export interface GetContentTypeResult {
 }
 /**
  * Gets the details of the developer portal's content type. Content types describe content items' properties, validation rules, and constraints.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getContentTypeOutput(args: GetContentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContentTypeResult> {
     return pulumi.output(args).apply((a: any) => getContentType(a, opts))
@@ -76,7 +76,7 @@ export interface GetContentTypeOutputArgs {
      */
     contentTypeId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

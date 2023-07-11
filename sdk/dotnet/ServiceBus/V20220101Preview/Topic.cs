@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview
     /// <summary>
     /// Description of topic resource.
     /// </summary>
-    [Obsolete(@"azure-native:servicebus/v20220101preview:Topic is being removed in the next major version of this provider. Upgrade to at least azure-native:servicebus/v20221001preview:Topic to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:servicebus/v20220101preview:Topic")]
     public partial class Topic : global::Pulumi.CustomResource
     {

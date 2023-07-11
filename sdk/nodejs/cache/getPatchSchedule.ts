@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the patching schedule of a redis cache.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchScheduleResult> {
 
@@ -41,11 +41,15 @@ export interface GetPatchScheduleArgs {
  */
 export interface GetPatchScheduleResult {
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The geo-location where the resource lives
+     */
+    readonly location: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -53,13 +57,13 @@ export interface GetPatchScheduleResult {
      */
     readonly scheduleEntries: outputs.cache.ScheduleEntryResponse[];
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the patching schedule of a redis cache.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchScheduleResult> {
     return pulumi.output(args).apply((a: any) => getPatchSchedule(a, opts))

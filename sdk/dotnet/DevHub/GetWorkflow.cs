@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevHub
     {
         /// <summary>
         /// Resource representation of a workflow
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-10-11-preview.
         /// </summary>
         public static Task<GetWorkflowResult> InvokeAsync(GetWorkflowArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkflowResult>("azure-native:devhub:getWorkflow", args ?? new GetWorkflowArgs(), options.WithDefaults());
 
         /// <summary>
         /// Resource representation of a workflow
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2022-10-11-preview.
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("azure-native:devhub:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
@@ -80,6 +80,10 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         public readonly string? AksResourceId;
         /// <summary>
+        /// The name of the app.
+        /// </summary>
+        public readonly string? AppName;
+        /// <summary>
         /// Determines the authorization status of requests.
         /// </summary>
         public readonly string AuthStatus;
@@ -87,6 +91,10 @@ namespace Pulumi.AzureNative.DevHub
         /// Repository Branch Name
         /// </summary>
         public readonly string? BranchName;
+        /// <summary>
+        /// The version of the language image used for building the code in the generated dockerfile.
+        /// </summary>
+        public readonly string? BuilderVersion;
         public readonly Outputs.DeploymentPropertiesResponse? DeploymentProperties;
         /// <summary>
         /// Path to Dockerfile Build Context within the repository.
@@ -97,14 +105,50 @@ namespace Pulumi.AzureNative.DevHub
         /// </summary>
         public readonly string? Dockerfile;
         /// <summary>
+        /// The mode of generation to be used for generating Dockerfiles.
+        /// </summary>
+        public readonly string? DockerfileGenerationMode;
+        /// <summary>
+        /// The directory to output the generated Dockerfile to.
+        /// </summary>
+        public readonly string? DockerfileOutputDirectory;
+        /// <summary>
+        /// The programming language used.
+        /// </summary>
+        public readonly string? GenerationLanguage;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the image to be generated.
+        /// </summary>
+        public readonly string? ImageName;
+        /// <summary>
+        /// The tag to apply to the generated image.
+        /// </summary>
+        public readonly string? ImageTag;
+        /// <summary>
+        /// The version of the language image used for execution in the generated dockerfile.
+        /// </summary>
+        public readonly string? LanguageVersion;
         public readonly Outputs.WorkflowRunResponse? LastWorkflowRun;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
+        /// <summary>
+        /// The mode of generation to be used for generating Manifest.
+        /// </summary>
+        public readonly string? ManifestGenerationMode;
+        /// <summary>
+        /// The directory to output the generated manifests to.
+        /// </summary>
+        public readonly string? ManifestOutputDirectory;
+        /// <summary>
+        /// Determines the type of manifests to be generated.
+        /// </summary>
+        public readonly string? ManifestType;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -117,6 +161,10 @@ namespace Pulumi.AzureNative.DevHub
         /// The fields needed for OIDC with GitHub.
         /// </summary>
         public readonly Outputs.GitHubWorkflowProfileResponseOidcCredentials? OidcCredentials;
+        /// <summary>
+        /// The port the application is exposed on.
+        /// </summary>
+        public readonly string? Port;
         /// <summary>
         /// The status of the Pull Request submitted against the users repository.
         /// </summary>
@@ -156,9 +204,13 @@ namespace Pulumi.AzureNative.DevHub
 
             string? aksResourceId,
 
+            string? appName,
+
             string authStatus,
 
             string? branchName,
+
+            string? builderVersion,
 
             Outputs.DeploymentPropertiesResponse? deploymentProperties,
 
@@ -166,17 +218,37 @@ namespace Pulumi.AzureNative.DevHub
 
             string? dockerfile,
 
+            string? dockerfileGenerationMode,
+
+            string? dockerfileOutputDirectory,
+
+            string? generationLanguage,
+
             string id,
+
+            string? imageName,
+
+            string? imageTag,
+
+            string? languageVersion,
 
             Outputs.WorkflowRunResponse? lastWorkflowRun,
 
             string location,
+
+            string? manifestGenerationMode,
+
+            string? manifestOutputDirectory,
+
+            string? manifestType,
 
             string name,
 
             string? @namespace,
 
             Outputs.GitHubWorkflowProfileResponseOidcCredentials? oidcCredentials,
+
+            string? port,
 
             string prStatus,
 
@@ -196,17 +268,29 @@ namespace Pulumi.AzureNative.DevHub
         {
             Acr = acr;
             AksResourceId = aksResourceId;
+            AppName = appName;
             AuthStatus = authStatus;
             BranchName = branchName;
+            BuilderVersion = builderVersion;
             DeploymentProperties = deploymentProperties;
             DockerBuildContext = dockerBuildContext;
             Dockerfile = dockerfile;
+            DockerfileGenerationMode = dockerfileGenerationMode;
+            DockerfileOutputDirectory = dockerfileOutputDirectory;
+            GenerationLanguage = generationLanguage;
             Id = id;
+            ImageName = imageName;
+            ImageTag = imageTag;
+            LanguageVersion = languageVersion;
             LastWorkflowRun = lastWorkflowRun;
             Location = location;
+            ManifestGenerationMode = manifestGenerationMode;
+            ManifestOutputDirectory = manifestOutputDirectory;
+            ManifestType = manifestType;
             Name = name;
             Namespace = @namespace;
             OidcCredentials = oidcCredentials;
+            Port = port;
             PrStatus = prStatus;
             PrURL = prURL;
             PullNumber = pullNumber;

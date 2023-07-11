@@ -24,6 +24,8 @@ class PacketCaptureArgs:
                  bytes_to_capture_per_packet: Optional[pulumi.Input[float]] = None,
                  filters: Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input['PacketCaptureMachineScopeArgs']] = None,
+                 target_type: Optional[pulumi.Input['PacketCaptureTargetType']] = None,
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
                  total_bytes_per_session: Optional[pulumi.Input[float]] = None):
         """
@@ -31,10 +33,12 @@ class PacketCaptureArgs:
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input['PacketCaptureStorageLocationArgs'] storage_location: The storage location for a packet capture session.
-        :param pulumi.Input[str] target: The ID of the targeted resource, only VM is currently supported.
+        :param pulumi.Input[str] target: The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
         :param pulumi.Input[float] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
         :param pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]] filters: A list of packet capture filters.
         :param pulumi.Input[str] packet_capture_name: The name of the packet capture session.
+        :param pulumi.Input['PacketCaptureMachineScopeArgs'] scope: A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+        :param pulumi.Input['PacketCaptureTargetType'] target_type: Target type of the resource provided.
         :param pulumi.Input[int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
         :param pulumi.Input[float] total_bytes_per_session: Maximum size of the capture output.
         """
@@ -50,6 +54,10 @@ class PacketCaptureArgs:
             pulumi.set(__self__, "filters", filters)
         if packet_capture_name is not None:
             pulumi.set(__self__, "packet_capture_name", packet_capture_name)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
         if time_limit_in_seconds is None:
             time_limit_in_seconds = 18000
         if time_limit_in_seconds is not None:
@@ -99,7 +107,7 @@ class PacketCaptureArgs:
     @pulumi.getter
     def target(self) -> pulumi.Input[str]:
         """
-        The ID of the targeted resource, only VM is currently supported.
+        The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
         """
         return pulumi.get(self, "target")
 
@@ -144,6 +152,30 @@ class PacketCaptureArgs:
         pulumi.set(self, "packet_capture_name", value)
 
     @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input['PacketCaptureMachineScopeArgs']]:
+        """
+        A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input['PacketCaptureMachineScopeArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input['PacketCaptureTargetType']]:
+        """
+        Target type of the resource provided.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input['PacketCaptureTargetType']]):
+        pulumi.set(self, "target_type", value)
+
+    @property
     @pulumi.getter(name="timeLimitInSeconds")
     def time_limit_in_seconds(self) -> Optional[pulumi.Input[int]]:
         """
@@ -178,14 +210,16 @@ class PacketCapture(pulumi.CustomResource):
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['PacketCaptureMachineScopeArgs']]] = None,
                  storage_location: Optional[pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
+                 target_type: Optional[pulumi.Input['PacketCaptureTargetType']] = None,
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
                  total_bytes_per_session: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         """
         Information about packet capture session.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -194,8 +228,10 @@ class PacketCapture(pulumi.CustomResource):
         :param pulumi.Input[str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[str] packet_capture_name: The name of the packet capture session.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[pulumi.InputType['PacketCaptureMachineScopeArgs']] scope: A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
         :param pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']] storage_location: The storage location for a packet capture session.
-        :param pulumi.Input[str] target: The ID of the targeted resource, only VM is currently supported.
+        :param pulumi.Input[str] target: The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
+        :param pulumi.Input['PacketCaptureTargetType'] target_type: Target type of the resource provided.
         :param pulumi.Input[int] time_limit_in_seconds: Maximum duration of the capture session in seconds.
         :param pulumi.Input[float] total_bytes_per_session: Maximum size of the capture output.
         """
@@ -207,7 +243,7 @@ class PacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about packet capture session.
-        API Version: 2020-11-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param PacketCaptureArgs args: The arguments to use to populate this resource's properties.
@@ -229,8 +265,10 @@ class PacketCapture(pulumi.CustomResource):
                  network_watcher_name: Optional[pulumi.Input[str]] = None,
                  packet_capture_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[pulumi.InputType['PacketCaptureMachineScopeArgs']]] = None,
                  storage_location: Optional[pulumi.Input[pulumi.InputType['PacketCaptureStorageLocationArgs']]] = None,
                  target: Optional[pulumi.Input[str]] = None,
+                 target_type: Optional[pulumi.Input['PacketCaptureTargetType']] = None,
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
                  total_bytes_per_session: Optional[pulumi.Input[float]] = None,
                  __props__=None):
@@ -253,12 +291,14 @@ class PacketCapture(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["scope"] = scope
             if storage_location is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_location'")
             __props__.__dict__["storage_location"] = storage_location
             if target is None and not opts.urn:
                 raise TypeError("Missing required property 'target'")
             __props__.__dict__["target"] = target
+            __props__.__dict__["target_type"] = target_type
             if time_limit_in_seconds is None:
                 time_limit_in_seconds = 18000
             __props__.__dict__["time_limit_in_seconds"] = time_limit_in_seconds
@@ -268,7 +308,7 @@ class PacketCapture(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20160901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20161201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170301:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20171001:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20171101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180401:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20181001:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20181101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20181201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190401:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20191101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20191201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200301:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200401:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200501:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20201101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20210201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20210301:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20210501:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20210801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20220101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20220501:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20220701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20220901:PacketCapture")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20160901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20161201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170301:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20170901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20171001:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20171101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180401:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20180801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20181001:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20181101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20181201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190401:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20190901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20191101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20191201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200301:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200401:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200501:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200601:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20200801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20201101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20210201:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20210301:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20210501:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20210801:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20220101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20220501:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20220701:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20220901:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20221101:PacketCapture"), pulumi.Alias(type_="azure-native:network/v20230201:PacketCapture")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PacketCapture, __self__).__init__(
             'azure-native:network:PacketCapture',
@@ -297,8 +337,10 @@ class PacketCapture(pulumi.CustomResource):
         __props__.__dict__["filters"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["scope"] = None
         __props__.__dict__["storage_location"] = None
         __props__.__dict__["target"] = None
+        __props__.__dict__["target_type"] = None
         __props__.__dict__["time_limit_in_seconds"] = None
         __props__.__dict__["total_bytes_per_session"] = None
         return PacketCapture(resource_name, opts=opts, __props__=__props__)
@@ -344,6 +386,14 @@ class PacketCapture(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Output[Optional['outputs.PacketCaptureMachineScopeResponse']]:
+        """
+        A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
     @pulumi.getter(name="storageLocation")
     def storage_location(self) -> pulumi.Output['outputs.PacketCaptureStorageLocationResponse']:
         """
@@ -355,9 +405,17 @@ class PacketCapture(pulumi.CustomResource):
     @pulumi.getter
     def target(self) -> pulumi.Output[str]:
         """
-        The ID of the targeted resource, only VM is currently supported.
+        The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
         """
         return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Target type of the resource provided.
+        """
+        return pulumi.get(self, "target_type")
 
     @property
     @pulumi.getter(name="timeLimitInSeconds")

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a custom certificate.
- * API Version: 2022-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSignalRCustomCertificate(args: GetSignalRCustomCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRCustomCertificateResult> {
 
@@ -75,7 +75,7 @@ export interface GetSignalRCustomCertificateResult {
 }
 /**
  * Get a custom certificate.
- * API Version: 2022-02-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSignalRCustomCertificateOutput(args: GetSignalRCustomCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRCustomCertificateResult> {
     return pulumi.output(args).apply((a: any) => getSignalRCustomCertificate(a, opts))

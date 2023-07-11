@@ -134,7 +134,7 @@ def get_integration_account_session(integration_account_name: Optional[str] = No
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIntegrationAccountSessionResult:
     """
     Gets an integration account session.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str integration_account_name: The integration account name.
@@ -166,7 +166,7 @@ def get_integration_account_session_output(integration_account_name: Optional[pu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAccountSessionResult]:
     """
     Gets an integration account session.
-    API Version: 2019-05-01.
+    Azure REST API version: 2019-05-01.
 
 
     :param str integration_account_name: The integration account name.

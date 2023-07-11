@@ -18,12 +18,14 @@ __all__ = ['WebPubSubArgs', 'WebPubSub']
 class WebPubSubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 event_handler: Optional[pulumi.Input['EventHandlerSettingsArgs']] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input['WebPubSubFeatureArgs']]]] = None,
+                 disable_aad_auth: Optional[pulumi.Input[bool]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['ManagedIdentityArgs']] = None,
+                 live_trace_configuration: Optional[pulumi.Input['LiveTraceConfigurationArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input['WebPubSubNetworkACLsArgs']] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
+                 resource_log_configuration: Optional[pulumi.Input['ResourceLogConfigurationArgs']] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -31,31 +33,38 @@ class WebPubSubArgs:
         """
         The set of arguments for constructing a WebPubSub resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input['EventHandlerSettingsArgs'] event_handler: The settings for event handler in webpubsub service.
-        :param pulumi.Input[Sequence[pulumi.Input['WebPubSubFeatureArgs']]] features: List of the featureFlags.
-               
-               FeatureFlags that are not included in the parameters for the update operation will not be modified.
-               And the response will only include featureFlags that are explicitly set. 
-               When a featureFlag is not explicitly set, its globally default value will be used
-               But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        :param pulumi.Input['ManagedIdentityArgs'] identity: The managed identity response
+        :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
+               Enable or disable aad auth
+               When set as true, connection with AuthType=aad won't work.
+        :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
+               Enable or disable local auth with AccessKey
+               When set as true, connection with AccessKey=xxx won't work.
+        :param pulumi.Input['ManagedIdentityArgs'] identity: A class represent managed identities used for request and response
+        :param pulumi.Input['LiveTraceConfigurationArgs'] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-        :param pulumi.Input['WebPubSubNetworkACLsArgs'] network_acls: Network ACLs
+        :param pulumi.Input['WebPubSubNetworkACLsArgs'] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
+        :param pulumi.Input['ResourceLogConfigurationArgs'] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] resource_name: The name of the resource.
-        :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.(e.g. Free, Standard)
+        :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
-        :param pulumi.Input['WebPubSubTlsSettingsArgs'] tls: TLS settings.
+        :param pulumi.Input['WebPubSubTlsSettingsArgs'] tls: TLS settings for the resource
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if event_handler is not None:
-            pulumi.set(__self__, "event_handler", event_handler)
-        if features is not None:
-            pulumi.set(__self__, "features", features)
+        if disable_aad_auth is None:
+            disable_aad_auth = False
+        if disable_aad_auth is not None:
+            pulumi.set(__self__, "disable_aad_auth", disable_aad_auth)
+        if disable_local_auth is None:
+            disable_local_auth = False
+        if disable_local_auth is not None:
+            pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if live_trace_configuration is not None:
+            pulumi.set(__self__, "live_trace_configuration", live_trace_configuration)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if network_acls is not None:
@@ -64,6 +73,8 @@ class WebPubSubArgs:
             public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if resource_log_configuration is not None:
+            pulumi.set(__self__, "resource_log_configuration", resource_log_configuration)
         if resource_name is not None:
             pulumi.set(__self__, "resource_name", resource_name)
         if sku is not None:
@@ -86,45 +97,56 @@ class WebPubSubArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="eventHandler")
-    def event_handler(self) -> Optional[pulumi.Input['EventHandlerSettingsArgs']]:
+    @pulumi.getter(name="disableAadAuth")
+    def disable_aad_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        The settings for event handler in webpubsub service.
+        DisableLocalAuth
+        Enable or disable aad auth
+        When set as true, connection with AuthType=aad won't work.
         """
-        return pulumi.get(self, "event_handler")
+        return pulumi.get(self, "disable_aad_auth")
 
-    @event_handler.setter
-    def event_handler(self, value: Optional[pulumi.Input['EventHandlerSettingsArgs']]):
-        pulumi.set(self, "event_handler", value)
+    @disable_aad_auth.setter
+    def disable_aad_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_aad_auth", value)
 
     @property
-    @pulumi.getter
-    def features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebPubSubFeatureArgs']]]]:
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        List of the featureFlags.
-        
-        FeatureFlags that are not included in the parameters for the update operation will not be modified.
-        And the response will only include featureFlags that are explicitly set. 
-        When a featureFlag is not explicitly set, its globally default value will be used
-        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
+        DisableLocalAuth
+        Enable or disable local auth with AccessKey
+        When set as true, connection with AccessKey=xxx won't work.
         """
-        return pulumi.get(self, "features")
+        return pulumi.get(self, "disable_local_auth")
 
-    @features.setter
-    def features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebPubSubFeatureArgs']]]]):
-        pulumi.set(self, "features", value)
+    @disable_local_auth.setter
+    def disable_local_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_local_auth", value)
 
     @property
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['ManagedIdentityArgs']]:
         """
-        The managed identity response
+        A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
     def identity(self, value: Optional[pulumi.Input['ManagedIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="liveTraceConfiguration")
+    def live_trace_configuration(self) -> Optional[pulumi.Input['LiveTraceConfigurationArgs']]:
+        """
+        Live trace configuration of a Microsoft.SignalRService resource.
+        """
+        return pulumi.get(self, "live_trace_configuration")
+
+    @live_trace_configuration.setter
+    def live_trace_configuration(self, value: Optional[pulumi.Input['LiveTraceConfigurationArgs']]):
+        pulumi.set(self, "live_trace_configuration", value)
 
     @property
     @pulumi.getter
@@ -142,7 +164,7 @@ class WebPubSubArgs:
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> Optional[pulumi.Input['WebPubSubNetworkACLsArgs']]:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -165,6 +187,18 @@ class WebPubSubArgs:
         pulumi.set(self, "public_network_access", value)
 
     @property
+    @pulumi.getter(name="resourceLogConfiguration")
+    def resource_log_configuration(self) -> Optional[pulumi.Input['ResourceLogConfigurationArgs']]:
+        """
+        Resource log configuration of a Microsoft.SignalRService resource.
+        """
+        return pulumi.get(self, "resource_log_configuration")
+
+    @resource_log_configuration.setter
+    def resource_log_configuration(self, value: Optional[pulumi.Input['ResourceLogConfigurationArgs']]):
+        pulumi.set(self, "resource_log_configuration", value)
+
+    @property
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -180,7 +214,7 @@ class WebPubSubArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
@@ -204,7 +238,7 @@ class WebPubSubArgs:
     @pulumi.getter
     def tls(self) -> Optional[pulumi.Input['WebPubSubTlsSettingsArgs']]:
         """
-        TLS settings.
+        TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 
@@ -218,13 +252,15 @@ class WebPubSub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_handler: Optional[pulumi.Input[pulumi.InputType['EventHandlerSettingsArgs']]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebPubSubFeatureArgs']]]]] = None,
+                 disable_aad_auth: Optional[pulumi.Input[bool]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 live_trace_configuration: Optional[pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_log_configuration: Optional[pulumi.Input[pulumi.InputType['ResourceLogConfigurationArgs']]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -232,28 +268,29 @@ class WebPubSub(pulumi.CustomResource):
                  __props__=None):
         """
         A class represent a resource.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['EventHandlerSettingsArgs']] event_handler: The settings for event handler in webpubsub service.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebPubSubFeatureArgs']]]] features: List of the featureFlags.
-               
-               FeatureFlags that are not included in the parameters for the update operation will not be modified.
-               And the response will only include featureFlags that are explicitly set. 
-               When a featureFlag is not explicitly set, its globally default value will be used
-               But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: The managed identity response
+        :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
+               Enable or disable aad auth
+               When set as true, connection with AuthType=aad won't work.
+        :param pulumi.Input[bool] disable_local_auth: DisableLocalAuth
+               Enable or disable local auth with AccessKey
+               When set as true, connection with AccessKey=xxx won't work.
+        :param pulumi.Input[pulumi.InputType['ManagedIdentityArgs']] identity: A class represent managed identities used for request and response
+        :param pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']] live_trace_configuration: Live trace configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] location: The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
-        :param pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']] network_acls: Network ACLs
+        :param pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']] network_acls: Network ACLs for the resource
         :param pulumi.Input[str] public_network_access: Enable or disable public network access. Default to "Enabled".
                When it's Enabled, network ACLs still apply.
                When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[pulumi.InputType['ResourceLogConfigurationArgs']] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
         :param pulumi.Input[str] resource_name_: The name of the resource.
-        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.(e.g. Free, Standard)
+        :param pulumi.Input[pulumi.InputType['ResourceSkuArgs']] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the service which is a list of key value pairs that describe the resource.
-        :param pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']] tls: TLS settings.
+        :param pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']] tls: TLS settings for the resource
         """
         ...
     @overload
@@ -263,7 +300,7 @@ class WebPubSub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a resource.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param WebPubSubArgs args: The arguments to use to populate this resource's properties.
@@ -280,13 +317,15 @@ class WebPubSub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_handler: Optional[pulumi.Input[pulumi.InputType['EventHandlerSettingsArgs']]] = None,
-                 features: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebPubSubFeatureArgs']]]]] = None,
+                 disable_aad_auth: Optional[pulumi.Input[bool]] = None,
+                 disable_local_auth: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedIdentityArgs']]] = None,
+                 live_trace_configuration: Optional[pulumi.Input[pulumi.InputType['LiveTraceConfigurationArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['WebPubSubNetworkACLsArgs']]] = None,
                  public_network_access: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 resource_log_configuration: Optional[pulumi.Input[pulumi.InputType['ResourceLogConfigurationArgs']]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['ResourceSkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -300,9 +339,14 @@ class WebPubSub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebPubSubArgs.__new__(WebPubSubArgs)
 
-            __props__.__dict__["event_handler"] = event_handler
-            __props__.__dict__["features"] = features
+            if disable_aad_auth is None:
+                disable_aad_auth = False
+            __props__.__dict__["disable_aad_auth"] = disable_aad_auth
+            if disable_local_auth is None:
+                disable_local_auth = False
+            __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["live_trace_configuration"] = live_trace_configuration
             __props__.__dict__["location"] = location
             __props__.__dict__["network_acls"] = network_acls
             if public_network_access is None:
@@ -311,12 +355,14 @@ class WebPubSub(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["resource_log_configuration"] = resource_log_configuration
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tls"] = tls
             __props__.__dict__["external_ip"] = None
             __props__.__dict__["host_name"] = None
+            __props__.__dict__["host_name_prefix"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
@@ -326,7 +372,7 @@ class WebPubSub(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSub, __self__).__init__(
             'azure-native:webpubsub:WebPubSub',
@@ -350,11 +396,13 @@ class WebPubSub(pulumi.CustomResource):
 
         __props__ = WebPubSubArgs.__new__(WebPubSubArgs)
 
-        __props__.__dict__["event_handler"] = None
+        __props__.__dict__["disable_aad_auth"] = None
+        __props__.__dict__["disable_local_auth"] = None
         __props__.__dict__["external_ip"] = None
-        __props__.__dict__["features"] = None
         __props__.__dict__["host_name"] = None
+        __props__.__dict__["host_name_prefix"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["live_trace_configuration"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_acls"] = None
@@ -362,6 +410,7 @@ class WebPubSub(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["public_port"] = None
+        __props__.__dict__["resource_log_configuration"] = None
         __props__.__dict__["server_port"] = None
         __props__.__dict__["shared_private_link_resources"] = None
         __props__.__dict__["sku"] = None
@@ -373,12 +422,24 @@ class WebPubSub(pulumi.CustomResource):
         return WebPubSub(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="eventHandler")
-    def event_handler(self) -> pulumi.Output[Optional['outputs.EventHandlerSettingsResponse']]:
+    @pulumi.getter(name="disableAadAuth")
+    def disable_aad_auth(self) -> pulumi.Output[Optional[bool]]:
         """
-        The settings for event handler in webpubsub service.
+        DisableLocalAuth
+        Enable or disable aad auth
+        When set as true, connection with AuthType=aad won't work.
         """
-        return pulumi.get(self, "event_handler")
+        return pulumi.get(self, "disable_aad_auth")
+
+    @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> pulumi.Output[Optional[bool]]:
+        """
+        DisableLocalAuth
+        Enable or disable local auth with AccessKey
+        When set as true, connection with AccessKey=xxx won't work.
+        """
+        return pulumi.get(self, "disable_local_auth")
 
     @property
     @pulumi.getter(name="externalIP")
@@ -389,19 +450,6 @@ class WebPubSub(pulumi.CustomResource):
         return pulumi.get(self, "external_ip")
 
     @property
-    @pulumi.getter
-    def features(self) -> pulumi.Output[Optional[Sequence['outputs.WebPubSubFeatureResponse']]]:
-        """
-        List of the featureFlags.
-        
-        FeatureFlags that are not included in the parameters for the update operation will not be modified.
-        And the response will only include featureFlags that are explicitly set. 
-        When a featureFlag is not explicitly set, its globally default value will be used
-        But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
-        """
-        return pulumi.get(self, "features")
-
-    @property
     @pulumi.getter(name="hostName")
     def host_name(self) -> pulumi.Output[str]:
         """
@@ -410,12 +458,28 @@ class WebPubSub(pulumi.CustomResource):
         return pulumi.get(self, "host_name")
 
     @property
+    @pulumi.getter(name="hostNamePrefix")
+    def host_name_prefix(self) -> pulumi.Output[str]:
+        """
+        Deprecated.
+        """
+        return pulumi.get(self, "host_name_prefix")
+
+    @property
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedIdentityResponse']]:
         """
-        The managed identity response
+        A class represent managed identities used for request and response
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="liveTraceConfiguration")
+    def live_trace_configuration(self) -> pulumi.Output[Optional['outputs.LiveTraceConfigurationResponse']]:
+        """
+        Live trace configuration of a Microsoft.SignalRService resource.
+        """
+        return pulumi.get(self, "live_trace_configuration")
 
     @property
     @pulumi.getter
@@ -437,7 +501,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter(name="networkACLs")
     def network_acls(self) -> pulumi.Output[Optional['outputs.WebPubSubNetworkACLsResponse']]:
         """
-        Network ACLs
+        Network ACLs for the resource
         """
         return pulumi.get(self, "network_acls")
 
@@ -476,6 +540,14 @@ class WebPubSub(pulumi.CustomResource):
         return pulumi.get(self, "public_port")
 
     @property
+    @pulumi.getter(name="resourceLogConfiguration")
+    def resource_log_configuration(self) -> pulumi.Output[Optional['outputs.ResourceLogConfigurationResponse']]:
+        """
+        Resource log configuration of a Microsoft.SignalRService resource.
+        """
+        return pulumi.get(self, "resource_log_configuration")
+
+    @property
     @pulumi.getter(name="serverPort")
     def server_port(self) -> pulumi.Output[int]:
         """
@@ -495,7 +567,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.ResourceSkuResponse']]:
         """
-        The billing information of the resource.(e.g. Free, Standard)
+        The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
@@ -519,7 +591,7 @@ class WebPubSub(pulumi.CustomResource):
     @pulumi.getter
     def tls(self) -> pulumi.Output[Optional['outputs.WebPubSubTlsSettingsResponse']]:
         """
-        TLS settings.
+        TLS settings for the resource
         """
         return pulumi.get(self, "tls")
 

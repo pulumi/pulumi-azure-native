@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Event Subscription
- *
- * @deprecated azure-native:eventgrid/v20220615:DomainTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription to guarantee forwards compatibility.
  */
 export class DomainTopicEventSubscription extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class DomainTopicEventSubscription extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DomainTopicEventSubscription {
-        pulumi.log.warn("DomainTopicEventSubscription is deprecated: azure-native:eventgrid/v20220615:DomainTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription to guarantee forwards compatibility.")
         return new DomainTopicEventSubscription(name, undefined as any, { ...opts, id: id });
     }
 
@@ -108,9 +105,7 @@ export class DomainTopicEventSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:eventgrid/v20220615:DomainTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription to guarantee forwards compatibility. */
     constructor(name: string, args: DomainTopicEventSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DomainTopicEventSubscription is deprecated: azure-native:eventgrid/v20220615:DomainTopicEventSubscription is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -158,7 +153,7 @@ export class DomainTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:DomainTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:DomainTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription" }, { type: "azure-native:eventgrid/v20230601preview:DomainTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DomainTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

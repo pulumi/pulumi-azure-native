@@ -99,7 +99,7 @@ def list_hybrid_connection_keys(authorization_rule_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListHybridConnectionKeysResult:
     """
     Primary and secondary connection strings to the hybrid connection.
-    API Version: 2017-04-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.
@@ -131,7 +131,7 @@ def list_hybrid_connection_keys_output(authorization_rule_name: Optional[pulumi.
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListHybridConnectionKeysResult]:
     """
     Primary and secondary connection strings to the hybrid connection.
-    API Version: 2017-04-01.
+    Azure REST API version: 2021-11-01.
 
 
     :param str authorization_rule_name: The authorization rule name.

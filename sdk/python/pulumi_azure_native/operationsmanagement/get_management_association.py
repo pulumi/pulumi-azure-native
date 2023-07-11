@@ -101,7 +101,7 @@ def get_management_association(management_association_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagementAssociationResult:
     """
     Retrieves the user ManagementAssociation.
-    API Version: 2015-11-01-preview.
+    Azure REST API version: 2015-11-01-preview.
 
 
     :param str management_association_name: User ManagementAssociation Name.
@@ -136,7 +136,7 @@ def get_management_association_output(management_association_name: Optional[pulu
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagementAssociationResult]:
     """
     Retrieves the user ManagementAssociation.
-    API Version: 2015-11-01-preview.
+    Azure REST API version: 2015-11-01-preview.
 
 
     :param str management_association_name: User ManagementAssociation Name.

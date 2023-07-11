@@ -65,12 +65,7 @@ class ServerDnsAliasArgs:
         pulumi.set(self, "dns_alias_name", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerDnsAlias to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ServerDnsAlias(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerDnsAlias to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -116,7 +111,6 @@ class ServerDnsAlias(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ServerDnsAlias is deprecated: azure-native:sql/v20211101:ServerDnsAlias is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerDnsAlias to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -135,7 +129,7 @@ class ServerDnsAlias(pulumi.CustomResource):
             __props__.__dict__["azure_dns_record"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20170301preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerDnsAlias")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20170301preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerDnsAlias"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerDnsAlias")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerDnsAlias, __self__).__init__(
             'azure-native:sql/v20211101:ServerDnsAlias',

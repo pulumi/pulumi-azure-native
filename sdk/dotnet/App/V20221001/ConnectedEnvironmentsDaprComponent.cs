@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.App.V20221001
     /// <summary>
     /// Dapr Component.
     /// </summary>
-    [Obsolete(@"azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent")]
     public partial class ConnectedEnvironmentsDaprComponent : global::Pulumi.CustomResource
     {
@@ -107,7 +106,10 @@ namespace Pulumi.AzureNative.App.V20221001
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:app:ConnectedEnvironmentsDaprComponent"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:ConnectedEnvironmentsDaprComponent"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsDaprComponent"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ConnectedEnvironmentsDaprComponent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

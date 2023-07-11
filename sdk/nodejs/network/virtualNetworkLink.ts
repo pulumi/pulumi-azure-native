@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a link to virtual network for a Private DNS zone.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2020-06-01. Prior API version in Azure Native 1.x: 2020-06-01
  */
 export class VirtualNetworkLink extends pulumi.CustomResource {
     /**

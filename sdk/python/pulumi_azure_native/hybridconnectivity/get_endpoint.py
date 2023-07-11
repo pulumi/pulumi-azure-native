@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetEndpointResult',
@@ -21,7 +22,7 @@ class GetEndpointResult:
     """
     The endpoint for the target resource.
     """
-    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, name=None, provisioning_state=None, resource_id=None, type=None):
+    def __init__(__self__, created_at=None, created_by=None, created_by_type=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, name=None, properties=None, system_data=None, type=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -46,12 +47,12 @@ class GetEndpointResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if resource_id and not isinstance(resource_id, str):
-            raise TypeError("Expected argument 'resource_id' to be a str")
-        pulumi.set(__self__, "resource_id", resource_id)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -84,7 +85,7 @@ class GetEndpointResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -121,20 +122,20 @@ class GetEndpointResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> str:
+    @pulumi.getter
+    def properties(self) -> 'outputs.EndpointPropertiesResponse':
         """
-        The resource provisioning state.
+        The endpoint properties.
         """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[str]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The resource Id of the connectivity endpoint (optional).
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        return pulumi.get(self, "resource_id")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -159,8 +160,8 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             last_modified_by=self.last_modified_by,
             last_modified_by_type=self.last_modified_by_type,
             name=self.name,
-            provisioning_state=self.provisioning_state,
-            resource_id=self.resource_id,
+            properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -169,7 +170,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Gets the endpoint to the resource.
-    API Version: 2022-05-01-preview.
+    Azure REST API version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.
@@ -190,8 +191,8 @@ def get_endpoint(endpoint_name: Optional[str] = None,
         last_modified_by=__ret__.last_modified_by,
         last_modified_by_type=__ret__.last_modified_by_type,
         name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_id=__ret__.resource_id,
+        properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -201,7 +202,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets the endpoint to the resource.
-    API Version: 2022-05-01-preview.
+    Azure REST API version: 2023-03-15.
 
 
     :param str endpoint_name: The endpoint name.

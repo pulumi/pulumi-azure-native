@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a configuration profile assignment
- * API Version: 2020-06-30-preview.
+ * Azure REST API version: 2022-05-04.
  */
 export function getConfigurationProfileAssignment(args: GetConfigurationProfileAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationProfileAssignmentResult> {
 
@@ -45,6 +45,10 @@ export interface GetConfigurationProfileAssignmentResult {
      */
     readonly id: string;
     /**
+     * Azure resource id. Indicates if this resource is managed by another Azure resource.
+     */
+    readonly managedBy: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
@@ -53,13 +57,17 @@ export interface GetConfigurationProfileAssignmentResult {
      */
     readonly properties: outputs.automanage.ConfigurationProfileAssignmentPropertiesResponse;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.automanage.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Get information about a configuration profile assignment
- * API Version: 2020-06-30-preview.
+ * Azure REST API version: 2022-05-04.
  */
 export function getConfigurationProfileAssignmentOutput(args: GetConfigurationProfileAssignmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationProfileAssignmentResult> {
     return pulumi.output(args).apply((a: any) => getConfigurationProfileAssignment(a, opts))

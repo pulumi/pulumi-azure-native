@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * return notebook access token and refresh token
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<ListWorkspaceNotebookAccessTokenResult> {
 
@@ -19,7 +19,7 @@ export function listWorkspaceNotebookAccessToken(args: ListWorkspaceNotebookAcce
 
 export interface ListWorkspaceNotebookAccessTokenArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -40,7 +40,7 @@ export interface ListWorkspaceNotebookAccessTokenResult {
 }
 /**
  * return notebook access token and refresh token
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebookAccessTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWorkspaceNotebookAccessTokenResult> {
     return pulumi.output(args).apply((a: any) => listWorkspaceNotebookAccessToken(a, opts))
@@ -48,7 +48,7 @@ export function listWorkspaceNotebookAccessTokenOutput(args: ListWorkspaceNotebo
 
 export interface ListWorkspaceNotebookAccessTokenOutputArgs {
     /**
-     * Name of the resource group in which workspace is located.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

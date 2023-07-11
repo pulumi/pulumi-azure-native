@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 {
     /// <summary>
     /// Metadata resource definition.
-    /// API Version: 2021-03-01-preview.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Metadata")]
     public partial class Metadata : global::Pulumi.CustomResource
@@ -35,6 +35,18 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> ContentId { get; private set; } = null!;
 
         /// <summary>
+        /// Schema version of the content. Can be used to distinguish between different flow based on the schema version
+        /// </summary>
+        [Output("contentSchemaVersion")]
+        public Output<string?> ContentSchemaVersion { get; private set; } = null!;
+
+        /// <summary>
+        /// The custom version of the content. A optional free text
+        /// </summary>
+        [Output("customVersion")]
+        public Output<string?> CustomVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
         /// </summary>
         [Output("dependencies")]
@@ -53,6 +65,12 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> FirstPublishDate { get; private set; } = null!;
 
         /// <summary>
+        /// the icon identifier. this id can later be fetched from the solution template
+        /// </summary>
+        [Output("icon")]
+        public Output<string?> Icon { get; private set; } = null!;
+
+        /// <summary>
         /// The kind of content the metadata is for.
         /// </summary>
         [Output("kind")]
@@ -65,7 +83,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string?> LastPublishDate { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -75,6 +93,18 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Output("parentId")]
         public Output<string> ParentId { get; private set; } = null!;
+
+        /// <summary>
+        /// preview image file names. These will be taken from the solution artifacts
+        /// </summary>
+        [Output("previewImages")]
+        public Output<ImmutableArray<string>> PreviewImages { get; private set; } = null!;
+
+        /// <summary>
+        /// preview image file names. These will be taken from the solution artifacts. used for dark theme support
+        /// </summary>
+        [Output("previewImagesDark")]
+        public Output<ImmutableArray<string>> PreviewImagesDark { get; private set; } = null!;
 
         /// <summary>
         /// Providers for the solution content item
@@ -101,7 +131,19 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// the tactics the resource covers
+        /// </summary>
+        [Output("threatAnalysisTactics")]
+        public Output<ImmutableArray<string>> ThreatAnalysisTactics { get; private set; } = null!;
+
+        /// <summary>
+        /// the techniques the resource covers, these have to be aligned with the tactics being used
+        /// </summary>
+        [Output("threatAnalysisTechniques")]
+        public Output<ImmutableArray<string>> ThreatAnalysisTechniques { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -152,7 +194,10 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20221201preview:Metadata"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201:Metadata"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230201preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230301preview:Metadata"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230401preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:Metadata"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:Metadata"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -195,6 +240,18 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? ContentId { get; set; }
 
         /// <summary>
+        /// Schema version of the content. Can be used to distinguish between different flow based on the schema version
+        /// </summary>
+        [Input("contentSchemaVersion")]
+        public Input<string>? ContentSchemaVersion { get; set; }
+
+        /// <summary>
+        /// The custom version of the content. A optional free text
+        /// </summary>
+        [Input("customVersion")]
+        public Input<string>? CustomVersion { get; set; }
+
+        /// <summary>
         /// Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
         /// </summary>
         [Input("dependencies")]
@@ -207,10 +264,16 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? FirstPublishDate { get; set; }
 
         /// <summary>
+        /// the icon identifier. this id can later be fetched from the solution template
+        /// </summary>
+        [Input("icon")]
+        public Input<string>? Icon { get; set; }
+
+        /// <summary>
         /// The kind of content the metadata is for.
         /// </summary>
         [Input("kind", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.Kind> Kind { get; set; } = null!;
+        public Input<string> Kind { get; set; } = null!;
 
         /// <summary>
         /// last publish date for the solution content item
@@ -225,16 +288,34 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string>? MetadataName { get; set; }
 
         /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
-        /// <summary>
         /// Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
         /// </summary>
         [Input("parentId", required: true)]
         public Input<string> ParentId { get; set; } = null!;
+
+        [Input("previewImages")]
+        private InputList<string>? _previewImages;
+
+        /// <summary>
+        /// preview image file names. These will be taken from the solution artifacts
+        /// </summary>
+        public InputList<string> PreviewImages
+        {
+            get => _previewImages ?? (_previewImages = new InputList<string>());
+            set => _previewImages = value;
+        }
+
+        [Input("previewImagesDark")]
+        private InputList<string>? _previewImagesDark;
+
+        /// <summary>
+        /// preview image file names. These will be taken from the solution artifacts. used for dark theme support
+        /// </summary>
+        public InputList<string> PreviewImagesDark
+        {
+            get => _previewImagesDark ?? (_previewImagesDark = new InputList<string>());
+            set => _previewImagesDark = value;
+        }
 
         [Input("providers")]
         private InputList<string>? _providers;
@@ -265,6 +346,30 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         [Input("support")]
         public Input<Inputs.MetadataSupportArgs>? Support { get; set; }
+
+        [Input("threatAnalysisTactics")]
+        private InputList<string>? _threatAnalysisTactics;
+
+        /// <summary>
+        /// the tactics the resource covers
+        /// </summary>
+        public InputList<string> ThreatAnalysisTactics
+        {
+            get => _threatAnalysisTactics ?? (_threatAnalysisTactics = new InputList<string>());
+            set => _threatAnalysisTactics = value;
+        }
+
+        [Input("threatAnalysisTechniques")]
+        private InputList<string>? _threatAnalysisTechniques;
+
+        /// <summary>
+        /// the techniques the resource covers, these have to be aligned with the tactics being used
+        /// </summary>
+        public InputList<string> ThreatAnalysisTechniques
+        {
+            get => _threatAnalysisTechniques ?? (_threatAnalysisTechniques = new InputList<string>());
+            set => _threatAnalysisTechniques = value;
+        }
 
         /// <summary>
         /// Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks

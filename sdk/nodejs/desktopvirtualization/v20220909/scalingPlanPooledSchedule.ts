@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a ScalingPlanPooledSchedule definition.
- *
- * @deprecated azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.
  */
 export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ScalingPlanPooledSchedule {
-        pulumi.log.warn("ScalingPlanPooledSchedule is deprecated: azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.")
         return new ScalingPlanPooledSchedule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -128,9 +125,7 @@ export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility. */
     constructor(name: string, args: ScalingPlanPooledScheduleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ScalingPlanPooledSchedule is deprecated: azure-native:desktopvirtualization/v20220909:ScalingPlanPooledSchedule is being removed in the next major version of this provider. Upgrade to at least azure-native:desktopvirtualization/v20221014preview:ScalingPlanPooledSchedule to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

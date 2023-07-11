@@ -21,9 +21,25 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Is the asset archived?
+        /// </summary>
+        public readonly bool? IsArchived;
+        /// <summary>
+        /// The latest version inside this container.
+        /// </summary>
+        public readonly string LatestVersion;
+        /// <summary>
+        /// The next auto incremental version
+        /// </summary>
+        public readonly string NextVersion;
+        /// <summary>
         /// The asset property dictionary.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
+        /// <summary>
+        /// Provisioning state for the environment container.
+        /// </summary>
+        public readonly string ProvisioningState;
         /// <summary>
         /// Tag dictionary. Tags can be added, removed, and updated.
         /// </summary>
@@ -33,12 +49,24 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         private EnvironmentContainerResponse(
             string? description,
 
+            bool? isArchived,
+
+            string latestVersion,
+
+            string nextVersion,
+
             ImmutableDictionary<string, string>? properties,
+
+            string provisioningState,
 
             ImmutableDictionary<string, string>? tags)
         {
             Description = description;
+            IsArchived = isArchived;
+            LatestVersion = latestVersion;
+            NextVersion = nextVersion;
             Properties = properties;
+            ProvisioningState = provisioningState;
             Tags = tags;
         }
     }

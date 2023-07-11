@@ -11,30 +11,30 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
 {
 
     /// <summary>
-    /// Holds details about product hierarchy information
+    /// Holds details about product hierarchy information.
     /// </summary>
     public sealed class HierarchyInformationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Represents configuration name that uniquely identifies configuration
+        /// Represents configuration name that uniquely identifies configuration.
         /// </summary>
         [Input("configurationName")]
         public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
-        /// Represents product family name that uniquely identifies product family
+        /// Represents product family name that uniquely identifies product family.
         /// </summary>
         [Input("productFamilyName")]
         public Input<string>? ProductFamilyName { get; set; }
 
         /// <summary>
-        /// Represents product line name that uniquely identifies product line
+        /// Represents product line name that uniquely identifies product line.
         /// </summary>
         [Input("productLineName")]
         public Input<string>? ProductLineName { get; set; }
 
         /// <summary>
-        /// Represents product name that uniquely identifies product
+        /// Represents product name that uniquely identifies product.
         /// </summary>
         [Input("productName")]
         public Input<string>? ProductName { get; set; }

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An extended server blob auditing policy.
- *
- * @deprecated azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ExtendedServerBlobAuditingPolicy to guarantee forwards compatibility.
  */
 export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ExtendedServerBlobAuditingPolicy {
-        pulumi.log.warn("ExtendedServerBlobAuditingPolicy is deprecated: azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ExtendedServerBlobAuditingPolicy to guarantee forwards compatibility.")
         return new ExtendedServerBlobAuditingPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -180,9 +177,7 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ExtendedServerBlobAuditingPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: ExtendedServerBlobAuditingPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ExtendedServerBlobAuditingPolicy is deprecated: azure-native:sql/v20211101:ExtendedServerBlobAuditingPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ExtendedServerBlobAuditingPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -228,7 +223,7 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20170301preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200801preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220201preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220501preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220801preview:ExtendedServerBlobAuditingPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20170301preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200202preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20200801preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20201101preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210201preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210501preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20210801preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20211101preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220201preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220501preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20220801preview:ExtendedServerBlobAuditingPolicy" }, { type: "azure-native:sql/v20221101preview:ExtendedServerBlobAuditingPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExtendedServerBlobAuditingPolicy.__pulumiType, name, resourceInputs, opts);
     }

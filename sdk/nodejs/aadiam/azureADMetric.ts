@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * AzureADMetrics resource.
- * API Version: 2020-07-01-preview.
+ * Azure REST API version: 2020-07-01-preview. Prior API version in Azure Native 1.x: 2020-07-01-preview
  */
 export class AzureADMetric extends pulumi.CustomResource {
     /**
@@ -25,7 +25,7 @@ export class AzureADMetric extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:aadiam:azureADMetric';
+    public static readonly __pulumiType = 'azure-native:aadiam:AzureADMetric';
 
     /**
      * Returns true if the given object is an instance of AzureADMetric.  This is designed to work even
@@ -85,7 +85,7 @@ export class AzureADMetric extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:aadiam/v20200701preview:azureADMetric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:aadiam:azureADMetric" }, { type: "azure-native:aadiam/v20200701preview:AzureADMetric" }, { type: "azure-native:aadiam/v20200701preview:azureADMetric" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AzureADMetric.__pulumiType, name, resourceInputs, opts);
     }

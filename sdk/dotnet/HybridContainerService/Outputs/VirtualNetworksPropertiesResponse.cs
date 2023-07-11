@@ -27,12 +27,12 @@ namespace Pulumi.AzureNative.HybridContainerService.Outputs
         /// <summary>
         /// Address of the Gateway associated with the network
         /// </summary>
-        public readonly string Gateway;
+        public readonly string? Gateway;
         public readonly Outputs.VirtualNetworksPropertiesResponseInfraVnetProfile? InfraVnetProfile;
         /// <summary>
         /// IP Address Prefix of the network
         /// </summary>
-        public readonly string IpAddressPrefix;
+        public readonly string? IpAddressPrefix;
         public readonly string ProvisioningState;
         /// <summary>
         /// HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
@@ -57,11 +57,11 @@ namespace Pulumi.AzureNative.HybridContainerService.Outputs
 
             ImmutableArray<string> dnsServers,
 
-            string gateway,
+            string? gateway,
 
             Outputs.VirtualNetworksPropertiesResponseInfraVnetProfile? infraVnetProfile,
 
-            string ipAddressPrefix,
+            string? ipAddressPrefix,
 
             string provisioningState,
 

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automanage
     {
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// API Version: 2020-06-30-preview.
+        /// Azure REST API version: 2022-05-04.
         /// </summary>
         public static Task<GetConfigurationProfileAssignmentResult> InvokeAsync(GetConfigurationProfileAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationProfileAssignmentResult>("azure-native:automanage:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about a configuration profile assignment
-        /// API Version: 2020-06-30-preview.
+        /// Azure REST API version: 2022-05-04.
         /// </summary>
         public static Output<GetConfigurationProfileAssignmentResult> Invoke(GetConfigurationProfileAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileAssignmentResult>("azure-native:automanage:getConfigurationProfileAssignment", args ?? new GetConfigurationProfileAssignmentInvokeArgs(), options.WithDefaults());
@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Automanage
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Azure resource id. Indicates if this resource is managed by another Azure resource.
+        /// </summary>
+        public readonly string ManagedBy;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -95,6 +99,10 @@ namespace Pulumi.AzureNative.Automanage
         /// Properties of the configuration profile assignment.
         /// </summary>
         public readonly Outputs.ConfigurationProfileAssignmentPropertiesResponse Properties;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -104,15 +112,21 @@ namespace Pulumi.AzureNative.Automanage
         private GetConfigurationProfileAssignmentResult(
             string id,
 
+            string managedBy,
+
             string name,
 
             Outputs.ConfigurationProfileAssignmentPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
+            ManagedBy = managedBy;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

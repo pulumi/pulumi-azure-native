@@ -100,11 +100,11 @@ def get_replication_recovery_services_provider(fabric_name: Optional[str] = None
                                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationRecoveryServicesProviderResult:
     """
     Gets the details of registered recovery services provider.
-    API Version: 2018-07-10.
+    Azure REST API version: 2023-04-01.
 
 
     :param str fabric_name: Fabric name.
-    :param str provider_name: Recovery services provider name
+    :param str provider_name: Recovery services provider name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
@@ -132,11 +132,11 @@ def get_replication_recovery_services_provider_output(fabric_name: Optional[pulu
                                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationRecoveryServicesProviderResult]:
     """
     Gets the details of registered recovery services provider.
-    API Version: 2018-07-10.
+    Azure REST API version: 2023-04-01.
 
 
     :param str fabric_name: Fabric name.
-    :param str provider_name: Recovery services provider name
+    :param str provider_name: Recovery services provider name.
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """

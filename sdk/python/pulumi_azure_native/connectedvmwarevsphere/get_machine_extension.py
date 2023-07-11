@@ -22,10 +22,13 @@ class GetMachineExtensionResult:
     """
     Describes a Machine Extension.
     """
-    def __init__(__self__, auto_upgrade_minor_version=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, system_data=None, tags=None, type=None, type_handler_version=None):
+    def __init__(__self__, auto_upgrade_minor_version=None, enable_automatic_upgrade=None, force_update_tag=None, id=None, instance_view=None, location=None, name=None, protected_settings=None, provisioning_state=None, publisher=None, settings=None, system_data=None, tags=None, type=None, type_handler_version=None):
         if auto_upgrade_minor_version and not isinstance(auto_upgrade_minor_version, bool):
             raise TypeError("Expected argument 'auto_upgrade_minor_version' to be a bool")
         pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if enable_automatic_upgrade and not isinstance(enable_automatic_upgrade, bool):
+            raise TypeError("Expected argument 'enable_automatic_upgrade' to be a bool")
+        pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if force_update_tag and not isinstance(force_update_tag, str):
             raise TypeError("Expected argument 'force_update_tag' to be a str")
         pulumi.set(__self__, "force_update_tag", force_update_tag)
@@ -73,6 +76,14 @@ class GetMachineExtensionResult:
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[bool]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
 
     @property
     @pulumi.getter(name="forceUpdateTag")
@@ -186,6 +197,7 @@ class AwaitableGetMachineExtensionResult(GetMachineExtensionResult):
             yield self
         return GetMachineExtensionResult(
             auto_upgrade_minor_version=self.auto_upgrade_minor_version,
+            enable_automatic_upgrade=self.enable_automatic_upgrade,
             force_update_tag=self.force_update_tag,
             id=self.id,
             instance_view=self.instance_view,
@@ -202,27 +214,28 @@ class AwaitableGetMachineExtensionResult(GetMachineExtensionResult):
 
 
 def get_machine_extension(extension_name: Optional[str] = None,
-                          name: Optional[str] = None,
                           resource_group_name: Optional[str] = None,
+                          virtual_machine_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMachineExtensionResult:
     """
     The operation to get the extension.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str extension_name: The name of the machine extension.
-    :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The Resource Group Name.
+    :param str virtual_machine_name: The name of the machine containing the extension.
     """
     __args__ = dict()
     __args__['extensionName'] = extension_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['virtualMachineName'] = virtual_machine_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getMachineExtension', __args__, opts=opts, typ=GetMachineExtensionResult).value
 
     return AwaitableGetMachineExtensionResult(
         auto_upgrade_minor_version=__ret__.auto_upgrade_minor_version,
+        enable_automatic_upgrade=__ret__.enable_automatic_upgrade,
         force_update_tag=__ret__.force_update_tag,
         id=__ret__.id,
         instance_view=__ret__.instance_view,
@@ -240,16 +253,16 @@ def get_machine_extension(extension_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_machine_extension)
 def get_machine_extension_output(extension_name: Optional[pulumi.Input[str]] = None,
-                                 name: Optional[pulumi.Input[str]] = None,
                                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                                 virtual_machine_name: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMachineExtensionResult]:
     """
     The operation to get the extension.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str extension_name: The name of the machine extension.
-    :param str name: The name of the machine containing the extension.
     :param str resource_group_name: The Resource Group Name.
+    :param str virtual_machine_name: The name of the machine containing the extension.
     """
     ...

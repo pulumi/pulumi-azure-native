@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Scheduled action definition.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class ScheduledActionByScope extends pulumi.CustomResource {
     /**
@@ -43,11 +43,11 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * Resource Etag.
+     * Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
      */
     public /*out*/ readonly eTag!: pulumi.Output<string>;
     /**
-     * Destination format of the view data.
+     * Destination format of the view data. This is optional.
      */
     public readonly fileDestination!: pulumi.Output<outputs.costmanagement.FileDestinationResponse | undefined>;
     /**
@@ -55,7 +55,7 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -63,11 +63,15 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
      */
     public readonly notification!: pulumi.Output<outputs.costmanagement.NotificationPropertiesResponse>;
     /**
+     * Email address of the point of contact that should get the unsubscribe requests and notification emails.
+     */
+    public readonly notificationEmail!: pulumi.Output<string | undefined>;
+    /**
      * Schedule of the scheduled action.
      */
     public readonly schedule!: pulumi.Output<outputs.costmanagement.SchedulePropertiesResponse>;
     /**
-     * Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+     * For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
     public readonly scope!: pulumi.Output<string | undefined>;
     /**
@@ -75,11 +79,11 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
      */
     public readonly status!: pulumi.Output<string>;
     /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     * Kind of the scheduled action.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.costmanagement.SystemDataResponse>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -121,6 +125,7 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["notification"] = args ? args.notification : undefined;
+            resourceInputs["notificationEmail"] = args ? args.notificationEmail : undefined;
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -135,6 +140,7 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["notification"] = undefined /*out*/;
+            resourceInputs["notificationEmail"] = undefined /*out*/;
             resourceInputs["schedule"] = undefined /*out*/;
             resourceInputs["scope"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -143,7 +149,7 @@ export class ScheduledActionByScope extends pulumi.CustomResource {
             resourceInputs["viewId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20220401preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20220601preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20221001:ScheduledActionByScope" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement/v20220401preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20220601preview:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20221001:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20230301:ScheduledActionByScope" }, { type: "azure-native:costmanagement/v20230401preview:ScheduledActionByScope" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScheduledActionByScope.__pulumiType, name, resourceInputs, opts);
     }
@@ -158,7 +164,7 @@ export interface ScheduledActionByScopeArgs {
      */
     displayName: pulumi.Input<string>;
     /**
-     * Destination format of the view data.
+     * Destination format of the view data. This is optional.
      */
     fileDestination?: pulumi.Input<inputs.costmanagement.FileDestinationArgs>;
     /**
@@ -174,11 +180,15 @@ export interface ScheduledActionByScopeArgs {
      */
     notification: pulumi.Input<inputs.costmanagement.NotificationPropertiesArgs>;
     /**
+     * Email address of the point of contact that should get the unsubscribe requests and notification emails.
+     */
+    notificationEmail?: pulumi.Input<string>;
+    /**
      * Schedule of the scheduled action.
      */
     schedule: pulumi.Input<inputs.costmanagement.SchedulePropertiesArgs>;
     /**
-     * Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
+     * For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
     scope: pulumi.Input<string>;
     /**

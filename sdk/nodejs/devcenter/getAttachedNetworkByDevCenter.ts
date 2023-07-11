@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an attached NetworkConnection.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getAttachedNetworkByDevCenter(args: GetAttachedNetworkByDevCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachedNetworkByDevCenterResult> {
 
@@ -31,7 +31,7 @@ export interface GetAttachedNetworkByDevCenterArgs {
      */
     devCenterName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -79,7 +79,7 @@ export interface GetAttachedNetworkByDevCenterResult {
 }
 /**
  * Gets an attached NetworkConnection.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getAttachedNetworkByDevCenterOutput(args: GetAttachedNetworkByDevCenterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachedNetworkByDevCenterResult> {
     return pulumi.output(args).apply((a: any) => getAttachedNetworkByDevCenter(a, opts))
@@ -95,7 +95,7 @@ export interface GetAttachedNetworkByDevCenterOutputArgs {
      */
     devCenterName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

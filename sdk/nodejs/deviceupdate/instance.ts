@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device Update instance details.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2023-07-01. Prior API version in Azure Native 1.x: 2020-03-01-preview
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:Instance" }, { type: "azure-native:deviceupdate/v20220401preview:Instance" }, { type: "azure-native:deviceupdate/v20221001:Instance" }, { type: "azure-native:deviceupdate/v20221201preview:Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:Instance" }, { type: "azure-native:deviceupdate/v20220401preview:Instance" }, { type: "azure-native:deviceupdate/v20221001:Instance" }, { type: "azure-native:deviceupdate/v20221201preview:Instance" }, { type: "azure-native:deviceupdate/v20230701:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }

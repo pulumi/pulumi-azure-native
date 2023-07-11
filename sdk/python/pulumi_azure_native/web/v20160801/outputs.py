@@ -13,27 +13,18 @@ from ._enums import *
 
 __all__ = [
     'ApiDefinitionInfoResponse',
-    'ApplicationLogsConfigResponse',
     'AutoHealActionsResponse',
     'AutoHealCustomActionResponse',
     'AutoHealRulesResponse',
     'AutoHealTriggersResponse',
-    'AzureBlobStorageApplicationLogsConfigResponse',
-    'AzureBlobStorageHttpLogsConfigResponse',
-    'AzureTableStorageApplicationLogsConfigResponse',
     'BackupScheduleResponse',
     'ConnStringInfoResponse',
-    'ConnStringValueTypePairResponse',
     'CorsSettingsResponse',
     'DatabaseBackupSettingResponse',
-    'EnabledConfigResponse',
     'ExperimentsResponse',
-    'FileSystemApplicationLogsConfigResponse',
-    'FileSystemHttpLogsConfigResponse',
     'HandlerMappingResponse',
     'HostNameSslStateResponse',
     'HostingEnvironmentProfileResponse',
-    'HttpLogsConfigResponse',
     'IpSecurityRestrictionResponse',
     'ManagedServiceIdentityResponse',
     'NameValuePairResponse',
@@ -48,7 +39,6 @@ __all__ = [
     'StatusCodesBasedTriggerResponse',
     'VirtualApplicationResponse',
     'VirtualDirectoryResponse',
-    'VnetRouteResponse',
 ]
 
 @pulumi.output_type
@@ -72,74 +62,6 @@ class ApiDefinitionInfoResponse(dict):
         The URL of the API definition.
         """
         return pulumi.get(self, "url")
-
-
-@pulumi.output_type
-class ApplicationLogsConfigResponse(dict):
-    """
-    Application logs configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "azureBlobStorage":
-            suggest = "azure_blob_storage"
-        elif key == "azureTableStorage":
-            suggest = "azure_table_storage"
-        elif key == "fileSystem":
-            suggest = "file_system"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ApplicationLogsConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ApplicationLogsConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ApplicationLogsConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 azure_blob_storage: Optional['outputs.AzureBlobStorageApplicationLogsConfigResponse'] = None,
-                 azure_table_storage: Optional['outputs.AzureTableStorageApplicationLogsConfigResponse'] = None,
-                 file_system: Optional['outputs.FileSystemApplicationLogsConfigResponse'] = None):
-        """
-        Application logs configuration.
-        :param 'AzureBlobStorageApplicationLogsConfigResponse' azure_blob_storage: Application logs to blob storage configuration.
-        :param 'AzureTableStorageApplicationLogsConfigResponse' azure_table_storage: Application logs to azure table storage configuration.
-        :param 'FileSystemApplicationLogsConfigResponse' file_system: Application logs to file system configuration.
-        """
-        if azure_blob_storage is not None:
-            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
-        if azure_table_storage is not None:
-            pulumi.set(__self__, "azure_table_storage", azure_table_storage)
-        if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
-
-    @property
-    @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional['outputs.AzureBlobStorageApplicationLogsConfigResponse']:
-        """
-        Application logs to blob storage configuration.
-        """
-        return pulumi.get(self, "azure_blob_storage")
-
-    @property
-    @pulumi.getter(name="azureTableStorage")
-    def azure_table_storage(self) -> Optional['outputs.AzureTableStorageApplicationLogsConfigResponse']:
-        """
-        Application logs to azure table storage configuration.
-        """
-        return pulumi.get(self, "azure_table_storage")
-
-    @property
-    @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional['outputs.FileSystemApplicationLogsConfigResponse']:
-        """
-        Application logs to file system configuration.
-        """
-        return pulumi.get(self, "file_system")
 
 
 @pulumi.output_type
@@ -365,197 +287,6 @@ class AutoHealTriggersResponse(dict):
 
 
 @pulumi.output_type
-class AzureBlobStorageApplicationLogsConfigResponse(dict):
-    """
-    Application logs azure blob storage configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retentionInDays":
-            suggest = "retention_in_days"
-        elif key == "sasUrl":
-            suggest = "sas_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzureBlobStorageApplicationLogsConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzureBlobStorageApplicationLogsConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzureBlobStorageApplicationLogsConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 level: Optional[str] = None,
-                 retention_in_days: Optional[int] = None,
-                 sas_url: Optional[str] = None):
-        """
-        Application logs azure blob storage configuration.
-        :param str level: Log level.
-        :param int retention_in_days: Retention in days.
-               Remove blobs older than X days.
-               0 or lower means no retention.
-        :param str sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
-        """
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if sas_url is not None:
-            pulumi.set(__self__, "sas_url", sas_url)
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[str]:
-        """
-        Log level.
-        """
-        return pulumi.get(self, "level")
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[int]:
-        """
-        Retention in days.
-        Remove blobs older than X days.
-        0 or lower means no retention.
-        """
-        return pulumi.get(self, "retention_in_days")
-
-    @property
-    @pulumi.getter(name="sasUrl")
-    def sas_url(self) -> Optional[str]:
-        """
-        SAS url to a azure blob container with read/write/list/delete permissions.
-        """
-        return pulumi.get(self, "sas_url")
-
-
-@pulumi.output_type
-class AzureBlobStorageHttpLogsConfigResponse(dict):
-    """
-    Http logs to azure blob storage configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retentionInDays":
-            suggest = "retention_in_days"
-        elif key == "sasUrl":
-            suggest = "sas_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzureBlobStorageHttpLogsConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzureBlobStorageHttpLogsConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzureBlobStorageHttpLogsConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 retention_in_days: Optional[int] = None,
-                 sas_url: Optional[str] = None):
-        """
-        Http logs to azure blob storage configuration.
-        :param bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        :param int retention_in_days: Retention in days.
-               Remove blobs older than X days.
-               0 or lower means no retention.
-        :param str sas_url: SAS url to a azure blob container with read/write/list/delete permissions.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if sas_url is not None:
-            pulumi.set(__self__, "sas_url", sas_url)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[int]:
-        """
-        Retention in days.
-        Remove blobs older than X days.
-        0 or lower means no retention.
-        """
-        return pulumi.get(self, "retention_in_days")
-
-    @property
-    @pulumi.getter(name="sasUrl")
-    def sas_url(self) -> Optional[str]:
-        """
-        SAS url to a azure blob container with read/write/list/delete permissions.
-        """
-        return pulumi.get(self, "sas_url")
-
-
-@pulumi.output_type
-class AzureTableStorageApplicationLogsConfigResponse(dict):
-    """
-    Application logs to Azure table storage configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "sasUrl":
-            suggest = "sas_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzureTableStorageApplicationLogsConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzureTableStorageApplicationLogsConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzureTableStorageApplicationLogsConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 sas_url: str,
-                 level: Optional[str] = None):
-        """
-        Application logs to Azure table storage configuration.
-        :param str sas_url: SAS URL to an Azure table with add/query/delete permissions.
-        :param str level: Log level.
-        """
-        pulumi.set(__self__, "sas_url", sas_url)
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-
-    @property
-    @pulumi.getter(name="sasUrl")
-    def sas_url(self) -> str:
-        """
-        SAS URL to an Azure table with add/query/delete permissions.
-        """
-        return pulumi.get(self, "sas_url")
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[str]:
-        """
-        Log level.
-        """
-        return pulumi.get(self, "level")
-
-
-@pulumi.output_type
 class BackupScheduleResponse(dict):
     """
     Description of a backup schedule. Describes how often should be the backup performed and what should be the retention policy.
@@ -733,39 +464,6 @@ class ConnStringInfoResponse(dict):
 
 
 @pulumi.output_type
-class ConnStringValueTypePairResponse(dict):
-    """
-    Database connection string value to type pair.
-    """
-    def __init__(__self__, *,
-                 type: str,
-                 value: str):
-        """
-        Database connection string value to type pair.
-        :param str type: Type of database.
-        :param str value: Value of pair.
-        """
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Type of database.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Value of pair.
-        """
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class CorsSettingsResponse(dict):
     """
     Cross-Origin Resource Sharing (CORS) settings for the app.
@@ -885,29 +583,6 @@ class DatabaseBackupSettingResponse(dict):
 
 
 @pulumi.output_type
-class EnabledConfigResponse(dict):
-    """
-    Enabled configuration.
-    """
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
-        """
-        Enabled configuration.
-        :param bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        """
-        return pulumi.get(self, "enabled")
-
-
-@pulumi.output_type
 class ExperimentsResponse(dict):
     """
     Routing rules in production experiments.
@@ -945,105 +620,6 @@ class ExperimentsResponse(dict):
         List of ramp-up rules.
         """
         return pulumi.get(self, "ramp_up_rules")
-
-
-@pulumi.output_type
-class FileSystemApplicationLogsConfigResponse(dict):
-    """
-    Application logs to file system configuration.
-    """
-    def __init__(__self__, *,
-                 level: Optional[str] = None):
-        """
-        Application logs to file system configuration.
-        :param str level: Log level.
-        """
-        if level is None:
-            level = 'Off'
-        if level is not None:
-            pulumi.set(__self__, "level", level)
-
-    @property
-    @pulumi.getter
-    def level(self) -> Optional[str]:
-        """
-        Log level.
-        """
-        return pulumi.get(self, "level")
-
-
-@pulumi.output_type
-class FileSystemHttpLogsConfigResponse(dict):
-    """
-    Http logs to file system configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retentionInDays":
-            suggest = "retention_in_days"
-        elif key == "retentionInMb":
-            suggest = "retention_in_mb"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FileSystemHttpLogsConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FileSystemHttpLogsConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FileSystemHttpLogsConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 enabled: Optional[bool] = None,
-                 retention_in_days: Optional[int] = None,
-                 retention_in_mb: Optional[int] = None):
-        """
-        Http logs to file system configuration.
-        :param bool enabled: True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        :param int retention_in_days: Retention in days.
-               Remove files older than X days.
-               0 or lower means no retention.
-        :param int retention_in_mb: Maximum size in megabytes that http log files can use.
-               When reached old log files will be removed to make space for new ones.
-               Value can range between 25 and 100.
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_in_days is not None:
-            pulumi.set(__self__, "retention_in_days", retention_in_days)
-        if retention_in_mb is not None:
-            pulumi.set(__self__, "retention_in_mb", retention_in_mb)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[bool]:
-        """
-        True if configuration is enabled, false if it is disabled and null if configuration is not set.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter(name="retentionInDays")
-    def retention_in_days(self) -> Optional[int]:
-        """
-        Retention in days.
-        Remove files older than X days.
-        0 or lower means no retention.
-        """
-        return pulumi.get(self, "retention_in_days")
-
-    @property
-    @pulumi.getter(name="retentionInMb")
-    def retention_in_mb(self) -> Optional[int]:
-        """
-        Maximum size in megabytes that http log files can use.
-        When reached old log files will be removed to make space for new ones.
-        Value can range between 25 and 100.
-        """
-        return pulumi.get(self, "retention_in_mb")
 
 
 @pulumi.output_type
@@ -1261,60 +837,6 @@ class HostingEnvironmentProfileResponse(dict):
         Resource ID of the App Service Environment.
         """
         return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class HttpLogsConfigResponse(dict):
-    """
-    Http logs configuration.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "azureBlobStorage":
-            suggest = "azure_blob_storage"
-        elif key == "fileSystem":
-            suggest = "file_system"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in HttpLogsConfigResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        HttpLogsConfigResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        HttpLogsConfigResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 azure_blob_storage: Optional['outputs.AzureBlobStorageHttpLogsConfigResponse'] = None,
-                 file_system: Optional['outputs.FileSystemHttpLogsConfigResponse'] = None):
-        """
-        Http logs configuration.
-        :param 'AzureBlobStorageHttpLogsConfigResponse' azure_blob_storage: Http logs to azure blob storage configuration.
-        :param 'FileSystemHttpLogsConfigResponse' file_system: Http logs to file system configuration.
-        """
-        if azure_blob_storage is not None:
-            pulumi.set(__self__, "azure_blob_storage", azure_blob_storage)
-        if file_system is not None:
-            pulumi.set(__self__, "file_system", file_system)
-
-    @property
-    @pulumi.getter(name="azureBlobStorage")
-    def azure_blob_storage(self) -> Optional['outputs.AzureBlobStorageHttpLogsConfigResponse']:
-        """
-        Http logs to azure blob storage configuration.
-        """
-        return pulumi.get(self, "azure_blob_storage")
-
-    @property
-    @pulumi.getter(name="fileSystem")
-    def file_system(self) -> Optional['outputs.FileSystemHttpLogsConfigResponse']:
-        """
-        Http logs to file system configuration.
-        """
-        return pulumi.get(self, "file_system")
 
 
 @pulumi.output_type
@@ -2951,142 +2473,5 @@ class VirtualDirectoryResponse(dict):
         Path to virtual application.
         """
         return pulumi.get(self, "virtual_path")
-
-
-@pulumi.output_type
-class VnetRouteResponse(dict):
-    """
-    Virtual Network route contract used to pass routing information for a Virtual Network.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "endAddress":
-            suggest = "end_address"
-        elif key == "routeType":
-            suggest = "route_type"
-        elif key == "startAddress":
-            suggest = "start_address"
-        elif key == "vnetRouteName":
-            suggest = "vnet_route_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VnetRouteResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VnetRouteResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VnetRouteResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 id: str,
-                 name: str,
-                 type: str,
-                 end_address: Optional[str] = None,
-                 kind: Optional[str] = None,
-                 route_type: Optional[str] = None,
-                 start_address: Optional[str] = None,
-                 vnet_route_name: Optional[str] = None):
-        """
-        Virtual Network route contract used to pass routing information for a Virtual Network.
-        :param str id: Resource Id.
-        :param str name: Resource Name.
-        :param str type: Resource type.
-        :param str end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-        :param str kind: Kind of resource.
-        :param str route_type: The type of route this is:
-               DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-               INHERITED - Routes inherited from the real Virtual Network routes
-               STATIC - Static route set on the app only
-               
-               These values will be used for syncing an app's routes with those from a Virtual Network.
-        :param str start_address: The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-        :param str vnet_route_name: The name of this route. This is only returned by the server and does not need to be set by the client.
-        """
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        if end_address is not None:
-            pulumi.set(__self__, "end_address", end_address)
-        if kind is not None:
-            pulumi.set(__self__, "kind", kind)
-        if route_type is not None:
-            pulumi.set(__self__, "route_type", route_type)
-        if start_address is not None:
-            pulumi.set(__self__, "start_address", start_address)
-        if vnet_route_name is not None:
-            pulumi.set(__self__, "vnet_route_name", vnet_route_name)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        Resource Id.
-        """
-        return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Resource Name.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        Resource type.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="endAddress")
-    def end_address(self) -> Optional[str]:
-        """
-        The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
-        """
-        return pulumi.get(self, "end_address")
-
-    @property
-    @pulumi.getter
-    def kind(self) -> Optional[str]:
-        """
-        Kind of resource.
-        """
-        return pulumi.get(self, "kind")
-
-    @property
-    @pulumi.getter(name="routeType")
-    def route_type(self) -> Optional[str]:
-        """
-        The type of route this is:
-        DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
-        INHERITED - Routes inherited from the real Virtual Network routes
-        STATIC - Static route set on the app only
-
-        These values will be used for syncing an app's routes with those from a Virtual Network.
-        """
-        return pulumi.get(self, "route_type")
-
-    @property
-    @pulumi.getter(name="startAddress")
-    def start_address(self) -> Optional[str]:
-        """
-        The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
-        """
-        return pulumi.get(self, "start_address")
-
-    @property
-    @pulumi.getter(name="vnetRouteName")
-    def vnet_route_name(self) -> Optional[str]:
-        """
-        The name of this route. This is only returned by the server and does not need to be set by the client.
-        """
-        return pulumi.get(self, "vnet_route_name")
 
 

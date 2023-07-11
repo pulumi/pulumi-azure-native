@@ -25,7 +25,6 @@ class PartnerDestinationArgs:
                  message_for_activation: Optional[pulumi.Input[str]] = None,
                  partner_destination_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_immutable_id: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'PartnerDestinationProvisioningState']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PartnerDestination resource.
@@ -39,7 +38,6 @@ class PartnerDestinationArgs:
         :param pulumi.Input[str] message_for_activation: Context or helpful message that can be used during the approval process.
         :param pulumi.Input[str] partner_destination_name: Name of the partner destination.
         :param pulumi.Input[str] partner_registration_immutable_id: The immutable Id of the corresponding partner registration.
-        :param pulumi.Input[Union[str, 'PartnerDestinationProvisioningState']] provisioning_state: Provisioning state of the partner destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -59,8 +57,6 @@ class PartnerDestinationArgs:
             pulumi.set(__self__, "partner_destination_name", partner_destination_name)
         if partner_registration_immutable_id is not None:
             pulumi.set(__self__, "partner_registration_immutable_id", partner_registration_immutable_id)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -174,18 +170,6 @@ class PartnerDestinationArgs:
         pulumi.set(self, "partner_registration_immutable_id", value)
 
     @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'PartnerDestinationProvisioningState']]]:
-        """
-        Provisioning state of the partner destination.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'PartnerDestinationProvisioningState']]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -211,13 +195,12 @@ class PartnerDestination(pulumi.CustomResource):
                  message_for_activation: Optional[pulumi.Input[str]] = None,
                  partner_destination_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_immutable_id: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'PartnerDestinationProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Event Grid Partner Destination.
-        API Version: 2021-10-15-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,7 +213,6 @@ class PartnerDestination(pulumi.CustomResource):
         :param pulumi.Input[str] message_for_activation: Context or helpful message that can be used during the approval process.
         :param pulumi.Input[str] partner_destination_name: Name of the partner destination.
         :param pulumi.Input[str] partner_registration_immutable_id: The immutable Id of the corresponding partner registration.
-        :param pulumi.Input[Union[str, 'PartnerDestinationProvisioningState']] provisioning_state: Provisioning state of the partner destination.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags of the resource.
         """
@@ -242,7 +224,7 @@ class PartnerDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Grid Partner Destination.
-        API Version: 2021-10-15-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview
 
         :param str resource_name: The name of the resource.
         :param PartnerDestinationArgs args: The arguments to use to populate this resource's properties.
@@ -267,7 +249,6 @@ class PartnerDestination(pulumi.CustomResource):
                  message_for_activation: Optional[pulumi.Input[str]] = None,
                  partner_destination_name: Optional[pulumi.Input[str]] = None,
                  partner_registration_immutable_id: Optional[pulumi.Input[str]] = None,
-                 provisioning_state: Optional[pulumi.Input[Union[str, 'PartnerDestinationProvisioningState']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -287,15 +268,15 @@ class PartnerDestination(pulumi.CustomResource):
             __props__.__dict__["message_for_activation"] = message_for_activation
             __props__.__dict__["partner_destination_name"] = partner_destination_name
             __props__.__dict__["partner_registration_immutable_id"] = partner_registration_immutable_id
-            __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PartnerDestination")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:PartnerDestination"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:PartnerDestination")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PartnerDestination, __self__).__init__(
             'azure-native:eventgrid:PartnerDestination',
@@ -400,7 +381,7 @@ class PartnerDestination(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
+    def provisioning_state(self) -> pulumi.Output[str]:
         """
         Provisioning state of the partner destination.
         """

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Data controller resource
- * API Version: 2021-06-01-preview.
+ * Azure REST API version: 2023-01-15-preview. Prior API version in Azure Native 1.x: 2021-06-01-preview
  */
 export class DataController extends pulumi.CustomResource {
     /**
@@ -55,7 +55,7 @@ export class DataController extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.azurearcdata.DataControllerPropertiesResponse>;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.azurearcdata.SystemDataResponse>;
     /**
@@ -63,7 +63,7 @@ export class DataController extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -87,7 +87,7 @@ export class DataController extends pulumi.CustomResource {
             resourceInputs["dataControllerName"] = args ? args.dataControllerName : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azurearcdata.dataControllerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
@@ -103,7 +103,7 @@ export class DataController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:DataController" }, { type: "azure-native:azurearcdata/v20210701preview:DataController" }, { type: "azure-native:azurearcdata/v20210801:DataController" }, { type: "azure-native:azurearcdata/v20211101:DataController" }, { type: "azure-native:azurearcdata/v20220301preview:DataController" }, { type: "azure-native:azurearcdata/v20220615preview:DataController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurearcdata/v20210601preview:DataController" }, { type: "azure-native:azurearcdata/v20210701preview:DataController" }, { type: "azure-native:azurearcdata/v20210801:DataController" }, { type: "azure-native:azurearcdata/v20211101:DataController" }, { type: "azure-native:azurearcdata/v20220301preview:DataController" }, { type: "azure-native:azurearcdata/v20220615preview:DataController" }, { type: "azure-native:azurearcdata/v20230115preview:DataController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataController.__pulumiType, name, resourceInputs, opts);
     }
@@ -113,6 +113,9 @@ export class DataController extends pulumi.CustomResource {
  * The set of arguments for constructing a DataController resource.
  */
 export interface DataControllerArgs {
+    /**
+     * The name of the data controller
+     */
     dataControllerName?: pulumi.Input<string>;
     /**
      * The extendedLocation of the resource.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevTestLab
 {
     /// <summary>
     /// A schedule.
-    /// API Version: 2018-09-15.
+    /// Azure REST API version: 2018-09-15. Prior API version in Azure Native 1.x: 2018-09-15
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:VirtualMachineSchedule")]
     public partial class VirtualMachineSchedule : global::Pulumi.CustomResource
@@ -83,7 +83,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Output<string?> TaskType { get; private set; } = null!;
 
         /// <summary>
-        /// The time zone ID (e.g. Pacific Standard time).
+        /// The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection&lt;string&gt; TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         /// </summary>
         [Output("timeZoneId")]
         public Output<string?> TimeZoneId { get; private set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.AzureNative.DevTestLab
         public Input<string>? TaskType { get; set; }
 
         /// <summary>
-        /// The time zone ID (e.g. Pacific Standard time).
+        /// The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection&lt;string&gt; TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         /// </summary>
         [Input("timeZoneId")]
         public Input<string>? TimeZoneId { get; set; }

@@ -22,7 +22,7 @@ class GetProximityPlacementGroupResult:
     """
     Specifies information about the proximity placement group.
     """
-    def __init__(__self__, availability_sets=None, colocation_status=None, id=None, location=None, name=None, proximity_placement_group_type=None, tags=None, type=None, virtual_machine_scale_sets=None, virtual_machines=None):
+    def __init__(__self__, availability_sets=None, colocation_status=None, id=None, intent=None, location=None, name=None, proximity_placement_group_type=None, tags=None, type=None, virtual_machine_scale_sets=None, virtual_machines=None, zones=None):
         if availability_sets and not isinstance(availability_sets, list):
             raise TypeError("Expected argument 'availability_sets' to be a list")
         pulumi.set(__self__, "availability_sets", availability_sets)
@@ -32,6 +32,9 @@ class GetProximityPlacementGroupResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if intent and not isinstance(intent, dict):
+            raise TypeError("Expected argument 'intent' to be a dict")
+        pulumi.set(__self__, "intent", intent)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -53,6 +56,9 @@ class GetProximityPlacementGroupResult:
         if virtual_machines and not isinstance(virtual_machines, list):
             raise TypeError("Expected argument 'virtual_machines' to be a list")
         pulumi.set(__self__, "virtual_machines", virtual_machines)
+        if zones and not isinstance(zones, list):
+            raise TypeError("Expected argument 'zones' to be a list")
+        pulumi.set(__self__, "zones", zones)
 
     @property
     @pulumi.getter(name="availabilitySets")
@@ -80,6 +86,14 @@ class GetProximityPlacementGroupResult:
 
     @property
     @pulumi.getter
+    def intent(self) -> Optional['outputs.ProximityPlacementGroupPropertiesResponseIntent']:
+        """
+        Specifies the user intent of the proximity placement group.
+        """
+        return pulumi.get(self, "intent")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         Resource location
@@ -98,7 +112,7 @@ class GetProximityPlacementGroupResult:
     @pulumi.getter(name="proximityPlacementGroupType")
     def proximity_placement_group_type(self) -> Optional[str]:
         """
-        Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+        Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
         """
         return pulumi.get(self, "proximity_placement_group_type")
 
@@ -134,6 +148,14 @@ class GetProximityPlacementGroupResult:
         """
         return pulumi.get(self, "virtual_machines")
 
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+        """
+        return pulumi.get(self, "zones")
+
 
 class AwaitableGetProximityPlacementGroupResult(GetProximityPlacementGroupResult):
     # pylint: disable=using-constant-test
@@ -144,13 +166,15 @@ class AwaitableGetProximityPlacementGroupResult(GetProximityPlacementGroupResult
             availability_sets=self.availability_sets,
             colocation_status=self.colocation_status,
             id=self.id,
+            intent=self.intent,
             location=self.location,
             name=self.name,
             proximity_placement_group_type=self.proximity_placement_group_type,
             tags=self.tags,
             type=self.type,
             virtual_machine_scale_sets=self.virtual_machine_scale_sets,
-            virtual_machines=self.virtual_machines)
+            virtual_machines=self.virtual_machines,
+            zones=self.zones)
 
 
 def get_proximity_placement_group(include_colocation_status: Optional[str] = None,
@@ -159,7 +183,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProximityPlacementGroupResult:
     """
     Retrieves information about a proximity placement group .
-    API Version: 2020-12-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
@@ -177,13 +201,15 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
         availability_sets=__ret__.availability_sets,
         colocation_status=__ret__.colocation_status,
         id=__ret__.id,
+        intent=__ret__.intent,
         location=__ret__.location,
         name=__ret__.name,
         proximity_placement_group_type=__ret__.proximity_placement_group_type,
         tags=__ret__.tags,
         type=__ret__.type,
         virtual_machine_scale_sets=__ret__.virtual_machine_scale_sets,
-        virtual_machines=__ret__.virtual_machines)
+        virtual_machines=__ret__.virtual_machines,
+        zones=__ret__.zones)
 
 
 @_utilities.lift_output_func(get_proximity_placement_group)
@@ -193,7 +219,7 @@ def get_proximity_placement_group_output(include_colocation_status: Optional[pul
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
     """
     Retrieves information about a proximity placement group .
-    API Version: 2020-12-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str include_colocation_status: includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.

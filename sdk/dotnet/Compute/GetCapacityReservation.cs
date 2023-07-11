@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation that retrieves information about the capacity reservation.
-        /// API Version: 2021-04-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetCapacityReservationResult> InvokeAsync(GetCapacityReservationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCapacityReservationResult>("azure-native:compute:getCapacityReservation", args ?? new GetCapacityReservationArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation that retrieves information about the capacity reservation.
-        /// API Version: 2021-04-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetCapacityReservationResult> Invoke(GetCapacityReservationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationResult>("azure-native:compute:getCapacityReservation", args ?? new GetCapacityReservationInvokeArgs(), options.WithDefaults());
@@ -112,6 +112,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Specifies the value of fault domain count that Capacity Reservation supports for requested VM size. **Note:** The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation. Minimum api-version: 2022-08-01.
+        /// </summary>
+        public readonly int PlatformFaultDomainCount;
+        /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
         public readonly string ProvisioningState;
@@ -131,6 +135,10 @@ namespace Pulumi.AzureNative.Compute
         /// Resource tags
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Specifies the time at which the Capacity Reservation resource was created. Minimum api-version: 2021-11-01.
+        /// </summary>
+        public readonly string TimeCreated;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -154,6 +162,8 @@ namespace Pulumi.AzureNative.Compute
 
             string name,
 
+            int platformFaultDomainCount,
+
             string provisioningState,
 
             string provisioningTime,
@@ -163,6 +173,8 @@ namespace Pulumi.AzureNative.Compute
             Outputs.SkuResponse sku,
 
             ImmutableDictionary<string, string>? tags,
+
+            string timeCreated,
 
             string type,
 
@@ -174,11 +186,13 @@ namespace Pulumi.AzureNative.Compute
             InstanceView = instanceView;
             Location = location;
             Name = name;
+            PlatformFaultDomainCount = platformFaultDomainCount;
             ProvisioningState = provisioningState;
             ProvisioningTime = provisioningTime;
             ReservationId = reservationId;
             Sku = sku;
             Tags = tags;
+            TimeCreated = timeCreated;
             Type = type;
             VirtualMachinesAssociated = virtualMachinesAssociated;
             Zones = zones;

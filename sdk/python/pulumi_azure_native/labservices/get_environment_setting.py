@@ -221,7 +221,7 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEnvironmentSettingResult:
     """
     Get environment setting
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param str environment_setting_name: The name of the environment Setting.
@@ -266,7 +266,7 @@ def get_environment_setting_output(environment_setting_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentSettingResult]:
     """
     Get environment setting
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param str environment_setting_name: The name of the environment Setting.

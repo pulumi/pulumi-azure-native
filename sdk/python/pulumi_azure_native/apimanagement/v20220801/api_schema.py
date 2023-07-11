@@ -143,12 +143,7 @@ class ApiSchemaArgs:
         pulumi.set(self, "value", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiSchema to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ApiSchema(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiSchema to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -209,7 +204,6 @@ class ApiSchema(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApiSchema is deprecated: azure-native:apimanagement/v20220801:ApiSchema is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiSchema to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -236,7 +230,7 @@ class ApiSchema(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiSchema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiSchema"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ApiSchema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiSchema, __self__).__init__(
             'azure-native:apimanagement/v20220801:ApiSchema',

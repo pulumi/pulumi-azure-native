@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
 {
     /// <summary>
     /// Describes a federated identity credential.
-    /// API Version: 2022-01-31-preview.
+    /// Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2022-01-31-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:managedidentity:FederatedIdentityCredential")]
     public partial class FederatedIdentityCredential : global::Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// </summary>
         [Output("subject")]
         public Output<string> Subject { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -121,7 +127,7 @@ namespace Pulumi.AzureNative.ManagedIdentity
         public Input<string> Issuer { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Resource Group to which the identity belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

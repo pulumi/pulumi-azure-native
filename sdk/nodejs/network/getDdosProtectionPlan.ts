@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified DDoS protection plan.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getDdosProtectionPlan(args: GetDdosProtectionPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosProtectionPlanResult> {
 
@@ -56,6 +56,10 @@ export interface GetDdosProtectionPlanResult {
      */
     readonly provisioningState: string;
     /**
+     * The list of public IPs associated with the DDoS protection plan resource. This list is read-only.
+     */
+    readonly publicIPAddresses: outputs.network.SubResourceResponse[];
+    /**
      * The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
      */
     readonly resourceGuid: string;
@@ -74,7 +78,7 @@ export interface GetDdosProtectionPlanResult {
 }
 /**
  * Gets information about the specified DDoS protection plan.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getDdosProtectionPlanOutput(args: GetDdosProtectionPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosProtectionPlanResult> {
     return pulumi.output(args).apply((a: any) => getDdosProtectionPlan(a, opts))

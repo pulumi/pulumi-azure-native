@@ -41,7 +41,7 @@ class EventGridDataConnectionArgs:
         :param pulumi.Input[str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_account_resource_id: The resource ID of the storage account where the data resides.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[Union[str, 'BlobStorageEventType']] blob_storage_event_type: The name of blob storage event type to process.
         :param pulumi.Input[str] data_connection_name: The name of the data connection.
         :param pulumi.Input[Union[str, 'EventGridDataFormat']] data_format: The data format of the message. Optionally the data format can be added to each message.
@@ -162,7 +162,7 @@ class EventGridDataConnectionArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -278,7 +278,7 @@ class EventGridDataConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing an Event Grid data connection.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -297,7 +297,7 @@ class EventGridDataConnection(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] storage_account_resource_id: The resource ID of the storage account where the data resides.
         :param pulumi.Input[str] table_name: The table where the data should be ingested. Optionally the table information can be added to each message.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload
@@ -307,7 +307,7 @@ class EventGridDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an Event Grid data connection.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2021-06-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EventGridDataConnectionArgs args: The arguments to use to populate this resource's properties.

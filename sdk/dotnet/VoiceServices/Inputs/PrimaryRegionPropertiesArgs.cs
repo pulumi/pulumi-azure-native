@@ -15,6 +15,30 @@ namespace Pulumi.AzureNative.VoiceServices.Inputs
     /// </summary>
     public sealed class PrimaryRegionPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allowedMediaSourceAddressPrefixes")]
+        private InputList<string>? _allowedMediaSourceAddressPrefixes;
+
+        /// <summary>
+        /// The allowed source IP address or CIDR ranges for media
+        /// </summary>
+        public InputList<string> AllowedMediaSourceAddressPrefixes
+        {
+            get => _allowedMediaSourceAddressPrefixes ?? (_allowedMediaSourceAddressPrefixes = new InputList<string>());
+            set => _allowedMediaSourceAddressPrefixes = value;
+        }
+
+        [Input("allowedSignalingSourceAddressPrefixes")]
+        private InputList<string>? _allowedSignalingSourceAddressPrefixes;
+
+        /// <summary>
+        /// The allowed source IP address or CIDR ranges for signaling
+        /// </summary>
+        public InputList<string> AllowedSignalingSourceAddressPrefixes
+        {
+            get => _allowedSignalingSourceAddressPrefixes ?? (_allowedSignalingSourceAddressPrefixes = new InputList<string>());
+            set => _allowedSignalingSourceAddressPrefixes = value;
+        }
+
         [Input("esrpAddresses")]
         private InputList<string>? _esrpAddresses;
 

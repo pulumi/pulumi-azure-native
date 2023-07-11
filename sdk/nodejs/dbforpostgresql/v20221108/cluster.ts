@@ -70,7 +70,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly enableHa!: pulumi.Output<boolean | undefined>;
     /**
-     * If shards on coordinator is enabled or not for the cluster.
+     * If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
      */
     public readonly enableShardsOnCoordinator!: pulumi.Output<boolean | undefined>;
     /**
@@ -238,7 +238,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201005privatepreview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql:Cluster" }, { type: "azure-native:dbforpostgresql/v20201005privatepreview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -281,7 +281,7 @@ export interface ClusterArgs {
      */
     enableHa?: pulumi.Input<boolean>;
     /**
-     * If shards on coordinator is enabled or not for the cluster.
+     * If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
      */
     enableShardsOnCoordinator?: pulumi.Input<boolean>;
     /**

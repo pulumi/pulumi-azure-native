@@ -63,7 +63,7 @@ def list_configuration_store_keys(config_store_name: Optional[str] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListConfigurationStoreKeysResult:
     """
     Lists the access key for the specified configuration store.
-    API Version: 2020-06-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str config_store_name: The name of the configuration store.
@@ -89,7 +89,7 @@ def list_configuration_store_keys_output(config_store_name: Optional[pulumi.Inpu
                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListConfigurationStoreKeysResult]:
     """
     Lists the access key for the specified configuration store.
-    API Version: 2020-06-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str config_store_name: The name of the configuration store.

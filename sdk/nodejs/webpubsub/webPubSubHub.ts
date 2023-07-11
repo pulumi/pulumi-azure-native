@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A hub setting
- * API Version: 2021-10-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-10-01
  */
 export class WebPubSubHub extends pulumi.CustomResource {
     /**
@@ -89,7 +89,7 @@ export class WebPubSubHub extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20211001:WebPubSubHub" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230201:WebPubSubHub" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub/v20211001:WebPubSubHub" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230201:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230301preview:WebPubSubHub" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubHub.__pulumiType, name, resourceInputs, opts);
     }

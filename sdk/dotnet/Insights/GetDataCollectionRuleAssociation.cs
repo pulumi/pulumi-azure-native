@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Definition of generic ARM proxy resource.
-        /// API Version: 2019-11-01-preview.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Task<GetDataCollectionRuleAssociationResult> InvokeAsync(GetDataCollectionRuleAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of generic ARM proxy resource.
-        /// API Version: 2019-11-01-preview.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Output<GetDataCollectionRuleAssociationResult> Invoke(GetDataCollectionRuleAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCollectionRuleAssociationResult>("azure-native:insights:getDataCollectionRuleAssociation", args ?? new GetDataCollectionRuleAssociationInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.Insights
     public sealed class GetDataCollectionRuleAssociationResult
     {
         /// <summary>
+        /// The resource ID of the data collection endpoint that is to be associated.
+        /// </summary>
+        public readonly string? DataCollectionEndpointId;
+        /// <summary>
         /// The resource ID of the data collection rule that is to be associated.
         /// </summary>
         public readonly string? DataCollectionRuleId;
@@ -88,6 +92,10 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Metadata about the resource
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleAssociationResponseMetadata Metadata;
+        /// <summary>
         /// The name of the resource.
         /// </summary>
         public readonly string Name;
@@ -96,12 +104,18 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData SystemData;
+        /// <summary>
         /// The type of the resource.
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetDataCollectionRuleAssociationResult(
+            string? dataCollectionEndpointId,
+
             string? dataCollectionRuleId,
 
             string? description,
@@ -110,18 +124,25 @@ namespace Pulumi.AzureNative.Insights
 
             string id,
 
+            Outputs.DataCollectionRuleAssociationResponseMetadata metadata,
+
             string name,
 
             string provisioningState,
 
+            Outputs.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData systemData,
+
             string type)
         {
+            DataCollectionEndpointId = dataCollectionEndpointId;
             DataCollectionRuleId = dataCollectionRuleId;
             Description = description;
             Etag = etag;
             Id = id;
+            Metadata = metadata;
             Name = name;
             ProvisioningState = provisioningState;
+            SystemData = systemData;
             Type = type;
         }
     }

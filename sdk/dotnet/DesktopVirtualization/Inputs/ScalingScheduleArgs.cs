@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
 {
 
     /// <summary>
-    /// Scaling plan schedule.
+    /// A ScalingPlanPooledSchedule.
     /// </summary>
     public sealed class ScalingScheduleArgs : global::Pulumi.ResourceArgs
     {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
         }
 
         /// <summary>
-        /// Name of the scaling schedule.
+        /// Name of the ScalingPlanPooledSchedule.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
         /// Starting time for off-peak period.
         /// </summary>
         [Input("offPeakStartTime")]
-        public Input<string>? OffPeakStartTime { get; set; }
+        public Input<Inputs.TimeArgs>? OffPeakStartTime { get; set; }
 
         /// <summary>
         /// Load balancing algorithm for peak period.
@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
         /// Starting time for peak period.
         /// </summary>
         [Input("peakStartTime")]
-        public Input<string>? PeakStartTime { get; set; }
+        public Input<Inputs.TimeArgs>? PeakStartTime { get; set; }
 
         /// <summary>
         /// Capacity threshold for ramp down period.
@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
         /// Starting time for ramp down period.
         /// </summary>
         [Input("rampDownStartTime")]
-        public Input<string>? RampDownStartTime { get; set; }
+        public Input<Inputs.TimeArgs>? RampDownStartTime { get; set; }
 
         /// <summary>
         /// Specifies when to stop hosts during ramp down period.
@@ -127,7 +127,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.Inputs
         /// Starting time for ramp up period.
         /// </summary>
         [Input("rampUpStartTime")]
-        public Input<string>? RampUpStartTime { get; set; }
+        public Input<Inputs.TimeArgs>? RampUpStartTime { get; set; }
 
         public ScalingScheduleArgs()
         {

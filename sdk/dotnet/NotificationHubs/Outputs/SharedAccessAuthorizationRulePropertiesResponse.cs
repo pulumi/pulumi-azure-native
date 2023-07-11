@@ -17,41 +17,43 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
     public sealed class SharedAccessAuthorizationRulePropertiesResponse
     {
         /// <summary>
-        /// A string that describes the claim type
+        /// Gets a string that describes the claim type
         /// </summary>
         public readonly string ClaimType;
         /// <summary>
-        /// A string that describes the claim value
+        /// Gets a string that describes the claim value
         /// </summary>
         public readonly string ClaimValue;
         /// <summary>
-        /// The created time for this rule
+        /// Gets the created time for this rule
         /// </summary>
         public readonly string CreatedTime;
         /// <summary>
-        /// A string that describes the authorization rule.
+        /// Gets a string that describes the authorization rule.
         /// </summary>
         public readonly string KeyName;
         /// <summary>
-        /// The last modified time for this rule
+        /// Gets the last modified time for this rule
         /// </summary>
         public readonly string ModifiedTime;
         /// <summary>
-        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
         /// </summary>
-        public readonly string PrimaryKey;
+        public readonly string? PrimaryKey;
         /// <summary>
-        /// The revision number for the rule
+        /// Gets the revision number for the rule
         /// </summary>
         public readonly int Revision;
         /// <summary>
-        /// The rights associated with the rule.
+        /// Gets or sets the rights associated with the rule.
         /// </summary>
         public readonly ImmutableArray<string> Rights;
         /// <summary>
-        /// A base64-encoded 256-bit primary key for signing and validating the SAS token.
+        /// Gets a base64-encoded 256-bit primary key for signing and
+        /// validating the SAS token.
         /// </summary>
-        public readonly string SecondaryKey;
+        public readonly string? SecondaryKey;
 
         [OutputConstructor]
         private SharedAccessAuthorizationRulePropertiesResponse(
@@ -65,13 +67,13 @@ namespace Pulumi.AzureNative.NotificationHubs.Outputs
 
             string modifiedTime,
 
-            string primaryKey,
+            string? primaryKey,
 
             int revision,
 
             ImmutableArray<string> rights,
 
-            string secondaryKey)
+            string? secondaryKey)
         {
             ClaimType = claimType;
             ClaimValue = claimValue;

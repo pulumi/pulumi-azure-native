@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a virtual machine scale set virtual machine.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
@@ -43,17 +43,21 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
      */
     public readonly additionalCapabilities!: pulumi.Output<outputs.compute.AdditionalCapabilitiesResponse | undefined>;
     /**
-     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
      */
     public readonly availabilitySet!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
-     * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+     * Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
      */
     public readonly diagnosticsProfile!: pulumi.Output<outputs.compute.DiagnosticsProfileResponse | undefined>;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
     public readonly hardwareProfile!: pulumi.Output<outputs.compute.HardwareProfileResponse | undefined>;
+    /**
+     * The identity of the virtual machine, if configured.
+     */
+    public readonly identity!: pulumi.Output<outputs.compute.VirtualMachineIdentityResponse | undefined>;
     /**
      * The virtual machine instance ID.
      */
@@ -164,6 +168,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["availabilitySet"] = args ? args.availabilitySet : undefined;
             resourceInputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
             resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["instanceId"] = args ? args.instanceId : undefined;
             resourceInputs["licenseType"] = args ? args.licenseType : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -193,6 +198,7 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
             resourceInputs["availabilitySet"] = undefined /*out*/;
             resourceInputs["diagnosticsProfile"] = undefined /*out*/;
             resourceInputs["hardwareProfile"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["latestModelApplied"] = undefined /*out*/;
@@ -232,17 +238,21 @@ export interface VirtualMachineScaleSetVMArgs {
      */
     additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilitiesArgs>;
     /**
-     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). <br><br> For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
+     * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
      */
     availabilitySet?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
-     * Specifies the boot diagnostic settings state. <br><br>Minimum api-version: 2015-06-15.
+     * Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
      */
     diagnosticsProfile?: pulumi.Input<inputs.compute.DiagnosticsProfileArgs>;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
     hardwareProfile?: pulumi.Input<inputs.compute.HardwareProfileArgs>;
+    /**
+     * The identity of the virtual machine, if configured.
+     */
+    identity?: pulumi.Input<inputs.compute.VirtualMachineIdentityArgs>;
     /**
      * The instance ID of the virtual machine.
      */

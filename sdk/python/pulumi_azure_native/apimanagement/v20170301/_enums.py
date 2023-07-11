@@ -7,24 +7,14 @@ from enum import Enum
 __all__ = [
     'ApiType',
     'ApimIdentityType',
-    'AuthorizationMethod',
-    'BackendProtocol',
-    'BearerTokenSendingMethod',
-    'ClientAuthenticationMethod',
     'Confirmation',
     'ContentFormat',
-    'GrantType',
-    'GroupType',
     'HostnameType',
-    'IdentityProviderType',
     'KeyType',
     'LoggerType',
-    'ProductState',
     'Protocol',
     'SamplingType',
     'SkuType',
-    'State',
-    'SubscriptionState',
     'UserState',
     'VersioningScheme',
     'VirtualNetworkType',
@@ -44,47 +34,6 @@ class ApimIdentityType(str, Enum):
     The identity type. Currently the only supported type is 'SystemAssigned'.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-
-
-class AuthorizationMethod(str, Enum):
-    HEAD = "HEAD"
-    OPTIONS = "OPTIONS"
-    TRACE = "TRACE"
-    GET = "GET"
-    POST = "POST"
-    PUT = "PUT"
-    PATCH = "PATCH"
-    DELETE = "DELETE"
-
-
-class BackendProtocol(str, Enum):
-    """
-    Backend communication protocol.
-    """
-    HTTP = "http"
-    """
-    The Backend is a RESTful service.
-    """
-    SOAP = "soap"
-    """
-    The Backend is a SOAP service.
-    """
-
-
-class BearerTokenSendingMethod(str, Enum):
-    AUTHORIZATION_HEADER = "authorizationHeader"
-    QUERY = "query"
-
-
-class ClientAuthenticationMethod(str, Enum):
-    BASIC = "Basic"
-    """
-    Basic Client Authentication method.
-    """
-    BODY = "Body"
-    """
-    Body based Authentication method.
-    """
 
 
 class Confirmation(str, Enum):
@@ -131,34 +80,6 @@ class ContentFormat(str, Enum):
     """
 
 
-class GrantType(str, Enum):
-    AUTHORIZATION_CODE = "authorizationCode"
-    """
-    Authorization Code Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.1.
-    """
-    IMPLICIT = "implicit"
-    """
-    Implicit Code Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.2.
-    """
-    RESOURCE_OWNER_PASSWORD = "resourceOwnerPassword"
-    """
-    Resource Owner Password Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.3.
-    """
-    CLIENT_CREDENTIALS = "clientCredentials"
-    """
-    Client Credentials Grant flow as described https://tools.ietf.org/html/rfc6749#section-4.4.
-    """
-
-
-class GroupType(str, Enum):
-    """
-    Group type.
-    """
-    CUSTOM = "custom"
-    SYSTEM = "system"
-    EXTERNAL = "external"
-
-
 class HostnameType(str, Enum):
     """
     Hostname type.
@@ -167,36 +88,6 @@ class HostnameType(str, Enum):
     PORTAL = "Portal"
     MANAGEMENT = "Management"
     SCM = "Scm"
-
-
-class IdentityProviderType(str, Enum):
-    """
-    Identity Provider Type identifier.
-    """
-    FACEBOOK = "facebook"
-    """
-    Facebook as Identity provider.
-    """
-    GOOGLE = "google"
-    """
-    Google as Identity provider.
-    """
-    MICROSOFT = "microsoft"
-    """
-    Microsoft Live as Identity provider.
-    """
-    TWITTER = "twitter"
-    """
-    Twitter as Identity provider.
-    """
-    AAD = "aad"
-    """
-    Azure Active Directory as Identity provider.
-    """
-    AAD_B2_C = "aadB2C"
-    """
-    Azure Active Directory B2C as Identity provider.
-    """
 
 
 class KeyType(str, Enum):
@@ -219,14 +110,6 @@ class LoggerType(str, Enum):
     """
     Azure Application Insights as log destination.
     """
-
-
-class ProductState(str, Enum):
-    """
-    whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
-    """
-    NOT_PUBLISHED = "notPublished"
-    PUBLISHED = "published"
 
 
 class Protocol(str, Enum):
@@ -268,44 +151,6 @@ class SkuType(str, Enum):
     """
     Basic SKU of Api Management.
     """
-
-
-class State(str, Enum):
-    """
-    Status of the issue.
-    """
-    PROPOSED = "proposed"
-    """
-    The issue is proposed.
-    """
-    OPEN = "open"
-    """
-    The issue is opened.
-    """
-    REMOVED = "removed"
-    """
-    The issue was removed.
-    """
-    RESOLVED = "resolved"
-    """
-    The issue is now resolved.
-    """
-    CLOSED = "closed"
-    """
-    The issue was closed.
-    """
-
-
-class SubscriptionState(str, Enum):
-    """
-    Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
-    """
-    SUSPENDED = "suspended"
-    ACTIVE = "active"
-    EXPIRED = "expired"
-    SUBMITTED = "submitted"
-    REJECTED = "rejected"
-    CANCELLED = "cancelled"
 
 
 class UserState(str, Enum):

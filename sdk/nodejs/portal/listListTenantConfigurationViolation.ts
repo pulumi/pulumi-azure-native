@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets list of items that violate tenant's configuration.
- * API Version: 2020-09-01-preview.
+ * Azure REST API version: 2020-09-01-preview.
  */
 export function listListTenantConfigurationViolation(args?: ListListTenantConfigurationViolationArgs, opts?: pulumi.InvokeOptions): Promise<ListListTenantConfigurationViolationResult> {
     args = args || {};

@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ExportArgs } from "./export";
-export type Export = import("./export").Export;
-export const Export: typeof import("./export").Export = null as any;
-utilities.lazyLoad(exports, ["Export"], () => require("./export"));
-
-export { GetExportArgs, GetExportResult, GetExportOutputArgs } from "./getExport";
-export const getExport: typeof import("./getExport").getExport = null as any;
-export const getExportOutput: typeof import("./getExport").getExportOutput = null as any;
-utilities.lazyLoad(exports, ["getExport","getExportOutput"], () => require("./getExport"));
-
 export { GetViewArgs, GetViewResult, GetViewOutputArgs } from "./getView";
 export const getView: typeof import("./getView").getView = null as any;
 export const getViewOutput: typeof import("./getView").getViewOutput = null as any;
@@ -43,8 +33,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:costmanagement/v20200601:Export":
-                return new Export(name, <any>undefined, { urn })
             case "azure-native:costmanagement/v20200601:View":
                 return new View(name, <any>undefined, { urn })
             case "azure-native:costmanagement/v20200601:ViewByScope":

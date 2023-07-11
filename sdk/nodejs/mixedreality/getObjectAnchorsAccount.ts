@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve an Object Anchors Account.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function getObjectAnchorsAccount(args: GetObjectAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectAnchorsAccountResult> {
 
@@ -87,7 +87,7 @@ export interface GetObjectAnchorsAccountResult {
 }
 /**
  * Retrieve an Object Anchors Account.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2021-03-01-preview.
  */
 export function getObjectAnchorsAccountOutput(args: GetObjectAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectAnchorsAccountResult> {
     return pulumi.output(args).apply((a: any) => getObjectAnchorsAccount(a, opts))

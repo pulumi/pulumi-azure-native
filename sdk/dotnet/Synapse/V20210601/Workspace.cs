@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Synapse.V20210601
     /// <summary>
     /// A workspace
     /// </summary>
-    [Obsolete(@"azure-native:synapse/v20210601:Workspace is being removed in the next major version of this provider. Upgrade to at least azure-native:synapse/v20210601preview:Workspace to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:synapse/v20210601:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
     {

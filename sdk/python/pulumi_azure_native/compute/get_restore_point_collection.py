@@ -147,7 +147,7 @@ def get_restore_point_collection(expand: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRestorePointCollectionResult:
     """
     The operation to get the restore point collection.
-    API Version: 2021-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.
@@ -180,7 +180,7 @@ def get_restore_point_collection_output(expand: Optional[pulumi.Input[Optional[s
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestorePointCollectionResult]:
     """
     The operation to get the restore point collection.
-    API Version: 2021-03-01.
+    Azure REST API version: 2023-03-01.
 
 
     :param str expand: The expand expression to apply on the operation. If expand=restorePoints, server will return all contained restore points in the restorePointCollection.

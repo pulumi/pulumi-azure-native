@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
     /// <summary>
     /// Represents a Database.
     /// </summary>
-    [Obsolete(@"azure-native:dbforpostgresql/v20221201:Database is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Database to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221201:Database")]
     public partial class Database : global::Pulumi.CustomResource
     {
@@ -71,11 +70,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20201105preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20210601preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220120preview:Database"},
                     new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20220308preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbforpostgresql/v20230301preview:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

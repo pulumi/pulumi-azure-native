@@ -136,7 +136,7 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:ConnectivityConfiguration" }, { type: "azure-native:network/v20210501preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220101:ConnectivityConfiguration" }, { type: "azure-native:network/v20220201preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220401preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220501:ConnectivityConfiguration" }, { type: "azure-native:network/v20220701:ConnectivityConfiguration" }, { type: "azure-native:network/v20220901:ConnectivityConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:ConnectivityConfiguration" }, { type: "azure-native:network/v20210501preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220101:ConnectivityConfiguration" }, { type: "azure-native:network/v20220201preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220401preview:ConnectivityConfiguration" }, { type: "azure-native:network/v20220501:ConnectivityConfiguration" }, { type: "azure-native:network/v20220701:ConnectivityConfiguration" }, { type: "azure-native:network/v20220901:ConnectivityConfiguration" }, { type: "azure-native:network/v20221101:ConnectivityConfiguration" }, { type: "azure-native:network/v20230201:ConnectivityConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConnectivityConfiguration.__pulumiType, name, resourceInputs, opts);
     }

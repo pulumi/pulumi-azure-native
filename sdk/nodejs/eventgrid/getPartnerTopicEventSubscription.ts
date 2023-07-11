@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get an event subscription of a partner topic.
- * API Version: 2020-04-01-preview.
+ * Get properties of an event subscription of a partner topic.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerTopicEventSubscription(args: GetPartnerTopicEventSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetPartnerTopicEventSubscriptionResult> {
 
@@ -106,8 +106,8 @@ export interface GetPartnerTopicEventSubscriptionResult {
     readonly type: string;
 }
 /**
- * Get an event subscription of a partner topic.
- * API Version: 2020-04-01-preview.
+ * Get properties of an event subscription of a partner topic.
+ * Azure REST API version: 2022-06-15.
  */
 export function getPartnerTopicEventSubscriptionOutput(args: GetPartnerTopicEventSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnerTopicEventSubscriptionResult> {
     return pulumi.output(args).apply((a: any) => getPartnerTopicEventSubscription(a, opts))

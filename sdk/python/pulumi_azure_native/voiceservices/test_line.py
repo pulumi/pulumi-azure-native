@@ -18,7 +18,7 @@ class TestLineArgs:
     def __init__(__self__, *,
                  communications_gateway_name: pulumi.Input[str],
                  phone_number: pulumi.Input[str],
-                 purpose: pulumi.Input['TestLinePurpose'],
+                 purpose: pulumi.Input[Union[str, 'TestLinePurpose']],
                  resource_group_name: pulumi.Input[str],
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -27,7 +27,7 @@ class TestLineArgs:
         The set of arguments for constructing a TestLine resource.
         :param pulumi.Input[str] communications_gateway_name: Unique identifier for this deployment
         :param pulumi.Input[str] phone_number: The phone number
-        :param pulumi.Input['TestLinePurpose'] purpose: Purpose of this test line, e.g. automated or manual testing
+        :param pulumi.Input[Union[str, 'TestLinePurpose']] purpose: Purpose of this test line, e.g. automated or manual testing
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -70,14 +70,14 @@ class TestLineArgs:
 
     @property
     @pulumi.getter
-    def purpose(self) -> pulumi.Input['TestLinePurpose']:
+    def purpose(self) -> pulumi.Input[Union[str, 'TestLinePurpose']]:
         """
         Purpose of this test line, e.g. automated or manual testing
         """
         return pulumi.get(self, "purpose")
 
     @purpose.setter
-    def purpose(self, value: pulumi.Input['TestLinePurpose']):
+    def purpose(self, value: pulumi.Input[Union[str, 'TestLinePurpose']]):
         pulumi.set(self, "purpose", value)
 
     @property
@@ -137,21 +137,21 @@ class TestLine(pulumi.CustomResource):
                  communications_gateway_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  phone_number: Optional[pulumi.Input[str]] = None,
-                 purpose: Optional[pulumi.Input['TestLinePurpose']] = None,
+                 purpose: Optional[pulumi.Input[Union[str, 'TestLinePurpose']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  test_line_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         A TestLine resource
-        API Version: 2022-12-01-preview.
+        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] communications_gateway_name: Unique identifier for this deployment
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] phone_number: The phone number
-        :param pulumi.Input['TestLinePurpose'] purpose: Purpose of this test line, e.g. automated or manual testing
+        :param pulumi.Input[Union[str, 'TestLinePurpose']] purpose: Purpose of this test line, e.g. automated or manual testing
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] test_line_name: Unique identifier for this test line
@@ -164,7 +164,7 @@ class TestLine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A TestLine resource
-        API Version: 2022-12-01-preview.
+        Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview
 
         :param str resource_name: The name of the resource.
         :param TestLineArgs args: The arguments to use to populate this resource's properties.
@@ -184,7 +184,7 @@ class TestLine(pulumi.CustomResource):
                  communications_gateway_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  phone_number: Optional[pulumi.Input[str]] = None,
-                 purpose: Optional[pulumi.Input['TestLinePurpose']] = None,
+                 purpose: Optional[pulumi.Input[Union[str, 'TestLinePurpose']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  test_line_name: Optional[pulumi.Input[str]] = None,
@@ -216,7 +216,7 @@ class TestLine(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:voiceservices/v20221201preview:TestLine"), pulumi.Alias(type_="azure-native:voiceservices/v20230131:TestLine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:voiceservices/v20221201preview:TestLine"), pulumi.Alias(type_="azure-native:voiceservices/v20230131:TestLine"), pulumi.Alias(type_="azure-native:voiceservices/v20230403:TestLine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TestLine, __self__).__init__(
             'azure-native:voiceservices:TestLine',

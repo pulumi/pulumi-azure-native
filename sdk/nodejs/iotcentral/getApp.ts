@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the metadata of an IoT Central application.
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
 
@@ -86,7 +86,7 @@ export interface GetAppResult {
 }
 /**
  * Get the metadata of an IoT Central application.
- * API Version: 2021-06-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
     return pulumi.output(args).apply((a: any) => getApp(a, opts))

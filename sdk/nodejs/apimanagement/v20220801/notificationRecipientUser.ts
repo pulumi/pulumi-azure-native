@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Recipient User details.
- *
- * @deprecated azure-native:apimanagement/v20220801:NotificationRecipientUser is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientUser to guarantee forwards compatibility.
  */
 export class NotificationRecipientUser extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): NotificationRecipientUser {
-        pulumi.log.warn("NotificationRecipientUser is deprecated: azure-native:apimanagement/v20220801:NotificationRecipientUser is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientUser to guarantee forwards compatibility.")
         return new NotificationRecipientUser(name, undefined as any, { ...opts, id: id });
     }
 
@@ -57,9 +54,7 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:NotificationRecipientUser is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientUser to guarantee forwards compatibility. */
     constructor(name: string, args: NotificationRecipientUserArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("NotificationRecipientUser is deprecated: azure-native:apimanagement/v20220801:NotificationRecipientUser is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientUser to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -84,7 +79,7 @@ export class NotificationRecipientUser extends pulumi.CustomResource {
             resourceInputs["userId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20170301:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180601preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20190101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20191201:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20191201preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20200601preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20201201:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210101preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210401preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210801:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20211201preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20220401preview:NotificationRecipientUser" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20170301:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20180601preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20190101:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20191201:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20191201preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20200601preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20201201:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210101preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210401preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20210801:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20211201preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20220401preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20220901preview:NotificationRecipientUser" }, { type: "azure-native:apimanagement/v20230301preview:NotificationRecipientUser" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NotificationRecipientUser.__pulumiType, name, resourceInputs, opts);
     }

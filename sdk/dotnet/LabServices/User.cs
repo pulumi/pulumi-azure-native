@@ -10,83 +10,77 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.LabServices
 {
     /// <summary>
-    /// The User registered to a lab
-    /// API Version: 2018-10-15.
+    /// User of a lab that can register for and use virtual machines within the lab.
+    /// Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:User")]
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The user email address, as it was specified during registration.
+        /// The amount of usage quota time the user gets in addition to the lab usage quota.
+        /// </summary>
+        [Output("additionalUsageQuota")]
+        public Output<string?> AdditionalUsageQuota { get; private set; } = null!;
+
+        /// <summary>
+        /// Display name of the user, for example user's full name.
+        /// </summary>
+        [Output("displayName")]
+        public Output<string> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// Email address of the user.
         /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
 
         /// <summary>
-        /// The user family name, as it was specified during registration.
+        /// Date and time when the invitation message was sent to the user.
         /// </summary>
-        [Output("familyName")]
-        public Output<string> FamilyName { get; private set; } = null!;
+        [Output("invitationSent")]
+        public Output<string> InvitationSent { get; private set; } = null!;
 
         /// <summary>
-        /// The user given name, as it was specified during registration.
+        /// State of the invitation message for the user.
         /// </summary>
-        [Output("givenName")]
-        public Output<string> GivenName { get; private set; } = null!;
+        [Output("invitationState")]
+        public Output<string> InvitationState { get; private set; } = null!;
 
         /// <summary>
-        /// The details of the latest operation. ex: status, error
-        /// </summary>
-        [Output("latestOperationResult")]
-        public Output<Outputs.LatestOperationResultResponse> LatestOperationResult { get; private set; } = null!;
-
-        /// <summary>
-        /// The location of the resource.
-        /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning status of the resource.
+        /// Current provisioning state of the user resource.
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The tags of the resource.
+        /// State of the user's registration within the lab.
         /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+        [Output("registrationState")]
+        public Output<string> RegistrationState { get; private set; } = null!;
 
         /// <summary>
-        /// The user tenant ID, as it was specified during registration.
+        /// Metadata pertaining to creation and last modification of the user resource.
         /// </summary>
-        [Output("tenantId")]
-        public Output<string> TenantId { get; private set; } = null!;
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// How long the user has used his VMs in this lab
+        /// How long the user has used their virtual machines in this lab.
         /// </summary>
         [Output("totalUsage")]
         public Output<string> TotalUsage { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Output("uniqueIdentifier")]
-        public Output<string?> UniqueIdentifier { get; private set; } = null!;
 
 
         /// <summary>
@@ -113,7 +107,9 @@ namespace Pulumi.AzureNative.LabServices
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20181015:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211001preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20211115preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:labservices/v20220801:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -138,55 +134,31 @@ namespace Pulumi.AzureNative.LabServices
     public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the lab Account.
+        /// The amount of usage quota time the user gets in addition to the lab usage quota.
         /// </summary>
-        [Input("labAccountName", required: true)]
-        public Input<string> LabAccountName { get; set; } = null!;
+        [Input("additionalUsageQuota")]
+        public Input<string>? AdditionalUsageQuota { get; set; }
 
         /// <summary>
-        /// The name of the lab.
+        /// Email address of the user.
+        /// </summary>
+        [Input("email", required: true)]
+        public Input<string> Email { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         /// </summary>
         [Input("labName", required: true)]
         public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
-        /// The location of the resource.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// The provisioning status of the resource.
-        /// </summary>
-        [Input("provisioningState")]
-        public Input<string>? ProvisioningState { get; set; }
-
-        /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
         /// <summary>
-        /// The tags of the resource.
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
-
-        /// <summary>
-        /// The unique immutable identifier of a resource (Guid).
-        /// </summary>
-        [Input("uniqueIdentifier")]
-        public Input<string>? UniqueIdentifier { get; set; }
-
-        /// <summary>
-        /// The name of the user.
+        /// The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

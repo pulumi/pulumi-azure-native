@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.ServiceBus.V20220101Preview.Inputs
         public InputUnion<string, Pulumi.AzureNative.ServiceBus.V20220101Preview.ManagedServiceIdentityType>? Type { get; set; }
 
         [Input("userAssignedIdentities")]
-        private InputMap<object>? _userAssignedIdentities;
+        private InputList<string>? _userAssignedIdentities;
 
         /// <summary>
         /// Properties for User Assigned Identities
         /// </summary>
-        public InputMap<object> UserAssignedIdentities
+        public InputList<string> UserAssignedIdentities
         {
-            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
             set => _userAssignedIdentities = value;
         }
 

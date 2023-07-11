@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private link scoped resource
- * API Version: 2020-08-15-preview.
+ * Azure REST API version: 2020-08-15-preview. Prior API version in Azure Native 1.x: 2020-08-15-preview
  */
 export class PrivateLinkScopedResource extends pulumi.CustomResource {
     /**

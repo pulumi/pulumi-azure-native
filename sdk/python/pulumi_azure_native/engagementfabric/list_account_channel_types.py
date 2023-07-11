@@ -50,7 +50,7 @@ def list_account_channel_types(account_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAccountChannelTypesResult:
     """
     List of the EngagementFabric channel descriptions
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str account_name: Account Name
@@ -72,7 +72,7 @@ def list_account_channel_types_output(account_name: Optional[pulumi.Input[str]] 
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListAccountChannelTypesResult]:
     """
     List of the EngagementFabric channel descriptions
-    API Version: 2018-09-01-preview.
+    Azure REST API version: 2018-09-01-preview.
 
 
     :param str account_name: Account Name

@@ -12,6 +12,7 @@ __all__ = [
     'JsonWebKeyOperation',
     'JsonWebKeyType',
     'KeyPermissions',
+    'KeyRotationPolicyActionType',
     'ManagedHsmSkuFamily',
     'ManagedHsmSkuName',
     'NetworkRuleAction',
@@ -82,6 +83,7 @@ class JsonWebKeyOperation(str, Enum):
     WRAP_KEY = "wrapKey"
     UNWRAP_KEY = "unwrapKey"
     IMPORT_ = "import"
+    RELEASE = "release"
 
 
 class JsonWebKeyType(str, Enum):
@@ -112,6 +114,18 @@ class KeyPermissions(str, Enum):
     RESTORE = "restore"
     RECOVER = "recover"
     PURGE = "purge"
+    RELEASE = "release"
+    ROTATE = "rotate"
+    GETROTATIONPOLICY = "getrotationpolicy"
+    SETROTATIONPOLICY = "setrotationpolicy"
+
+
+class KeyRotationPolicyActionType(str, Enum):
+    """
+    The type of action.
+    """
+    ROTATE = "rotate"
+    NOTIFY = "notify"
 
 
 class ManagedHsmSkuFamily(str, Enum):

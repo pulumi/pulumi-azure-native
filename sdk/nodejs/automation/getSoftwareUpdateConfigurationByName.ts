@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a single software update configuration by name.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2019-06-01.
  */
 export function getSoftwareUpdateConfigurationByName(args: GetSoftwareUpdateConfigurationByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetSoftwareUpdateConfigurationByNameResult> {
 
@@ -91,7 +91,7 @@ export interface GetSoftwareUpdateConfigurationByNameResult {
 }
 /**
  * Get a single software update configuration by name.
- * API Version: 2019-06-01.
+ * Azure REST API version: 2019-06-01.
  */
 export function getSoftwareUpdateConfigurationByNameOutput(args: GetSoftwareUpdateConfigurationByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwareUpdateConfigurationByNameResult> {
     return pulumi.output(args).apply((a: any) => getSoftwareUpdateConfigurationByName(a, opts))

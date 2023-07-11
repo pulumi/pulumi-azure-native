@@ -71,7 +71,7 @@ class GetEmailTemplateResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -79,7 +79,7 @@ class GetEmailTemplateResult:
     @pulumi.getter(name="isDefault")
     def is_default(self) -> bool:
         """
-        Whether the template is the default template provided by Api Management or has been edited.
+        Whether the template is the default template provided by API Management or has been edited.
         """
         return pulumi.get(self, "is_default")
 
@@ -87,7 +87,7 @@ class GetEmailTemplateResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -119,7 +119,7 @@ class GetEmailTemplateResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -147,10 +147,10 @@ def get_email_template(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEmailTemplateResult:
     """
     Gets the details of the email template specified by its identifier.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str template_name: Email Template Name Identifier.
     """
@@ -180,10 +180,10 @@ def get_email_template_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEmailTemplateResult]:
     """
     Gets the details of the email template specified by its identifier.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     :param str template_name: Email Template Name Identifier.
     """

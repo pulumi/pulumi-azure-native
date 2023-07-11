@@ -144,7 +144,7 @@ class LivePipeline(pulumi.CustomResource):
                  __props__=None):
         """
         Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
-        API Version: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -164,7 +164,7 @@ class LivePipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
-        API Version: 2021-11-01-preview.
+        Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param LivePipelineArgs args: The arguments to use to populate this resource's properties.

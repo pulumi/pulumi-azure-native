@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Lists the notification hubs associated with a namespace.
- * API Version: 2017-04-01.
+ * Notification Hub Resource.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubResult> {
 
@@ -23,83 +23,59 @@ export function getNotificationHub(args: GetNotificationHubArgs, opts?: pulumi.I
 
 export interface GetNotificationHubArgs {
     /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName: string;
     /**
-     * The notification hub name.
+     * Notification Hub name
      */
     notificationHubName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
 
 /**
- * Description of a NotificationHub Resource.
+ * Notification Hub Resource.
  */
 export interface GetNotificationHubResult {
     /**
-     * The AdmCredential of the created NotificationHub
-     */
-    readonly admCredential?: outputs.notificationhubs.AdmCredentialResponse;
-    /**
-     * The ApnsCredential of the created NotificationHub
-     */
-    readonly apnsCredential?: outputs.notificationhubs.ApnsCredentialResponse;
-    /**
-     * The AuthorizationRules of the created NotificationHub
-     */
-    readonly authorizationRules?: outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse[];
-    /**
-     * The BaiduCredential of the created NotificationHub
-     */
-    readonly baiduCredential?: outputs.notificationhubs.BaiduCredentialResponse;
-    /**
-     * The GcmCredential of the created NotificationHub
-     */
-    readonly gcmCredential?: outputs.notificationhubs.GcmCredentialResponse;
-    /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
-    readonly location?: string;
+    readonly location: string;
     /**
-     * The MpnsCredential of the created NotificationHub
-     */
-    readonly mpnsCredential?: outputs.notificationhubs.MpnsCredentialResponse;
-    /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The RegistrationTtl of the created NotificationHub
+     * NotificationHub properties.
      */
-    readonly registrationTtl?: string;
+    readonly properties: outputs.notificationhubs.NotificationHubPropertiesResponse;
     /**
-     * The sku of the created namespace
+     * The Sku description for a namespace
      */
     readonly sku?: outputs.notificationhubs.SkuResponse;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.notificationhubs.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The WnsCredential of the created NotificationHub
-     */
-    readonly wnsCredential?: outputs.notificationhubs.WnsCredentialResponse;
 }
 /**
- * Lists the notification hubs associated with a namespace.
- * API Version: 2017-04-01.
+ * Notification Hub Resource.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHub(a, opts))
@@ -107,15 +83,15 @@ export function getNotificationHubOutput(args: GetNotificationHubOutputArgs, opt
 
 export interface GetNotificationHubOutputArgs {
     /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * The notification hub name.
+     * Notification Hub name
      */
     notificationHubName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

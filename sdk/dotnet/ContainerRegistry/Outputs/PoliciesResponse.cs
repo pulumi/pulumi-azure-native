@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.Outputs
     public sealed class PoliciesResponse
     {
         /// <summary>
+        /// The export policy for a container registry.
+        /// </summary>
+        public readonly Outputs.ExportPolicyResponse? ExportPolicy;
+        /// <summary>
         /// The quarantine policy for a container registry.
         /// </summary>
         public readonly Outputs.QuarantinePolicyResponse? QuarantinePolicy;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 
         [OutputConstructor]
         private PoliciesResponse(
+            Outputs.ExportPolicyResponse? exportPolicy,
+
             Outputs.QuarantinePolicyResponse? quarantinePolicy,
 
             Outputs.RetentionPolicyResponse? retentionPolicy,
 
             Outputs.TrustPolicyResponse? trustPolicy)
         {
+            ExportPolicy = exportPolicy;
             QuarantinePolicy = quarantinePolicy;
             RetentionPolicy = retentionPolicy;
             TrustPolicy = trustPolicy;

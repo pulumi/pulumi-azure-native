@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the custom resource provider manifest.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getCustomResourceProvider(args: GetCustomResourceProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomResourceProviderResult> {
 
@@ -74,7 +74,7 @@ export interface GetCustomResourceProviderResult {
 }
 /**
  * Gets the custom resource provider manifest.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getCustomResourceProviderOutput(args: GetCustomResourceProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomResourceProviderResult> {
     return pulumi.output(args).apply((a: any) => getCustomResourceProvider(a, opts))

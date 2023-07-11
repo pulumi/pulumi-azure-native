@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class PrivateEndpointResponse
     {
         /// <summary>
-        /// The resource Id for private endpoint
+        /// The resource ID of the private endpoint
         /// </summary>
         public readonly string? Id;
 

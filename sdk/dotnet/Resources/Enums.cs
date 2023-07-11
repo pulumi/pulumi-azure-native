@@ -40,6 +40,47 @@ namespace Pulumi.AzureNative.Resources
     }
 
     /// <summary>
+    /// denySettings Mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct DenySettingsMode : IEquatable<DenySettingsMode>
+    {
+        private readonly string _value;
+
+        private DenySettingsMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Authorized users are able to read and modify the resources, but cannot delete.
+        /// </summary>
+        public static DenySettingsMode DenyDelete { get; } = new DenySettingsMode("denyDelete");
+        /// <summary>
+        /// Authorized users can only read from a resource, but cannot modify or delete it.
+        /// </summary>
+        public static DenySettingsMode DenyWriteAndDelete { get; } = new DenySettingsMode("denyWriteAndDelete");
+        /// <summary>
+        /// No denyAssignments have been applied.
+        /// </summary>
+        public static DenySettingsMode None { get; } = new DenySettingsMode("none");
+
+        public static bool operator ==(DenySettingsMode left, DenySettingsMode right) => left.Equals(right);
+        public static bool operator !=(DenySettingsMode left, DenySettingsMode right) => !left.Equals(right);
+
+        public static explicit operator string(DenySettingsMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DenySettingsMode other && Equals(other);
+        public bool Equals(DenySettingsMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The mode that is used to deploy resources. This value can be either Incremental or Complete. In Incremental mode, resources are deployed without deleting existing resources that are not included in the template. In Complete mode, resources are deployed and existing resources in the resource group that are not included in the template are deleted. Be careful when using Complete mode as you may unintentionally delete resources.
     /// </summary>
     [EnumType]
@@ -63,6 +104,37 @@ namespace Pulumi.AzureNative.Resources
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DeploymentMode other && Equals(other);
         public bool Equals(DeploymentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeploymentStacksDeleteDetachEnum : IEquatable<DeploymentStacksDeleteDetachEnum>
+    {
+        private readonly string _value;
+
+        private DeploymentStacksDeleteDetachEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeploymentStacksDeleteDetachEnum Delete { get; } = new DeploymentStacksDeleteDetachEnum("delete");
+        public static DeploymentStacksDeleteDetachEnum Detach { get; } = new DeploymentStacksDeleteDetachEnum("detach");
+
+        public static bool operator ==(DeploymentStacksDeleteDetachEnum left, DeploymentStacksDeleteDetachEnum right) => left.Equals(right);
+        public static bool operator !=(DeploymentStacksDeleteDetachEnum left, DeploymentStacksDeleteDetachEnum right) => !left.Equals(right);
+
+        public static explicit operator string(DeploymentStacksDeleteDetachEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeploymentStacksDeleteDetachEnum other && Equals(other);
+        public bool Equals(DeploymentStacksDeleteDetachEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -95,6 +167,36 @@ namespace Pulumi.AzureNative.Resources
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ExpressionEvaluationOptionsScopeType other && Equals(other);
         public bool Equals(ExpressionEvaluationOptionsScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The extended location type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationType : IEquatable<ExtendedLocationType>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationType EdgeZone { get; } = new ExtendedLocationType("EdgeZone");
+
+        public static bool operator ==(ExtendedLocationType left, ExtendedLocationType right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationType left, ExtendedLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationType other && Equals(other);
+        public bool Equals(ExtendedLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

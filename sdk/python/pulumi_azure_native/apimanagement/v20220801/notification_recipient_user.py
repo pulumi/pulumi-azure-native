@@ -80,12 +80,7 @@ class NotificationRecipientUserArgs:
         pulumi.set(self, "user_id", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:NotificationRecipientUser is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientUser to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class NotificationRecipientUser(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:NotificationRecipientUser is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientUser to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -134,7 +129,6 @@ class NotificationRecipientUser(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  user_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""NotificationRecipientUser is deprecated: azure-native:apimanagement/v20220801:NotificationRecipientUser is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:NotificationRecipientUser to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -155,7 +149,7 @@ class NotificationRecipientUser(pulumi.CustomResource):
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:NotificationRecipientUser")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:NotificationRecipientUser"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:NotificationRecipientUser")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NotificationRecipientUser, __self__).__init__(
             'azure-native:apimanagement/v20220801:NotificationRecipientUser',

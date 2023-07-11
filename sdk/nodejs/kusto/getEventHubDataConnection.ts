@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns a data connection.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29.
  */
 export function getEventHubDataConnection(args: GetEventHubDataConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubDataConnectionResult> {
 
@@ -55,6 +55,10 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly dataFormat?: string;
     /**
+     * Indication for database routing information from the data connection, by default only database routing information is allowed
+     */
+    readonly databaseRouting?: string;
+    /**
      * The resource ID of the event hub to be used to create a data connection.
      */
     readonly eventHubResourceId: string;
@@ -76,6 +80,10 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly location?: string;
     /**
+     * The object ID of the managedIdentityResourceId
+     */
+    readonly managedIdentityObjectId: string;
+    /**
      * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
      */
     readonly managedIdentityResourceId?: string;
@@ -92,6 +100,10 @@ export interface GetEventHubDataConnectionResult {
      */
     readonly provisioningState: string;
     /**
+     * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
+     */
+    readonly retrievalStartDate?: string;
+    /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
     readonly tableName?: string;
@@ -102,7 +114,7 @@ export interface GetEventHubDataConnectionResult {
 }
 /**
  * Returns a data connection.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29.
  */
 export function getEventHubDataConnectionOutput(args: GetEventHubDataConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventHubDataConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventHubDataConnection(a, opts))

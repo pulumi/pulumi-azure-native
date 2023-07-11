@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// The connector setting
-    /// API Version: 2020-01-01-preview.
+    /// Azure REST API version: 2020-01-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

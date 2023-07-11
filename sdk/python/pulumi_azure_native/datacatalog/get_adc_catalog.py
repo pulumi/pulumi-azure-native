@@ -182,7 +182,7 @@ def get_adc_catalog(catalog_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetADCCatalogResult:
     """
     The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
-    API Version: 2016-03-30.
+    Azure REST API version: 2016-03-30.
 
 
     :param str catalog_name: The name of the data catalog in the specified subscription and resource group.
@@ -215,7 +215,7 @@ def get_adc_catalog_output(catalog_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetADCCatalogResult]:
     """
     The Get Azure Data Catalog Service operation retrieves a json representation of the data catalog.
-    API Version: 2016-03-30.
+    Azure REST API version: 2016-03-30.
 
 
     :param str catalog_name: The name of the data catalog in the specified subscription and resource group.

@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.DataBox
         /// Data Box Heavy orders.
         /// </summary>
         public static ClassDiscriminator DataBoxHeavy { get; } = new ClassDiscriminator("DataBoxHeavy");
+        /// <summary>
+        /// Data Box Customer Disk orders.
+        /// </summary>
+        public static ClassDiscriminator DataBoxCustomerDisk { get; } = new ClassDiscriminator("DataBoxCustomerDisk");
 
         public static bool operator ==(ClassDiscriminator left, ClassDiscriminator right) => left.Equals(right);
         public static bool operator !=(ClassDiscriminator left, ClassDiscriminator right) => !left.Equals(right);
@@ -193,6 +197,43 @@ namespace Pulumi.AzureNative.DataBox
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FilterFileType other && Equals(other);
         public bool Equals(FilterFileType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines Hardware level encryption (Only for disk)
+    /// </summary>
+    [EnumType]
+    public readonly struct HardwareEncryption : IEquatable<HardwareEncryption>
+    {
+        private readonly string _value;
+
+        private HardwareEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Hardware-based encryption is enabled.
+        /// </summary>
+        public static HardwareEncryption Enabled { get; } = new HardwareEncryption("Enabled");
+        /// <summary>
+        /// Hardware-based encryption is enabled.
+        /// </summary>
+        public static HardwareEncryption Disabled { get; } = new HardwareEncryption("Disabled");
+
+        public static bool operator ==(HardwareEncryption left, HardwareEncryption right) => left.Equals(right);
+        public static bool operator !=(HardwareEncryption left, HardwareEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(HardwareEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HardwareEncryption other && Equals(other);
+        public bool Equals(HardwareEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -348,6 +389,14 @@ namespace Pulumi.AzureNative.DataBox
         /// Notification at data copy started stage.
         /// </summary>
         public static NotificationStageName DataCopy { get; } = new NotificationStageName("DataCopy");
+        /// <summary>
+        /// Notification at job created stage.
+        /// </summary>
+        public static NotificationStageName Created { get; } = new NotificationStageName("Created");
+        /// <summary>
+        /// Notification at shipped devices to customer stage.
+        /// </summary>
+        public static NotificationStageName ShippedToCustomer { get; } = new NotificationStageName("ShippedToCustomer");
 
         public static bool operator ==(NotificationStageName left, NotificationStageName right) => left.Equals(right);
         public static bool operator !=(NotificationStageName left, NotificationStageName right) => !left.Equals(right);
@@ -389,6 +438,10 @@ namespace Pulumi.AzureNative.DataBox
         /// Data Box Heavy.
         /// </summary>
         public static SkuName DataBoxHeavy { get; } = new SkuName("DataBoxHeavy");
+        /// <summary>
+        /// Data Box Customer Disk.
+        /// </summary>
+        public static SkuName DataBoxCustomerDisk { get; } = new SkuName("DataBoxCustomerDisk");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
@@ -398,6 +451,36 @@ namespace Pulumi.AzureNative.DataBox
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
         public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct StorageAccountAccessTier : IEquatable<StorageAccountAccessTier>
+    {
+        private readonly string _value;
+
+        private StorageAccountAccessTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Archive Access Tier shares requested by the customer.
+        /// </summary>
+        public static StorageAccountAccessTier Archive { get; } = new StorageAccountAccessTier("Archive");
+
+        public static bool operator ==(StorageAccountAccessTier left, StorageAccountAccessTier right) => left.Equals(right);
+        public static bool operator !=(StorageAccountAccessTier left, StorageAccountAccessTier right) => !left.Equals(right);
+
+        public static explicit operator string(StorageAccountAccessTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageAccountAccessTier other && Equals(other);
+        public bool Equals(StorageAccountAccessTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

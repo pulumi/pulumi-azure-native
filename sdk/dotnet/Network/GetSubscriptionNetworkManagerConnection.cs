@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Get a specified connection created by this subscription.
-        /// API Version: 2022-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetSubscriptionNetworkManagerConnectionResult> InvokeAsync(GetSubscriptionNetworkManagerConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a specified connection created by this subscription.
-        /// API Version: 2022-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetSubscriptionNetworkManagerConnectionResult> Invoke(GetSubscriptionNetworkManagerConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionInvokeArgs(), options.WithDefaults());
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetSubscriptionNetworkManagerConnectionResult
     {
         /// <summary>
-        /// A description of the scope connection.
+        /// A description of the network manager connection.
         /// </summary>
         public readonly string? Description;
         /// <summary>

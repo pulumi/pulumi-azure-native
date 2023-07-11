@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Gets a database data masking policy.
- * API Version: 2014-04-01.
+ * Gets the database data masking policy.
+ * Azure REST API version: 2021-11-01.
  */
 export function getDataMaskingPolicy(args: GetDataMaskingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDataMaskingPolicyResult> {
 
@@ -21,7 +21,7 @@ export function getDataMaskingPolicy(args: GetDataMaskingPolicyArgs, opts?: pulu
 
 export interface GetDataMaskingPolicyArgs {
     /**
-     * The name of the database for which the data masking rule applies.
+     * The name of the database for which the data masking policy applies.
      */
     dataMaskingPolicyName: string;
     /**
@@ -39,7 +39,7 @@ export interface GetDataMaskingPolicyArgs {
 }
 
 /**
- * Represents a database data masking policy.
+ * A database data masking policy.
  */
 export interface GetDataMaskingPolicyResult {
     /**
@@ -59,7 +59,7 @@ export interface GetDataMaskingPolicyResult {
      */
     readonly id: string;
     /**
-     * The kind of data masking policy. Metadata, used for Azure portal.
+     * The kind of Data Masking Policy. Metadata, used for Azure portal.
      */
     readonly kind: string;
     /**
@@ -80,8 +80,8 @@ export interface GetDataMaskingPolicyResult {
     readonly type: string;
 }
 /**
- * Gets a database data masking policy.
- * API Version: 2014-04-01.
+ * Gets the database data masking policy.
+ * Azure REST API version: 2021-11-01.
  */
 export function getDataMaskingPolicyOutput(args: GetDataMaskingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataMaskingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDataMaskingPolicy(a, opts))
@@ -89,7 +89,7 @@ export function getDataMaskingPolicyOutput(args: GetDataMaskingPolicyOutputArgs,
 
 export interface GetDataMaskingPolicyOutputArgs {
     /**
-     * The name of the database for which the data masking rule applies.
+     * The name of the database for which the data masking policy applies.
      */
     dataMaskingPolicyName: pulumi.Input<string>;
     /**

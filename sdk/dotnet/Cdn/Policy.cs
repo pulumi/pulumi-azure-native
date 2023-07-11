@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Defines web application firewall policy for Azure CDN.
-    /// API Version: 2020-09-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// Key-Value pair representing additional properties for Web Application Firewall policy.
+        /// </summary>
+        [Output("extendedProperties")]
+        public Output<ImmutableDictionary<string, string>?> ExtendedProperties { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -130,6 +136,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:Policy"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:Policy"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:Policy"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:Policy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -158,6 +165,18 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Input("customRules")]
         public Input<Inputs.CustomRuleListArgs>? CustomRules { get; set; }
+
+        [Input("extendedProperties")]
+        private InputMap<string>? _extendedProperties;
+
+        /// <summary>
+        /// Key-Value pair representing additional properties for Web Application Firewall policy.
+        /// </summary>
+        public InputMap<string> ExtendedProperties
+        {
+            get => _extendedProperties ?? (_extendedProperties = new InputMap<string>());
+            set => _extendedProperties = value;
+        }
 
         /// <summary>
         /// Resource location.

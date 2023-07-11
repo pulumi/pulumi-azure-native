@@ -11,12 +11,17 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AnalyticsConnectorDataLakeDataDestinationArgs',
+    'AnalyticsConnectorFhirServiceDataSourceArgs',
+    'AnalyticsConnectorFhirToParquetMappingArgs',
     'CorsConfigurationArgs',
     'FhirServiceAccessPolicyEntryArgs',
     'FhirServiceAcrConfigurationArgs',
     'FhirServiceAuthenticationConfigurationArgs',
     'FhirServiceCorsConfigurationArgs',
     'FhirServiceExportConfigurationArgs',
+    'FhirServiceImportConfigurationArgs',
+    'ImplementationGuidesConfigurationArgs',
     'IotEventHubIngestionEndpointConfigurationArgs',
     'IotMappingPropertiesArgs',
     'PrivateEndpointConnectionArgs',
@@ -28,11 +33,180 @@ __all__ = [
     'ServiceCorsConfigurationInfoArgs',
     'ServiceCosmosDbConfigurationInfoArgs',
     'ServiceExportConfigurationInfoArgs',
+    'ServiceImportConfigurationInfoArgs',
     'ServiceManagedIdentityIdentityArgs',
     'ServiceOciArtifactEntryArgs',
     'ServicesPropertiesArgs',
     'ServicesResourceIdentityArgs',
 ]
+
+@pulumi.input_type
+class AnalyticsConnectorDataLakeDataDestinationArgs:
+    def __init__(__self__, *,
+                 data_lake_name: pulumi.Input[str],
+                 type: pulumi.Input[str],
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The Data Lake data destination for Analytics Connector.
+        :param pulumi.Input[str] data_lake_name: The name for the Data Lake.
+        :param pulumi.Input[str] type: Type of data destination.
+               Expected value is 'datalake'.
+        :param pulumi.Input[str] name: Name of data destination.
+        """
+        pulumi.set(__self__, "data_lake_name", data_lake_name)
+        pulumi.set(__self__, "type", 'datalake')
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="dataLakeName")
+    def data_lake_name(self) -> pulumi.Input[str]:
+        """
+        The name for the Data Lake.
+        """
+        return pulumi.get(self, "data_lake_name")
+
+    @data_lake_name.setter
+    def data_lake_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_lake_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of data destination.
+        Expected value is 'datalake'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of data destination.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class AnalyticsConnectorFhirServiceDataSourceArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[Union[str, 'FhirServiceVersion']],
+                 type: pulumi.Input[str],
+                 url: pulumi.Input[str]):
+        """
+        The FHIR service data source for Analytics Connector.
+        :param pulumi.Input[Union[str, 'FhirServiceVersion']] kind: The kind of FHIR Service.
+        :param pulumi.Input[str] type: Type of data source.
+               Expected value is 'fhirservice'.
+        :param pulumi.Input[str] url: The URL of FHIR service.
+        """
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "type", 'fhirservice')
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[str, 'FhirServiceVersion']]:
+        """
+        The kind of FHIR Service.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[str, 'FhirServiceVersion']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of data source.
+        Expected value is 'fhirservice'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The URL of FHIR service.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class AnalyticsConnectorFhirToParquetMappingArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 extension_schema_reference: Optional[pulumi.Input[str]] = None,
+                 filter_configuration_reference: Optional[pulumi.Input[str]] = None):
+        """
+        FHIR Service data mapping configuration for Analytics Connector.
+        :param pulumi.Input[str] type: Type of data mapping.
+               Expected value is 'fhirToParquet'.
+        :param pulumi.Input[str] extension_schema_reference: Artifact reference for extension schema.
+        :param pulumi.Input[str] filter_configuration_reference: Artifact reference for filter configurations.
+        """
+        pulumi.set(__self__, "type", 'fhirToParquet')
+        if extension_schema_reference is not None:
+            pulumi.set(__self__, "extension_schema_reference", extension_schema_reference)
+        if filter_configuration_reference is not None:
+            pulumi.set(__self__, "filter_configuration_reference", filter_configuration_reference)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of data mapping.
+        Expected value is 'fhirToParquet'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="extensionSchemaReference")
+    def extension_schema_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Artifact reference for extension schema.
+        """
+        return pulumi.get(self, "extension_schema_reference")
+
+    @extension_schema_reference.setter
+    def extension_schema_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_schema_reference", value)
+
+    @property
+    @pulumi.getter(name="filterConfigurationReference")
+    def filter_configuration_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        Artifact reference for filter configurations.
+        """
+        return pulumi.get(self, "filter_configuration_reference")
+
+    @filter_configuration_reference.setter
+    def filter_configuration_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_configuration_reference", value)
+
 
 @pulumi.input_type
 class CorsConfigurationArgs:
@@ -351,6 +525,86 @@ class FhirServiceExportConfigurationArgs:
     @storage_account_name.setter
     def storage_account_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "storage_account_name", value)
+
+
+@pulumi.input_type
+class FhirServiceImportConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 initial_import_mode: Optional[pulumi.Input[bool]] = None,
+                 integration_data_store: Optional[pulumi.Input[str]] = None):
+        """
+        Import operation configuration information
+        :param pulumi.Input[bool] enabled: If the import operation is enabled.
+        :param pulumi.Input[bool] initial_import_mode: If the FHIR service is in InitialImportMode.
+        :param pulumi.Input[str] integration_data_store: The name of the default integration storage account.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if initial_import_mode is not None:
+            pulumi.set(__self__, "initial_import_mode", initial_import_mode)
+        if integration_data_store is not None:
+            pulumi.set(__self__, "integration_data_store", integration_data_store)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the import operation is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="initialImportMode")
+    def initial_import_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the FHIR service is in InitialImportMode.
+        """
+        return pulumi.get(self, "initial_import_mode")
+
+    @initial_import_mode.setter
+    def initial_import_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "initial_import_mode", value)
+
+    @property
+    @pulumi.getter(name="integrationDataStore")
+    def integration_data_store(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the default integration storage account.
+        """
+        return pulumi.get(self, "integration_data_store")
+
+    @integration_data_store.setter
+    def integration_data_store(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_data_store", value)
+
+
+@pulumi.input_type
+class ImplementationGuidesConfigurationArgs:
+    def __init__(__self__, *,
+                 us_core_missing_data: Optional[pulumi.Input[bool]] = None):
+        """
+        The settings for Implementation Guides - defining capabilities for national standards, vendor consortiums, clinical societies, etc.
+        :param pulumi.Input[bool] us_core_missing_data: If US Core Missing Data requirement is enabled.
+        """
+        if us_core_missing_data is not None:
+            pulumi.set(__self__, "us_core_missing_data", us_core_missing_data)
+
+    @property
+    @pulumi.getter(name="usCoreMissingData")
+    def us_core_missing_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If US Core Missing Data requirement is enabled.
+        """
+        return pulumi.get(self, "us_core_missing_data")
+
+    @us_core_missing_data.setter
+    def us_core_missing_data(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "us_core_missing_data", value)
 
 
 @pulumi.input_type
@@ -762,17 +1016,33 @@ class ServiceCorsConfigurationInfoArgs:
 @pulumi.input_type
 class ServiceCosmosDbConfigurationInfoArgs:
     def __init__(__self__, *,
+                 cross_tenant_cmk_application_id: Optional[pulumi.Input[str]] = None,
                  key_vault_key_uri: Optional[pulumi.Input[str]] = None,
                  offer_throughput: Optional[pulumi.Input[int]] = None):
         """
         The settings for the Cosmos DB database backing the service.
+        :param pulumi.Input[str] cross_tenant_cmk_application_id: The multi-tenant application id used to enable CMK access for services in a data sovereign region.
         :param pulumi.Input[str] key_vault_key_uri: The URI of the customer-managed key for the backing database.
         :param pulumi.Input[int] offer_throughput: The provisioned throughput for the backing database.
         """
+        if cross_tenant_cmk_application_id is not None:
+            pulumi.set(__self__, "cross_tenant_cmk_application_id", cross_tenant_cmk_application_id)
         if key_vault_key_uri is not None:
             pulumi.set(__self__, "key_vault_key_uri", key_vault_key_uri)
         if offer_throughput is not None:
             pulumi.set(__self__, "offer_throughput", offer_throughput)
+
+    @property
+    @pulumi.getter(name="crossTenantCmkApplicationId")
+    def cross_tenant_cmk_application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The multi-tenant application id used to enable CMK access for services in a data sovereign region.
+        """
+        return pulumi.get(self, "cross_tenant_cmk_application_id")
+
+    @cross_tenant_cmk_application_id.setter
+    def cross_tenant_cmk_application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cross_tenant_cmk_application_id", value)
 
     @property
     @pulumi.getter(name="keyVaultKeyUri")
@@ -824,14 +1094,70 @@ class ServiceExportConfigurationInfoArgs:
 
 
 @pulumi.input_type
+class ServiceImportConfigurationInfoArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 initial_import_mode: Optional[pulumi.Input[bool]] = None,
+                 integration_data_store: Optional[pulumi.Input[str]] = None):
+        """
+        Import operation configuration information
+        :param pulumi.Input[bool] enabled: If the import operation is enabled.
+        :param pulumi.Input[bool] initial_import_mode: If the FHIR service is in InitialImportMode.
+        :param pulumi.Input[str] integration_data_store: The name of the default integration storage account.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if initial_import_mode is not None:
+            pulumi.set(__self__, "initial_import_mode", initial_import_mode)
+        if integration_data_store is not None:
+            pulumi.set(__self__, "integration_data_store", integration_data_store)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the import operation is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="initialImportMode")
+    def initial_import_mode(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the FHIR service is in InitialImportMode.
+        """
+        return pulumi.get(self, "initial_import_mode")
+
+    @initial_import_mode.setter
+    def initial_import_mode(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "initial_import_mode", value)
+
+    @property
+    @pulumi.getter(name="integrationDataStore")
+    def integration_data_store(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the default integration storage account.
+        """
+        return pulumi.get(self, "integration_data_store")
+
+    @integration_data_store.setter
+    def integration_data_store(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "integration_data_store", value)
+
+
+@pulumi.input_type
 class ServiceManagedIdentityIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[str, 'ServiceManagedIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[Union[str, 'ServiceManagedIdentityType']] type: Type of identity being specified, currently SystemAssigned and None are allowed.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -851,14 +1177,14 @@ class ServiceManagedIdentityIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -927,6 +1253,7 @@ class ServicesPropertiesArgs:
                  cors_configuration: Optional[pulumi.Input['ServiceCorsConfigurationInfoArgs']] = None,
                  cosmos_db_configuration: Optional[pulumi.Input['ServiceCosmosDbConfigurationInfoArgs']] = None,
                  export_configuration: Optional[pulumi.Input['ServiceExportConfigurationInfoArgs']] = None,
+                 import_configuration: Optional[pulumi.Input['ServiceImportConfigurationInfoArgs']] = None,
                  private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None):
         """
@@ -937,6 +1264,7 @@ class ServicesPropertiesArgs:
         :param pulumi.Input['ServiceCorsConfigurationInfoArgs'] cors_configuration: The settings for the CORS configuration of the service instance.
         :param pulumi.Input['ServiceCosmosDbConfigurationInfoArgs'] cosmos_db_configuration: The settings for the Cosmos DB database backing the service.
         :param pulumi.Input['ServiceExportConfigurationInfoArgs'] export_configuration: The settings for the export operation of the service instance.
+        :param pulumi.Input['ServiceImportConfigurationInfoArgs'] import_configuration: The settings for the import operation of the service instance.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: The list of private endpoint connections that are set up for this resource.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Control permission for data plane traffic coming from public networks while private endpoint is enabled.
         """
@@ -952,6 +1280,8 @@ class ServicesPropertiesArgs:
             pulumi.set(__self__, "cosmos_db_configuration", cosmos_db_configuration)
         if export_configuration is not None:
             pulumi.set(__self__, "export_configuration", export_configuration)
+        if import_configuration is not None:
+            pulumi.set(__self__, "import_configuration", import_configuration)
         if private_endpoint_connections is not None:
             pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
@@ -1028,6 +1358,18 @@ class ServicesPropertiesArgs:
     @export_configuration.setter
     def export_configuration(self, value: Optional[pulumi.Input['ServiceExportConfigurationInfoArgs']]):
         pulumi.set(self, "export_configuration", value)
+
+    @property
+    @pulumi.getter(name="importConfiguration")
+    def import_configuration(self) -> Optional[pulumi.Input['ServiceImportConfigurationInfoArgs']]:
+        """
+        The settings for the import operation of the service instance.
+        """
+        return pulumi.get(self, "import_configuration")
+
+    @import_configuration.setter
+    def import_configuration(self, value: Optional[pulumi.Input['ServiceImportConfigurationInfoArgs']]):
+        pulumi.set(self, "import_configuration", value)
 
     @property
     @pulumi.getter(name="privateEndpointConnections")

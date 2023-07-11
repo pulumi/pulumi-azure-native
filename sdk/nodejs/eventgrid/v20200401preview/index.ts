@@ -10,85 +10,10 @@ export type Domain = import("./domain").Domain;
 export const Domain: typeof import("./domain").Domain = null as any;
 utilities.lazyLoad(exports, ["Domain"], () => require("./domain"));
 
-export { DomainTopicArgs } from "./domainTopic";
-export type DomainTopic = import("./domainTopic").DomainTopic;
-export const DomainTopic: typeof import("./domainTopic").DomainTopic = null as any;
-utilities.lazyLoad(exports, ["DomainTopic"], () => require("./domainTopic"));
-
-export { EventChannelArgs } from "./eventChannel";
-export type EventChannel = import("./eventChannel").EventChannel;
-export const EventChannel: typeof import("./eventChannel").EventChannel = null as any;
-utilities.lazyLoad(exports, ["EventChannel"], () => require("./eventChannel"));
-
-export { EventSubscriptionArgs } from "./eventSubscription";
-export type EventSubscription = import("./eventSubscription").EventSubscription;
-export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
-utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
-
 export { GetDomainArgs, GetDomainResult, GetDomainOutputArgs } from "./getDomain";
 export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
-
-export { GetDomainTopicArgs, GetDomainTopicResult, GetDomainTopicOutputArgs } from "./getDomainTopic";
-export const getDomainTopic: typeof import("./getDomainTopic").getDomainTopic = null as any;
-export const getDomainTopicOutput: typeof import("./getDomainTopic").getDomainTopicOutput = null as any;
-utilities.lazyLoad(exports, ["getDomainTopic","getDomainTopicOutput"], () => require("./getDomainTopic"));
-
-export { GetEventChannelArgs, GetEventChannelResult, GetEventChannelOutputArgs } from "./getEventChannel";
-export const getEventChannel: typeof import("./getEventChannel").getEventChannel = null as any;
-export const getEventChannelOutput: typeof import("./getEventChannel").getEventChannelOutput = null as any;
-utilities.lazyLoad(exports, ["getEventChannel","getEventChannelOutput"], () => require("./getEventChannel"));
-
-export { GetEventSubscriptionArgs, GetEventSubscriptionResult, GetEventSubscriptionOutputArgs } from "./getEventSubscription";
-export const getEventSubscription: typeof import("./getEventSubscription").getEventSubscription = null as any;
-export const getEventSubscriptionOutput: typeof import("./getEventSubscription").getEventSubscriptionOutput = null as any;
-utilities.lazyLoad(exports, ["getEventSubscription","getEventSubscriptionOutput"], () => require("./getEventSubscription"));
-
-export { GetEventSubscriptionFullUrlArgs, GetEventSubscriptionFullUrlResult, GetEventSubscriptionFullUrlOutputArgs } from "./getEventSubscriptionFullUrl";
-export const getEventSubscriptionFullUrl: typeof import("./getEventSubscriptionFullUrl").getEventSubscriptionFullUrl = null as any;
-export const getEventSubscriptionFullUrlOutput: typeof import("./getEventSubscriptionFullUrl").getEventSubscriptionFullUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getEventSubscriptionFullUrl","getEventSubscriptionFullUrlOutput"], () => require("./getEventSubscriptionFullUrl"));
-
-export { GetPartnerNamespaceArgs, GetPartnerNamespaceResult, GetPartnerNamespaceOutputArgs } from "./getPartnerNamespace";
-export const getPartnerNamespace: typeof import("./getPartnerNamespace").getPartnerNamespace = null as any;
-export const getPartnerNamespaceOutput: typeof import("./getPartnerNamespace").getPartnerNamespaceOutput = null as any;
-utilities.lazyLoad(exports, ["getPartnerNamespace","getPartnerNamespaceOutput"], () => require("./getPartnerNamespace"));
-
-export { GetPartnerRegistrationArgs, GetPartnerRegistrationResult, GetPartnerRegistrationOutputArgs } from "./getPartnerRegistration";
-export const getPartnerRegistration: typeof import("./getPartnerRegistration").getPartnerRegistration = null as any;
-export const getPartnerRegistrationOutput: typeof import("./getPartnerRegistration").getPartnerRegistrationOutput = null as any;
-utilities.lazyLoad(exports, ["getPartnerRegistration","getPartnerRegistrationOutput"], () => require("./getPartnerRegistration"));
-
-export { GetPartnerTopicEventSubscriptionArgs, GetPartnerTopicEventSubscriptionResult, GetPartnerTopicEventSubscriptionOutputArgs } from "./getPartnerTopicEventSubscription";
-export const getPartnerTopicEventSubscription: typeof import("./getPartnerTopicEventSubscription").getPartnerTopicEventSubscription = null as any;
-export const getPartnerTopicEventSubscriptionOutput: typeof import("./getPartnerTopicEventSubscription").getPartnerTopicEventSubscriptionOutput = null as any;
-utilities.lazyLoad(exports, ["getPartnerTopicEventSubscription","getPartnerTopicEventSubscriptionOutput"], () => require("./getPartnerTopicEventSubscription"));
-
-export { GetPartnerTopicEventSubscriptionFullUrlArgs, GetPartnerTopicEventSubscriptionFullUrlResult, GetPartnerTopicEventSubscriptionFullUrlOutputArgs } from "./getPartnerTopicEventSubscriptionFullUrl";
-export const getPartnerTopicEventSubscriptionFullUrl: typeof import("./getPartnerTopicEventSubscriptionFullUrl").getPartnerTopicEventSubscriptionFullUrl = null as any;
-export const getPartnerTopicEventSubscriptionFullUrlOutput: typeof import("./getPartnerTopicEventSubscriptionFullUrl").getPartnerTopicEventSubscriptionFullUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getPartnerTopicEventSubscriptionFullUrl","getPartnerTopicEventSubscriptionFullUrlOutput"], () => require("./getPartnerTopicEventSubscriptionFullUrl"));
-
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { GetSystemTopicArgs, GetSystemTopicResult, GetSystemTopicOutputArgs } from "./getSystemTopic";
-export const getSystemTopic: typeof import("./getSystemTopic").getSystemTopic = null as any;
-export const getSystemTopicOutput: typeof import("./getSystemTopic").getSystemTopicOutput = null as any;
-utilities.lazyLoad(exports, ["getSystemTopic","getSystemTopicOutput"], () => require("./getSystemTopic"));
-
-export { GetSystemTopicEventSubscriptionArgs, GetSystemTopicEventSubscriptionResult, GetSystemTopicEventSubscriptionOutputArgs } from "./getSystemTopicEventSubscription";
-export const getSystemTopicEventSubscription: typeof import("./getSystemTopicEventSubscription").getSystemTopicEventSubscription = null as any;
-export const getSystemTopicEventSubscriptionOutput: typeof import("./getSystemTopicEventSubscription").getSystemTopicEventSubscriptionOutput = null as any;
-utilities.lazyLoad(exports, ["getSystemTopicEventSubscription","getSystemTopicEventSubscriptionOutput"], () => require("./getSystemTopicEventSubscription"));
-
-export { GetSystemTopicEventSubscriptionFullUrlArgs, GetSystemTopicEventSubscriptionFullUrlResult, GetSystemTopicEventSubscriptionFullUrlOutputArgs } from "./getSystemTopicEventSubscriptionFullUrl";
-export const getSystemTopicEventSubscriptionFullUrl: typeof import("./getSystemTopicEventSubscriptionFullUrl").getSystemTopicEventSubscriptionFullUrl = null as any;
-export const getSystemTopicEventSubscriptionFullUrlOutput: typeof import("./getSystemTopicEventSubscriptionFullUrl").getSystemTopicEventSubscriptionFullUrlOutput = null as any;
-utilities.lazyLoad(exports, ["getSystemTopicEventSubscriptionFullUrl","getSystemTopicEventSubscriptionFullUrlOutput"], () => require("./getSystemTopicEventSubscriptionFullUrl"));
 
 export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
 export const getTopic: typeof import("./getTopic").getTopic = null as any;
@@ -100,45 +25,10 @@ export const listDomainSharedAccessKeys: typeof import("./listDomainSharedAccess
 export const listDomainSharedAccessKeysOutput: typeof import("./listDomainSharedAccessKeys").listDomainSharedAccessKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listDomainSharedAccessKeys","listDomainSharedAccessKeysOutput"], () => require("./listDomainSharedAccessKeys"));
 
-export { ListPartnerNamespaceSharedAccessKeysArgs, ListPartnerNamespaceSharedAccessKeysResult, ListPartnerNamespaceSharedAccessKeysOutputArgs } from "./listPartnerNamespaceSharedAccessKeys";
-export const listPartnerNamespaceSharedAccessKeys: typeof import("./listPartnerNamespaceSharedAccessKeys").listPartnerNamespaceSharedAccessKeys = null as any;
-export const listPartnerNamespaceSharedAccessKeysOutput: typeof import("./listPartnerNamespaceSharedAccessKeys").listPartnerNamespaceSharedAccessKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listPartnerNamespaceSharedAccessKeys","listPartnerNamespaceSharedAccessKeysOutput"], () => require("./listPartnerNamespaceSharedAccessKeys"));
-
 export { ListTopicSharedAccessKeysArgs, ListTopicSharedAccessKeysResult, ListTopicSharedAccessKeysOutputArgs } from "./listTopicSharedAccessKeys";
 export const listTopicSharedAccessKeys: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeys = null as any;
 export const listTopicSharedAccessKeysOutput: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listTopicSharedAccessKeys","listTopicSharedAccessKeysOutput"], () => require("./listTopicSharedAccessKeys"));
-
-export { PartnerNamespaceArgs } from "./partnerNamespace";
-export type PartnerNamespace = import("./partnerNamespace").PartnerNamespace;
-export const PartnerNamespace: typeof import("./partnerNamespace").PartnerNamespace = null as any;
-utilities.lazyLoad(exports, ["PartnerNamespace"], () => require("./partnerNamespace"));
-
-export { PartnerRegistrationArgs } from "./partnerRegistration";
-export type PartnerRegistration = import("./partnerRegistration").PartnerRegistration;
-export const PartnerRegistration: typeof import("./partnerRegistration").PartnerRegistration = null as any;
-utilities.lazyLoad(exports, ["PartnerRegistration"], () => require("./partnerRegistration"));
-
-export { PartnerTopicEventSubscriptionArgs } from "./partnerTopicEventSubscription";
-export type PartnerTopicEventSubscription = import("./partnerTopicEventSubscription").PartnerTopicEventSubscription;
-export const PartnerTopicEventSubscription: typeof import("./partnerTopicEventSubscription").PartnerTopicEventSubscription = null as any;
-utilities.lazyLoad(exports, ["PartnerTopicEventSubscription"], () => require("./partnerTopicEventSubscription"));
-
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
-export { SystemTopicArgs } from "./systemTopic";
-export type SystemTopic = import("./systemTopic").SystemTopic;
-export const SystemTopic: typeof import("./systemTopic").SystemTopic = null as any;
-utilities.lazyLoad(exports, ["SystemTopic"], () => require("./systemTopic"));
-
-export { SystemTopicEventSubscriptionArgs } from "./systemTopicEventSubscription";
-export type SystemTopicEventSubscription = import("./systemTopicEventSubscription").SystemTopicEventSubscription;
-export const SystemTopicEventSubscription: typeof import("./systemTopicEventSubscription").SystemTopicEventSubscription = null as any;
-utilities.lazyLoad(exports, ["SystemTopicEventSubscription"], () => require("./systemTopicEventSubscription"));
 
 export { TopicArgs } from "./topic";
 export type Topic = import("./topic").Topic;
@@ -155,24 +45,6 @@ const _module = {
         switch (type) {
             case "azure-native:eventgrid/v20200401preview:Domain":
                 return new Domain(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:DomainTopic":
-                return new DomainTopic(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:EventChannel":
-                return new EventChannel(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:EventSubscription":
-                return new EventSubscription(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:PartnerNamespace":
-                return new PartnerNamespace(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:PartnerRegistration":
-                return new PartnerRegistration(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription":
-                return new PartnerTopicEventSubscription(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:SystemTopic":
-                return new SystemTopic(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription":
-                return new SystemTopicEventSubscription(name, <any>undefined, { urn })
             case "azure-native:eventgrid/v20200401preview:Topic":
                 return new Topic(name, <any>undefined, { urn })
             default:

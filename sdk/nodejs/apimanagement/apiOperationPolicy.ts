@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Policy Contract details.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class ApiOperationPolicy extends pulumi.CustomResource {
     /**
@@ -43,11 +43,11 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
      */
     public readonly format!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -97,7 +97,7 @@ export class ApiOperationPolicy extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20190101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20201201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210101preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210401preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210801:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20211201preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20220401preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20220801:ApiOperationPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement/v20170301:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20190101:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20191201preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20201201:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210101preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210401preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20210801:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20211201preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20220401preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20220801:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20220901preview:ApiOperationPolicy" }, { type: "azure-native:apimanagement/v20230301preview:ApiOperationPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiOperationPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -124,7 +124,7 @@ export interface ApiOperationPolicyArgs {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

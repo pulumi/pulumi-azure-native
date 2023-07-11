@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a specific project.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
 
@@ -26,7 +26,7 @@ export interface GetProjectArgs {
      */
     projectName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -44,6 +44,10 @@ export interface GetProjectResult {
      */
     readonly devCenterId?: string;
     /**
+     * The URI of the Dev Center resource this project is associated with.
+     */
+    readonly devCenterUri: string;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
@@ -51,6 +55,10 @@ export interface GetProjectResult {
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+     */
+    readonly maxDevBoxesPerUser?: number;
     /**
      * The name of the resource
      */
@@ -74,7 +82,7 @@ export interface GetProjectResult {
 }
 /**
  * Gets a specific project.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
     return pulumi.output(args).apply((a: any) => getProject(a, opts))
@@ -86,7 +94,7 @@ export interface GetProjectOutputArgs {
      */
     projectName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

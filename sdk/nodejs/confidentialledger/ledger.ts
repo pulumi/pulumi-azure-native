@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Confidential Ledger. Contains the properties of Confidential Ledger Resource.
- * API Version: 2020-12-01-preview.
+ * Azure REST API version: 2022-05-13. Prior API version in Azure Native 1.x: 2020-12-01-preview
  */
 export class Ledger extends pulumi.CustomResource {
     /**

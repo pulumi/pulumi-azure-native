@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a HealthBot.
- * API Version: 2020-12-08.
+ * Azure REST API version: 2023-05-01.
  */
 export function getBot(args: GetBotArgs, opts?: pulumi.InvokeOptions): Promise<GetBotResult> {
 
@@ -32,13 +32,17 @@ export interface GetBotArgs {
 }
 
 /**
- * HealthBot resource definition
+ * Azure Health Bot resource definition
  */
 export interface GetBotResult {
     /**
      * Fully qualified resource Id for the resource.
      */
     readonly id: string;
+    /**
+     * The identity of the Azure Health Bot.
+     */
+    readonly identity?: outputs.healthbot.IdentityResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -48,11 +52,11 @@ export interface GetBotResult {
      */
     readonly name: string;
     /**
-     * The set of properties specific to Healthbot resource.
+     * The set of properties specific to Azure Health Bot resource.
      */
     readonly properties: outputs.healthbot.HealthBotPropertiesResponse;
     /**
-     * SKU of the HealthBot.
+     * SKU of the Azure Health Bot.
      */
     readonly sku: outputs.healthbot.SkuResponse;
     /**
@@ -70,7 +74,7 @@ export interface GetBotResult {
 }
 /**
  * Get a HealthBot.
- * API Version: 2020-12-08.
+ * Azure REST API version: 2023-05-01.
  */
 export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
     return pulumi.output(args).apply((a: any) => getBot(a, opts))

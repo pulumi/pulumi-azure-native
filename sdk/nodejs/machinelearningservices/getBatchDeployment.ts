@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getBatchDeployment(args: GetBatchDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchDeploymentResult> {
 
@@ -42,13 +42,17 @@ export interface GetBatchDeploymentArgs {
 
 export interface GetBatchDeploymentResult {
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly batchDeploymentProperties: outputs.machinelearningservices.BatchDeploymentResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * Service identity associated with a resource.
+     * Managed service identity (system assigned and/or user assigned identities)
      */
-    readonly identity?: outputs.machinelearningservices.ResourceIdentityResponse;
+    readonly identity?: outputs.machinelearningservices.ManagedServiceIdentityResponse;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
@@ -62,11 +66,11 @@ export interface GetBatchDeploymentResult {
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
+     * Sku details required for ARM contract for Autoscaling.
      */
-    readonly properties: outputs.machinelearningservices.BatchDeploymentResponse;
+    readonly sku?: outputs.machinelearningservices.SkuResponse;
     /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -79,7 +83,7 @@ export interface GetBatchDeploymentResult {
     readonly type: string;
 }
 /**
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getBatchDeploymentOutput(args: GetBatchDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBatchDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getBatchDeployment(a, opts))

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecommendationsService
     {
         /// <summary>
         /// Returns Modeling resources for a given name.
-        /// API Version: 2022-02-01.
+        /// Azure REST API version: 2022-02-01.
         /// </summary>
         public static Task<GetModelingResult> InvokeAsync(GetModelingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelingResult>("azure-native:recommendationsservice:getModeling", args ?? new GetModelingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns Modeling resources for a given name.
-        /// API Version: 2022-02-01.
+        /// Azure REST API version: 2022-02-01.
         /// </summary>
         public static Output<GetModelingResult> Invoke(GetModelingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelingResult>("azure-native:recommendationsservice:getModeling", args ?? new GetModelingInvokeArgs(), options.WithDefaults());

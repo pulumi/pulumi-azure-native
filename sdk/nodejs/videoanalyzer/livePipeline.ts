@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview
  */
 export class LivePipeline extends pulumi.CustomResource {
     /**

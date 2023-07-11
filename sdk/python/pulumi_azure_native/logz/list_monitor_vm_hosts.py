@@ -62,7 +62,7 @@ def list_monitor_vm_hosts(monitor_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMonitorVMHostsResult:
     """
     Response of a list VM Host Update Operation.
-    API Version: 2020-10-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str monitor_name: Monitor resource name
@@ -85,7 +85,7 @@ def list_monitor_vm_hosts_output(monitor_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitorVMHostsResult]:
     """
     Response of a list VM Host Update Operation.
-    API Version: 2020-10-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str monitor_name: Monitor resource name

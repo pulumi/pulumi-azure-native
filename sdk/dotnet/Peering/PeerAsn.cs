@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Peering
 {
     /// <summary>
     /// The essential information related to the peer's ASN.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:PeerAsn")]
     public partial class PeerAsn : global::Pulumi.CustomResource
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Peering
         /// The validation state of the ASN associated with the peer.
         /// </summary>
         [Output("validationState")]
-        public Output<string?> ValidationState { get; private set; } = null!;
+        public Output<string> ValidationState { get; private set; } = null!;
 
 
         /// <summary>
@@ -145,12 +145,6 @@ namespace Pulumi.AzureNative.Peering
         /// </summary>
         [Input("peerName")]
         public Input<string>? PeerName { get; set; }
-
-        /// <summary>
-        /// The validation state of the ASN associated with the peer.
-        /// </summary>
-        [Input("validationState")]
-        public InputUnion<string, Pulumi.AzureNative.Peering.ValidationState>? ValidationState { get; set; }
 
         public PeerAsnArgs()
         {

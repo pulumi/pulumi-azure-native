@@ -9,15 +9,15 @@ import * as utilities from "../utilities";
 
 /**
  * Get the hybrid identity metadata proxy resource.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getHybridIdentityMetadatum(args: GetHybridIdentityMetadatumArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridIdentityMetadatumResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcontainerservice:getHybridIdentityMetadatum", {
         "hybridIdentityMetadataResourceName": args.hybridIdentityMetadataResourceName,
-        "provisionedClustersName": args.provisionedClustersName,
         "resourceGroupName": args.resourceGroupName,
+        "resourceName": args.resourceName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetHybridIdentityMetadatumArgs {
      */
     hybridIdentityMetadataResourceName: string;
     /**
-     * Parameter for the name of the provisioned cluster
-     */
-    provisionedClustersName: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
+    /**
+     * Parameter for the name of the provisioned cluster
+     */
+    resourceName: string;
 }
 
 /**
@@ -75,7 +75,7 @@ export interface GetHybridIdentityMetadatumResult {
 }
 /**
  * Get the hybrid identity metadata proxy resource.
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2022-09-01-preview.
  */
 export function getHybridIdentityMetadatumOutput(args: GetHybridIdentityMetadatumOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHybridIdentityMetadatumResult> {
     return pulumi.output(args).apply((a: any) => getHybridIdentityMetadatum(a, opts))
@@ -87,11 +87,11 @@ export interface GetHybridIdentityMetadatumOutputArgs {
      */
     hybridIdentityMetadataResourceName: pulumi.Input<string>;
     /**
-     * Parameter for the name of the provisioned cluster
-     */
-    provisionedClustersName: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Parameter for the name of the provisioned cluster
+     */
+    resourceName: pulumi.Input<string>;
 }

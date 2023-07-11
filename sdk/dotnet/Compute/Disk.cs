@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Disk resource.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Disk")]
     public partial class Disk : global::Pulumi.CustomResource
@@ -23,10 +23,28 @@ namespace Pulumi.AzureNative.Compute
         public Output<bool?> BurstingEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Latest time when bursting was last enabled on a disk.
+        /// </summary>
+        [Output("burstingEnabledTime")]
+        public Output<string> BurstingEnabledTime { get; private set; } = null!;
+
+        /// <summary>
+        /// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        /// </summary>
+        [Output("completionPercent")]
+        public Output<double?> CompletionPercent { get; private set; } = null!;
+
+        /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Output("creationData")]
         public Output<Outputs.CreationDataResponse> CreationData { get; private set; } = null!;
+
+        /// <summary>
+        /// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        /// </summary>
+        [Output("dataAccessAuthMode")]
+        public Output<string?> DataAccessAuthMode { get; private set; } = null!;
 
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -137,6 +155,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<string?> NetworkAccessPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
+        /// </summary>
+        [Output("optimizedForFrequentAttach")]
+        public Output<bool?> OptimizedForFrequentAttach { get; private set; } = null!;
+
+        /// <summary>
         /// The Operating System type.
         /// </summary>
         [Output("osType")]
@@ -153,6 +177,12 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Policy for controlling export on the disk.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
@@ -173,10 +203,16 @@ namespace Pulumi.AzureNative.Compute
         public Output<ImmutableArray<Outputs.ShareInfoElementResponse>> ShareInfo { get; private set; } = null!;
 
         /// <summary>
-        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
+        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.DiskSkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// List of supported capabilities for the image from which the OS disk was created.
+        /// </summary>
+        [Output("supportedCapabilities")]
+        public Output<Outputs.SupportedCapabilitiesResponse?> SupportedCapabilities { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the OS on a disk supports hibernation.
@@ -262,6 +298,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:Disk"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:Disk"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:Disk"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:Disk"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -292,10 +329,22 @@ namespace Pulumi.AzureNative.Compute
         public Input<bool>? BurstingEnabled { get; set; }
 
         /// <summary>
+        /// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        /// </summary>
+        [Input("completionPercent")]
+        public Input<double>? CompletionPercent { get; set; }
+
+        /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Input("creationData", required: true)]
         public Input<Inputs.CreationDataArgs> CreationData { get; set; } = null!;
+
+        /// <summary>
+        /// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        /// </summary>
+        [Input("dataAccessAuthMode")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.DataAccessAuthMode>? DataAccessAuthMode { get; set; }
 
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -328,7 +377,7 @@ namespace Pulumi.AzureNative.Compute
         public Input<double>? DiskMBpsReadWrite { get; set; }
 
         /// <summary>
-        /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+        /// The name of the managed disk that is being created. The name can't be changed after the disk is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
         /// </summary>
         [Input("diskName")]
         public Input<string>? DiskName { get; set; }
@@ -382,10 +431,22 @@ namespace Pulumi.AzureNative.Compute
         public InputUnion<string, Pulumi.AzureNative.Compute.NetworkAccessPolicy>? NetworkAccessPolicy { get; set; }
 
         /// <summary>
+        /// Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
+        /// </summary>
+        [Input("optimizedForFrequentAttach")]
+        public Input<bool>? OptimizedForFrequentAttach { get; set; }
+
+        /// <summary>
         /// The Operating System type.
         /// </summary>
         [Input("osType")]
         public Input<Pulumi.AzureNative.Compute.OperatingSystemTypes>? OsType { get; set; }
+
+        /// <summary>
+        /// Policy for controlling export on the disk.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
@@ -406,10 +467,16 @@ namespace Pulumi.AzureNative.Compute
         public Input<Inputs.DiskSecurityProfileArgs>? SecurityProfile { get; set; }
 
         /// <summary>
-        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, or StandardSSD_ZRS.
+        /// The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.DiskSkuArgs>? Sku { get; set; }
+
+        /// <summary>
+        /// List of supported capabilities for the image from which the OS disk was created.
+        /// </summary>
+        [Input("supportedCapabilities")]
+        public Input<Inputs.SupportedCapabilitiesArgs>? SupportedCapabilities { get; set; }
 
         /// <summary>
         /// Indicates the OS on a disk supports hibernation.

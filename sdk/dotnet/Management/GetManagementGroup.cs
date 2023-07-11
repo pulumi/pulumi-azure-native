@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Get the details of the management group.
         /// 
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2021-04-01.
         /// </summary>
         public static Task<GetManagementGroupResult> InvokeAsync(GetManagementGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementGroupResult>("azure-native:management:getManagementGroup", args ?? new GetManagementGroupArgs(), options.WithDefaults());
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Get the details of the management group.
         /// 
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2021-04-01.
         /// </summary>
         public static Output<GetManagementGroupResult> Invoke(GetManagementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementGroupResult>("azure-native:management:getManagementGroup", args ?? new GetManagementGroupInvokeArgs(), options.WithDefaults());
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Management
     public sealed class GetManagementGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+        /// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
         /// </summary>
         [Input("expand")]
         public string? Expand { get; set; }
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.Management
     public sealed class GetManagementGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+        /// The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
         /// </summary>
         [Input("expand")]
         public Input<string>? Expand { get; set; }

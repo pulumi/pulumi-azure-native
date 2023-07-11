@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the Diagnostic specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getDiagnostic(args: GetDiagnosticArgs, opts?: pulumi.InvokeOptions): Promise<GetDiagnosticResult> {
 
@@ -27,7 +27,7 @@ export interface GetDiagnosticArgs {
      */
     diagnosticId: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -57,7 +57,7 @@ export interface GetDiagnosticResult {
      */
     readonly httpCorrelationProtocol?: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -73,7 +73,7 @@ export interface GetDiagnosticResult {
      */
     readonly metrics?: boolean;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -85,7 +85,7 @@ export interface GetDiagnosticResult {
      */
     readonly sampling?: outputs.apimanagement.SamplingSettingsResponse;
     /**
-     * Resource type for API Management resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -95,7 +95,7 @@ export interface GetDiagnosticResult {
 }
 /**
  * Gets the details of the Diagnostic specified by its identifier.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function getDiagnosticOutput(args: GetDiagnosticOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiagnosticResult> {
     return pulumi.output(args).apply((a: any) => getDiagnostic(a, opts))
@@ -107,7 +107,7 @@ export interface GetDiagnosticOutputArgs {
      */
     diagnosticId: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -21,11 +21,11 @@ namespace Pulumi.AzureNative.MobileNetwork.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DataNetworkConfigurationResponse> DataNetworkConfigurations;
         /// <summary>
-        /// The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map.
+        /// The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map. The data network must be in the same location as the SIM policy.
         /// </summary>
         public readonly Outputs.DataNetworkResourceIdResponse DefaultDataNetwork;
         /// <summary>
-        /// A reference to the slice that these settings apply to
+        /// A reference to the slice that these settings apply to. The slice must be in the same location as the SIM policy.
         /// </summary>
         public readonly Outputs.SliceResourceIdResponse Slice;
 

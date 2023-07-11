@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? NetworkPlugin;
         /// <summary>
+        /// NetworkPluginMode for managed cluster snapshot.
+        /// </summary>
+        public readonly string? NetworkPluginMode;
+        /// <summary>
         /// networkPolicy for managed cluster snapshot.
         /// </summary>
         public readonly string? NetworkPolicy;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             string? networkPlugin,
 
+            string? networkPluginMode,
+
             string? networkPolicy)
         {
             LoadBalancerSku = loadBalancerSku;
             NetworkMode = networkMode;
             NetworkPlugin = networkPlugin;
+            NetworkPluginMode = networkPluginMode;
             NetworkPolicy = networkPolicy;
         }
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The top level Workspace resource container.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2020-10-01
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -47,9 +47,13 @@ export class Workspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly customerId!: pulumi.Output<string>;
     /**
-     * The ETag of the workspace.
+     * The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    public readonly defaultDataCollectionRuleResourceId!: pulumi.Output<string | undefined>;
+    /**
+     * The etag of the workspace.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
     /**
      * Workspace features.
      */
@@ -58,6 +62,10 @@ export class Workspace extends pulumi.CustomResource {
      * Indicates whether customer managed storage is mandatory for query management.
      */
     public readonly forceCmkForQuery!: pulumi.Output<boolean | undefined>;
+    /**
+     * The identity of the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.operationalinsights.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -77,7 +85,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The provisioning state of the workspace.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */
@@ -94,6 +102,10 @@ export class Workspace extends pulumi.CustomResource {
      * The SKU of the workspace.
      */
     public readonly sku!: pulumi.Output<outputs.operationalinsights.WorkspaceSkuResponse | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -121,11 +133,11 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
+            resourceInputs["defaultDataCollectionRuleResourceId"] = args ? args.defaultDataCollectionRuleResourceId : undefined;
             resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
             resourceInputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -136,16 +148,21 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["customerId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["modifiedDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateLinkScopedResources"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["customerId"] = undefined /*out*/;
-            resourceInputs["eTag"] = undefined /*out*/;
+            resourceInputs["defaultDataCollectionRuleResourceId"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["features"] = undefined /*out*/;
             resourceInputs["forceCmkForQuery"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["modifiedDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -155,6 +172,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessForQuery"] = undefined /*out*/;
             resourceInputs["retentionInDays"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workspaceCapping"] = undefined /*out*/;
@@ -171,9 +189,9 @@ export class Workspace extends pulumi.CustomResource {
  */
 export interface WorkspaceArgs {
     /**
-     * The ETag of the workspace.
+     * The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
      */
-    eTag?: pulumi.Input<string>;
+    defaultDataCollectionRuleResourceId?: pulumi.Input<string>;
     /**
      * Workspace features.
      */
@@ -183,13 +201,13 @@ export interface WorkspaceArgs {
      */
     forceCmkForQuery?: pulumi.Input<boolean>;
     /**
+     * The identity of the resource.
+     */
+    identity?: pulumi.Input<inputs.operationalinsights.IdentityArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * The provisioning state of the workspace.
-     */
-    provisioningState?: pulumi.Input<string | enums.operationalinsights.WorkspaceEntityStatus>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */

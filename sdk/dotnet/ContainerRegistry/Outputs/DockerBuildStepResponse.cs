@@ -25,6 +25,18 @@ namespace Pulumi.AzureNative.ContainerRegistry.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.BaseImageDependencyResponse> BaseImageDependencies;
         /// <summary>
+        /// The type of the auto trigger for base image dependency updates.
+        /// </summary>
+        public readonly string? BaseImageTrigger;
+        /// <summary>
+        /// The repository branch name.
+        /// </summary>
+        public readonly string? Branch;
+        /// <summary>
+        /// The custom arguments for building this build step.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.BuildArgumentResponse> BuildArguments;
+        /// <summary>
         /// The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         /// </summary>
         public readonly string? ContextAccessToken;
@@ -49,6 +61,10 @@ namespace Pulumi.AzureNative.ContainerRegistry.Outputs
         /// </summary>
         public readonly bool? NoCache;
         /// <summary>
+        /// The provisioning state of the build step.
+        /// </summary>
+        public readonly string? ProvisioningState;
+        /// <summary>
         /// The name of the target build stage for the docker build.
         /// </summary>
         public readonly string? Target;
@@ -64,6 +80,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 
             ImmutableArray<Outputs.BaseImageDependencyResponse> baseImageDependencies,
 
+            string? baseImageTrigger,
+
+            string? branch,
+
+            ImmutableArray<Outputs.BuildArgumentResponse> buildArguments,
+
             string? contextAccessToken,
 
             string? contextPath,
@@ -76,18 +98,24 @@ namespace Pulumi.AzureNative.ContainerRegistry.Outputs
 
             bool? noCache,
 
+            string? provisioningState,
+
             string? target,
 
             string type)
         {
             Arguments = arguments;
             BaseImageDependencies = baseImageDependencies;
+            BaseImageTrigger = baseImageTrigger;
+            Branch = branch;
+            BuildArguments = buildArguments;
             ContextAccessToken = contextAccessToken;
             ContextPath = contextPath;
             DockerFilePath = dockerFilePath;
             ImageNames = imageNames;
             IsPushEnabled = isPushEnabled;
             NoCache = noCache;
+            ProvisioningState = provisioningState;
             Target = target;
             Type = type;
         }

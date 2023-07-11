@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
-    /// API Version: 2020-05-01.
+    /// Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:media:Transform")]
     public partial class Transform : global::Pulumi.CustomResource

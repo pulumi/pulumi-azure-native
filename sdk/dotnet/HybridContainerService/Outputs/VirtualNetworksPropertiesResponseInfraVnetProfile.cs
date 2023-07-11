@@ -18,9 +18,9 @@ namespace Pulumi.AzureNative.HybridContainerService.Outputs
         /// </summary>
         public readonly Outputs.VirtualNetworksPropertiesResponseHci? Hci;
         /// <summary>
-        /// Infra network profile for KubeVirt platform
+        /// Infra network profile for the NetworkCloud platform
         /// </summary>
-        public readonly Outputs.VirtualNetworksPropertiesResponseKubevirt? Kubevirt;
+        public readonly Outputs.VirtualNetworksPropertiesResponseNetworkCloud? NetworkCloud;
         /// <summary>
         /// Infra network profile for VMware platform
         /// </summary>
@@ -30,12 +30,12 @@ namespace Pulumi.AzureNative.HybridContainerService.Outputs
         private VirtualNetworksPropertiesResponseInfraVnetProfile(
             Outputs.VirtualNetworksPropertiesResponseHci? hci,
 
-            Outputs.VirtualNetworksPropertiesResponseKubevirt? kubevirt,
+            Outputs.VirtualNetworksPropertiesResponseNetworkCloud? networkCloud,
 
             Outputs.VirtualNetworksPropertiesResponseVmware? vmware)
         {
             Hci = hci;
-            Kubevirt = kubevirt;
+            NetworkCloud = networkCloud;
             Vmware = vmware;
         }
     }

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -44,7 +44,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
      */
-    public readonly analyticsWorkspaceId!: pulumi.Output<string>;
+    public readonly analyticsWorkspaceId!: pulumi.Output<string | undefined>;
     /**
      * The list of cluster runtime version upgrades available for this cluster.
      */
@@ -107,7 +107,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
-     * The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+     * Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
      */
     public /*out*/ readonly hybridAksExtendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
@@ -168,9 +168,6 @@ export class Cluster extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.aggregatorOrSingleRackDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'aggregatorOrSingleRackDefinition'");
-            }
-            if ((!args || args.analyticsWorkspaceId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'analyticsWorkspaceId'");
             }
             if ((!args || args.clusterType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'clusterType'");
@@ -250,7 +247,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["workloadResourceIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:Cluster" }, { type: "azure-native:networkcloud/v20230501preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -267,7 +264,7 @@ export interface ClusterArgs {
     /**
      * The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
      */
-    analyticsWorkspaceId: pulumi.Input<string>;
+    analyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * The customer-provided location information to identify where the cluster resides.
      */

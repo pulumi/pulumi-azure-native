@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ApplicationType = {
-    Web: "web",
-    Other: "other",
-} as const;
-
-/**
- * Type of application being monitored.
- */
-export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
-
 export const FavoriteType = {
     Shared: "shared",
     User: "user",
@@ -21,26 +11,6 @@ export const FavoriteType = {
  * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
  */
 export type FavoriteType = (typeof FavoriteType)[keyof typeof FavoriteType];
-
-export const FlowType = {
-    Bluefield: "Bluefield",
-} as const;
-
-/**
- * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
- */
-export type FlowType = (typeof FlowType)[keyof typeof FlowType];
-
-export const IngestionMode = {
-    ApplicationInsights: "ApplicationInsights",
-    ApplicationInsightsWithDiagnosticSettings: "ApplicationInsightsWithDiagnosticSettings",
-    LogAnalytics: "LogAnalytics",
-} as const;
-
-/**
- * Indicates the flow of the ingestion.
- */
-export type IngestionMode = (typeof IngestionMode)[keyof typeof IngestionMode];
 
 export const ItemScope = {
     Shared: "shared",
@@ -64,15 +34,6 @@ export const ItemType = {
  */
 export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
-export const RequestSource = {
-    Rest: "rest",
-} as const;
-
-/**
- * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
- */
-export type RequestSource = (typeof RequestSource)[keyof typeof RequestSource];
-
 export const SharedTypeKind = {
     Shared: "shared",
     User: "user",
@@ -82,13 +43,3 @@ export const SharedTypeKind = {
  * Enum indicating if this workbook definition is owned by a specific user or is shared between all users with access to the Application Insights component.
  */
 export type SharedTypeKind = (typeof SharedTypeKind)[keyof typeof SharedTypeKind];
-
-export const WebTestKind = {
-    Ping: "ping",
-    Multistep: "multistep",
-} as const;
-
-/**
- * The kind of web test this is, valid choices are ping and multistep.
- */
-export type WebTestKind = (typeof WebTestKind)[keyof typeof WebTestKind];

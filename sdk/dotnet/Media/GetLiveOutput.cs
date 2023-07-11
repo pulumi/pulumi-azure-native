@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Media
     {
         /// <summary>
         /// Gets a live output.
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Task<GetLiveOutputResult> InvokeAsync(GetLiveOutputArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLiveOutputResult>("azure-native:media:getLiveOutput", args ?? new GetLiveOutputArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a live output.
-        /// API Version: 2020-05-01.
+        /// Azure REST API version: 2022-11-01.
         /// </summary>
         public static Output<GetLiveOutputResult> Invoke(GetLiveOutputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveOutputResult>("azure-native:media:getLiveOutput", args ?? new GetLiveOutputInvokeArgs(), options.WithDefaults());
@@ -144,6 +144,14 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
+        /// ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
+        /// </summary>
+        public readonly string? RewindWindowLength;
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -174,6 +182,10 @@ namespace Pulumi.AzureNative.Media
 
             string resourceState,
 
+            string? rewindWindowLength,
+
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             ArchiveWindowLength = archiveWindowLength;
@@ -188,6 +200,8 @@ namespace Pulumi.AzureNative.Media
             OutputSnapTime = outputSnapTime;
             ProvisioningState = provisioningState;
             ResourceState = resourceState;
+            RewindWindowLength = rewindWindowLength;
+            SystemData = systemData;
             Type = type;
         }
     }

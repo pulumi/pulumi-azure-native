@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Retrieves information about the model of a security automation.
-        /// API Version: 2019-01-01-preview.
+        /// Azure REST API version: 2019-01-01-preview.
         /// </summary>
         public static Task<GetAutomationResult> InvokeAsync(GetAutomationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves information about the model of a security automation.
-        /// API Version: 2019-01-01-preview.
+        /// Azure REST API version: 2019-01-01-preview.
         /// </summary>
         public static Output<GetAutomationResult> Invoke(GetAutomationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationResult>("azure-native:security:getAutomation", args ?? new GetAutomationInvokeArgs(), options.WithDefaults());

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An addon resource
- * API Version: 2020-07-17-preview.
+ * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
  */
 export class Addon extends pulumi.CustomResource {
     /**
@@ -39,21 +39,13 @@ export class Addon extends pulumi.CustomResource {
     }
 
     /**
-     * The type of private cloud addon
-     */
-    public readonly addonType!: pulumi.Output<string | undefined>;
-    /**
-     * The SRM license
-     */
-    public readonly licenseKey!: pulumi.Output<string | undefined>;
-    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The state of the addon provisioning
+     * The properties of an addon resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.avs.AddonArcPropertiesResponse | outputs.avs.AddonHcxPropertiesResponse | outputs.avs.AddonSrmPropertiesResponse | outputs.avs.AddonVrPropertiesResponse>;
     /**
      * Resource type.
      */
@@ -77,18 +69,14 @@ export class Addon extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["addonName"] = args ? args.addonName : undefined;
-            resourceInputs["addonType"] = args ? args.addonType : undefined;
-            resourceInputs["licenseKey"] = args ? args.licenseKey : undefined;
             resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["addonType"] = undefined /*out*/;
-            resourceInputs["licenseKey"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -107,17 +95,13 @@ export interface AddonArgs {
      */
     addonName?: pulumi.Input<string>;
     /**
-     * The type of private cloud addon
-     */
-    addonType?: pulumi.Input<string | enums.avs.AddonType>;
-    /**
-     * The SRM license
-     */
-    licenseKey?: pulumi.Input<string>;
-    /**
      * The name of the private cloud.
      */
     privateCloudName: pulumi.Input<string>;
+    /**
+     * The properties of an addon resource
+     */
+    properties?: pulumi.Input<inputs.avs.AddonArcPropertiesArgs | inputs.avs.AddonHcxPropertiesArgs | inputs.avs.AddonSrmPropertiesArgs | inputs.avs.AddonVrPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -123,7 +123,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Gets the specified private endpoint connection associated with the Bot.
-    API Version: 2021-05-01-preview.
+    Azure REST API version: 2022-09-15.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -154,7 +154,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection associated with the Bot.
-    API Version: 2021-05-01-preview.
+    Azure REST API version: 2022-09-15.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

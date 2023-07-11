@@ -24,7 +24,7 @@ export class PrivateLinkServicesForMIPPolicySync extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForMIPPolicySync';
+    public static readonly __pulumiType = 'azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForMIPPolicySync';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicesForMIPPolicySync.  This is designed to work even
@@ -114,7 +114,7 @@ export class PrivateLinkServicesForMIPPolicySync extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance:privateLinkServicesForMIPPolicySync" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForMIPPolicySync" }, { type: "azure-native:m365securityandcompliance:PrivateLinkServicesForMIPPolicySync" }, { type: "azure-native:m365securityandcompliance:privateLinkServicesForMIPPolicySync" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForMIPPolicySync.__pulumiType, name, resourceInputs, opts);
     }

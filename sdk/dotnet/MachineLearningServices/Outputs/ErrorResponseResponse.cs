@@ -11,35 +11,20 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Error response information.
+    /// Common error response for all Azure Resource Manager APIs to return error details for failed operations. (This also follows the OData error response format.).
     /// </summary>
     [OutputType]
     public sealed class ErrorResponseResponse
     {
         /// <summary>
-        /// Error code.
+        /// The error object.
         /// </summary>
-        public readonly string Code;
-        /// <summary>
-        /// An array of error detail objects.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ErrorDetailResponse> Details;
-        /// <summary>
-        /// Error message.
-        /// </summary>
-        public readonly string Message;
+        public readonly Outputs.ErrorDetailResponse? Error;
 
         [OutputConstructor]
-        private ErrorResponseResponse(
-            string code,
-
-            ImmutableArray<Outputs.ErrorDetailResponse> details,
-
-            string message)
+        private ErrorResponseResponse(Outputs.ErrorDetailResponse? error)
         {
-            Code = code;
-            Details = details;
-            Message = message;
+            Error = error;
         }
     }
 }

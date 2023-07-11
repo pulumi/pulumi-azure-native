@@ -20,13 +20,15 @@ class DeploymentArgs:
                  account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  deployment_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['DeploymentPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['DeploymentPropertiesArgs']] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None):
         """
         The set of arguments for constructing a Deployment resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] deployment_name: The name of the deployment associated with the Cognitive Services Account
         :param pulumi.Input['DeploymentPropertiesArgs'] properties: Properties of Cognitive Services account deployment.
+        :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -34,6 +36,8 @@ class DeploymentArgs:
             pulumi.set(__self__, "deployment_name", deployment_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
 
     @property
     @pulumi.getter(name="accountName")
@@ -83,6 +87,18 @@ class DeploymentArgs:
     def properties(self, value: Optional[pulumi.Input['DeploymentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+        """
+        The resource model definition representing SKU
+        """
+        return pulumi.get(self, "sku")
+
+    @sku.setter
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+        pulumi.set(self, "sku", value)
+
 
 class Deployment(pulumi.CustomResource):
     @overload
@@ -93,10 +109,11 @@ class Deployment(pulumi.CustomResource):
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None):
         """
         Cognitive Services account deployment.
-        API Version: 2021-10-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -104,6 +121,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] deployment_name: The name of the deployment associated with the Cognitive Services Account
         :param pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']] properties: Properties of Cognitive Services account deployment.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The resource model definition representing SKU
         """
         ...
     @overload
@@ -113,7 +131,7 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services account deployment.
-        API Version: 2021-10-01.
+        Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.
@@ -134,6 +152,7 @@ class Deployment(pulumi.CustomResource):
                  deployment_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['DeploymentPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -151,11 +170,12 @@ class Deployment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["sku"] = sku
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20211001:Deployment"), pulumi.Alias(type_="azure-native:cognitiveservices/v20220301:Deployment"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221001:Deployment"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221201:Deployment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cognitiveservices/v20211001:Deployment"), pulumi.Alias(type_="azure-native:cognitiveservices/v20220301:Deployment"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221001:Deployment"), pulumi.Alias(type_="azure-native:cognitiveservices/v20221201:Deployment"), pulumi.Alias(type_="azure-native:cognitiveservices/v20230501:Deployment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Deployment, __self__).__init__(
             'azure-native:cognitiveservices:Deployment',
@@ -182,6 +202,7 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Deployment(resource_name, opts=opts, __props__=__props__)
@@ -209,6 +230,14 @@ class Deployment(pulumi.CustomResource):
         Properties of Cognitive Services account deployment.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
+        """
+        The resource model definition representing SKU
+        """
+        return pulumi.get(self, "sku")
 
     @property
     @pulumi.getter(name="systemData")

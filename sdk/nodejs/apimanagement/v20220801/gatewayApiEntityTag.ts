@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * API details.
- *
- * @deprecated azure-native:apimanagement/v20220801:GatewayApiEntityTag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayApiEntityTag to guarantee forwards compatibility.
  */
 export class GatewayApiEntityTag extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GatewayApiEntityTag {
-        pulumi.log.warn("GatewayApiEntityTag is deprecated: azure-native:apimanagement/v20220801:GatewayApiEntityTag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayApiEntityTag to guarantee forwards compatibility.")
         return new GatewayApiEntityTag(name, undefined as any, { ...opts, id: id });
     }
 
@@ -140,9 +137,7 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:GatewayApiEntityTag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayApiEntityTag to guarantee forwards compatibility. */
     constructor(name: string, args: GatewayApiEntityTagArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GatewayApiEntityTag is deprecated: azure-native:apimanagement/v20220801:GatewayApiEntityTag is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GatewayApiEntityTag to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -209,7 +204,7 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20201201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210101preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210401preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210801:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20211201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20220401preview:GatewayApiEntityTag" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20191201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20200601preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20201201:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210101preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210401preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20210801:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20211201preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20220401preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20220901preview:GatewayApiEntityTag" }, { type: "azure-native:apimanagement/v20230301preview:GatewayApiEntityTag" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayApiEntityTag.__pulumiType, name, resourceInputs, opts);
     }

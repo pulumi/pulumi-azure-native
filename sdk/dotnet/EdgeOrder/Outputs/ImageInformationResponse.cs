@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Image for the product
+    /// Image for the product.
     /// </summary>
     [OutputType]
     public sealed class ImageInformationResponse
     {
         /// <summary>
-        /// Type of the image
+        /// Type of the image.
         /// </summary>
         public readonly string ImageType;
         /// <summary>
-        /// Url of the image
+        /// Url of the image.
         /// </summary>
         public readonly string ImageUrl;
 

@@ -22,19 +22,10 @@ class GetSourceControlResult:
     """
     Represents a SourceControl in Azure Security Insights.
     """
-    def __init__(__self__, content_types=None, created_at=None, created_by=None, created_by_type=None, description=None, display_name=None, etag=None, id=None, last_modified_at=None, last_modified_by=None, last_modified_by_type=None, name=None, repo_type=None, repository=None, system_data=None, type=None):
+    def __init__(__self__, content_types=None, description=None, display_name=None, etag=None, id=None, last_deployment_info=None, name=None, repo_type=None, repository=None, repository_resource_info=None, system_data=None, type=None, version=None):
         if content_types and not isinstance(content_types, list):
             raise TypeError("Expected argument 'content_types' to be a list")
         pulumi.set(__self__, "content_types", content_types)
-        if created_at and not isinstance(created_at, str):
-            raise TypeError("Expected argument 'created_at' to be a str")
-        pulumi.set(__self__, "created_at", created_at)
-        if created_by and not isinstance(created_by, str):
-            raise TypeError("Expected argument 'created_by' to be a str")
-        pulumi.set(__self__, "created_by", created_by)
-        if created_by_type and not isinstance(created_by_type, str):
-            raise TypeError("Expected argument 'created_by_type' to be a str")
-        pulumi.set(__self__, "created_by_type", created_by_type)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -47,15 +38,9 @@ class GetSourceControlResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if last_modified_at and not isinstance(last_modified_at, str):
-            raise TypeError("Expected argument 'last_modified_at' to be a str")
-        pulumi.set(__self__, "last_modified_at", last_modified_at)
-        if last_modified_by and not isinstance(last_modified_by, str):
-            raise TypeError("Expected argument 'last_modified_by' to be a str")
-        pulumi.set(__self__, "last_modified_by", last_modified_by)
-        if last_modified_by_type and not isinstance(last_modified_by_type, str):
-            raise TypeError("Expected argument 'last_modified_by_type' to be a str")
-        pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+        if last_deployment_info and not isinstance(last_deployment_info, dict):
+            raise TypeError("Expected argument 'last_deployment_info' to be a dict")
+        pulumi.set(__self__, "last_deployment_info", last_deployment_info)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -65,12 +50,18 @@ class GetSourceControlResult:
         if repository and not isinstance(repository, dict):
             raise TypeError("Expected argument 'repository' to be a dict")
         pulumi.set(__self__, "repository", repository)
+        if repository_resource_info and not isinstance(repository_resource_info, dict):
+            raise TypeError("Expected argument 'repository_resource_info' to be a dict")
+        pulumi.set(__self__, "repository_resource_info", repository_resource_info)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if version and not isinstance(version, str):
+            raise TypeError("Expected argument 'version' to be a str")
+        pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="contentTypes")
@@ -79,30 +70,6 @@ class GetSourceControlResult:
         Array of source control content types.
         """
         return pulumi.get(self, "content_types")
-
-    @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[str]:
-        """
-        The timestamp of resource creation (UTC).
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
-    @pulumi.getter(name="createdBy")
-    def created_by(self) -> Optional[str]:
-        """
-        The identity that created the resource.
-        """
-        return pulumi.get(self, "created_by")
-
-    @property
-    @pulumi.getter(name="createdByType")
-    def created_by_type(self) -> Optional[str]:
-        """
-        The type of identity that created the resource.
-        """
-        return pulumi.get(self, "created_by_type")
 
     @property
     @pulumi.getter
@@ -132,39 +99,23 @@ class GetSourceControlResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
     @property
-    @pulumi.getter(name="lastModifiedAt")
-    def last_modified_at(self) -> Optional[str]:
+    @pulumi.getter(name="lastDeploymentInfo")
+    def last_deployment_info(self) -> Optional['outputs.DeploymentInfoResponse']:
         """
-        The timestamp of resource last modification (UTC)
+        Information regarding the latest deployment for the source control.
         """
-        return pulumi.get(self, "last_modified_at")
-
-    @property
-    @pulumi.getter(name="lastModifiedBy")
-    def last_modified_by(self) -> Optional[str]:
-        """
-        The identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by")
-
-    @property
-    @pulumi.getter(name="lastModifiedByType")
-    def last_modified_by_type(self) -> Optional[str]:
-        """
-        The type of identity that last modified the resource.
-        """
-        return pulumi.get(self, "last_modified_by_type")
+        return pulumi.get(self, "last_deployment_info")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -185,6 +136,14 @@ class GetSourceControlResult:
         return pulumi.get(self, "repository")
 
     @property
+    @pulumi.getter(name="repositoryResourceInfo")
+    def repository_resource_info(self) -> Optional['outputs.RepositoryResourceInfoResponse']:
+        """
+        Information regarding the resources created in user's repository.
+        """
+        return pulumi.get(self, "repository_resource_info")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -196,9 +155,17 @@ class GetSourceControlResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The version number associated with the source control
+        """
+        return pulumi.get(self, "version")
 
 
 class AwaitableGetSourceControlResult(GetSourceControlResult):
@@ -208,40 +175,34 @@ class AwaitableGetSourceControlResult(GetSourceControlResult):
             yield self
         return GetSourceControlResult(
             content_types=self.content_types,
-            created_at=self.created_at,
-            created_by=self.created_by,
-            created_by_type=self.created_by_type,
             description=self.description,
             display_name=self.display_name,
             etag=self.etag,
             id=self.id,
-            last_modified_at=self.last_modified_at,
-            last_modified_by=self.last_modified_by,
-            last_modified_by_type=self.last_modified_by_type,
+            last_deployment_info=self.last_deployment_info,
             name=self.name,
             repo_type=self.repo_type,
             repository=self.repository,
+            repository_resource_info=self.repository_resource_info,
             system_data=self.system_data,
-            type=self.type)
+            type=self.type,
+            version=self.version)
 
 
-def get_source_control(operational_insights_resource_provider: Optional[str] = None,
-                       resource_group_name: Optional[str] = None,
+def get_source_control(resource_group_name: Optional[str] = None,
                        source_control_id: Optional[str] = None,
                        workspace_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSourceControlResult:
     """
     Gets a source control byt its identifier.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_id: Source control Id
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['sourceControlId'] = source_control_id
     __args__['workspaceName'] = workspace_name
@@ -250,35 +211,30 @@ def get_source_control(operational_insights_resource_provider: Optional[str] = N
 
     return AwaitableGetSourceControlResult(
         content_types=__ret__.content_types,
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
         description=__ret__.description,
         display_name=__ret__.display_name,
         etag=__ret__.etag,
         id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
+        last_deployment_info=__ret__.last_deployment_info,
         name=__ret__.name,
         repo_type=__ret__.repo_type,
         repository=__ret__.repository,
+        repository_resource_info=__ret__.repository_resource_info,
         system_data=__ret__.system_data,
-        type=__ret__.type)
+        type=__ret__.type,
+        version=__ret__.version)
 
 
 @_utilities.lift_output_func(get_source_control)
-def get_source_control_output(operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
-                              resource_group_name: Optional[pulumi.Input[str]] = None,
+def get_source_control_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                               source_control_id: Optional[pulumi.Input[str]] = None,
                               workspace_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceControlResult]:
     """
     Gets a source control byt its identifier.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str source_control_id: Source control Id
     :param str workspace_name: The name of the workspace.

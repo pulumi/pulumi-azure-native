@@ -10,7 +10,7 @@ const resourceGroupVar = azure_native.resources.getResourceGroup({
     resourceGroupName: resourceGroupNameParam,
 });
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
-const registryResource = new azure_native.containerregistry.v20191201preview.Registry("registryResource", {
+const registryResource = new azure_native.containerregistry.v20230101preview.Registry("registryResource", {
     adminUserEnabled: acrAdminUserEnabledParam,
     location: locationParam,
     registryName: acrNameParam,

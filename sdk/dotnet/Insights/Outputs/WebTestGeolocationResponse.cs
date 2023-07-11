@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Insights.Outputs
 {
 
     /// <summary>
-    /// Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
+    /// Geo-physical location to run a WebTest from. You must specify one or more locations for the test to run from.
     /// </summary>
     [OutputType]
     public sealed class WebTestGeolocationResponse
     {
         /// <summary>
-        /// Location ID for the webtest to run from.
+        /// Location ID for the WebTest to run from.
         /// </summary>
         public readonly string? Location;
 

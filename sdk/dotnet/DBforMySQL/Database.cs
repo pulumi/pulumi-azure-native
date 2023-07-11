@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a Database.
-    /// API Version: 2017-12-01.
+    /// Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Database")]
     public partial class Database : global::Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -65,8 +71,12 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Database"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Database"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:Database"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

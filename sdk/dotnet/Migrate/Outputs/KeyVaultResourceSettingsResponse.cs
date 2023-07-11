@@ -22,6 +22,10 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         /// </summary>
         public readonly string ResourceType;
         /// <summary>
+        /// Gets or sets the target resource group name.
+        /// </summary>
+        public readonly string? TargetResourceGroupName;
+        /// <summary>
         /// Gets or sets the target Resource name.
         /// </summary>
         public readonly string TargetResourceName;
@@ -30,9 +34,12 @@ namespace Pulumi.AzureNative.Migrate.Outputs
         private KeyVaultResourceSettingsResponse(
             string resourceType,
 
+            string? targetResourceGroupName,
+
             string targetResourceName)
         {
             ResourceType = resourceType;
+            TargetResourceGroupName = targetResourceGroupName;
             TargetResourceName = targetResourceName;
         }
     }

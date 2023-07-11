@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Grid Partner Topic.
- * API Version: 2021-10-15-preview.
+ * Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview
  */
 export class PartnerTopic extends pulumi.CustomResource {
     /**
@@ -144,7 +144,7 @@ export class PartnerTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20220615:PartnerTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerTopic" }, { type: "azure-native:eventgrid/v20220615:PartnerTopic" }, { type: "azure-native:eventgrid/v20230601preview:PartnerTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerTopic.__pulumiType, name, resourceInputs, opts);
     }

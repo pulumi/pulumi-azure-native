@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DeploymentManager
     {
         /// <summary>
         /// The resource representation of a service topology.
-        /// API Version: 2019-11-01-preview.
+        /// Azure REST API version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetServiceTopologyResult> InvokeAsync(GetServiceTopologyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceTopologyResult>("azure-native:deploymentmanager:getServiceTopology", args ?? new GetServiceTopologyArgs(), options.WithDefaults());
 
         /// <summary>
         /// The resource representation of a service topology.
-        /// API Version: 2019-11-01-preview.
+        /// Azure REST API version: 2019-11-01-preview.
         /// </summary>
         public static Output<GetServiceTopologyResult> Invoke(GetServiceTopologyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceTopologyResult>("azure-native:deploymentmanager:getServiceTopology", args ?? new GetServiceTopologyInvokeArgs(), options.WithDefaults());

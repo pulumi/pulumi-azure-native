@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
-    /// Represents a database data masking policy.
-    /// API Version: 2014-04-01.
+    /// A database data masking policy.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:DataMaskingPolicy")]
     public partial class DataMaskingPolicy : global::Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Sql
         public Output<string?> ExemptPrincipals { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of data masking policy. Metadata, used for Azure portal.
+        /// The kind of Data Masking Policy. Metadata, used for Azure portal.
         /// </summary>
         [Output("kind")]
         public Output<string> Kind { get; private set; } = null!;
@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:DataMaskingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DataMaskingPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DataMaskingPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DataMaskingPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,7 +119,7 @@ namespace Pulumi.AzureNative.Sql
     public sealed class DataMaskingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the database for which the data masking rule applies.
+        /// The name of the database for which the data masking policy applies.
         /// </summary>
         [Input("dataMaskingPolicyName")]
         public Input<string>? DataMaskingPolicyName { get; set; }

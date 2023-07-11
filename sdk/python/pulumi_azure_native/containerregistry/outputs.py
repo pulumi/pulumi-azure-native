@@ -16,21 +16,25 @@ __all__ = [
     'ActorResponse',
     'AgentPropertiesResponse',
     'ArgumentResponse',
+    'AuthCredentialResponse',
     'AuthInfoResponse',
     'BaseImageDependencyResponse',
     'BaseImageTriggerResponse',
     'BuildArgumentResponse',
+    'CredentialHealthResponse',
     'CredentialsResponse',
     'CustomRegistryCredentialsResponse',
     'DockerBuildRequestResponse',
     'DockerBuildStepResponse',
     'EncodedTaskRunRequestResponse',
     'EncodedTaskStepResponse',
+    'EncryptionPropertyResponse',
     'EventContentResponse',
     'EventRequestMessageResponse',
     'EventResponse',
     'EventResponseMessageResponse',
     'ExportPipelineTargetPropertiesResponse',
+    'ExportPolicyResponse',
     'FileTaskRunRequestResponse',
     'FileTaskStepResponse',
     'IPRuleResponse',
@@ -38,6 +42,7 @@ __all__ = [
     'ImageDescriptorResponse',
     'ImageUpdateTriggerResponse',
     'ImportPipelineSourcePropertiesResponse',
+    'KeyVaultPropertiesResponse',
     'LoggingPropertiesResponse',
     'LoginServerPropertiesResponse',
     'NetworkRuleSetResponse',
@@ -53,6 +58,7 @@ __all__ = [
     'PipelineTriggerPropertiesResponse',
     'PlatformPropertiesResponse',
     'PoliciesResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ProgressPropertiesResponse',
@@ -72,7 +78,6 @@ __all__ = [
     'SourceTriggerResponse',
     'StatusDetailPropertiesResponse',
     'StatusResponse',
-    'StorageAccountPropertiesResponse',
     'SyncPropertiesResponse',
     'SystemDataResponse',
     'TargetResponse',
@@ -87,7 +92,6 @@ __all__ = [
     'TriggerPropertiesResponse',
     'TrustPolicyResponse',
     'UserIdentityPropertiesResponse',
-    'VirtualNetworkRuleResponse',
 ]
 
 @pulumi.output_type
@@ -220,6 +224,85 @@ class ArgumentResponse(dict):
         Flag to indicate whether the argument represents a secret and want to be removed from build logs.
         """
         return pulumi.get(self, "is_secret")
+
+
+@pulumi.output_type
+class AuthCredentialResponse(dict):
+    """
+    Authentication credential stored for an upstream.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "credentialHealth":
+            suggest = "credential_health"
+        elif key == "passwordSecretIdentifier":
+            suggest = "password_secret_identifier"
+        elif key == "usernameSecretIdentifier":
+            suggest = "username_secret_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthCredentialResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthCredentialResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthCredentialResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 credential_health: 'outputs.CredentialHealthResponse',
+                 name: Optional[str] = None,
+                 password_secret_identifier: Optional[str] = None,
+                 username_secret_identifier: Optional[str] = None):
+        """
+        Authentication credential stored for an upstream.
+        :param 'CredentialHealthResponse' credential_health: This provides data pertaining to the health of the auth credential.
+        :param str name: The name of the credential.
+        :param str password_secret_identifier: KeyVault Secret URI for accessing the password.
+        :param str username_secret_identifier: KeyVault Secret URI for accessing the username.
+        """
+        pulumi.set(__self__, "credential_health", credential_health)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password_secret_identifier is not None:
+            pulumi.set(__self__, "password_secret_identifier", password_secret_identifier)
+        if username_secret_identifier is not None:
+            pulumi.set(__self__, "username_secret_identifier", username_secret_identifier)
+
+    @property
+    @pulumi.getter(name="credentialHealth")
+    def credential_health(self) -> 'outputs.CredentialHealthResponse':
+        """
+        This provides data pertaining to the health of the auth credential.
+        """
+        return pulumi.get(self, "credential_health")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the credential.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="passwordSecretIdentifier")
+    def password_secret_identifier(self) -> Optional[str]:
+        """
+        KeyVault Secret URI for accessing the password.
+        """
+        return pulumi.get(self, "password_secret_identifier")
+
+    @property
+    @pulumi.getter(name="usernameSecretIdentifier")
+    def username_secret_identifier(self) -> Optional[str]:
+        """
+        KeyVault Secret URI for accessing the username.
+        """
+        return pulumi.get(self, "username_secret_identifier")
 
 
 @pulumi.output_type
@@ -480,6 +563,23 @@ class BuildArgumentResponse(dict):
     """
     Properties of a build argument.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isSecret":
+            suggest = "is_secret"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildArgumentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildArgumentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildArgumentResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  type: str,
@@ -531,6 +631,72 @@ class BuildArgumentResponse(dict):
         Flag to indicate whether the argument represents a secret and want to be removed from build logs.
         """
         return pulumi.get(self, "is_secret")
+
+
+@pulumi.output_type
+class CredentialHealthResponse(dict):
+    """
+    The health of the auth credential.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CredentialHealthResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CredentialHealthResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CredentialHealthResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[str] = None,
+                 error_message: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        The health of the auth credential.
+        :param str error_code: Error code representing the health check error.
+        :param str error_message: Descriptive message representing the health check error.
+        :param str status: The health status of credential.
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[str]:
+        """
+        Error code representing the health check error.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[str]:
+        """
+        Descriptive message representing the health check error.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The health status of credential.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -910,6 +1076,10 @@ class DockerBuildStepResponse(dict):
             suggest = "base_image_dependencies"
         elif key == "dockerFilePath":
             suggest = "docker_file_path"
+        elif key == "baseImageTrigger":
+            suggest = "base_image_trigger"
+        elif key == "buildArguments":
+            suggest = "build_arguments"
         elif key == "contextAccessToken":
             suggest = "context_access_token"
         elif key == "contextPath":
@@ -920,6 +1090,8 @@ class DockerBuildStepResponse(dict):
             suggest = "is_push_enabled"
         elif key == "noCache":
             suggest = "no_cache"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DockerBuildStepResponse. Access the value via the '{suggest}' property getter instead.")
@@ -937,11 +1109,15 @@ class DockerBuildStepResponse(dict):
                  docker_file_path: str,
                  type: str,
                  arguments: Optional[Sequence['outputs.ArgumentResponse']] = None,
+                 base_image_trigger: Optional[str] = None,
+                 branch: Optional[str] = None,
+                 build_arguments: Optional[Sequence['outputs.BuildArgumentResponse']] = None,
                  context_access_token: Optional[str] = None,
                  context_path: Optional[str] = None,
                  image_names: Optional[Sequence[str]] = None,
                  is_push_enabled: Optional[bool] = None,
                  no_cache: Optional[bool] = None,
+                 provisioning_state: Optional[str] = None,
                  target: Optional[str] = None):
         """
         The Docker build step.
@@ -950,11 +1126,15 @@ class DockerBuildStepResponse(dict):
         :param str type: The type of the step.
                Expected value is 'Docker'.
         :param Sequence['ArgumentResponse'] arguments: The collection of override arguments to be used when executing this build step.
+        :param str base_image_trigger: The type of the auto trigger for base image dependency updates.
+        :param str branch: The repository branch name.
+        :param Sequence['BuildArgumentResponse'] build_arguments: The custom arguments for building this build step.
         :param str context_access_token: The token (git PAT or SAS token of storage account blob) associated with the context for a step.
         :param str context_path: The URL(absolute or relative) of the source context for the task step.
         :param Sequence[str] image_names: The fully qualified image names including the repository and tag.
         :param bool is_push_enabled: The value of this property indicates whether the image built should be pushed to the registry or not.
         :param bool no_cache: The value of this property indicates whether the image cache is enabled or not.
+        :param str provisioning_state: The provisioning state of the build step.
         :param str target: The name of the target build stage for the docker build.
         """
         pulumi.set(__self__, "base_image_dependencies", base_image_dependencies)
@@ -962,6 +1142,12 @@ class DockerBuildStepResponse(dict):
         pulumi.set(__self__, "type", 'Docker')
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
+        if base_image_trigger is not None:
+            pulumi.set(__self__, "base_image_trigger", base_image_trigger)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if build_arguments is not None:
+            pulumi.set(__self__, "build_arguments", build_arguments)
         if context_access_token is not None:
             pulumi.set(__self__, "context_access_token", context_access_token)
         if context_path is not None:
@@ -976,6 +1162,8 @@ class DockerBuildStepResponse(dict):
             no_cache = False
         if no_cache is not None:
             pulumi.set(__self__, "no_cache", no_cache)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
         if target is not None:
             pulumi.set(__self__, "target", target)
 
@@ -1011,6 +1199,30 @@ class DockerBuildStepResponse(dict):
         The collection of override arguments to be used when executing this build step.
         """
         return pulumi.get(self, "arguments")
+
+    @property
+    @pulumi.getter(name="baseImageTrigger")
+    def base_image_trigger(self) -> Optional[str]:
+        """
+        The type of the auto trigger for base image dependency updates.
+        """
+        return pulumi.get(self, "base_image_trigger")
+
+    @property
+    @pulumi.getter
+    def branch(self) -> Optional[str]:
+        """
+        The repository branch name.
+        """
+        return pulumi.get(self, "branch")
+
+    @property
+    @pulumi.getter(name="buildArguments")
+    def build_arguments(self) -> Optional[Sequence['outputs.BuildArgumentResponse']]:
+        """
+        The custom arguments for building this build step.
+        """
+        return pulumi.get(self, "build_arguments")
 
     @property
     @pulumi.getter(name="contextAccessToken")
@@ -1051,6 +1263,14 @@ class DockerBuildStepResponse(dict):
         The value of this property indicates whether the image cache is enabled or not.
         """
         return pulumi.get(self, "no_cache")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the build step.
+        """
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -1367,6 +1587,54 @@ class EncodedTaskStepResponse(dict):
         The collection of overridable values that can be passed when running a task.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class EncryptionPropertyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyVaultProperties":
+            suggest = "key_vault_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EncryptionPropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EncryptionPropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EncryptionPropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_vault_properties: Optional['outputs.KeyVaultPropertiesResponse'] = None,
+                 status: Optional[str] = None):
+        """
+        :param 'KeyVaultPropertiesResponse' key_vault_properties: Key vault properties.
+        :param str status: Indicates whether or not the encryption is enabled for container registry.
+        """
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional['outputs.KeyVaultPropertiesResponse']:
+        """
+        Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether or not the encryption is enabled for container registry.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -1718,6 +1986,31 @@ class ExportPipelineTargetPropertiesResponse(dict):
         When 'AzureStorageBlobContainer':  "https://accountName.blob.core.windows.net/containerName"
         """
         return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class ExportPolicyResponse(dict):
+    """
+    The export policy for a container registry.
+    """
+    def __init__(__self__, *,
+                 status: Optional[str] = None):
+        """
+        The export policy for a container registry.
+        :param str status: The value that indicates whether the policy is enabled or not.
+        """
+        if status is None:
+            status = 'enabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -2343,6 +2636,93 @@ class ImportPipelineSourcePropertiesResponse(dict):
 
 
 @pulumi.output_type
+class KeyVaultPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyRotationEnabled":
+            suggest = "key_rotation_enabled"
+        elif key == "lastKeyRotationTimestamp":
+            suggest = "last_key_rotation_timestamp"
+        elif key == "versionedKeyIdentifier":
+            suggest = "versioned_key_identifier"
+        elif key == "keyIdentifier":
+            suggest = "key_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyVaultPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyVaultPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_rotation_enabled: bool,
+                 last_key_rotation_timestamp: str,
+                 versioned_key_identifier: str,
+                 identity: Optional[str] = None,
+                 key_identifier: Optional[str] = None):
+        """
+        :param bool key_rotation_enabled: Auto key rotation status for a CMK enabled registry.
+        :param str last_key_rotation_timestamp: Timestamp of the last successful key rotation.
+        :param str versioned_key_identifier: The fully qualified key identifier that includes the version of the key that is actually used for encryption.
+        :param str identity: The client id of the identity which will be used to access key vault.
+        :param str key_identifier: Key vault uri to access the encryption key.
+        """
+        pulumi.set(__self__, "key_rotation_enabled", key_rotation_enabled)
+        pulumi.set(__self__, "last_key_rotation_timestamp", last_key_rotation_timestamp)
+        pulumi.set(__self__, "versioned_key_identifier", versioned_key_identifier)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter(name="keyRotationEnabled")
+    def key_rotation_enabled(self) -> bool:
+        """
+        Auto key rotation status for a CMK enabled registry.
+        """
+        return pulumi.get(self, "key_rotation_enabled")
+
+    @property
+    @pulumi.getter(name="lastKeyRotationTimestamp")
+    def last_key_rotation_timestamp(self) -> str:
+        """
+        Timestamp of the last successful key rotation.
+        """
+        return pulumi.get(self, "last_key_rotation_timestamp")
+
+    @property
+    @pulumi.getter(name="versionedKeyIdentifier")
+    def versioned_key_identifier(self) -> str:
+        """
+        The fully qualified key identifier that includes the version of the key that is actually used for encryption.
+        """
+        return pulumi.get(self, "versioned_key_identifier")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        The client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[str]:
+        """
+        Key vault uri to access the encryption key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+
+@pulumi.output_type
 class LoggingPropertiesResponse(dict):
     """
     The logging properties of the connected registry.
@@ -2445,8 +2825,6 @@ class NetworkRuleSetResponse(dict):
             suggest = "default_action"
         elif key == "ipRules":
             suggest = "ip_rules"
-        elif key == "virtualNetworkRules":
-            suggest = "virtual_network_rules"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetworkRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2461,21 +2839,17 @@ class NetworkRuleSetResponse(dict):
 
     def __init__(__self__, *,
                  default_action: str,
-                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None,
-                 virtual_network_rules: Optional[Sequence['outputs.VirtualNetworkRuleResponse']] = None):
+                 ip_rules: Optional[Sequence['outputs.IPRuleResponse']] = None):
         """
         The network rule set for a container registry.
         :param str default_action: The default action of allow or deny when no other rules match.
         :param Sequence['IPRuleResponse'] ip_rules: The IP ACL rules.
-        :param Sequence['VirtualNetworkRuleResponse'] virtual_network_rules: The virtual network rules.
         """
         if default_action is None:
             default_action = 'Allow'
         pulumi.set(__self__, "default_action", default_action)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
-        if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
 
     @property
     @pulumi.getter(name="defaultAction")
@@ -2492,14 +2866,6 @@ class NetworkRuleSetResponse(dict):
         The IP ACL rules.
         """
         return pulumi.get(self, "ip_rules")
-
-    @property
-    @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> Optional[Sequence['outputs.VirtualNetworkRuleResponse']]:
-        """
-        The virtual network rules.
-        """
-        return pulumi.get(self, "virtual_network_rules")
 
 
 @pulumi.output_type
@@ -3136,7 +3502,9 @@ class PoliciesResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "quarantinePolicy":
+        if key == "exportPolicy":
+            suggest = "export_policy"
+        elif key == "quarantinePolicy":
             suggest = "quarantine_policy"
         elif key == "retentionPolicy":
             suggest = "retention_policy"
@@ -3155,21 +3523,33 @@ class PoliciesResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 export_policy: Optional['outputs.ExportPolicyResponse'] = None,
                  quarantine_policy: Optional['outputs.QuarantinePolicyResponse'] = None,
                  retention_policy: Optional['outputs.RetentionPolicyResponse'] = None,
                  trust_policy: Optional['outputs.TrustPolicyResponse'] = None):
         """
         The policies for a container registry.
+        :param 'ExportPolicyResponse' export_policy: The export policy for a container registry.
         :param 'QuarantinePolicyResponse' quarantine_policy: The quarantine policy for a container registry.
         :param 'RetentionPolicyResponse' retention_policy: The retention policy for a container registry.
         :param 'TrustPolicyResponse' trust_policy: The content trust policy for a container registry.
         """
+        if export_policy is not None:
+            pulumi.set(__self__, "export_policy", export_policy)
         if quarantine_policy is not None:
             pulumi.set(__self__, "quarantine_policy", quarantine_policy)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if trust_policy is not None:
             pulumi.set(__self__, "trust_policy", trust_policy)
+
+    @property
+    @pulumi.getter(name="exportPolicy")
+    def export_policy(self) -> Optional['outputs.ExportPolicyResponse']:
+        """
+        The export policy for a container registry.
+        """
+        return pulumi.get(self, "export_policy")
 
     @property
     @pulumi.getter(name="quarantinePolicy")
@@ -3194,6 +3574,119 @@ class PoliciesResponse(dict):
         The content trust policy for a container registry.
         """
         return pulumi.get(self, "trust_policy")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    An object that represents a private endpoint connection for a container registry.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        An object that represents a private endpoint connection for a container registry.
+        :param str id: The resource ID.
+        :param str name: The name of the resource.
+        :param str provisioning_state: The provisioning state of private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: The type of the resource.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private endpoint.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointResponse']:
+        """
+        The resource of private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
 
 
 @pulumi.output_type
@@ -4585,28 +5078,6 @@ class StatusResponse(dict):
 
 
 @pulumi.output_type
-class StorageAccountPropertiesResponse(dict):
-    """
-    The properties of a storage account for a container registry. Only applicable to Classic SKU.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        The properties of a storage account for a container registry. Only applicable to Classic SKU.
-        :param str id: The resource ID of the storage account.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The resource ID of the storage account.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
 class SyncPropertiesResponse(dict):
     """
     The sync properties of the connected registry with its parent.
@@ -5541,58 +6012,5 @@ class UserIdentityPropertiesResponse(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
-
-
-@pulumi.output_type
-class VirtualNetworkRuleResponse(dict):
-    """
-    Virtual network rule.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "virtualNetworkResourceId":
-            suggest = "virtual_network_resource_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkRuleResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        VirtualNetworkRuleResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        VirtualNetworkRuleResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 virtual_network_resource_id: str,
-                 action: Optional[str] = None):
-        """
-        Virtual network rule.
-        :param str virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        :param str action: The action of virtual network rule.
-        """
-        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
-        if action is None:
-            action = 'Allow'
-        if action is not None:
-            pulumi.set(__self__, "action", action)
-
-    @property
-    @pulumi.getter(name="virtualNetworkResourceId")
-    def virtual_network_resource_id(self) -> str:
-        """
-        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
-        """
-        return pulumi.get(self, "virtual_network_resource_id")
-
-    @property
-    @pulumi.getter
-    def action(self) -> Optional[str]:
-        """
-        The action of virtual network rule.
-        """
-        return pulumi.get(self, "action")
 
 

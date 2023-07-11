@@ -25,6 +25,11 @@ export const listApplianceClusterUserCredential: typeof import("./listApplianceC
 export const listApplianceClusterUserCredentialOutput: typeof import("./listApplianceClusterUserCredential").listApplianceClusterUserCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["listApplianceClusterUserCredential","listApplianceClusterUserCredentialOutput"], () => require("./listApplianceClusterUserCredential"));
 
+export { ListApplianceKeysArgs, ListApplianceKeysResult, ListApplianceKeysOutputArgs } from "./listApplianceKeys";
+export const listApplianceKeys: typeof import("./listApplianceKeys").listApplianceKeys = null as any;
+export const listApplianceKeysOutput: typeof import("./listApplianceKeys").listApplianceKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listApplianceKeys","listApplianceKeysOutput"], () => require("./listApplianceKeys"));
+
 
 // Export enums:
 export * from "../types/enums/resourceconnector";

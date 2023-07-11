@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.StorageCache
 {
     /// <summary>
+    /// The type of identity used for the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct AmlFilesystemIdentityType : IEquatable<AmlFilesystemIdentityType>
+    {
+        private readonly string _value;
+
+        private AmlFilesystemIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AmlFilesystemIdentityType UserAssigned { get; } = new AmlFilesystemIdentityType("UserAssigned");
+        public static AmlFilesystemIdentityType None { get; } = new AmlFilesystemIdentityType("None");
+
+        public static bool operator ==(AmlFilesystemIdentityType left, AmlFilesystemIdentityType right) => left.Equals(right);
+        public static bool operator !=(AmlFilesystemIdentityType left, AmlFilesystemIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(AmlFilesystemIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AmlFilesystemIdentityType other && Equals(other);
+        public bool Equals(AmlFilesystemIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of identity used for the cache
     /// </summary>
     [EnumType]
@@ -21,6 +52,8 @@ namespace Pulumi.AzureNative.StorageCache
         }
 
         public static CacheIdentityType SystemAssigned { get; } = new CacheIdentityType("SystemAssigned");
+        public static CacheIdentityType UserAssigned { get; } = new CacheIdentityType("UserAssigned");
+        public static CacheIdentityType SystemAssigned_UserAssigned { get; } = new CacheIdentityType("SystemAssigned, UserAssigned");
         public static CacheIdentityType None { get; } = new CacheIdentityType("None");
 
         public static bool operator ==(CacheIdentityType left, CacheIdentityType right) => left.Equals(right);
@@ -31,6 +64,42 @@ namespace Pulumi.AzureNative.StorageCache
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CacheIdentityType other && Equals(other);
         public bool Equals(CacheIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Day of the week on which the maintenance window will occur.
+    /// </summary>
+    [EnumType]
+    public readonly struct MaintenanceDayOfWeekType : IEquatable<MaintenanceDayOfWeekType>
+    {
+        private readonly string _value;
+
+        private MaintenanceDayOfWeekType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MaintenanceDayOfWeekType Monday { get; } = new MaintenanceDayOfWeekType("Monday");
+        public static MaintenanceDayOfWeekType Tuesday { get; } = new MaintenanceDayOfWeekType("Tuesday");
+        public static MaintenanceDayOfWeekType Wednesday { get; } = new MaintenanceDayOfWeekType("Wednesday");
+        public static MaintenanceDayOfWeekType Thursday { get; } = new MaintenanceDayOfWeekType("Thursday");
+        public static MaintenanceDayOfWeekType Friday { get; } = new MaintenanceDayOfWeekType("Friday");
+        public static MaintenanceDayOfWeekType Saturday { get; } = new MaintenanceDayOfWeekType("Saturday");
+        public static MaintenanceDayOfWeekType Sunday { get; } = new MaintenanceDayOfWeekType("Sunday");
+
+        public static bool operator ==(MaintenanceDayOfWeekType left, MaintenanceDayOfWeekType right) => left.Equals(right);
+        public static bool operator !=(MaintenanceDayOfWeekType left, MaintenanceDayOfWeekType right) => !left.Equals(right);
+
+        public static explicit operator string(MaintenanceDayOfWeekType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MaintenanceDayOfWeekType other && Equals(other);
+        public bool Equals(MaintenanceDayOfWeekType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -103,33 +172,31 @@ namespace Pulumi.AzureNative.StorageCache
     }
 
     /// <summary>
-    /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
+    /// Storage target operational state.
     /// </summary>
     [EnumType]
-    public readonly struct ProvisioningStateType : IEquatable<ProvisioningStateType>
+    public readonly struct OperationalStateType : IEquatable<OperationalStateType>
     {
         private readonly string _value;
 
-        private ProvisioningStateType(string value)
+        private OperationalStateType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ProvisioningStateType Succeeded { get; } = new ProvisioningStateType("Succeeded");
-        public static ProvisioningStateType Failed { get; } = new ProvisioningStateType("Failed");
-        public static ProvisioningStateType Cancelled { get; } = new ProvisioningStateType("Cancelled");
-        public static ProvisioningStateType Creating { get; } = new ProvisioningStateType("Creating");
-        public static ProvisioningStateType Deleting { get; } = new ProvisioningStateType("Deleting");
-        public static ProvisioningStateType Updating { get; } = new ProvisioningStateType("Updating");
+        public static OperationalStateType Ready { get; } = new OperationalStateType("Ready");
+        public static OperationalStateType Busy { get; } = new OperationalStateType("Busy");
+        public static OperationalStateType Suspended { get; } = new OperationalStateType("Suspended");
+        public static OperationalStateType Flushing { get; } = new OperationalStateType("Flushing");
 
-        public static bool operator ==(ProvisioningStateType left, ProvisioningStateType right) => left.Equals(right);
-        public static bool operator !=(ProvisioningStateType left, ProvisioningStateType right) => !left.Equals(right);
+        public static bool operator ==(OperationalStateType left, OperationalStateType right) => left.Equals(right);
+        public static bool operator !=(OperationalStateType left, OperationalStateType right) => !left.Equals(right);
 
-        public static explicit operator string(ProvisioningStateType value) => value._value;
+        public static explicit operator string(OperationalStateType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ProvisioningStateType other && Equals(other);
-        public bool Equals(ProvisioningStateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is OperationalStateType other && Equals(other);
+        public bool Equals(OperationalStateType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

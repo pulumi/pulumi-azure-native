@@ -228,7 +228,7 @@ def get_agent(agent_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAgentResult:
     """
     Gets an Agent resource.
-    API Version: 2022-07-01-preview.
+    Azure REST API version: 2023-03-01.
 
 
     :param str agent_name: The name of the Agent resource.
@@ -268,7 +268,7 @@ def get_agent_output(agent_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentResult]:
     """
     Gets an Agent resource.
-    API Version: 2022-07-01-preview.
+    Azure REST API version: 2023-03-01.
 
 
     :param str agent_name: The name of the Agent resource.

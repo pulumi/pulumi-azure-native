@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Communication.V20230331
     /// <summary>
     /// A class representing a Domains resource.
     /// </summary>
-    [Obsolete(@"azure-native:communication/v20230331:Domain is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:Domain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:communication/v20230331:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {
@@ -122,6 +121,8 @@ namespace Pulumi.AzureNative.Communication.V20230331
                     new global::Pulumi.Alias { Type = "azure-native:communication:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

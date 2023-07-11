@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The status of the Canonical support plan.
- * API Version: 2018-03-01.
+ * Azure REST API version: 2018-03-01. Prior API version in Azure Native 1.x: 2018-03-01
  */
 export class SupportPlanType extends pulumi.CustomResource {
     /**

@@ -8,15 +8,18 @@ __all__ = [
     'AccessReviewRecurrencePatternType',
     'AccessReviewRecurrenceRangeType',
     'AccessReviewResult',
+    'AssignmentScopeValidation',
     'DefaultDecisionType',
     'EnforcementMode',
     'ExemptionCategory',
     'LockLevel',
+    'OverrideKind',
     'ParameterType',
     'PolicyType',
     'PrincipalType',
     'PublicNetworkAccessOptions',
     'ResourceIdentityType',
+    'SelectorKind',
 ]
 
 
@@ -46,6 +49,20 @@ class AccessReviewResult(str, Enum):
     NOT_REVIEWED = "NotReviewed"
     DONT_KNOW = "DontKnow"
     NOT_NOTIFIED = "NotNotified"
+
+
+class AssignmentScopeValidation(str, Enum):
+    """
+    The option whether validate the exemption is at or under the assignment scope.
+    """
+    DEFAULT = "Default"
+    """
+    This option will validate the exemption is at or under the assignment scope.
+    """
+    DO_NOT_VALIDATE = "DoNotValidate"
+    """
+    This option will bypass the validation the exemption scope is at or under the policy assignment scope.
+    """
 
 
 class DefaultDecisionType(str, Enum):
@@ -94,6 +111,16 @@ class LockLevel(str, Enum):
     READ_ONLY = "ReadOnly"
 
 
+class OverrideKind(str, Enum):
+    """
+    The override kind.
+    """
+    POLICY_EFFECT = "policyEffect"
+    """
+    It will override the policy effect type.
+    """
+
+
 class ParameterType(str, Enum):
     """
     The data type of the parameter.
@@ -135,13 +162,39 @@ class PublicNetworkAccessOptions(str, Enum):
 
 class ResourceIdentityType(str, Enum):
     """
-    The identity type. This is the only required field when adding a system assigned identity to a resource.
+    The identity type. This is the only required field when adding a system or user assigned identity to a resource.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    Indicates that a system assigned identity is associated with the resource.
+    """
+    USER_ASSIGNED = "UserAssigned"
     """
     Indicates that a system assigned identity is associated with the resource.
     """
     NONE = "None"
     """
     Indicates that no identity is associated with the resource or that the existing identity should be removed.
+    """
+
+
+class SelectorKind(str, Enum):
+    """
+    The selector kind.
+    """
+    RESOURCE_LOCATION = "resourceLocation"
+    """
+    The selector kind to filter policies by the resource location.
+    """
+    RESOURCE_TYPE = "resourceType"
+    """
+    The selector kind to filter policies by the resource type.
+    """
+    RESOURCE_WITHOUT_LOCATION = "resourceWithoutLocation"
+    """
+    The selector kind to filter policies by the resource without location.
+    """
+    POLICY_DEFINITION_REFERENCE_ID = "policyDefinitionReferenceId"
+    """
+    The selector kind to filter policies by the policy definition reference ID.
     """

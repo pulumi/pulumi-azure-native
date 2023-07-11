@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the information about the secret resource with the given name. The information include the description and other properties of the secret.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getSecret(args: GetSecretArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretResult> {
 
@@ -62,7 +62,7 @@ export interface GetSecretResult {
 }
 /**
  * Gets the information about the secret resource with the given name. The information include the description and other properties of the secret.
- * API Version: 2018-09-01-preview.
+ * Azure REST API version: 2018-09-01-preview.
  */
 export function getSecretOutput(args: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
     return pulumi.output(args).apply((a: any) => getSecret(a, opts))

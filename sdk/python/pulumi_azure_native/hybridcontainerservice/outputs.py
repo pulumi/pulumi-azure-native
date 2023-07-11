@@ -53,7 +53,7 @@ __all__ = [
     'VirtualNetworksPropertiesResponseError',
     'VirtualNetworksPropertiesResponseHci',
     'VirtualNetworksPropertiesResponseInfraVnetProfile',
-    'VirtualNetworksPropertiesResponseKubevirt',
+    'VirtualNetworksPropertiesResponseNetworkCloud',
     'VirtualNetworksPropertiesResponseProvisioningStatus',
     'VirtualNetworksPropertiesResponseStatus',
     'VirtualNetworksPropertiesResponseVipPool',
@@ -936,8 +936,6 @@ class ControlPlaneProfileResponse(dict):
             pulumi.set(__self__, "node_labels", node_labels)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is None:
-            os_type = 'Linux'
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if vm_size is not None:
@@ -1388,8 +1386,6 @@ class LoadBalancerProfileResponse(dict):
             pulumi.set(__self__, "node_labels", node_labels)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is None:
-            os_type = 'Linux'
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if vm_size is not None:
@@ -1604,8 +1600,6 @@ class NamedAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "node_labels", node_labels)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is None:
-            os_type = 'Linux'
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if vm_size is not None:
@@ -2900,16 +2894,16 @@ class VirtualNetworksPropertiesResponse(dict):
         suggest = None
         if key == "dhcpServers":
             suggest = "dhcp_servers"
-        elif key == "dnsServers":
-            suggest = "dns_servers"
-        elif key == "ipAddressPrefix":
-            suggest = "ip_address_prefix"
         elif key == "provisioningState":
             suggest = "provisioning_state"
         elif key == "vlanID":
             suggest = "vlan_id"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
         elif key == "infraVnetProfile":
             suggest = "infra_vnet_profile"
+        elif key == "ipAddressPrefix":
+            suggest = "ip_address_prefix"
         elif key == "vipPool":
             suggest = "vip_pool"
         elif key == "vmipPool":
@@ -2928,35 +2922,38 @@ class VirtualNetworksPropertiesResponse(dict):
 
     def __init__(__self__, *,
                  dhcp_servers: Sequence[str],
-                 dns_servers: Sequence[str],
-                 gateway: str,
-                 ip_address_prefix: str,
                  provisioning_state: str,
                  status: 'outputs.VirtualNetworksPropertiesResponseStatus',
                  vlan_id: str,
+                 dns_servers: Optional[Sequence[str]] = None,
+                 gateway: Optional[str] = None,
                  infra_vnet_profile: Optional['outputs.VirtualNetworksPropertiesResponseInfraVnetProfile'] = None,
+                 ip_address_prefix: Optional[str] = None,
                  vip_pool: Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVipPool']] = None,
                  vmip_pool: Optional[Sequence['outputs.VirtualNetworksPropertiesResponseVmipPool']] = None):
         """
         HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
         :param Sequence[str] dhcp_servers: Address of the DHCP servers associated with the network
+        :param 'VirtualNetworksPropertiesResponseStatus' status: HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
+        :param str vlan_id: VLAN Id used by the network
         :param Sequence[str] dns_servers: Address of the DNS servers associated with the network
         :param str gateway: Address of the Gateway associated with the network
         :param str ip_address_prefix: IP Address Prefix of the network
-        :param 'VirtualNetworksPropertiesResponseStatus' status: HybridAKSNetworkStatus defines the observed state of HybridAKSNetwork
-        :param str vlan_id: VLAN Id used by the network
         :param Sequence['VirtualNetworksPropertiesResponseVipPool'] vip_pool: Virtual IP Pool for Kubernetes
         :param Sequence['VirtualNetworksPropertiesResponseVmipPool'] vmip_pool: IP Pool for Virtual Machines
         """
         pulumi.set(__self__, "dhcp_servers", dhcp_servers)
-        pulumi.set(__self__, "dns_servers", dns_servers)
-        pulumi.set(__self__, "gateway", gateway)
-        pulumi.set(__self__, "ip_address_prefix", ip_address_prefix)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "vlan_id", vlan_id)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
         if infra_vnet_profile is not None:
             pulumi.set(__self__, "infra_vnet_profile", infra_vnet_profile)
+        if ip_address_prefix is not None:
+            pulumi.set(__self__, "ip_address_prefix", ip_address_prefix)
         if vip_pool is not None:
             pulumi.set(__self__, "vip_pool", vip_pool)
         if vmip_pool is not None:
@@ -2969,30 +2966,6 @@ class VirtualNetworksPropertiesResponse(dict):
         Address of the DHCP servers associated with the network
         """
         return pulumi.get(self, "dhcp_servers")
-
-    @property
-    @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> Sequence[str]:
-        """
-        Address of the DNS servers associated with the network
-        """
-        return pulumi.get(self, "dns_servers")
-
-    @property
-    @pulumi.getter
-    def gateway(self) -> str:
-        """
-        Address of the Gateway associated with the network
-        """
-        return pulumi.get(self, "gateway")
-
-    @property
-    @pulumi.getter(name="ipAddressPrefix")
-    def ip_address_prefix(self) -> str:
-        """
-        IP Address Prefix of the network
-        """
-        return pulumi.get(self, "ip_address_prefix")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -3016,9 +2989,33 @@ class VirtualNetworksPropertiesResponse(dict):
         return pulumi.get(self, "vlan_id")
 
     @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[str]]:
+        """
+        Address of the DNS servers associated with the network
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[str]:
+        """
+        Address of the Gateway associated with the network
+        """
+        return pulumi.get(self, "gateway")
+
+    @property
     @pulumi.getter(name="infraVnetProfile")
     def infra_vnet_profile(self) -> Optional['outputs.VirtualNetworksPropertiesResponseInfraVnetProfile']:
         return pulumi.get(self, "infra_vnet_profile")
+
+    @property
+    @pulumi.getter(name="ipAddressPrefix")
+    def ip_address_prefix(self) -> Optional[str]:
+        """
+        IP Address Prefix of the network
+        """
+        return pulumi.get(self, "ip_address_prefix")
 
     @property
     @pulumi.getter(name="vipPool")
@@ -3128,19 +3125,36 @@ class VirtualNetworksPropertiesResponseHci(dict):
 
 @pulumi.output_type
 class VirtualNetworksPropertiesResponseInfraVnetProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkCloud":
+            suggest = "network_cloud"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseInfraVnetProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworksPropertiesResponseInfraVnetProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworksPropertiesResponseInfraVnetProfile.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  hci: Optional['outputs.VirtualNetworksPropertiesResponseHci'] = None,
-                 kubevirt: Optional['outputs.VirtualNetworksPropertiesResponseKubevirt'] = None,
+                 network_cloud: Optional['outputs.VirtualNetworksPropertiesResponseNetworkCloud'] = None,
                  vmware: Optional['outputs.VirtualNetworksPropertiesResponseVmware'] = None):
         """
         :param 'VirtualNetworksPropertiesResponseHci' hci: Infra network profile for HCI platform
-        :param 'VirtualNetworksPropertiesResponseKubevirt' kubevirt: Infra network profile for KubeVirt platform
+        :param 'VirtualNetworksPropertiesResponseNetworkCloud' network_cloud: Infra network profile for the NetworkCloud platform
         :param 'VirtualNetworksPropertiesResponseVmware' vmware: Infra network profile for VMware platform
         """
         if hci is not None:
             pulumi.set(__self__, "hci", hci)
-        if kubevirt is not None:
-            pulumi.set(__self__, "kubevirt", kubevirt)
+        if network_cloud is not None:
+            pulumi.set(__self__, "network_cloud", network_cloud)
         if vmware is not None:
             pulumi.set(__self__, "vmware", vmware)
 
@@ -3153,12 +3167,12 @@ class VirtualNetworksPropertiesResponseInfraVnetProfile(dict):
         return pulumi.get(self, "hci")
 
     @property
-    @pulumi.getter
-    def kubevirt(self) -> Optional['outputs.VirtualNetworksPropertiesResponseKubevirt']:
+    @pulumi.getter(name="networkCloud")
+    def network_cloud(self) -> Optional['outputs.VirtualNetworksPropertiesResponseNetworkCloud']:
         """
-        Infra network profile for KubeVirt platform
+        Infra network profile for the NetworkCloud platform
         """
-        return pulumi.get(self, "kubevirt")
+        return pulumi.get(self, "network_cloud")
 
     @property
     @pulumi.getter
@@ -3170,43 +3184,43 @@ class VirtualNetworksPropertiesResponseInfraVnetProfile(dict):
 
 
 @pulumi.output_type
-class VirtualNetworksPropertiesResponseKubevirt(dict):
+class VirtualNetworksPropertiesResponseNetworkCloud(dict):
     """
-    Infra network profile for KubeVirt platform
+    Infra network profile for the NetworkCloud platform
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vnetName":
-            suggest = "vnet_name"
+        if key == "networkId":
+            suggest = "network_id"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseKubevirt. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworksPropertiesResponseNetworkCloud. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        VirtualNetworksPropertiesResponseKubevirt.__key_warning(key)
+        VirtualNetworksPropertiesResponseNetworkCloud.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        VirtualNetworksPropertiesResponseKubevirt.__key_warning(key)
+        VirtualNetworksPropertiesResponseNetworkCloud.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 vnet_name: Optional[str] = None):
+                 network_id: Optional[str] = None):
         """
-        Infra network profile for KubeVirt platform
-        :param str vnet_name: Name of the network in KubeVirt
+        Infra network profile for the NetworkCloud platform
+        :param str network_id: The ARM ID of Network Cloud Network Resource to Associate with this VirtualNetwork
         """
-        if vnet_name is not None:
-            pulumi.set(__self__, "vnet_name", vnet_name)
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
 
     @property
-    @pulumi.getter(name="vnetName")
-    def vnet_name(self) -> Optional[str]:
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[str]:
         """
-        Name of the network in KubeVirt
+        The ARM ID of Network Cloud Network Resource to Associate with this VirtualNetwork
         """
-        return pulumi.get(self, "vnet_name")
+        return pulumi.get(self, "network_id")
 
 
 @pulumi.output_type

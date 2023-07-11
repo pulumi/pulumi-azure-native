@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// Channel info.
-    /// API Version: 2021-10-15-preview.
+    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2021-10-15-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Channel")]
     public partial class Channel : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The type of the event channel which represents the  direction flow of events.
+        /// The type of the event channel which represents the direction flow of events.
         /// </summary>
         [Output("channelType")]
         public Output<string?> ChannelType { get; private set; } = null!;
@@ -40,12 +40,6 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-        /// </summary>
-        [Output("partnerDestinationInfo")]
-        public Output<Outputs.WebhookPartnerDestinationInfoResponse?> PartnerDestinationInfo { get; private set; } = null!;
 
         /// <summary>
         /// This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
@@ -104,6 +98,7 @@ namespace Pulumi.AzureNative.EventGrid
                 {
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Channel"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:Channel"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:Channel"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -134,7 +129,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Input<string>? ChannelName { get; set; }
 
         /// <summary>
-        /// The type of the event channel which represents the  direction flow of events.
+        /// The type of the event channel which represents the direction flow of events.
         /// </summary>
         [Input("channelType")]
         public InputUnion<string, Pulumi.AzureNative.EventGrid.ChannelType>? ChannelType { get; set; }
@@ -151,12 +146,6 @@ namespace Pulumi.AzureNative.EventGrid
         /// </summary>
         [Input("messageForActivation")]
         public Input<string>? MessageForActivation { get; set; }
-
-        /// <summary>
-        /// This property should be populated when channelType is PartnerDestination and represents information about the partner destination resource corresponding to the channel.
-        /// </summary>
-        [Input("partnerDestinationInfo")]
-        public Input<Inputs.WebhookPartnerDestinationInfoArgs>? PartnerDestinationInfo { get; set; }
 
         /// <summary>
         /// Name of the partner namespace.

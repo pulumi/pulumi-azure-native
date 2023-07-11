@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
     /// <summary>
     /// A custom domain
     /// </summary>
-    [Obsolete(@"azure-native:signalrservice/v20230201:SignalRCustomDomain is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRCustomDomain to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:signalrservice/v20230201:SignalRCustomDomain")]
     public partial class SignalRCustomDomain : global::Pulumi.CustomResource
     {
@@ -80,6 +79,8 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice:SignalRCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

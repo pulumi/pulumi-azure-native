@@ -50,7 +50,7 @@ def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Seque
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsResourceReferenceByTarResourcesResult:
     """
     Returns the DNS records specified by the referencing targetResourceIds.
-    API Version: 2018-05-01.
+    Azure REST API version: 2023-07-01-preview.
 
 
     :param Sequence[pulumi.InputType['SubResource']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.
@@ -69,7 +69,7 @@ def get_dns_resource_reference_by_tar_resources_output(target_resources: Optiona
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsResourceReferenceByTarResourcesResult]:
     """
     Returns the DNS records specified by the referencing targetResourceIds.
-    API Version: 2018-05-01.
+    Azure REST API version: 2023-07-01-preview.
 
 
     :param Sequence[pulumi.InputType['SubResource']] target_resources: A list of references to azure resources for which referencing dns records need to be queried.

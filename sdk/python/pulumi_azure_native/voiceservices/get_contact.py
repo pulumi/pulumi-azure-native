@@ -171,7 +171,7 @@ def get_contact(communications_gateway_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactResult:
     """
     Get a Contact
-    API Version: 2022-12-01-preview.
+    Azure REST API version: 2022-12-01-preview.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment
@@ -206,7 +206,7 @@ def get_contact_output(communications_gateway_name: Optional[pulumi.Input[str]] 
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
     """
     Get a Contact
-    API Version: 2022-12-01-preview.
+    Azure REST API version: 2022-12-01-preview.
 
 
     :param str communications_gateway_name: Unique identifier for this deployment

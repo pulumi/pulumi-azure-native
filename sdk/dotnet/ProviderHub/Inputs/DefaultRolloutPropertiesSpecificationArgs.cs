@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         [Input("canary")]
         public Input<Inputs.DefaultRolloutSpecificationCanaryArgs>? Canary { get; set; }
 
+        [Input("expeditedRollout")]
+        public Input<Inputs.DefaultRolloutSpecificationExpeditedRolloutArgs>? ExpeditedRollout { get; set; }
+
         [Input("highTraffic")]
         public Input<Inputs.DefaultRolloutSpecificationHighTrafficArgs>? HighTraffic { get; set; }
 

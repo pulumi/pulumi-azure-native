@@ -17,8 +17,6 @@ __all__ = [
     'get_action_output',
 ]
 
-warnings.warn("""azure-native:securityinsights/v20230201:Action is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Action to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetActionResult:
     """
@@ -133,7 +131,6 @@ def get_action(action_id: Optional[str] = None,
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_action is deprecated: azure-native:securityinsights/v20230201:Action is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Action to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['actionId'] = action_id
     __args__['resourceGroupName'] = resource_group_name
@@ -167,5 +164,4 @@ def get_action_output(action_id: Optional[pulumi.Input[str]] = None,
     :param str rule_id: Alert rule ID
     :param str workspace_name: The name of the workspace.
     """
-    pulumi.log.warn("""get_action is deprecated: azure-native:securityinsights/v20230201:Action is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Action to guarantee forwards compatibility.""")
     ...

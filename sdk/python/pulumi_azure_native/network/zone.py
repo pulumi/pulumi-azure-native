@@ -26,7 +26,7 @@ class ZoneArgs:
                  zone_type: Optional[pulumi.Input['ZoneType']] = None):
         """
         The set of arguments for constructing a Zone resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
@@ -54,7 +54,7 @@ class ZoneArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -150,14 +150,14 @@ class Zone(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a DNS zone.
-        API Version: 2018-05-01.
+        Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2018-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] registration_virtual_networks: A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubResourceArgs']]]] resolution_virtual_networks: A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] zone_name: The name of the DNS zone (without a terminating dot).
         :param pulumi.Input['ZoneType'] zone_type: The type of this DNS zone (Public or Private).
@@ -170,7 +170,7 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a DNS zone.
-        API Version: 2018-05-01.
+        Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2018-05-01
 
         :param str resource_name: The name of the resource.
         :param ZoneArgs args: The arguments to use to populate this resource's properties.
@@ -220,8 +220,10 @@ class Zone(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["name_servers"] = None
             __props__.__dict__["number_of_record_sets"] = None
+            __props__.__dict__["signing_keys"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150504preview:Zone"), pulumi.Alias(type_="azure-native:network/v20160401:Zone"), pulumi.Alias(type_="azure-native:network/v20170901:Zone"), pulumi.Alias(type_="azure-native:network/v20171001:Zone"), pulumi.Alias(type_="azure-native:network/v20180301preview:Zone"), pulumi.Alias(type_="azure-native:network/v20180501:Zone")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20150504preview:Zone"), pulumi.Alias(type_="azure-native:network/v20160401:Zone"), pulumi.Alias(type_="azure-native:network/v20170901:Zone"), pulumi.Alias(type_="azure-native:network/v20171001:Zone"), pulumi.Alias(type_="azure-native:network/v20180301preview:Zone"), pulumi.Alias(type_="azure-native:network/v20180501:Zone"), pulumi.Alias(type_="azure-native:network/v20230701preview:Zone")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Zone, __self__).__init__(
             'azure-native:network:Zone',
@@ -254,6 +256,8 @@ class Zone(pulumi.CustomResource):
         __props__.__dict__["number_of_record_sets"] = None
         __props__.__dict__["registration_virtual_networks"] = None
         __props__.__dict__["resolution_virtual_networks"] = None
+        __props__.__dict__["signing_keys"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["zone_type"] = None
@@ -330,6 +334,22 @@ class Zone(pulumi.CustomResource):
         A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
         """
         return pulumi.get(self, "resolution_virtual_networks")
+
+    @property
+    @pulumi.getter(name="signingKeys")
+    def signing_keys(self) -> pulumi.Output[Sequence['outputs.SigningKeyResponse']]:
+        """
+        The list of signing keys.
+        """
+        return pulumi.get(self, "signing_keys")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

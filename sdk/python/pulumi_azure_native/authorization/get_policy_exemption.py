@@ -22,7 +22,10 @@ class GetPolicyExemptionResult:
     """
     The policy exemption.
     """
-    def __init__(__self__, description=None, display_name=None, exemption_category=None, expires_on=None, id=None, metadata=None, name=None, policy_assignment_id=None, policy_definition_reference_ids=None, system_data=None, type=None):
+    def __init__(__self__, assignment_scope_validation=None, description=None, display_name=None, exemption_category=None, expires_on=None, id=None, metadata=None, name=None, policy_assignment_id=None, policy_definition_reference_ids=None, resource_selectors=None, system_data=None, type=None):
+        if assignment_scope_validation and not isinstance(assignment_scope_validation, str):
+            raise TypeError("Expected argument 'assignment_scope_validation' to be a str")
+        pulumi.set(__self__, "assignment_scope_validation", assignment_scope_validation)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -50,12 +53,23 @@ class GetPolicyExemptionResult:
         if policy_definition_reference_ids and not isinstance(policy_definition_reference_ids, list):
             raise TypeError("Expected argument 'policy_definition_reference_ids' to be a list")
         pulumi.set(__self__, "policy_definition_reference_ids", policy_definition_reference_ids)
+        if resource_selectors and not isinstance(resource_selectors, list):
+            raise TypeError("Expected argument 'resource_selectors' to be a list")
+        pulumi.set(__self__, "resource_selectors", resource_selectors)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="assignmentScopeValidation")
+    def assignment_scope_validation(self) -> Optional[str]:
+        """
+        The option whether validate the exemption is at or under the assignment scope.
+        """
+        return pulumi.get(self, "assignment_scope_validation")
 
     @property
     @pulumi.getter
@@ -130,6 +144,14 @@ class GetPolicyExemptionResult:
         return pulumi.get(self, "policy_definition_reference_ids")
 
     @property
+    @pulumi.getter(name="resourceSelectors")
+    def resource_selectors(self) -> Optional[Sequence['outputs.ResourceSelectorResponse']]:
+        """
+        The resource selector list to filter policies by resource properties.
+        """
+        return pulumi.get(self, "resource_selectors")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -152,6 +174,7 @@ class AwaitableGetPolicyExemptionResult(GetPolicyExemptionResult):
         if False:
             yield self
         return GetPolicyExemptionResult(
+            assignment_scope_validation=self.assignment_scope_validation,
             description=self.description,
             display_name=self.display_name,
             exemption_category=self.exemption_category,
@@ -161,6 +184,7 @@ class AwaitableGetPolicyExemptionResult(GetPolicyExemptionResult):
             name=self.name,
             policy_assignment_id=self.policy_assignment_id,
             policy_definition_reference_ids=self.policy_definition_reference_ids,
+            resource_selectors=self.resource_selectors,
             system_data=self.system_data,
             type=self.type)
 
@@ -170,7 +194,7 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPolicyExemptionResult:
     """
     This operation retrieves a single policy exemption, given its name and the scope it was created at.
-    API Version: 2020-07-01-preview.
+    Azure REST API version: 2022-07-01-preview.
 
 
     :param str policy_exemption_name: The name of the policy exemption to delete.
@@ -183,6 +207,7 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getPolicyExemption', __args__, opts=opts, typ=GetPolicyExemptionResult).value
 
     return AwaitableGetPolicyExemptionResult(
+        assignment_scope_validation=__ret__.assignment_scope_validation,
         description=__ret__.description,
         display_name=__ret__.display_name,
         exemption_category=__ret__.exemption_category,
@@ -192,6 +217,7 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
         name=__ret__.name,
         policy_assignment_id=__ret__.policy_assignment_id,
         policy_definition_reference_ids=__ret__.policy_definition_reference_ids,
+        resource_selectors=__ret__.resource_selectors,
         system_data=__ret__.system_data,
         type=__ret__.type)
 
@@ -202,7 +228,7 @@ def get_policy_exemption_output(policy_exemption_name: Optional[pulumi.Input[str
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyExemptionResult]:
     """
     This operation retrieves a single policy exemption, given its name and the scope it was created at.
-    API Version: 2020-07-01-preview.
+    Azure REST API version: 2022-07-01-preview.
 
 
     :param str policy_exemption_name: The name of the policy exemption to delete.

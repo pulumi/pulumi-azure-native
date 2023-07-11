@@ -17,8 +17,6 @@ __all__ = [
     'get_dpp_resource_guard_proxy_output',
 ]
 
-warnings.warn("""azure-native:dataprotection/v20230101:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:DppResourceGuardProxy to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetDppResourceGuardProxyResult:
     """
@@ -107,7 +105,6 @@ def get_dpp_resource_guard_proxy(resource_group_name: Optional[str] = None,
     :param str resource_guard_proxy_name: name of the resource guard proxy
     :param str vault_name: The name of the backup vault.
     """
-    pulumi.log.warn("""get_dpp_resource_guard_proxy is deprecated: azure-native:dataprotection/v20230101:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:DppResourceGuardProxy to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceGuardProxyName'] = resource_guard_proxy_name
@@ -136,5 +133,4 @@ def get_dpp_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Inp
     :param str resource_guard_proxy_name: name of the resource guard proxy
     :param str vault_name: The name of the backup vault.
     """
-    pulumi.log.warn("""get_dpp_resource_guard_proxy is deprecated: azure-native:dataprotection/v20230101:DppResourceGuardProxy is being removed in the next major version of this provider. Upgrade to at least azure-native:dataprotection/v20230401preview:DppResourceGuardProxy to guarantee forwards compatibility.""")
     ...

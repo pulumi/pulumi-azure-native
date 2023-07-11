@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class MonitoringSettingPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Target application insight instrumentation key
+        /// Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings
         /// </summary>
         [Input("appInsightsInstrumentationKey")]
         public Input<string>? AppInsightsInstrumentationKey { get; set; }
+
+        /// <summary>
+        /// Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]
+        /// </summary>
+        [Input("appInsightsSamplingRate")]
+        public Input<double>? AppInsightsSamplingRate { get; set; }
 
         /// <summary>
         /// Error when apply Monitoring Setting changes.
@@ -28,7 +34,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
         public Input<Inputs.ErrorArgs>? Error { get; set; }
 
         /// <summary>
-        /// Indicates whether enable the trace functionality
+        /// Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not
         /// </summary>
         [Input("traceEnabled")]
         public Input<bool>? TraceEnabled { get; set; }

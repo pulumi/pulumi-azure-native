@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public static class GetLabelingJob
     {
         /// <summary>
-        /// Gets a labeling job by id.
-        /// API Version: 2020-09-01-preview.
+        /// Azure Resource Manager resource envelope.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Task<GetLabelingJobResult> InvokeAsync(GetLabelingJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLabelingJobResult>("azure-native:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a labeling job by id.
-        /// API Version: 2020-09-01-preview.
+        /// Azure Resource Manager resource envelope.
+        /// Azure REST API version: 2023-04-01-preview.
         /// </summary>
         public static Output<GetLabelingJobResult> Invoke(GetLabelingJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelingJobResult>("azure-native:machinelearningservices:getLabelingJob", args ?? new GetLabelingJobInvokeArgs(), options.WithDefaults());
@@ -30,25 +30,25 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetLabelingJobArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name and identifier for the LabelingJob.
+        /// </summary>
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
+
+        /// <summary>
         /// Boolean value to indicate whether to include JobInstructions in response.
         /// </summary>
         [Input("includeJobInstructions")]
         public bool? IncludeJobInstructions { get; set; }
 
         /// <summary>
-        /// Boolean value to indicate whether to include LabelCategories in response.
+        /// Boolean value to indicate Whether to include LabelCategories in response.
         /// </summary>
         [Input("includeLabelCategories")]
         public bool? IncludeLabelCategories { get; set; }
 
         /// <summary>
-        /// Name and identifier for LabelingJob.
-        /// </summary>
-        [Input("labelingJobId", required: true)]
-        public string LabelingJobId { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,25 +68,25 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetLabelingJobInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// The name and identifier for the LabelingJob.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        /// <summary>
         /// Boolean value to indicate whether to include JobInstructions in response.
         /// </summary>
         [Input("includeJobInstructions")]
         public Input<bool>? IncludeJobInstructions { get; set; }
 
         /// <summary>
-        /// Boolean value to indicate whether to include LabelCategories in response.
+        /// Boolean value to indicate Whether to include LabelCategories in response.
         /// </summary>
         [Input("includeLabelCategories")]
         public Input<bool>? IncludeLabelCategories { get; set; }
 
         /// <summary>
-        /// Name and identifier for LabelingJob.
-        /// </summary>
-        [Input("labelingJobId", required: true)]
-        public Input<string> LabelingJobId { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -108,23 +108,23 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetLabelingJobResult
     {
         /// <summary>
-        /// The resource URL of the entity (not URL encoded).
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the resource entity.
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.LabelingJobResponse LabelingJobProperties;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Definition of a labeling job.
-        /// </summary>
-        public readonly Outputs.LabelingJobPropertiesResponse Properties;
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// The resource provider and type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -132,17 +132,17 @@ namespace Pulumi.AzureNative.MachineLearningServices
         private GetLabelingJobResult(
             string id,
 
-            string name,
+            Outputs.LabelingJobResponse labelingJobProperties,
 
-            Outputs.LabelingJobPropertiesResponse properties,
+            string name,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
+            LabelingJobProperties = labelingJobProperties;
             Name = name;
-            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

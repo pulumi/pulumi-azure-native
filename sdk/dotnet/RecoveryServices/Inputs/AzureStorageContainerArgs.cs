@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
     public sealed class AzureStorageContainerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether storage account lock is to be acquired for this container or not.
+        /// </summary>
+        [Input("acquireStorageAccountLock")]
+        public InputUnion<string, Pulumi.AzureNative.RecoveryServices.AcquireStorageAccountLock>? AcquireStorageAccountLock { get; set; }
+
+        /// <summary>
         /// Type of backup management for the container.
         /// </summary>
         [Input("backupManagementType")]
@@ -42,6 +48,12 @@ namespace Pulumi.AzureNative.RecoveryServices.Inputs
         /// </summary>
         [Input("healthStatus")]
         public Input<string>? HealthStatus { get; set; }
+
+        /// <summary>
+        /// Type of the protectable object associated with this container
+        /// </summary>
+        [Input("protectableObjectType")]
+        public Input<string>? ProtectableObjectType { get; set; }
 
         /// <summary>
         /// Number of items backed up in this container.

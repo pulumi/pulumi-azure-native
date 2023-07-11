@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
     public sealed class KeySetUserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Azure Active Directory user name (email name).
+        /// The user name that will be used for access.
         /// </summary>
         [Input("azureUserName", required: true)]
         public Input<string> AzureUserName { get; set; } = null!;
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.NetworkCloud.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The SSH public key for this user.
+        /// The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         /// </summary>
         [Input("sshPublicKey", required: true)]
         public Input<Inputs.SshPublicKeyArgs> SshPublicKey { get; set; } = null!;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Event Grid Partner Destination.
- * API Version: 2021-10-15-preview.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-10-15-preview
  */
 export class PartnerDestination extends pulumi.CustomResource {
     /**
@@ -74,7 +74,7 @@ export class PartnerDestination extends pulumi.CustomResource {
     /**
      * Provisioning state of the partner destination.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
      * The system metadata relating to Partner Destination resource.
      */
@@ -110,10 +110,10 @@ export class PartnerDestination extends pulumi.CustomResource {
             resourceInputs["messageForActivation"] = args ? args.messageForActivation : undefined;
             resourceInputs["partnerDestinationName"] = args ? args.partnerDestinationName : undefined;
             resourceInputs["partnerRegistrationImmutableId"] = args ? args.partnerRegistrationImmutableId : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -131,7 +131,7 @@ export class PartnerDestination extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerDestination" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid/v20211015preview:PartnerDestination" }, { type: "azure-native:eventgrid/v20230601preview:PartnerDestination" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerDestination.__pulumiType, name, resourceInputs, opts);
     }
@@ -174,10 +174,6 @@ export interface PartnerDestinationArgs {
      * The immutable Id of the corresponding partner registration.
      */
     partnerRegistrationImmutableId?: pulumi.Input<string>;
-    /**
-     * Provisioning state of the partner destination.
-     */
-    provisioningState?: pulumi.Input<string | enums.eventgrid.PartnerDestinationProvisioningState>;
     /**
      * The name of the resource group within the user's subscription.
      */

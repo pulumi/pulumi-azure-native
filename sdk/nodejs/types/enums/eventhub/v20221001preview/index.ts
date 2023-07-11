@@ -21,7 +21,7 @@ export type ApplicationGroupPolicyType = (typeof ApplicationGroupPolicyType)[key
 
 export const CleanupPolicyRetentionDescription = {
     Delete: "Delete",
-    Compaction: "Compaction",
+    Compact: "Compact",
 } as const;
 
 /**

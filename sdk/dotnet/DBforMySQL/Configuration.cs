@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforMySQL
 {
     /// <summary>
     /// Represents a Configuration.
-    /// API Version: 2017-12-01.
+    /// Azure REST API version: 2022-01-01. Prior API version in Azure Native 1.x: 2017-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("allowedValues")]
         public Output<string> AllowedValues { get; private set; } = null!;
+
+        /// <summary>
+        /// Current value of the configuration.
+        /// </summary>
+        [Output("currentValue")]
+        public Output<string?> CurrentValue { get; private set; } = null!;
 
         /// <summary>
         /// Data type of the configuration.
@@ -41,6 +47,30 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The link used to get the document from community or Azure site.
+        /// </summary>
+        [Output("documentationLink")]
+        public Output<string> DocumentationLink { get; private set; } = null!;
+
+        /// <summary>
+        /// If is the configuration pending restart or not.
+        /// </summary>
+        [Output("isConfigPendingRestart")]
+        public Output<string> IsConfigPendingRestart { get; private set; } = null!;
+
+        /// <summary>
+        /// If is the configuration dynamic.
+        /// </summary>
+        [Output("isDynamicConfig")]
+        public Output<string> IsDynamicConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// If is the configuration read only.
+        /// </summary>
+        [Output("isReadOnly")]
+        public Output<string> IsReadOnly { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -51,6 +81,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
+
+        /// <summary>
+        /// The system metadata relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -89,8 +125,12 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201:Configuration"},
-                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20171201preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20200701privatepreview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20210501preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20211201preview:Configuration"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220101:Configuration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,6 +161,12 @@ namespace Pulumi.AzureNative.DBforMySQL
         public Input<string>? ConfigurationName { get; set; }
 
         /// <summary>
+        /// Current value of the configuration.
+        /// </summary>
+        [Input("currentValue")]
+        public Input<string>? CurrentValue { get; set; }
+
+        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -136,7 +182,7 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// Source of the configuration.
         /// </summary>
         [Input("source")]
-        public Input<string>? Source { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforMySQL.ConfigurationSource>? Source { get; set; }
 
         /// <summary>
         /// Value of the configuration.

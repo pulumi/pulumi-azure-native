@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20201101preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20210501preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20211101:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20211101preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20220201preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20220501preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20220801preview:ManagedInstancePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20200202preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20200801preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20201101preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20210201preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20210501preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20210801preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20211101:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20211101preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20220201preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20220501preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20220801preview:ManagedInstancePrivateEndpointConnection" }, { type: "azure-native:sql/v20221101preview:ManagedInstancePrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedInstancePrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

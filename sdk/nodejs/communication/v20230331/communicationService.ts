@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * A class representing a CommunicationService resource.
- *
- * @deprecated azure-native:communication/v20230331:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.
  */
 export class CommunicationService extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class CommunicationService extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CommunicationService {
-        pulumi.log.warn("CommunicationService is deprecated: azure-native:communication/v20230331:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.")
         return new CommunicationService(name, undefined as any, { ...opts, id: id });
     }
 
@@ -96,9 +93,7 @@ export class CommunicationService extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:communication/v20230331:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility. */
     constructor(name: string, args: CommunicationServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("CommunicationService is deprecated: azure-native:communication/v20230331:CommunicationService is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:CommunicationService to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -137,7 +132,7 @@ export class CommunicationService extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:communication:CommunicationService" }, { type: "azure-native:communication/v20200820:CommunicationService" }, { type: "azure-native:communication/v20200820preview:CommunicationService" }, { type: "azure-native:communication/v20211001preview:CommunicationService" }, { type: "azure-native:communication/v20220701preview:CommunicationService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:communication:CommunicationService" }, { type: "azure-native:communication/v20200820:CommunicationService" }, { type: "azure-native:communication/v20200820preview:CommunicationService" }, { type: "azure-native:communication/v20211001preview:CommunicationService" }, { type: "azure-native:communication/v20220701preview:CommunicationService" }, { type: "azure-native:communication/v20230301preview:CommunicationService" }, { type: "azure-native:communication/v20230401preview:CommunicationService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CommunicationService.__pulumiType, name, resourceInputs, opts);
     }

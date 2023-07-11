@@ -96,8 +96,8 @@ def list_static_site_secrets(name: Optional[str] = None,
                              resource_group_name: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListStaticSiteSecretsResult:
     """
-    Lists the secrets for an existing static site.
-    API Version: 2020-12-01.
+    Description for Lists the secrets for an existing static site.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the static site.
@@ -122,8 +122,8 @@ def list_static_site_secrets_output(name: Optional[pulumi.Input[str]] = None,
                                     resource_group_name: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListStaticSiteSecretsResult]:
     """
-    Lists the secrets for an existing static site.
-    API Version: 2020-12-01.
+    Description for Lists the secrets for an existing static site.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: Name of the static site.

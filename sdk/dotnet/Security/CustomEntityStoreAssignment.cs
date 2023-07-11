@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Security
 {
     /// <summary>
     /// Custom entity store assignment
-    /// API Version: 2021-07-01-preview.
+    /// Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2021-07-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:security:CustomEntityStoreAssignment")]
     public partial class CustomEntityStoreAssignment : global::Pulumi.CustomResource

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a VpnServerConfiguration.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVpnServerConfiguration(args: GetVpnServerConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnServerConfigurationResult> {
 
@@ -39,6 +39,10 @@ export interface GetVpnServerConfigurationResult {
      * The set of aad vpn authentication parameters.
      */
     readonly aadAuthenticationParameters?: outputs.network.AadAuthenticationParametersResponse;
+    /**
+     * List of all VpnServerConfigurationPolicyGroups.
+     */
+    readonly configurationPolicyGroups?: outputs.network.VpnServerConfigurationPolicyGroupResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -114,7 +118,7 @@ export interface GetVpnServerConfigurationResult {
 }
 /**
  * Retrieves the details of a VpnServerConfiguration.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVpnServerConfigurationOutput(args: GetVpnServerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnServerConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getVpnServerConfiguration(a, opts))

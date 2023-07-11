@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * API Version: 2021-03-25-preview.
+ * Azure REST API version: 2021-03-25-preview. Prior API version in Azure Native 1.x: 2021-03-25-preview
  */
 export class PrivateLinkServicesForM365ComplianceCenter extends pulumi.CustomResource {
     /**
@@ -25,7 +25,7 @@ export class PrivateLinkServicesForM365ComplianceCenter extends pulumi.CustomRes
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:m365securityandcompliance:privateLinkServicesForM365ComplianceCenter';
+    public static readonly __pulumiType = 'azure-native:m365securityandcompliance:PrivateLinkServicesForM365ComplianceCenter';
 
     /**
      * Returns true if the given object is an instance of PrivateLinkServicesForM365ComplianceCenter.  This is designed to work even
@@ -115,7 +115,7 @@ export class PrivateLinkServicesForM365ComplianceCenter extends pulumi.CustomRes
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365ComplianceCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:m365securityandcompliance:privateLinkServicesForM365ComplianceCenter" }, { type: "azure-native:m365securityandcompliance/v20210325preview:PrivateLinkServicesForM365ComplianceCenter" }, { type: "azure-native:m365securityandcompliance/v20210325preview:privateLinkServicesForM365ComplianceCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicesForM365ComplianceCenter.__pulumiType, name, resourceInputs, opts);
     }

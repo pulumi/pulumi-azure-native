@@ -22,7 +22,7 @@ class GetApplicationGroupResult:
     """
     Represents a ApplicationGroup definition.
     """
-    def __init__(__self__, application_group_type=None, cloud_pc_resource=None, description=None, etag=None, friendly_name=None, host_pool_arm_path=None, id=None, identity=None, kind=None, location=None, managed_by=None, migration_request=None, name=None, object_id=None, plan=None, sku=None, tags=None, type=None, workspace_arm_path=None):
+    def __init__(__self__, application_group_type=None, cloud_pc_resource=None, description=None, etag=None, friendly_name=None, host_pool_arm_path=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, object_id=None, plan=None, sku=None, system_data=None, tags=None, type=None, workspace_arm_path=None):
         if application_group_type and not isinstance(application_group_type, str):
             raise TypeError("Expected argument 'application_group_type' to be a str")
         pulumi.set(__self__, "application_group_type", application_group_type)
@@ -56,9 +56,6 @@ class GetApplicationGroupResult:
         if managed_by and not isinstance(managed_by, str):
             raise TypeError("Expected argument 'managed_by' to be a str")
         pulumi.set(__self__, "managed_by", managed_by)
-        if migration_request and not isinstance(migration_request, dict):
-            raise TypeError("Expected argument 'migration_request' to be a dict")
-        pulumi.set(__self__, "migration_request", migration_request)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -71,6 +68,9 @@ class GetApplicationGroupResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -167,14 +167,6 @@ class GetApplicationGroupResult:
         return pulumi.get(self, "managed_by")
 
     @property
-    @pulumi.getter(name="migrationRequest")
-    def migration_request(self) -> Optional['outputs.MigrationRequestPropertiesResponse']:
-        """
-        The registration info of HostPool.
-        """
-        return pulumi.get(self, "migration_request")
-
-    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -199,6 +191,14 @@ class GetApplicationGroupResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.ResourceModelWithAllowedPropertySetResponseSku']:
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -242,11 +242,11 @@ class AwaitableGetApplicationGroupResult(GetApplicationGroupResult):
             kind=self.kind,
             location=self.location,
             managed_by=self.managed_by,
-            migration_request=self.migration_request,
             name=self.name,
             object_id=self.object_id,
             plan=self.plan,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             workspace_arm_path=self.workspace_arm_path)
@@ -257,7 +257,7 @@ def get_application_group(application_group_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGroupResult:
     """
     Get an application group.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2022-09-09.
 
 
     :param str application_group_name: The name of the application group
@@ -281,11 +281,11 @@ def get_application_group(application_group_name: Optional[str] = None,
         kind=__ret__.kind,
         location=__ret__.location,
         managed_by=__ret__.managed_by,
-        migration_request=__ret__.migration_request,
         name=__ret__.name,
         object_id=__ret__.object_id,
         plan=__ret__.plan,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         workspace_arm_path=__ret__.workspace_arm_path)
@@ -297,7 +297,7 @@ def get_application_group_output(application_group_name: Optional[pulumi.Input[s
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGroupResult]:
     """
     Get an application group.
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2022-09-09.
 
 
     :param str application_group_name: The name of the application group

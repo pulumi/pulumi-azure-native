@@ -16,28 +16,39 @@ __all__ = ['DnsForwardingRulesetArgs', 'DnsForwardingRuleset']
 @pulumi.input_type
 class DnsForwardingRulesetArgs:
     def __init__(__self__, *,
+                 dns_resolver_outbound_endpoints: pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]],
                  resource_group_name: pulumi.Input[str],
                  dns_forwarding_ruleset_name: Optional[pulumi.Input[str]] = None,
-                 dns_resolver_outbound_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DnsForwardingRuleset resource.
+        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] dns_resolver_outbound_endpoints: The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
-        :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] dns_resolver_outbound_endpoints: The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
+        pulumi.set(__self__, "dns_resolver_outbound_endpoints", dns_resolver_outbound_endpoints)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dns_forwarding_ruleset_name is not None:
             pulumi.set(__self__, "dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
-        if dns_resolver_outbound_endpoints is not None:
-            pulumi.set(__self__, "dns_resolver_outbound_endpoints", dns_resolver_outbound_endpoints)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="dnsResolverOutboundEndpoints")
+    def dns_resolver_outbound_endpoints(self) -> pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]:
+        """
+        The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
+        """
+        return pulumi.get(self, "dns_resolver_outbound_endpoints")
+
+    @dns_resolver_outbound_endpoints.setter
+    def dns_resolver_outbound_endpoints(self, value: pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]):
+        pulumi.set(self, "dns_resolver_outbound_endpoints", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -62,18 +73,6 @@ class DnsForwardingRulesetArgs:
     @dns_forwarding_ruleset_name.setter
     def dns_forwarding_ruleset_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dns_forwarding_ruleset_name", value)
-
-    @property
-    @pulumi.getter(name="dnsResolverOutboundEndpoints")
-    def dns_resolver_outbound_endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]:
-        """
-        The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
-        """
-        return pulumi.get(self, "dns_resolver_outbound_endpoints")
-
-    @dns_resolver_outbound_endpoints.setter
-    def dns_resolver_outbound_endpoints(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]]]):
-        pulumi.set(self, "dns_resolver_outbound_endpoints", value)
 
     @property
     @pulumi.getter
@@ -113,7 +112,7 @@ class DnsForwardingRuleset(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a DNS forwarding ruleset.
-        API Version: 2020-04-01-preview.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +130,7 @@ class DnsForwardingRuleset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a DNS forwarding ruleset.
-        API Version: 2020-04-01-preview.
+        Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param DnsForwardingRulesetArgs args: The arguments to use to populate this resource's properties.
@@ -163,6 +162,8 @@ class DnsForwardingRuleset(pulumi.CustomResource):
             __props__ = DnsForwardingRulesetArgs.__new__(DnsForwardingRulesetArgs)
 
             __props__.__dict__["dns_forwarding_ruleset_name"] = dns_forwarding_ruleset_name
+            if dns_resolver_outbound_endpoints is None and not opts.urn:
+                raise TypeError("Missing required property 'dns_resolver_outbound_endpoints'")
             __props__.__dict__["dns_resolver_outbound_endpoints"] = dns_resolver_outbound_endpoints
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -212,7 +213,7 @@ class DnsForwardingRuleset(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dnsResolverOutboundEndpoints")
-    def dns_resolver_outbound_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.SubResourceResponse']]]:
+    def dns_resolver_outbound_endpoints(self) -> pulumi.Output[Sequence['outputs.SubResourceResponse']]:
         """
         The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
         """

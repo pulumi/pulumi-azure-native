@@ -2,13 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview. Prior API version in Azure Native 1.x: 2020-11-20
  */
 export class OperationByProviderRegistration extends pulumi.CustomResource {
     /**
@@ -37,21 +34,10 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
         return obj['__pulumiType'] === OperationByProviderRegistration.__pulumiType;
     }
 
-    public /*out*/ readonly actionType!: pulumi.Output<string | undefined>;
-    /**
-     * Display information of the operation.
-     */
-    public /*out*/ readonly display!: pulumi.Output<outputs.providerhub.OperationsDefinitionResponseDisplay>;
-    /**
-     * Indicates whether the operation applies to data-plane.
-     */
-    public /*out*/ readonly isDataAction!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly origin!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly properties!: pulumi.Output<any>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -68,28 +54,14 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contents === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'contents'");
-            }
             if ((!args || args.providerNamespace === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            resourceInputs["contents"] = args ? args.contents : undefined;
             resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
-            resourceInputs["actionType"] = undefined /*out*/;
-            resourceInputs["display"] = undefined /*out*/;
-            resourceInputs["isDataAction"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["origin"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["actionType"] = undefined /*out*/;
-            resourceInputs["display"] = undefined /*out*/;
-            resourceInputs["isDataAction"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["origin"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -103,7 +75,6 @@ export class OperationByProviderRegistration extends pulumi.CustomResource {
  * The set of arguments for constructing a OperationByProviderRegistration resource.
  */
 export interface OperationByProviderRegistrationArgs {
-    contents: pulumi.Input<pulumi.Input<inputs.providerhub.OperationsDefinitionArgs>[]>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */

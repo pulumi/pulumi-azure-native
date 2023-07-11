@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DocumentDB
 {
     /// <summary>
     /// Representation of a managed Cassandra cluster.
-    /// API Version: 2021-03-01-preview.
+    /// Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:CassandraCluster")]
     public partial class CassandraCluster : global::Pulumi.CustomResource
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Identity for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedCassandraManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.
@@ -89,7 +89,11 @@ namespace Pulumi.AzureNative.DocumentDB
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815:CassandraCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20220815preview:CassandraCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115:CassandraCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20221115preview:CassandraCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230301preview:CassandraCluster"},
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315:CassandraCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:CassandraCluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:CassandraCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +127,7 @@ namespace Pulumi.AzureNative.DocumentDB
         /// Identity for the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedCassandraManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The location of the resource group to which the resource belongs.

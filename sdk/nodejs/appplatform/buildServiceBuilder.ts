@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * KPack Builder resource
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
  */
 export class BuildServiceBuilder extends pulumi.CustomResource {
     /**
@@ -90,7 +90,7 @@ export class BuildServiceBuilder extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220301preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220401:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220501preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220901preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20221101preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20221201:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20230101preview:BuildServiceBuilder" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20220101preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220301preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220401:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220501preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20220901preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20221101preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20221201:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20230101preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20230301preview:BuildServiceBuilder" }, { type: "azure-native:appplatform/v20230501preview:BuildServiceBuilder" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildServiceBuilder.__pulumiType, name, resourceInputs, opts);
     }

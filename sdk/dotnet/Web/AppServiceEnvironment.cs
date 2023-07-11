@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// App Service Environment ARM resource.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServiceEnvironment")]
     public partial class AppServiceEnvironment : global::Pulumi.CustomResource
@@ -23,10 +23,16 @@ namespace Pulumi.AzureNative.Web
         public Output<ImmutableArray<Outputs.NameValuePairResponse>> ClusterSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Full view of the custom domain suffix configuration for ASEv3.
+        /// </summary>
+        [Output("customDnsSuffixConfiguration")]
+        public Output<Outputs.CustomDnsSuffixConfigurationResponse?> CustomDnsSuffixConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Dedicated Host Count
         /// </summary>
         [Output("dedicatedHostCount")]
-        public Output<int> DedicatedHostCount { get; private set; } = null!;
+        public Output<int?> DedicatedHostCount { get; private set; } = null!;
 
         /// <summary>
         /// DNS suffix of the App Service Environment.
@@ -95,6 +101,12 @@ namespace Pulumi.AzureNative.Web
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Full view of networking configuration for an ASE.
+        /// </summary>
+        [Output("networkingConfiguration")]
+        public Output<Outputs.AseV3NetworkingConfigurationResponse?> NetworkingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the App Service Environment.
         /// </summary>
         [Output("provisioningState")]
@@ -126,7 +138,19 @@ namespace Pulumi.AzureNative.Web
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// User added list of IP Ranges allowed on ASE db
+        /// Whether an upgrade is available for this App Service Environment.
+        /// </summary>
+        [Output("upgradeAvailability")]
+        public Output<string> UpgradeAvailability { get; private set; } = null!;
+
+        /// <summary>
+        /// Upgrade Preference
+        /// </summary>
+        [Output("upgradePreference")]
+        public Output<string?> UpgradePreference { get; private set; } = null!;
+
+        /// <summary>
+        /// User added ip ranges to whitelist on ASE db
         /// </summary>
         [Output("userWhitelistedIpRanges")]
         public Output<ImmutableArray<string>> UserWhitelistedIpRanges { get; private set; } = null!;
@@ -136,6 +160,12 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         [Output("virtualNetwork")]
         public Output<Outputs.VirtualNetworkProfileResponse> VirtualNetwork { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether or not this App Service Environment is zone-redundant.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -212,6 +242,18 @@ namespace Pulumi.AzureNative.Web
         }
 
         /// <summary>
+        /// Full view of the custom domain suffix configuration for ASEv3.
+        /// </summary>
+        [Input("customDnsSuffixConfiguration")]
+        public Input<Inputs.CustomDnsSuffixConfigurationArgs>? CustomDnsSuffixConfiguration { get; set; }
+
+        /// <summary>
+        /// Dedicated Host Count
+        /// </summary>
+        [Input("dedicatedHostCount")]
+        public Input<int>? DedicatedHostCount { get; set; }
+
+        /// <summary>
         /// DNS suffix of the App Service Environment.
         /// </summary>
         [Input("dnsSuffix")]
@@ -260,6 +302,12 @@ namespace Pulumi.AzureNative.Web
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Full view of networking configuration for an ASE.
+        /// </summary>
+        [Input("networkingConfiguration")]
+        public Input<Inputs.AseV3NetworkingConfigurationArgs>? NetworkingConfiguration { get; set; }
+
+        /// <summary>
         /// Name of the resource group to which the resource belongs.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -277,11 +325,17 @@ namespace Pulumi.AzureNative.Web
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Upgrade Preference
+        /// </summary>
+        [Input("upgradePreference")]
+        public InputUnion<string, Pulumi.AzureNative.Web.UpgradePreference>? UpgradePreference { get; set; }
+
         [Input("userWhitelistedIpRanges")]
         private InputList<string>? _userWhitelistedIpRanges;
 
         /// <summary>
-        /// User added list of IP Ranges allowed on ASE db
+        /// User added ip ranges to whitelist on ASE db
         /// </summary>
         public InputList<string> UserWhitelistedIpRanges
         {
@@ -295,8 +349,15 @@ namespace Pulumi.AzureNative.Web
         [Input("virtualNetwork", required: true)]
         public Input<Inputs.VirtualNetworkProfileArgs> VirtualNetwork { get; set; } = null!;
 
+        /// <summary>
+        /// Whether or not this App Service Environment is zone-redundant.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
+
         public AppServiceEnvironmentArgs()
         {
+            UpgradePreference = "None";
         }
         public static new AppServiceEnvironmentArgs Empty => new AppServiceEnvironmentArgs();
     }

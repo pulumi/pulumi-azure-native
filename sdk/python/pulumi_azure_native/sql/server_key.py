@@ -26,7 +26,7 @@ class ServerKeyArgs:
         :param pulumi.Input[Union[str, 'ServerKeyType']] server_key_type: The server key type like 'ServiceManaged', 'AzureKeyVault'.
         :param pulumi.Input[str] server_name: The name of the server.
         :param pulumi.Input[str] key_name: The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
-        :param pulumi.Input[str] uri: The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
+        :param pulumi.Input[str] uri: The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_key_type", server_key_type)
@@ -88,7 +88,7 @@ class ServerKeyArgs:
     @pulumi.getter
     def uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
+        The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
         """
         return pulumi.get(self, "uri")
 
@@ -110,7 +110,7 @@ class ServerKey(pulumi.CustomResource):
                  __props__=None):
         """
         A server key.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,7 +118,7 @@ class ServerKey(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union[str, 'ServerKeyType']] server_key_type: The server key type like 'ServiceManaged', 'AzureKeyVault'.
         :param pulumi.Input[str] server_name: The name of the server.
-        :param pulumi.Input[str] uri: The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
+        :param pulumi.Input[str] uri: The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
         """
         ...
     @overload
@@ -128,7 +128,7 @@ class ServerKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A server key.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ServerKeyArgs args: The arguments to use to populate this resource's properties.
@@ -178,7 +178,7 @@ class ServerKey(pulumi.CustomResource):
             __props__.__dict__["subregion"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20150501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerKey")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20150501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerKey"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerKey")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerKey, __self__).__init__(
             'azure-native:sql:ServerKey',

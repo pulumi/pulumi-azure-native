@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Communication
 {
     /// <summary>
     /// A class representing an EmailService resource.
-    /// API Version: 2021-10-01-preview.
+    /// Azure REST API version: 2023-03-31. Prior API version in Azure Native 1.x: 2021-10-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:EmailService")]
     public partial class EmailService : global::Pulumi.CustomResource
@@ -85,7 +85,9 @@ namespace Pulumi.AzureNative.Communication
                 {
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20211001preview:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20220701preview:EmailService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:EmailService"},
                     new global::Pulumi.Alias { Type = "azure-native:communication/v20230331:EmailService"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:EmailService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

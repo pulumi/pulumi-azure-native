@@ -177,7 +177,7 @@ class Console(pulumi.CustomResource):
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +198,7 @@ class Console(pulumi.CustomResource):
                  args: ConsoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param ConsoleArgs args: The arguments to use to populate this resource's properties.
@@ -260,7 +260,7 @@ class Console(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machine_access_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:Console")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:Console"), pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:Console")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Console, __self__).__init__(
             'azure-native:networkcloud:Console',

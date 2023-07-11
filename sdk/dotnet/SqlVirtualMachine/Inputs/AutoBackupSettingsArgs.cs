@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         [Input("backupSystemDbs")]
         public Input<bool>? BackupSystemDbs { get; set; }
 
+        [Input("daysOfWeek")]
+        private InputList<Union<string, Pulumi.AzureNative.SqlVirtualMachine.AutoBackupDaysOfWeek>>? _daysOfWeek;
+
+        /// <summary>
+        /// Days of the week for the backups when FullBackupFrequency is set to Weekly.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.SqlVirtualMachine.AutoBackupDaysOfWeek>> DaysOfWeek
+        {
+            get => _daysOfWeek ?? (_daysOfWeek = new InputList<Union<string, Pulumi.AzureNative.SqlVirtualMachine.AutoBackupDaysOfWeek>>());
+            set => _daysOfWeek = value;
+        }
+
         /// <summary>
         /// Enable or disable autobackup on SQL virtual machine.
         /// </summary>
@@ -70,7 +82,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// Retention period of backup: 1-30 days.
+        /// Retention period of backup: 1-90 days.
         /// </summary>
         [Input("retentionPeriod")]
         public Input<int>? RetentionPeriod { get; set; }
@@ -86,6 +98,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.Inputs
         /// </summary>
         [Input("storageAccountUrl")]
         public Input<string>? StorageAccountUrl { get; set; }
+
+        /// <summary>
+        /// Storage container name where backup will be taken to.
+        /// </summary>
+        [Input("storageContainerName")]
+        public Input<string>? StorageContainerName { get; set; }
 
         public AutoBackupSettingsArgs()
         {

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Network security rule.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class SecurityRule extends pulumi.CustomResource {
     /**
@@ -81,7 +81,7 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    public readonly priority!: pulumi.Output<number>;
     /**
      * Network protocol this rule applies to.
      */
@@ -135,6 +135,9 @@ export class SecurityRule extends pulumi.CustomResource {
             if ((!args || args.networkSecurityGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
+            if ((!args || args.priority === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'priority'");
+            }
             if ((!args || args.protocol === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
@@ -186,7 +189,7 @@ export class SecurityRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150501preview:SecurityRule" }, { type: "azure-native:network/v20150615:SecurityRule" }, { type: "azure-native:network/v20160330:SecurityRule" }, { type: "azure-native:network/v20160601:SecurityRule" }, { type: "azure-native:network/v20160901:SecurityRule" }, { type: "azure-native:network/v20161201:SecurityRule" }, { type: "azure-native:network/v20170301:SecurityRule" }, { type: "azure-native:network/v20170601:SecurityRule" }, { type: "azure-native:network/v20170801:SecurityRule" }, { type: "azure-native:network/v20170901:SecurityRule" }, { type: "azure-native:network/v20171001:SecurityRule" }, { type: "azure-native:network/v20171101:SecurityRule" }, { type: "azure-native:network/v20180101:SecurityRule" }, { type: "azure-native:network/v20180201:SecurityRule" }, { type: "azure-native:network/v20180401:SecurityRule" }, { type: "azure-native:network/v20180601:SecurityRule" }, { type: "azure-native:network/v20180701:SecurityRule" }, { type: "azure-native:network/v20180801:SecurityRule" }, { type: "azure-native:network/v20181001:SecurityRule" }, { type: "azure-native:network/v20181101:SecurityRule" }, { type: "azure-native:network/v20181201:SecurityRule" }, { type: "azure-native:network/v20190201:SecurityRule" }, { type: "azure-native:network/v20190401:SecurityRule" }, { type: "azure-native:network/v20190601:SecurityRule" }, { type: "azure-native:network/v20190701:SecurityRule" }, { type: "azure-native:network/v20190801:SecurityRule" }, { type: "azure-native:network/v20190901:SecurityRule" }, { type: "azure-native:network/v20191101:SecurityRule" }, { type: "azure-native:network/v20191201:SecurityRule" }, { type: "azure-native:network/v20200301:SecurityRule" }, { type: "azure-native:network/v20200401:SecurityRule" }, { type: "azure-native:network/v20200501:SecurityRule" }, { type: "azure-native:network/v20200601:SecurityRule" }, { type: "azure-native:network/v20200701:SecurityRule" }, { type: "azure-native:network/v20200801:SecurityRule" }, { type: "azure-native:network/v20201101:SecurityRule" }, { type: "azure-native:network/v20210201:SecurityRule" }, { type: "azure-native:network/v20210301:SecurityRule" }, { type: "azure-native:network/v20210501:SecurityRule" }, { type: "azure-native:network/v20210801:SecurityRule" }, { type: "azure-native:network/v20220101:SecurityRule" }, { type: "azure-native:network/v20220501:SecurityRule" }, { type: "azure-native:network/v20220701:SecurityRule" }, { type: "azure-native:network/v20220901:SecurityRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20150501preview:SecurityRule" }, { type: "azure-native:network/v20150615:SecurityRule" }, { type: "azure-native:network/v20160330:SecurityRule" }, { type: "azure-native:network/v20160601:SecurityRule" }, { type: "azure-native:network/v20160901:SecurityRule" }, { type: "azure-native:network/v20161201:SecurityRule" }, { type: "azure-native:network/v20170301:SecurityRule" }, { type: "azure-native:network/v20170601:SecurityRule" }, { type: "azure-native:network/v20170801:SecurityRule" }, { type: "azure-native:network/v20170901:SecurityRule" }, { type: "azure-native:network/v20171001:SecurityRule" }, { type: "azure-native:network/v20171101:SecurityRule" }, { type: "azure-native:network/v20180101:SecurityRule" }, { type: "azure-native:network/v20180201:SecurityRule" }, { type: "azure-native:network/v20180401:SecurityRule" }, { type: "azure-native:network/v20180601:SecurityRule" }, { type: "azure-native:network/v20180701:SecurityRule" }, { type: "azure-native:network/v20180801:SecurityRule" }, { type: "azure-native:network/v20181001:SecurityRule" }, { type: "azure-native:network/v20181101:SecurityRule" }, { type: "azure-native:network/v20181201:SecurityRule" }, { type: "azure-native:network/v20190201:SecurityRule" }, { type: "azure-native:network/v20190401:SecurityRule" }, { type: "azure-native:network/v20190601:SecurityRule" }, { type: "azure-native:network/v20190701:SecurityRule" }, { type: "azure-native:network/v20190801:SecurityRule" }, { type: "azure-native:network/v20190901:SecurityRule" }, { type: "azure-native:network/v20191101:SecurityRule" }, { type: "azure-native:network/v20191201:SecurityRule" }, { type: "azure-native:network/v20200301:SecurityRule" }, { type: "azure-native:network/v20200401:SecurityRule" }, { type: "azure-native:network/v20200501:SecurityRule" }, { type: "azure-native:network/v20200601:SecurityRule" }, { type: "azure-native:network/v20200701:SecurityRule" }, { type: "azure-native:network/v20200801:SecurityRule" }, { type: "azure-native:network/v20201101:SecurityRule" }, { type: "azure-native:network/v20210201:SecurityRule" }, { type: "azure-native:network/v20210301:SecurityRule" }, { type: "azure-native:network/v20210501:SecurityRule" }, { type: "azure-native:network/v20210801:SecurityRule" }, { type: "azure-native:network/v20220101:SecurityRule" }, { type: "azure-native:network/v20220501:SecurityRule" }, { type: "azure-native:network/v20220701:SecurityRule" }, { type: "azure-native:network/v20220901:SecurityRule" }, { type: "azure-native:network/v20221101:SecurityRule" }, { type: "azure-native:network/v20230201:SecurityRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityRule.__pulumiType, name, resourceInputs, opts);
     }
@@ -243,7 +246,7 @@ export interface SecurityRuleArgs {
     /**
      * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    priority?: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
     /**
      * Network protocol this rule applies to.
      */

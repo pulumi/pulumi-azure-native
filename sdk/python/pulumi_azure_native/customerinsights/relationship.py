@@ -213,7 +213,7 @@ class Relationship(pulumi.CustomResource):
                  __props__=None):
         """
         The relationship resource format.
-        API Version: 2017-04-26.
+        Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +237,7 @@ class Relationship(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The relationship resource format.
-        API Version: 2017-04-26.
+        Azure REST API version: 2017-04-26. Prior API version in Azure Native 1.x: 2017-04-26
 
         :param str resource_name: The name of the resource.
         :param RelationshipArgs args: The arguments to use to populate this resource's properties.

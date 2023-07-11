@@ -247,12 +247,7 @@ class WebPubSubArgs:
         pulumi.set(self, "tls", value)
 
 
-warnings.warn("""azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class WebPubSub(pulumi.CustomResource):
-    warnings.warn("""azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -334,7 +329,6 @@ class WebPubSub(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tls: Optional[pulumi.Input[pulumi.InputType['WebPubSubTlsSettingsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""WebPubSub is deprecated: azure-native:webpubsub/v20230201:WebPubSub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSub to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -376,7 +370,7 @@ class WebPubSub(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSub")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSub"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSub")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSub, __self__).__init__(
             'azure-native:webpubsub/v20230201:WebPubSub',

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Instructions for a labeling job.
+    /// Instructions for labeling job
     /// </summary>
     [OutputType]
     public sealed class LabelingJobInstructionsResponse

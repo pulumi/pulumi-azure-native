@@ -22,6 +22,8 @@ make ensure
 make build
 ```
 
+Note: When building via make, go workspaces are ignored.
+
 ### Running a nodejs example
 
 Navigate to one of the `examples` and run Pulumi:

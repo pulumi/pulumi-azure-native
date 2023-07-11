@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for Volume Group request.
- * API Version: 2021-11-20-preview.
+ * Azure REST API version: 2021-11-20-preview. Prior API version in Azure Native 1.x: 2021-11-20-preview
  */
 export class VolumeGroup extends pulumi.CustomResource {
     /**

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-12-01-preview
  */
 export class Monitor extends pulumi.CustomResource {
     /**
@@ -25,7 +25,7 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:workloads:monitor';
+    public static readonly __pulumiType = 'azure-native:workloads:Monitor';
 
     /**
      * Returns true if the given object is an instance of Monitor.  This is designed to work even
@@ -47,7 +47,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.MonitorPropertiesResponseErrors>;
     /**
-     * Managed service identity (user assigned identities)
+     * [currently not in use] Managed service identity(user assigned identities)
      */
     public readonly identity!: pulumi.Output<outputs.workloads.UserAssignedServiceIdentityResponse | undefined>;
     /**
@@ -154,7 +154,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["zoneRedundancyPreference"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:workloads/v20211201preview:monitor" }, { type: "azure-native:workloads/v20221101preview:monitor" }, { type: "azure-native:workloads/v20230401:monitor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:workloads:monitor" }, { type: "azure-native:workloads/v20211201preview:Monitor" }, { type: "azure-native:workloads/v20211201preview:monitor" }, { type: "azure-native:workloads/v20221101preview:Monitor" }, { type: "azure-native:workloads/v20221101preview:monitor" }, { type: "azure-native:workloads/v20230401:Monitor" }, { type: "azure-native:workloads/v20230401:monitor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }
@@ -169,7 +169,7 @@ export interface MonitorArgs {
      */
     appLocation?: pulumi.Input<string>;
     /**
-     * Managed service identity (user assigned identities)
+     * [currently not in use] Managed service identity(user assigned identities)
      */
     identity?: pulumi.Input<inputs.workloads.UserAssignedServiceIdentityArgs>;
     /**

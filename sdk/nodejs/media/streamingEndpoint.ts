@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The streaming endpoint.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01
  */
 export class StreamingEndpoint extends pulumi.CustomResource {
     /**
@@ -111,6 +111,10 @@ export class StreamingEndpoint extends pulumi.CustomResource {
      */
     public readonly scaleUnits!: pulumi.Output<number>;
     /**
+     * The streaming endpoint sku.
+     */
+    public readonly sku!: pulumi.Output<outputs.media.ArmStreamingEndpointCurrentSkuResponse | undefined>;
+    /**
      * The system metadata relating to this resource.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.media.SystemDataResponse>;
@@ -157,6 +161,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             resourceInputs["maxCacheAge"] = args ? args.maxCacheAge : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
+            resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["streamingEndpointName"] = args ? args.streamingEndpointName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["created"] = undefined /*out*/;
@@ -187,6 +192,7 @@ export class StreamingEndpoint extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
             resourceInputs["scaleUnits"] = undefined /*out*/;
+            resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -258,6 +264,10 @@ export interface StreamingEndpointArgs {
      * The number of scale units. Use the Scale operation to adjust this value.
      */
     scaleUnits: pulumi.Input<number>;
+    /**
+     * The streaming endpoint sku.
+     */
+    sku?: pulumi.Input<inputs.media.ArmStreamingEndpointCurrentSkuArgs>;
     /**
      * The name of the streaming endpoint, maximum length is 24.
      */

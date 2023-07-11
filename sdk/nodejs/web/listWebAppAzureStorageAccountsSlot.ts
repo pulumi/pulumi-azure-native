@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets the Azure storage account configurations of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the Azure storage account configurations of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppAzureStorageAccountsSlot(args: ListWebAppAzureStorageAccountsSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppAzureStorageAccountsSlotResult> {
 
@@ -62,8 +62,8 @@ export interface ListWebAppAzureStorageAccountsSlotResult {
     readonly type: string;
 }
 /**
- * Gets the Azure storage account configurations of an app.
- * API Version: 2020-12-01.
+ * Description for Gets the Azure storage account configurations of an app.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppAzureStorageAccountsSlotOutput(args: ListWebAppAzureStorageAccountsSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppAzureStorageAccountsSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppAzureStorageAccountsSlot(a, opts))

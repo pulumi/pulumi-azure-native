@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.CustomProviders
     {
         /// <summary>
         /// Gets the custom resource provider manifest.
-        /// API Version: 2018-09-01-preview.
+        /// Azure REST API version: 2018-09-01-preview.
         /// </summary>
         public static Task<GetCustomResourceProviderResult> InvokeAsync(GetCustomResourceProviderArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomResourceProviderResult>("azure-native:customproviders:getCustomResourceProvider", args ?? new GetCustomResourceProviderArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the custom resource provider manifest.
-        /// API Version: 2018-09-01-preview.
+        /// Azure REST API version: 2018-09-01-preview.
         /// </summary>
         public static Output<GetCustomResourceProviderResult> Invoke(GetCustomResourceProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomResourceProviderResult>("azure-native:customproviders:getCustomResourceProvider", args ?? new GetCustomResourceProviderInvokeArgs(), options.WithDefaults());

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the current linked storage settings for an Application Insights component.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2020-03-01-preview.
  */
 export function getComponentLinkedStorageAccount(args: GetComponentLinkedStorageAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentLinkedStorageAccountResult> {
 
@@ -56,7 +56,7 @@ export interface GetComponentLinkedStorageAccountResult {
 }
 /**
  * Returns the current linked storage settings for an Application Insights component.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2020-03-01-preview.
  */
 export function getComponentLinkedStorageAccountOutput(args: GetComponentLinkedStorageAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentLinkedStorageAccountResult> {
     return pulumi.output(args).apply((a: any) => getComponentLinkedStorageAccount(a, opts))

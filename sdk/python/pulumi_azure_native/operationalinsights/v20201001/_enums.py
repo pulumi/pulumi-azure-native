@@ -5,37 +5,10 @@
 from enum import Enum
 
 __all__ = [
-    'BillingType',
-    'ClusterSkuNameEnum',
-    'IdentityType',
     'PublicNetworkAccessType',
     'WorkspaceEntityStatus',
     'WorkspaceSkuNameEnum',
 ]
-
-
-class BillingType(str, Enum):
-    """
-    The cluster's billing type.
-    """
-    CLUSTER = "Cluster"
-    WORKSPACES = "Workspaces"
-
-
-class ClusterSkuNameEnum(str, Enum):
-    """
-    The name of the SKU.
-    """
-    CAPACITY_RESERVATION = "CapacityReservation"
-
-
-class IdentityType(str, Enum):
-    """
-    Type of managed service identity.
-    """
-    SYSTEM_ASSIGNED = "SystemAssigned"
-    USER_ASSIGNED = "UserAssigned"
-    NONE = "None"
 
 
 class PublicNetworkAccessType(str, Enum):

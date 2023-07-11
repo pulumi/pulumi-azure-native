@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists the login credentials for the specified container registry.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function listRegistryCredentials(args: ListRegistryCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListRegistryCredentialsResult> {
 
@@ -26,7 +26,7 @@ export interface ListRegistryCredentialsArgs {
      */
     registryName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -46,7 +46,7 @@ export interface ListRegistryCredentialsResult {
 }
 /**
  * Lists the login credentials for the specified container registry.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function listRegistryCredentialsOutput(args: ListRegistryCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListRegistryCredentialsResult> {
     return pulumi.output(args).apply((a: any) => listRegistryCredentials(a, opts))
@@ -58,7 +58,7 @@ export interface ListRegistryCredentialsOutputArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

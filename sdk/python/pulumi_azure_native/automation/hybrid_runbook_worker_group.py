@@ -19,13 +19,15 @@ class HybridRunbookWorkerGroupArgs:
                  automation_account_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  credential: Optional[pulumi.Input['RunAsCredentialAssociationPropertyArgs']] = None,
-                 hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None):
+                 hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HybridRunbookWorkerGroup resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['RunAsCredentialAssociationPropertyArgs'] credential: Sets the credential of a worker group.
         :param pulumi.Input[str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
+        :param pulumi.Input[str] name: Gets or sets the name of the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -33,6 +35,8 @@ class HybridRunbookWorkerGroupArgs:
             pulumi.set(__self__, "credential", credential)
         if hybrid_runbook_worker_group_name is not None:
             pulumi.set(__self__, "hybrid_runbook_worker_group_name", hybrid_runbook_worker_group_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="automationAccountName")
@@ -82,6 +86,18 @@ class HybridRunbookWorkerGroupArgs:
     def hybrid_runbook_worker_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hybrid_runbook_worker_group_name", value)
 
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
 
 class HybridRunbookWorkerGroup(pulumi.CustomResource):
     @overload
@@ -91,17 +107,19 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  credential: Optional[pulumi.Input[pulumi.InputType['RunAsCredentialAssociationPropertyArgs']]] = None,
                  hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Definition of hybrid runbook worker group.
-        API Version: 2021-06-22.
+        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
         :param pulumi.Input[pulumi.InputType['RunAsCredentialAssociationPropertyArgs']] credential: Sets the credential of a worker group.
         :param pulumi.Input[str] hybrid_runbook_worker_group_name: The hybrid runbook worker group name
+        :param pulumi.Input[str] name: Gets or sets the name of the resource.
         :param pulumi.Input[str] resource_group_name: Name of an Azure Resource group.
         """
         ...
@@ -112,7 +130,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of hybrid runbook worker group.
-        API Version: 2021-06-22.
+        Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
 
         :param str resource_name: The name of the resource.
         :param HybridRunbookWorkerGroupArgs args: The arguments to use to populate this resource's properties.
@@ -132,6 +150,7 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
                  automation_account_name: Optional[pulumi.Input[str]] = None,
                  credential: Optional[pulumi.Input[pulumi.InputType['RunAsCredentialAssociationPropertyArgs']]] = None,
                  hybrid_runbook_worker_group_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -147,12 +166,11 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
             __props__.__dict__["automation_account_name"] = automation_account_name
             __props__.__dict__["credential"] = credential
             __props__.__dict__["hybrid_runbook_worker_group_name"] = hybrid_runbook_worker_group_name
+            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["group_type"] = None
-            __props__.__dict__["hybrid_runbook_workers"] = None
-            __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:automation/v20210622:HybridRunbookWorkerGroup"), pulumi.Alias(type_="azure-native:automation/v20220222:HybridRunbookWorkerGroup"), pulumi.Alias(type_="azure-native:automation/v20220808:HybridRunbookWorkerGroup")])
@@ -181,7 +199,6 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
 
         __props__.__dict__["credential"] = None
         __props__.__dict__["group_type"] = None
-        __props__.__dict__["hybrid_runbook_workers"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -204,18 +221,10 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         return pulumi.get(self, "group_type")
 
     @property
-    @pulumi.getter(name="hybridRunbookWorkers")
-    def hybrid_runbook_workers(self) -> pulumi.Output[Optional[Sequence['outputs.HybridRunbookWorkerLegacyResponse']]]:
-        """
-        Gets or sets the list of hybrid runbook workers.
-        """
-        return pulumi.get(self, "hybrid_runbook_workers")
-
-    @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
-        Gets or sets the name of the group.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 

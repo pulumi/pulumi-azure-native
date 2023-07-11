@@ -409,6 +409,70 @@ namespace Pulumi.AzureNative.Web
     }
 
     /// <summary>
+    /// Default action for scm access restriction if no rules are matched.
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultAction : IEquatable<DefaultAction>
+    {
+        private readonly string _value;
+
+        private DefaultAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DefaultAction Allow { get; } = new DefaultAction("Allow");
+        public static DefaultAction Deny { get; } = new DefaultAction("Deny");
+
+        public static bool operator ==(DefaultAction left, DefaultAction right) => left.Equals(right);
+        public static bool operator !=(DefaultAction left, DefaultAction right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultAction other && Equals(other);
+        public bool Equals(DefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+    /// </summary>
+    [EnumType]
+    public readonly struct EnterpriseGradeCdnStatus : IEquatable<EnterpriseGradeCdnStatus>
+    {
+        private readonly string _value;
+
+        private EnterpriseGradeCdnStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnterpriseGradeCdnStatus Enabled { get; } = new EnterpriseGradeCdnStatus("Enabled");
+        public static EnterpriseGradeCdnStatus Enabling { get; } = new EnterpriseGradeCdnStatus("Enabling");
+        public static EnterpriseGradeCdnStatus Disabled { get; } = new EnterpriseGradeCdnStatus("Disabled");
+        public static EnterpriseGradeCdnStatus Disabling { get; } = new EnterpriseGradeCdnStatus("Disabling");
+
+        public static bool operator ==(EnterpriseGradeCdnStatus left, EnterpriseGradeCdnStatus right) => left.Equals(right);
+        public static bool operator !=(EnterpriseGradeCdnStatus left, EnterpriseGradeCdnStatus right) => !left.Equals(right);
+
+        public static explicit operator string(EnterpriseGradeCdnStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnterpriseGradeCdnStatus other && Equals(other);
+        public bool Equals(EnterpriseGradeCdnStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The convention used to determine the url of the request made.
     /// </summary>
     [EnumType]
@@ -1117,6 +1181,51 @@ namespace Pulumi.AzureNative.Web
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UnauthenticatedClientActionV2 other && Equals(other);
         public bool Equals(UnauthenticatedClientActionV2 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Upgrade Preference
+    /// </summary>
+    [EnumType]
+    public readonly struct UpgradePreference : IEquatable<UpgradePreference>
+    {
+        private readonly string _value;
+
+        private UpgradePreference(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No preference on when this App Service Environment will be upgraded
+        /// </summary>
+        public static UpgradePreference None { get; } = new UpgradePreference("None");
+        /// <summary>
+        /// This App Service Environment will be upgraded before others in the same region that have Upgrade Preference 'Late'
+        /// </summary>
+        public static UpgradePreference Early { get; } = new UpgradePreference("Early");
+        /// <summary>
+        /// This App Service Environment will be upgraded after others in the same region that have Upgrade Preference 'Early'
+        /// </summary>
+        public static UpgradePreference Late { get; } = new UpgradePreference("Late");
+        /// <summary>
+        /// ASEv3 only. Once an upgrade is available, this App Service Environment will wait 10 days for the upgrade to be manually initiated. After 10 days the upgrade will begin automatically
+        /// </summary>
+        public static UpgradePreference Manual { get; } = new UpgradePreference("Manual");
+
+        public static bool operator ==(UpgradePreference left, UpgradePreference right) => left.Equals(right);
+        public static bool operator !=(UpgradePreference left, UpgradePreference right) => !left.Equals(right);
+
+        public static explicit operator string(UpgradePreference value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpgradePreference other && Equals(other);
+        public bool Equals(UpgradePreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

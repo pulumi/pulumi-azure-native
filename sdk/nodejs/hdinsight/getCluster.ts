@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified cluster.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2021-06-01.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -40,7 +40,7 @@ export interface GetClusterResult {
      */
     readonly etag?: string;
     /**
-     * Fully qualified resource Id for the resource.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -48,9 +48,9 @@ export interface GetClusterResult {
      */
     readonly identity?: outputs.hdinsight.ClusterIdentityResponse;
     /**
-     * The Azure Region where the resource lives
+     * The geo-location where the resource lives
      */
-    readonly location?: string;
+    readonly location: string;
     /**
      * The name of the resource
      */
@@ -60,17 +60,25 @@ export interface GetClusterResult {
      */
     readonly properties: outputs.hdinsight.ClusterGetPropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.hdinsight.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * The availability zones.
+     */
+    readonly zones?: string[];
 }
 /**
  * Gets the specified cluster.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2021-06-01.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

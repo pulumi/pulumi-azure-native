@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified private endpoint connection associated with the Cognitive Services account.
- * API Version: 2017-04-18.
+ * Azure REST API version: 2023-05-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -41,7 +41,7 @@ export interface GetPrivateEndpointConnectionArgs {
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
-     * Entity Tag
+     * Resource Etag.
      */
     readonly etag: string;
     /**
@@ -61,13 +61,17 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly properties: outputs.cognitiveservices.PrivateEndpointConnectionPropertiesResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.cognitiveservices.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets the specified private endpoint connection associated with the Cognitive Services account.
- * API Version: 2017-04-18.
+ * Azure REST API version: 2023-05-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

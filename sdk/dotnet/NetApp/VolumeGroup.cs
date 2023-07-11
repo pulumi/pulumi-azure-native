@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Volume group resource for create
-    /// API Version: 2021-10-01.
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:VolumeGroup")]
     public partial class VolumeGroup : global::Pulumi.CustomResource
@@ -39,12 +39,6 @@ namespace Pulumi.AzureNative.NetApp
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        [Output("tags")]
-        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// Resource type
@@ -89,6 +83,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:VolumeGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:VolumeGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:VolumeGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:VolumeGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,22 +126,10 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        [Input("tags")]
-        private InputMap<string>? _tags;
-
-        /// <summary>
-        /// Resource tags
-        /// </summary>
-        public InputMap<string> Tags
-        {
-            get => _tags ?? (_tags = new InputMap<string>());
-            set => _tags = value;
-        }
 
         /// <summary>
         /// The name of the volumeGroup

@@ -19,7 +19,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetTrunkedNetworkResult:
-    def __init__(__self__, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, isolation_domain_ids=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None, vlans=None):
+    def __init__(__self__, associated_resource_ids=None, cluster_id=None, detailed_status=None, detailed_status_message=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, hybrid_aks_plugin_type=None, id=None, interface_name=None, isolation_domain_ids=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None, vlans=None):
+        if associated_resource_ids and not isinstance(associated_resource_ids, list):
+            raise TypeError("Expected argument 'associated_resource_ids' to be a list")
+        pulumi.set(__self__, "associated_resource_ids", associated_resource_ids)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -73,6 +76,14 @@ class GetTrunkedNetworkResult:
         pulumi.set(__self__, "vlans", vlans)
 
     @property
+    @pulumi.getter(name="associatedResourceIds")
+    def associated_resource_ids(self) -> Sequence[str]:
+        """
+        The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        """
+        return pulumi.get(self, "associated_resource_ids")
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> str:
         """
@@ -108,7 +119,7 @@ class GetTrunkedNetworkResult:
     @pulumi.getter(name="hybridAksClustersAssociatedIds")
     def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
         """
-        The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
+        Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
         """
         return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
 
@@ -116,7 +127,7 @@ class GetTrunkedNetworkResult:
     @pulumi.getter(name="hybridAksPluginType")
     def hybrid_aks_plugin_type(self) -> Optional[str]:
         """
-        The network plugin type for Hybrid AKS.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         """
         return pulumi.get(self, "hybrid_aks_plugin_type")
 
@@ -124,7 +135,7 @@ class GetTrunkedNetworkResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -196,7 +207,7 @@ class GetTrunkedNetworkResult:
     @pulumi.getter(name="virtualMachinesAssociatedIds")
     def virtual_machines_associated_ids(self) -> Sequence[str]:
         """
-        The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
+        Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
         """
         return pulumi.get(self, "virtual_machines_associated_ids")
 
@@ -215,6 +226,7 @@ class AwaitableGetTrunkedNetworkResult(GetTrunkedNetworkResult):
         if False:
             yield self
         return GetTrunkedNetworkResult(
+            associated_resource_ids=self.associated_resource_ids,
             cluster_id=self.cluster_id,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
@@ -239,7 +251,7 @@ def get_trunked_network(resource_group_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTrunkedNetworkResult:
     """
     Get properties of the provided trunked network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -252,6 +264,7 @@ def get_trunked_network(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getTrunkedNetwork', __args__, opts=opts, typ=GetTrunkedNetworkResult).value
 
     return AwaitableGetTrunkedNetworkResult(
+        associated_resource_ids=__ret__.associated_resource_ids,
         cluster_id=__ret__.cluster_id,
         detailed_status=__ret__.detailed_status,
         detailed_status_message=__ret__.detailed_status_message,
@@ -277,7 +290,7 @@ def get_trunked_network_output(resource_group_name: Optional[pulumi.Input[str]] 
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrunkedNetworkResult]:
     """
     Get properties of the provided trunked network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

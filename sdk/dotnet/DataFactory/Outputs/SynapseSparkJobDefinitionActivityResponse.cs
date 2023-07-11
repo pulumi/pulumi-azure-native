@@ -73,6 +73,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? NumExecutors;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
@@ -92,6 +96,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Synapse spark job reference.
         /// </summary>
         public readonly Outputs.SynapseSparkJobReferenceResponse SparkJob;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// The name of the big data pool which will be used to execute the spark batch job, which will override the 'targetBigDataPool' of the spark job definition you provide.
         /// </summary>
@@ -140,6 +148,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? numExecutors,
 
+            string? onInactiveMarkAs,
+
             Outputs.ActivityPolicyResponse? policy,
 
             ImmutableArray<object> pythonCodeReference,
@@ -149,6 +159,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ImmutableDictionary<string, object>? sparkConfig,
 
             Outputs.SynapseSparkJobReferenceResponse sparkJob,
+
+            string? state,
 
             Outputs.BigDataPoolParametrizationReferenceResponse? targetBigDataPool,
 
@@ -172,11 +184,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             LinkedServiceName = linkedServiceName;
             Name = name;
             NumExecutors = numExecutors;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
             PythonCodeReference = pythonCodeReference;
             ScanFolder = scanFolder;
             SparkConfig = sparkConfig;
             SparkJob = sparkJob;
+            State = state;
             TargetBigDataPool = targetBigDataPool;
             TargetSparkConfiguration = targetSparkConfiguration;
             Type = type;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get virtual network.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
 
@@ -100,7 +100,7 @@ export interface GetVirtualNetworkResult {
 }
 /**
  * Get virtual network.
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function getVirtualNetworkOutput(args: GetVirtualNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNetworkResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNetwork(a, opts))

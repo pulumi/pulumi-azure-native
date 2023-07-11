@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.ImportExport.Outputs
         /// <summary>
         /// Overall percentage completed for the job.
         /// </summary>
-        public readonly int? PercentComplete;
+        public readonly double? PercentComplete;
         /// <summary>
         /// Specifies the provisioning state of the job.
         /// </summary>
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.ImportExport.Outputs
 
             string? logLevel,
 
-            int? percentComplete,
+            double? percentComplete,
 
             string? provisioningState,
 

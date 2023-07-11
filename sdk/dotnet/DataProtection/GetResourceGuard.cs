@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataProtection
     {
         /// <summary>
         /// 
-        /// API Version: 2021-10-01-preview.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Task<GetResourceGuardResult> InvokeAsync(GetResourceGuardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2021-10-01-preview.
+        /// Azure REST API version: 2023-01-01.
         /// </summary>
         public static Output<GetResourceGuardResult> Invoke(GetResourceGuardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGuardResult>("azure-native:dataprotection:getResourceGuard", args ?? new GetResourceGuardInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class GetResourceGuardArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.DataProtection
     public sealed class GetResourceGuardInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -79,10 +79,6 @@ namespace Pulumi.AzureNative.DataProtection
         /// Resource Id represents the complete path to the resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Input Managed Identity Details
-        /// </summary>
-        public readonly Outputs.DppIdentityDetailsResponse? Identity;
         /// <summary>
         /// Resource location.
         /// </summary>
@@ -114,8 +110,6 @@ namespace Pulumi.AzureNative.DataProtection
 
             string id,
 
-            Outputs.DppIdentityDetailsResponse? identity,
-
             string? location,
 
             string name,
@@ -130,7 +124,6 @@ namespace Pulumi.AzureNative.DataProtection
         {
             ETag = eTag;
             Id = id;
-            Identity = identity;
             Location = location;
             Name = name;
             Properties = properties;

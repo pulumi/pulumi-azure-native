@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists recent events for the specified webhook.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function listWebhookEvents(args: ListWebhookEventsArgs, opts?: pulumi.InvokeOptions): Promise<ListWebhookEventsResult> {
 
@@ -27,7 +27,7 @@ export interface ListWebhookEventsArgs {
      */
     registryName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -51,7 +51,7 @@ export interface ListWebhookEventsResult {
 }
 /**
  * Lists recent events for the specified webhook.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function listWebhookEventsOutput(args: ListWebhookEventsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebhookEventsResult> {
     return pulumi.output(args).apply((a: any) => listWebhookEvents(a, opts))
@@ -63,7 +63,7 @@ export interface ListWebhookEventsOutputArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

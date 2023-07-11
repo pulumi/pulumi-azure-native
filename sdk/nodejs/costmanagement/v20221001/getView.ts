@@ -52,7 +52,7 @@ export interface GetViewResult {
     /**
      * Date range of the current view.
      */
-    readonly dateRange: string;
+    readonly dateRange?: string;
     /**
      * User input name of the view. Required.
      */

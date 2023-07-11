@@ -123,12 +123,12 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionResult:
     """
     Get the specified private endpoint connection associated with the container registry.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2022-12-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -154,11 +154,11 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:
     """
     Get the specified private endpoint connection associated with the container registry.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2022-12-01.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

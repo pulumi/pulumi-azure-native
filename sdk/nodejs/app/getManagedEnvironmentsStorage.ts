@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get storage for a managedEnvironment.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getManagedEnvironmentsStorage(args: GetManagedEnvironmentsStorageArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedEnvironmentsStorageResult> {
 
@@ -63,7 +63,7 @@ export interface GetManagedEnvironmentsStorageResult {
 }
 /**
  * Get storage for a managedEnvironment.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getManagedEnvironmentsStorageOutput(args: GetManagedEnvironmentsStorageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedEnvironmentsStorageResult> {
     return pulumi.output(args).apply((a: any) => getManagedEnvironmentsStorage(a, opts))

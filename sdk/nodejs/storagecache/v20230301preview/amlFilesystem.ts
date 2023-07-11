@@ -24,7 +24,7 @@ export class AmlFilesystem extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:storagecache/v20230301preview:amlFilesystem';
+    public static readonly __pulumiType = 'azure-native:storagecache/v20230301preview:AmlFilesystem';
 
     /**
      * Returns true if the given object is an instance of AmlFilesystem.  This is designed to work even
@@ -180,6 +180,8 @@ export class AmlFilesystem extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20230301preview:amlFilesystem" }, { type: "azure-native:storagecache:AmlFilesystem" }, { type: "azure-native:storagecache:amlFilesystem" }, { type: "azure-native:storagecache/v20230501:AmlFilesystem" }, { type: "azure-native:storagecache/v20230501:amlFilesystem" }] };
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AmlFilesystem.__pulumiType, name, resourceInputs, opts);
     }
 }

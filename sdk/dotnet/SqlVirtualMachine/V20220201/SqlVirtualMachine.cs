@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201
     /// <summary>
     /// A SQL virtual machine.
     /// </summary>
-    [Obsolete(@"azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine")]
     public partial class SqlVirtualMachine : global::Pulumi.CustomResource
     {
@@ -173,6 +172,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20220201
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

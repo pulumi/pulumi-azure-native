@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['PrivateLinkServiceInitArgs', 'PrivateLinkService']
+__all__ = ['PrivateLinkServiceArgs', 'PrivateLinkService']
 
 @pulumi.input_type
-class PrivateLinkServiceInitArgs:
+class PrivateLinkServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  auto_approval: Optional[pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs']] = None,
@@ -271,18 +271,18 @@ class PrivateLinkService(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PrivateLinkServiceInitArgs,
+                 args: PrivateLinkServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private link service resource.
 
         :param str resource_name: The name of the resource.
-        :param PrivateLinkServiceInitArgs args: The arguments to use to populate this resource's properties.
+        :param PrivateLinkServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkServiceInitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(PrivateLinkServiceArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -311,7 +311,7 @@ class PrivateLinkService(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = PrivateLinkServiceInitArgs.__new__(PrivateLinkServiceInitArgs)
+            __props__ = PrivateLinkServiceArgs.__new__(PrivateLinkServiceArgs)
 
             __props__.__dict__["auto_approval"] = auto_approval
             __props__.__dict__["enable_proxy_protocol"] = enable_proxy_protocol
@@ -335,7 +335,7 @@ class PrivateLinkService(pulumi.CustomResource):
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190401:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190601:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190701:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190801:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190901:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20191101:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20191201:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200301:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200401:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200501:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200701:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200801:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20201101:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20210301:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20210501:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20210801:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20220101:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20220501:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20220701:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20220901:PrivateLinkService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190401:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190601:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190701:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190801:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20190901:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20191101:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20191201:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200301:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200401:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200501:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200601:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200701:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20200801:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20201101:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20210301:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20210501:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20210801:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20220101:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20220501:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20220701:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20220901:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20221101:PrivateLinkService"), pulumi.Alias(type_="azure-native:network/v20230201:PrivateLinkService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkService, __self__).__init__(
             'azure-native:network/v20210201:PrivateLinkService',
@@ -357,7 +357,7 @@ class PrivateLinkService(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = PrivateLinkServiceInitArgs.__new__(PrivateLinkServiceInitArgs)
+        __props__ = PrivateLinkServiceArgs.__new__(PrivateLinkServiceArgs)
 
         __props__.__dict__["alias"] = None
         __props__.__dict__["auto_approval"] = None

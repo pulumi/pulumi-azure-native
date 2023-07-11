@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto kusto pool.
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2021-06-01-preview.
  */
 export class KustoPool extends pulumi.CustomResource {
     /**
@@ -25,7 +25,7 @@ export class KustoPool extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:synapse:kustoPool';
+    public static readonly __pulumiType = 'azure-native:synapse:KustoPool';
 
     /**
      * Returns true if the given object is an instance of KustoPool.  This is designed to work even
@@ -43,13 +43,21 @@ export class KustoPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
     /**
-     * The engine type
+     * A boolean value that indicates if the purge operations are enabled.
      */
-    public readonly engineType!: pulumi.Output<string | undefined>;
+    public readonly enablePurge!: pulumi.Output<boolean | undefined>;
+    /**
+     * A boolean value that indicates if the streaming ingest is enabled.
+     */
+    public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * List of the Kusto Pool's language extensions.
+     */
+    public /*out*/ readonly languageExtensions!: pulumi.Output<outputs.synapse.LanguageExtensionsListResponse>;
     /**
      * The geo-location where the resource lives
      */
@@ -58,6 +66,10 @@ export class KustoPool extends pulumi.CustomResource {
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Optimized auto scale definition.
+     */
+    public readonly optimizedAutoscale!: pulumi.Output<outputs.synapse.OptimizedAutoscaleResponse | undefined>;
     /**
      * The provisioned state of the resource.
      */
@@ -93,7 +105,7 @@ export class KustoPool extends pulumi.CustomResource {
     /**
      * The workspace unique identifier.
      */
-    public readonly workspaceUid!: pulumi.Output<string | undefined>;
+    public readonly workspaceUID!: pulumi.Output<string | undefined>;
 
     /**
      * Create a KustoPool resource with the given unique name, arguments, and options.
@@ -115,16 +127,19 @@ export class KustoPool extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["engineType"] = args ? args.engineType : undefined;
+            resourceInputs["enablePurge"] = (args ? args.enablePurge : undefined) ?? false;
+            resourceInputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) ?? false;
             resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["workspaceUid"] = args ? args.workspaceUid : undefined;
+            resourceInputs["workspaceUID"] = args ? args.workspaceUID : undefined;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["languageExtensions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -134,10 +149,13 @@ export class KustoPool extends pulumi.CustomResource {
             resourceInputs["uri"] = undefined /*out*/;
         } else {
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
-            resourceInputs["engineType"] = undefined /*out*/;
+            resourceInputs["enablePurge"] = undefined /*out*/;
+            resourceInputs["enableStreamingIngest"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["languageExtensions"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["optimizedAutoscale"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -146,10 +164,10 @@ export class KustoPool extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
-            resourceInputs["workspaceUid"] = undefined /*out*/;
+            resourceInputs["workspaceUID"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:kustoPool" }, { type: "azure-native:synapse/v20210601preview:kustoPool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:synapse/v20210401preview:KustoPool" }, { type: "azure-native:synapse/v20210601preview:KustoPool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(KustoPool.__pulumiType, name, resourceInputs, opts);
     }
@@ -160,9 +178,13 @@ export class KustoPool extends pulumi.CustomResource {
  */
 export interface KustoPoolArgs {
     /**
-     * The engine type
+     * A boolean value that indicates if the purge operations are enabled.
      */
-    engineType?: pulumi.Input<string | enums.synapse.EngineType>;
+    enablePurge?: pulumi.Input<boolean>;
+    /**
+     * A boolean value that indicates if the streaming ingest is enabled.
+     */
+    enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * The name of the Kusto pool.
      */
@@ -171,6 +193,10 @@ export interface KustoPoolArgs {
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * Optimized auto scale definition.
+     */
+    optimizedAutoscale?: pulumi.Input<inputs.synapse.OptimizedAutoscaleArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -184,11 +210,11 @@ export interface KustoPoolArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
     /**
      * The workspace unique identifier.
      */
-    workspaceUid?: pulumi.Input<string>;
+    workspaceUID?: pulumi.Input<string>;
 }

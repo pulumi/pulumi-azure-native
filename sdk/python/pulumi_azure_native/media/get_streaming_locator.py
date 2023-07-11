@@ -207,7 +207,7 @@ def get_streaming_locator(account_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamingLocatorResult:
     """
     Get the details of a Streaming Locator in the Media Services account
-    API Version: 2020-05-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -245,7 +245,7 @@ def get_streaming_locator_output(account_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamingLocatorResult]:
     """
     Get the details of a Streaming Locator in the Media Services account
-    API Version: 2020-05-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

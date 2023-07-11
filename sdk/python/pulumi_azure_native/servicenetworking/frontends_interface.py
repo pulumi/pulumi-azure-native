@@ -9,8 +9,6 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._enums import *
-from ._inputs import *
 
 __all__ = ['FrontendsInterfaceArgs', 'FrontendsInterface']
 
@@ -20,34 +18,22 @@ class FrontendsInterfaceArgs:
                  resource_group_name: pulumi.Input[str],
                  traffic_controller_name: pulumi.Input[str],
                  frontend_name: Optional[pulumi.Input[str]] = None,
-                 ip_address_version: Optional[pulumi.Input['FrontendIPAddressVersion']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input['FrontendMode']] = None,
-                 public_ip_address: Optional[pulumi.Input['FrontendPropertiesIPAddressArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a FrontendsInterface resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] traffic_controller_name: traffic controller name for path
         :param pulumi.Input[str] frontend_name: Frontends
-        :param pulumi.Input['FrontendIPAddressVersion'] ip_address_version: Frontend IP Address Version (Optional).
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['FrontendMode'] mode: Frontend Mode (Optional).
-        :param pulumi.Input['FrontendPropertiesIPAddressArgs'] public_ip_address: Frontend Public IP Address (Optional).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "traffic_controller_name", traffic_controller_name)
         if frontend_name is not None:
             pulumi.set(__self__, "frontend_name", frontend_name)
-        if ip_address_version is not None:
-            pulumi.set(__self__, "ip_address_version", ip_address_version)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if mode is not None:
-            pulumi.set(__self__, "mode", mode)
-        if public_ip_address is not None:
-            pulumi.set(__self__, "public_ip_address", public_ip_address)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -88,18 +74,6 @@ class FrontendsInterfaceArgs:
         pulumi.set(self, "frontend_name", value)
 
     @property
-    @pulumi.getter(name="ipAddressVersion")
-    def ip_address_version(self) -> Optional[pulumi.Input['FrontendIPAddressVersion']]:
-        """
-        Frontend IP Address Version (Optional).
-        """
-        return pulumi.get(self, "ip_address_version")
-
-    @ip_address_version.setter
-    def ip_address_version(self, value: Optional[pulumi.Input['FrontendIPAddressVersion']]):
-        pulumi.set(self, "ip_address_version", value)
-
-    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -110,30 +84,6 @@ class FrontendsInterfaceArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input['FrontendMode']]:
-        """
-        Frontend Mode (Optional).
-        """
-        return pulumi.get(self, "mode")
-
-    @mode.setter
-    def mode(self, value: Optional[pulumi.Input['FrontendMode']]):
-        pulumi.set(self, "mode", value)
-
-    @property
-    @pulumi.getter(name="publicIPAddress")
-    def public_ip_address(self) -> Optional[pulumi.Input['FrontendPropertiesIPAddressArgs']]:
-        """
-        Frontend Public IP Address (Optional).
-        """
-        return pulumi.get(self, "public_ip_address")
-
-    @public_ip_address.setter
-    def public_ip_address(self, value: Optional[pulumi.Input['FrontendPropertiesIPAddressArgs']]):
-        pulumi.set(self, "public_ip_address", value)
 
     @property
     @pulumi.getter
@@ -154,25 +104,19 @@ class FrontendsInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frontend_name: Optional[pulumi.Input[str]] = None,
-                 ip_address_version: Optional[pulumi.Input['FrontendIPAddressVersion']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input['FrontendMode']] = None,
-                 public_ip_address: Optional[pulumi.Input[pulumi.InputType['FrontendPropertiesIPAddressArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Frontend Subresource of Traffic Controller.
-        API Version: 2022-10-01-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] frontend_name: Frontends
-        :param pulumi.Input['FrontendIPAddressVersion'] ip_address_version: Frontend IP Address Version (Optional).
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input['FrontendMode'] mode: Frontend Mode (Optional).
-        :param pulumi.Input[pulumi.InputType['FrontendPropertiesIPAddressArgs']] public_ip_address: Frontend Public IP Address (Optional).
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] traffic_controller_name: traffic controller name for path
@@ -185,7 +129,7 @@ class FrontendsInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Frontend Subresource of Traffic Controller.
-        API Version: 2022-10-01-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-10-01-preview
 
         :param str resource_name: The name of the resource.
         :param FrontendsInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -203,10 +147,7 @@ class FrontendsInterface(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  frontend_name: Optional[pulumi.Input[str]] = None,
-                 ip_address_version: Optional[pulumi.Input['FrontendIPAddressVersion']] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 mode: Optional[pulumi.Input['FrontendMode']] = None,
-                 public_ip_address: Optional[pulumi.Input[pulumi.InputType['FrontendPropertiesIPAddressArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  traffic_controller_name: Optional[pulumi.Input[str]] = None,
@@ -220,10 +161,7 @@ class FrontendsInterface(pulumi.CustomResource):
             __props__ = FrontendsInterfaceArgs.__new__(FrontendsInterfaceArgs)
 
             __props__.__dict__["frontend_name"] = frontend_name
-            __props__.__dict__["ip_address_version"] = ip_address_version
             __props__.__dict__["location"] = location
-            __props__.__dict__["mode"] = mode
-            __props__.__dict__["public_ip_address"] = public_ip_address
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -231,11 +169,12 @@ class FrontendsInterface(pulumi.CustomResource):
             if traffic_controller_name is None and not opts.urn:
                 raise TypeError("Missing required property 'traffic_controller_name'")
             __props__.__dict__["traffic_controller_name"] = traffic_controller_name
+            __props__.__dict__["fqdn"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking/v20221001preview:FrontendsInterface")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicenetworking/v20221001preview:FrontendsInterface"), pulumi.Alias(type_="azure-native:servicenetworking/v20230501preview:FrontendsInterface")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FrontendsInterface, __self__).__init__(
             'azure-native:servicenetworking:FrontendsInterface',
@@ -259,24 +198,22 @@ class FrontendsInterface(pulumi.CustomResource):
 
         __props__ = FrontendsInterfaceArgs.__new__(FrontendsInterfaceArgs)
 
-        __props__.__dict__["ip_address_version"] = None
+        __props__.__dict__["fqdn"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["mode"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["public_ip_address"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return FrontendsInterface(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="ipAddressVersion")
-    def ip_address_version(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def fqdn(self) -> pulumi.Output[str]:
         """
-        Frontend IP Address Version (Optional).
+        The Fully Qualified Domain Name of the DNS record associated to a Traffic Controller frontend.
         """
-        return pulumi.get(self, "ip_address_version")
+        return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter
@@ -285,14 +222,6 @@ class FrontendsInterface(pulumi.CustomResource):
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter
-    def mode(self) -> pulumi.Output[Optional[str]]:
-        """
-        Frontend Mode (Optional).
-        """
-        return pulumi.get(self, "mode")
 
     @property
     @pulumi.getter
@@ -306,17 +235,9 @@ class FrontendsInterface(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        test doc
+        Provisioning State of Traffic Controller Frontend Resource
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="publicIPAddress")
-    def public_ip_address(self) -> pulumi.Output[Optional['outputs.FrontendPropertiesIPAddressResponse']]:
-        """
-        Frontend Public IP Address (Optional).
-        """
-        return pulumi.get(self, "public_ip_address")
 
     @property
     @pulumi.getter(name="systemData")

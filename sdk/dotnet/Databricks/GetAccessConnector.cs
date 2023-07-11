@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Databricks
     {
         /// <summary>
         /// Gets an azure databricks accessConnector.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetAccessConnectorResult> InvokeAsync(GetAccessConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessConnectorResult>("azure-native:databricks:getAccessConnector", args ?? new GetAccessConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an azure databricks accessConnector.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetAccessConnectorResult> Invoke(GetAccessConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessConnectorResult>("azure-native:databricks:getAccessConnector", args ?? new GetAccessConnectorInvokeArgs(), options.WithDefaults());
@@ -76,9 +76,9 @@ namespace Pulumi.AzureNative.Databricks
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Identity for the resource.
+        /// Managed service identity (system assigned and/or user assigned identities)
         /// </summary>
-        public readonly Outputs.IdentityDataResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Databricks
         private GetAccessConnectorResult(
             string id,
 
-            Outputs.IdentityDataResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string location,
 

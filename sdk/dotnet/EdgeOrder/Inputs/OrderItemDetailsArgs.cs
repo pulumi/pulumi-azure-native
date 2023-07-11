@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.EdgeOrder.Inputs
         }
 
         /// <summary>
+        /// Defines the mode of the Order item.
+        /// </summary>
+        [Input("orderItemMode")]
+        public InputUnion<string, Pulumi.AzureNative.EdgeOrder.OrderMode>? OrderItemMode { get; set; }
+
+        /// <summary>
         /// Order item type.
         /// </summary>
         [Input("orderItemType", required: true)]

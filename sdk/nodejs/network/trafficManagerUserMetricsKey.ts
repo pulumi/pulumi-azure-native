@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing Traffic Manager User Metrics.
- * API Version: 2018-08-01.
+ * Azure REST API version: 2022-04-01. Prior API version in Azure Native 1.x: 2018-08-01
  */
 export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
     /**
@@ -68,7 +68,7 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20180801:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180401:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20180801:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20220401:TrafficManagerUserMetricsKey" }, { type: "azure-native:network/v20220401preview:TrafficManagerUserMetricsKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TrafficManagerUserMetricsKey.__pulumiType, name, resourceInputs, opts);
     }

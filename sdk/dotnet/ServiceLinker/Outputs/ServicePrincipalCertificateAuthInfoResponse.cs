@@ -30,9 +30,17 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
         /// </summary>
         public readonly string ClientId;
         /// <summary>
+        /// Indicates whether to clean up previous operation when Linker is updating or deleting
+        /// </summary>
+        public readonly string? DeleteOrUpdateBehavior;
+        /// <summary>
         /// Principal Id for servicePrincipal auth.
         /// </summary>
         public readonly string PrincipalId;
+        /// <summary>
+        /// Optional, this value specifies the Azure roles to be assigned. Automatically 
+        /// </summary>
+        public readonly ImmutableArray<string> Roles;
 
         [OutputConstructor]
         private ServicePrincipalCertificateAuthInfoResponse(
@@ -42,12 +50,18 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
 
             string clientId,
 
-            string principalId)
+            string? deleteOrUpdateBehavior,
+
+            string principalId,
+
+            ImmutableArray<string> roles)
         {
             AuthType = authType;
             Certificate = certificate;
             ClientId = clientId;
+            DeleteOrUpdateBehavior = deleteOrUpdateBehavior;
             PrincipalId = principalId;
+            Roles = roles;
         }
     }
 }

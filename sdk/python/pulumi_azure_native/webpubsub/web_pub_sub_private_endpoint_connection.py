@@ -26,9 +26,9 @@ class WebPubSubPrivateEndpointConnectionArgs:
         The set of arguments for constructing a WebPubSubPrivateEndpointConnection resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name: The name of the resource.
-        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Private endpoint associated with the private endpoint connection
+        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Private endpoint
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state of the private endpoint connection
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
@@ -67,7 +67,7 @@ class WebPubSubPrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
         """
-        Private endpoint associated with the private endpoint connection
+        Private endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -91,7 +91,7 @@ class WebPubSubPrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
         """
-        Connection state
+        Connection state of the private endpoint connection
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -113,13 +113,13 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A private endpoint connection to an azure resource
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: Private endpoint associated with the private endpoint connection
+        :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: Private endpoint
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
-        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: Connection state
+        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: Connection state of the private endpoint connection
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] resource_name_: The name of the resource.
         """
@@ -131,7 +131,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection to an azure resource
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param WebPubSubPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -171,11 +171,12 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["group_ids"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20210601preview:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20210901preview:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20211001:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20220801preview:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20230201:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:webpubsub/v20230601preview:WebPubSubPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebPubSubPrivateEndpointConnection, __self__).__init__(
             'azure-native:webpubsub:WebPubSubPrivateEndpointConnection',
@@ -199,6 +200,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = WebPubSubPrivateEndpointConnectionArgs.__new__(WebPubSubPrivateEndpointConnectionArgs)
 
+        __props__.__dict__["group_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
@@ -206,6 +208,14 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return WebPubSubPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Group IDs
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter
@@ -219,7 +229,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
         """
-        Private endpoint associated with the private endpoint connection
+        Private endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -227,7 +237,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceConnectionStateResponse']]:
         """
-        Connection state
+        Connection state of the private endpoint connection
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -235,7 +245,7 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning state of the private endpoint connection
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
 

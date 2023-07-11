@@ -22,7 +22,7 @@ class GetApplicationDefinitionResult:
     """
     Information about managed application definition.
     """
-    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, id=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, storage_account_id=None, tags=None, type=None):
+    def __init__(__self__, artifacts=None, authorizations=None, create_ui_definition=None, deployment_policy=None, description=None, display_name=None, id=None, is_enabled=None, location=None, lock_level=None, locking_policy=None, main_template=None, managed_by=None, management_policy=None, name=None, notification_policy=None, package_file_uri=None, policies=None, sku=None, storage_account_id=None, system_data=None, tags=None, type=None):
         if artifacts and not isinstance(artifacts, list):
             raise TypeError("Expected argument 'artifacts' to be a list")
         pulumi.set(__self__, "artifacts", artifacts)
@@ -83,6 +83,9 @@ class GetApplicationDefinitionResult:
         if storage_account_id and not isinstance(storage_account_id, str):
             raise TypeError("Expected argument 'storage_account_id' to be a str")
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -251,6 +254,14 @@ class GetApplicationDefinitionResult:
         return pulumi.get(self, "storage_account_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -293,6 +304,7 @@ class AwaitableGetApplicationDefinitionResult(GetApplicationDefinitionResult):
             policies=self.policies,
             sku=self.sku,
             storage_account_id=self.storage_account_id,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -302,7 +314,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationDefinitionResult:
     """
     Gets the managed application definition.
-    API Version: 2019-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str application_definition_name: The name of the managed application definition.
@@ -335,6 +347,7 @@ def get_application_definition(application_definition_name: Optional[str] = None
         policies=__ret__.policies,
         sku=__ret__.sku,
         storage_account_id=__ret__.storage_account_id,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -345,7 +358,7 @@ def get_application_definition_output(application_definition_name: Optional[pulu
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationDefinitionResult]:
     """
     Gets the managed application definition.
-    API Version: 2019-07-01.
+    Azure REST API version: 2021-07-01.
 
 
     :param str application_definition_name: The name of the managed application definition.

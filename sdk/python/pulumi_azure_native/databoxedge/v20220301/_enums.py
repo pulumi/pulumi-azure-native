@@ -15,9 +15,6 @@ __all__ = [
     'EncryptionAlgorithm',
     'MonitoringStatus',
     'MsiIdentityType',
-    'PlatformType',
-    'RoleStatus',
-    'RoleTypes',
     'SSLStatus',
     'ShareAccessProtocol',
     'ShareAccessType',
@@ -26,7 +23,6 @@ __all__ = [
     'SkuName',
     'SkuTier',
     'StorageAccountStatus',
-    'TriggerEventType',
     'UserType',
 ]
 
@@ -115,35 +111,6 @@ class MsiIdentityType(str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-
-
-class PlatformType(str, Enum):
-    """
-    Host OS supported by the Kubernetes role.
-    """
-    WINDOWS = "Windows"
-    LINUX = "Linux"
-
-
-class RoleStatus(str, Enum):
-    """
-    Role status.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-class RoleTypes(str, Enum):
-    """
-    Role type.
-    """
-    IOT = "IOT"
-    ASA = "ASA"
-    FUNCTIONS = "Functions"
-    COGNITIVE = "Cognitive"
-    MEC = "MEC"
-    CLOUD_EDGE_MANAGEMENT = "CloudEdgeManagement"
-    KUBERNETES = "Kubernetes"
 
 
 class SSLStatus(str, Enum):
@@ -242,14 +209,6 @@ class StorageAccountStatus(str, Enum):
     UNKNOWN = "Unknown"
     UPDATING = "Updating"
     NEEDS_ATTENTION = "NeedsAttention"
-
-
-class TriggerEventType(str, Enum):
-    """
-    Trigger Kind.
-    """
-    FILE_EVENT = "FileEvent"
-    PERIODIC_TIMER_EVENT = "PeriodicTimerEvent"
 
 
 class UserType(str, Enum):

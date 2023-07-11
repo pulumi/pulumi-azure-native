@@ -15,12 +15,18 @@ __all__ = [
     'ClusterSkuArgs',
     'ConnectionStateArgs',
     'DestinationArgs',
+    'EncryptionArgs',
+    'IdentityArgs',
+    'KeyVaultPropertiesArgs',
     'NWRuleSetIpRulesArgs',
     'NWRuleSetVirtualNetworkRulesArgs',
+    'PrivateEndpointConnectionArgs',
     'PrivateEndpointArgs',
+    'RetentionDescriptionArgs',
     'SkuArgs',
     'SubnetArgs',
     'ThrottlingPolicyArgs',
+    'UserAssignedIdentityPropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -211,12 +217,18 @@ class DestinationArgs:
     def __init__(__self__, *,
                  archive_name_format: Optional[pulumi.Input[str]] = None,
                  blob_container: Optional[pulumi.Input[str]] = None,
+                 data_lake_account_name: Optional[pulumi.Input[str]] = None,
+                 data_lake_folder_path: Optional[pulumi.Input[str]] = None,
+                 data_lake_subscription_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  storage_account_resource_id: Optional[pulumi.Input[str]] = None):
         """
         Capture storage details for capture description
         :param pulumi.Input[str] archive_name_format: Blob naming convention for archive, e.g. {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
         :param pulumi.Input[str] blob_container: Blob container Name
+        :param pulumi.Input[str] data_lake_account_name: The Azure Data Lake Store name for the captured events
+        :param pulumi.Input[str] data_lake_folder_path: The destination folder path for the captured events
+        :param pulumi.Input[str] data_lake_subscription_id: Subscription Id of Azure Data Lake Store
         :param pulumi.Input[str] name: Name for capture destination
         :param pulumi.Input[str] storage_account_resource_id: Resource id of the storage account to be used to create the blobs
         """
@@ -224,6 +236,12 @@ class DestinationArgs:
             pulumi.set(__self__, "archive_name_format", archive_name_format)
         if blob_container is not None:
             pulumi.set(__self__, "blob_container", blob_container)
+        if data_lake_account_name is not None:
+            pulumi.set(__self__, "data_lake_account_name", data_lake_account_name)
+        if data_lake_folder_path is not None:
+            pulumi.set(__self__, "data_lake_folder_path", data_lake_folder_path)
+        if data_lake_subscription_id is not None:
+            pulumi.set(__self__, "data_lake_subscription_id", data_lake_subscription_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if storage_account_resource_id is not None:
@@ -254,6 +272,42 @@ class DestinationArgs:
         pulumi.set(self, "blob_container", value)
 
     @property
+    @pulumi.getter(name="dataLakeAccountName")
+    def data_lake_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure Data Lake Store name for the captured events
+        """
+        return pulumi.get(self, "data_lake_account_name")
+
+    @data_lake_account_name.setter
+    def data_lake_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_lake_account_name", value)
+
+    @property
+    @pulumi.getter(name="dataLakeFolderPath")
+    def data_lake_folder_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination folder path for the captured events
+        """
+        return pulumi.get(self, "data_lake_folder_path")
+
+    @data_lake_folder_path.setter
+    def data_lake_folder_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_lake_folder_path", value)
+
+    @property
+    @pulumi.getter(name="dataLakeSubscriptionId")
+    def data_lake_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Subscription Id of Azure Data Lake Store
+        """
+        return pulumi.get(self, "data_lake_subscription_id")
+
+    @data_lake_subscription_id.setter
+    def data_lake_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data_lake_subscription_id", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -279,17 +333,181 @@ class DestinationArgs:
 
 
 @pulumi.input_type
+class EncryptionArgs:
+    def __init__(__self__, *,
+                 key_source: Optional[pulumi.Input['KeySource']] = None,
+                 key_vault_properties: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]] = None,
+                 require_infrastructure_encryption: Optional[pulumi.Input[bool]] = None):
+        """
+        Properties to configure Encryption
+        :param pulumi.Input['KeySource'] key_source: Enumerates the possible value of keySource for Encryption
+        :param pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]] key_vault_properties: Properties of KeyVault
+        :param pulumi.Input[bool] require_infrastructure_encryption: Enable Infrastructure Encryption (Double Encryption)
+        """
+        if key_source is None:
+            key_source = 'Microsoft.KeyVault'
+        if key_source is not None:
+            pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if require_infrastructure_encryption is not None:
+            pulumi.set(__self__, "require_infrastructure_encryption", require_infrastructure_encryption)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> Optional[pulumi.Input['KeySource']]:
+        """
+        Enumerates the possible value of keySource for Encryption
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: Optional[pulumi.Input['KeySource']]):
+        pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]:
+        """
+        Properties of KeyVault
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KeyVaultPropertiesArgs']]]]):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter(name="requireInfrastructureEncryption")
+    def require_infrastructure_encryption(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable Infrastructure Encryption (Double Encryption)
+        """
+        return pulumi.get(self, "require_infrastructure_encryption")
+
+    @require_infrastructure_encryption.setter
+    def require_infrastructure_encryption(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_infrastructure_encryption", value)
+
+
+@pulumi.input_type
+class IdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Properties to configure Identity for Bring your Own Keys
+        :param pulumi.Input['ManagedServiceIdentityType'] type: Type of managed service identity.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: Properties for User Assigned Identities
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Properties for User Assigned Identities
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']] = None,
+                 key_name: Optional[pulumi.Input[str]] = None,
+                 key_vault_uri: Optional[pulumi.Input[str]] = None,
+                 key_version: Optional[pulumi.Input[str]] = None):
+        """
+        Properties to configure keyVault Properties
+        :param pulumi.Input[str] key_name: Name of the Key from KeyVault
+        :param pulumi.Input[str] key_vault_uri: Uri of KeyVault
+        :param pulumi.Input[str] key_version: Key Version
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if key_version is not None:
+            pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]:
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['UserAssignedIdentityPropertiesArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Key from KeyVault
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Uri of KeyVault
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key Version
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
 class NWRuleSetIpRulesArgs:
     def __init__(__self__, *,
                  action: Optional[pulumi.Input[Union[str, 'NetworkRuleIPAction']]] = None,
                  ip_mask: Optional[pulumi.Input[str]] = None):
         """
-        Description of NetWorkRuleSet - IpRules resource.
+        The response from the List namespace operation.
         :param pulumi.Input[Union[str, 'NetworkRuleIPAction']] action: The IP Filter Action
         :param pulumi.Input[str] ip_mask: IP Mask
         """
-        if action is None:
-            action = 'Allow'
         if action is not None:
             pulumi.set(__self__, "action", action)
         if ip_mask is not None:
@@ -326,8 +544,8 @@ class NWRuleSetVirtualNetworkRulesArgs:
                  ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[bool]] = None,
                  subnet: Optional[pulumi.Input['SubnetArgs']] = None):
         """
-        Description of VirtualNetworkRules - NetworkRules resource.
-        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing VNet Service Endpoint
+        The response from the List namespace operation.
+        :param pulumi.Input[bool] ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing Vnet Service Endpoint
         :param pulumi.Input['SubnetArgs'] subnet: Subnet properties
         """
         if ignore_missing_vnet_service_endpoint is not None:
@@ -339,7 +557,7 @@ class NWRuleSetVirtualNetworkRulesArgs:
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
     def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
         """
-        Value that indicates whether to ignore missing VNet Service Endpoint
+        Value that indicates whether to ignore missing Vnet Service Endpoint
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
@@ -358,6 +576,62 @@ class NWRuleSetVirtualNetworkRulesArgs:
     @subnet.setter
     def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
         pulumi.set(self, "subnet", value)
+
+
+@pulumi.input_type
+class PrivateEndpointConnectionArgs:
+    def __init__(__self__, *,
+                 private_endpoint: Optional[pulumi.Input['PrivateEndpointArgs']] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['ConnectionStateArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[str, 'EndPointProvisioningState']]] = None):
+        """
+        Properties of the PrivateEndpointConnection.
+        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
+        :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
+        :param pulumi.Input[Union[str, 'EndPointProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
+        """
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
+        """
+        The Private Endpoint resource for this Connection.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @private_endpoint.setter
+    def private_endpoint(self, value: Optional[pulumi.Input['PrivateEndpointArgs']]):
+        pulumi.set(self, "private_endpoint", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ConnectionStateArgs']]:
+        """
+        Details about the state of the connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[str, 'EndPointProvisioningState']]]:
+        """
+        Provisioning state of the Private Endpoint Connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @provisioning_state.setter
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[str, 'EndPointProvisioningState']]]):
+        pulumi.set(self, "provisioning_state", value)
 
 
 @pulumi.input_type
@@ -385,6 +659,62 @@ class PrivateEndpointArgs:
 
 
 @pulumi.input_type
+class RetentionDescriptionArgs:
+    def __init__(__self__, *,
+                 cleanup_policy: Optional[pulumi.Input[Union[str, 'CleanupPolicyRetentionDescription']]] = None,
+                 retention_time_in_hours: Optional[pulumi.Input[float]] = None,
+                 tombstone_retention_time_in_hours: Optional[pulumi.Input[int]] = None):
+        """
+        Properties to configure retention settings for the  eventhub
+        :param pulumi.Input[Union[str, 'CleanupPolicyRetentionDescription']] cleanup_policy: Enumerates the possible values for cleanup policy
+        :param pulumi.Input[float] retention_time_in_hours: Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        :param pulumi.Input[int] tombstone_retention_time_in_hours: Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        """
+        if cleanup_policy is not None:
+            pulumi.set(__self__, "cleanup_policy", cleanup_policy)
+        if retention_time_in_hours is not None:
+            pulumi.set(__self__, "retention_time_in_hours", retention_time_in_hours)
+        if tombstone_retention_time_in_hours is not None:
+            pulumi.set(__self__, "tombstone_retention_time_in_hours", tombstone_retention_time_in_hours)
+
+    @property
+    @pulumi.getter(name="cleanupPolicy")
+    def cleanup_policy(self) -> Optional[pulumi.Input[Union[str, 'CleanupPolicyRetentionDescription']]]:
+        """
+        Enumerates the possible values for cleanup policy
+        """
+        return pulumi.get(self, "cleanup_policy")
+
+    @cleanup_policy.setter
+    def cleanup_policy(self, value: Optional[pulumi.Input[Union[str, 'CleanupPolicyRetentionDescription']]]):
+        pulumi.set(self, "cleanup_policy", value)
+
+    @property
+    @pulumi.getter(name="retentionTimeInHours")
+    def retention_time_in_hours(self) -> Optional[pulumi.Input[float]]:
+        """
+        Number of hours to retain the events for this Event Hub. This value is only used when cleanupPolicy is Delete. If cleanupPolicy is Compact the returned value of this property is Long.MaxValue 
+        """
+        return pulumi.get(self, "retention_time_in_hours")
+
+    @retention_time_in_hours.setter
+    def retention_time_in_hours(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "retention_time_in_hours", value)
+
+    @property
+    @pulumi.getter(name="tombstoneRetentionTimeInHours")
+    def tombstone_retention_time_in_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of hours to retain the tombstone markers of a compacted Event Hub. This value is only used when cleanupPolicy is Compact. Consumer must complete reading the tombstone marker within this specified amount of time if consumer begins from starting offset to ensure they get a valid snapshot for the specific key described by the tombstone marker within the compacted Event Hub
+        """
+        return pulumi.get(self, "tombstone_retention_time_in_hours")
+
+    @tombstone_retention_time_in_hours.setter
+    def tombstone_retention_time_in_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tombstone_retention_time_in_hours", value)
+
+
+@pulumi.input_type
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[str, 'SkuName']],
@@ -393,7 +723,7 @@ class SkuArgs:
         """
         SKU parameters supplied to the create namespace operation
         :param pulumi.Input[Union[str, 'SkuName']] name: Name of this SKU.
-        :param pulumi.Input[int] capacity: The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        :param pulumi.Input[int] capacity: The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         :param pulumi.Input[Union[str, 'SkuTier']] tier: The billing tier of this particular SKU.
         """
         pulumi.set(__self__, "name", name)
@@ -418,7 +748,7 @@ class SkuArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The Event Hubs throughput units, value should be 0 to 20 throughput units.
+        The Event Hubs throughput units for Basic or Standard tiers, where value should be 0 to 20 throughput units. The Event Hubs premium units for Premium tier, where value should be 0 to 10 premium units.
         """
         return pulumi.get(self, "capacity")
 
@@ -442,23 +772,24 @@ class SkuArgs:
 @pulumi.input_type
 class SubnetArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[str]):
+                 id: Optional[pulumi.Input[str]] = None):
         """
         Properties supplied for Subnet
         :param pulumi.Input[str] id: Resource ID of Virtual Network Subnet
         """
-        pulumi.set(__self__, "id", id)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
-    def id(self) -> pulumi.Input[str]:
+    def id(self) -> Optional[pulumi.Input[str]]:
         """
         Resource ID of Virtual Network Subnet
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[str]):
+    def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
 
 
@@ -530,5 +861,28 @@ class ThrottlingPolicyArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class UserAssignedIdentityPropertiesArgs:
+    def __init__(__self__, *,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] user_assigned_identity: ARM ID of user Identity selected for encryption
+        """
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM ID of user Identity selected for encryption
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
 
 

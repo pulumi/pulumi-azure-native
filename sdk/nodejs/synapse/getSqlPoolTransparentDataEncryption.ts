@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a SQL pool's transparent data encryption configuration.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getSqlPoolTransparentDataEncryption(args: GetSqlPoolTransparentDataEncryptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolTransparentDataEncryptionResult> {
 
@@ -33,7 +33,7 @@ export interface GetSqlPoolTransparentDataEncryptionArgs {
      */
     transparentDataEncryptionName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -65,7 +65,7 @@ export interface GetSqlPoolTransparentDataEncryptionResult {
 }
 /**
  * Get a SQL pool's transparent data encryption configuration.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getSqlPoolTransparentDataEncryptionOutput(args: GetSqlPoolTransparentDataEncryptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlPoolTransparentDataEncryptionResult> {
     return pulumi.output(args).apply((a: any) => getSqlPoolTransparentDataEncryption(a, opts))
@@ -85,7 +85,7 @@ export interface GetSqlPoolTransparentDataEncryptionOutputArgs {
      */
     transparentDataEncryptionName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

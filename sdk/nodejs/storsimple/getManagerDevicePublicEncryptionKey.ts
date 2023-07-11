@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the public encryption key of the device.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getManagerDevicePublicEncryptionKey(args: GetManagerDevicePublicEncryptionKeyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagerDevicePublicEncryptionKeyResult> {
 
@@ -44,7 +44,7 @@ export interface GetManagerDevicePublicEncryptionKeyResult {
 }
 /**
  * Returns the public encryption key of the device.
- * API Version: 2017-06-01.
+ * Azure REST API version: 2017-06-01.
  */
 export function getManagerDevicePublicEncryptionKeyOutput(args: GetManagerDevicePublicEncryptionKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagerDevicePublicEncryptionKeyResult> {
     return pulumi.output(args).apply((a: any) => getManagerDevicePublicEncryptionKey(a, opts))

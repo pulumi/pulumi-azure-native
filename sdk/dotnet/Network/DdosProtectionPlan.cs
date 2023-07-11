@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A DDoS protection plan in a resource group.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DdosProtectionPlan")]
     public partial class DdosProtectionPlan : global::Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of public IPs associated with the DDoS protection plan resource. This list is read-only.
+        /// </summary>
+        [Output("publicIPAddresses")]
+        public Output<ImmutableArray<Outputs.SubResourceResponse>> PublicIPAddresses { get; private set; } = null!;
 
         /// <summary>
         /// The resource GUID property of the DDoS protection plan resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
@@ -120,6 +126,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:DdosProtectionPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:DdosProtectionPlan"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:DdosProtectionPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:DdosProtectionPlan"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:DdosProtectionPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

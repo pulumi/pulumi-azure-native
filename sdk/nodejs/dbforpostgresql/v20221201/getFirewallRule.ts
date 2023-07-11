@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * List all the firewall rules in a given server.
  */
-/** @deprecated azure-native:dbforpostgresql/v20221201:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRule(args: GetFirewallRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetFirewallRuleResult> {
-    pulumi.log.warn("getFirewallRule is deprecated: azure-native:dbforpostgresql/v20221201:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:FirewallRule to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql/v20221201:getFirewallRule", {
@@ -69,7 +67,6 @@ export interface GetFirewallRuleResult {
 /**
  * List all the firewall rules in a given server.
  */
-/** @deprecated azure-native:dbforpostgresql/v20221201:FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:FirewallRule to guarantee forwards compatibility. */
 export function getFirewallRuleOutput(args: GetFirewallRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleResult> {
     return pulumi.output(args).apply((a: any) => getFirewallRule(a, opts))
 }

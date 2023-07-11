@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { ACIServiceArgs } from "./aciservice";
-export type ACIService = import("./aciservice").ACIService;
-export const ACIService: typeof import("./aciservice").ACIService = null as any;
-utilities.lazyLoad(exports, ["ACIService"], () => require("./aciservice"));
-
-export { AKSServiceArgs } from "./aksservice";
-export type AKSService = import("./aksservice").AKSService;
-export const AKSService: typeof import("./aksservice").AKSService = null as any;
-utilities.lazyLoad(exports, ["AKSService"], () => require("./aksservice"));
-
 export { BatchDeploymentArgs } from "./batchDeployment";
 export type BatchDeployment = import("./batchDeployment").BatchDeployment;
 export const BatchDeployment: typeof import("./batchDeployment").BatchDeployment = null as any;
@@ -45,6 +35,11 @@ export type ComponentVersion = import("./componentVersion").ComponentVersion;
 export const ComponentVersion: typeof import("./componentVersion").ComponentVersion = null as any;
 utilities.lazyLoad(exports, ["ComponentVersion"], () => require("./componentVersion"));
 
+export { ComputeArgs } from "./compute";
+export type Compute = import("./compute").Compute;
+export const Compute: typeof import("./compute").Compute = null as any;
+utilities.lazyLoad(exports, ["Compute"], () => require("./compute"));
+
 export { DataContainerArgs } from "./dataContainer";
 export type DataContainer = import("./dataContainer").DataContainer;
 export const DataContainer: typeof import("./dataContainer").DataContainer = null as any;
@@ -55,10 +50,10 @@ export type DataVersion = import("./dataVersion").DataVersion;
 export const DataVersion: typeof import("./dataVersion").DataVersion = null as any;
 utilities.lazyLoad(exports, ["DataVersion"], () => require("./dataVersion"));
 
-export { EndpointVariantArgs } from "./endpointVariant";
-export type EndpointVariant = import("./endpointVariant").EndpointVariant;
-export const EndpointVariant: typeof import("./endpointVariant").EndpointVariant = null as any;
-utilities.lazyLoad(exports, ["EndpointVariant"], () => require("./endpointVariant"));
+export { DatastoreArgs } from "./datastore";
+export type Datastore = import("./datastore").Datastore;
+export const Datastore: typeof import("./datastore").Datastore = null as any;
+utilities.lazyLoad(exports, ["Datastore"], () => require("./datastore"));
 
 export { EnvironmentContainerArgs } from "./environmentContainer";
 export type EnvironmentContainer = import("./environmentContainer").EnvironmentContainer;
@@ -70,15 +65,30 @@ export type EnvironmentSpecificationVersion = import("./environmentSpecification
 export const EnvironmentSpecificationVersion: typeof import("./environmentSpecificationVersion").EnvironmentSpecificationVersion = null as any;
 utilities.lazyLoad(exports, ["EnvironmentSpecificationVersion"], () => require("./environmentSpecificationVersion"));
 
-export { GetACIServiceArgs, GetACIServiceResult, GetACIServiceOutputArgs } from "./getACIService";
-export const getACIService: typeof import("./getACIService").getACIService = null as any;
-export const getACIServiceOutput: typeof import("./getACIService").getACIServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getACIService","getACIServiceOutput"], () => require("./getACIService"));
+export { EnvironmentVersionArgs } from "./environmentVersion";
+export type EnvironmentVersion = import("./environmentVersion").EnvironmentVersion;
+export const EnvironmentVersion: typeof import("./environmentVersion").EnvironmentVersion = null as any;
+utilities.lazyLoad(exports, ["EnvironmentVersion"], () => require("./environmentVersion"));
 
-export { GetAKSServiceArgs, GetAKSServiceResult, GetAKSServiceOutputArgs } from "./getAKSService";
-export const getAKSService: typeof import("./getAKSService").getAKSService = null as any;
-export const getAKSServiceOutput: typeof import("./getAKSService").getAKSServiceOutput = null as any;
-utilities.lazyLoad(exports, ["getAKSService","getAKSServiceOutput"], () => require("./getAKSService"));
+export { FeaturesetContainerEntityArgs } from "./featuresetContainerEntity";
+export type FeaturesetContainerEntity = import("./featuresetContainerEntity").FeaturesetContainerEntity;
+export const FeaturesetContainerEntity: typeof import("./featuresetContainerEntity").FeaturesetContainerEntity = null as any;
+utilities.lazyLoad(exports, ["FeaturesetContainerEntity"], () => require("./featuresetContainerEntity"));
+
+export { FeaturesetVersionArgs } from "./featuresetVersion";
+export type FeaturesetVersion = import("./featuresetVersion").FeaturesetVersion;
+export const FeaturesetVersion: typeof import("./featuresetVersion").FeaturesetVersion = null as any;
+utilities.lazyLoad(exports, ["FeaturesetVersion"], () => require("./featuresetVersion"));
+
+export { FeaturestoreEntityContainerEntityArgs } from "./featurestoreEntityContainerEntity";
+export type FeaturestoreEntityContainerEntity = import("./featurestoreEntityContainerEntity").FeaturestoreEntityContainerEntity;
+export const FeaturestoreEntityContainerEntity: typeof import("./featurestoreEntityContainerEntity").FeaturestoreEntityContainerEntity = null as any;
+utilities.lazyLoad(exports, ["FeaturestoreEntityContainerEntity"], () => require("./featurestoreEntityContainerEntity"));
+
+export { FeaturestoreEntityVersionArgs } from "./featurestoreEntityVersion";
+export type FeaturestoreEntityVersion = import("./featurestoreEntityVersion").FeaturestoreEntityVersion;
+export const FeaturestoreEntityVersion: typeof import("./featurestoreEntityVersion").FeaturestoreEntityVersion = null as any;
+utilities.lazyLoad(exports, ["FeaturestoreEntityVersion"], () => require("./featurestoreEntityVersion"));
 
 export { GetBatchDeploymentArgs, GetBatchDeploymentResult, GetBatchDeploymentOutputArgs } from "./getBatchDeployment";
 export const getBatchDeployment: typeof import("./getBatchDeployment").getBatchDeployment = null as any;
@@ -110,6 +120,11 @@ export const getComponentVersion: typeof import("./getComponentVersion").getComp
 export const getComponentVersionOutput: typeof import("./getComponentVersion").getComponentVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getComponentVersion","getComponentVersionOutput"], () => require("./getComponentVersion"));
 
+export { GetComputeArgs, GetComputeResult, GetComputeOutputArgs } from "./getCompute";
+export const getCompute: typeof import("./getCompute").getCompute = null as any;
+export const getComputeOutput: typeof import("./getCompute").getComputeOutput = null as any;
+utilities.lazyLoad(exports, ["getCompute","getComputeOutput"], () => require("./getCompute"));
+
 export { GetDataContainerArgs, GetDataContainerResult, GetDataContainerOutputArgs } from "./getDataContainer";
 export const getDataContainer: typeof import("./getDataContainer").getDataContainer = null as any;
 export const getDataContainerOutput: typeof import("./getDataContainer").getDataContainerOutput = null as any;
@@ -120,10 +135,10 @@ export const getDataVersion: typeof import("./getDataVersion").getDataVersion = 
 export const getDataVersionOutput: typeof import("./getDataVersion").getDataVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getDataVersion","getDataVersionOutput"], () => require("./getDataVersion"));
 
-export { GetEndpointVariantArgs, GetEndpointVariantResult, GetEndpointVariantOutputArgs } from "./getEndpointVariant";
-export const getEndpointVariant: typeof import("./getEndpointVariant").getEndpointVariant = null as any;
-export const getEndpointVariantOutput: typeof import("./getEndpointVariant").getEndpointVariantOutput = null as any;
-utilities.lazyLoad(exports, ["getEndpointVariant","getEndpointVariantOutput"], () => require("./getEndpointVariant"));
+export { GetDatastoreArgs, GetDatastoreResult, GetDatastoreOutputArgs } from "./getDatastore";
+export const getDatastore: typeof import("./getDatastore").getDatastore = null as any;
+export const getDatastoreOutput: typeof import("./getDatastore").getDatastoreOutput = null as any;
+utilities.lazyLoad(exports, ["getDatastore","getDatastoreOutput"], () => require("./getDatastore"));
 
 export { GetEnvironmentContainerArgs, GetEnvironmentContainerResult, GetEnvironmentContainerOutputArgs } from "./getEnvironmentContainer";
 export const getEnvironmentContainer: typeof import("./getEnvironmentContainer").getEnvironmentContainer = null as any;
@@ -134,6 +149,36 @@ export { GetEnvironmentSpecificationVersionArgs, GetEnvironmentSpecificationVers
 export const getEnvironmentSpecificationVersion: typeof import("./getEnvironmentSpecificationVersion").getEnvironmentSpecificationVersion = null as any;
 export const getEnvironmentSpecificationVersionOutput: typeof import("./getEnvironmentSpecificationVersion").getEnvironmentSpecificationVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getEnvironmentSpecificationVersion","getEnvironmentSpecificationVersionOutput"], () => require("./getEnvironmentSpecificationVersion"));
+
+export { GetEnvironmentVersionArgs, GetEnvironmentVersionResult, GetEnvironmentVersionOutputArgs } from "./getEnvironmentVersion";
+export const getEnvironmentVersion: typeof import("./getEnvironmentVersion").getEnvironmentVersion = null as any;
+export const getEnvironmentVersionOutput: typeof import("./getEnvironmentVersion").getEnvironmentVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getEnvironmentVersion","getEnvironmentVersionOutput"], () => require("./getEnvironmentVersion"));
+
+export { GetFeaturesetContainerEntityArgs, GetFeaturesetContainerEntityResult, GetFeaturesetContainerEntityOutputArgs } from "./getFeaturesetContainerEntity";
+export const getFeaturesetContainerEntity: typeof import("./getFeaturesetContainerEntity").getFeaturesetContainerEntity = null as any;
+export const getFeaturesetContainerEntityOutput: typeof import("./getFeaturesetContainerEntity").getFeaturesetContainerEntityOutput = null as any;
+utilities.lazyLoad(exports, ["getFeaturesetContainerEntity","getFeaturesetContainerEntityOutput"], () => require("./getFeaturesetContainerEntity"));
+
+export { GetFeaturesetVersionArgs, GetFeaturesetVersionResult, GetFeaturesetVersionOutputArgs } from "./getFeaturesetVersion";
+export const getFeaturesetVersion: typeof import("./getFeaturesetVersion").getFeaturesetVersion = null as any;
+export const getFeaturesetVersionOutput: typeof import("./getFeaturesetVersion").getFeaturesetVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getFeaturesetVersion","getFeaturesetVersionOutput"], () => require("./getFeaturesetVersion"));
+
+export { GetFeaturesetVersionFeatureArgs, GetFeaturesetVersionFeatureResult, GetFeaturesetVersionFeatureOutputArgs } from "./getFeaturesetVersionFeature";
+export const getFeaturesetVersionFeature: typeof import("./getFeaturesetVersionFeature").getFeaturesetVersionFeature = null as any;
+export const getFeaturesetVersionFeatureOutput: typeof import("./getFeaturesetVersionFeature").getFeaturesetVersionFeatureOutput = null as any;
+utilities.lazyLoad(exports, ["getFeaturesetVersionFeature","getFeaturesetVersionFeatureOutput"], () => require("./getFeaturesetVersionFeature"));
+
+export { GetFeaturestoreEntityContainerEntityArgs, GetFeaturestoreEntityContainerEntityResult, GetFeaturestoreEntityContainerEntityOutputArgs } from "./getFeaturestoreEntityContainerEntity";
+export const getFeaturestoreEntityContainerEntity: typeof import("./getFeaturestoreEntityContainerEntity").getFeaturestoreEntityContainerEntity = null as any;
+export const getFeaturestoreEntityContainerEntityOutput: typeof import("./getFeaturestoreEntityContainerEntity").getFeaturestoreEntityContainerEntityOutput = null as any;
+utilities.lazyLoad(exports, ["getFeaturestoreEntityContainerEntity","getFeaturestoreEntityContainerEntityOutput"], () => require("./getFeaturestoreEntityContainerEntity"));
+
+export { GetFeaturestoreEntityVersionArgs, GetFeaturestoreEntityVersionResult, GetFeaturestoreEntityVersionOutputArgs } from "./getFeaturestoreEntityVersion";
+export const getFeaturestoreEntityVersion: typeof import("./getFeaturestoreEntityVersion").getFeaturestoreEntityVersion = null as any;
+export const getFeaturestoreEntityVersionOutput: typeof import("./getFeaturestoreEntityVersion").getFeaturestoreEntityVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getFeaturestoreEntityVersion","getFeaturestoreEntityVersionOutput"], () => require("./getFeaturestoreEntityVersion"));
 
 export { GetJobArgs, GetJobResult, GetJobOutputArgs } from "./getJob";
 export const getJob: typeof import("./getJob").getJob = null as any;
@@ -155,11 +200,6 @@ export const getLinkedWorkspace: typeof import("./getLinkedWorkspace").getLinked
 export const getLinkedWorkspaceOutput: typeof import("./getLinkedWorkspace").getLinkedWorkspaceOutput = null as any;
 utilities.lazyLoad(exports, ["getLinkedWorkspace","getLinkedWorkspaceOutput"], () => require("./getLinkedWorkspace"));
 
-export { GetMachineLearningComputeArgs, GetMachineLearningComputeResult, GetMachineLearningComputeOutputArgs } from "./getMachineLearningCompute";
-export const getMachineLearningCompute: typeof import("./getMachineLearningCompute").getMachineLearningCompute = null as any;
-export const getMachineLearningComputeOutput: typeof import("./getMachineLearningCompute").getMachineLearningComputeOutput = null as any;
-utilities.lazyLoad(exports, ["getMachineLearningCompute","getMachineLearningComputeOutput"], () => require("./getMachineLearningCompute"));
-
 export { GetMachineLearningDatasetArgs, GetMachineLearningDatasetResult, GetMachineLearningDatasetOutputArgs } from "./getMachineLearningDataset";
 export const getMachineLearningDataset: typeof import("./getMachineLearningDataset").getMachineLearningDataset = null as any;
 export const getMachineLearningDatasetOutput: typeof import("./getMachineLearningDataset").getMachineLearningDatasetOutput = null as any;
@@ -169,6 +209,11 @@ export { GetMachineLearningDatastoreArgs, GetMachineLearningDatastoreResult, Get
 export const getMachineLearningDatastore: typeof import("./getMachineLearningDatastore").getMachineLearningDatastore = null as any;
 export const getMachineLearningDatastoreOutput: typeof import("./getMachineLearningDatastore").getMachineLearningDatastoreOutput = null as any;
 utilities.lazyLoad(exports, ["getMachineLearningDatastore","getMachineLearningDatastoreOutput"], () => require("./getMachineLearningDatastore"));
+
+export { GetManagedNetworkSettingsRuleArgs, GetManagedNetworkSettingsRuleResult, GetManagedNetworkSettingsRuleOutputArgs } from "./getManagedNetworkSettingsRule";
+export const getManagedNetworkSettingsRule: typeof import("./getManagedNetworkSettingsRule").getManagedNetworkSettingsRule = null as any;
+export const getManagedNetworkSettingsRuleOutput: typeof import("./getManagedNetworkSettingsRule").getManagedNetworkSettingsRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedNetworkSettingsRule","getManagedNetworkSettingsRuleOutput"], () => require("./getManagedNetworkSettingsRule"));
 
 export { GetModelContainerArgs, GetModelContainerResult, GetModelContainerOutputArgs } from "./getModelContainer";
 export const getModelContainer: typeof import("./getModelContainer").getModelContainer = null as any;
@@ -205,6 +250,66 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
+export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
+export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
+
+export { GetRegistryCodeContainerArgs, GetRegistryCodeContainerResult, GetRegistryCodeContainerOutputArgs } from "./getRegistryCodeContainer";
+export const getRegistryCodeContainer: typeof import("./getRegistryCodeContainer").getRegistryCodeContainer = null as any;
+export const getRegistryCodeContainerOutput: typeof import("./getRegistryCodeContainer").getRegistryCodeContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryCodeContainer","getRegistryCodeContainerOutput"], () => require("./getRegistryCodeContainer"));
+
+export { GetRegistryCodeVersionArgs, GetRegistryCodeVersionResult, GetRegistryCodeVersionOutputArgs } from "./getRegistryCodeVersion";
+export const getRegistryCodeVersion: typeof import("./getRegistryCodeVersion").getRegistryCodeVersion = null as any;
+export const getRegistryCodeVersionOutput: typeof import("./getRegistryCodeVersion").getRegistryCodeVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryCodeVersion","getRegistryCodeVersionOutput"], () => require("./getRegistryCodeVersion"));
+
+export { GetRegistryComponentContainerArgs, GetRegistryComponentContainerResult, GetRegistryComponentContainerOutputArgs } from "./getRegistryComponentContainer";
+export const getRegistryComponentContainer: typeof import("./getRegistryComponentContainer").getRegistryComponentContainer = null as any;
+export const getRegistryComponentContainerOutput: typeof import("./getRegistryComponentContainer").getRegistryComponentContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryComponentContainer","getRegistryComponentContainerOutput"], () => require("./getRegistryComponentContainer"));
+
+export { GetRegistryComponentVersionArgs, GetRegistryComponentVersionResult, GetRegistryComponentVersionOutputArgs } from "./getRegistryComponentVersion";
+export const getRegistryComponentVersion: typeof import("./getRegistryComponentVersion").getRegistryComponentVersion = null as any;
+export const getRegistryComponentVersionOutput: typeof import("./getRegistryComponentVersion").getRegistryComponentVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryComponentVersion","getRegistryComponentVersionOutput"], () => require("./getRegistryComponentVersion"));
+
+export { GetRegistryDataContainerArgs, GetRegistryDataContainerResult, GetRegistryDataContainerOutputArgs } from "./getRegistryDataContainer";
+export const getRegistryDataContainer: typeof import("./getRegistryDataContainer").getRegistryDataContainer = null as any;
+export const getRegistryDataContainerOutput: typeof import("./getRegistryDataContainer").getRegistryDataContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryDataContainer","getRegistryDataContainerOutput"], () => require("./getRegistryDataContainer"));
+
+export { GetRegistryDataVersionArgs, GetRegistryDataVersionResult, GetRegistryDataVersionOutputArgs } from "./getRegistryDataVersion";
+export const getRegistryDataVersion: typeof import("./getRegistryDataVersion").getRegistryDataVersion = null as any;
+export const getRegistryDataVersionOutput: typeof import("./getRegistryDataVersion").getRegistryDataVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryDataVersion","getRegistryDataVersionOutput"], () => require("./getRegistryDataVersion"));
+
+export { GetRegistryEnvironmentContainerArgs, GetRegistryEnvironmentContainerResult, GetRegistryEnvironmentContainerOutputArgs } from "./getRegistryEnvironmentContainer";
+export const getRegistryEnvironmentContainer: typeof import("./getRegistryEnvironmentContainer").getRegistryEnvironmentContainer = null as any;
+export const getRegistryEnvironmentContainerOutput: typeof import("./getRegistryEnvironmentContainer").getRegistryEnvironmentContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryEnvironmentContainer","getRegistryEnvironmentContainerOutput"], () => require("./getRegistryEnvironmentContainer"));
+
+export { GetRegistryEnvironmentVersionArgs, GetRegistryEnvironmentVersionResult, GetRegistryEnvironmentVersionOutputArgs } from "./getRegistryEnvironmentVersion";
+export const getRegistryEnvironmentVersion: typeof import("./getRegistryEnvironmentVersion").getRegistryEnvironmentVersion = null as any;
+export const getRegistryEnvironmentVersionOutput: typeof import("./getRegistryEnvironmentVersion").getRegistryEnvironmentVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryEnvironmentVersion","getRegistryEnvironmentVersionOutput"], () => require("./getRegistryEnvironmentVersion"));
+
+export { GetRegistryModelContainerArgs, GetRegistryModelContainerResult, GetRegistryModelContainerOutputArgs } from "./getRegistryModelContainer";
+export const getRegistryModelContainer: typeof import("./getRegistryModelContainer").getRegistryModelContainer = null as any;
+export const getRegistryModelContainerOutput: typeof import("./getRegistryModelContainer").getRegistryModelContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryModelContainer","getRegistryModelContainerOutput"], () => require("./getRegistryModelContainer"));
+
+export { GetRegistryModelVersionArgs, GetRegistryModelVersionResult, GetRegistryModelVersionOutputArgs } from "./getRegistryModelVersion";
+export const getRegistryModelVersion: typeof import("./getRegistryModelVersion").getRegistryModelVersion = null as any;
+export const getRegistryModelVersionOutput: typeof import("./getRegistryModelVersion").getRegistryModelVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistryModelVersion","getRegistryModelVersionOutput"], () => require("./getRegistryModelVersion"));
+
+export { GetScheduleArgs, GetScheduleResult, GetScheduleOutputArgs } from "./getSchedule";
+export const getSchedule: typeof import("./getSchedule").getSchedule = null as any;
+export const getScheduleOutput: typeof import("./getSchedule").getScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getSchedule","getScheduleOutput"], () => require("./getSchedule"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
@@ -240,35 +345,40 @@ export const listBatchEndpointKeys: typeof import("./listBatchEndpointKeys").lis
 export const listBatchEndpointKeysOutput: typeof import("./listBatchEndpointKeys").listBatchEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listBatchEndpointKeys","listBatchEndpointKeysOutput"], () => require("./listBatchEndpointKeys"));
 
+export { ListComputeKeysArgs, ListComputeKeysResult, ListComputeKeysOutputArgs } from "./listComputeKeys";
+export const listComputeKeys: typeof import("./listComputeKeys").listComputeKeys = null as any;
+export const listComputeKeysOutput: typeof import("./listComputeKeys").listComputeKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listComputeKeys","listComputeKeysOutput"], () => require("./listComputeKeys"));
+
+export { ListComputeNodesArgs, ListComputeNodesResult, ListComputeNodesOutputArgs } from "./listComputeNodes";
+export const listComputeNodes: typeof import("./listComputeNodes").listComputeNodes = null as any;
+export const listComputeNodesOutput: typeof import("./listComputeNodes").listComputeNodesOutput = null as any;
+utilities.lazyLoad(exports, ["listComputeNodes","listComputeNodesOutput"], () => require("./listComputeNodes"));
+
 export { ListDatastoreSecretsArgs, ListDatastoreSecretsResult, ListDatastoreSecretsOutputArgs } from "./listDatastoreSecrets";
 export const listDatastoreSecrets: typeof import("./listDatastoreSecrets").listDatastoreSecrets = null as any;
 export const listDatastoreSecretsOutput: typeof import("./listDatastoreSecrets").listDatastoreSecretsOutput = null as any;
 utilities.lazyLoad(exports, ["listDatastoreSecrets","listDatastoreSecretsOutput"], () => require("./listDatastoreSecrets"));
 
-export { ListMachineLearningComputeKeysArgs, ListMachineLearningComputeKeysResult, ListMachineLearningComputeKeysOutputArgs } from "./listMachineLearningComputeKeys";
-export const listMachineLearningComputeKeys: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeys = null as any;
-export const listMachineLearningComputeKeysOutput: typeof import("./listMachineLearningComputeKeys").listMachineLearningComputeKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listMachineLearningComputeKeys","listMachineLearningComputeKeysOutput"], () => require("./listMachineLearningComputeKeys"));
+export { ListFeaturesetVersionFeaturesArgs, ListFeaturesetVersionFeaturesResult, ListFeaturesetVersionFeaturesOutputArgs } from "./listFeaturesetVersionFeatures";
+export const listFeaturesetVersionFeatures: typeof import("./listFeaturesetVersionFeatures").listFeaturesetVersionFeatures = null as any;
+export const listFeaturesetVersionFeaturesOutput: typeof import("./listFeaturesetVersionFeatures").listFeaturesetVersionFeaturesOutput = null as any;
+utilities.lazyLoad(exports, ["listFeaturesetVersionFeatures","listFeaturesetVersionFeaturesOutput"], () => require("./listFeaturesetVersionFeatures"));
 
-export { ListMachineLearningComputeNodesArgs, ListMachineLearningComputeNodesResult, ListMachineLearningComputeNodesOutputArgs } from "./listMachineLearningComputeNodes";
-export const listMachineLearningComputeNodes: typeof import("./listMachineLearningComputeNodes").listMachineLearningComputeNodes = null as any;
-export const listMachineLearningComputeNodesOutput: typeof import("./listMachineLearningComputeNodes").listMachineLearningComputeNodesOutput = null as any;
-utilities.lazyLoad(exports, ["listMachineLearningComputeNodes","listMachineLearningComputeNodesOutput"], () => require("./listMachineLearningComputeNodes"));
-
-export { ListNotebookKeysArgs, ListNotebookKeysResult, ListNotebookKeysOutputArgs } from "./listNotebookKeys";
-export const listNotebookKeys: typeof import("./listNotebookKeys").listNotebookKeys = null as any;
-export const listNotebookKeysOutput: typeof import("./listNotebookKeys").listNotebookKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listNotebookKeys","listNotebookKeysOutput"], () => require("./listNotebookKeys"));
+export { ListFeaturesetVersionMaterializationJobsArgs, ListFeaturesetVersionMaterializationJobsResult, ListFeaturesetVersionMaterializationJobsOutputArgs } from "./listFeaturesetVersionMaterializationJobs";
+export const listFeaturesetVersionMaterializationJobs: typeof import("./listFeaturesetVersionMaterializationJobs").listFeaturesetVersionMaterializationJobs = null as any;
+export const listFeaturesetVersionMaterializationJobsOutput: typeof import("./listFeaturesetVersionMaterializationJobs").listFeaturesetVersionMaterializationJobsOutput = null as any;
+utilities.lazyLoad(exports, ["listFeaturesetVersionMaterializationJobs","listFeaturesetVersionMaterializationJobsOutput"], () => require("./listFeaturesetVersionMaterializationJobs"));
 
 export { ListOnlineEndpointKeysArgs, ListOnlineEndpointKeysResult, ListOnlineEndpointKeysOutputArgs } from "./listOnlineEndpointKeys";
 export const listOnlineEndpointKeys: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeys = null as any;
 export const listOnlineEndpointKeysOutput: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listOnlineEndpointKeys","listOnlineEndpointKeysOutput"], () => require("./listOnlineEndpointKeys"));
 
-export { ListStorageAccountKeysArgs, ListStorageAccountKeysResult, ListStorageAccountKeysOutputArgs } from "./listStorageAccountKeys";
-export const listStorageAccountKeys: typeof import("./listStorageAccountKeys").listStorageAccountKeys = null as any;
-export const listStorageAccountKeysOutput: typeof import("./listStorageAccountKeys").listStorageAccountKeysOutput = null as any;
-utilities.lazyLoad(exports, ["listStorageAccountKeys","listStorageAccountKeysOutput"], () => require("./listStorageAccountKeys"));
+export { ListWorkspaceConnectionSecretsArgs, ListWorkspaceConnectionSecretsResult, ListWorkspaceConnectionSecretsOutputArgs } from "./listWorkspaceConnectionSecrets";
+export const listWorkspaceConnectionSecrets: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecrets = null as any;
+export const listWorkspaceConnectionSecretsOutput: typeof import("./listWorkspaceConnectionSecrets").listWorkspaceConnectionSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceConnectionSecrets","listWorkspaceConnectionSecretsOutput"], () => require("./listWorkspaceConnectionSecrets"));
 
 export { ListWorkspaceKeysArgs, ListWorkspaceKeysResult, ListWorkspaceKeysOutputArgs } from "./listWorkspaceKeys";
 export const listWorkspaceKeys: typeof import("./listWorkspaceKeys").listWorkspaceKeys = null as any;
@@ -280,10 +390,15 @@ export const listWorkspaceNotebookAccessToken: typeof import("./listWorkspaceNot
 export const listWorkspaceNotebookAccessTokenOutput: typeof import("./listWorkspaceNotebookAccessToken").listWorkspaceNotebookAccessTokenOutput = null as any;
 utilities.lazyLoad(exports, ["listWorkspaceNotebookAccessToken","listWorkspaceNotebookAccessTokenOutput"], () => require("./listWorkspaceNotebookAccessToken"));
 
-export { MachineLearningComputeArgs } from "./machineLearningCompute";
-export type MachineLearningCompute = import("./machineLearningCompute").MachineLearningCompute;
-export const MachineLearningCompute: typeof import("./machineLearningCompute").MachineLearningCompute = null as any;
-utilities.lazyLoad(exports, ["MachineLearningCompute"], () => require("./machineLearningCompute"));
+export { ListWorkspaceNotebookKeysArgs, ListWorkspaceNotebookKeysResult, ListWorkspaceNotebookKeysOutputArgs } from "./listWorkspaceNotebookKeys";
+export const listWorkspaceNotebookKeys: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeys = null as any;
+export const listWorkspaceNotebookKeysOutput: typeof import("./listWorkspaceNotebookKeys").listWorkspaceNotebookKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceNotebookKeys","listWorkspaceNotebookKeysOutput"], () => require("./listWorkspaceNotebookKeys"));
+
+export { ListWorkspaceStorageAccountKeysArgs, ListWorkspaceStorageAccountKeysResult, ListWorkspaceStorageAccountKeysOutputArgs } from "./listWorkspaceStorageAccountKeys";
+export const listWorkspaceStorageAccountKeys: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeys = null as any;
+export const listWorkspaceStorageAccountKeysOutput: typeof import("./listWorkspaceStorageAccountKeys").listWorkspaceStorageAccountKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkspaceStorageAccountKeys","listWorkspaceStorageAccountKeysOutput"], () => require("./listWorkspaceStorageAccountKeys"));
 
 export { MachineLearningDatasetArgs } from "./machineLearningDataset";
 export type MachineLearningDataset = import("./machineLearningDataset").MachineLearningDataset;
@@ -294,6 +409,11 @@ export { MachineLearningDatastoreArgs } from "./machineLearningDatastore";
 export type MachineLearningDatastore = import("./machineLearningDatastore").MachineLearningDatastore;
 export const MachineLearningDatastore: typeof import("./machineLearningDatastore").MachineLearningDatastore = null as any;
 utilities.lazyLoad(exports, ["MachineLearningDatastore"], () => require("./machineLearningDatastore"));
+
+export { ManagedNetworkSettingsRuleArgs } from "./managedNetworkSettingsRule";
+export type ManagedNetworkSettingsRule = import("./managedNetworkSettingsRule").ManagedNetworkSettingsRule;
+export const ManagedNetworkSettingsRule: typeof import("./managedNetworkSettingsRule").ManagedNetworkSettingsRule = null as any;
+utilities.lazyLoad(exports, ["ManagedNetworkSettingsRule"], () => require("./managedNetworkSettingsRule"));
 
 export { ModelContainerArgs } from "./modelContainer";
 export type ModelContainer = import("./modelContainer").ModelContainer;
@@ -320,6 +440,66 @@ export type PrivateEndpointConnection = import("./privateEndpointConnection").Pr
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
+export { RegistryArgs } from "./registry";
+export type Registry = import("./registry").Registry;
+export const Registry: typeof import("./registry").Registry = null as any;
+utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
+
+export { RegistryCodeContainerArgs } from "./registryCodeContainer";
+export type RegistryCodeContainer = import("./registryCodeContainer").RegistryCodeContainer;
+export const RegistryCodeContainer: typeof import("./registryCodeContainer").RegistryCodeContainer = null as any;
+utilities.lazyLoad(exports, ["RegistryCodeContainer"], () => require("./registryCodeContainer"));
+
+export { RegistryCodeVersionArgs } from "./registryCodeVersion";
+export type RegistryCodeVersion = import("./registryCodeVersion").RegistryCodeVersion;
+export const RegistryCodeVersion: typeof import("./registryCodeVersion").RegistryCodeVersion = null as any;
+utilities.lazyLoad(exports, ["RegistryCodeVersion"], () => require("./registryCodeVersion"));
+
+export { RegistryComponentContainerArgs } from "./registryComponentContainer";
+export type RegistryComponentContainer = import("./registryComponentContainer").RegistryComponentContainer;
+export const RegistryComponentContainer: typeof import("./registryComponentContainer").RegistryComponentContainer = null as any;
+utilities.lazyLoad(exports, ["RegistryComponentContainer"], () => require("./registryComponentContainer"));
+
+export { RegistryComponentVersionArgs } from "./registryComponentVersion";
+export type RegistryComponentVersion = import("./registryComponentVersion").RegistryComponentVersion;
+export const RegistryComponentVersion: typeof import("./registryComponentVersion").RegistryComponentVersion = null as any;
+utilities.lazyLoad(exports, ["RegistryComponentVersion"], () => require("./registryComponentVersion"));
+
+export { RegistryDataContainerArgs } from "./registryDataContainer";
+export type RegistryDataContainer = import("./registryDataContainer").RegistryDataContainer;
+export const RegistryDataContainer: typeof import("./registryDataContainer").RegistryDataContainer = null as any;
+utilities.lazyLoad(exports, ["RegistryDataContainer"], () => require("./registryDataContainer"));
+
+export { RegistryDataVersionArgs } from "./registryDataVersion";
+export type RegistryDataVersion = import("./registryDataVersion").RegistryDataVersion;
+export const RegistryDataVersion: typeof import("./registryDataVersion").RegistryDataVersion = null as any;
+utilities.lazyLoad(exports, ["RegistryDataVersion"], () => require("./registryDataVersion"));
+
+export { RegistryEnvironmentContainerArgs } from "./registryEnvironmentContainer";
+export type RegistryEnvironmentContainer = import("./registryEnvironmentContainer").RegistryEnvironmentContainer;
+export const RegistryEnvironmentContainer: typeof import("./registryEnvironmentContainer").RegistryEnvironmentContainer = null as any;
+utilities.lazyLoad(exports, ["RegistryEnvironmentContainer"], () => require("./registryEnvironmentContainer"));
+
+export { RegistryEnvironmentVersionArgs } from "./registryEnvironmentVersion";
+export type RegistryEnvironmentVersion = import("./registryEnvironmentVersion").RegistryEnvironmentVersion;
+export const RegistryEnvironmentVersion: typeof import("./registryEnvironmentVersion").RegistryEnvironmentVersion = null as any;
+utilities.lazyLoad(exports, ["RegistryEnvironmentVersion"], () => require("./registryEnvironmentVersion"));
+
+export { RegistryModelContainerArgs } from "./registryModelContainer";
+export type RegistryModelContainer = import("./registryModelContainer").RegistryModelContainer;
+export const RegistryModelContainer: typeof import("./registryModelContainer").RegistryModelContainer = null as any;
+utilities.lazyLoad(exports, ["RegistryModelContainer"], () => require("./registryModelContainer"));
+
+export { RegistryModelVersionArgs } from "./registryModelVersion";
+export type RegistryModelVersion = import("./registryModelVersion").RegistryModelVersion;
+export const RegistryModelVersion: typeof import("./registryModelVersion").RegistryModelVersion = null as any;
+utilities.lazyLoad(exports, ["RegistryModelVersion"], () => require("./registryModelVersion"));
+
+export { ScheduleArgs } from "./schedule";
+export type Schedule = import("./schedule").Schedule;
+export const Schedule: typeof import("./schedule").Schedule = null as any;
+utilities.lazyLoad(exports, ["Schedule"], () => require("./schedule"));
+
 export { WorkspaceArgs } from "./workspace";
 export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
@@ -335,70 +515,38 @@ utilities.lazyLoad(exports, ["WorkspaceConnection"], () => require("./workspaceC
 export * from "../types/enums/machinelearningservices";
 
 // Export sub-modules:
-import * as v20180301preview from "./v20180301preview";
-import * as v20181119 from "./v20181119";
-import * as v20190501 from "./v20190501";
-import * as v20190601 from "./v20190601";
-import * as v20191101 from "./v20191101";
-import * as v20200101 from "./v20200101";
-import * as v20200218preview from "./v20200218preview";
-import * as v20200301 from "./v20200301";
-import * as v20200401 from "./v20200401";
 import * as v20200501preview from "./v20200501preview";
 import * as v20200515preview from "./v20200515preview";
-import * as v20200601 from "./v20200601";
 import * as v20200801 from "./v20200801";
 import * as v20200901preview from "./v20200901preview";
-import * as v20210101 from "./v20210101";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
-import * as v20210701 from "./v20210701";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220201preview from "./v20220201preview";
-import * as v20220501 from "./v20220501";
-import * as v20220601preview from "./v20220601preview";
-import * as v20221001 from "./v20221001";
-import * as v20221001preview from "./v20221001preview";
-import * as v20221201preview from "./v20221201preview";
+import * as v20230201preview from "./v20230201preview";
+import * as v20230401 from "./v20230401";
 import * as v20230401preview from "./v20230401preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
-    v20180301preview,
-    v20181119,
-    v20190501,
-    v20190601,
-    v20191101,
-    v20200101,
-    v20200218preview,
-    v20200301,
-    v20200401,
     v20200501preview,
     v20200515preview,
-    v20200601,
     v20200801,
     v20200901preview,
-    v20210101,
     v20210301preview,
     v20210401,
-    v20210701,
     v20220101preview,
     v20220201preview,
-    v20220501,
-    v20220601preview,
-    v20221001,
-    v20221001preview,
-    v20221201preview,
+    v20230201preview,
+    v20230401,
     v20230401preview,
+    v20230601preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:machinelearningservices:ACIService":
-                return new ACIService(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:AKSService":
-                return new AKSService(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:BatchDeployment":
                 return new BatchDeployment(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:BatchEndpoint":
@@ -411,16 +559,28 @@ const _module = {
                 return new ComponentContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:ComponentVersion":
                 return new ComponentVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:Compute":
+                return new Compute(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:DataContainer":
                 return new DataContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:DataVersion":
                 return new DataVersion(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:EndpointVariant":
-                return new EndpointVariant(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:Datastore":
+                return new Datastore(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:EnvironmentContainer":
                 return new EnvironmentContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:EnvironmentSpecificationVersion":
                 return new EnvironmentSpecificationVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:EnvironmentVersion":
+                return new EnvironmentVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:FeaturesetContainerEntity":
+                return new FeaturesetContainerEntity(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:FeaturesetVersion":
+                return new FeaturesetVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:FeaturestoreEntityContainerEntity":
+                return new FeaturestoreEntityContainerEntity(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:FeaturestoreEntityVersion":
+                return new FeaturestoreEntityVersion(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Job":
                 return new Job(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:LabelingJob":
@@ -429,12 +589,12 @@ const _module = {
                 return new LinkedService(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:LinkedWorkspace":
                 return new LinkedWorkspace(name, <any>undefined, { urn })
-            case "azure-native:machinelearningservices:MachineLearningCompute":
-                return new MachineLearningCompute(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:MachineLearningDataset":
                 return new MachineLearningDataset(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:MachineLearningDatastore":
                 return new MachineLearningDatastore(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ManagedNetworkSettingsRule":
+                return new ManagedNetworkSettingsRule(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:ModelContainer":
                 return new ModelContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:ModelVersion":
@@ -445,6 +605,30 @@ const _module = {
                 return new OnlineEndpoint(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:Registry":
+                return new Registry(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryCodeContainer":
+                return new RegistryCodeContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryCodeVersion":
+                return new RegistryCodeVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryComponentContainer":
+                return new RegistryComponentContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryComponentVersion":
+                return new RegistryComponentVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryDataContainer":
+                return new RegistryDataContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryDataVersion":
+                return new RegistryDataVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryEnvironmentContainer":
+                return new RegistryEnvironmentContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryEnvironmentVersion":
+                return new RegistryEnvironmentVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryModelContainer":
+                return new RegistryModelContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:RegistryModelVersion":
+                return new RegistryModelVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:Schedule":
+                return new Schedule(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:WorkspaceConnection":

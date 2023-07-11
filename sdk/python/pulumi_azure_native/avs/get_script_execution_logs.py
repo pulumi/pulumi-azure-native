@@ -255,7 +255,7 @@ def get_script_execution_logs(private_cloud_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScriptExecutionLogsResult:
     """
     Return the logs for a script execution resource
-    API Version: 2021-06-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud
@@ -297,7 +297,7 @@ def get_script_execution_logs_output(private_cloud_name: Optional[pulumi.Input[s
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScriptExecutionLogsResult]:
     """
     Return the logs for a script execution resource
-    API Version: 2021-06-01.
+    Azure REST API version: 2022-05-01.
 
 
     :param str private_cloud_name: Name of the private cloud

@@ -17,40 +17,41 @@ __all__ = ['AliasArgs', 'Alias']
 @pulumi.input_type
 class AliasArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['PutAliasRequestPropertiesArgs'],
-                 alias_name: Optional[pulumi.Input[str]] = None):
+                 alias_name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input['PutAliasRequestPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Alias resource.
+        :param pulumi.Input[str] alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         :param pulumi.Input['PutAliasRequestPropertiesArgs'] properties: Put alias request properties.
-        :param pulumi.Input[str] alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         """
-        pulumi.set(__self__, "properties", properties)
         if alias_name is not None:
             pulumi.set(__self__, "alias_name", alias_name)
-
-    @property
-    @pulumi.getter
-    def properties(self) -> pulumi.Input['PutAliasRequestPropertiesArgs']:
-        """
-        Put alias request properties.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: pulumi.Input['PutAliasRequestPropertiesArgs']):
-        pulumi.set(self, "properties", value)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+        AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         """
         return pulumi.get(self, "alias_name")
 
     @alias_name.setter
     def alias_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alias_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['PutAliasRequestPropertiesArgs']]:
+        """
+        Put alias request properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['PutAliasRequestPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
 
 class Alias(pulumi.CustomResource):
@@ -63,22 +64,22 @@ class Alias(pulumi.CustomResource):
                  __props__=None):
         """
         Subscription Information with the alias.
-        API Version: 2020-09-01.
+        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+        :param pulumi.Input[str] alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         :param pulumi.Input[pulumi.InputType['PutAliasRequestPropertiesArgs']] properties: Put alias request properties.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AliasArgs,
+                 args: Optional[AliasArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subscription Information with the alias.
-        API Version: 2020-09-01.
+        Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2020-09-01
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.
@@ -107,10 +108,9 @@ class Alias(pulumi.CustomResource):
             __props__ = AliasArgs.__new__(AliasArgs)
 
             __props__.__dict__["alias_name"] = alias_name
-            if properties is None and not opts.urn:
-                raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:subscription/v20191001preview:Alias"), pulumi.Alias(type_="azure-native:subscription/v20200901:Alias"), pulumi.Alias(type_="azure-native:subscription/v20211001:Alias")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -138,6 +138,7 @@ class Alias(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Alias(resource_name, opts=opts, __props__=__props__)
 
@@ -151,11 +152,19 @@ class Alias(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.PutAliasResponsePropertiesResponse']:
+    def properties(self) -> pulumi.Output['outputs.SubscriptionAliasResponsePropertiesResponse']:
         """
-        Put Alias response properties.
+        Subscription Alias response properties.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

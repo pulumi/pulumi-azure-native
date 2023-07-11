@@ -27,7 +27,7 @@ class GatewayHostnameConfigurationArgs:
         """
         The set of arguments for constructing a GatewayHostnameConfiguration resource.
         :param pulumi.Input[str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] certificate_id: Identifier of Certificate entity that will be used for TLS connection establishment
         :param pulumi.Input[str] hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
@@ -71,7 +71,7 @@ class GatewayHostnameConfigurationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -194,7 +194,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Gateway hostname configuration details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,7 +204,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] hostname: Hostname value. Supports valid domain name, partial or full wildcard
         :param pulumi.Input[bool] http2_enabled: Specifies if HTTP/2.0 is supported
         :param pulumi.Input[bool] negotiate_client_certificate: Determines whether gateway requests client certificate
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[bool] tls10_enabled: Specifies if TLS 1.0 is supported
         :param pulumi.Input[bool] tls11_enabled: Specifies if TLS 1.1 is supported
@@ -217,7 +217,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Gateway hostname configuration details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param GatewayHostnameConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -271,7 +271,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             __props__.__dict__["tls11_enabled"] = tls11_enabled
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GatewayHostnameConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20191201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:GatewayHostnameConfiguration"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:GatewayHostnameConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayHostnameConfiguration, __self__).__init__(
             'azure-native:apimanagement:GatewayHostnameConfiguration',
@@ -333,7 +333,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -365,7 +365,7 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

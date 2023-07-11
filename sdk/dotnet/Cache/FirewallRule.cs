@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
-    /// API Version: 2020-06-01.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> EndIP { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.Cache
         public Output<string> StartIP { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -75,6 +75,8 @@ namespace Pulumi.AzureNative.Cache
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20210601:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220501:FirewallRule"},
                     new global::Pulumi.Alias { Type = "azure-native:cache/v20220601:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230401:FirewallRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:cache/v20230501preview:FirewallRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

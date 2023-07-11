@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
-    /// A database geo backup policy.
-    /// API Version: 2014-04-01.
+    /// A Geo backup policy.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:GeoBackupPolicy")]
     public partial class GeoBackupPolicy : global::Pulumi.CustomResource
@@ -82,6 +82,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:GeoBackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:GeoBackupPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:GeoBackupPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:GeoBackupPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -112,7 +113,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the geo backup policy.
+        /// The name of the Geo backup policy. This should always be 'Default'.
         /// </summary>
         [Input("geoBackupPolicyName")]
         public Input<string>? GeoBackupPolicyName { get; set; }

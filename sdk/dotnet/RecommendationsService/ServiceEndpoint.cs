@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecommendationsService
 {
     /// <summary>
     /// ServiceEndpoint resource details.
-    /// API Version: 2022-02-01.
+    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2022-02-01
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice:ServiceEndpoint")]
     public partial class ServiceEndpoint : global::Pulumi.CustomResource

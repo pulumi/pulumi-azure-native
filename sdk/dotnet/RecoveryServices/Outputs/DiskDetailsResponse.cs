@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 {
 
     /// <summary>
-    /// On-prem disk details data.
+    /// Onprem disk details data.
     /// </summary>
     [OutputType]
     public sealed class DiskDetailsResponse

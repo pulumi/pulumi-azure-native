@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform
 {
     /// <summary>
     /// Service resource
-    /// API Version: 2020-07-01.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Service")]
     public partial class Service : global::Pulumi.CustomResource
@@ -39,6 +39,12 @@ namespace Pulumi.AzureNative.AppPlatform
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tags of the service which is a list of key value pairs that describe the resource.
@@ -89,6 +95,8 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221101preview:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20221201:Service"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230101preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:Service"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

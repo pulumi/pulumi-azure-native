@@ -2,42 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20210101 from "./v20210101";
-import * as v20210201preview from "./v20210201preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20210701 from "./v20210701";
-import * as v20211001preview from "./v20211001preview";
-import * as v20211201preview from "./v20211201preview";
-import * as v20220101 from "./v20220101";
-import * as v20220201preview from "./v20220201preview";
-import * as v20220301 from "./v20220301";
-import * as v20220331preview from "./v20220331preview";
-import * as v20220401 from "./v20220401";
-import * as v20220501 from "./v20220501";
-import * as v20220901preview from "./v20220901preview";
-import * as v20221001preview from "./v20221001preview";
-import * as v20221101preview from "./v20221101preview";
-import * as v20221201 from "./v20221201";
 import * as v20230101 from "./v20230101";
+import * as v20230401preview from "./v20230401preview";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20210101,
-    v20210201preview,
-    v20210601preview,
-    v20210701,
-    v20211001preview,
-    v20211201preview,
-    v20220101,
-    v20220201preview,
-    v20220301,
-    v20220331preview,
-    v20220401,
-    v20220501,
-    v20220901preview,
-    v20221001preview,
-    v20221101preview,
-    v20221201,
     v20230101,
+    v20230401preview,
+    v20230501,
 };
 
 export const AbsoluteMarker = {
@@ -49,6 +21,24 @@ export const AbsoluteMarker = {
 } as const;
 
 export type AbsoluteMarker = (typeof AbsoluteMarker)[keyof typeof AbsoluteMarker];
+
+export const AlertsState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+export type AlertsState = (typeof AlertsState)[keyof typeof AlertsState];
+
+export const CrossSubscriptionRestoreState = {
+    Disabled: "Disabled",
+    PermanentlyDisabled: "PermanentlyDisabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * CrossSubscriptionRestore state
+ */
+export type CrossSubscriptionRestoreState = (typeof CrossSubscriptionRestoreState)[keyof typeof CrossSubscriptionRestoreState];
 
 export const DataStoreTypes = {
     OperationalStore: "OperationalStore",
@@ -73,6 +63,17 @@ export const DayOfWeek = {
 
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
+export const ImmutabilityState = {
+    Disabled: "Disabled",
+    Unlocked: "Unlocked",
+    Locked: "Locked",
+} as const;
+
+/**
+ * Immutability state
+ */
+export type ImmutabilityState = (typeof ImmutabilityState)[keyof typeof ImmutabilityState];
+
 export const Month = {
     April: "April",
     August: "August",
@@ -90,9 +91,39 @@ export const Month = {
 
 export type Month = (typeof Month)[keyof typeof Month];
 
+export const SecretStoreType = {
+    Invalid: "Invalid",
+    AzureKeyVault: "AzureKeyVault",
+} as const;
+
+/**
+ * Gets or sets the type of secret store
+ */
+export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreType];
+
+export const SoftDeleteState = {
+    /**
+     * Soft Delete is turned off for the BackupVault
+     */
+    Off: "Off",
+    /**
+     * Soft Delete is enabled for the BackupVault but can be turned off
+     */
+    On: "On",
+    /**
+     * Soft Delete is permanently enabled for the BackupVault and the setting cannot be changed
+     */
+    AlwaysOn: "AlwaysOn",
+} as const;
+
+/**
+ * State of soft delete
+ */
+export type SoftDeleteState = (typeof SoftDeleteState)[keyof typeof SoftDeleteState];
+
 export const StorageSettingStoreTypes = {
     ArchiveStore: "ArchiveStore",
-    SnapshotStore: "SnapshotStore",
+    OperationalStore: "OperationalStore",
     VaultStore: "VaultStore",
 } as const;
 
@@ -104,12 +135,23 @@ export type StorageSettingStoreTypes = (typeof StorageSettingStoreTypes)[keyof t
 export const StorageSettingTypes = {
     GeoRedundant: "GeoRedundant",
     LocallyRedundant: "LocallyRedundant",
+    ZoneRedundant: "ZoneRedundant",
 } as const;
 
 /**
  * Gets or sets the type.
  */
 export type StorageSettingTypes = (typeof StorageSettingTypes)[keyof typeof StorageSettingTypes];
+
+export const ValidationType = {
+    ShallowValidation: "ShallowValidation",
+    DeepValidation: "DeepValidation",
+} as const;
+
+/**
+ * Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+ */
+export type ValidationType = (typeof ValidationType)[keyof typeof ValidationType];
 
 export const WeekNumber = {
     First: "First",

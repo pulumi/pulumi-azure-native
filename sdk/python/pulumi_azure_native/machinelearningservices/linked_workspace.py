@@ -112,7 +112,7 @@ class LinkedWorkspace(pulumi.CustomResource):
                  __props__=None):
         """
         Linked workspace.
-        API Version: 2020-03-01.
+        Azure REST API version: 2020-05-15-preview. Prior API version in Azure Native 1.x: 2020-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class LinkedWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Linked workspace.
-        API Version: 2020-03-01.
+        Azure REST API version: 2020-05-15-preview. Prior API version in Azure Native 1.x: 2020-03-01
 
         :param str resource_name: The name of the resource.
         :param LinkedWorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -171,7 +171,7 @@ class LinkedWorkspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200301:LinkedWorkspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices/v20200501preview:LinkedWorkspace"), pulumi.Alias(type_="azure-native:machinelearningservices/v20200515preview:LinkedWorkspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(LinkedWorkspace, __self__).__init__(
             'azure-native:machinelearningservices:LinkedWorkspace',

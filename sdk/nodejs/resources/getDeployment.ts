@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a deployment.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getDeployment(args: GetDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentResult> {
 
@@ -62,7 +62,7 @@ export interface GetDeploymentResult {
 }
 /**
  * Gets a deployment.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getDeployment(a, opts))

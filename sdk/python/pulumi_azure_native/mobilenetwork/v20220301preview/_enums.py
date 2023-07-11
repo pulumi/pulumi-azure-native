@@ -7,12 +7,6 @@ from enum import Enum
 __all__ = [
     'CoreNetworkType',
     'CreatedByType',
-    'NaptEnabled',
-    'PduSessionType',
-    'PreemptionCapability',
-    'PreemptionVulnerability',
-    'SdfDirection',
-    'TrafficControlPermission',
 ]
 
 
@@ -38,85 +32,3 @@ class CreatedByType(str, Enum):
     APPLICATION = "Application"
     MANAGED_IDENTITY = "ManagedIdentity"
     KEY = "Key"
-
-
-class NaptEnabled(str, Enum):
-    """
-    Whether NAPT is enabled for connections to this attachedDataNetwork.
-    """
-    ENABLED = "Enabled"
-    """
-    NAPT is enabled
-    """
-    DISABLED = "Disabled"
-    """
-    NAPT is disabled
-    """
-
-
-class PduSessionType(str, Enum):
-    """
-    The default PDU session type, which is used if the UE does not request a specific session type.
-    """
-    I_PV4 = "IPv4"
-    I_PV6 = "IPv6"
-
-
-class PreemptionCapability(str, Enum):
-    """
-    Default QoS Flow preemption capability.  The Preemption Capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-    """
-    NOT_PREEMPT = "NotPreempt"
-    """
-    Cannot preempt
-    """
-    MAY_PREEMPT = "MayPreempt"
-    """
-    May preempt
-    """
-
-
-class PreemptionVulnerability(str, Enum):
-    """
-    Default QoS Flow preemption vulnerability.  The Preemption Vulnerability of a QoS Flow controls whether it can be preempted by QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-    """
-    NOT_PREEMPTABLE = "NotPreemptable"
-    """
-    Cannot be preempted
-    """
-    PREEMPTABLE = "Preemptable"
-    """
-    May be preempted
-    """
-
-
-class SdfDirection(str, Enum):
-    """
-    The direction of this flow.
-    """
-    UPLINK = "Uplink"
-    """
-    Traffic flowing from the UE to the data network.
-    """
-    DOWNLINK = "Downlink"
-    """
-    Traffic flowing from the data network to the UE.
-    """
-    BIDIRECTIONAL = "Bidirectional"
-    """
-    Traffic flowing both to and from the UE.
-    """
-
-
-class TrafficControlPermission(str, Enum):
-    """
-    Determines whether flows that match this PCC Rule are permitted.
-    """
-    ENABLED = "Enabled"
-    """
-    Traffic matching this rule is allowed to flow.
-    """
-    BLOCKED = "Blocked"
-    """
-    Traffic matching this rule is not allowed to flow.
-    """

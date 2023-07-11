@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Implements host GET method.
- * API Version: 2020-10-01-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getHost(args: GetHostArgs, opts?: pulumi.InvokeOptions): Promise<GetHostResult> {
 
@@ -39,6 +39,10 @@ export interface GetHostResult {
      * Gets the name of the corresponding resource in Kubernetes.
      */
     readonly customResourceName: string;
+    /**
+     * Gets or sets the datastore ARM ids.
+     */
+    readonly datastoreIds: string[];
     /**
      * Gets or sets the extended location.
      */
@@ -72,6 +76,10 @@ export interface GetHostResult {
      */
     readonly name: string;
     /**
+     * Gets or sets the network ARM ids.
+     */
+    readonly networkIds: string[];
+    /**
      * Gets or sets the provisioning state.
      */
     readonly provisioningState: string;
@@ -102,7 +110,7 @@ export interface GetHostResult {
 }
 /**
  * Implements host GET method.
- * API Version: 2020-10-01-preview.
+ * Azure REST API version: 2022-07-15-preview.
  */
 export function getHostOutput(args: GetHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostResult> {
     return pulumi.output(args).apply((a: any) => getHost(a, opts))

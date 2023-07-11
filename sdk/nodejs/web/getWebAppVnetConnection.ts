@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets a virtual network the app (or deployment slot) is connected to by name.
- * API Version: 2020-12-01.
+ * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppVnetConnection(args: GetWebAppVnetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppVnetConnectionResult> {
 
@@ -37,7 +37,7 @@ export interface GetWebAppVnetConnectionArgs {
 }
 
 /**
- * Virtual Network information contract.
+ * Virtual Network information ARM resource.
  */
 export interface GetWebAppVnetConnectionResult {
     /**
@@ -87,8 +87,8 @@ export interface GetWebAppVnetConnectionResult {
     readonly vnetResourceId?: string;
 }
 /**
- * Gets a virtual network the app (or deployment slot) is connected to by name.
- * API Version: 2020-12-01.
+ * Description for Gets a virtual network the app (or deployment slot) is connected to by name.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppVnetConnectionOutput(args: GetWebAppVnetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppVnetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppVnetConnection(a, opts))

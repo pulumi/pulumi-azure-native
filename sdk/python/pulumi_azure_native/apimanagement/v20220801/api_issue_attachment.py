@@ -140,12 +140,7 @@ class ApiIssueAttachmentArgs:
         pulumi.set(self, "attachment_id", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ApiIssueAttachment(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -206,7 +201,6 @@ class ApiIssueAttachment(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApiIssueAttachment is deprecated: azure-native:apimanagement/v20220801:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -239,7 +233,7 @@ class ApiIssueAttachment(pulumi.CustomResource):
             __props__.__dict__["title"] = title
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiIssueAttachment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiIssueAttachment"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ApiIssueAttachment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiIssueAttachment, __self__).__init__(
             'azure-native:apimanagement/v20220801:ApiIssueAttachment',

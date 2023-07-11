@@ -17,6 +17,8 @@ __all__ = [
     'CookieExpirationConvention',
     'CustomHostNameDnsRecordType',
     'DatabaseType',
+    'DefaultAction',
+    'EnterpriseGradeCdnStatus',
     'ForwardProxyConvention',
     'FrequencyUnit',
     'FrontEndServiceType',
@@ -39,6 +41,7 @@ __all__ = [
     'SupportedTlsVersions',
     'UnauthenticatedClientAction',
     'UnauthenticatedClientActionV2',
+    'UpgradePreference',
     'WsdlImportMethod',
 ]
 
@@ -166,6 +169,24 @@ class DatabaseType(str, Enum):
     MY_SQL = "MySql"
     LOCAL_MY_SQL = "LocalMySql"
     POSTGRE_SQL = "PostgreSql"
+
+
+class DefaultAction(str, Enum):
+    """
+    Default action for scm access restriction if no rules are matched.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
+class EnterpriseGradeCdnStatus(str, Enum):
+    """
+    State indicating the status of the enterprise grade CDN serving traffic to the static web app.
+    """
+    ENABLED = "Enabled"
+    ENABLING = "Enabling"
+    DISABLED = "Disabled"
+    DISABLING = "Disabling"
 
 
 class ForwardProxyConvention(str, Enum):
@@ -376,6 +397,28 @@ class UnauthenticatedClientActionV2(str, Enum):
     ALLOW_ANONYMOUS = "AllowAnonymous"
     RETURN401 = "Return401"
     RETURN403 = "Return403"
+
+
+class UpgradePreference(str, Enum):
+    """
+    Upgrade Preference
+    """
+    NONE = "None"
+    """
+    No preference on when this App Service Environment will be upgraded
+    """
+    EARLY = "Early"
+    """
+    This App Service Environment will be upgraded before others in the same region that have Upgrade Preference 'Late'
+    """
+    LATE = "Late"
+    """
+    This App Service Environment will be upgraded after others in the same region that have Upgrade Preference 'Early'
+    """
+    MANUAL = "Manual"
+    """
+    ASEv3 only. Once an upgrade is available, this App Service Environment will wait 10 days for the upgrade to be manually initiated. After 10 days the upgrade will begin automatically
+    """
 
 
 class WsdlImportMethod(str, Enum):

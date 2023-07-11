@@ -244,7 +244,7 @@ def get_custom_image(expand: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomImageResult:
     """
     Get custom image.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=vm)'
@@ -288,7 +288,7 @@ def get_custom_image_output(expand: Optional[pulumi.Input[Optional[str]]] = None
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomImageResult]:
     """
     Get custom image.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=vm)'

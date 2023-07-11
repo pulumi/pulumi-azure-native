@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getMetricsSource(args: GetMetricsSourceArgs, opts?: pulumi.InvokeOptions): Promise<GetMetricsSourceResult> {
 
@@ -61,7 +61,7 @@ export interface GetMetricsSourceResult {
     readonly type: string;
 }
 /**
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getMetricsSourceOutput(args: GetMetricsSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricsSourceResult> {
     return pulumi.output(args).apply((a: any) => getMetricsSource(a, opts))

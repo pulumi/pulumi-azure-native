@@ -213,7 +213,7 @@ class ScriptExecution(pulumi.CustomResource):
                  __props__=None):
         """
         An instance of a script executed by a user - custom or AVS
-        API Version: 2021-06-01.
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +237,7 @@ class ScriptExecution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An instance of a script executed by a user - custom or AVS
-        API Version: 2021-06-01.
+        Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2021-06-01
 
         :param str resource_name: The name of the resource.
         :param ScriptExecutionArgs args: The arguments to use to populate this resource's properties.

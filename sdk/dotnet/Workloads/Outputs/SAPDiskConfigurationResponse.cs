@@ -11,63 +11,28 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// The SAP Disk Configuration.
+    /// The SAP Disk Configuration contains 'recommended disk' details and list of supported disks detail for a volume type.
     /// </summary>
     [OutputType]
     public sealed class SAPDiskConfigurationResponse
     {
         /// <summary>
-        /// The disk count.
+        /// The recommended disk details for a given VM Sku.
         /// </summary>
-        public readonly double? DiskCount;
+        public readonly Outputs.DiskVolumeConfigurationResponse? RecommendedConfiguration;
         /// <summary>
-        /// The disk Iops.
+        /// The list of supported disks for a given VM Sku.
         /// </summary>
-        public readonly double? DiskIopsReadWrite;
-        /// <summary>
-        /// The disk provisioned throughput in MBps.
-        /// </summary>
-        public readonly double? DiskMBpsReadWrite;
-        /// <summary>
-        /// The disk size in GB.
-        /// </summary>
-        public readonly double? DiskSizeGB;
-        /// <summary>
-        /// The disk storage type
-        /// </summary>
-        public readonly string? DiskStorageType;
-        /// <summary>
-        /// The disk type.
-        /// </summary>
-        public readonly string? DiskType;
-        /// <summary>
-        /// The volume name.
-        /// </summary>
-        public readonly string? Volume;
+        public readonly ImmutableArray<Outputs.DiskDetailsResponse> SupportedConfigurations;
 
         [OutputConstructor]
         private SAPDiskConfigurationResponse(
-            double? diskCount,
+            Outputs.DiskVolumeConfigurationResponse? recommendedConfiguration,
 
-            double? diskIopsReadWrite,
-
-            double? diskMBpsReadWrite,
-
-            double? diskSizeGB,
-
-            string? diskStorageType,
-
-            string? diskType,
-
-            string? volume)
+            ImmutableArray<Outputs.DiskDetailsResponse> supportedConfigurations)
         {
-            DiskCount = diskCount;
-            DiskIopsReadWrite = diskIopsReadWrite;
-            DiskMBpsReadWrite = diskMBpsReadWrite;
-            DiskSizeGB = diskSizeGB;
-            DiskStorageType = diskStorageType;
-            DiskType = diskType;
-            Volume = volume;
+            RecommendedConfiguration = recommendedConfiguration;
+            SupportedConfigurations = supportedConfigurations;
         }
     }
 }

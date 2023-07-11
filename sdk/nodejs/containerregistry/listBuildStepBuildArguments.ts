@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * List the build arguments for a step including the secret arguments.
- * API Version: 2018-02-01-preview.
+ * Azure REST API version: 2018-02-01-preview.
  */
 export function listBuildStepBuildArguments(args: ListBuildStepBuildArgumentsArgs, opts?: pulumi.InvokeOptions): Promise<ListBuildStepBuildArgumentsResult> {
 
@@ -56,7 +56,7 @@ export interface ListBuildStepBuildArgumentsResult {
 }
 /**
  * List the build arguments for a step including the secret arguments.
- * API Version: 2018-02-01-preview.
+ * Azure REST API version: 2018-02-01-preview.
  */
 export function listBuildStepBuildArgumentsOutput(args: ListBuildStepBuildArgumentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBuildStepBuildArgumentsResult> {
     return pulumi.output(args).apply((a: any) => listBuildStepBuildArguments(a, opts))

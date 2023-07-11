@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get information about a virtual machine image template
- * API Version: 2020-02-14.
+ * Azure REST API version: 2022-07-01.
  */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
 
@@ -36,7 +36,7 @@ export interface GetVirtualMachineImageTemplateArgs {
  */
 export interface GetVirtualMachineImageTemplateResult {
     /**
-     * Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
+     * Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
      */
     readonly buildTimeoutInMinutes?: number;
     /**
@@ -48,7 +48,11 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly distribute: (outputs.virtualmachineimages.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateVhdDistributorResponse)[];
     /**
-     * Resource Id
+     * The staging resource group id in the same subscription as the image template that will be used to build the image. This read-only field differs from 'stagingResourceGroup' only if the value specified in the 'stagingResourceGroup' field is empty.
+     */
+    readonly exactStagingResourceGroup: string;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -60,13 +64,17 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly lastRunStatus: outputs.virtualmachineimages.ImageTemplateLastRunStatusResponse;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
+    /**
+     * Specifies optimization to be performed on image.
+     */
+    readonly optimize?: outputs.virtualmachineimages.ImageTemplatePropertiesResponseOptimize;
     /**
      * Provisioning error, if any
      */
@@ -80,13 +88,25 @@ export interface GetVirtualMachineImageTemplateResult {
      */
     readonly source: outputs.virtualmachineimages.ImageTemplateManagedImageSourceResponse | outputs.virtualmachineimages.ImageTemplatePlatformImageSourceResponse | outputs.virtualmachineimages.ImageTemplateSharedImageVersionSourceResponse;
     /**
-     * Resource tags
+     * The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
+     */
+    readonly stagingResourceGroup?: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.virtualmachineimages.SystemDataResponse;
+    /**
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Configuration options and list of validations to be performed on the resulting image.
+     */
+    readonly validate?: outputs.virtualmachineimages.ImageTemplatePropertiesResponseValidate;
     /**
      * Describes how virtual machine is set up to build images
      */
@@ -94,7 +114,7 @@ export interface GetVirtualMachineImageTemplateResult {
 }
 /**
  * Get information about a virtual machine image template
- * API Version: 2020-02-14.
+ * Azure REST API version: 2022-07-01.
  */
 export function getVirtualMachineImageTemplateOutput(args: GetVirtualMachineImageTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineImageTemplateResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineImageTemplate(a, opts))

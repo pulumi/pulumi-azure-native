@@ -61,7 +61,7 @@ def get_registry_build_source_upload_url(registry_name: Optional[str] = None,
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistryBuildSourceUploadUrlResult:
     """
     Get the upload location for the user to be able to upload the source.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -84,7 +84,7 @@ def get_registry_build_source_upload_url_output(registry_name: Optional[pulumi.I
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistryBuildSourceUploadUrlResult]:
     """
     Get the upload location for the user to be able to upload the source.
-    API Version: 2018-02-01-preview.
+    Azure REST API version: 2018-02-01-preview.
 
 
     :param str registry_name: The name of the container registry.

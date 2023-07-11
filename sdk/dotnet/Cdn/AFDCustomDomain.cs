@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn
 {
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-    /// API Version: 2020-09-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDCustomDomain")]
     public partial class AFDCustomDomain : global::Pulumi.CustomResource
@@ -32,6 +32,12 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> DomainValidationState { get; private set; } = null!;
 
         /// <summary>
+        /// Key-Value pair representing migration properties for domains.
+        /// </summary>
+        [Output("extendedProperties")]
+        public Output<ImmutableDictionary<string, string>?> ExtendedProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The host name of the domain. Must be a domain name.
         /// </summary>
         [Output("hostName")]
@@ -42,6 +48,18 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource reference to the Azure resource where custom domain ownership was prevalidated
+        /// </summary>
+        [Output("preValidatedCustomDomainResourceId")]
+        public Output<Outputs.ResourceReferenceResponse?> PreValidatedCustomDomainResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the profile which holds the domain.
+        /// </summary>
+        [Output("profileName")]
+        public Output<string> ProfileName { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning status
@@ -102,6 +120,7 @@ namespace Pulumi.AzureNative.Cdn
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20210601:AFDCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20220501preview:AFDCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:cdn/v20221101preview:AFDCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:cdn/v20230501:AFDCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -137,6 +156,18 @@ namespace Pulumi.AzureNative.Cdn
         [Input("customDomainName")]
         public Input<string>? CustomDomainName { get; set; }
 
+        [Input("extendedProperties")]
+        private InputMap<string>? _extendedProperties;
+
+        /// <summary>
+        /// Key-Value pair representing migration properties for domains.
+        /// </summary>
+        public InputMap<string> ExtendedProperties
+        {
+            get => _extendedProperties ?? (_extendedProperties = new InputMap<string>());
+            set => _extendedProperties = value;
+        }
+
         /// <summary>
         /// The host name of the domain. Must be a domain name.
         /// </summary>
@@ -144,7 +175,13 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Resource reference to the Azure resource where custom domain ownership was prevalidated
+        /// </summary>
+        [Input("preValidatedCustomDomainResourceId")]
+        public Input<Inputs.ResourceReferenceArgs>? PreValidatedCustomDomainResourceId { get; set; }
+
+        /// <summary>
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;

@@ -112,7 +112,7 @@ def get_job(job_agent_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobResult:
     """
     Gets a job.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2021-11-01.
 
 
     :param str job_agent_name: The name of the job agent.
@@ -145,7 +145,7 @@ def get_job_output(job_agent_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetJobResult]:
     """
     Gets a job.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2021-11-01.
 
 
     :param str job_agent_name: The name of the job agent.

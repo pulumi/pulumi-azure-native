@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Compute
     {
         /// <summary>
         /// The operation to get the VMSS VM extension.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Task<GetVirtualMachineScaleSetVMExtensionResult> InvokeAsync(GetVirtualMachineScaleSetVMExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the VMSS VM extension.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2023-03-01.
         /// </summary>
         public static Output<GetVirtualMachineScaleSetVMExtensionResult> Invoke(GetVirtualMachineScaleSetVMExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineScaleSetVMExtensionResult>("azure-native:compute:getVirtualMachineScaleSetVMExtension", args ?? new GetVirtualMachineScaleSetVMExtensionInvokeArgs(), options.WithDefaults());
@@ -128,6 +128,10 @@ namespace Pulumi.AzureNative.Compute
         /// </summary>
         public readonly Outputs.VirtualMachineExtensionInstanceViewResponse? InstanceView;
         /// <summary>
+        /// The location of the extension.
+        /// </summary>
+        public readonly string? Location;
+        /// <summary>
         /// The name of the extension.
         /// </summary>
         public readonly string Name;
@@ -135,6 +139,14 @@ namespace Pulumi.AzureNative.Compute
         /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
         public readonly object? ProtectedSettings;
+        /// <summary>
+        /// The extensions protected settings that are passed by reference, and consumed from key vault
+        /// </summary>
+        public readonly Outputs.KeyVaultSecretReferenceResponse? ProtectedSettingsFromKeyVault;
+        /// <summary>
+        /// Collection of extension names after which this extension needs to be provisioned.
+        /// </summary>
+        public readonly ImmutableArray<string> ProvisionAfterExtensions;
         /// <summary>
         /// The provisioning state, which only appears in the response.
         /// </summary>
@@ -147,6 +159,10 @@ namespace Pulumi.AzureNative.Compute
         /// Json formatted public settings for the extension.
         /// </summary>
         public readonly object? Settings;
+        /// <summary>
+        /// Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+        /// </summary>
+        public readonly bool? SuppressFailures;
         /// <summary>
         /// Resource type
         /// </summary>
@@ -168,15 +184,23 @@ namespace Pulumi.AzureNative.Compute
 
             Outputs.VirtualMachineExtensionInstanceViewResponse? instanceView,
 
+            string? location,
+
             string name,
 
             object? protectedSettings,
+
+            Outputs.KeyVaultSecretReferenceResponse? protectedSettingsFromKeyVault,
+
+            ImmutableArray<string> provisionAfterExtensions,
 
             string provisioningState,
 
             string? publisher,
 
             object? settings,
+
+            bool? suppressFailures,
 
             string type,
 
@@ -187,11 +211,15 @@ namespace Pulumi.AzureNative.Compute
             ForceUpdateTag = forceUpdateTag;
             Id = id;
             InstanceView = instanceView;
+            Location = location;
             Name = name;
             ProtectedSettings = protectedSettings;
+            ProtectedSettingsFromKeyVault = protectedSettingsFromKeyVault;
+            ProvisionAfterExtensions = provisionAfterExtensions;
             ProvisioningState = provisioningState;
             Publisher = publisher;
             Settings = settings;
+            SuppressFailures = suppressFailures;
             Type = type;
             TypeHandlerVersion = typeHandlerVersion;
         }

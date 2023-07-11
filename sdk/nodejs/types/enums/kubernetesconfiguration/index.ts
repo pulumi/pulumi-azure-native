@@ -2,44 +2,31 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20191101preview from "./v20191101preview";
 import * as v20200701preview from "./v20200701preview";
-import * as v20201001preview from "./v20201001preview";
-import * as v20210301 from "./v20210301";
-import * as v20210501preview from "./v20210501preview";
-import * as v20210901 from "./v20210901";
 import * as v20211101preview from "./v20211101preview";
 import * as v20220101preview from "./v20220101preview";
-import * as v20220301 from "./v20220301";
 import * as v20220402preview from "./v20220402preview";
 import * as v20220701 from "./v20220701";
-import * as v20221101 from "./v20221101";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20191101preview,
     v20200701preview,
-    v20201001preview,
-    v20210301,
-    v20210501preview,
-    v20210901,
     v20211101preview,
     v20220101preview,
-    v20220301,
     v20220402preview,
     v20220701,
-    v20221101,
+    v20230501,
 };
 
-export const KustomizationValidationType = {
-    None: "none",
-    Client: "client",
-    Server: "server",
+export const AKSIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
 } as const;
 
 /**
- * Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
+ * The identity type.
  */
-export type KustomizationValidationType = (typeof KustomizationValidationType)[keyof typeof KustomizationValidationType];
+export type AKSIdentityType = (typeof AKSIdentityType)[keyof typeof AKSIdentityType];
 
 export const LevelType = {
     Error: "Error",
@@ -100,11 +87,10 @@ export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typ
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
-    None: "None",
 } as const;
 
 /**
- * The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+ * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
@@ -120,6 +106,8 @@ export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
 
 export const SourceKindType = {
     GitRepository: "GitRepository",
+    Bucket: "Bucket",
+    AzureBlob: "AzureBlob",
 } as const;
 
 /**

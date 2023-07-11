@@ -25,10 +25,25 @@ export const getCloud: typeof import("./getCloud").getCloud = null as any;
 export const getCloudOutput: typeof import("./getCloud").getCloudOutput = null as any;
 utilities.lazyLoad(exports, ["getCloud","getCloudOutput"], () => require("./getCloud"));
 
+export { GetGuestAgentArgs, GetGuestAgentResult, GetGuestAgentOutputArgs } from "./getGuestAgent";
+export const getGuestAgent: typeof import("./getGuestAgent").getGuestAgent = null as any;
+export const getGuestAgentOutput: typeof import("./getGuestAgent").getGuestAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getGuestAgent","getGuestAgentOutput"], () => require("./getGuestAgent"));
+
+export { GetHybridIdentityMetadataArgs, GetHybridIdentityMetadataResult, GetHybridIdentityMetadataOutputArgs } from "./getHybridIdentityMetadata";
+export const getHybridIdentityMetadata: typeof import("./getHybridIdentityMetadata").getHybridIdentityMetadata = null as any;
+export const getHybridIdentityMetadataOutput: typeof import("./getHybridIdentityMetadata").getHybridIdentityMetadataOutput = null as any;
+utilities.lazyLoad(exports, ["getHybridIdentityMetadata","getHybridIdentityMetadataOutput"], () => require("./getHybridIdentityMetadata"));
+
 export { GetInventoryItemArgs, GetInventoryItemResult, GetInventoryItemOutputArgs } from "./getInventoryItem";
 export const getInventoryItem: typeof import("./getInventoryItem").getInventoryItem = null as any;
 export const getInventoryItemOutput: typeof import("./getInventoryItem").getInventoryItemOutput = null as any;
 utilities.lazyLoad(exports, ["getInventoryItem","getInventoryItemOutput"], () => require("./getInventoryItem"));
+
+export { GetMachineExtensionArgs, GetMachineExtensionResult, GetMachineExtensionOutputArgs } from "./getMachineExtension";
+export const getMachineExtension: typeof import("./getMachineExtension").getMachineExtension = null as any;
+export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getMachineExtension","getMachineExtensionOutput"], () => require("./getMachineExtension"));
 
 export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
 export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
@@ -50,10 +65,25 @@ export const getVmmServer: typeof import("./getVmmServer").getVmmServer = null a
 export const getVmmServerOutput: typeof import("./getVmmServer").getVmmServerOutput = null as any;
 utilities.lazyLoad(exports, ["getVmmServer","getVmmServerOutput"], () => require("./getVmmServer"));
 
+export { GuestAgentArgs } from "./guestAgent";
+export type GuestAgent = import("./guestAgent").GuestAgent;
+export const GuestAgent: typeof import("./guestAgent").GuestAgent = null as any;
+utilities.lazyLoad(exports, ["GuestAgent"], () => require("./guestAgent"));
+
+export { HybridIdentityMetadataArgs } from "./hybridIdentityMetadata";
+export type HybridIdentityMetadata = import("./hybridIdentityMetadata").HybridIdentityMetadata;
+export const HybridIdentityMetadata: typeof import("./hybridIdentityMetadata").HybridIdentityMetadata = null as any;
+utilities.lazyLoad(exports, ["HybridIdentityMetadata"], () => require("./hybridIdentityMetadata"));
+
 export { InventoryItemArgs } from "./inventoryItem";
 export type InventoryItem = import("./inventoryItem").InventoryItem;
 export const InventoryItem: typeof import("./inventoryItem").InventoryItem = null as any;
 utilities.lazyLoad(exports, ["InventoryItem"], () => require("./inventoryItem"));
+
+export { MachineExtensionArgs } from "./machineExtension";
+export type MachineExtension = import("./machineExtension").MachineExtension;
+export const MachineExtension: typeof import("./machineExtension").MachineExtension = null as any;
+utilities.lazyLoad(exports, ["MachineExtension"], () => require("./machineExtension"));
 
 export { VirtualMachineArgs } from "./virtualMachine";
 export type VirtualMachine = import("./virtualMachine").VirtualMachine;
@@ -80,10 +110,10 @@ utilities.lazyLoad(exports, ["VmmServer"], () => require("./vmmServer"));
 export * from "../types/enums/scvmm";
 
 // Export sub-modules:
-import * as v20200605preview from "./v20200605preview";
+import * as v20220521preview from "./v20220521preview";
 
 export {
-    v20200605preview,
+    v20220521preview,
 };
 
 const _module = {
@@ -94,8 +124,14 @@ const _module = {
                 return new AvailabilitySet(name, <any>undefined, { urn })
             case "azure-native:scvmm:Cloud":
                 return new Cloud(name, <any>undefined, { urn })
+            case "azure-native:scvmm:GuestAgent":
+                return new GuestAgent(name, <any>undefined, { urn })
+            case "azure-native:scvmm:HybridIdentityMetadata":
+                return new HybridIdentityMetadata(name, <any>undefined, { urn })
             case "azure-native:scvmm:InventoryItem":
                 return new InventoryItem(name, <any>undefined, { urn })
+            case "azure-native:scvmm:MachineExtension":
+                return new MachineExtension(name, <any>undefined, { urn })
             case "azure-native:scvmm:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
             case "azure-native:scvmm:VirtualMachineTemplate":

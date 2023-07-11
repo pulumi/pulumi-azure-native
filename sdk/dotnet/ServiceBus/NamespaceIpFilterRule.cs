@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ServiceBus
 {
     /// <summary>
     /// Single item in a List or Get IpFilterRules operation
-    /// API Version: 2018-01-01-preview.
+    /// Azure REST API version: 2018-01-01-preview. Prior API version in Azure Native 1.x: 2018-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:NamespaceIpFilterRule")]
     public partial class NamespaceIpFilterRule : global::Pulumi.CustomResource

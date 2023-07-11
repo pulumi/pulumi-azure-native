@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Wrapper resource for tags API requests and responses.
- * API Version: 2019-10-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getTagAtScope(args: GetTagAtScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetTagAtScopeResult> {
 
@@ -49,7 +49,7 @@ export interface GetTagAtScopeResult {
 }
 /**
  * Wrapper resource for tags API requests and responses.
- * API Version: 2019-10-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getTagAtScopeOutput(args: GetTagAtScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagAtScopeResult> {
     return pulumi.output(args).apply((a: any) => getTagAtScope(a, opts))

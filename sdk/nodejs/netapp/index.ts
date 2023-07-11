@@ -70,6 +70,11 @@ export const getVolumeGroup: typeof import("./getVolumeGroup").getVolumeGroup = 
 export const getVolumeGroupOutput: typeof import("./getVolumeGroup").getVolumeGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeGroup","getVolumeGroupOutput"], () => require("./getVolumeGroup"));
 
+export { GetVolumeGroupIdForLdapUserArgs, GetVolumeGroupIdForLdapUserResult, GetVolumeGroupIdForLdapUserOutputArgs } from "./getVolumeGroupIdForLdapUser";
+export const getVolumeGroupIdForLdapUser: typeof import("./getVolumeGroupIdForLdapUser").getVolumeGroupIdForLdapUser = null as any;
+export const getVolumeGroupIdForLdapUserOutput: typeof import("./getVolumeGroupIdForLdapUser").getVolumeGroupIdForLdapUserOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumeGroupIdForLdapUser","getVolumeGroupIdForLdapUserOutput"], () => require("./getVolumeGroupIdForLdapUser"));
+
 export { GetVolumeQuotaRuleArgs, GetVolumeQuotaRuleResult, GetVolumeQuotaRuleOutputArgs } from "./getVolumeQuotaRule";
 export const getVolumeQuotaRule: typeof import("./getVolumeQuotaRule").getVolumeQuotaRule = null as any;
 export const getVolumeQuotaRuleOutput: typeof import("./getVolumeQuotaRule").getVolumeQuotaRuleOutput = null as any;
@@ -120,60 +125,18 @@ utilities.lazyLoad(exports, ["VolumeQuotaRule"], () => require("./volumeQuotaRul
 export * from "../types/enums/netapp";
 
 // Export sub-modules:
-import * as v20170815 from "./v20170815";
-import * as v20190501 from "./v20190501";
-import * as v20190601 from "./v20190601";
-import * as v20190701 from "./v20190701";
-import * as v20190801 from "./v20190801";
-import * as v20191001 from "./v20191001";
-import * as v20191101 from "./v20191101";
-import * as v20200201 from "./v20200201";
-import * as v20200301 from "./v20200301";
-import * as v20200501 from "./v20200501";
-import * as v20200601 from "./v20200601";
-import * as v20200701 from "./v20200701";
-import * as v20200801 from "./v20200801";
-import * as v20200901 from "./v20200901";
-import * as v20201101 from "./v20201101";
-import * as v20201201 from "./v20201201";
-import * as v20210201 from "./v20210201";
 import * as v20210401 from "./v20210401";
 import * as v20210401preview from "./v20210401preview";
-import * as v20210601 from "./v20210601";
-import * as v20210801 from "./v20210801";
 import * as v20211001 from "./v20211001";
-import * as v20220101 from "./v20220101";
-import * as v20220301 from "./v20220301";
 import * as v20220501 from "./v20220501";
-import * as v20220901 from "./v20220901";
+import * as v20221101 from "./v20221101";
 
 export {
-    v20170815,
-    v20190501,
-    v20190601,
-    v20190701,
-    v20190801,
-    v20191001,
-    v20191101,
-    v20200201,
-    v20200301,
-    v20200501,
-    v20200601,
-    v20200701,
-    v20200801,
-    v20200901,
-    v20201101,
-    v20201201,
-    v20210201,
     v20210401,
     v20210401preview,
-    v20210601,
-    v20210801,
     v20211001,
-    v20220101,
-    v20220301,
     v20220501,
-    v20220901,
+    v20221101,
 };
 
 const _module = {

@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// Type of backup management for the backed up item.
         /// </summary>
-        public readonly string? BackupManagementType;
+        public readonly string BackupManagementType;
         /// <summary>
         /// Name of the backup set the backup item belongs to
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// Friendly name of the VM represented by this backup item.
         /// </summary>
-        public readonly string? FriendlyName;
+        public readonly string FriendlyName;
         /// <summary>
         /// Health details on this backup item.
         /// </summary>
@@ -59,7 +59,11 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// Health status of protected item.
         /// </summary>
-        public readonly string? HealthStatus;
+        public readonly string HealthStatus;
+        /// <summary>
+        /// Flag to identify whether datasource is protected in archive
+        /// </summary>
+        public readonly bool? IsArchiveEnabled;
         /// <summary>
         /// Flag to identify whether the deferred deleted DS is to be purged soon
         /// </summary>
@@ -83,7 +87,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// Timestamp of the last backup operation on this backup item.
         /// </summary>
-        public readonly string? LastBackupTime;
+        public readonly string LastBackupTime;
         /// <summary>
         /// Timestamp when the last (latest) backup copy was created for this backup item.
         /// </summary>
@@ -93,9 +97,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? PolicyId;
         /// <summary>
+        /// Name of the policy used for protection
+        /// </summary>
+        public readonly string? PolicyName;
+        /// <summary>
         /// Data ID of the protected item.
         /// </summary>
-        public readonly string? ProtectedItemDataId;
+        public readonly string ProtectedItemDataId;
         /// <summary>
         /// backup item type.
         /// Expected value is 'Microsoft.ClassicCompute/virtualMachines'.
@@ -110,21 +118,29 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? ProtectionStatus;
         /// <summary>
+        /// ResourceGuardOperationRequests on which LAC check will be performed
+        /// </summary>
+        public readonly ImmutableArray<string> ResourceGuardOperationRequests;
+        /// <summary>
+        /// Soft delete retention period in days
+        /// </summary>
+        public readonly int? SoftDeleteRetentionPeriodInDays;
+        /// <summary>
         /// ARM ID of the resource to be backed up.
         /// </summary>
         public readonly string? SourceResourceId;
         /// <summary>
         /// Fully qualified ARM ID of the virtual machine represented by this item.
         /// </summary>
-        public readonly string? VirtualMachineId;
+        public readonly string VirtualMachineId;
         /// <summary>
         /// Type of workload this item represents.
         /// </summary>
-        public readonly string? WorkloadType;
+        public readonly string WorkloadType;
 
         [OutputConstructor]
         private AzureIaaSClassicComputeVMProtectedItemResponse(
-            string? backupManagementType,
+            string backupManagementType,
 
             string? backupSetName,
 
@@ -140,11 +156,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             Outputs.ExtendedPropertiesResponse? extendedProperties,
 
-            string? friendlyName,
+            string friendlyName,
 
             ImmutableArray<Outputs.AzureIaaSVMHealthDetailsResponse> healthDetails,
 
-            string? healthStatus,
+            string healthStatus,
+
+            bool? isArchiveEnabled,
 
             bool? isDeferredDeleteScheduleUpcoming,
 
@@ -156,13 +174,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? lastBackupStatus,
 
-            string? lastBackupTime,
+            string lastBackupTime,
 
             string? lastRecoveryPoint,
 
             string? policyId,
 
-            string? protectedItemDataId,
+            string? policyName,
+
+            string protectedItemDataId,
 
             string protectedItemType,
 
@@ -170,11 +190,15 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? protectionStatus,
 
+            ImmutableArray<string> resourceGuardOperationRequests,
+
+            int? softDeleteRetentionPeriodInDays,
+
             string? sourceResourceId,
 
-            string? virtualMachineId,
+            string virtualMachineId,
 
-            string? workloadType)
+            string workloadType)
         {
             BackupManagementType = backupManagementType;
             BackupSetName = backupSetName;
@@ -187,6 +211,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             FriendlyName = friendlyName;
             HealthDetails = healthDetails;
             HealthStatus = healthStatus;
+            IsArchiveEnabled = isArchiveEnabled;
             IsDeferredDeleteScheduleUpcoming = isDeferredDeleteScheduleUpcoming;
             IsRehydrate = isRehydrate;
             IsScheduledForDeferredDelete = isScheduledForDeferredDelete;
@@ -195,10 +220,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             LastBackupTime = lastBackupTime;
             LastRecoveryPoint = lastRecoveryPoint;
             PolicyId = policyId;
+            PolicyName = policyName;
             ProtectedItemDataId = protectedItemDataId;
             ProtectedItemType = protectedItemType;
             ProtectionState = protectionState;
             ProtectionStatus = protectionStatus;
+            ResourceGuardOperationRequests = resourceGuardOperationRequests;
+            SoftDeleteRetentionPeriodInDays = softDeleteRetentionPeriodInDays;
             SourceResourceId = sourceResourceId;
             VirtualMachineId = virtualMachineId;
             WorkloadType = workloadType;

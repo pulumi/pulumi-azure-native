@@ -19,15 +19,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// <summary>
         /// Indicates whether the Deployment is active
         /// </summary>
-        public readonly bool Active;
-        /// <summary>
-        /// App name of the deployment
-        /// </summary>
-        public readonly string AppName;
-        /// <summary>
-        /// Date time when the resource is created
-        /// </summary>
-        public readonly string CreatedTime;
+        public readonly bool? Active;
         /// <summary>
         /// Deployment settings of the Deployment
         /// </summary>
@@ -43,7 +35,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// <summary>
         /// Uploaded source information of the deployment.
         /// </summary>
-        public readonly Outputs.UserSourceInfoResponse? Source;
+        public readonly object? Source;
         /// <summary>
         /// Status of the Deployment
         /// </summary>
@@ -51,11 +43,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
         [OutputConstructor]
         private DeploymentResourcePropertiesResponse(
-            bool active,
-
-            string appName,
-
-            string createdTime,
+            bool? active,
 
             Outputs.DeploymentSettingsResponse? deploymentSettings,
 
@@ -63,13 +51,11 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string provisioningState,
 
-            Outputs.UserSourceInfoResponse? source,
+            object? source,
 
             string status)
         {
             Active = active;
-            AppName = appName;
-            CreatedTime = createdTime;
             DeploymentSettings = deploymentSettings;
             Instances = instances;
             ProvisioningState = provisioningState;

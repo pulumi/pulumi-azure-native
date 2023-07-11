@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the description of the specified namespace.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getNamespace(args: GetNamespaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceResult> {
 
@@ -36,13 +36,33 @@ export interface GetNamespaceArgs {
  */
 export interface GetNamespaceResult {
     /**
+     * Alternate name specified when alias and namespace names are same.
+     */
+    readonly alternateName?: string;
+    /**
+     * Cluster ARM ID of the Namespace.
+     */
+    readonly clusterArmId?: string;
+    /**
      * The time the Namespace was created.
      */
     readonly createdAt: string;
     /**
+     * This property disables SAS authentication for the Event Hubs namespace.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
+     * Properties of BYOK Encryption description
+     */
+    readonly encryption?: outputs.eventhub.EncryptionResponse;
+    /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Properties of BYOK Identity description
+     */
+    readonly identity?: outputs.eventhub.IdentityResponse;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
@@ -64,13 +84,25 @@ export interface GetNamespaceResult {
      */
     readonly metricId: string;
     /**
+     * The minimum TLS version for the cluster to support, e.g. '1.2'
+     */
+    readonly minimumTlsVersion?: string;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
+     * List of private endpoint connections.
+     */
+    readonly privateEndpointConnections?: outputs.eventhub.PrivateEndpointConnectionResponse[];
+    /**
      * Provisioning state of the Namespace.
      */
     readonly provisioningState: string;
+    /**
+     * This determines if traffic is allowed over public network. By default it is enabled.
+     */
+    readonly publicNetworkAccess?: string;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */
@@ -79,6 +111,14 @@ export interface GetNamespaceResult {
      * Properties of sku resource
      */
     readonly sku?: outputs.eventhub.SkuResponse;
+    /**
+     * Status of the Namespace.
+     */
+    readonly status: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.eventhub.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -91,10 +131,14 @@ export interface GetNamespaceResult {
      * The time the Namespace was updated.
      */
     readonly updatedAt: string;
+    /**
+     * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+     */
+    readonly zoneRedundant?: boolean;
 }
 /**
  * Gets the description of the specified namespace.
- * API Version: 2017-04-01.
+ * Azure REST API version: 2022-10-01-preview.
  */
 export function getNamespaceOutput(args: GetNamespaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamespaceResult> {
     return pulumi.output(args).apply((a: any) => getNamespace(a, opts))

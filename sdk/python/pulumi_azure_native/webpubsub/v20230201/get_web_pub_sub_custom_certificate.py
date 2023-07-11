@@ -17,8 +17,6 @@ __all__ = [
     'get_web_pub_sub_custom_certificate_output',
 ]
 
-warnings.warn("""azure-native:webpubsub/v20230201:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetWebPubSubCustomCertificateResult:
     """
@@ -143,7 +141,6 @@ def get_web_pub_sub_custom_certificate(certificate_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
-    pulumi.log.warn("""get_web_pub_sub_custom_certificate is deprecated: azure-native:webpubsub/v20230201:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['resourceGroupName'] = resource_group_name
@@ -175,5 +172,4 @@ def get_web_pub_sub_custom_certificate_output(certificate_name: Optional[pulumi.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the resource.
     """
-    pulumi.log.warn("""get_web_pub_sub_custom_certificate is deprecated: azure-native:webpubsub/v20230201:WebPubSubCustomCertificate is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubCustomCertificate to guarantee forwards compatibility.""")
     ...

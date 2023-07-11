@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 {
 
     /// <summary>
-    /// Sku of Azure Spring Cloud
+    /// Sku of Azure Spring Apps
     /// </summary>
     [OutputType]
     public sealed class SkuResponse

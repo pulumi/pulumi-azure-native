@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Kusto cluster.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29.
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
 
@@ -36,9 +36,25 @@ export interface GetClusterArgs {
  */
 export interface GetClusterResult {
     /**
+     * The cluster's accepted audiences.
+     */
+    readonly acceptedAudiences?: outputs.kusto.AcceptedAudiencesResponse[];
+    /**
+     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     */
+    readonly allowedFqdnList?: string[];
+    /**
+     * The list of ips in the format of CIDR allowed to connect to the cluster.
+     */
+    readonly allowedIpRangeList?: string[];
+    /**
      * The cluster data ingestion URI.
      */
     readonly dataIngestionUri: string;
+    /**
+     * A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    readonly enableAutoStop?: boolean;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */
@@ -78,7 +94,7 @@ export interface GetClusterResult {
     /**
      * List of the cluster's language extensions.
      */
-    readonly languageExtensions: outputs.kusto.LanguageExtensionsListResponse;
+    readonly languageExtensions?: outputs.kusto.LanguageExtensionsListResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -92,9 +108,25 @@ export interface GetClusterResult {
      */
     readonly optimizedAutoscale?: outputs.kusto.OptimizedAutoscaleResponse;
     /**
+     * A list of private endpoint connections.
+     */
+    readonly privateEndpointConnections: outputs.kusto.PrivateEndpointConnectionResponse[];
+    /**
      * The provisioned state of the resource.
      */
     readonly provisioningState: string;
+    /**
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+     */
+    readonly publicIPType?: string;
+    /**
+     * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    readonly restrictOutboundNetworkAccess?: string;
     /**
      * The SKU of the cluster.
      */
@@ -107,6 +139,10 @@ export interface GetClusterResult {
      * The reason for the cluster's current state.
      */
     readonly stateReason: string;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.kusto.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -134,7 +170,7 @@ export interface GetClusterResult {
 }
 /**
  * Gets a Kusto cluster.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29.
  */
 export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
     return pulumi.output(args).apply((a: any) => getCluster(a, opts))

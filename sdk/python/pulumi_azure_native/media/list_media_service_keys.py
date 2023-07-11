@@ -97,7 +97,7 @@ def list_media_service_keys(media_service_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMediaServiceKeysResult:
     """
     Lists the keys for a Media Service.
-    API Version: 2015-10-01.
+    Azure REST API version: 2015-10-01.
 
 
     :param str media_service_name: Name of the Media Service.
@@ -123,7 +123,7 @@ def list_media_service_keys_output(media_service_name: Optional[pulumi.Input[str
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMediaServiceKeysResult]:
     """
     Lists the keys for a Media Service.
-    API Version: 2015-10-01.
+    Azure REST API version: 2015-10-01.
 
 
     :param str media_service_name: Name of the Media Service.

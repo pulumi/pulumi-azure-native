@@ -11,16 +11,46 @@ namespace Pulumi.AzureNative.EventHub
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
-    /// API Version: 2017-04-01.
+    /// Azure REST API version: 2022-10-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Alternate name specified when alias and namespace names are same.
+        /// </summary>
+        [Output("alternateName")]
+        public Output<string?> AlternateName { get; private set; } = null!;
+
+        /// <summary>
+        /// Cluster ARM ID of the Namespace.
+        /// </summary>
+        [Output("clusterArmId")]
+        public Output<string?> ClusterArmId { get; private set; } = null!;
+
+        /// <summary>
         /// The time the Namespace was created.
         /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// This property disables SAS authentication for the Event Hubs namespace.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
@@ -53,16 +83,34 @@ namespace Pulumi.AzureNative.EventHub
         public Output<string> MetricId { get; private set; } = null!;
 
         /// <summary>
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// </summary>
+        [Output("minimumTlsVersion")]
+        public Output<string?> MinimumTlsVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// Provisioning state of the Namespace.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Endpoint you can use to perform Service Bus operations.
@@ -75,6 +123,18 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// Status of the Namespace.
+        /// </summary>
+        [Output("status")]
+        public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -93,6 +153,12 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        /// </summary>
+        [Output("zoneRedundant")]
+        public Output<bool?> ZoneRedundant { get; private set; } = null!;
 
 
         /// <summary>
@@ -152,6 +218,36 @@ namespace Pulumi.AzureNative.EventHub
     public sealed class NamespaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Alternate name specified when alias and namespace names are same.
+        /// </summary>
+        [Input("alternateName")]
+        public Input<string>? AlternateName { get; set; }
+
+        /// <summary>
+        /// Cluster ARM ID of the Namespace.
+        /// </summary>
+        [Input("clusterArmId")]
+        public Input<string>? ClusterArmId { get; set; }
+
+        /// <summary>
+        /// This property disables SAS authentication for the Event Hubs namespace.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
         [Input("isAutoInflateEnabled")]
@@ -176,10 +272,34 @@ namespace Pulumi.AzureNative.EventHub
         public Input<int>? MaximumThroughputUnits { get; set; }
 
         /// <summary>
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// </summary>
+        [Input("minimumTlsVersion")]
+        public InputUnion<string, Pulumi.AzureNative.EventHub.TlsVersion>? MinimumTlsVersion { get; set; }
+
+        /// <summary>
         /// The Namespace name
         /// </summary>
         [Input("namespaceName")]
         public Input<string>? NamespaceName { get; set; }
+
+        [Input("privateEndpointConnections")]
+        private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;
+
+        /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
+        public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
+        {
+            get => _privateEndpointConnections ?? (_privateEndpointConnections = new InputList<Inputs.PrivateEndpointConnectionArgs>());
+            set => _privateEndpointConnections = value;
+        }
+
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.EventHub.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Name of the resource group within the azure subscription.
@@ -205,8 +325,15 @@ namespace Pulumi.AzureNative.EventHub
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        /// </summary>
+        [Input("zoneRedundant")]
+        public Input<bool>? ZoneRedundant { get; set; }
+
         public NamespaceArgs()
         {
+            PublicNetworkAccess = "Enabled";
         }
         public static new NamespaceArgs Empty => new NamespaceArgs();
     }

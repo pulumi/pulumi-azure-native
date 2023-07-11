@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Compute role.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class IoTRole extends pulumi.CustomResource {
     /**
@@ -80,7 +80,7 @@ export class IoTRole extends pulumi.CustomResource {
      */
     public readonly shareMappings!: pulumi.Output<outputs.databoxedge.MountPointMapResponse[] | undefined>;
     /**
-     * Role configured on ASE resource
+     * Metadata pertaining to creation and last modification of Role
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

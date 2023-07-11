@@ -44,7 +44,7 @@ __all__ = [
     'VirtualNetworksExtendedLocationArgs',
     'VirtualNetworksPropertiesHciArgs',
     'VirtualNetworksPropertiesInfraVnetProfileArgs',
-    'VirtualNetworksPropertiesKubevirtArgs',
+    'VirtualNetworksPropertiesNetworkCloudArgs',
     'VirtualNetworksPropertiesVipPoolArgs',
     'VirtualNetworksPropertiesVmipPoolArgs',
     'VirtualNetworksPropertiesVmwareArgs',
@@ -648,8 +648,6 @@ class ControlPlaneProfileArgs:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is None:
-            os_type = 'Linux'
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if vm_size is not None:
@@ -1089,8 +1087,6 @@ class LoadBalancerProfileArgs:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is None:
-            os_type = 'Linux'
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if vm_size is not None:
@@ -1323,8 +1319,6 @@ class NamedAgentPoolProfileArgs:
             pulumi.set(__self__, "node_labels", node_labels)
         if node_taints is not None:
             pulumi.set(__self__, "node_taints", node_taints)
-        if os_type is None:
-            os_type = 'Linux'
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if vm_size is not None:
@@ -2354,17 +2348,17 @@ class VirtualNetworksPropertiesHciArgs:
 class VirtualNetworksPropertiesInfraVnetProfileArgs:
     def __init__(__self__, *,
                  hci: Optional[pulumi.Input['VirtualNetworksPropertiesHciArgs']] = None,
-                 kubevirt: Optional[pulumi.Input['VirtualNetworksPropertiesKubevirtArgs']] = None,
+                 network_cloud: Optional[pulumi.Input['VirtualNetworksPropertiesNetworkCloudArgs']] = None,
                  vmware: Optional[pulumi.Input['VirtualNetworksPropertiesVmwareArgs']] = None):
         """
         :param pulumi.Input['VirtualNetworksPropertiesHciArgs'] hci: Infra network profile for HCI platform
-        :param pulumi.Input['VirtualNetworksPropertiesKubevirtArgs'] kubevirt: Infra network profile for KubeVirt platform
+        :param pulumi.Input['VirtualNetworksPropertiesNetworkCloudArgs'] network_cloud: Infra network profile for the NetworkCloud platform
         :param pulumi.Input['VirtualNetworksPropertiesVmwareArgs'] vmware: Infra network profile for VMware platform
         """
         if hci is not None:
             pulumi.set(__self__, "hci", hci)
-        if kubevirt is not None:
-            pulumi.set(__self__, "kubevirt", kubevirt)
+        if network_cloud is not None:
+            pulumi.set(__self__, "network_cloud", network_cloud)
         if vmware is not None:
             pulumi.set(__self__, "vmware", vmware)
 
@@ -2381,16 +2375,16 @@ class VirtualNetworksPropertiesInfraVnetProfileArgs:
         pulumi.set(self, "hci", value)
 
     @property
-    @pulumi.getter
-    def kubevirt(self) -> Optional[pulumi.Input['VirtualNetworksPropertiesKubevirtArgs']]:
+    @pulumi.getter(name="networkCloud")
+    def network_cloud(self) -> Optional[pulumi.Input['VirtualNetworksPropertiesNetworkCloudArgs']]:
         """
-        Infra network profile for KubeVirt platform
+        Infra network profile for the NetworkCloud platform
         """
-        return pulumi.get(self, "kubevirt")
+        return pulumi.get(self, "network_cloud")
 
-    @kubevirt.setter
-    def kubevirt(self, value: Optional[pulumi.Input['VirtualNetworksPropertiesKubevirtArgs']]):
-        pulumi.set(self, "kubevirt", value)
+    @network_cloud.setter
+    def network_cloud(self, value: Optional[pulumi.Input['VirtualNetworksPropertiesNetworkCloudArgs']]):
+        pulumi.set(self, "network_cloud", value)
 
     @property
     @pulumi.getter
@@ -2406,27 +2400,27 @@ class VirtualNetworksPropertiesInfraVnetProfileArgs:
 
 
 @pulumi.input_type
-class VirtualNetworksPropertiesKubevirtArgs:
+class VirtualNetworksPropertiesNetworkCloudArgs:
     def __init__(__self__, *,
-                 vnet_name: Optional[pulumi.Input[str]] = None):
+                 network_id: Optional[pulumi.Input[str]] = None):
         """
-        Infra network profile for KubeVirt platform
-        :param pulumi.Input[str] vnet_name: Name of the network in KubeVirt
+        Infra network profile for the NetworkCloud platform
+        :param pulumi.Input[str] network_id: The ARM ID of Network Cloud Network Resource to Associate with this VirtualNetwork
         """
-        if vnet_name is not None:
-            pulumi.set(__self__, "vnet_name", vnet_name)
+        if network_id is not None:
+            pulumi.set(__self__, "network_id", network_id)
 
     @property
-    @pulumi.getter(name="vnetName")
-    def vnet_name(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="networkId")
+    def network_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the network in KubeVirt
+        The ARM ID of Network Cloud Network Resource to Associate with this VirtualNetwork
         """
-        return pulumi.get(self, "vnet_name")
+        return pulumi.get(self, "network_id")
 
-    @vnet_name.setter
-    def vnet_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vnet_name", value)
+    @network_id.setter
+    def network_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network_id", value)
 
 
 @pulumi.input_type
@@ -2534,20 +2528,56 @@ class VirtualNetworksPropertiesVmwareArgs:
 @pulumi.input_type
 class VirtualNetworksPropertiesArgs:
     def __init__(__self__, *,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 gateway: Optional[pulumi.Input[str]] = None,
                  infra_vnet_profile: Optional[pulumi.Input['VirtualNetworksPropertiesInfraVnetProfileArgs']] = None,
+                 ip_address_prefix: Optional[pulumi.Input[str]] = None,
                  vip_pool: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworksPropertiesVipPoolArgs']]]] = None,
                  vmip_pool: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworksPropertiesVmipPoolArgs']]]] = None):
         """
         HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Address of the DNS servers associated with the network
+        :param pulumi.Input[str] gateway: Address of the Gateway associated with the network
+        :param pulumi.Input[str] ip_address_prefix: IP Address Prefix of the network
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworksPropertiesVipPoolArgs']]] vip_pool: Virtual IP Pool for Kubernetes
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworksPropertiesVmipPoolArgs']]] vmip_pool: IP Pool for Virtual Machines
         """
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if gateway is not None:
+            pulumi.set(__self__, "gateway", gateway)
         if infra_vnet_profile is not None:
             pulumi.set(__self__, "infra_vnet_profile", infra_vnet_profile)
+        if ip_address_prefix is not None:
+            pulumi.set(__self__, "ip_address_prefix", ip_address_prefix)
         if vip_pool is not None:
             pulumi.set(__self__, "vip_pool", vip_pool)
         if vmip_pool is not None:
             pulumi.set(__self__, "vmip_pool", vmip_pool)
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Address of the DNS servers associated with the network
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @dns_servers.setter
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "dns_servers", value)
+
+    @property
+    @pulumi.getter
+    def gateway(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address of the Gateway associated with the network
+        """
+        return pulumi.get(self, "gateway")
+
+    @gateway.setter
+    def gateway(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gateway", value)
 
     @property
     @pulumi.getter(name="infraVnetProfile")
@@ -2557,6 +2587,18 @@ class VirtualNetworksPropertiesArgs:
     @infra_vnet_profile.setter
     def infra_vnet_profile(self, value: Optional[pulumi.Input['VirtualNetworksPropertiesInfraVnetProfileArgs']]):
         pulumi.set(self, "infra_vnet_profile", value)
+
+    @property
+    @pulumi.getter(name="ipAddressPrefix")
+    def ip_address_prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP Address Prefix of the network
+        """
+        return pulumi.get(self, "ip_address_prefix")
+
+    @ip_address_prefix.setter
+    def ip_address_prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_prefix", value)
 
     @property
     @pulumi.getter(name="vipPool")

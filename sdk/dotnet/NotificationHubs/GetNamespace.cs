@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.NotificationHubs
     public static class GetNamespace
     {
         /// <summary>
-        /// Returns the description for the specified namespace.
-        /// API Version: 2017-04-01.
+        /// Notification Hubs Namespace Resource.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns the description for the specified namespace.
-        /// API Version: 2017-04-01.
+        /// Notification Hubs Namespace Resource.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:notificationhubs:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -30,13 +30,13 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class GetNamespaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The namespace name.
+        /// Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public string NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -50,13 +50,13 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class GetNamespaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The namespace name.
+        /// Namespace name
         /// </summary>
         [Input("namespaceName", required: true)]
         public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -72,141 +72,64 @@ namespace Pulumi.AzureNative.NotificationHubs
     public sealed class GetNamespaceResult
     {
         /// <summary>
-        /// The time the namespace was created.
-        /// </summary>
-        public readonly string? CreatedAt;
-        /// <summary>
-        /// Whether or not the namespace is set as Critical.
-        /// </summary>
-        public readonly bool? Critical;
-        /// <summary>
-        /// Data center for the namespace
-        /// </summary>
-        public readonly string? DataCenter;
-        /// <summary>
-        /// Whether or not the namespace is currently enabled.
-        /// </summary>
-        public readonly bool? Enabled;
-        /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
-        public readonly string? Location;
+        public readonly string Location;
         /// <summary>
-        /// Identifier for Azure Insights metrics
-        /// </summary>
-        public readonly string MetricId;
-        /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The namespace type.
+        /// Represents namespace properties.
         /// </summary>
-        public readonly string? NamespaceType;
+        public readonly Outputs.NamespacePropertiesResponse Properties;
         /// <summary>
-        /// Provisioning state of the Namespace.
+        /// The Sku description for a namespace
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly Outputs.SkuResponse Sku;
         /// <summary>
-        /// Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
-        public readonly string? Region;
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// ScaleUnit where the namespace gets created
-        /// </summary>
-        public readonly string? ScaleUnit;
-        /// <summary>
-        /// Endpoint you can use to perform NotificationHub operations.
-        /// </summary>
-        public readonly string? ServiceBusEndpoint;
-        /// <summary>
-        /// The sku of the created namespace
-        /// </summary>
-        public readonly Outputs.SkuResponse? Sku;
-        /// <summary>
-        /// Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-        /// </summary>
-        public readonly string? Status;
-        /// <summary>
-        /// The Id of the Azure subscription associated with the namespace.
-        /// </summary>
-        public readonly string? SubscriptionId;
-        /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
-        /// <summary>
-        /// The time the namespace was updated.
-        /// </summary>
-        public readonly string? UpdatedAt;
 
         [OutputConstructor]
         private GetNamespaceResult(
-            string? createdAt,
-
-            bool? critical,
-
-            string? dataCenter,
-
-            bool? enabled,
-
             string id,
 
-            string? location,
-
-            string metricId,
+            string location,
 
             string name,
 
-            string? namespaceType,
+            Outputs.NamespacePropertiesResponse properties,
 
-            string? provisioningState,
+            Outputs.SkuResponse sku,
 
-            string? region,
-
-            string? scaleUnit,
-
-            string? serviceBusEndpoint,
-
-            Outputs.SkuResponse? sku,
-
-            string? status,
-
-            string? subscriptionId,
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
-            string type,
-
-            string? updatedAt)
+            string type)
         {
-            CreatedAt = createdAt;
-            Critical = critical;
-            DataCenter = dataCenter;
-            Enabled = enabled;
             Id = id;
             Location = location;
-            MetricId = metricId;
             Name = name;
-            NamespaceType = namespaceType;
-            ProvisioningState = provisioningState;
-            Region = region;
-            ScaleUnit = scaleUnit;
-            ServiceBusEndpoint = serviceBusEndpoint;
+            Properties = properties;
             Sku = sku;
-            Status = status;
-            SubscriptionId = subscriptionId;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
-            UpdatedAt = updatedAt;
         }
     }
 }

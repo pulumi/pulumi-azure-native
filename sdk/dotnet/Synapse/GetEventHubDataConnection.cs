@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Synapse
     {
         /// <summary>
         /// Returns a data connection.
-        /// API Version: 2021-04-01-preview.
+        /// Azure REST API version: 2021-06-01-preview.
         /// </summary>
         public static Task<GetEventHubDataConnectionResult> InvokeAsync(GetEventHubDataConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventHubDataConnectionResult>("azure-native:synapse:getEventHubDataConnection", args ?? new GetEventHubDataConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a data connection.
-        /// API Version: 2021-04-01-preview.
+        /// Azure REST API version: 2021-06-01-preview.
         /// </summary>
         public static Output<GetEventHubDataConnectionResult> Invoke(GetEventHubDataConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventHubDataConnectionResult>("azure-native:synapse:getEventHubDataConnection", args ?? new GetEventHubDataConnectionInvokeArgs(), options.WithDefaults());
@@ -54,7 +54,7 @@ namespace Pulumi.AzureNative.Synapse
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public string WorkspaceName { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;
@@ -141,6 +141,10 @@ namespace Pulumi.AzureNative.Synapse
         /// </summary>
         public readonly string? Location;
         /// <summary>
+        /// The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
+        /// </summary>
+        public readonly string? ManagedIdentityResourceId;
+        /// <summary>
         /// The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
         /// </summary>
         public readonly string? MappingRuleName;
@@ -183,6 +187,8 @@ namespace Pulumi.AzureNative.Synapse
 
             string? location,
 
+            string? managedIdentityResourceId,
+
             string? mappingRuleName,
 
             string name,
@@ -203,6 +209,7 @@ namespace Pulumi.AzureNative.Synapse
             Id = id;
             Kind = kind;
             Location = location;
+            ManagedIdentityResourceId = managedIdentityResourceId;
             MappingRuleName = mappingRuleName;
             Name = name;
             ProvisioningState = provisioningState;

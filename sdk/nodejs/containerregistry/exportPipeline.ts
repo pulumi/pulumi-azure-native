@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An object that represents an export pipeline for a container registry.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ExportPipeline extends pulumi.CustomResource {
     /**
@@ -144,7 +144,7 @@ export interface ExportPipelineArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

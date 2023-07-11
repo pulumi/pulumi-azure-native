@@ -115,12 +115,7 @@ class CertificateArgs:
         pulumi.set(self, "password", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Certificate to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Certificate(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Certificate to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,7 +170,6 @@ class Certificate(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Certificate is deprecated: azure-native:apimanagement/v20220801:Certificate is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Certificate to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -199,7 +193,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["subject"] = None
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Certificate"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-native:apimanagement/v20220801:Certificate',

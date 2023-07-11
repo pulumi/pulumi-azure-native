@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DataBox
     {
         /// <summary>
         /// Gets information about the specified job.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Task<GetJobResult> InvokeAsync(GetJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified job.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2022-12-01.
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("azure-native:databox:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
@@ -140,6 +140,14 @@ namespace Pulumi.AzureNative.DataBox
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The Editable status for Reverse Shipping Address and Contact Info
+        /// </summary>
+        public readonly string ReverseShippingDetailsUpdate;
+        /// <summary>
+        /// The Editable status for Reverse Transport preferences
+        /// </summary>
+        public readonly string ReverseTransportPreferenceUpdate;
+        /// <summary>
         /// The sku type.
         /// </summary>
         public readonly Outputs.SkuResponse Sku;
@@ -198,6 +206,10 @@ namespace Pulumi.AzureNative.DataBox
 
             string name,
 
+            string reverseShippingDetailsUpdate,
+
+            string reverseTransportPreferenceUpdate,
+
             Outputs.SkuResponse sku,
 
             string startTime,
@@ -226,6 +238,8 @@ namespace Pulumi.AzureNative.DataBox
             IsShippingAddressEditable = isShippingAddressEditable;
             Location = location;
             Name = name;
+            ReverseShippingDetailsUpdate = reverseShippingDetailsUpdate;
+            ReverseTransportPreferenceUpdate = reverseTransportPreferenceUpdate;
             Sku = sku;
             StartTime = startTime;
             Status = status;

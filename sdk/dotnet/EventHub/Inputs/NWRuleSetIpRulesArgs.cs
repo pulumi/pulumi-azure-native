@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EventHub.Inputs
 {
 
     /// <summary>
-    /// Description of NetWorkRuleSet - IpRules resource.
+    /// The response from the List namespace operation.
     /// </summary>
     public sealed class NWRuleSetIpRulesArgs : global::Pulumi.ResourceArgs
     {
@@ -29,7 +29,6 @@ namespace Pulumi.AzureNative.EventHub.Inputs
 
         public NWRuleSetIpRulesArgs()
         {
-            Action = "Allow";
         }
         public static new NWRuleSetIpRulesArgs Empty => new NWRuleSetIpRulesArgs();
     }

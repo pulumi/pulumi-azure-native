@@ -49,9 +49,17 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
+        /// List of all regions associated with the managed hsm pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MHSMGeoReplicatedRegionResponse> Regions;
+        /// <summary>
         /// The scheduled purge date in UTC.
         /// </summary>
         public readonly string ScheduledPurgeDate;
+        /// <summary>
+        /// Managed HSM security domain properties.
+        /// </summary>
+        public readonly Outputs.ManagedHSMSecurityDomainPropertiesResponse SecurityDomainProperties;
         /// <summary>
         /// Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90.
         /// </summary>
@@ -83,7 +91,11 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
 
             string? publicNetworkAccess,
 
+            ImmutableArray<Outputs.MHSMGeoReplicatedRegionResponse> regions,
+
             string scheduledPurgeDate,
+
+            Outputs.ManagedHSMSecurityDomainPropertiesResponse securityDomainProperties,
 
             int? softDeleteRetentionInDays,
 
@@ -99,7 +111,9 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            Regions = regions;
             ScheduledPurgeDate = scheduledPurgeDate;
+            SecurityDomainProperties = securityDomainProperties;
             SoftDeleteRetentionInDays = softDeleteRetentionInDays;
             StatusMessage = statusMessage;
             TenantId = tenantId;

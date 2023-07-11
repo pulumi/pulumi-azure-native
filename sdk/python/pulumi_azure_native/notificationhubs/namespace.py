@@ -18,85 +18,36 @@ __all__ = ['NamespaceArgs', 'Namespace']
 class NamespaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 critical: Optional[pulumi.Input[bool]] = None,
-                 data_center: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
+                 sku: pulumi.Input['SkuArgs'],
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 namespace_type: Optional[pulumi.Input['NamespaceType']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input[str]] = None,
-                 scale_unit: Optional[pulumi.Input[str]] = None,
-                 service_bus_endpoint: Optional[pulumi.Input[str]] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 updated_at: Optional[pulumi.Input[str]] = None):
+                 properties: Optional[pulumi.Input['NamespacePropertiesArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Namespace resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] created_at: The time the namespace was created.
-        :param pulumi.Input[bool] critical: Whether or not the namespace is set as Critical.
-        :param pulumi.Input[str] data_center: Data center for the namespace
-        :param pulumi.Input[bool] enabled: Whether or not the namespace is currently enabled.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the namespace.
-        :param pulumi.Input[str] namespace_name: The namespace name.
-        :param pulumi.Input['NamespaceType'] namespace_type: The namespace type.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the Namespace.
-        :param pulumi.Input[str] region: Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-        :param pulumi.Input[str] scale_unit: ScaleUnit where the namespace gets created
-        :param pulumi.Input[str] service_bus_endpoint: Endpoint you can use to perform NotificationHub operations.
-        :param pulumi.Input['SkuArgs'] sku: The sku of the created namespace
-        :param pulumi.Input[str] status: Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-        :param pulumi.Input[str] subscription_id: The Id of the Azure subscription associated with the namespace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] updated_at: The time the namespace was updated.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['SkuArgs'] sku: The Sku description for a namespace
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] namespace_name: Namespace name
+        :param pulumi.Input['NamespacePropertiesArgs'] properties: Represents namespace properties.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if created_at is not None:
-            pulumi.set(__self__, "created_at", created_at)
-        if critical is not None:
-            pulumi.set(__self__, "critical", critical)
-        if data_center is not None:
-            pulumi.set(__self__, "data_center", data_center)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "sku", sku)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
-        if namespace_type is not None:
-            pulumi.set(__self__, "namespace_type", namespace_type)
-        if provisioning_state is not None:
-            pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if region is not None:
-            pulumi.set(__self__, "region", region)
-        if scale_unit is not None:
-            pulumi.set(__self__, "scale_unit", scale_unit)
-        if service_bus_endpoint is not None:
-            pulumi.set(__self__, "service_bus_endpoint", service_bus_endpoint)
-        if sku is not None:
-            pulumi.set(__self__, "sku", sku)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
-        if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if updated_at is not None:
-            pulumi.set(__self__, "updated_at", updated_at)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -105,58 +56,22 @@ class NamespaceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The time the namespace was created.
-        """
-        return pulumi.get(self, "created_at")
-
-    @created_at.setter
-    def created_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "created_at", value)
-
-    @property
     @pulumi.getter
-    def critical(self) -> Optional[pulumi.Input[bool]]:
+    def sku(self) -> pulumi.Input['SkuArgs']:
         """
-        Whether or not the namespace is set as Critical.
+        The Sku description for a namespace
         """
-        return pulumi.get(self, "critical")
+        return pulumi.get(self, "sku")
 
-    @critical.setter
-    def critical(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "critical", value)
-
-    @property
-    @pulumi.getter(name="dataCenter")
-    def data_center(self) -> Optional[pulumi.Input[str]]:
-        """
-        Data center for the namespace
-        """
-        return pulumi.get(self, "data_center")
-
-    @data_center.setter
-    def data_center(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "data_center", value)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Whether or not the namespace is currently enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
+    @sku.setter
+    def sku(self, value: pulumi.Input['SkuArgs']):
+        pulumi.set(self, "sku", value)
 
     @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -165,22 +80,10 @@ class NamespaceArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the namespace.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="namespaceName")
     def namespace_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The namespace name.
+        Namespace name
         """
         return pulumi.get(self, "namespace_name")
 
@@ -189,106 +92,22 @@ class NamespaceArgs:
         pulumi.set(self, "namespace_name", value)
 
     @property
-    @pulumi.getter(name="namespaceType")
-    def namespace_type(self) -> Optional[pulumi.Input['NamespaceType']]:
-        """
-        The namespace type.
-        """
-        return pulumi.get(self, "namespace_type")
-
-    @namespace_type.setter
-    def namespace_type(self, value: Optional[pulumi.Input['NamespaceType']]):
-        pulumi.set(self, "namespace_type", value)
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        Provisioning state of the Namespace.
-        """
-        return pulumi.get(self, "provisioning_state")
-
-    @provisioning_state.setter
-    def provisioning_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "provisioning_state", value)
-
-    @property
     @pulumi.getter
-    def region(self) -> Optional[pulumi.Input[str]]:
+    def properties(self) -> Optional[pulumi.Input['NamespacePropertiesArgs']]:
         """
-        Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
+        Represents namespace properties.
         """
-        return pulumi.get(self, "region")
+        return pulumi.get(self, "properties")
 
-    @region.setter
-    def region(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "region", value)
-
-    @property
-    @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> Optional[pulumi.Input[str]]:
-        """
-        ScaleUnit where the namespace gets created
-        """
-        return pulumi.get(self, "scale_unit")
-
-    @scale_unit.setter
-    def scale_unit(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "scale_unit", value)
-
-    @property
-    @pulumi.getter(name="serviceBusEndpoint")
-    def service_bus_endpoint(self) -> Optional[pulumi.Input[str]]:
-        """
-        Endpoint you can use to perform NotificationHub operations.
-        """
-        return pulumi.get(self, "service_bus_endpoint")
-
-    @service_bus_endpoint.setter
-    def service_bus_endpoint(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "service_bus_endpoint", value)
-
-    @property
-    @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
-        """
-        The sku of the created namespace
-        """
-        return pulumi.get(self, "sku")
-
-    @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
-        pulumi.set(self, "sku", value)
-
-    @property
-    @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[str]]:
-        """
-        Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "status", value)
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Id of the Azure subscription associated with the namespace.
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "subscription_id", value)
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['NamespacePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -296,67 +115,31 @@ class NamespaceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
-    @property
-    @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> Optional[pulumi.Input[str]]:
-        """
-        The time the namespace was updated.
-        """
-        return pulumi.get(self, "updated_at")
-
-    @updated_at.setter
-    def updated_at(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "updated_at", value)
-
 
 class Namespace(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 critical: Optional[pulumi.Input[bool]] = None,
-                 data_center: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 namespace_type: Optional[pulumi.Input['NamespaceType']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['NamespacePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scale_unit: Optional[pulumi.Input[str]] = None,
-                 service_bus_endpoint: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 updated_at: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Description of a Namespace resource.
-        API Version: 2017-04-01.
+        Notification Hubs Namespace Resource.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] created_at: The time the namespace was created.
-        :param pulumi.Input[bool] critical: Whether or not the namespace is set as Critical.
-        :param pulumi.Input[str] data_center: Data center for the namespace
-        :param pulumi.Input[bool] enabled: Whether or not the namespace is currently enabled.
-        :param pulumi.Input[str] location: Resource location
-        :param pulumi.Input[str] name: The name of the namespace.
-        :param pulumi.Input[str] namespace_name: The namespace name.
-        :param pulumi.Input['NamespaceType'] namespace_type: The namespace type.
-        :param pulumi.Input[str] provisioning_state: Provisioning state of the Namespace.
-        :param pulumi.Input[str] region: Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] scale_unit: ScaleUnit where the namespace gets created
-        :param pulumi.Input[str] service_bus_endpoint: Endpoint you can use to perform NotificationHub operations.
-        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The sku of the created namespace
-        :param pulumi.Input[str] status: Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
-        :param pulumi.Input[str] subscription_id: The Id of the Azure subscription associated with the namespace.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
-        :param pulumi.Input[str] updated_at: The time the namespace was updated.
+        :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[str] namespace_name: Namespace name
+        :param pulumi.Input[pulumi.InputType['NamespacePropertiesArgs']] properties: Represents namespace properties.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[pulumi.InputType['SkuArgs']] sku: The Sku description for a namespace
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -365,8 +148,8 @@ class Namespace(pulumi.CustomResource):
                  args: NamespaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Description of a Namespace resource.
-        API Version: 2017-04-01.
+        Notification Hubs Namespace Resource.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.
@@ -383,24 +166,12 @@ class Namespace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 created_at: Optional[pulumi.Input[str]] = None,
-                 critical: Optional[pulumi.Input[bool]] = None,
-                 data_center: Optional[pulumi.Input[str]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
-                 namespace_type: Optional[pulumi.Input['NamespaceType']] = None,
-                 provisioning_state: Optional[pulumi.Input[str]] = None,
-                 region: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['NamespacePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 scale_unit: Optional[pulumi.Input[str]] = None,
-                 service_bus_endpoint: Optional[pulumi.Input[str]] = None,
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
-                 status: Optional[pulumi.Input[str]] = None,
-                 subscription_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 updated_at: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,29 +181,20 @@ class Namespace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
-            __props__.__dict__["created_at"] = created_at
-            __props__.__dict__["critical"] = critical
-            __props__.__dict__["data_center"] = data_center
-            __props__.__dict__["enabled"] = enabled
             __props__.__dict__["location"] = location
-            __props__.__dict__["name"] = name
             __props__.__dict__["namespace_name"] = namespace_name
-            __props__.__dict__["namespace_type"] = namespace_type
-            __props__.__dict__["provisioning_state"] = provisioning_state
-            __props__.__dict__["region"] = region
+            __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["scale_unit"] = scale_unit
-            __props__.__dict__["service_bus_endpoint"] = service_bus_endpoint
+            if sku is None and not opts.urn:
+                raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
-            __props__.__dict__["status"] = status
-            __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["updated_at"] = updated_at
-            __props__.__dict__["metric_id"] = None
+            __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs/v20140901:Namespace"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:Namespace"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:Namespace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:notificationhubs/v20140901:Namespace"), pulumi.Alias(type_="azure-native:notificationhubs/v20160301:Namespace"), pulumi.Alias(type_="azure-native:notificationhubs/v20170401:Namespace"), pulumi.Alias(type_="azure-native:notificationhubs/v20230101preview:Namespace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Namespace, __self__).__init__(
             'azure-native:notificationhubs:Namespace',
@@ -456,151 +218,60 @@ class Namespace(pulumi.CustomResource):
 
         __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
-        __props__.__dict__["created_at"] = None
-        __props__.__dict__["critical"] = None
-        __props__.__dict__["data_center"] = None
-        __props__.__dict__["enabled"] = None
         __props__.__dict__["location"] = None
-        __props__.__dict__["metric_id"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["namespace_type"] = None
-        __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["region"] = None
-        __props__.__dict__["scale_unit"] = None
-        __props__.__dict__["service_bus_endpoint"] = None
+        __props__.__dict__["properties"] = None
         __props__.__dict__["sku"] = None
-        __props__.__dict__["status"] = None
-        __props__.__dict__["subscription_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
-        __props__.__dict__["updated_at"] = None
         return Namespace(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="createdAt")
-    def created_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The time the namespace was created.
-        """
-        return pulumi.get(self, "created_at")
-
-    @property
     @pulumi.getter
-    def critical(self) -> pulumi.Output[Optional[bool]]:
+    def location(self) -> pulumi.Output[str]:
         """
-        Whether or not the namespace is set as Critical.
-        """
-        return pulumi.get(self, "critical")
-
-    @property
-    @pulumi.getter(name="dataCenter")
-    def data_center(self) -> pulumi.Output[Optional[str]]:
-        """
-        Data center for the namespace
-        """
-        return pulumi.get(self, "data_center")
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Output[Optional[bool]]:
-        """
-        Whether or not the namespace is currently enabled.
-        """
-        return pulumi.get(self, "enabled")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
-        """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
-
-    @property
-    @pulumi.getter(name="metricId")
-    def metric_id(self) -> pulumi.Output[str]:
-        """
-        Identifier for Azure Insights metrics
-        """
-        return pulumi.get(self, "metric_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="namespaceType")
-    def namespace_type(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter
+    def properties(self) -> pulumi.Output['outputs.NamespacePropertiesResponse']:
         """
-        The namespace type.
+        Represents namespace properties.
         """
-        return pulumi.get(self, "namespace_type")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Output[Optional[str]]:
-        """
-        Provisioning state of the Namespace.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
-    def region(self) -> pulumi.Output[Optional[str]]:
+    def sku(self) -> pulumi.Output['outputs.SkuResponse']:
         """
-        Specifies the targeted region in which the namespace should be created. It can be any of the following values: Australia East, Australia Southeast, Central US, East US, East US 2, West US, North Central US, South Central US, East Asia, Southeast Asia, Brazil South, Japan East, Japan West, North Europe, West Europe
-        """
-        return pulumi.get(self, "region")
-
-    @property
-    @pulumi.getter(name="scaleUnit")
-    def scale_unit(self) -> pulumi.Output[Optional[str]]:
-        """
-        ScaleUnit where the namespace gets created
-        """
-        return pulumi.get(self, "scale_unit")
-
-    @property
-    @pulumi.getter(name="serviceBusEndpoint")
-    def service_bus_endpoint(self) -> pulumi.Output[Optional[str]]:
-        """
-        Endpoint you can use to perform NotificationHub operations.
-        """
-        return pulumi.get(self, "service_bus_endpoint")
-
-    @property
-    @pulumi.getter
-    def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
-        """
-        The sku of the created namespace
+        The Sku description for a namespace
         """
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter
-    def status(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Status of the namespace. It can be any of these values:1 = Created/Active2 = Creating3 = Suspended4 = Deleting
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
-        return pulumi.get(self, "status")
-
-    @property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Id of the Azure subscription associated with the namespace.
-        """
-        return pulumi.get(self, "subscription_id")
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -608,15 +279,7 @@ class Namespace(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter(name="updatedAt")
-    def updated_at(self) -> pulumi.Output[Optional[str]]:
-        """
-        The time the namespace was updated.
-        """
-        return pulumi.get(self, "updated_at")
 

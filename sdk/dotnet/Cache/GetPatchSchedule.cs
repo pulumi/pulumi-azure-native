@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Cache
     {
         /// <summary>
         /// Gets the patching schedule of a redis cache.
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetPatchScheduleResult> InvokeAsync(GetPatchScheduleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPatchScheduleResult>("azure-native:cache:getPatchSchedule", args ?? new GetPatchScheduleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the patching schedule of a redis cache.
-        /// API Version: 2020-06-01.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetPatchScheduleResult> Invoke(GetPatchScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPatchScheduleResult>("azure-native:cache:getPatchSchedule", args ?? new GetPatchScheduleInvokeArgs(), options.WithDefaults());
@@ -84,11 +84,15 @@ namespace Pulumi.AzureNative.Cache
     public sealed class GetPatchScheduleResult
     {
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -96,13 +100,15 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduleEntryResponse> ScheduleEntries;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetPatchScheduleResult(
             string id,
+
+            string location,
 
             string name,
 
@@ -111,6 +117,7 @@ namespace Pulumi.AzureNative.Cache
             string type)
         {
             Id = id;
+            Location = location;
             Name = name;
             ScheduleEntries = scheduleEntries;
             Type = type;

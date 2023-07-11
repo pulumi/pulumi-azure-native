@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing peering service with the specified name under the given subscription and resource group.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getPeeringService(args: GetPeeringServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringServiceResult> {
 
@@ -43,6 +43,10 @@ export interface GetPeeringServiceResult {
      * The location of the resource.
      */
     readonly location: string;
+    /**
+     * The Log Analytics Workspace Properties
+     */
+    readonly logAnalyticsWorkspaceProperties?: outputs.peering.LogAnalyticsWorkspacePropertiesResponse;
     /**
      * The name of the resource.
      */
@@ -82,7 +86,7 @@ export interface GetPeeringServiceResult {
 }
 /**
  * Gets an existing peering service with the specified name under the given subscription and resource group.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getPeeringServiceOutput(args: GetPeeringServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeeringServiceResult> {
     return pulumi.output(args).apply((a: any) => getPeeringService(a, opts))

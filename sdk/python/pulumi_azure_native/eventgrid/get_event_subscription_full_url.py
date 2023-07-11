@@ -49,7 +49,7 @@ def get_event_subscription_full_url(event_subscription_name: Optional[str] = Non
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventSubscriptionFullUrlResult:
     """
     Get the full endpoint URL for an event subscription.
-    API Version: 2020-06-01.
+    Azure REST API version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription.
@@ -71,7 +71,7 @@ def get_event_subscription_full_url_output(event_subscription_name: Optional[pul
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription.
-    API Version: 2020-06-01.
+    Azure REST API version: 2022-06-15.
 
 
     :param str event_subscription_name: Name of the event subscription.

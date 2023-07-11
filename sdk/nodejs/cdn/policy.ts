@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Defines web application firewall policy for Azure CDN.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -50,6 +50,10 @@ export class Policy extends pulumi.CustomResource {
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    /**
+     * Key-Value pair representing additional properties for Web Application Firewall policy.
+     */
+    public readonly extendedProperties!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource location.
      */
@@ -110,6 +114,7 @@ export class Policy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["customRules"] = args ? args.customRules : undefined;
+            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedRules"] = args ? args.managedRules : undefined;
             resourceInputs["policyName"] = args ? args.policyName : undefined;
@@ -129,6 +134,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["customRules"] = undefined /*out*/;
             resourceInputs["endpointLinks"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["managedRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -142,7 +148,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20190615:Policy" }, { type: "azure-native:cdn/v20190615preview:Policy" }, { type: "azure-native:cdn/v20200331:Policy" }, { type: "azure-native:cdn/v20200415:Policy" }, { type: "azure-native:cdn/v20200901:Policy" }, { type: "azure-native:cdn/v20210601:Policy" }, { type: "azure-native:cdn/v20220501preview:Policy" }, { type: "azure-native:cdn/v20221101preview:Policy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20190615:Policy" }, { type: "azure-native:cdn/v20190615preview:Policy" }, { type: "azure-native:cdn/v20200331:Policy" }, { type: "azure-native:cdn/v20200415:Policy" }, { type: "azure-native:cdn/v20200901:Policy" }, { type: "azure-native:cdn/v20210601:Policy" }, { type: "azure-native:cdn/v20220501preview:Policy" }, { type: "azure-native:cdn/v20221101preview:Policy" }, { type: "azure-native:cdn/v20230501:Policy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Policy.__pulumiType, name, resourceInputs, opts);
     }
@@ -156,6 +162,10 @@ export interface PolicyArgs {
      * Describes custom rules inside the policy.
      */
     customRules?: pulumi.Input<inputs.cdn.CustomRuleListArgs>;
+    /**
+     * Key-Value pair representing additional properties for Web Application Firewall policy.
+     */
+    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource location.
      */

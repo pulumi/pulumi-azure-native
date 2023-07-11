@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['MigrationConfigArgs', 'MigrationConfig']
 
@@ -108,7 +109,7 @@ class MigrationConfig(pulumi.CustomResource):
                  __props__=None):
         """
         Single item in List or Get Migration Config operation
-        API Version: 2017-04-01.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +127,7 @@ class MigrationConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Migration Config operation
-        API Version: 2017-04-01.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param MigrationConfigArgs args: The arguments to use to populate this resource's properties.
@@ -170,10 +171,12 @@ class MigrationConfig(pulumi.CustomResource):
             if target_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'target_namespace'")
             __props__.__dict__["target_namespace"] = target_namespace
+            __props__.__dict__["location"] = None
             __props__.__dict__["migration_state"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["pending_replication_operations_count"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20170401:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20211101:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:MigrationConfig"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:MigrationConfig")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -199,14 +202,24 @@ class MigrationConfig(pulumi.CustomResource):
 
         __props__ = MigrationConfigArgs.__new__(MigrationConfigArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["migration_state"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["pending_replication_operations_count"] = None
         __props__.__dict__["post_migration_name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["target_namespace"] = None
         __props__.__dict__["type"] = None
         return MigrationConfig(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter(name="migrationState")
@@ -220,7 +233,7 @@ class MigrationConfig(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -249,6 +262,14 @@ class MigrationConfig(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="targetNamespace")
     def target_namespace(self) -> pulumi.Output[str]:
         """
@@ -260,7 +281,7 @@ class MigrationConfig(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 

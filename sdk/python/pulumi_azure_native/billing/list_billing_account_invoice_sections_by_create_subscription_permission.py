@@ -61,7 +61,7 @@ def list_billing_account_invoice_sections_by_create_subscription_permission(bill
                                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult:
     """
     Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -81,7 +81,7 @@ def list_billing_account_invoice_sections_by_create_subscription_permission_outp
                                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult]:
     """
     Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.
-    API Version: 2020-05-01.
+    Azure REST API version: 2020-05-01.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific action rule
- * API Version: 2019-05-05-preview.
+ * Azure REST API version: 2019-05-05-preview.
  */
 export function getActionRuleByName(args: GetActionRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetActionRuleByNameResult> {
 
@@ -62,7 +62,7 @@ export interface GetActionRuleByNameResult {
 }
 /**
  * Get a specific action rule
- * API Version: 2019-05-05-preview.
+ * Azure REST API version: 2019-05-05-preview.
  */
 export function getActionRuleByNameOutput(args: GetActionRuleByNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActionRuleByNameResult> {
     return pulumi.output(args).apply((a: any) => getActionRuleByName(a, opts))

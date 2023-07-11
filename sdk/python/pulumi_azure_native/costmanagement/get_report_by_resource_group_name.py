@@ -134,7 +134,7 @@ def get_report_by_resource_group_name(report_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportByResourceGroupNameResult:
     """
     Gets the report for a resource group under a subscription by report name.
-    API Version: 2018-08-01-preview.
+    Azure REST API version: 2018-08-01-preview.
 
 
     :param str report_name: Report Name.
@@ -163,7 +163,7 @@ def get_report_by_resource_group_name_output(report_name: Optional[pulumi.Input[
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportByResourceGroupNameResult]:
     """
     Gets the report for a resource group under a subscription by report name.
-    API Version: 2018-08-01-preview.
+    Azure REST API version: 2018-08-01-preview.
 
 
     :param str report_name: Report Name.

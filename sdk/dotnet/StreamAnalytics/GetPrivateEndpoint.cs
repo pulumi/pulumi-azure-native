@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.StreamAnalytics
     {
         /// <summary>
         /// Gets information about the specified Private Endpoint.
-        /// API Version: 2020-03-01-preview.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Task<GetPrivateEndpointResult> InvokeAsync(GetPrivateEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPrivateEndpointResult>("azure-native:streamanalytics:getPrivateEndpoint", args ?? new GetPrivateEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified Private Endpoint.
-        /// API Version: 2020-03-01-preview.
+        /// Azure REST API version: 2020-03-01.
         /// </summary>
         public static Output<GetPrivateEndpointResult> Invoke(GetPrivateEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateEndpointResult>("azure-native:streamanalytics:getPrivateEndpoint", args ?? new GetPrivateEndpointInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.StreamAnalytics
     public sealed class GetPrivateEndpointResult
     {
         /// <summary>
+        /// The date when this private endpoint was created.
+        /// </summary>
+        public readonly string CreatedDate;
+        /// <summary>
         /// Unique opaque string (generally a GUID) that represents the metadata state of the resource (private endpoint) and changes whenever the resource is updated. Required on PUT (CreateOrUpdate) requests.
         /// </summary>
         public readonly string Etag;
@@ -92,13 +96,13 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// A list of connections to the remote resource. Immutable after it is set.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> ManualPrivateLinkServiceConnections;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The properties associated with a private endpoint.
-        /// </summary>
-        public readonly Outputs.PrivateEndpointPropertiesResponse Properties;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -106,20 +110,23 @@ namespace Pulumi.AzureNative.StreamAnalytics
 
         [OutputConstructor]
         private GetPrivateEndpointResult(
+            string createdDate,
+
             string etag,
 
             string id,
 
-            string name,
+            ImmutableArray<Outputs.PrivateLinkServiceConnectionResponse> manualPrivateLinkServiceConnections,
 
-            Outputs.PrivateEndpointPropertiesResponse properties,
+            string name,
 
             string type)
         {
+            CreatedDate = createdDate;
             Etag = etag;
             Id = id;
+            ManualPrivateLinkServiceConnections = manualPrivateLinkServiceConnections;
             Name = name;
-            Properties = properties;
             Type = type;
         }
     }

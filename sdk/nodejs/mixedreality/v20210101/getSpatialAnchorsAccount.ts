@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Retrieve a Spatial Anchors Account.
  */
-/** @deprecated azure-native:mixedreality/v20210101:SpatialAnchorsAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility. */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
-    pulumi.log.warn("getSpatialAnchorsAccount is deprecated: azure-native:mixedreality/v20210101:SpatialAnchorsAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:mixedreality/v20210101:getSpatialAnchorsAccount", {
@@ -92,7 +90,6 @@ export interface GetSpatialAnchorsAccountResult {
 /**
  * Retrieve a Spatial Anchors Account.
  */
-/** @deprecated azure-native:mixedreality/v20210101:SpatialAnchorsAccount is being removed in the next major version of this provider. Upgrade to at least azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount to guarantee forwards compatibility. */
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {
     return pulumi.output(args).apply((a: any) => getSpatialAnchorsAccount(a, opts))
 }

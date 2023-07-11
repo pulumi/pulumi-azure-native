@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a data connector.
-        /// API Version: 2020-01-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetTIDataConnectorResult> InvokeAsync(GetTIDataConnectorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTIDataConnectorResult>("azure-native:securityinsights:getTIDataConnector", args ?? new GetTIDataConnectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a data connector.
-        /// API Version: 2020-01-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetTIDataConnectorResult> Invoke(GetTIDataConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTIDataConnectorResult>("azure-native:securityinsights:getTIDataConnector", args ?? new GetTIDataConnectorInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public string DataConnectorId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Input<string> DataConnectorId { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group within the user's subscription. The name is case insensitive.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -101,9 +101,13 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The tenant id to connect to, and get the data from.
         /// </summary>
@@ -113,7 +117,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly string? TipLookbackPeriod;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -129,6 +133,8 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string name,
 
+            Outputs.SystemDataResponse systemData,
+
             string? tenantId,
 
             string? tipLookbackPeriod,
@@ -140,6 +146,7 @@ namespace Pulumi.AzureNative.SecurityInsights
             Id = id;
             Kind = kind;
             Name = name;
+            SystemData = systemData;
             TenantId = tenantId;
             TipLookbackPeriod = tipLookbackPeriod;
             Type = type;

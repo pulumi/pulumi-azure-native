@@ -19,9 +19,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.voiceservices.v20221201preview as __v20221201preview
     v20221201preview = __v20221201preview
-    import pulumi_azure_native.voiceservices.v20230131 as __v20230131
-    v20230131 = __v20230131
+    import pulumi_azure_native.voiceservices.v20230403 as __v20230403
+    v20230403 = __v20230403
 else:
     v20221201preview = _utilities.lazy_import('pulumi_azure_native.voiceservices.v20221201preview')
-    v20230131 = _utilities.lazy_import('pulumi_azure_native.voiceservices.v20230131')
+    v20230403 = _utilities.lazy_import('pulumi_azure_native.voiceservices.v20230403')
 

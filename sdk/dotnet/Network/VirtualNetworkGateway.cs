@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// A common class for general resource information.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkGateway")]
     public partial class VirtualNetworkGateway : global::Pulumi.CustomResource
@@ -21,6 +21,24 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("activeActive")]
         public Output<bool?> ActiveActive { get; private set; } = null!;
+
+        /// <summary>
+        /// Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        /// </summary>
+        [Output("adminState")]
+        public Output<string?> AdminState { get; private set; } = null!;
+
+        /// <summary>
+        /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        /// </summary>
+        [Output("allowRemoteVnetTraffic")]
+        public Output<bool?> AllowRemoteVnetTraffic { get; private set; } = null!;
+
+        /// <summary>
+        /// Configures this gateway to accept traffic from remote Virtual WAN networks.
+        /// </summary>
+        [Output("allowVirtualWanTraffic")]
+        public Output<bool?> AllowVirtualWanTraffic { get; private set; } = null!;
 
         /// <summary>
         /// Virtual network gateway's BGP speaker settings.
@@ -35,10 +53,22 @@ namespace Pulumi.AzureNative.Network
         public Output<Outputs.AddressSpaceResponse?> CustomRoutes { get; private set; } = null!;
 
         /// <summary>
+        /// disableIPSecReplayProtection flag.
+        /// </summary>
+        [Output("disableIPSecReplayProtection")]
+        public Output<bool?> DisableIPSecReplayProtection { get; private set; } = null!;
+
+        /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
         [Output("enableBgp")]
         public Output<bool?> EnableBgp { get; private set; } = null!;
+
+        /// <summary>
+        /// EnableBgpRouteTranslationForNat flag.
+        /// </summary>
+        [Output("enableBgpRouteTranslationForNat")]
+        public Output<bool?> EnableBgpRouteTranslationForNat { get; private set; } = null!;
 
         /// <summary>
         /// Whether dns forwarding is enabled or not.
@@ -101,6 +131,12 @@ namespace Pulumi.AzureNative.Network
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// NatRules for virtual network gateway.
+        /// </summary>
+        [Output("natRules")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkGatewayNatRuleResponse>> NatRules { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state of the virtual network gateway resource.
         /// </summary>
         [Output("provisioningState")]
@@ -135,6 +171,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("vNetExtendedLocationResourceId")]
         public Output<string?> VNetExtendedLocationResourceId { get; private set; } = null!;
+
+        /// <summary>
+        /// The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
+        /// </summary>
+        [Output("virtualNetworkGatewayPolicyGroups")]
+        public Output<ImmutableArray<Outputs.VirtualNetworkGatewayPolicyGroupResponse>> VirtualNetworkGatewayPolicyGroups { get; private set; } = null!;
 
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
@@ -222,6 +264,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:VirtualNetworkGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:VirtualNetworkGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:VirtualNetworkGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:VirtualNetworkGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:VirtualNetworkGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -252,6 +296,24 @@ namespace Pulumi.AzureNative.Network
         public Input<bool>? ActiveActive { get; set; }
 
         /// <summary>
+        /// Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
+        /// </summary>
+        [Input("adminState")]
+        public InputUnion<string, Pulumi.AzureNative.Network.AdminState>? AdminState { get; set; }
+
+        /// <summary>
+        /// Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
+        /// </summary>
+        [Input("allowRemoteVnetTraffic")]
+        public Input<bool>? AllowRemoteVnetTraffic { get; set; }
+
+        /// <summary>
+        /// Configures this gateway to accept traffic from remote Virtual WAN networks.
+        /// </summary>
+        [Input("allowVirtualWanTraffic")]
+        public Input<bool>? AllowVirtualWanTraffic { get; set; }
+
+        /// <summary>
         /// Virtual network gateway's BGP speaker settings.
         /// </summary>
         [Input("bgpSettings")]
@@ -264,10 +326,22 @@ namespace Pulumi.AzureNative.Network
         public Input<Inputs.AddressSpaceArgs>? CustomRoutes { get; set; }
 
         /// <summary>
+        /// disableIPSecReplayProtection flag.
+        /// </summary>
+        [Input("disableIPSecReplayProtection")]
+        public Input<bool>? DisableIPSecReplayProtection { get; set; }
+
+        /// <summary>
         /// Whether BGP is enabled for this virtual network gateway or not.
         /// </summary>
         [Input("enableBgp")]
         public Input<bool>? EnableBgp { get; set; }
+
+        /// <summary>
+        /// EnableBgpRouteTranslationForNat flag.
+        /// </summary>
+        [Input("enableBgpRouteTranslationForNat")]
+        public Input<bool>? EnableBgpRouteTranslationForNat { get; set; }
 
         /// <summary>
         /// Whether dns forwarding is enabled or not.
@@ -323,6 +397,18 @@ namespace Pulumi.AzureNative.Network
         [Input("location")]
         public Input<string>? Location { get; set; }
 
+        [Input("natRules")]
+        private InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>? _natRules;
+
+        /// <summary>
+        /// NatRules for virtual network gateway.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayNatRuleArgs> NatRules
+        {
+            get => _natRules ?? (_natRules = new InputList<Inputs.VirtualNetworkGatewayNatRuleArgs>());
+            set => _natRules = value;
+        }
+
         /// <summary>
         /// The name of the resource group.
         /// </summary>
@@ -358,6 +444,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("virtualNetworkGatewayName")]
         public Input<string>? VirtualNetworkGatewayName { get; set; }
+
+        [Input("virtualNetworkGatewayPolicyGroups")]
+        private InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs>? _virtualNetworkGatewayPolicyGroups;
+
+        /// <summary>
+        /// The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
+        /// </summary>
+        public InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs> VirtualNetworkGatewayPolicyGroups
+        {
+            get => _virtualNetworkGatewayPolicyGroups ?? (_virtualNetworkGatewayPolicyGroups = new InputList<Inputs.VirtualNetworkGatewayPolicyGroupArgs>());
+            set => _virtualNetworkGatewayPolicyGroups = value;
+        }
 
         /// <summary>
         /// The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.

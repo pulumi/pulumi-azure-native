@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2020-10-01-preview.
+        /// Azure REST API version: 2022-07-15-preview.
         /// </summary>
         public static Task<GetMachineExtensionResult> InvokeAsync(GetMachineExtensionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMachineExtensionResult>("azure-native:connectedvmwarevsphere:getMachineExtension", args ?? new GetMachineExtensionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The operation to get the extension.
-        /// API Version: 2020-10-01-preview.
+        /// Azure REST API version: 2022-07-15-preview.
         /// </summary>
         public static Output<GetMachineExtensionResult> Invoke(GetMachineExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMachineExtensionResult>("azure-native:connectedvmwarevsphere:getMachineExtension", args ?? new GetMachineExtensionInvokeArgs(), options.WithDefaults());
@@ -36,16 +36,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public string ExtensionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the machine containing the extension.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The Resource Group Name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine containing the extension.
+        /// </summary>
+        [Input("virtualMachineName", required: true)]
+        public string VirtualMachineName { get; set; } = null!;
 
         public GetMachineExtensionArgs()
         {
@@ -62,16 +62,16 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         public Input<string> ExtensionName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the machine containing the extension.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The Resource Group Name.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the machine containing the extension.
+        /// </summary>
+        [Input("virtualMachineName", required: true)]
+        public Input<string> VirtualMachineName { get; set; } = null!;
 
         public GetMachineExtensionInvokeArgs()
         {
@@ -87,6 +87,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         /// </summary>
         public readonly bool? AutoUpgradeMinorVersion;
+        /// <summary>
+        /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        /// </summary>
+        public readonly bool? EnableAutomaticUpgrade;
         /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.
         /// </summary>
@@ -144,6 +148,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         private GetMachineExtensionResult(
             bool? autoUpgradeMinorVersion,
 
+            bool? enableAutomaticUpgrade,
+
             string? forceUpdateTag,
 
             string id,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             string? typeHandlerVersion)
         {
             AutoUpgradeMinorVersion = autoUpgradeMinorVersion;
+            EnableAutomaticUpgrade = enableAutomaticUpgrade;
             ForceUpdateTag = forceUpdateTag;
             Id = id;
             InstanceView = instanceView;

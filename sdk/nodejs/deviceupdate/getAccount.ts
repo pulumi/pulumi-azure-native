@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns account details for the given account name.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2023-07-01.
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
 
@@ -36,6 +36,10 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
+     * CMK encryption at rest properties
+     */
+    readonly encryption?: outputs.deviceupdate.EncryptionResponse;
+    /**
      * API host name.
      */
     readonly hostName: string;
@@ -51,6 +55,10 @@ export interface GetAccountResult {
      * The geo-location where the resource lives
      */
     readonly location: string;
+    /**
+     * Device Update account primary and failover location details
+     */
+    readonly locations: outputs.deviceupdate.LocationResponse[];
     /**
      * The name of the resource
      */
@@ -68,6 +76,10 @@ export interface GetAccountResult {
      */
     readonly publicNetworkAccess?: string;
     /**
+     * Device Update Sku
+     */
+    readonly sku?: string;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.deviceupdate.SystemDataResponse;
@@ -82,7 +94,7 @@ export interface GetAccountResult {
 }
 /**
  * Returns account details for the given account name.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2023-07-01.
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
     return pulumi.output(args).apply((a: any) => getAccount(a, opts))

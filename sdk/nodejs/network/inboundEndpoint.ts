@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes an inbound endpoint for a DNS resolver.
- * API Version: 2020-04-01-preview.
+ * Azure REST API version: 2022-07-01. Prior API version in Azure Native 1.x: 2020-04-01-preview
  */
 export class InboundEndpoint extends pulumi.CustomResource {
     /**
@@ -45,7 +45,7 @@ export class InboundEndpoint extends pulumi.CustomResource {
     /**
      * IP configurations for the inbound endpoint.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.InboundEndpointIPConfigurationResponse[] | undefined>;
+    public readonly ipConfigurations!: pulumi.Output<outputs.network.InboundEndpointIPConfigurationResponse[]>;
     /**
      * The geo-location where the resource lives
      */
@@ -88,6 +88,9 @@ export class InboundEndpoint extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.dnsResolverName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverName'");
+            }
+            if ((!args || args.ipConfigurations === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'ipConfigurations'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -137,7 +140,7 @@ export interface InboundEndpointArgs {
     /**
      * IP configurations for the inbound endpoint.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.InboundEndpointIPConfigurationArgs>[]>;
+    ipConfigurations: pulumi.Input<pulumi.Input<inputs.network.InboundEndpointIPConfigurationArgs>[]>;
     /**
      * The geo-location where the resource lives
      */

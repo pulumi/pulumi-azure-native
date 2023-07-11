@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Azure Traffic Collector in a specified resource group
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getAzureTrafficCollector(args: GetAzureTrafficCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureTrafficCollectorResult> {
 
@@ -38,7 +38,7 @@ export interface GetAzureTrafficCollectorResult {
     /**
      * Collector Policies for Azure Traffic Collector.
      */
-    readonly collectorPolicies?: outputs.networkfunction.CollectorPolicyResponse[];
+    readonly collectorPolicies: outputs.networkfunction.ResourceReferenceResponse[];
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -50,7 +50,7 @@ export interface GetAzureTrafficCollectorResult {
     /**
      * Resource location.
      */
-    readonly location?: string;
+    readonly location: string;
     /**
      * Resource name.
      */
@@ -78,7 +78,7 @@ export interface GetAzureTrafficCollectorResult {
 }
 /**
  * Gets the specified Azure Traffic Collector in a specified resource group
- * API Version: 2022-05-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getAzureTrafficCollectorOutput(args: GetAzureTrafficCollectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureTrafficCollectorResult> {
     return pulumi.output(args).apply((a: any) => getAzureTrafficCollector(a, opts))

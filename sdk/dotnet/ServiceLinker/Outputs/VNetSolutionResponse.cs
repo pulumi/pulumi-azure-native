@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
     public sealed class VNetSolutionResponse
     {
         /// <summary>
+        /// Indicates whether to clean up previous operation when Linker is updating or deleting
+        /// </summary>
+        public readonly string? DeleteOrUpdateBehavior;
+        /// <summary>
         /// Type of VNet solution.
         /// </summary>
         public readonly string? Type;
 
         [OutputConstructor]
-        private VNetSolutionResponse(string? type)
+        private VNetSolutionResponse(
+            string? deleteOrUpdateBehavior,
+
+            string? type)
         {
+            DeleteOrUpdateBehavior = deleteOrUpdateBehavior;
             Type = type;
         }
     }

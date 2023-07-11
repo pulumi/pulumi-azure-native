@@ -9,17 +9,21 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['MachineExtensionArgs', 'MachineExtension']
 
 @pulumi.input_type
 class MachineExtensionArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str],
+                 machine_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
+                 instance_view: Optional[pulumi.Input['MachineExtensionInstanceViewArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[Any] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
@@ -29,11 +33,13 @@ class MachineExtensionArgs:
                  type_handler_version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MachineExtension resource.
-        :param pulumi.Input[str] name: The name of the machine where the extension should be created or updated.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] machine_name: The name of the machine where the extension should be created or updated.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         :param pulumi.Input[str] extension_name: The name of the machine extension.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
+        :param pulumi.Input['MachineExtensionInstanceViewArgs'] instance_view: The machine extension instance view.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
@@ -42,14 +48,18 @@ class MachineExtensionArgs:
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[str] type_handler_version: Specifies the version of the script handler.
         """
-        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "machine_name", machine_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
+        if enable_automatic_upgrade is not None:
+            pulumi.set(__self__, "enable_automatic_upgrade", enable_automatic_upgrade)
         if extension_name is not None:
             pulumi.set(__self__, "extension_name", extension_name)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if instance_view is not None:
+            pulumi.set(__self__, "instance_view", instance_view)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if protected_settings is not None:
@@ -66,22 +76,22 @@ class MachineExtensionArgs:
             pulumi.set(__self__, "type_handler_version", type_handler_version)
 
     @property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> pulumi.Input[str]:
         """
         The name of the machine where the extension should be created or updated.
         """
-        return pulumi.get(self, "name")
+        return pulumi.get(self, "machine_name")
 
-    @name.setter
-    def name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "name", value)
+    @machine_name.setter
+    def machine_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "machine_name", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -100,6 +110,18 @@ class MachineExtensionArgs:
     @auto_upgrade_minor_version.setter
     def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @enable_automatic_upgrade.setter
+    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_upgrade", value)
 
     @property
     @pulumi.getter(name="extensionName")
@@ -124,6 +146,18 @@ class MachineExtensionArgs:
     @force_update_tag.setter
     def force_update_tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "force_update_tag", value)
+
+    @property
+    @pulumi.getter(name="instanceView")
+    def instance_view(self) -> Optional[pulumi.Input['MachineExtensionInstanceViewArgs']]:
+        """
+        The machine extension instance view.
+        """
+        return pulumi.get(self, "instance_view")
+
+    @instance_view.setter
+    def instance_view(self, value: Optional[pulumi.Input['MachineExtensionInstanceViewArgs']]):
+        pulumi.set(self, "instance_view", value)
 
     @property
     @pulumi.getter
@@ -216,10 +250,12 @@ class MachineExtension(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
+                 instance_view: Optional[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 machine_name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[Any] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -230,18 +266,20 @@ class MachineExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Machine Extension.
-        API Version: 2020-08-02.
+        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
+        :param pulumi.Input[bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         :param pulumi.Input[str] extension_name: The name of the machine extension.
         :param pulumi.Input[str] force_update_tag: How the extension handler should be forced to update even if the extension configuration has not changed.
+        :param pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']] instance_view: The machine extension instance view.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: The name of the machine where the extension should be created or updated.
+        :param pulumi.Input[str] machine_name: The name of the machine where the extension should be created or updated.
         :param Any protected_settings: The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         :param pulumi.Input[str] publisher: The name of the extension handler publisher.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param Any settings: Json formatted public settings for the extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
@@ -255,7 +293,7 @@ class MachineExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Machine Extension.
-        API Version: 2020-08-02.
+        Azure REST API version: 2022-12-27. Prior API version in Azure Native 1.x: 2020-08-02
 
         :param str resource_name: The name of the resource.
         :param MachineExtensionArgs args: The arguments to use to populate this resource's properties.
@@ -273,10 +311,12 @@ class MachineExtension(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_upgrade_minor_version: Optional[pulumi.Input[bool]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[bool]] = None,
                  extension_name: Optional[pulumi.Input[str]] = None,
                  force_update_tag: Optional[pulumi.Input[str]] = None,
+                 instance_view: Optional[pulumi.Input[pulumi.InputType['MachineExtensionInstanceViewArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
+                 machine_name: Optional[pulumi.Input[str]] = None,
                  protected_settings: Optional[Any] = None,
                  publisher: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -294,12 +334,14 @@ class MachineExtension(pulumi.CustomResource):
             __props__ = MachineExtensionArgs.__new__(MachineExtensionArgs)
 
             __props__.__dict__["auto_upgrade_minor_version"] = auto_upgrade_minor_version
+            __props__.__dict__["enable_automatic_upgrade"] = enable_automatic_upgrade
             __props__.__dict__["extension_name"] = extension_name
             __props__.__dict__["force_update_tag"] = force_update_tag
+            __props__.__dict__["instance_view"] = instance_view
             __props__.__dict__["location"] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
-            __props__.__dict__["name"] = name
+            if machine_name is None and not opts.urn:
+                raise TypeError("Missing required property 'machine_name'")
+            __props__.__dict__["machine_name"] = machine_name
             __props__.__dict__["protected_settings"] = protected_settings
             __props__.__dict__["publisher"] = publisher
             if resource_group_name is None and not opts.urn:
@@ -309,9 +351,10 @@ class MachineExtension(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["type_handler_version"] = type_handler_version
-            __props__.__dict__["instance_view"] = None
+            __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20190802preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20191212:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200730preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200802:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:MachineExtension")])
+            __props__.__dict__["system_data"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute/v20190802preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20191212:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200730preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200802:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20230315preview:MachineExtension"), pulumi.Alias(type_="azure-native:hybridcompute/v20230425preview:MachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineExtension, __self__).__init__(
             'azure-native:hybridcompute:MachineExtension',
@@ -336,6 +379,7 @@ class MachineExtension(pulumi.CustomResource):
         __props__ = MachineExtensionArgs.__new__(MachineExtensionArgs)
 
         __props__.__dict__["auto_upgrade_minor_version"] = None
+        __props__.__dict__["enable_automatic_upgrade"] = None
         __props__.__dict__["force_update_tag"] = None
         __props__.__dict__["instance_view"] = None
         __props__.__dict__["location"] = None
@@ -344,6 +388,7 @@ class MachineExtension(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["publisher"] = None
         __props__.__dict__["settings"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["type_handler_version"] = None
@@ -358,6 +403,14 @@ class MachineExtension(pulumi.CustomResource):
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @property
+    @pulumi.getter(name="enableAutomaticUpgrade")
+    def enable_automatic_upgrade(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
+        """
+        return pulumi.get(self, "enable_automatic_upgrade")
+
+    @property
     @pulumi.getter(name="forceUpdateTag")
     def force_update_tag(self) -> pulumi.Output[Optional[str]]:
         """
@@ -367,7 +420,7 @@ class MachineExtension(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="instanceView")
-    def instance_view(self) -> pulumi.Output[Optional['outputs.MachineExtensionPropertiesResponseInstanceView']]:
+    def instance_view(self) -> pulumi.Output[Optional['outputs.MachineExtensionInstanceViewResponse']]:
         """
         The machine extension instance view.
         """
@@ -420,6 +473,14 @@ class MachineExtension(pulumi.CustomResource):
         Json formatted public settings for the extension.
         """
         return pulumi.get(self, "settings")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

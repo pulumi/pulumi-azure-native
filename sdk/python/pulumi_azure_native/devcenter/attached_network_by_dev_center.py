@@ -23,7 +23,7 @@ class AttachedNetworkByDevCenterArgs:
         The set of arguments for constructing a AttachedNetworkByDevCenter resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[str] network_connection_id: The resource ID of the NetworkConnection you want to attach.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] attached_network_connection_name: The name of the attached NetworkConnection.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
@@ -60,7 +60,7 @@ class AttachedNetworkByDevCenterArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -93,14 +93,14 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
                  __props__=None):
         """
         Represents an attached NetworkConnection.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attached_network_connection_name: The name of the attached NetworkConnection.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[str] network_connection_id: The resource ID of the NetworkConnection you want to attach.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -110,7 +110,7 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an attached NetworkConnection.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param AttachedNetworkByDevCenterArgs args: The arguments to use to populate this resource's properties.
@@ -157,7 +157,7 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:AttachedNetworkByDevCenter"), pulumi.Alias(type_="azure-native:devcenter/v20230401:AttachedNetworkByDevCenter")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AttachedNetworkByDevCenter, __self__).__init__(
             'azure-native:devcenter:AttachedNetworkByDevCenter',

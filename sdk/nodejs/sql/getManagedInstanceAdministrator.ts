@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a managed instance administrator.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getManagedInstanceAdministrator(args: GetManagedInstanceAdministratorArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedInstanceAdministratorResult> {
 
@@ -65,7 +65,7 @@ export interface GetManagedInstanceAdministratorResult {
 }
 /**
  * Gets a managed instance administrator.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getManagedInstanceAdministratorOutput(args: GetManagedInstanceAdministratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedInstanceAdministratorResult> {
     return pulumi.output(args).apply((a: any) => getManagedInstanceAdministrator(a, opts))

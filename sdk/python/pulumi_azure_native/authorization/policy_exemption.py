@@ -10,6 +10,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['PolicyExemptionArgs', 'PolicyExemption']
 
@@ -19,27 +20,35 @@ class PolicyExemptionArgs:
                  exemption_category: pulumi.Input[Union[str, 'ExemptionCategory']],
                  policy_assignment_id: pulumi.Input[str],
                  scope: pulumi.Input[str],
+                 assignment_scope_validation: Optional[pulumi.Input[Union[str, 'AssignmentScopeValidation']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  expires_on: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[Any] = None,
                  policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 policy_exemption_name: Optional[pulumi.Input[str]] = None):
+                 policy_exemption_name: Optional[pulumi.Input[str]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]] = None):
         """
         The set of arguments for constructing a PolicyExemption resource.
         :param pulumi.Input[Union[str, 'ExemptionCategory']] exemption_category: The policy exemption category. Possible values are Waiver and Mitigated.
         :param pulumi.Input[str] policy_assignment_id: The ID of the policy assignment that is being exempted.
         :param pulumi.Input[str] scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
+        :param pulumi.Input[Union[str, 'AssignmentScopeValidation']] assignment_scope_validation: The option whether validate the exemption is at or under the assignment scope.
         :param pulumi.Input[str] description: The description of the policy exemption.
         :param pulumi.Input[str] display_name: The display name of the policy exemption.
         :param pulumi.Input[str] expires_on: The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
         :param Any metadata: The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         :param pulumi.Input[str] policy_exemption_name: The name of the policy exemption to delete.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]] resource_selectors: The resource selector list to filter policies by resource properties.
         """
         pulumi.set(__self__, "exemption_category", exemption_category)
         pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
         pulumi.set(__self__, "scope", scope)
+        if assignment_scope_validation is None:
+            assignment_scope_validation = 'Default'
+        if assignment_scope_validation is not None:
+            pulumi.set(__self__, "assignment_scope_validation", assignment_scope_validation)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -52,6 +61,8 @@ class PolicyExemptionArgs:
             pulumi.set(__self__, "policy_definition_reference_ids", policy_definition_reference_ids)
         if policy_exemption_name is not None:
             pulumi.set(__self__, "policy_exemption_name", policy_exemption_name)
+        if resource_selectors is not None:
+            pulumi.set(__self__, "resource_selectors", resource_selectors)
 
     @property
     @pulumi.getter(name="exemptionCategory")
@@ -88,6 +99,18 @@ class PolicyExemptionArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[str]):
         pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="assignmentScopeValidation")
+    def assignment_scope_validation(self) -> Optional[pulumi.Input[Union[str, 'AssignmentScopeValidation']]]:
+        """
+        The option whether validate the exemption is at or under the assignment scope.
+        """
+        return pulumi.get(self, "assignment_scope_validation")
+
+    @assignment_scope_validation.setter
+    def assignment_scope_validation(self, value: Optional[pulumi.Input[Union[str, 'AssignmentScopeValidation']]]):
+        pulumi.set(self, "assignment_scope_validation", value)
 
     @property
     @pulumi.getter
@@ -161,12 +184,25 @@ class PolicyExemptionArgs:
     def policy_exemption_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "policy_exemption_name", value)
 
+    @property
+    @pulumi.getter(name="resourceSelectors")
+    def resource_selectors(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]]:
+        """
+        The resource selector list to filter policies by resource properties.
+        """
+        return pulumi.get(self, "resource_selectors")
+
+    @resource_selectors.setter
+    def resource_selectors(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceSelectorArgs']]]]):
+        pulumi.set(self, "resource_selectors", value)
+
 
 class PolicyExemption(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assignment_scope_validation: Optional[pulumi.Input[Union[str, 'AssignmentScopeValidation']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  exemption_category: Optional[pulumi.Input[Union[str, 'ExemptionCategory']]] = None,
@@ -175,14 +211,16 @@ class PolicyExemption(pulumi.CustomResource):
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_exemption_name: Optional[pulumi.Input[str]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSelectorArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The policy exemption.
-        API Version: 2020-07-01-preview.
+        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2020-07-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[str, 'AssignmentScopeValidation']] assignment_scope_validation: The option whether validate the exemption is at or under the assignment scope.
         :param pulumi.Input[str] description: The description of the policy exemption.
         :param pulumi.Input[str] display_name: The display name of the policy exemption.
         :param pulumi.Input[Union[str, 'ExemptionCategory']] exemption_category: The policy exemption category. Possible values are Waiver and Mitigated.
@@ -191,6 +229,7 @@ class PolicyExemption(pulumi.CustomResource):
         :param pulumi.Input[str] policy_assignment_id: The ID of the policy assignment that is being exempted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] policy_definition_reference_ids: The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         :param pulumi.Input[str] policy_exemption_name: The name of the policy exemption to delete.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSelectorArgs']]]] resource_selectors: The resource selector list to filter policies by resource properties.
         :param pulumi.Input[str] scope: The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         """
         ...
@@ -201,7 +240,7 @@ class PolicyExemption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy exemption.
-        API Version: 2020-07-01-preview.
+        Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2020-07-01-preview
 
         :param str resource_name: The name of the resource.
         :param PolicyExemptionArgs args: The arguments to use to populate this resource's properties.
@@ -218,6 +257,7 @@ class PolicyExemption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 assignment_scope_validation: Optional[pulumi.Input[Union[str, 'AssignmentScopeValidation']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  exemption_category: Optional[pulumi.Input[Union[str, 'ExemptionCategory']]] = None,
@@ -226,6 +266,7 @@ class PolicyExemption(pulumi.CustomResource):
                  policy_assignment_id: Optional[pulumi.Input[str]] = None,
                  policy_definition_reference_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policy_exemption_name: Optional[pulumi.Input[str]] = None,
+                 resource_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSelectorArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -236,6 +277,9 @@ class PolicyExemption(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PolicyExemptionArgs.__new__(PolicyExemptionArgs)
 
+            if assignment_scope_validation is None:
+                assignment_scope_validation = 'Default'
+            __props__.__dict__["assignment_scope_validation"] = assignment_scope_validation
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             if exemption_category is None and not opts.urn:
@@ -248,6 +292,7 @@ class PolicyExemption(pulumi.CustomResource):
             __props__.__dict__["policy_assignment_id"] = policy_assignment_id
             __props__.__dict__["policy_definition_reference_ids"] = policy_definition_reference_ids
             __props__.__dict__["policy_exemption_name"] = policy_exemption_name
+            __props__.__dict__["resource_selectors"] = resource_selectors
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
@@ -278,6 +323,7 @@ class PolicyExemption(pulumi.CustomResource):
 
         __props__ = PolicyExemptionArgs.__new__(PolicyExemptionArgs)
 
+        __props__.__dict__["assignment_scope_validation"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["exemption_category"] = None
@@ -286,9 +332,18 @@ class PolicyExemption(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["policy_assignment_id"] = None
         __props__.__dict__["policy_definition_reference_ids"] = None
+        __props__.__dict__["resource_selectors"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PolicyExemption(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="assignmentScopeValidation")
+    def assignment_scope_validation(self) -> pulumi.Output[Optional[str]]:
+        """
+        The option whether validate the exemption is at or under the assignment scope.
+        """
+        return pulumi.get(self, "assignment_scope_validation")
 
     @property
     @pulumi.getter
@@ -353,6 +408,14 @@ class PolicyExemption(pulumi.CustomResource):
         The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
         """
         return pulumi.get(self, "policy_definition_reference_ids")
+
+    @property
+    @pulumi.getter(name="resourceSelectors")
+    def resource_selectors(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceSelectorResponse']]]:
+        """
+        The resource selector list to filter policies by resource properties.
+        """
+        return pulumi.get(self, "resource_selectors")
 
     @property
     @pulumi.getter(name="systemData")

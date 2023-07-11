@@ -17,15 +17,15 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class BootDiagnosticsInstanceViewResponse
     {
         /// <summary>
-        /// The console screenshot blob URI. &lt;br&gt;&lt;br&gt;NOTE: This will **not** be set if boot diagnostics is currently enabled with managed storage.
+        /// The console screenshot blob URI. **Note:** This will **not** be set if boot diagnostics is currently enabled with managed storage.
         /// </summary>
         public readonly string ConsoleScreenshotBlobUri;
         /// <summary>
-        /// The serial console log blob Uri. &lt;br&gt;&lt;br&gt;NOTE: This will **not** be set if boot diagnostics is currently enabled with managed storage.
+        /// The serial console log blob Uri. **Note:** This will **not** be set if boot diagnostics is currently enabled with managed storage.
         /// </summary>
         public readonly string SerialConsoleLogBlobUri;
         /// <summary>
-        /// The boot diagnostics status information for the VM. &lt;br&gt;&lt;br&gt; NOTE: It will be set only if there are errors encountered in enabling boot diagnostics.
+        /// The boot diagnostics status information for the VM. **Note:** It will be set only if there are errors encountered in enabling boot diagnostics.
         /// </summary>
         public readonly Outputs.InstanceViewStatusResponse Status;
 

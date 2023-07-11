@@ -22,19 +22,31 @@ class GetContainerAppResult:
     """
     Container App.
     """
-    def __init__(__self__, configuration=None, custom_domain_verification_id=None, id=None, identity=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, managed_environment_id=None, name=None, outbound_ip_addresses=None, provisioning_state=None, system_data=None, tags=None, template=None, type=None):
+    def __init__(__self__, configuration=None, custom_domain_verification_id=None, environment_id=None, event_stream_endpoint=None, extended_location=None, id=None, identity=None, latest_ready_revision_name=None, latest_revision_fqdn=None, latest_revision_name=None, location=None, managed_environment_id=None, name=None, outbound_ip_addresses=None, provisioning_state=None, system_data=None, tags=None, template=None, type=None, workload_profile_type=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
         if custom_domain_verification_id and not isinstance(custom_domain_verification_id, str):
             raise TypeError("Expected argument 'custom_domain_verification_id' to be a str")
         pulumi.set(__self__, "custom_domain_verification_id", custom_domain_verification_id)
+        if environment_id and not isinstance(environment_id, str):
+            raise TypeError("Expected argument 'environment_id' to be a str")
+        pulumi.set(__self__, "environment_id", environment_id)
+        if event_stream_endpoint and not isinstance(event_stream_endpoint, str):
+            raise TypeError("Expected argument 'event_stream_endpoint' to be a str")
+        pulumi.set(__self__, "event_stream_endpoint", event_stream_endpoint)
+        if extended_location and not isinstance(extended_location, dict):
+            raise TypeError("Expected argument 'extended_location' to be a dict")
+        pulumi.set(__self__, "extended_location", extended_location)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if latest_ready_revision_name and not isinstance(latest_ready_revision_name, str):
+            raise TypeError("Expected argument 'latest_ready_revision_name' to be a str")
+        pulumi.set(__self__, "latest_ready_revision_name", latest_ready_revision_name)
         if latest_revision_fqdn and not isinstance(latest_revision_fqdn, str):
             raise TypeError("Expected argument 'latest_revision_fqdn' to be a str")
         pulumi.set(__self__, "latest_revision_fqdn", latest_revision_fqdn)
@@ -68,6 +80,9 @@ class GetContainerAppResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if workload_profile_type and not isinstance(workload_profile_type, str):
+            raise TypeError("Expected argument 'workload_profile_type' to be a str")
+        pulumi.set(__self__, "workload_profile_type", workload_profile_type)
 
     @property
     @pulumi.getter
@@ -86,6 +101,30 @@ class GetContainerAppResult:
         return pulumi.get(self, "custom_domain_verification_id")
 
     @property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> Optional[str]:
+        """
+        Resource ID of environment.
+        """
+        return pulumi.get(self, "environment_id")
+
+    @property
+    @pulumi.getter(name="eventStreamEndpoint")
+    def event_stream_endpoint(self) -> str:
+        """
+        The endpoint of the eventstream of the container app.
+        """
+        return pulumi.get(self, "event_stream_endpoint")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The complex type of the extended location.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -100,6 +139,14 @@ class GetContainerAppResult:
         managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="latestReadyRevisionName")
+    def latest_ready_revision_name(self) -> str:
+        """
+        Name of the latest ready revision of the Container App.
+        """
+        return pulumi.get(self, "latest_ready_revision_name")
 
     @property
     @pulumi.getter(name="latestRevisionFqdn")
@@ -129,7 +176,7 @@ class GetContainerAppResult:
     @pulumi.getter(name="managedEnvironmentId")
     def managed_environment_id(self) -> Optional[str]:
         """
-        Resource ID of the Container App's environment.
+        Deprecated. Resource ID of the Container App's environment.
         """
         return pulumi.get(self, "managed_environment_id")
 
@@ -189,6 +236,14 @@ class GetContainerAppResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="workloadProfileType")
+    def workload_profile_type(self) -> Optional[str]:
+        """
+        Workload profile type to pin for container app execution.
+        """
+        return pulumi.get(self, "workload_profile_type")
+
 
 class AwaitableGetContainerAppResult(GetContainerAppResult):
     # pylint: disable=using-constant-test
@@ -198,8 +253,12 @@ class AwaitableGetContainerAppResult(GetContainerAppResult):
         return GetContainerAppResult(
             configuration=self.configuration,
             custom_domain_verification_id=self.custom_domain_verification_id,
+            environment_id=self.environment_id,
+            event_stream_endpoint=self.event_stream_endpoint,
+            extended_location=self.extended_location,
             id=self.id,
             identity=self.identity,
+            latest_ready_revision_name=self.latest_ready_revision_name,
             latest_revision_fqdn=self.latest_revision_fqdn,
             latest_revision_name=self.latest_revision_name,
             location=self.location,
@@ -210,7 +269,8 @@ class AwaitableGetContainerAppResult(GetContainerAppResult):
             system_data=self.system_data,
             tags=self.tags,
             template=self.template,
-            type=self.type)
+            type=self.type,
+            workload_profile_type=self.workload_profile_type)
 
 
 def get_container_app(container_app_name: Optional[str] = None,
@@ -218,7 +278,7 @@ def get_container_app(container_app_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppResult:
     """
     Container App.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str container_app_name: Name of the Container App.
@@ -233,8 +293,12 @@ def get_container_app(container_app_name: Optional[str] = None,
     return AwaitableGetContainerAppResult(
         configuration=__ret__.configuration,
         custom_domain_verification_id=__ret__.custom_domain_verification_id,
+        environment_id=__ret__.environment_id,
+        event_stream_endpoint=__ret__.event_stream_endpoint,
+        extended_location=__ret__.extended_location,
         id=__ret__.id,
         identity=__ret__.identity,
+        latest_ready_revision_name=__ret__.latest_ready_revision_name,
         latest_revision_fqdn=__ret__.latest_revision_fqdn,
         latest_revision_name=__ret__.latest_revision_name,
         location=__ret__.location,
@@ -245,7 +309,8 @@ def get_container_app(container_app_name: Optional[str] = None,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         template=__ret__.template,
-        type=__ret__.type)
+        type=__ret__.type,
+        workload_profile_type=__ret__.workload_profile_type)
 
 
 @_utilities.lift_output_func(get_container_app)
@@ -254,7 +319,7 @@ def get_container_app_output(container_app_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppResult]:
     """
     Container App.
-    API Version: 2022-03-01.
+    Azure REST API version: 2022-10-01.
 
 
     :param str container_app_name: Name of the Container App.

@@ -135,7 +135,7 @@ def get_data_store(data_manager_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataStoreResult:
     """
     This method gets the data store/repository by name.
-    API Version: 2019-06-01.
+    Azure REST API version: 2019-06-01.
 
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -167,7 +167,7 @@ def get_data_store_output(data_manager_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataStoreResult]:
     """
     This method gets the data store/repository by name.
-    API Version: 2019-06-01.
+    Azure REST API version: 2019-06-01.
 
 
     :param str data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only

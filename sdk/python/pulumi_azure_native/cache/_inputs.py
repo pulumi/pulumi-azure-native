@@ -11,7 +11,13 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ClusterPropertiesCustomerManagedKeyEncryptionArgs',
+    'ClusterPropertiesEncryptionArgs',
+    'ClusterPropertiesKeyEncryptionKeyIdentityArgs',
+    'DatabasePropertiesGeoReplicationArgs',
     'EnterpriseSkuArgs',
+    'LinkedDatabaseArgs',
+    'ManagedServiceIdentityArgs',
     'ModuleArgs',
     'PersistenceArgs',
     'PrivateLinkServiceConnectionStateArgs',
@@ -19,6 +25,150 @@ __all__ = [
     'ScheduleEntryArgs',
     'SkuArgs',
 ]
+
+@pulumi.input_type
+class ClusterPropertiesCustomerManagedKeyEncryptionArgs:
+    def __init__(__self__, *,
+                 key_encryption_key_identity: Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']] = None,
+                 key_encryption_key_url: Optional[pulumi.Input[str]] = None):
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        :param pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs'] key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param pulumi.Input[str] key_encryption_key_url: Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
+        """
+        if key_encryption_key_identity is not None:
+            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyIdentity")
+    def key_encryption_key_identity(self) -> Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']]:
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        return pulumi.get(self, "key_encryption_key_identity")
+
+    @key_encryption_key_identity.setter
+    def key_encryption_key_identity(self, value: Optional[pulumi.Input['ClusterPropertiesKeyEncryptionKeyIdentityArgs']]):
+        pulumi.set(self, "key_encryption_key_identity", value)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
+        """
+        return pulumi.get(self, "key_encryption_key_url")
+
+    @key_encryption_key_url.setter
+    def key_encryption_key_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_encryption_key_url", value)
+
+
+@pulumi.input_type
+class ClusterPropertiesEncryptionArgs:
+    def __init__(__self__, *,
+                 customer_managed_key_encryption: Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']] = None):
+        """
+        Encryption-at-rest configuration for the cluster.
+        :param pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs'] customer_managed_key_encryption: All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+        if customer_managed_key_encryption is not None:
+            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEncryption")
+    def customer_managed_key_encryption(self) -> Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']]:
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+        return pulumi.get(self, "customer_managed_key_encryption")
+
+    @customer_managed_key_encryption.setter
+    def customer_managed_key_encryption(self, value: Optional[pulumi.Input['ClusterPropertiesCustomerManagedKeyEncryptionArgs']]):
+        pulumi.set(self, "customer_managed_key_encryption", value)
+
+
+@pulumi.input_type
+class ClusterPropertiesKeyEncryptionKeyIdentityArgs:
+    def __init__(__self__, *,
+                 identity_type: Optional[pulumi.Input[Union[str, 'CmkIdentityType']]] = None,
+                 user_assigned_identity_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param pulumi.Input[Union[str, 'CmkIdentityType']] identity_type: Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+        :param pulumi.Input[str] user_assigned_identity_resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[pulumi.Input[Union[str, 'CmkIdentityType']]]:
+        """
+        Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: Optional[pulumi.Input[Union[str, 'CmkIdentityType']]]):
+        pulumi.set(self, "identity_type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+    @user_assigned_identity_resource_id.setter
+    def user_assigned_identity_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity_resource_id", value)
+
+
+@pulumi.input_type
+class DatabasePropertiesGeoReplicationArgs:
+    def __init__(__self__, *,
+                 group_nickname: Optional[pulumi.Input[str]] = None,
+                 linked_databases: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]] = None):
+        """
+        Optional set of properties to configure geo replication for this database.
+        :param pulumi.Input[str] group_nickname: Name for the group of linked database resources
+        :param pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]] linked_databases: List of database resources to link with this database
+        """
+        if group_nickname is not None:
+            pulumi.set(__self__, "group_nickname", group_nickname)
+        if linked_databases is not None:
+            pulumi.set(__self__, "linked_databases", linked_databases)
+
+    @property
+    @pulumi.getter(name="groupNickname")
+    def group_nickname(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name for the group of linked database resources
+        """
+        return pulumi.get(self, "group_nickname")
+
+    @group_nickname.setter
+    def group_nickname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_nickname", value)
+
+    @property
+    @pulumi.getter(name="linkedDatabases")
+    def linked_databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]]:
+        """
+        List of database resources to link with this database
+        """
+        return pulumi.get(self, "linked_databases")
+
+    @linked_databases.setter
+    def linked_databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedDatabaseArgs']]]]):
+        pulumi.set(self, "linked_databases", value)
+
 
 @pulumi.input_type
 class EnterpriseSkuArgs:
@@ -60,6 +210,69 @@ class EnterpriseSkuArgs:
 
 
 @pulumi.input_type
+class LinkedDatabaseArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies details of a linked database resource.
+        :param pulumi.Input[str] id: Resource ID of a database resource to link with this database.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of a database resource to link with this database.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
 class ModuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -67,7 +280,7 @@ class ModuleArgs:
         """
         Specifies configuration of a redis module
         :param pulumi.Input[str] name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
-        :param pulumi.Input[str] args: Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        :param pulumi.Input[str] args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
         pulumi.set(__self__, "name", name)
         if args is not None:
@@ -89,7 +302,7 @@ class ModuleArgs:
     @pulumi.getter
     def args(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
         return pulumi.get(self, "args")
 
@@ -229,33 +442,45 @@ class PrivateLinkServiceConnectionStateArgs:
 @pulumi.input_type
 class RedisCommonPropertiesRedisConfigurationArgs:
     def __init__(__self__, *,
+                 aof_backup_enabled: Optional[pulumi.Input[str]] = None,
                  aof_storage_connection_string0: Optional[pulumi.Input[str]] = None,
                  aof_storage_connection_string1: Optional[pulumi.Input[str]] = None,
+                 authnotrequired: Optional[pulumi.Input[str]] = None,
                  maxfragmentationmemory_reserved: Optional[pulumi.Input[str]] = None,
                  maxmemory_delta: Optional[pulumi.Input[str]] = None,
                  maxmemory_policy: Optional[pulumi.Input[str]] = None,
                  maxmemory_reserved: Optional[pulumi.Input[str]] = None,
+                 preferred_data_persistence_auth_method: Optional[pulumi.Input[str]] = None,
                  rdb_backup_enabled: Optional[pulumi.Input[str]] = None,
                  rdb_backup_frequency: Optional[pulumi.Input[str]] = None,
                  rdb_backup_max_snapshot_count: Optional[pulumi.Input[str]] = None,
-                 rdb_storage_connection_string: Optional[pulumi.Input[str]] = None):
+                 rdb_storage_connection_string: Optional[pulumi.Input[str]] = None,
+                 storage_subscription_id: Optional[pulumi.Input[str]] = None):
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
+        :param pulumi.Input[str] aof_backup_enabled: Specifies whether the aof backup is enabled
         :param pulumi.Input[str] aof_storage_connection_string0: First storage account connection string
         :param pulumi.Input[str] aof_storage_connection_string1: Second storage account connection string
+        :param pulumi.Input[str] authnotrequired: Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
         :param pulumi.Input[str] maxfragmentationmemory_reserved: Value in megabytes reserved for fragmentation per shard
         :param pulumi.Input[str] maxmemory_delta: Value in megabytes reserved for non-cache usage per shard e.g. failover.
         :param pulumi.Input[str] maxmemory_policy: The eviction strategy used when your data won't fit within its memory limit.
         :param pulumi.Input[str] maxmemory_reserved: Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        :param pulumi.Input[str] preferred_data_persistence_auth_method: Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
         :param pulumi.Input[str] rdb_backup_enabled: Specifies whether the rdb backup is enabled
-        :param pulumi.Input[str] rdb_backup_frequency: Specifies the frequency for creating rdb backup
+        :param pulumi.Input[str] rdb_backup_frequency: Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
         :param pulumi.Input[str] rdb_backup_max_snapshot_count: Specifies the maximum number of snapshots for rdb backup
         :param pulumi.Input[str] rdb_storage_connection_string: The storage account connection string for storing rdb file
+        :param pulumi.Input[str] storage_subscription_id: SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
         """
+        if aof_backup_enabled is not None:
+            pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
             pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
             pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+        if authnotrequired is not None:
+            pulumi.set(__self__, "authnotrequired", authnotrequired)
         if maxfragmentationmemory_reserved is not None:
             pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
         if maxmemory_delta is not None:
@@ -264,6 +489,8 @@ class RedisCommonPropertiesRedisConfigurationArgs:
             pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
         if maxmemory_reserved is not None:
             pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+        if preferred_data_persistence_auth_method is not None:
+            pulumi.set(__self__, "preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
         if rdb_backup_enabled is not None:
             pulumi.set(__self__, "rdb_backup_enabled", rdb_backup_enabled)
         if rdb_backup_frequency is not None:
@@ -272,6 +499,20 @@ class RedisCommonPropertiesRedisConfigurationArgs:
             pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
             pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+        if storage_subscription_id is not None:
+            pulumi.set(__self__, "storage_subscription_id", storage_subscription_id)
+
+    @property
+    @pulumi.getter(name="aofBackupEnabled")
+    def aof_backup_enabled(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the aof backup is enabled
+        """
+        return pulumi.get(self, "aof_backup_enabled")
+
+    @aof_backup_enabled.setter
+    def aof_backup_enabled(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aof_backup_enabled", value)
 
     @property
     @pulumi.getter(name="aofStorageConnectionString0")
@@ -296,6 +537,18 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @aof_storage_connection_string1.setter
     def aof_storage_connection_string1(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aof_storage_connection_string1", value)
+
+    @property
+    @pulumi.getter
+    def authnotrequired(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        """
+        return pulumi.get(self, "authnotrequired")
+
+    @authnotrequired.setter
+    def authnotrequired(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authnotrequired", value)
 
     @property
     @pulumi.getter(name="maxfragmentationmemoryReserved")
@@ -346,6 +599,18 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         pulumi.set(self, "maxmemory_reserved", value)
 
     @property
+    @pulumi.getter(name="preferredDataPersistenceAuthMethod")
+    def preferred_data_persistence_auth_method(self) -> Optional[pulumi.Input[str]]:
+        """
+        Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+        """
+        return pulumi.get(self, "preferred_data_persistence_auth_method")
+
+    @preferred_data_persistence_auth_method.setter
+    def preferred_data_persistence_auth_method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "preferred_data_persistence_auth_method", value)
+
+    @property
     @pulumi.getter(name="rdbBackupEnabled")
     def rdb_backup_enabled(self) -> Optional[pulumi.Input[str]]:
         """
@@ -361,7 +626,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @pulumi.getter(name="rdbBackupFrequency")
     def rdb_backup_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the frequency for creating rdb backup
+        Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
         """
         return pulumi.get(self, "rdb_backup_frequency")
 
@@ -392,6 +657,18 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @rdb_storage_connection_string.setter
     def rdb_storage_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rdb_storage_connection_string", value)
+
+    @property
+    @pulumi.getter(name="storageSubscriptionId")
+    def storage_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
+        """
+        return pulumi.get(self, "storage_subscription_id")
+
+    @storage_subscription_id.setter
+    def storage_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "storage_subscription_id", value)
 
 
 @pulumi.input_type

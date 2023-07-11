@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a Virtual Hub Bgp Connection.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetVirtualHubBgpConnectionResult> InvokeAsync(GetVirtualHubBgpConnectionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualHubBgpConnectionResult>("azure-native:network:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a Virtual Hub Bgp Connection.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetVirtualHubBgpConnectionResult> Invoke(GetVirtualHubBgpConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualHubBgpConnectionResult>("azure-native:network:getVirtualHubBgpConnection", args ?? new GetVirtualHubBgpConnectionInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The reference to the HubVirtualNetworkConnection resource.
+        /// </summary>
+        public readonly Outputs.SubResourceResponse? HubVirtualNetworkConnection;
+        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
@@ -122,6 +126,8 @@ namespace Pulumi.AzureNative.Network
 
             string etag,
 
+            Outputs.SubResourceResponse? hubVirtualNetworkConnection,
+
             string? id,
 
             string? name,
@@ -136,6 +142,7 @@ namespace Pulumi.AzureNative.Network
         {
             ConnectionState = connectionState;
             Etag = etag;
+            HubVirtualNetworkConnection = hubVirtualNetworkConnection;
             Id = id;
             Name = name;
             PeerAsn = peerAsn;

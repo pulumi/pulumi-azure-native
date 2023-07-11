@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
     /// <summary>
     /// The network interface resource definition.
     /// </summary>
-    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve")]
+    [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve")]
     public partial class NetworkinterfaceRetrieve : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -93,12 +93,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public NetworkinterfaceRetrieve(string name, NetworkinterfaceRetrieveArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve", name, args ?? new NetworkinterfaceRetrieveArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve", name, args ?? new NetworkinterfaceRetrieveArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private NetworkinterfaceRetrieve(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:azurestackhci/v20210901preview:NetworkinterfaceRetrieve", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -109,7 +109,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:NetworkinterfaceRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci:networkinterfaceRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:NetworkinterfaceRetrieve"},
                     new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20210701preview:networkinterfaceRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:NetworkinterfaceRetrieve"},
+                    new global::Pulumi.Alias { Type = "azure-native:azurestackhci/v20221215preview:networkinterfaceRetrieve"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

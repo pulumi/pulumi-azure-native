@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Addon.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class IoTAddon extends pulumi.CustomResource {
     /**
@@ -68,7 +68,7 @@ export class IoTAddon extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Addon type
+     * Metadata pertaining to creation and last modification of Addon
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**

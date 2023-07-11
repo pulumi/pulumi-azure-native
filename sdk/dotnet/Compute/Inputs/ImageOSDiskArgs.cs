@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<string>? BlobUri { get; set; }
 
         /// <summary>
-        /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
+        /// Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The default values are: **None for Standard storage. ReadOnly for Premium storage.**
         /// </summary>
         [Input("caching")]
         public Input<Pulumi.AzureNative.Compute.CachingTypes>? Caching { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.DiskEncryptionSetParametersArgs>? DiskEncryptionSet { get; set; }
 
         /// <summary>
-        /// Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. &lt;br&gt;&lt;br&gt; This value cannot be larger than 1023 GB
+        /// Specifies the size of empty data disks in gigabytes. This element can be used to overwrite the name of the disk in a virtual machine image. This value cannot be larger than 1023 GB.
         /// </summary>
         [Input("diskSizeGB")]
         public Input<int>? DiskSizeGB { get; set; }
@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.SubResourceArgs>? ManagedDisk { get; set; }
 
         /// <summary>
-        /// The OS State.
+        /// The OS State. For managed images, use Generalized.
         /// </summary>
         [Input("osState", required: true)]
         public Input<Pulumi.AzureNative.Compute.OperatingSystemStateTypes> OsState { get; set; } = null!;
 
         /// <summary>
-        /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+        /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from a custom image. Possible values are: **Windows,** **Linux.**
         /// </summary>
         [Input("osType", required: true)]
         public Input<Pulumi.AzureNative.Compute.OperatingSystemTypes> OsType { get; set; } = null!;

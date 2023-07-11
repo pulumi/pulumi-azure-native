@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists all effective virtual networks by specified network group.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function listEffectiveVirtualNetworkByNetworkGroup(args: ListEffectiveVirtualNetworkByNetworkGroupArgs, opts?: pulumi.InvokeOptions): Promise<ListEffectiveVirtualNetworkByNetworkGroupResult> {
 
@@ -56,7 +56,7 @@ export interface ListEffectiveVirtualNetworkByNetworkGroupResult {
 }
 /**
  * Lists all effective virtual networks by specified network group.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2021-02-01-preview.
  */
 export function listEffectiveVirtualNetworkByNetworkGroupOutput(args: ListEffectiveVirtualNetworkByNetworkGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEffectiveVirtualNetworkByNetworkGroupResult> {
     return pulumi.output(args).apply((a: any) => listEffectiveVirtualNetworkByNetworkGroup(a, opts))

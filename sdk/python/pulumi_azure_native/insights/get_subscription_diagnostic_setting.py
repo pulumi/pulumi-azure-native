@@ -22,7 +22,7 @@ class GetSubscriptionDiagnosticSettingResult:
     """
     The subscription diagnostic setting resource.
     """
-    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, location=None, logs=None, name=None, service_bus_rule_id=None, storage_account_id=None, type=None, workspace_id=None):
+    def __init__(__self__, event_hub_authorization_rule_id=None, event_hub_name=None, id=None, logs=None, marketplace_partner_id=None, name=None, service_bus_rule_id=None, storage_account_id=None, system_data=None, type=None, workspace_id=None):
         if event_hub_authorization_rule_id and not isinstance(event_hub_authorization_rule_id, str):
             raise TypeError("Expected argument 'event_hub_authorization_rule_id' to be a str")
         pulumi.set(__self__, "event_hub_authorization_rule_id", event_hub_authorization_rule_id)
@@ -32,12 +32,12 @@ class GetSubscriptionDiagnosticSettingResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if logs and not isinstance(logs, list):
             raise TypeError("Expected argument 'logs' to be a list")
         pulumi.set(__self__, "logs", logs)
+        if marketplace_partner_id and not isinstance(marketplace_partner_id, str):
+            raise TypeError("Expected argument 'marketplace_partner_id' to be a str")
+        pulumi.set(__self__, "marketplace_partner_id", marketplace_partner_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -47,6 +47,9 @@ class GetSubscriptionDiagnosticSettingResult:
         if storage_account_id and not isinstance(storage_account_id, str):
             raise TypeError("Expected argument 'storage_account_id' to be a str")
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -74,17 +77,9 @@ class GetSubscriptionDiagnosticSettingResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        Location of the resource
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -95,10 +90,18 @@ class GetSubscriptionDiagnosticSettingResult:
         return pulumi.get(self, "logs")
 
     @property
+    @pulumi.getter(name="marketplacePartnerId")
+    def marketplace_partner_id(self) -> Optional[str]:
+        """
+        The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        """
+        return pulumi.get(self, "marketplace_partner_id")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -119,10 +122,18 @@ class GetSubscriptionDiagnosticSettingResult:
         return pulumi.get(self, "storage_account_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata related to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -144,11 +155,12 @@ class AwaitableGetSubscriptionDiagnosticSettingResult(GetSubscriptionDiagnosticS
             event_hub_authorization_rule_id=self.event_hub_authorization_rule_id,
             event_hub_name=self.event_hub_name,
             id=self.id,
-            location=self.location,
             logs=self.logs,
+            marketplace_partner_id=self.marketplace_partner_id,
             name=self.name,
             service_bus_rule_id=self.service_bus_rule_id,
             storage_account_id=self.storage_account_id,
+            system_data=self.system_data,
             type=self.type,
             workspace_id=self.workspace_id)
 
@@ -157,7 +169,7 @@ def get_subscription_diagnostic_setting(name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionDiagnosticSettingResult:
     """
     Gets the active subscription diagnostic settings for the specified resource.
-    API Version: 2017-05-01-preview.
+    Azure REST API version: 2021-05-01-preview.
 
 
     :param str name: The name of the diagnostic setting.
@@ -171,11 +183,12 @@ def get_subscription_diagnostic_setting(name: Optional[str] = None,
         event_hub_authorization_rule_id=__ret__.event_hub_authorization_rule_id,
         event_hub_name=__ret__.event_hub_name,
         id=__ret__.id,
-        location=__ret__.location,
         logs=__ret__.logs,
+        marketplace_partner_id=__ret__.marketplace_partner_id,
         name=__ret__.name,
         service_bus_rule_id=__ret__.service_bus_rule_id,
         storage_account_id=__ret__.storage_account_id,
+        system_data=__ret__.system_data,
         type=__ret__.type,
         workspace_id=__ret__.workspace_id)
 
@@ -185,7 +198,7 @@ def get_subscription_diagnostic_setting_output(name: Optional[pulumi.Input[str]]
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionDiagnosticSettingResult]:
     """
     Gets the active subscription diagnostic settings for the specified resource.
-    API Version: 2017-05-01-preview.
+    Azure REST API version: 2021-05-01-preview.
 
 
     :param str name: The name of the diagnostic setting.

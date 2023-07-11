@@ -36,6 +36,10 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
         /// Status of the deployment instance
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// Availability zone information of the deployment instance
+        /// </summary>
+        public readonly string Zone;
 
         [OutputConstructor]
         private DeploymentInstanceResponse(
@@ -47,13 +51,16 @@ namespace Pulumi.AzureNative.AppPlatform.Outputs
 
             string startTime,
 
-            string status)
+            string status,
+
+            string zone)
         {
             DiscoveryStatus = discoveryStatus;
             Name = name;
             Reason = reason;
             StartTime = startTime;
             Status = status;
+            Zone = zone;
         }
     }
 }

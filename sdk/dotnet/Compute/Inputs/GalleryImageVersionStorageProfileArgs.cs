@@ -34,10 +34,10 @@ namespace Pulumi.AzureNative.Compute.Inputs
         public Input<Inputs.GalleryOSDiskImageArgs>? OsDiskImage { get; set; }
 
         /// <summary>
-        /// The gallery artifact version source.
+        /// The source of the gallery artifact version.
         /// </summary>
         [Input("source")]
-        public Input<Inputs.GalleryArtifactVersionSourceArgs>? Source { get; set; }
+        public Input<Inputs.GalleryArtifactVersionFullSourceArgs>? Source { get; set; }
 
         public GalleryImageVersionStorageProfileArgs()
         {

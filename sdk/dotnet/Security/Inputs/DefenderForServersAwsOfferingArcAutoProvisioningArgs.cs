@@ -16,16 +16,22 @@ namespace Pulumi.AzureNative.Security.Inputs
     public sealed class DefenderForServersAwsOfferingArcAutoProvisioningArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The cloud role ARN in AWS for this feature
+        /// </summary>
+        [Input("cloudRoleArn")]
+        public Input<string>? CloudRoleArn { get; set; }
+
+        /// <summary>
+        /// Configuration for servers Arc auto provisioning
+        /// </summary>
+        [Input("configuration")]
+        public Input<Inputs.DefenderForServersAwsOfferingConfigurationArgs>? Configuration { get; set; }
+
+        /// <summary>
         /// Is arc auto provisioning enabled
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
-
-        /// <summary>
-        /// Metadata of Service Principal secret for autoprovisioning
-        /// </summary>
-        [Input("servicePrincipalSecretMetadata")]
-        public Input<Inputs.DefenderForServersAwsOfferingServicePrincipalSecretMetadataArgs>? ServicePrincipalSecretMetadata { get; set; }
 
         public DefenderForServersAwsOfferingArcAutoProvisioningArgs()
         {

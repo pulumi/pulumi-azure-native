@@ -20,9 +20,9 @@ __all__ = [
 @pulumi.output_type
 class GetAccountResult:
     """
-    Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+    Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
     """
-    def __init__(__self__, etag=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, identity=None, kind=None, location=None, name=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -47,6 +47,9 @@ class GetAccountResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -58,7 +61,7 @@ class GetAccountResult:
     @pulumi.getter
     def etag(self) -> str:
         """
-        Entity Tag
+        Resource Etag.
         """
         return pulumi.get(self, "etag")
 
@@ -66,7 +69,7 @@ class GetAccountResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        The id of the created account
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -74,7 +77,7 @@ class GetAccountResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.IdentityResponse']:
         """
-        The identity of Cognitive Services account.
+        Identity for the resource.
         """
         return pulumi.get(self, "identity")
 
@@ -90,7 +93,7 @@ class GetAccountResult:
     @pulumi.getter
     def location(self) -> Optional[str]:
         """
-        The location of the resource
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -98,13 +101,13 @@ class GetAccountResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the created account
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def properties(self) -> 'outputs.CognitiveServicesAccountPropertiesResponse':
+    def properties(self) -> 'outputs.AccountPropertiesResponse':
         """
         Properties of Cognitive Services account.
         """
@@ -114,15 +117,23 @@ class GetAccountResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
-        The SKU of Cognitive Services account.
+        The resource model definition representing SKU
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -130,7 +141,7 @@ class GetAccountResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -149,6 +160,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             name=self.name,
             properties=self.properties,
             sku=self.sku,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -158,7 +170,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Returns a Cognitive Services account specified by the parameters.
-    API Version: 2017-04-18.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.
@@ -179,6 +191,7 @@ def get_account(account_name: Optional[str] = None,
         name=__ret__.name,
         properties=__ret__.properties,
         sku=__ret__.sku,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -189,7 +202,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Returns a Cognitive Services account specified by the parameters.
-    API Version: 2017-04-18.
+    Azure REST API version: 2023-05-01.
 
 
     :param str account_name: The name of Cognitive Services account.

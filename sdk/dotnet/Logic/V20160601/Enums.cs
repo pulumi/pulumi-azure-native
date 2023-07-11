@@ -41,75 +41,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
     }
 
     /// <summary>
-    /// The day of the week.
-    /// </summary>
-    [EnumType]
-    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
-    {
-        private readonly string _value;
-
-        private DayOfWeek(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
-        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
-        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
-        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
-        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
-        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
-        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
-
-        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
-        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
-
-        public static explicit operator string(DayOfWeek value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
-        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct DaysOfWeek : IEquatable<DaysOfWeek>
-    {
-        private readonly string _value;
-
-        private DaysOfWeek(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DaysOfWeek Sunday { get; } = new DaysOfWeek("Sunday");
-        public static DaysOfWeek Monday { get; } = new DaysOfWeek("Monday");
-        public static DaysOfWeek Tuesday { get; } = new DaysOfWeek("Tuesday");
-        public static DaysOfWeek Wednesday { get; } = new DaysOfWeek("Wednesday");
-        public static DaysOfWeek Thursday { get; } = new DaysOfWeek("Thursday");
-        public static DaysOfWeek Friday { get; } = new DaysOfWeek("Friday");
-        public static DaysOfWeek Saturday { get; } = new DaysOfWeek("Saturday");
-
-        public static bool operator ==(DaysOfWeek left, DaysOfWeek right) => left.Equals(right);
-        public static bool operator !=(DaysOfWeek left, DaysOfWeek right) => !left.Equals(right);
-
-        public static explicit operator string(DaysOfWeek value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DaysOfWeek other && Equals(other);
-        public bool Equals(DaysOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The EDIFACT frame setting characterSet.
     /// </summary>
     [EnumType]
@@ -250,38 +181,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is HashingAlgorithm other && Equals(other);
         public bool Equals(HashingAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The sku name.
-    /// </summary>
-    [EnumType]
-    public readonly struct IntegrationAccountSkuName : IEquatable<IntegrationAccountSkuName>
-    {
-        private readonly string _value;
-
-        private IntegrationAccountSkuName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static IntegrationAccountSkuName NotSpecified { get; } = new IntegrationAccountSkuName("NotSpecified");
-        public static IntegrationAccountSkuName Free { get; } = new IntegrationAccountSkuName("Free");
-        public static IntegrationAccountSkuName Standard { get; } = new IntegrationAccountSkuName("Standard");
-
-        public static bool operator ==(IntegrationAccountSkuName left, IntegrationAccountSkuName right) => left.Equals(right);
-        public static bool operator !=(IntegrationAccountSkuName left, IntegrationAccountSkuName right) => !left.Equals(right);
-
-        public static explicit operator string(IntegrationAccountSkuName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is IntegrationAccountSkuName other && Equals(other);
-        public bool Equals(IntegrationAccountSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -446,43 +345,6 @@ namespace Pulumi.AzureNative.Logic.V20160601
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PartnerType other && Equals(other);
         public bool Equals(PartnerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The frequency.
-    /// </summary>
-    [EnumType]
-    public readonly struct RecurrenceFrequency : IEquatable<RecurrenceFrequency>
-    {
-        private readonly string _value;
-
-        private RecurrenceFrequency(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RecurrenceFrequency NotSpecified { get; } = new RecurrenceFrequency("NotSpecified");
-        public static RecurrenceFrequency Second { get; } = new RecurrenceFrequency("Second");
-        public static RecurrenceFrequency Minute { get; } = new RecurrenceFrequency("Minute");
-        public static RecurrenceFrequency Hour { get; } = new RecurrenceFrequency("Hour");
-        public static RecurrenceFrequency Day { get; } = new RecurrenceFrequency("Day");
-        public static RecurrenceFrequency Week { get; } = new RecurrenceFrequency("Week");
-        public static RecurrenceFrequency Month { get; } = new RecurrenceFrequency("Month");
-        public static RecurrenceFrequency Year { get; } = new RecurrenceFrequency("Year");
-
-        public static bool operator ==(RecurrenceFrequency left, RecurrenceFrequency right) => left.Equals(right);
-        public static bool operator !=(RecurrenceFrequency left, RecurrenceFrequency right) => !left.Equals(right);
-
-        public static explicit operator string(RecurrenceFrequency value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RecurrenceFrequency other && Equals(other);
-        public bool Equals(RecurrenceFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

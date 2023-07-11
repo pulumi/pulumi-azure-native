@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
- * API Version: 2021-11-01-preview.
+ * Azure REST API version: 2021-11-01-preview. Prior API version in Azure Native 1.x: 2021-11-01-preview
  */
 export class PipelineJob extends pulumi.CustomResource {
     /**

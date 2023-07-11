@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * VpnGateway Resource.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**
@@ -46,6 +46,10 @@ export class VpnGateway extends pulumi.CustomResource {
      * List of all vpn connections to the gateway.
      */
     public readonly connections!: pulumi.Output<outputs.network.VpnConnectionResponse[] | undefined>;
+    /**
+     * Enable BGP routes translation for NAT on this VpnGateway.
+     */
+    public readonly enableBgpRouteTranslationForNat!: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -107,6 +111,7 @@ export class VpnGateway extends pulumi.CustomResource {
             }
             resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
             resourceInputs["connections"] = args ? args.connections : undefined;
+            resourceInputs["enableBgpRouteTranslationForNat"] = args ? args.enableBgpRouteTranslationForNat : undefined;
             resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["isRoutingPreferenceInternet"] = args ? args.isRoutingPreferenceInternet : undefined;
@@ -124,6 +129,7 @@ export class VpnGateway extends pulumi.CustomResource {
         } else {
             resourceInputs["bgpSettings"] = undefined /*out*/;
             resourceInputs["connections"] = undefined /*out*/;
+            resourceInputs["enableBgpRouteTranslationForNat"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfigurations"] = undefined /*out*/;
             resourceInputs["isRoutingPreferenceInternet"] = undefined /*out*/;
@@ -137,7 +143,7 @@ export class VpnGateway extends pulumi.CustomResource {
             resourceInputs["vpnGatewayScaleUnit"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180401:VpnGateway" }, { type: "azure-native:network/v20180601:VpnGateway" }, { type: "azure-native:network/v20180701:VpnGateway" }, { type: "azure-native:network/v20180801:VpnGateway" }, { type: "azure-native:network/v20181001:VpnGateway" }, { type: "azure-native:network/v20181101:VpnGateway" }, { type: "azure-native:network/v20181201:VpnGateway" }, { type: "azure-native:network/v20190201:VpnGateway" }, { type: "azure-native:network/v20190401:VpnGateway" }, { type: "azure-native:network/v20190601:VpnGateway" }, { type: "azure-native:network/v20190701:VpnGateway" }, { type: "azure-native:network/v20190801:VpnGateway" }, { type: "azure-native:network/v20190901:VpnGateway" }, { type: "azure-native:network/v20191101:VpnGateway" }, { type: "azure-native:network/v20191201:VpnGateway" }, { type: "azure-native:network/v20200301:VpnGateway" }, { type: "azure-native:network/v20200401:VpnGateway" }, { type: "azure-native:network/v20200501:VpnGateway" }, { type: "azure-native:network/v20200601:VpnGateway" }, { type: "azure-native:network/v20200701:VpnGateway" }, { type: "azure-native:network/v20200801:VpnGateway" }, { type: "azure-native:network/v20201101:VpnGateway" }, { type: "azure-native:network/v20210201:VpnGateway" }, { type: "azure-native:network/v20210301:VpnGateway" }, { type: "azure-native:network/v20210501:VpnGateway" }, { type: "azure-native:network/v20210801:VpnGateway" }, { type: "azure-native:network/v20220101:VpnGateway" }, { type: "azure-native:network/v20220501:VpnGateway" }, { type: "azure-native:network/v20220701:VpnGateway" }, { type: "azure-native:network/v20220901:VpnGateway" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20180401:VpnGateway" }, { type: "azure-native:network/v20180601:VpnGateway" }, { type: "azure-native:network/v20180701:VpnGateway" }, { type: "azure-native:network/v20180801:VpnGateway" }, { type: "azure-native:network/v20181001:VpnGateway" }, { type: "azure-native:network/v20181101:VpnGateway" }, { type: "azure-native:network/v20181201:VpnGateway" }, { type: "azure-native:network/v20190201:VpnGateway" }, { type: "azure-native:network/v20190401:VpnGateway" }, { type: "azure-native:network/v20190601:VpnGateway" }, { type: "azure-native:network/v20190701:VpnGateway" }, { type: "azure-native:network/v20190801:VpnGateway" }, { type: "azure-native:network/v20190901:VpnGateway" }, { type: "azure-native:network/v20191101:VpnGateway" }, { type: "azure-native:network/v20191201:VpnGateway" }, { type: "azure-native:network/v20200301:VpnGateway" }, { type: "azure-native:network/v20200401:VpnGateway" }, { type: "azure-native:network/v20200501:VpnGateway" }, { type: "azure-native:network/v20200601:VpnGateway" }, { type: "azure-native:network/v20200701:VpnGateway" }, { type: "azure-native:network/v20200801:VpnGateway" }, { type: "azure-native:network/v20201101:VpnGateway" }, { type: "azure-native:network/v20210201:VpnGateway" }, { type: "azure-native:network/v20210301:VpnGateway" }, { type: "azure-native:network/v20210501:VpnGateway" }, { type: "azure-native:network/v20210801:VpnGateway" }, { type: "azure-native:network/v20220101:VpnGateway" }, { type: "azure-native:network/v20220501:VpnGateway" }, { type: "azure-native:network/v20220701:VpnGateway" }, { type: "azure-native:network/v20220901:VpnGateway" }, { type: "azure-native:network/v20221101:VpnGateway" }, { type: "azure-native:network/v20230201:VpnGateway" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VpnGateway.__pulumiType, name, resourceInputs, opts);
     }
@@ -155,6 +161,10 @@ export interface VpnGatewayArgs {
      * List of all vpn connections to the gateway.
      */
     connections?: pulumi.Input<pulumi.Input<inputs.network.VpnConnectionArgs>[]>;
+    /**
+     * Enable BGP routes translation for NAT on this VpnGateway.
+     */
+    enableBgpRouteTranslationForNat?: pulumi.Input<boolean>;
     /**
      * The name of the gateway.
      */

@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['PrivateLinkScopedResourceArgs', 'PrivateLinkScopedResource']
 
@@ -93,7 +94,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
                  __props__=None):
         """
         A private link scoped resource
-        API Version: 2019-10-17-preview.
+        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -110,7 +111,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private link scoped resource
-        API Version: 2019-10-17-preview.
+        Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopedResourceArgs args: The arguments to use to populate this resource's properties.
@@ -149,6 +150,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope_name'")
             __props__.__dict__["scope_name"] = scope_name
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20191017preview:PrivateLinkScopedResource"), pulumi.Alias(type_="azure-native:insights/v20210701preview:PrivateLinkScopedResource")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -177,6 +179,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         __props__.__dict__["linked_resource_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateLinkScopedResource(resource_name, opts=opts, __props__=__props__)
 
@@ -192,7 +195,7 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -205,10 +208,18 @@ class PrivateLinkScopedResource(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        System data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

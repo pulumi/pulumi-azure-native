@@ -158,7 +158,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Class representing a database principal assignment.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -179,7 +179,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a database principal assignment.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param DatabasePrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -233,12 +233,13 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["aad_object_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["tenant_name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20191109:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200215:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200614:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200918:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210101:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210827:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20220201:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20220707:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20221111:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20221229:DatabasePrincipalAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kusto/v20191109:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200215:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200614:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20200918:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210101:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20210827:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20220201:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20220707:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20221111:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20221229:DatabasePrincipalAssignment"), pulumi.Alias(type_="azure-native:kusto/v20230502:DatabasePrincipalAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabasePrincipalAssignment, __self__).__init__(
             'azure-native:kusto:DatabasePrincipalAssignment',
@@ -262,6 +263,7 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
 
         __props__ = DatabasePrincipalAssignmentArgs.__new__(DatabasePrincipalAssignmentArgs)
 
+        __props__.__dict__["aad_object_id"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
         __props__.__dict__["principal_name"] = None
@@ -272,6 +274,14 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         __props__.__dict__["tenant_name"] = None
         __props__.__dict__["type"] = None
         return DatabasePrincipalAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="aadObjectId")
+    def aad_object_id(self) -> pulumi.Output[str]:
+        """
+        The service principal object id in AAD (Azure active directory)
+        """
+        return pulumi.get(self, "aad_object_id")
 
     @property
     @pulumi.getter

@@ -22,10 +22,13 @@ class ViewArgs:
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
                  data_set: Optional[pulumi.Input['ReportConfigDatasetArgs']] = None,
+                 date_range: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input['KpiPropertiesArgs']]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
+                 modified_on: Optional[pulumi.Input[str]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input['PivotPropertiesArgs']]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  time_period: Optional[pulumi.Input['ReportConfigTimePeriodArgs']] = None,
@@ -37,10 +40,13 @@ class ViewArgs:
         :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
         :param pulumi.Input[Union[str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
         :param pulumi.Input['ReportConfigDatasetArgs'] data_set: Has definition for data in this report config.
+        :param pulumi.Input[str] date_range: Date range of the current view.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[bool] include_monetary_commitment: If true, report includes monetary commitment.
         :param pulumi.Input[Sequence[pulumi.Input['KpiPropertiesArgs']]] kpis: List of KPIs to show in Cost Analysis UI.
         :param pulumi.Input[Union[str, 'MetricType']] metric: Metric to use when displaying costs.
+        :param pulumi.Input[str] modified_on: Date when the user last modified this view.
         :param pulumi.Input[Sequence[pulumi.Input['PivotPropertiesArgs']]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
         :param pulumi.Input[str] scope: Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         :param pulumi.Input['ReportConfigTimePeriodArgs'] time_period: Has time period for pulling data for the report.
@@ -54,14 +60,20 @@ class ViewArgs:
             pulumi.set(__self__, "chart", chart)
         if data_set is not None:
             pulumi.set(__self__, "data_set", data_set)
+        if date_range is not None:
+            pulumi.set(__self__, "date_range", date_range)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
+        if include_monetary_commitment is not None:
+            pulumi.set(__self__, "include_monetary_commitment", include_monetary_commitment)
         if kpis is not None:
             pulumi.set(__self__, "kpis", kpis)
         if metric is not None:
             pulumi.set(__self__, "metric", metric)
+        if modified_on is not None:
+            pulumi.set(__self__, "modified_on", modified_on)
         if pivots is not None:
             pulumi.set(__self__, "pivots", pivots)
         if scope is not None:
@@ -132,6 +144,18 @@ class ViewArgs:
         pulumi.set(self, "data_set", value)
 
     @property
+    @pulumi.getter(name="dateRange")
+    def date_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date range of the current view.
+        """
+        return pulumi.get(self, "date_range")
+
+    @date_range.setter
+    def date_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "date_range", value)
+
+    @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -156,6 +180,18 @@ class ViewArgs:
         pulumi.set(self, "e_tag", value)
 
     @property
+    @pulumi.getter(name="includeMonetaryCommitment")
+    def include_monetary_commitment(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, report includes monetary commitment.
+        """
+        return pulumi.get(self, "include_monetary_commitment")
+
+    @include_monetary_commitment.setter
+    def include_monetary_commitment(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_monetary_commitment", value)
+
+    @property
     @pulumi.getter
     def kpis(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KpiPropertiesArgs']]]]:
         """
@@ -178,6 +214,18 @@ class ViewArgs:
     @metric.setter
     def metric(self, value: Optional[pulumi.Input[Union[str, 'MetricType']]]):
         pulumi.set(self, "metric", value)
+
+    @property
+    @pulumi.getter(name="modifiedOn")
+    def modified_on(self) -> Optional[pulumi.Input[str]]:
+        """
+        Date when the user last modified this view.
+        """
+        return pulumi.get(self, "modified_on")
+
+    @modified_on.setter
+    def modified_on(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "modified_on", value)
 
     @property
     @pulumi.getter
@@ -236,10 +284,13 @@ class View(pulumi.CustomResource):
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
                  data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
+                 date_range: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
+                 modified_on: Optional[pulumi.Input[str]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']]] = None,
@@ -249,17 +300,20 @@ class View(pulumi.CustomResource):
                  __props__=None):
         """
         States and configurations of Cost Analysis.
-        API Version: 2019-11-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
         :param pulumi.Input[Union[str, 'ChartType']] chart: Chart type of the main view in Cost Analysis. Required.
         :param pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']] data_set: Has definition for data in this report config.
+        :param pulumi.Input[str] date_range: Date range of the current view.
         :param pulumi.Input[str] display_name: User input name of the view. Required.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[bool] include_monetary_commitment: If true, report includes monetary commitment.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]] kpis: List of KPIs to show in Cost Analysis UI.
         :param pulumi.Input[Union[str, 'MetricType']] metric: Metric to use when displaying costs.
+        :param pulumi.Input[str] modified_on: Date when the user last modified this view.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]] pivots: Configuration of 3 sub-views in the Cost Analysis UI.
         :param pulumi.Input[str] scope: Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
         :param pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']] time_period: Has time period for pulling data for the report.
@@ -275,7 +329,7 @@ class View(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         States and configurations of Cost Analysis.
-        API Version: 2019-11-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2019-11-01
 
         :param str resource_name: The name of the resource.
         :param ViewArgs args: The arguments to use to populate this resource's properties.
@@ -295,10 +349,13 @@ class View(pulumi.CustomResource):
                  accumulated: Optional[pulumi.Input[Union[str, 'AccumulatedType']]] = None,
                  chart: Optional[pulumi.Input[Union[str, 'ChartType']]] = None,
                  data_set: Optional[pulumi.Input[pulumi.InputType['ReportConfigDatasetArgs']]] = None,
+                 date_range: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  e_tag: Optional[pulumi.Input[str]] = None,
+                 include_monetary_commitment: Optional[pulumi.Input[bool]] = None,
                  kpis: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiPropertiesArgs']]]]] = None,
                  metric: Optional[pulumi.Input[Union[str, 'MetricType']]] = None,
+                 modified_on: Optional[pulumi.Input[str]] = None,
                  pivots: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PivotPropertiesArgs']]]]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  time_period: Optional[pulumi.Input[pulumi.InputType['ReportConfigTimePeriodArgs']]] = None,
@@ -317,10 +374,13 @@ class View(pulumi.CustomResource):
             __props__.__dict__["accumulated"] = accumulated
             __props__.__dict__["chart"] = chart
             __props__.__dict__["data_set"] = data_set
+            __props__.__dict__["date_range"] = date_range
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["e_tag"] = e_tag
+            __props__.__dict__["include_monetary_commitment"] = include_monetary_commitment
             __props__.__dict__["kpis"] = kpis
             __props__.__dict__["metric"] = metric
+            __props__.__dict__["modified_on"] = modified_on
             __props__.__dict__["pivots"] = pivots
             __props__.__dict__["scope"] = scope
             __props__.__dict__["time_period"] = time_period
@@ -333,11 +393,8 @@ class View(pulumi.CustomResource):
             __props__.__dict__["view_name"] = view_name
             __props__.__dict__["created_on"] = None
             __props__.__dict__["currency"] = None
-            __props__.__dict__["date_range"] = None
-            __props__.__dict__["include_monetary_commitment"] = None
-            __props__.__dict__["modified_on"] = None
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:View"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20220801preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:View")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:costmanagement/v20190401preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20191101:View"), pulumi.Alias(type_="azure-native:costmanagement/v20200601:View"), pulumi.Alias(type_="azure-native:costmanagement/v20211001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20220801preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221001preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20221005preview:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230301:View"), pulumi.Alias(type_="azure-native:costmanagement/v20230401preview:View")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(View, __self__).__init__(
             'azure-native:costmanagement:View',
@@ -409,7 +466,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def currency(self) -> pulumi.Output[str]:
         """
-        Selected currency.
+        Currency of the current view.
         """
         return pulumi.get(self, "currency")
 
@@ -423,9 +480,9 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dateRange")
-    def date_range(self) -> pulumi.Output[str]:
+    def date_range(self) -> pulumi.Output[Optional[str]]:
         """
-        Selected date range for viewing cost in.
+        Date range of the current view.
         """
         return pulumi.get(self, "date_range")
 
@@ -447,9 +504,9 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="includeMonetaryCommitment")
-    def include_monetary_commitment(self) -> pulumi.Output[bool]:
+    def include_monetary_commitment(self) -> pulumi.Output[Optional[bool]]:
         """
-        Include monetary commitment
+        If true, report includes monetary commitment.
         """
         return pulumi.get(self, "include_monetary_commitment")
 
@@ -471,7 +528,7 @@ class View(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modifiedOn")
-    def modified_on(self) -> pulumi.Output[str]:
+    def modified_on(self) -> pulumi.Output[Optional[str]]:
         """
         Date when the user last modified this view.
         """

@@ -22,7 +22,10 @@ class GetDomainServiceResult:
     """
     Domain service.
     """
-    def __init__(__self__, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_owner=None, system_data=None, tags=None, tenant_id=None, type=None, version=None):
+    def __init__(__self__, config_diagnostics=None, deployment_id=None, domain_configuration_type=None, domain_name=None, domain_security_settings=None, etag=None, filtered_sync=None, id=None, ldaps_settings=None, location=None, migration_properties=None, name=None, notification_settings=None, provisioning_state=None, replica_sets=None, resource_forest_settings=None, sku=None, sync_application_id=None, sync_owner=None, sync_scope=None, system_data=None, tags=None, tenant_id=None, type=None, version=None):
+        if config_diagnostics and not isinstance(config_diagnostics, dict):
+            raise TypeError("Expected argument 'config_diagnostics' to be a dict")
+        pulumi.set(__self__, "config_diagnostics", config_diagnostics)
         if deployment_id and not isinstance(deployment_id, str):
             raise TypeError("Expected argument 'deployment_id' to be a str")
         pulumi.set(__self__, "deployment_id", deployment_id)
@@ -71,9 +74,15 @@ class GetDomainServiceResult:
         if sku and not isinstance(sku, str):
             raise TypeError("Expected argument 'sku' to be a str")
         pulumi.set(__self__, "sku", sku)
+        if sync_application_id and not isinstance(sync_application_id, str):
+            raise TypeError("Expected argument 'sync_application_id' to be a str")
+        pulumi.set(__self__, "sync_application_id", sync_application_id)
         if sync_owner and not isinstance(sync_owner, str):
             raise TypeError("Expected argument 'sync_owner' to be a str")
         pulumi.set(__self__, "sync_owner", sync_owner)
+        if sync_scope and not isinstance(sync_scope, str):
+            raise TypeError("Expected argument 'sync_scope' to be a str")
+        pulumi.set(__self__, "sync_scope", sync_scope)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -89,6 +98,14 @@ class GetDomainServiceResult:
         if version and not isinstance(version, int):
             raise TypeError("Expected argument 'version' to be a int")
         pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="configDiagnostics")
+    def config_diagnostics(self) -> Optional['outputs.ConfigDiagnosticsResponse']:
+        """
+        Configuration diagnostics data containing latest execution from client.
+        """
+        return pulumi.get(self, "config_diagnostics")
 
     @property
     @pulumi.getter(name="deploymentId")
@@ -219,12 +236,28 @@ class GetDomainServiceResult:
         return pulumi.get(self, "sku")
 
     @property
+    @pulumi.getter(name="syncApplicationId")
+    def sync_application_id(self) -> str:
+        """
+        The unique sync application id of the Azure AD Domain Services deployment.
+        """
+        return pulumi.get(self, "sync_application_id")
+
+    @property
     @pulumi.getter(name="syncOwner")
     def sync_owner(self) -> str:
         """
         SyncOwner ReplicaSet Id
         """
         return pulumi.get(self, "sync_owner")
+
+    @property
+    @pulumi.getter(name="syncScope")
+    def sync_scope(self) -> Optional[str]:
+        """
+        All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+        """
+        return pulumi.get(self, "sync_scope")
 
     @property
     @pulumi.getter(name="systemData")
@@ -273,6 +306,7 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
         if False:
             yield self
         return GetDomainServiceResult(
+            config_diagnostics=self.config_diagnostics,
             deployment_id=self.deployment_id,
             domain_configuration_type=self.domain_configuration_type,
             domain_name=self.domain_name,
@@ -289,7 +323,9 @@ class AwaitableGetDomainServiceResult(GetDomainServiceResult):
             replica_sets=self.replica_sets,
             resource_forest_settings=self.resource_forest_settings,
             sku=self.sku,
+            sync_application_id=self.sync_application_id,
             sync_owner=self.sync_owner,
+            sync_scope=self.sync_scope,
             system_data=self.system_data,
             tags=self.tags,
             tenant_id=self.tenant_id,
@@ -302,7 +338,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDomainServiceResult:
     """
     The Get Domain Service operation retrieves a json representation of the Domain Service.
-    API Version: 2021-03-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str domain_service_name: The name of the domain service.
@@ -315,6 +351,7 @@ def get_domain_service(domain_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:aad:getDomainService', __args__, opts=opts, typ=GetDomainServiceResult).value
 
     return AwaitableGetDomainServiceResult(
+        config_diagnostics=__ret__.config_diagnostics,
         deployment_id=__ret__.deployment_id,
         domain_configuration_type=__ret__.domain_configuration_type,
         domain_name=__ret__.domain_name,
@@ -331,7 +368,9 @@ def get_domain_service(domain_service_name: Optional[str] = None,
         replica_sets=__ret__.replica_sets,
         resource_forest_settings=__ret__.resource_forest_settings,
         sku=__ret__.sku,
+        sync_application_id=__ret__.sync_application_id,
         sync_owner=__ret__.sync_owner,
+        sync_scope=__ret__.sync_scope,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         tenant_id=__ret__.tenant_id,
@@ -345,7 +384,7 @@ def get_domain_service_output(domain_service_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainServiceResult]:
     """
     The Get Domain Service operation retrieves a json representation of the Domain Service.
-    API Version: 2021-03-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str domain_service_name: The name of the domain service.

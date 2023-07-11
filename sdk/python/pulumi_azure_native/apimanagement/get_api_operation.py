@@ -20,7 +20,7 @@ __all__ = [
 @pulumi.output_type
 class GetApiOperationResult:
     """
-    Api Operation details.
+    API Operation details.
     """
     def __init__(__self__, description=None, display_name=None, id=None, method=None, name=None, policies=None, request=None, responses=None, template_parameters=None, type=None, url_template=None):
         if description and not isinstance(description, str):
@@ -77,7 +77,7 @@ class GetApiOperationResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -93,7 +93,7 @@ class GetApiOperationResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -133,7 +133,7 @@ class GetApiOperationResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -172,12 +172,12 @@ def get_api_operation(api_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApiOperationResult:
     """
     Gets the details of the API Operation specified by its identifier.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     __args__ = dict()
@@ -210,12 +210,12 @@ def get_api_operation_output(api_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiOperationResult]:
     """
     Gets the details of the API Operation specified by its identifier.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-08-01.
 
 
     :param str api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
     :param str operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
-    :param str resource_group_name: The name of the resource group.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str service_name: The name of the API Management service.
     """
     ...

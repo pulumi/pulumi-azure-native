@@ -56,7 +56,7 @@ def get_sap_supported_sku(app_location: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSAPSupportedSkuResult:
     """
     Get a list of SAP supported SKUs for ASCS, Application and Database tier.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str app_location: The geo-location where the resource is to be created.
@@ -93,7 +93,7 @@ def get_sap_supported_sku_output(app_location: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSAPSupportedSkuResult]:
     """
     Get a list of SAP supported SKUs for ASCS, Application and Database tier.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str app_location: The geo-location where the resource is to be created.

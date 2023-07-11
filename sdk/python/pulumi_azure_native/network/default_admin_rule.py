@@ -24,7 +24,7 @@ class DefaultAdminRuleArgs:
                  rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a DefaultAdminRule resource.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] kind: Whether the rule is custom or default.
                Expected value is 'Default'.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
@@ -47,7 +47,7 @@ class DefaultAdminRuleArgs:
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> pulumi.Input[str]:
         """
-        The name of the network manager security Configuration.
+        The name of the network manager Security Configuration.
         """
         return pulumi.get(self, "configuration_name")
 
@@ -144,11 +144,11 @@ class DefaultAdminRule(pulumi.CustomResource):
                  __props__=None):
         """
         Network default admin rule.
-        API Version: 2021-02-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] flag: Default rule flag.
         :param pulumi.Input[str] kind: Whether the rule is custom or default.
                Expected value is 'Default'.
@@ -165,7 +165,7 @@ class DefaultAdminRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network default admin rule.
-        API Version: 2021-02-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param DefaultAdminRuleArgs args: The arguments to use to populate this resource's properties.
@@ -220,17 +220,17 @@ class DefaultAdminRule(pulumi.CustomResource):
             __props__.__dict__["destination_port_ranges"] = None
             __props__.__dict__["destinations"] = None
             __props__.__dict__["direction"] = None
-            __props__.__dict__["display_name"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["priority"] = None
             __props__.__dict__["protocol"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["source_port_ranges"] = None
             __props__.__dict__["sources"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220501:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220701:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220901:DefaultAdminRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20210501preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220201preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220401preview:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220501:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220701:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20220901:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20221101:DefaultAdminRule"), pulumi.Alias(type_="azure-native:network/v20230201:DefaultAdminRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DefaultAdminRule, __self__).__init__(
             'azure-native:network:DefaultAdminRule',
@@ -259,7 +259,6 @@ class DefaultAdminRule(pulumi.CustomResource):
         __props__.__dict__["destination_port_ranges"] = None
         __props__.__dict__["destinations"] = None
         __props__.__dict__["direction"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["flag"] = None
         __props__.__dict__["kind"] = None
@@ -267,6 +266,7 @@ class DefaultAdminRule(pulumi.CustomResource):
         __props__.__dict__["priority"] = None
         __props__.__dict__["protocol"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["source_port_ranges"] = None
         __props__.__dict__["sources"] = None
         __props__.__dict__["system_data"] = None
@@ -312,14 +312,6 @@ class DefaultAdminRule(pulumi.CustomResource):
         Indicates if the traffic matched against the rule in inbound or outbound.
         """
         return pulumi.get(self, "direction")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
-        """
-        A friendly name for the rule.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -377,6 +369,14 @@ class DefaultAdminRule(pulumi.CustomResource):
         The provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
+        """
+        Unique identifier for this resource.
+        """
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="sourcePortRanges")

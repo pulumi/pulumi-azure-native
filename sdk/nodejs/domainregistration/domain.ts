@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about a domain.
- * API Version: 2020-10-01.
+ * Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-10-01
  */
 export class Domain extends pulumi.CustomResource {
     /**
@@ -105,10 +105,6 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly registrationStatus!: pulumi.Output<string>;
     /**
-     * The system metadata relating to this resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.domainregistration.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -176,7 +172,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readyForDnsRecordManagement"] = undefined /*out*/;
             resourceInputs["registrationStatus"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authCode"] = undefined /*out*/;
@@ -196,7 +191,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["readyForDnsRecordManagement"] = undefined /*out*/;
             resourceInputs["registrationStatus"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["targetDnsType"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

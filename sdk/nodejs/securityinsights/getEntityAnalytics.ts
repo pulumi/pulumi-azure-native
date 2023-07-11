@@ -9,13 +9,12 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a setting.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getEntityAnalytics(args: GetEntityAnalyticsArgs, opts?: pulumi.InvokeOptions): Promise<GetEntityAnalyticsResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights:getEntityAnalytics", {
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "settingsName": args.settingsName,
         "workspaceName": args.workspaceName,
@@ -23,10 +22,6 @@ export function getEntityAnalytics(args: GetEntityAnalyticsArgs, opts?: pulumi.I
 }
 
 export interface GetEntityAnalyticsArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -46,24 +41,24 @@ export interface GetEntityAnalyticsArgs {
  */
 export interface GetEntityAnalyticsResult {
     /**
+     * The relevant entity providers that are synced
+     */
+    readonly entityProviders?: string[];
+    /**
      * Etag of the azure resource
      */
     readonly etag?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * Determines whether the setting is enable or disabled.
-     */
-    readonly isEnabled: boolean;
     /**
      * The kind of the setting
      * Expected value is 'EntityAnalytics'.
      */
     readonly kind: "EntityAnalytics";
     /**
-     * Azure resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -71,23 +66,19 @@ export interface GetEntityAnalyticsResult {
      */
     readonly systemData: outputs.securityinsights.SystemDataResponse;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a setting.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getEntityAnalyticsOutput(args: GetEntityAnalyticsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityAnalyticsResult> {
     return pulumi.output(args).apply((a: any) => getEntityAnalytics(a, opts))
 }
 
 export interface GetEntityAnalyticsOutputArgs {
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

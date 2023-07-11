@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified ipGroups.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getIpGroup(args: GetIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupResult> {
 
@@ -83,7 +83,7 @@ export interface GetIpGroupResult {
 }
 /**
  * Gets the specified ipGroups.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getIpGroupOutput(args: GetIpGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupResult> {
     return pulumi.output(args).apply((a: any) => getIpGroup(a, opts))

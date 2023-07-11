@@ -2,72 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20160203 from "./v20160203";
-import * as v20170119 from "./v20170119";
-import * as v20170701 from "./v20170701";
-import * as v20170821preview from "./v20170821preview";
-import * as v20171115 from "./v20171115";
-import * as v20180122 from "./v20180122";
-import * as v20180401 from "./v20180401";
-import * as v20181201preview from "./v20181201preview";
-import * as v20190322 from "./v20190322";
-import * as v20190322preview from "./v20190322preview";
-import * as v20190701preview from "./v20190701preview";
-import * as v20191104 from "./v20191104";
-import * as v20200101 from "./v20200101";
-import * as v20200301 from "./v20200301";
-import * as v20200401 from "./v20200401";
-import * as v20200615 from "./v20200615";
-import * as v20200710preview from "./v20200710preview";
-import * as v20200801 from "./v20200801";
-import * as v20200831 from "./v20200831";
-import * as v20200831preview from "./v20200831preview";
 import * as v20200901preview from "./v20200901preview";
-import * as v20210201preview from "./v20210201preview";
-import * as v20210303preview from "./v20210303preview";
-import * as v20210331 from "./v20210331";
-import * as v20210701 from "./v20210701";
-import * as v20210701preview from "./v20210701preview";
-import * as v20210702 from "./v20210702";
-import * as v20210702preview from "./v20210702preview";
-import * as v20211015 from "./v20211015";
-import * as v20220205 from "./v20220205";
-import * as v20220430preview from "./v20220430preview";
+import * as v20221115preview from "./v20221115preview";
 import * as v20221212 from "./v20221212";
 import * as v20230301preview from "./v20230301preview";
 
 export {
-    v20160203,
-    v20170119,
-    v20170701,
-    v20170821preview,
-    v20171115,
-    v20180122,
-    v20180401,
-    v20181201preview,
-    v20190322,
-    v20190322preview,
-    v20190701preview,
-    v20191104,
-    v20200101,
-    v20200301,
-    v20200401,
-    v20200615,
-    v20200710preview,
-    v20200801,
-    v20200831,
-    v20200831preview,
     v20200901preview,
-    v20210201preview,
-    v20210303preview,
-    v20210331,
-    v20210701,
-    v20210701preview,
-    v20210702,
-    v20210702preview,
-    v20211015,
-    v20220205,
-    v20220430preview,
+    v20221115preview,
     v20221212,
     v20230301preview,
 };
@@ -195,6 +137,17 @@ export const IpFilterTargetType = {
  */
 export type IpFilterTargetType = (typeof IpFilterTargetType)[keyof typeof IpFilterTargetType];
 
+export const IpVersion = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+    Ipv4ipv6: "ipv4ipv6",
+} as const;
+
+/**
+ * This property specifies the IP Version the hub is currently utilizing.
+ */
+export type IpVersion = (typeof IpVersion)[keyof typeof IpVersion];
+
 export const NetworkRuleIPAction = {
     Allow: "Allow",
 } as const;
@@ -226,12 +179,27 @@ export const PublicNetworkAccess = {
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
 export const RoutingSource = {
     Invalid: "Invalid",
     DeviceMessages: "DeviceMessages",
     TwinChangeEvents: "TwinChangeEvents",
     DeviceLifecycleEvents: "DeviceLifecycleEvents",
     DeviceJobLifecycleEvents: "DeviceJobLifecycleEvents",
+    DigitalTwinChangeEvents: "DigitalTwinChangeEvents",
+    DeviceConnectionStateEvents: "DeviceConnectionStateEvents",
+    MqttBrokerMessages: "MqttBrokerMessages",
 } as const;
 
 /**

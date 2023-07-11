@@ -17,6 +17,18 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class NetworkInterfaceResponse
     {
         /// <summary>
+        /// Auxiliary mode of Network Interface resource.
+        /// </summary>
+        public readonly string? AuxiliaryMode;
+        /// <summary>
+        /// Auxiliary sku of Network Interface resource.
+        /// </summary>
+        public readonly string? AuxiliarySku;
+        /// <summary>
+        /// Indicates whether to disable tcp state tracking.
+        /// </summary>
+        public readonly bool? DisableTcpStateTracking;
+        /// <summary>
         /// The DNS settings in network interface.
         /// </summary>
         public readonly Outputs.NetworkInterfaceDnsSettingsResponse? DnsSettings;
@@ -25,7 +37,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly Outputs.SubResourceResponse DscpConfiguration;
         /// <summary>
-        /// If the network interface is accelerated networking enabled.
+        /// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         /// </summary>
         public readonly bool? EnableAcceleratedNetworking;
         /// <summary>
@@ -48,6 +60,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// Resource ID.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A reference to the interface endpoint to which the network interface is linked.
+        /// </summary>
+        public readonly Outputs.InterfaceEndpointResponse? InterfaceEndpoint;
         /// <summary>
         /// A list of IPConfigurations of the network interface.
         /// </summary>
@@ -112,9 +128,23 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// The reference to a virtual machine.
         /// </summary>
         public readonly Outputs.SubResourceResponse VirtualMachine;
+        /// <summary>
+        /// Whether the virtual machine this nic is attached to supports encryption.
+        /// </summary>
+        public readonly bool VnetEncryptionSupported;
+        /// <summary>
+        /// WorkloadType of the NetworkInterface for BareMetal resources
+        /// </summary>
+        public readonly string? WorkloadType;
 
         [OutputConstructor]
         private NetworkInterfaceResponse(
+            string? auxiliaryMode,
+
+            string? auxiliarySku,
+
+            bool? disableTcpStateTracking,
+
             Outputs.NetworkInterfaceDnsSettingsResponse? dnsSettings,
 
             Outputs.SubResourceResponse dscpConfiguration,
@@ -130,6 +160,8 @@ namespace Pulumi.AzureNative.Network.Outputs
             ImmutableArray<string> hostedWorkloads,
 
             string? id,
+
+            Outputs.InterfaceEndpointResponse? interfaceEndpoint,
 
             ImmutableArray<Outputs.NetworkInterfaceIPConfigurationResponse> ipConfigurations,
 
@@ -161,8 +193,15 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string type,
 
-            Outputs.SubResourceResponse virtualMachine)
+            Outputs.SubResourceResponse virtualMachine,
+
+            bool vnetEncryptionSupported,
+
+            string? workloadType)
         {
+            AuxiliaryMode = auxiliaryMode;
+            AuxiliarySku = auxiliarySku;
+            DisableTcpStateTracking = disableTcpStateTracking;
             DnsSettings = dnsSettings;
             DscpConfiguration = dscpConfiguration;
             EnableAcceleratedNetworking = enableAcceleratedNetworking;
@@ -171,6 +210,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             ExtendedLocation = extendedLocation;
             HostedWorkloads = hostedWorkloads;
             Id = id;
+            InterfaceEndpoint = interfaceEndpoint;
             IpConfigurations = ipConfigurations;
             Location = location;
             MacAddress = macAddress;
@@ -187,6 +227,8 @@ namespace Pulumi.AzureNative.Network.Outputs
             TapConfigurations = tapConfigurations;
             Type = type;
             VirtualMachine = virtualMachine;
+            VnetEncryptionSupported = vnetEncryptionSupported;
+            WorkloadType = workloadType;
         }
     }
 }

@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
- * API Version: 2020-09-01.
+ * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class AFDOriginGroup extends pulumi.CustomResource {
     /**
@@ -52,13 +52,13 @@ export class AFDOriginGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The name of the profile which holds the origin group.
+     */
+    public readonly profileName!: pulumi.Output<string>;
+    /**
      * Provisioning status
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    /**
-     * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-     */
-    public readonly responseBasedAfdOriginErrorDetectionSettings!: pulumi.Output<outputs.cdn.ResponseBasedOriginErrorDetectionParametersResponse | undefined>;
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
@@ -98,7 +98,6 @@ export class AFDOriginGroup extends pulumi.CustomResource {
             resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
             resourceInputs["profileName"] = args ? args.profileName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["responseBasedAfdOriginErrorDetectionSettings"] = args ? args.responseBasedAfdOriginErrorDetectionSettings : undefined;
             resourceInputs["sessionAffinityState"] = args ? args.sessionAffinityState : undefined;
             resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
@@ -111,15 +110,15 @@ export class AFDOriginGroup extends pulumi.CustomResource {
             resourceInputs["healthProbeSettings"] = undefined /*out*/;
             resourceInputs["loadBalancingSettings"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["responseBasedAfdOriginErrorDetectionSettings"] = undefined /*out*/;
             resourceInputs["sessionAffinityState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDOriginGroup" }, { type: "azure-native:cdn/v20210601:AFDOriginGroup" }, { type: "azure-native:cdn/v20220501preview:AFDOriginGroup" }, { type: "azure-native:cdn/v20221101preview:AFDOriginGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDOriginGroup" }, { type: "azure-native:cdn/v20210601:AFDOriginGroup" }, { type: "azure-native:cdn/v20220501preview:AFDOriginGroup" }, { type: "azure-native:cdn/v20221101preview:AFDOriginGroup" }, { type: "azure-native:cdn/v20230501:AFDOriginGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDOriginGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -142,17 +141,13 @@ export interface AFDOriginGroupArgs {
      */
     originGroupName?: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
-    /**
-     * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-     */
-    responseBasedAfdOriginErrorDetectionSettings?: pulumi.Input<inputs.cdn.ResponseBasedOriginErrorDetectionParametersArgs>;
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */

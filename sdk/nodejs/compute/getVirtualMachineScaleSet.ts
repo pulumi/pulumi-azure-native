@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Display information about a virtual machine scale set.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSet(args: GetVirtualMachineScaleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetResult> {
 
@@ -49,6 +49,10 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly automaticRepairsPolicy?: outputs.compute.AutomaticRepairsPolicyResponse;
     /**
+     * Optional property which must either be set to True or omitted.
+     */
+    readonly constrainedMaximumCapacity?: boolean;
+    /**
      * When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
      */
     readonly doNotRunExtensionsOnOverprovisionedVMs?: boolean;
@@ -57,7 +61,7 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly extendedLocation?: outputs.compute.ExtendedLocationResponse;
     /**
-     * Specifies information about the dedicated host group that the virtual machine scale set resides in. <br><br>Minimum api-version: 2020-06-01.
+     * Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
      */
     readonly hostGroup?: outputs.compute.SubResourceResponse;
     /**
@@ -93,15 +97,19 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly platformFaultDomainCount?: number;
     /**
+     * Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
+     */
+    readonly priorityMixPolicy?: outputs.compute.PriorityMixPolicyResponse;
+    /**
      * The provisioning state, which only appears in the response.
      */
     readonly provisioningState: string;
     /**
-     * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. <br><br>Minimum api-version: 2018-04-01.
+     * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
      */
     readonly proximityPlacementGroup?: outputs.compute.SubResourceResponse;
     /**
-     * Specifies the scale-in policy that decides which virtual machines are chosen for removal when a Virtual Machine Scale Set is scaled-in.
+     * Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
      */
     readonly scaleInPolicy?: outputs.compute.ScaleInPolicyResponse;
     /**
@@ -113,9 +121,17 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly sku?: outputs.compute.SkuResponse;
     /**
+     * Specifies the Spot Restore properties for the virtual machine scale set.
+     */
+    readonly spotRestorePolicy?: outputs.compute.SpotRestorePolicyResponse;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
+    /**
+     * Specifies the time at which the Virtual Machine Scale Set resource was created. Minimum api-version: 2021-11-01.
+     */
+    readonly timeCreated: string;
     /**
      * Resource type
      */
@@ -133,7 +149,7 @@ export interface GetVirtualMachineScaleSetResult {
      */
     readonly virtualMachineProfile?: outputs.compute.VirtualMachineScaleSetVMProfileResponse;
     /**
-     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage.
+     * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
     readonly zoneBalance?: boolean;
     /**
@@ -143,7 +159,7 @@ export interface GetVirtualMachineScaleSetResult {
 }
 /**
  * Display information about a virtual machine scale set.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetOutput(args: GetVirtualMachineScaleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSet(a, opts))

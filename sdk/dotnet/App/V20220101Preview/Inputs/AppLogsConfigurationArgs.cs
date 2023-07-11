@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.App.V20220101Preview.Inputs
     public sealed class AppLogsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Logs destination
+        /// Logs destination, can be 'log-analytics', 'azure-monitor' or 'none'
         /// </summary>
         [Input("destination")]
         public Input<string>? Destination { get; set; }
 
         /// <summary>
-        /// Log Analytics configuration
+        /// Log Analytics configuration, must only be provided when destination is configured as 'log-analytics'
         /// </summary>
         [Input("logAnalyticsConfiguration")]
         public Input<Inputs.LogAnalyticsConfigurationArgs>? LogAnalyticsConfiguration { get; set; }

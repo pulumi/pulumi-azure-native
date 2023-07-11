@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a blueprint artifact.
- * API Version: 2018-11-01-preview.
+ * Azure REST API version: 2018-11-01-preview.
  */
 export function getRoleAssignmentArtifact(args: GetRoleAssignmentArtifactArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleAssignmentArtifactResult> {
 
@@ -81,7 +81,7 @@ export interface GetRoleAssignmentArtifactResult {
 }
 /**
  * Get a blueprint artifact.
- * API Version: 2018-11-01-preview.
+ * Azure REST API version: 2018-11-01-preview.
  */
 export function getRoleAssignmentArtifactOutput(args: GetRoleAssignmentArtifactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleAssignmentArtifactResult> {
     return pulumi.output(args).apply((a: any) => getRoleAssignmentArtifact(a, opts))

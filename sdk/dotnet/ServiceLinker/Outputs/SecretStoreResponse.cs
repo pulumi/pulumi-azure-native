@@ -20,11 +20,19 @@ namespace Pulumi.AzureNative.ServiceLinker.Outputs
         /// The key vault id to store secret
         /// </summary>
         public readonly string? KeyVaultId;
+        /// <summary>
+        /// The key vault secret name to store secret, only valid when storing one secret
+        /// </summary>
+        public readonly string? KeyVaultSecretName;
 
         [OutputConstructor]
-        private SecretStoreResponse(string? keyVaultId)
+        private SecretStoreResponse(
+            string? keyVaultId,
+
+            string? keyVaultSecretName)
         {
             KeyVaultId = keyVaultId;
+            KeyVaultSecretName = keyVaultSecretName;
         }
     }
 }

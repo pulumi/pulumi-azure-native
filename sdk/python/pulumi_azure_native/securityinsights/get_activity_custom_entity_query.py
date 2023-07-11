@@ -127,7 +127,7 @@ class GetActivityCustomEntityQueryResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -160,7 +160,7 @@ class GetActivityCustomEntityQueryResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -208,7 +208,7 @@ class GetActivityCustomEntityQueryResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -239,23 +239,20 @@ class AwaitableGetActivityCustomEntityQueryResult(GetActivityCustomEntityQueryRe
 
 
 def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
-                                     operational_insights_resource_provider: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
                                      workspace_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityCustomEntityQueryResult:
     """
     Gets an entity query.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str entity_query_id: entity query ID
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['entityQueryId'] = entity_query_id
-    __args__['operationalInsightsResourceProvider'] = operational_insights_resource_provider
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -283,17 +280,15 @@ def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_activity_custom_entity_query)
 def get_activity_custom_entity_query_output(entity_query_id: Optional[pulumi.Input[str]] = None,
-                                            operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
                                             workspace_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityCustomEntityQueryResult]:
     """
     Gets an entity query.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-06-01-preview.
 
 
     :param str entity_query_id: entity query ID
-    :param str operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace.
     """

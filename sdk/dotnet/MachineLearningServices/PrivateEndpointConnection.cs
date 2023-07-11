@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The identity of the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.IdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -59,7 +59,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -121,7 +121,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221001preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20221201preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230201preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230401preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20230601preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -149,7 +152,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// The identity of the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.IdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// Specifies the location of the resource.
@@ -170,7 +173,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<Inputs.PrivateLinkServiceConnectionStateArgs> PrivateLinkServiceConnectionState { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group in which workspace is located.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

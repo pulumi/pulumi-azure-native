@@ -5,41 +5,19 @@
 from enum import Enum
 
 __all__ = [
-    'AuthenticationMethod',
     'BackupPolicyType',
     'BackupStorageRedundancy',
-    'CompositePathSortOrder',
-    'ConflictResolutionMode',
     'ConnectorOffer',
     'CreateMode',
-    'DataType',
     'DatabaseAccountKind',
     'DatabaseAccountOfferType',
     'DefaultConsistencyLevel',
-    'IndexKind',
-    'IndexingMode',
-    'ManagedCassandraProvisioningState',
     'NetworkAclBypass',
-    'PartitionKind',
     'PublicNetworkAccess',
     'ResourceIdentityType',
     'RestoreMode',
-    'RoleDefinitionType',
     'ServerVersion',
-    'ServiceSize',
-    'ServiceType',
-    'SpatialType',
-    'TriggerOperation',
-    'TriggerType',
 ]
-
-
-class AuthenticationMethod(str, Enum):
-    """
-    Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'.
-    """
-    NONE = "None"
-    CASSANDRA = "Cassandra"
 
 
 class BackupPolicyType(str, Enum):
@@ -59,22 +37,6 @@ class BackupStorageRedundancy(str, Enum):
     ZONE = "Zone"
 
 
-class CompositePathSortOrder(str, Enum):
-    """
-    Sort order for composite paths.
-    """
-    ASCENDING = "ascending"
-    DESCENDING = "descending"
-
-
-class ConflictResolutionMode(str, Enum):
-    """
-    Indicates the conflict resolution mode.
-    """
-    LAST_WRITER_WINS = "LastWriterWins"
-    CUSTOM = "Custom"
-
-
 class ConnectorOffer(str, Enum):
     """
     The cassandra connector offer type for the Cosmos DB database C* account.
@@ -88,18 +50,6 @@ class CreateMode(str, Enum):
     """
     DEFAULT = "Default"
     RESTORE = "Restore"
-
-
-class DataType(str, Enum):
-    """
-    The datatype for which the indexing behavior is applied to.
-    """
-    STRING = "String"
-    NUMBER = "Number"
-    POINT = "Point"
-    POLYGON = "Polygon"
-    LINE_STRING = "LineString"
-    MULTI_POLYGON = "MultiPolygon"
 
 
 class DatabaseAccountKind(str, Enum):
@@ -129,51 +79,12 @@ class DefaultConsistencyLevel(str, Enum):
     CONSISTENT_PREFIX = "ConsistentPrefix"
 
 
-class IndexKind(str, Enum):
-    """
-    Indicates the type of index.
-    """
-    HASH = "Hash"
-    RANGE = "Range"
-    SPATIAL = "Spatial"
-
-
-class IndexingMode(str, Enum):
-    """
-    Indicates the indexing mode.
-    """
-    CONSISTENT = "consistent"
-    LAZY = "lazy"
-    NONE = "none"
-
-
-class ManagedCassandraProvisioningState(str, Enum):
-    """
-    The status of the resource at the time the operation was called.
-    """
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"
-
-
 class NetworkAclBypass(str, Enum):
     """
     Indicates what services are allowed to bypass firewall checks.
     """
     NONE = "None"
     AZURE_SERVICES = "AzureServices"
-
-
-class PartitionKind(str, Enum):
-    """
-    Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
-    """
-    HASH = "Hash"
-    RANGE = "Range"
-    MULTI_HASH = "MultiHash"
 
 
 class PublicNetworkAccess(str, Enum):
@@ -201,14 +112,6 @@ class RestoreMode(str, Enum):
     POINT_IN_TIME = "PointInTime"
 
 
-class RoleDefinitionType(str, Enum):
-    """
-    Indicates whether the Role Definition was built-in or user created.
-    """
-    BUILT_IN_ROLE = "BuiltInRole"
-    CUSTOM_ROLE = "CustomRole"
-
-
 class ServerVersion(str, Enum):
     """
     Describes the ServerVersion of an a MongoDB account.
@@ -216,49 +119,3 @@ class ServerVersion(str, Enum):
     SERVER_VERSION_3_2 = "3.2"
     SERVER_VERSION_3_6 = "3.6"
     SERVER_VERSION_4_0 = "4.0"
-
-
-class ServiceSize(str, Enum):
-    """
-    Instance type for the service.
-    """
-    COSMOS_D4S = "Cosmos.D4s"
-    COSMOS_D8S = "Cosmos.D8s"
-    COSMOS_D16S = "Cosmos.D16s"
-
-
-class ServiceType(str, Enum):
-    """
-    ServiceType for the service.
-    """
-    SQL_DEDICATED_GATEWAY = "SqlDedicatedGateway"
-    DATA_TRANSFER = "DataTransfer"
-
-
-class SpatialType(str, Enum):
-    """
-    Indicates the spatial type of index.
-    """
-    POINT = "Point"
-    LINE_STRING = "LineString"
-    POLYGON = "Polygon"
-    MULTI_POLYGON = "MultiPolygon"
-
-
-class TriggerOperation(str, Enum):
-    """
-    The operation the trigger is associated with
-    """
-    ALL = "All"
-    CREATE = "Create"
-    UPDATE = "Update"
-    DELETE = "Delete"
-    REPLACE = "Replace"
-
-
-class TriggerType(str, Enum):
-    """
-    Type of the Trigger
-    """
-    PRE = "Pre"
-    POST = "Post"

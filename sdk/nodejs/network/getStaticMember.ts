@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified static member.
- * API Version: 2022-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getStaticMember(args: GetStaticMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticMemberResult> {
 
@@ -58,6 +58,14 @@ export interface GetStaticMemberResult {
      */
     readonly name: string;
     /**
+     * The provisioning state of the scope assignment resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * Resource region.
+     */
+    readonly region: string;
+    /**
      * Resource Id.
      */
     readonly resourceId?: string;
@@ -72,7 +80,7 @@ export interface GetStaticMemberResult {
 }
 /**
  * Gets the specified static member.
- * API Version: 2022-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getStaticMemberOutput(args: GetStaticMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticMemberResult> {
     return pulumi.output(args).apply((a: any) => getStaticMember(a, opts))

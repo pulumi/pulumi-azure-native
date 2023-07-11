@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A private endpoint connection
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateEndpointConnection.__pulumiType;
     }
 
+    /**
+     * Group IDs.
+     */
+    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
     /**
      * Resource name.
      */
@@ -81,10 +85,12 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
@@ -92,7 +98,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20180601preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20200202preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20200801preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20201101preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20210201preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20210501preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20210801preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20211101:PrivateEndpointConnection" }, { type: "azure-native:sql/v20211101preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20220201preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20220501preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20220801preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20180601preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20200202preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20200801preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20201101preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20210201preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20210501preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20210801preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20211101:PrivateEndpointConnection" }, { type: "azure-native:sql/v20211101preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20220201preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20220501preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20220801preview:PrivateEndpointConnection" }, { type: "azure-native:sql/v20221101preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

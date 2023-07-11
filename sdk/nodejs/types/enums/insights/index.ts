@@ -2,61 +2,53 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20140401 from "./v20140401";
-import * as v20150401 from "./v20150401";
 import * as v20150501 from "./v20150501";
 import * as v20160301 from "./v20160301";
 import * as v20180301 from "./v20180301";
 import * as v20180416 from "./v20180416";
-import * as v20180501preview from "./v20180501preview";
-import * as v20180617preview from "./v20180617preview";
-import * as v20191101preview from "./v20191101preview";
 import * as v20200202 from "./v20200202";
 import * as v20200202preview from "./v20200202preview";
 import * as v20200501preview from "./v20200501preview";
 import * as v20201005preview from "./v20201005preview";
-import * as v20201020 from "./v20201020";
-import * as v20210201preview from "./v20210201preview";
 import * as v20210308 from "./v20210308";
-import * as v20210401 from "./v20210401";
-import * as v20210501preview from "./v20210501preview";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801 from "./v20210801";
-import * as v20210901preview from "./v20210901preview";
 import * as v20220401 from "./v20220401";
 import * as v20220601 from "./v20220601";
 import * as v20220615 from "./v20220615";
 import * as v20220801preview from "./v20220801preview";
 import * as v20221001 from "./v20221001";
+import * as v20230315preview from "./v20230315preview";
 
 export {
-    v20140401,
-    v20150401,
     v20150501,
     v20160301,
     v20180301,
     v20180416,
-    v20180501preview,
-    v20180617preview,
-    v20191101preview,
     v20200202,
     v20200202preview,
     v20200501preview,
     v20201005preview,
-    v20201020,
-    v20210201preview,
     v20210308,
-    v20210401,
-    v20210501preview,
     v20210701preview,
     v20210801,
-    v20210901preview,
     v20220401,
     v20220601,
     v20220615,
     v20220801preview,
     v20221001,
+    v20230315preview,
 };
+
+export const AccessMode = {
+    Open: "Open",
+    PrivateOnly: "PrivateOnly",
+} as const;
+
+/**
+ * Specifies the default access mode of queries through associated private endpoints in scope. If not specified default value is 'Open'. You can override this default setting for a specific private endpoint connection by adding an exclusion in the 'exclusions' array.
+ */
+export type AccessMode = (typeof AccessMode)[keyof typeof AccessMode];
 
 export const AggregationTypeEnum = {
     Average: "Average",
@@ -70,19 +62,6 @@ export const AggregationTypeEnum = {
  * the criteria time aggregation types.
  */
 export type AggregationTypeEnum = (typeof AggregationTypeEnum)[keyof typeof AggregationTypeEnum];
-
-export const AlertSeverity = {
-    Zero: "0",
-    One: "1",
-    Two: "2",
-    Three: "3",
-    Four: "4",
-} as const;
-
-/**
- * Severity of the alert
- */
-export type AlertSeverity = (typeof AlertSeverity)[keyof typeof AlertSeverity];
 
 export const ApplicationType = {
     Web: "web",
@@ -109,6 +88,7 @@ export const ComparisonOperationType = {
 export type ComparisonOperationType = (typeof ComparisonOperationType)[keyof typeof ComparisonOperationType];
 
 export const ConditionOperator = {
+    Equals: "Equals",
     GreaterThan: "GreaterThan",
     GreaterThanOrEqual: "GreaterThanOrEqual",
     LessThan: "LessThan",
@@ -116,22 +96,9 @@ export const ConditionOperator = {
 } as const;
 
 /**
- * the operator used to compare the data and the threshold.
+ * The criteria operator. Relevant and required only for rules of the kind LogAlert.
  */
 export type ConditionOperator = (typeof ConditionOperator)[keyof typeof ConditionOperator];
-
-export const ConditionalOperator = {
-    GreaterThanOrEqual: "GreaterThanOrEqual",
-    LessThanOrEqual: "LessThanOrEqual",
-    GreaterThan: "GreaterThan",
-    LessThan: "LessThan",
-    Equal: "Equal",
-} as const;
-
-/**
- * Evaluation operation for rule - 'GreaterThan' or 'LessThan.
- */
-export type ConditionalOperator = (typeof ConditionalOperator)[keyof typeof ConditionalOperator];
 
 export const CriterionType = {
     StaticThresholdCriterion: "StaticThresholdCriterion",
@@ -142,6 +109,16 @@ export const CriterionType = {
  * Specifies the type of threshold criteria
  */
 export type CriterionType = (typeof CriterionType)[keyof typeof CriterionType];
+
+export const DimensionOperator = {
+    Include: "Include",
+    Exclude: "Exclude",
+} as const;
+
+/**
+ * Operator for dimension values
+ */
+export type DimensionOperator = (typeof DimensionOperator)[keyof typeof DimensionOperator];
 
 export const DynamicThresholdOperator = {
     GreaterThan: "GreaterThan",
@@ -165,16 +142,6 @@ export const DynamicThresholdSensitivity = {
  */
 export type DynamicThresholdSensitivity = (typeof DynamicThresholdSensitivity)[keyof typeof DynamicThresholdSensitivity];
 
-export const Enabled = {
-    True: "true",
-    False: "false",
-} as const;
-
-/**
- * The flag which indicates whether the Log Search rule is enabled. Value should be true or false
- */
-export type Enabled = (typeof Enabled)[keyof typeof Enabled];
-
 export const FavoriteType = {
     Shared: "shared",
     User: "user",
@@ -193,6 +160,17 @@ export const FlowType = {
  * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
  */
 export type FlowType = (typeof FlowType)[keyof typeof FlowType];
+
+export const IdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Type of managed service identity.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const IngestionMode = {
     ApplicationInsights: "ApplicationInsights",
@@ -228,14 +206,29 @@ export const ItemType = {
 export type ItemType = (typeof ItemType)[keyof typeof ItemType];
 
 export const Kind = {
-    User: "user",
-    Shared: "shared",
+    LogAlert: "LogAlert",
+    LogToMetric: "LogToMetric",
 } as const;
 
 /**
- * The kind of workbook. Choices are user and shared.
+ * Indicates the type of scheduled query rule. The default is LogAlert.
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const KnownColumnDefinitionType = {
+    String: "string",
+    Int: "int",
+    Long: "long",
+    Real: "real",
+    Boolean: "boolean",
+    Datetime: "datetime",
+    Dynamic: "dynamic",
+} as const;
+
+/**
+ * The type of the column data.
+ */
+export type KnownColumnDefinitionType = (typeof KnownColumnDefinitionType)[keyof typeof KnownColumnDefinitionType];
 
 export const KnownDataCollectionEndpointResourceKind = {
     Linux: "Linux",
@@ -277,6 +270,32 @@ export const KnownExtensionDataSourceStreams = {
 
 export type KnownExtensionDataSourceStreams = (typeof KnownExtensionDataSourceStreams)[keyof typeof KnownExtensionDataSourceStreams];
 
+export const KnownLogFileTextSettingsRecordStartTimestampFormat = {
+    ISO_8601: "ISO 8601",
+    YYYY_MM_DD_HH_MM_SS: "YYYY-MM-DD HH:MM:SS",
+    M_D_YYYY_HH_MM_SS_AM_PM: "M/D/YYYY HH:MM:SS AM/PM",
+    Mon_DD_YYYY_HH_MM_SS: "Mon DD, YYYY HH:MM:SS",
+    YyMMdd_HH_mm_ss: "yyMMdd HH:mm:ss",
+    DdMMyy_HH_mm_ss: "ddMMyy HH:mm:ss",
+    MMM_d_hh_mm_ss: "MMM d hh:mm:ss",
+    Dd_MMM_yyyy_HH_mm_ss_zzz: "dd/MMM/yyyy:HH:mm:ss zzz",
+    Yyyy_MM_ddTHH_mm_ssK: "yyyy-MM-ddTHH:mm:ssK",
+} as const;
+
+/**
+ * One of the supported timestamp formats
+ */
+export type KnownLogFileTextSettingsRecordStartTimestampFormat = (typeof KnownLogFileTextSettingsRecordStartTimestampFormat)[keyof typeof KnownLogFileTextSettingsRecordStartTimestampFormat];
+
+export const KnownLogFilesDataSourceFormat = {
+    Text: "text",
+} as const;
+
+/**
+ * The data format of the log files
+ */
+export type KnownLogFilesDataSourceFormat = (typeof KnownLogFilesDataSourceFormat)[keyof typeof KnownLogFilesDataSourceFormat];
+
 export const KnownPerfCounterDataSourceStreams = {
     Microsoft_Perf: "Microsoft-Perf",
     Microsoft_InsightsMetrics: "Microsoft-InsightsMetrics",
@@ -284,9 +303,16 @@ export const KnownPerfCounterDataSourceStreams = {
 
 export type KnownPerfCounterDataSourceStreams = (typeof KnownPerfCounterDataSourceStreams)[keyof typeof KnownPerfCounterDataSourceStreams];
 
+export const KnownPrometheusForwarderDataSourceStreams = {
+    Microsoft_PrometheusMetrics: "Microsoft-PrometheusMetrics",
+} as const;
+
+export type KnownPrometheusForwarderDataSourceStreams = (typeof KnownPrometheusForwarderDataSourceStreams)[keyof typeof KnownPrometheusForwarderDataSourceStreams];
+
 export const KnownPublicNetworkAccessOptions = {
     Enabled: "Enabled",
     Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
 } as const;
 
 /**
@@ -347,6 +373,18 @@ export const KnownWindowsEventLogDataSourceStreams = {
 
 export type KnownWindowsEventLogDataSourceStreams = (typeof KnownWindowsEventLogDataSourceStreams)[keyof typeof KnownWindowsEventLogDataSourceStreams];
 
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
 export const MetricStatisticType = {
     Average: "Average",
     Min: "Min",
@@ -359,16 +397,6 @@ export const MetricStatisticType = {
  * the metric statistic type. How the metrics from multiple instances are combined.
  */
 export type MetricStatisticType = (typeof MetricStatisticType)[keyof typeof MetricStatisticType];
-
-export const MetricTriggerType = {
-    Consecutive: "Consecutive",
-    Total: "Total",
-} as const;
-
-/**
- * Metric Trigger Type - 'Consecutive' or 'Total'
- */
-export type MetricTriggerType = (typeof MetricTriggerType)[keyof typeof MetricTriggerType];
 
 export const Odatatype = {
     Microsoft_Azure_Monitor_SingleResourceMultipleMetricCriteria: "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
@@ -391,22 +419,55 @@ export const OperationType = {
 export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 export const Operator = {
-    Include: "Include",
+    Equals: "Equals",
+    GreaterThan: "GreaterThan",
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    LessThan: "LessThan",
+    LessThanOrEqual: "LessThanOrEqual",
 } as const;
 
 /**
- * Operator for dimension values
+ * the criteria operator.
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
-export const QueryType = {
-    ResultCount: "ResultCount",
+export const PredictiveAutoscalePolicyScaleMode = {
+    Disabled: "Disabled",
+    ForecastOnly: "ForecastOnly",
+    Enabled: "Enabled",
 } as const;
 
 /**
- * Set value to 'ResultCount' .
+ * the predictive autoscale mode
  */
-export type QueryType = (typeof QueryType)[keyof typeof QueryType];
+export type PredictiveAutoscalePolicyScaleMode = (typeof PredictiveAutoscalePolicyScaleMode)[keyof typeof PredictiveAutoscalePolicyScaleMode];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccessType = {
+    /**
+     * Enables connectivity to Application Insights through public DNS.
+     */
+    Enabled: "Enabled",
+    /**
+     * Disables public connectivity to Application Insights through public DNS.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The network access type for accessing Application Insights query.
+ */
+export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const RecurrenceFrequency = {
     None: "None",
@@ -466,6 +527,19 @@ export const ScaleType = {
  */
 export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 
+export const TimeAggregation = {
+    Count: "Count",
+    Average: "Average",
+    Minimum: "Minimum",
+    Maximum: "Maximum",
+    Total: "Total",
+} as const;
+
+/**
+ * Aggregation type. Relevant and required only for rules of the kind LogAlert.
+ */
+export type TimeAggregation = (typeof TimeAggregation)[keyof typeof TimeAggregation];
+
 export const TimeAggregationOperator = {
     Average: "Average",
     Minimum: "Minimum",
@@ -496,9 +570,19 @@ export type TimeAggregationType = (typeof TimeAggregationType)[keyof typeof Time
 export const WebTestKind = {
     Ping: "ping",
     Multistep: "multistep",
+    Standard: "standard",
 } as const;
 
 /**
- * The kind of web test this is, valid choices are ping and multistep.
+ * The kind of web test this is, valid choices are ping, multistep and standard.
  */
 export type WebTestKind = (typeof WebTestKind)[keyof typeof WebTestKind];
+
+export const WorkbookSharedTypeKind = {
+    Shared: "shared",
+} as const;
+
+/**
+ * The kind of workbook. Only valid value is shared.
+ */
+export type WorkbookSharedTypeKind = (typeof WorkbookSharedTypeKind)[keyof typeof WorkbookSharedTypeKind];

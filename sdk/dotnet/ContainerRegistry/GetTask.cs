@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Get the properties of a specified task.
-        /// API Version: 2019-06-01-preview.
+        /// Azure REST API version: 2019-06-01-preview.
         /// </summary>
         public static Task<GetTaskResult> InvokeAsync(GetTaskArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the properties of a specified task.
-        /// API Version: 2019-06-01-preview.
+        /// Azure REST API version: 2019-06-01-preview.
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("azure-native:containerregistry:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());

@@ -29,16 +29,40 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
+        /// Indicates whether to clean up previous operation when Linker is updating or deleting
+        /// </summary>
+        [Input("deleteOrUpdateBehavior")]
+        public InputUnion<string, Pulumi.AzureNative.ServiceLinker.DeleteOrUpdateBehavior>? DeleteOrUpdateBehavior { get; set; }
+
+        /// <summary>
         /// Principal Id for servicePrincipal auth.
         /// </summary>
         [Input("principalId", required: true)]
         public Input<string> PrincipalId { get; set; } = null!;
+
+        [Input("roles")]
+        private InputList<string>? _roles;
+
+        /// <summary>
+        /// Optional, this value specifies the Azure roles to be assigned. Automatically 
+        /// </summary>
+        public InputList<string> Roles
+        {
+            get => _roles ?? (_roles = new InputList<string>());
+            set => _roles = value;
+        }
 
         /// <summary>
         /// Secret for servicePrincipal auth.
         /// </summary>
         [Input("secret", required: true)]
         public Input<string> Secret { get; set; } = null!;
+
+        /// <summary>
+        /// Username created in the database which is mapped to a user in AAD.
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public ServicePrincipalSecretAuthInfoArgs()
         {

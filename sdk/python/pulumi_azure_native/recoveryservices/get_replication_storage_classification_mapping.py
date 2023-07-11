@@ -101,7 +101,7 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[str] = 
                                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReplicationStorageClassificationMappingResult:
     """
     Gets the details of the specified storage classification mapping.
-    API Version: 2018-07-10.
+    Azure REST API version: 2023-04-01.
 
 
     :param str fabric_name: Fabric name.
@@ -136,7 +136,7 @@ def get_replication_storage_classification_mapping_output(fabric_name: Optional[
                                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationStorageClassificationMappingResult]:
     """
     Gets the details of the specified storage classification mapping.
-    API Version: 2018-07-10.
+    Azure REST API version: 2023-04-01.
 
 
     :param str fabric_name: Fabric name.

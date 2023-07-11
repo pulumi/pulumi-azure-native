@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
- * API Version: 2019-01-01-preview.
+ * Azure REST API version: 2019-01-01-preview.
  */
 export function getAlertsSuppressionRule(args: GetAlertsSuppressionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertsSuppressionRuleResult> {
 
@@ -73,7 +73,7 @@ export interface GetAlertsSuppressionRuleResult {
 }
 /**
  * Get dismiss rule, with name: {alertsSuppressionRuleName}, for the given subscription
- * API Version: 2019-01-01-preview.
+ * Azure REST API version: 2019-01-01-preview.
  */
 export function getAlertsSuppressionRuleOutput(args: GetAlertsSuppressionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertsSuppressionRuleResult> {
     return pulumi.output(args).apply((a: any) => getAlertsSuppressionRule(a, opts))

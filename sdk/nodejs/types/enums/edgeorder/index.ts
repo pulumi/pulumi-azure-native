@@ -2,12 +2,10 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20201201preview from "./v20201201preview";
 import * as v20211201 from "./v20211201";
 import * as v20220501preview from "./v20220501preview";
 
 export {
-    v20201201preview,
     v20211201,
     v20220501preview,
 };
@@ -31,6 +29,19 @@ export const AddressType = {
  * Type of address.
  */
 export type AddressType = (typeof AddressType)[keyof typeof AddressType];
+
+export const ChildConfigurationType = {
+    /**
+     * Child configuration is a device configuration.
+     */
+    DeviceConfiguration: "DeviceConfiguration",
+    /**
+     * Child configuration is an additional configuration.
+     */
+    AdditionalConfiguration: "AdditionalConfiguration",
+} as const;
+
+export type ChildConfigurationType = (typeof ChildConfigurationType)[keyof typeof ChildConfigurationType];
 
 export const DoubleEncryptionStatus = {
     /**
@@ -80,13 +91,29 @@ export const OrderItemType = {
  */
 export type OrderItemType = (typeof OrderItemType)[keyof typeof OrderItemType];
 
+export const OrderMode = {
+    /**
+     * Default Order mode.
+     */
+    Default: "Default",
+    /**
+     * Mode in which the Order will not be fulfilled.
+     */
+    DoNotFulfill: "DoNotFulfill",
+} as const;
+
+/**
+ * Defines the mode of the Order item.
+ */
+export type OrderMode = (typeof OrderMode)[keyof typeof OrderMode];
+
 export const SupportedFilterTypes = {
     /**
-     * Ship to country
+     * Ship to country.
      */
     ShipToCountries: "ShipToCountries",
     /**
-     * Double encryption status
+     * Double encryption status.
      */
     DoubleEncryptionStatus: "DoubleEncryptionStatus",
 } as const;

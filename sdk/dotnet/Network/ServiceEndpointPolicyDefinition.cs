@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Service Endpoint policy definitions.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ServiceEndpointPolicyDefinition")]
     public partial class ServiceEndpointPolicyDefinition : global::Pulumi.CustomResource
@@ -51,6 +51,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("serviceResources")]
         public Output<ImmutableArray<string>> ServiceResources { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Output("type")]
+        public Output<string?> Type { get; private set; } = null!;
 
 
         /// <summary>
@@ -105,6 +111,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ServiceEndpointPolicyDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ServiceEndpointPolicyDefinition"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ServiceEndpointPolicyDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ServiceEndpointPolicyDefinition"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ServiceEndpointPolicyDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -181,6 +189,12 @@ namespace Pulumi.AzureNative.Network
             get => _serviceResources ?? (_serviceResources = new InputList<string>());
             set => _serviceResources = value;
         }
+
+        /// <summary>
+        /// The type of the resource.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
 
         public ServiceEndpointPolicyDefinitionArgs()
         {

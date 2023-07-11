@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Workloads
     {
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetProviderInstanceResult> InvokeAsync(GetProviderInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetProviderInstanceResult> Invoke(GetProviderInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProviderInstanceResult>("azure-native:workloads:getProviderInstance", args ?? new GetProviderInstanceInvokeArgs(), options.WithDefaults());
@@ -92,7 +92,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Managed service identity (user assigned identities)
+        /// [currently not in use] Managed service identity(user assigned identities)
         /// </summary>
         public readonly Outputs.UserAssignedServiceIdentityResponse? Identity;
         /// <summary>
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.Workloads
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Defines the provider instance errors.
+        /// Defines the provider specific properties.
         /// </summary>
         public readonly object? ProviderSettings;
         /// <summary>

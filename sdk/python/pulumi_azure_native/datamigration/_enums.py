@@ -7,11 +7,16 @@ from enum import Enum
 __all__ = [
     'AuthenticationType',
     'BackupMode',
+    'MongoDbReplication',
+    'MongoDbShardKeyOrder',
+    'MySqlTargetPlatformType',
     'ProjectSourcePlatform',
     'ProjectTargetPlatform',
     'ResourceType',
     'ServerLevelPermissionsGroup',
     'SqlSourcePlatform',
+    'SsisMigrationOverwriteOption',
+    'SsisStoreType',
 ]
 
 
@@ -34,11 +39,40 @@ class BackupMode(str, Enum):
     EXISTING_BACKUP = "ExistingBackup"
 
 
+class MongoDbReplication(str, Enum):
+    """
+    Describes how changes will be replicated from the source to the target. The default is OneTime.
+    """
+    DISABLED = "Disabled"
+    ONE_TIME = "OneTime"
+    CONTINUOUS = "Continuous"
+
+
+class MongoDbShardKeyOrder(str, Enum):
+    """
+    The field ordering
+    """
+    FORWARD = "Forward"
+    REVERSE = "Reverse"
+    HASHED = "Hashed"
+
+
+class MySqlTargetPlatformType(str, Enum):
+    """
+    Target Platform for the migration
+    """
+    SQL_SERVER = "SqlServer"
+    AZURE_DB_FOR_MY_SQL = "AzureDbForMySQL"
+
+
 class ProjectSourcePlatform(str, Enum):
     """
     Source platform for the project
     """
     SQL = "SQL"
+    MY_SQL = "MySQL"
+    POSTGRE_SQL = "PostgreSql"
+    MONGO_DB = "MongoDb"
     UNKNOWN = "Unknown"
 
 
@@ -47,6 +81,10 @@ class ProjectTargetPlatform(str, Enum):
     Target platform for the project
     """
     SQLDB = "SQLDB"
+    SQLMI = "SQLMI"
+    AZURE_DB_FOR_MY_SQL = "AzureDbForMySql"
+    AZURE_DB_FOR_POSTGRE_SQL = "AzureDbForPostgreSql"
+    MONGO_DB = "MongoDb"
     UNKNOWN = "Unknown"
 
 
@@ -71,3 +109,18 @@ class SqlSourcePlatform(str, Enum):
     Server platform type for connection
     """
     SQL_ON_PREM = "SqlOnPrem"
+
+
+class SsisMigrationOverwriteOption(str, Enum):
+    """
+    The overwrite option for the SSIS project migration
+    """
+    IGNORE = "Ignore"
+    OVERWRITE = "Overwrite"
+
+
+class SsisStoreType(str, Enum):
+    """
+    The SSIS store type of source, only SSIS catalog is supported now in DMS
+    """
+    SSIS_CATALOG = "SsisCatalog"

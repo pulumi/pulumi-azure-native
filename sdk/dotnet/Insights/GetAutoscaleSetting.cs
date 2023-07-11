@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets an autoscale setting
-        /// API Version: 2015-04-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Task<GetAutoscaleSettingResult> InvokeAsync(GetAutoscaleSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAutoscaleSettingResult>("azure-native:insights:getAutoscaleSetting", args ?? new GetAutoscaleSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an autoscale setting
-        /// API Version: 2015-04-01.
+        /// Azure REST API version: 2022-10-01.
         /// </summary>
         public static Output<GetAutoscaleSettingResult> Invoke(GetAutoscaleSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoscaleSettingResult>("azure-native:insights:getAutoscaleSetting", args ?? new GetAutoscaleSettingInvokeArgs(), options.WithDefaults());
@@ -92,11 +92,19 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly ImmutableArray<Outputs.AutoscaleNotificationResponse> Notifications;
         /// <summary>
+        /// the predictive autoscale policy mode.
+        /// </summary>
+        public readonly Outputs.PredictiveAutoscalePolicyResponse? PredictiveAutoscalePolicy;
+        /// <summary>
         /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         /// </summary>
         public readonly ImmutableArray<Outputs.AutoscaleProfileResponse> Profiles;
         /// <summary>
-        /// Resource tags
+        /// The system metadata related to the response.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -124,7 +132,11 @@ namespace Pulumi.AzureNative.Insights
 
             ImmutableArray<Outputs.AutoscaleNotificationResponse> notifications,
 
+            Outputs.PredictiveAutoscalePolicyResponse? predictiveAutoscalePolicy,
+
             ImmutableArray<Outputs.AutoscaleProfileResponse> profiles,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -139,7 +151,9 @@ namespace Pulumi.AzureNative.Insights
             Location = location;
             Name = name;
             Notifications = notifications;
+            PredictiveAutoscalePolicy = predictiveAutoscalePolicy;
             Profiles = profiles;
+            SystemData = systemData;
             Tags = tags;
             TargetResourceLocation = targetResourceLocation;
             TargetResourceUri = targetResourceUri;

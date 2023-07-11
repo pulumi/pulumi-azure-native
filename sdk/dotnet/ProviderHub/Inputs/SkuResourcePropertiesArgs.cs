@@ -12,6 +12,9 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
 
     public sealed class SkuResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
 

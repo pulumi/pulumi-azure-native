@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Cache.Inputs
     public sealed class RedisCommonPropertiesRedisConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether the aof backup is enabled
+        /// </summary>
+        [Input("aofBackupEnabled")]
+        public Input<string>? AofBackupEnabled { get; set; }
+
+        /// <summary>
         /// First storage account connection string
         /// </summary>
         [Input("aofStorageConnectionString0")]
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.Cache.Inputs
         /// </summary>
         [Input("aofStorageConnectionString1")]
         public Input<string>? AofStorageConnectionString1 { get; set; }
+
+        /// <summary>
+        /// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        /// </summary>
+        [Input("authnotrequired")]
+        public Input<string>? Authnotrequired { get; set; }
 
         /// <summary>
         /// Value in megabytes reserved for fragmentation per shard
@@ -52,13 +64,19 @@ namespace Pulumi.AzureNative.Cache.Inputs
         public Input<string>? MaxmemoryReserved { get; set; }
 
         /// <summary>
+        /// Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+        /// </summary>
+        [Input("preferredDataPersistenceAuthMethod")]
+        public Input<string>? PreferredDataPersistenceAuthMethod { get; set; }
+
+        /// <summary>
         /// Specifies whether the rdb backup is enabled
         /// </summary>
         [Input("rdbBackupEnabled")]
         public Input<string>? RdbBackupEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the frequency for creating rdb backup
+        /// Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
         /// </summary>
         [Input("rdbBackupFrequency")]
         public Input<string>? RdbBackupFrequency { get; set; }
@@ -74,6 +92,12 @@ namespace Pulumi.AzureNative.Cache.Inputs
         /// </summary>
         [Input("rdbStorageConnectionString")]
         public Input<string>? RdbStorageConnectionString { get; set; }
+
+        /// <summary>
+        /// SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
+        /// </summary>
+        [Input("storageSubscriptionId")]
+        public Input<string>? StorageSubscriptionId { get; set; }
 
         public RedisCommonPropertiesRedisConfigurationArgs()
         {

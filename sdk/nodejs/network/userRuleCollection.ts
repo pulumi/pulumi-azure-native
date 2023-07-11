@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Defines the rule collection.
- * API Version: 2021-02-01-preview.
+ * Defines the user rule collection.
+ * Azure REST API version: 2022-04-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class UserRuleCollection extends pulumi.CustomResource {
     /**
@@ -41,15 +41,11 @@ export class UserRuleCollection extends pulumi.CustomResource {
     /**
      * Groups for configuration
      */
-    public readonly appliesToGroups!: pulumi.Output<outputs.network.NetworkManagerSecurityGroupItemResponse[] | undefined>;
+    public readonly appliesToGroups!: pulumi.Output<outputs.network.NetworkManagerSecurityGroupItemResponse[]>;
     /**
-     * A description of the rule collection.
+     * A description of the user rule collection.
      */
     public readonly description!: pulumi.Output<string | undefined>;
-    /**
-     * A display name of the rule collection.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -82,6 +78,9 @@ export class UserRuleCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.appliesToGroups === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'appliesToGroups'");
+            }
             if ((!args || args.configurationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
@@ -94,7 +93,6 @@ export class UserRuleCollection extends pulumi.CustomResource {
             resourceInputs["appliesToGroups"] = args ? args.appliesToGroups : undefined;
             resourceInputs["configurationName"] = args ? args.configurationName : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
@@ -106,7 +104,6 @@ export class UserRuleCollection extends pulumi.CustomResource {
         } else {
             resourceInputs["appliesToGroups"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -127,19 +124,15 @@ export interface UserRuleCollectionArgs {
     /**
      * Groups for configuration
      */
-    appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerSecurityGroupItemArgs>[]>;
+    appliesToGroups: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerSecurityGroupItemArgs>[]>;
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**
-     * A description of the rule collection.
+     * A description of the user rule collection.
      */
     description?: pulumi.Input<string>;
-    /**
-     * A display name of the rule collection.
-     */
-    displayName?: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */

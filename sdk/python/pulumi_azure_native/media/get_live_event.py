@@ -267,7 +267,7 @@ def get_live_event(account_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveEventResult:
     """
     Gets properties of a live event.
-    API Version: 2020-05-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -310,7 +310,7 @@ def get_live_event_output(account_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveEventResult]:
     """
     Gets properties of a live event.
-    API Version: 2020-05-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.

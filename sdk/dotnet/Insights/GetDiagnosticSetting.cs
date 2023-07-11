@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Insights
     {
         /// <summary>
         /// Gets the active diagnostic settings for the specified resource.
-        /// API Version: 2017-05-01-preview.
+        /// Azure REST API version: 2021-05-01-preview.
         /// </summary>
         public static Task<GetDiagnosticSettingResult> InvokeAsync(GetDiagnosticSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDiagnosticSettingResult>("azure-native:insights:getDiagnosticSetting", args ?? new GetDiagnosticSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the active diagnostic settings for the specified resource.
-        /// API Version: 2017-05-01-preview.
+        /// Azure REST API version: 2021-05-01-preview.
         /// </summary>
         public static Output<GetDiagnosticSettingResult> Invoke(GetDiagnosticSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiagnosticSettingResult>("azure-native:insights:getDiagnosticSetting", args ?? new GetDiagnosticSettingInvokeArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string? EventHubName;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -92,11 +92,15 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly ImmutableArray<Outputs.LogSettingsResponse> Logs;
         /// <summary>
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        public readonly string? MarketplacePartnerId;
+        /// <summary>
         /// The list of metric settings.
         /// </summary>
         public readonly ImmutableArray<Outputs.MetricSettingsResponse> Metrics;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -108,7 +112,11 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         public readonly string? StorageAccountId;
         /// <summary>
-        /// Azure resource type
+        /// The system metadata related to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -128,6 +136,8 @@ namespace Pulumi.AzureNative.Insights
 
             ImmutableArray<Outputs.LogSettingsResponse> logs,
 
+            string? marketplacePartnerId,
+
             ImmutableArray<Outputs.MetricSettingsResponse> metrics,
 
             string name,
@@ -135,6 +145,8 @@ namespace Pulumi.AzureNative.Insights
             string? serviceBusRuleId,
 
             string? storageAccountId,
+
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
@@ -145,10 +157,12 @@ namespace Pulumi.AzureNative.Insights
             Id = id;
             LogAnalyticsDestinationType = logAnalyticsDestinationType;
             Logs = logs;
+            MarketplacePartnerId = marketplacePartnerId;
             Metrics = metrics;
             Name = name;
             ServiceBusRuleId = serviceBusRuleId;
             StorageAccountId = storageAccountId;
+            SystemData = systemData;
             Type = type;
             WorkspaceId = workspaceId;
         }

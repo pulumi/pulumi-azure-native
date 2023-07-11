@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure Monitor PrivateLinkScope definition.
- * API Version: 2019-10-17-preview.
+ * Azure REST API version: 2021-07-01-preview. Prior API version in Azure Native 1.x: 2019-10-17-preview
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**
@@ -39,11 +39,15 @@ export class PrivateLinkScope extends pulumi.CustomResource {
     }
 
     /**
-     * Resource location
+     * Access mode settings
+     */
+    public readonly accessModeSettings!: pulumi.Output<outputs.insights.AccessModeSettingsResponse>;
+    /**
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -55,11 +59,15 @@ export class PrivateLinkScope extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Resource tags
+     * System data
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.insights.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -74,9 +82,13 @@ export class PrivateLinkScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if ((!args || args.accessModeSettings === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'accessModeSettings'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["accessModeSettings"] = args ? args.accessModeSettings : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopeName"] = args ? args.scopeName : undefined;
@@ -84,12 +96,15 @@ export class PrivateLinkScope extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["accessModeSettings"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -105,7 +120,11 @@ export class PrivateLinkScope extends pulumi.CustomResource {
  */
 export interface PrivateLinkScopeArgs {
     /**
-     * Resource location
+     * Access mode settings
+     */
+    accessModeSettings: pulumi.Input<inputs.insights.AccessModeSettingsArgs>;
+    /**
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -117,7 +136,7 @@ export interface PrivateLinkScopeArgs {
      */
     scopeName?: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

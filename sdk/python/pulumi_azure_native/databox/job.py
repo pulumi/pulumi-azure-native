@@ -22,7 +22,7 @@ class JobArgs:
                  transfer_type: pulumi.Input[Union[str, 'TransferType']],
                  delivery_info: Optional[pulumi.Input['JobDeliveryInfoArgs']] = None,
                  delivery_type: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]] = None,
-                 details: Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]] = None,
+                 details: Optional[pulumi.Input[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]] = None,
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -34,7 +34,7 @@ class JobArgs:
         :param pulumi.Input[Union[str, 'TransferType']] transfer_type: Type of the data transfer.
         :param pulumi.Input['JobDeliveryInfoArgs'] delivery_info: Delivery Info of Job.
         :param pulumi.Input[Union[str, 'JobDeliveryType']] delivery_type: Delivery type of Job.
-        :param pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']] details: Details of a job run. This field will only be sent for expand details filter.
+        :param pulumi.Input[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']] details: Details of a job run. This field will only be sent for expand details filter.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Msi identity of the resource
         :param pulumi.Input[str] job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
@@ -122,14 +122,14 @@ class JobArgs:
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]:
+    def details(self) -> Optional[pulumi.Input[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]:
         """
         Details of a job run. This field will only be sent for expand details filter.
         """
         return pulumi.get(self, "details")
 
     @details.setter
-    def details(self, value: Optional[pulumi.Input[Union['DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]):
+    def details(self, value: Optional[pulumi.Input[Union['DataBoxCustomerDiskJobDetailsArgs', 'DataBoxDiskJobDetailsArgs', 'DataBoxHeavyJobDetailsArgs', 'DataBoxJobDetailsArgs']]]):
         pulumi.set(self, "details", value)
 
     @property
@@ -188,7 +188,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']]] = None,
                  delivery_type: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]] = None,
-                 details: Optional[pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]]] = None,
+                 details: Optional[pulumi.Input[Union[pulumi.InputType['DataBoxCustomerDiskJobDetailsArgs'], pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -199,13 +199,13 @@ class Job(pulumi.CustomResource):
                  __props__=None):
         """
         Job Resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']] delivery_info: Delivery Info of Job.
         :param pulumi.Input[Union[str, 'JobDeliveryType']] delivery_type: Delivery type of Job.
-        :param pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]] details: Details of a job run. This field will only be sent for expand details filter.
+        :param pulumi.Input[Union[pulumi.InputType['DataBoxCustomerDiskJobDetailsArgs'], pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]] details: Details of a job run. This field will only be sent for expand details filter.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: Msi identity of the resource
         :param pulumi.Input[str] job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
         :param pulumi.Input[str] location: The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
@@ -222,7 +222,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Job Resource.
-        API Version: 2020-11-01.
+        Azure REST API version: 2022-12-01. Prior API version in Azure Native 1.x: 2020-11-01
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.
@@ -241,7 +241,7 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  delivery_info: Optional[pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']]] = None,
                  delivery_type: Optional[pulumi.Input[Union[str, 'JobDeliveryType']]] = None,
-                 details: Optional[pulumi.Input[Union[pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]]] = None,
+                 details: Optional[pulumi.Input[Union[pulumi.InputType['DataBoxCustomerDiskJobDetailsArgs'], pulumi.InputType['DataBoxDiskJobDetailsArgs'], pulumi.InputType['DataBoxHeavyJobDetailsArgs'], pulumi.InputType['DataBoxJobDetailsArgs']]]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ResourceIdentityArgs']]] = None,
                  job_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -284,6 +284,8 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["is_prepare_to_ship_enabled"] = None
             __props__.__dict__["is_shipping_address_editable"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["reverse_shipping_details_update"] = None
+            __props__.__dict__["reverse_transport_preference_update"] = None
             __props__.__dict__["start_time"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
@@ -325,6 +327,8 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["is_shipping_address_editable"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["reverse_shipping_details_update"] = None
+        __props__.__dict__["reverse_transport_preference_update"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["start_time"] = None
         __props__.__dict__["status"] = None
@@ -437,6 +441,22 @@ class Job(pulumi.CustomResource):
         Name of the object.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="reverseShippingDetailsUpdate")
+    def reverse_shipping_details_update(self) -> pulumi.Output[str]:
+        """
+        The Editable status for Reverse Shipping Address and Contact Info
+        """
+        return pulumi.get(self, "reverse_shipping_details_update")
+
+    @property
+    @pulumi.getter(name="reverseTransportPreferenceUpdate")
+    def reverse_transport_preference_update(self) -> pulumi.Output[str]:
+        """
+        The Editable status for Reverse Transport preferences
+        """
+        return pulumi.get(self, "reverse_transport_preference_update")
 
     @property
     @pulumi.getter

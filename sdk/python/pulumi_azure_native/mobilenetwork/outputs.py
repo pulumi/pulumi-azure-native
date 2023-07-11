@@ -13,14 +13,19 @@ from ._enums import *
 
 __all__ = [
     'AmbrResponse',
+    'AsyncOperationIdResponse',
     'AttachedDataNetworkResourceIdResponse',
     'AzureStackEdgeDeviceResourceIdResponse',
+    'AzureStackHCIClusterResourceIdResponse',
+    'CertificateProvisioningResponse',
     'ConnectedClusterResourceIdResponse',
     'CustomLocationResourceIdResponse',
     'DataNetworkConfigurationResponse',
     'DataNetworkResourceIdResponse',
+    'DiagnosticsUploadConfigurationResponse',
+    'HttpsServerCertificateResponse',
+    'InstallationResponse',
     'InterfacePropertiesResponse',
-    'KeyVaultCertificateResponse',
     'KeyVaultKeyResponse',
     'LocalDiagnosticsAccessConfigurationResponse',
     'ManagedServiceIdentityResponse',
@@ -39,6 +44,7 @@ __all__ = [
     'SimPolicyResourceIdResponse',
     'SimStaticIpPropertiesResponse',
     'SimStaticIpPropertiesResponseStaticIp',
+    'SiteResourceIdResponse',
     'SliceConfigurationResponse',
     'SliceResourceIdResponse',
     'SnssaiResponse',
@@ -81,6 +87,28 @@ class AmbrResponse(dict):
 
 
 @pulumi.output_type
+class AsyncOperationIdResponse(dict):
+    """
+    Reference to an Azure Async Operation ID.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Reference to an Azure Async Operation ID.
+        :param str id: Azure Async Operation ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure Async Operation ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class AttachedDataNetworkResourceIdResponse(dict):
     """
     Reference to an attached data network resource.
@@ -105,12 +133,12 @@ class AttachedDataNetworkResourceIdResponse(dict):
 @pulumi.output_type
 class AzureStackEdgeDeviceResourceIdResponse(dict):
     """
-    Reference to an Azure Arc custom location resource.
+    Reference to an Azure Stack Edge device resource.
     """
     def __init__(__self__, *,
                  id: str):
         """
-        Reference to an Azure Arc custom location resource.
+        Reference to an Azure Stack Edge device resource.
         :param str id: Azure Stack Edge device resource ID.
         """
         pulumi.set(__self__, "id", id)
@@ -122,6 +150,61 @@ class AzureStackEdgeDeviceResourceIdResponse(dict):
         Azure Stack Edge device resource ID.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class AzureStackHCIClusterResourceIdResponse(dict):
+    """
+    Reference to an Azure Stack HCI cluster resource.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Reference to an Azure Stack HCI cluster resource.
+        :param str id: Azure Stack HCI cluster resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Azure Stack HCI cluster resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CertificateProvisioningResponse(dict):
+    """
+    Certificate provisioning state
+    """
+    def __init__(__self__, *,
+                 reason: str,
+                 state: str):
+        """
+        Certificate provisioning state
+        :param str reason: Reason for certificate provisioning failure.
+        :param str state: The certificate's provisioning state
+        """
+        pulumi.set(__self__, "reason", reason)
+        pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def reason(self) -> str:
+        """
+        Reason for certificate provisioning failure.
+        """
+        return pulumi.get(self, "reason")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The certificate's provisioning state
+        """
+        return pulumi.get(self, "state")
 
 
 @pulumi.output_type
@@ -190,6 +273,8 @@ class DataNetworkConfigurationResponse(dict):
             suggest = "default_session_type"
         elif key == "fiveQi":
             suggest = "five_qi"
+        elif key == "maximumNumberOfBufferedPackets":
+            suggest = "maximum_number_of_buffered_packets"
         elif key == "preemptionCapability":
             suggest = "preemption_capability"
         elif key == "preemptionVulnerability":
@@ -214,17 +299,19 @@ class DataNetworkConfigurationResponse(dict):
                  allocation_and_retention_priority_level: Optional[int] = None,
                  default_session_type: Optional[str] = None,
                  five_qi: Optional[int] = None,
+                 maximum_number_of_buffered_packets: Optional[int] = None,
                  preemption_capability: Optional[str] = None,
                  preemption_vulnerability: Optional[str] = None):
         """
         Settings controlling data network use
-        :param Sequence['ServiceResourceIdResponse'] allowed_services: List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item.
-        :param 'DataNetworkResourceIdResponse' data_network: A reference to the data network that these settings apply to
+        :param Sequence['ServiceResourceIdResponse'] allowed_services: List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item. The services must be in the same location as the SIM policy.
+        :param 'DataNetworkResourceIdResponse' data_network: A reference to the data network that these settings apply to. The data network must be in the same location as the SIM policy.
         :param 'AmbrResponse' session_ambr: Aggregate maximum bit rate across all non-GBR QoS flows of a given PDU session. See 3GPP TS23.501 section 5.7.2.6 for a full description of the Session-AMBR.
         :param Sequence[str] additional_allowed_session_types: Allowed session types in addition to the default session type. Must not duplicate the default session type.
         :param int allocation_and_retention_priority_level: Default QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str default_session_type: The default PDU session type, which is used if the UE does not request a specific session type.
-        :param int five_qi: Default QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        :param int five_qi: Default 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
+        :param int maximum_number_of_buffered_packets: The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
         :param str preemption_capability: Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str preemption_vulnerability: Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
@@ -245,6 +332,10 @@ class DataNetworkConfigurationResponse(dict):
             five_qi = 9
         if five_qi is not None:
             pulumi.set(__self__, "five_qi", five_qi)
+        if maximum_number_of_buffered_packets is None:
+            maximum_number_of_buffered_packets = 10
+        if maximum_number_of_buffered_packets is not None:
+            pulumi.set(__self__, "maximum_number_of_buffered_packets", maximum_number_of_buffered_packets)
         if preemption_capability is None:
             preemption_capability = 'NotPreempt'
         if preemption_capability is not None:
@@ -258,7 +349,7 @@ class DataNetworkConfigurationResponse(dict):
     @pulumi.getter(name="allowedServices")
     def allowed_services(self) -> Sequence['outputs.ServiceResourceIdResponse']:
         """
-        List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item.
+        List of services that can be used as part of this SIM policy. The list must not contain duplicate items and must contain at least one item. The services must be in the same location as the SIM policy.
         """
         return pulumi.get(self, "allowed_services")
 
@@ -266,7 +357,7 @@ class DataNetworkConfigurationResponse(dict):
     @pulumi.getter(name="dataNetwork")
     def data_network(self) -> 'outputs.DataNetworkResourceIdResponse':
         """
-        A reference to the data network that these settings apply to
+        A reference to the data network that these settings apply to. The data network must be in the same location as the SIM policy.
         """
         return pulumi.get(self, "data_network")
 
@@ -306,9 +397,17 @@ class DataNetworkConfigurationResponse(dict):
     @pulumi.getter(name="fiveQi")
     def five_qi(self) -> Optional[int]:
         """
-        Default QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        Default 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
         """
         return pulumi.get(self, "five_qi")
+
+    @property
+    @pulumi.getter(name="maximumNumberOfBufferedPackets")
+    def maximum_number_of_buffered_packets(self) -> Optional[int]:
+        """
+        The maximum number of downlink packets to buffer at the user plane for High Latency Communication - Extended Buffering. See 3GPP TS29.272 v15.10.0 section 7.3.188 for a full description. This maximum is not guaranteed because there is a internal limit on buffered packets across all PDU sessions.
+        """
+        return pulumi.get(self, "maximum_number_of_buffered_packets")
 
     @property
     @pulumi.getter(name="preemptionCapability")
@@ -347,6 +446,183 @@ class DataNetworkResourceIdResponse(dict):
         Data network resource ID.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class DiagnosticsUploadConfigurationResponse(dict):
+    """
+    Configuration for uploading packet core diagnostics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageAccountContainerUrl":
+            suggest = "storage_account_container_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiagnosticsUploadConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiagnosticsUploadConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiagnosticsUploadConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_account_container_url: str):
+        """
+        Configuration for uploading packet core diagnostics.
+        :param str storage_account_container_url: The Storage Account Container URL to upload diagnostics to.
+        """
+        pulumi.set(__self__, "storage_account_container_url", storage_account_container_url)
+
+    @property
+    @pulumi.getter(name="storageAccountContainerUrl")
+    def storage_account_container_url(self) -> str:
+        """
+        The Storage Account Container URL to upload diagnostics to.
+        """
+        return pulumi.get(self, "storage_account_container_url")
+
+
+@pulumi.output_type
+class HttpsServerCertificateResponse(dict):
+    """
+    HTTPS server certificate configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateUrl":
+            suggest = "certificate_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpsServerCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpsServerCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpsServerCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_url: str,
+                 provisioning: 'outputs.CertificateProvisioningResponse'):
+        """
+        HTTPS server certificate configuration.
+        :param str certificate_url: The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
+        :param 'CertificateProvisioningResponse' provisioning: The provisioning state of the certificate.
+        """
+        pulumi.set(__self__, "certificate_url", certificate_url)
+        pulumi.set(__self__, "provisioning", provisioning)
+
+    @property
+    @pulumi.getter(name="certificateUrl")
+    def certificate_url(self) -> str:
+        """
+        The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
+        """
+        return pulumi.get(self, "certificate_url")
+
+    @property
+    @pulumi.getter
+    def provisioning(self) -> 'outputs.CertificateProvisioningResponse':
+        """
+        The provisioning state of the certificate.
+        """
+        return pulumi.get(self, "provisioning")
+
+
+@pulumi.output_type
+class InstallationResponse(dict):
+    """
+    The installation state of the packet core.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "reinstallRequired":
+            suggest = "reinstall_required"
+        elif key == "desiredState":
+            suggest = "desired_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstallationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstallationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstallationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 operation: 'outputs.AsyncOperationIdResponse',
+                 reasons: Sequence[str],
+                 reinstall_required: str,
+                 state: str,
+                 desired_state: Optional[str] = None):
+        """
+        The installation state of the packet core.
+        :param 'AsyncOperationIdResponse' operation: A reference to an in-progress installation operation
+        :param Sequence[str] reasons: Reason(s) for the current installation state of the packet core.
+        :param str reinstall_required: Whether a reinstall of the packet core is required to pick up the latest configuration changes.
+        :param str state: Installation state
+        :param str desired_state: The desired installation state
+        """
+        pulumi.set(__self__, "operation", operation)
+        pulumi.set(__self__, "reasons", reasons)
+        pulumi.set(__self__, "reinstall_required", reinstall_required)
+        pulumi.set(__self__, "state", state)
+        if desired_state is None:
+            desired_state = 'Installed'
+        if desired_state is not None:
+            pulumi.set(__self__, "desired_state", desired_state)
+
+    @property
+    @pulumi.getter
+    def operation(self) -> 'outputs.AsyncOperationIdResponse':
+        """
+        A reference to an in-progress installation operation
+        """
+        return pulumi.get(self, "operation")
+
+    @property
+    @pulumi.getter
+    def reasons(self) -> Sequence[str]:
+        """
+        Reason(s) for the current installation state of the packet core.
+        """
+        return pulumi.get(self, "reasons")
+
+    @property
+    @pulumi.getter(name="reinstallRequired")
+    def reinstall_required(self) -> str:
+        """
+        Whether a reinstall of the packet core is required to pick up the latest configuration changes.
+        """
+        return pulumi.get(self, "reinstall_required")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        Installation state
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> Optional[str]:
+        """
+        The desired installation state
+        """
+        return pulumi.get(self, "desired_state")
 
 
 @pulumi.output_type
@@ -430,46 +706,6 @@ class InterfacePropertiesResponse(dict):
 
 
 @pulumi.output_type
-class KeyVaultCertificateResponse(dict):
-    """
-    An Azure key vault certificate.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "certificateUrl":
-            suggest = "certificate_url"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in KeyVaultCertificateResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        KeyVaultCertificateResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        KeyVaultCertificateResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 certificate_url: Optional[str] = None):
-        """
-        An Azure key vault certificate.
-        :param str certificate_url: The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
-        """
-        if certificate_url is not None:
-            pulumi.set(__self__, "certificate_url", certificate_url)
-
-    @property
-    @pulumi.getter(name="certificateUrl")
-    def certificate_url(self) -> Optional[str]:
-        """
-        The certificate URL, unversioned. For example: https://contosovault.vault.azure.net/certificates/ingress.
-        """
-        return pulumi.get(self, "certificate_url")
-
-
-@pulumi.output_type
 class KeyVaultKeyResponse(dict):
     """
     An Azure key vault key.
@@ -517,7 +753,9 @@ class LocalDiagnosticsAccessConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "httpsServerCertificate":
+        if key == "authenticationType":
+            suggest = "authentication_type"
+        elif key == "httpsServerCertificate":
             suggest = "https_server_certificate"
 
         if suggest:
@@ -532,17 +770,28 @@ class LocalDiagnosticsAccessConfigurationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 https_server_certificate: Optional['outputs.KeyVaultCertificateResponse'] = None):
+                 authentication_type: str,
+                 https_server_certificate: Optional['outputs.HttpsServerCertificateResponse'] = None):
         """
         The kubernetes ingress configuration to control access to packet core diagnostics over local APIs.
-        :param 'KeyVaultCertificateResponse' https_server_certificate: The HTTPS server TLS certificate used to secure local access to diagnostics.
+        :param str authentication_type: How to authenticate users who access local diagnostics APIs.
+        :param 'HttpsServerCertificateResponse' https_server_certificate: The HTTPS server TLS certificate used to secure local access to diagnostics.
         """
+        pulumi.set(__self__, "authentication_type", authentication_type)
         if https_server_certificate is not None:
             pulumi.set(__self__, "https_server_certificate", https_server_certificate)
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> str:
+        """
+        How to authenticate users who access local diagnostics APIs.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
     @pulumi.getter(name="httpsServerCertificate")
-    def https_server_certificate(self) -> Optional['outputs.KeyVaultCertificateResponse']:
+    def https_server_certificate(self) -> Optional['outputs.HttpsServerCertificateResponse']:
         """
         The HTTPS server TLS certificate used to secure local access to diagnostics.
         """
@@ -552,16 +801,12 @@ class LocalDiagnosticsAccessConfigurationResponse(dict):
 @pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
     """
-    Managed service identity (system assigned and/or user assigned identities)
+    Managed service identity (User assigned identity)
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "principalId":
-            suggest = "principal_id"
-        elif key == "tenantId":
-            suggest = "tenant_id"
-        elif key == "userAssignedIdentities":
+        if key == "userAssignedIdentities":
             suggest = "user_assigned_identities"
 
         if suggest:
@@ -576,44 +821,22 @@ class ManagedServiceIdentityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 principal_id: str,
-                 tenant_id: str,
                  type: str,
                  user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
-        Managed service identity (system assigned and/or user assigned identities)
-        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        Managed service identity (User assigned identity)
+        :param str type: Type of managed service identity (currently only UserAssigned allowed).
         :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
-        pulumi.set(__self__, "principal_id", principal_id)
-        pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> str:
-        """
-        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        Type of managed service identity (currently only UserAssigned allowed).
         """
         return pulumi.get(self, "type")
 
@@ -690,7 +913,7 @@ class NaptConfigurationResponse(dict):
         :param 'PortRangeResponse' port_range: Range of port numbers to use as translated ports on each translated address.
                If not specified and NAPT is enabled, this range defaults to 1,024 - 49,999.
                (Ports under 1,024 should not be used because these are special purpose ports reserved by IANA. Ports 50,000 and above are reserved for non-NAPT use.)
-        :param 'PortReuseHoldTimesResponse' port_reuse_hold_time: The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
+        :param 'PortReuseHoldTimesResponse' port_reuse_hold_time: The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be at least 1 second.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -743,7 +966,7 @@ class NaptConfigurationResponse(dict):
     @pulumi.getter(name="portReuseHoldTime")
     def port_reuse_hold_time(self) -> Optional['outputs.PortReuseHoldTimesResponse']:
         """
-        The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be minimum 1 second.
+        The minimum time (in seconds) that will pass before a port that was used by a closed pinhole can be recycled for use by another pinhole. All hold times must be at least 1 second.
         """
         return pulumi.get(self, "port_reuse_hold_time")
 
@@ -886,7 +1109,7 @@ class PccRuleQosPolicyResponse(dict):
         Data flow policy rule QoS policy
         :param 'AmbrResponse' maximum_bit_rate: The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
         :param int allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-        :param int five_qi: QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        :param int five_qi: 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
         :param 'AmbrResponse' guaranteed_bit_rate: The guaranteed bit rate (GBR) for all service data flows that use this data flow policy rule. This is an optional setting. If you do not provide a value, there will be no GBR set for the data flow policy rule that uses this QoS definition.
         :param str preemption_capability: QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str preemption_vulnerability: QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
@@ -931,7 +1154,7 @@ class PccRuleQosPolicyResponse(dict):
     @pulumi.getter(name="fiveQi")
     def five_qi(self) -> Optional[int]:
         """
-        QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
         """
         return pulumi.get(self, "five_qi")
 
@@ -971,9 +1194,9 @@ class PinholeTimeoutsResponse(dict):
                  udp: Optional[int] = None):
         """
         Expiry times of inactive NAPT pinholes, in seconds. All timers must be at least 1 second.
-        :param int icmp: Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds, as per RFC 5508 section 3.2.
-        :param int tcp: Pinhole timeout for TCP pinholes in seconds. Default for TCP is 2 hours 4 minutes, as per RFC 5382 section 5.
-        :param int udp: Pinhole timeout for UDP pinholes in seconds. Default for UDP is 5 minutes, as per RFC 4787 section 4.3.
+        :param int icmp: Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 30 seconds.
+        :param int tcp: Pinhole timeout for TCP pinholes in seconds. Default for TCP is 3 minutes.
+        :param int udp: Pinhole timeout for UDP pinholes in seconds. Default for UDP is 30 seconds.
         """
         if icmp is None:
             icmp = 30
@@ -992,7 +1215,7 @@ class PinholeTimeoutsResponse(dict):
     @pulumi.getter
     def icmp(self) -> Optional[int]:
         """
-        Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 60 seconds, as per RFC 5508 section 3.2.
+        Pinhole timeout for ICMP pinholes in seconds. Default for ICMP Echo is 30 seconds.
         """
         return pulumi.get(self, "icmp")
 
@@ -1000,7 +1223,7 @@ class PinholeTimeoutsResponse(dict):
     @pulumi.getter
     def tcp(self) -> Optional[int]:
         """
-        Pinhole timeout for TCP pinholes in seconds. Default for TCP is 2 hours 4 minutes, as per RFC 5382 section 5.
+        Pinhole timeout for TCP pinholes in seconds. Default for TCP is 3 minutes.
         """
         return pulumi.get(self, "tcp")
 
@@ -1008,7 +1231,7 @@ class PinholeTimeoutsResponse(dict):
     @pulumi.getter
     def udp(self) -> Optional[int]:
         """
-        Pinhole timeout for UDP pinholes in seconds. Default for UDP is 5 minutes, as per RFC 4787 section 4.3.
+        Pinhole timeout for UDP pinholes in seconds. Default for UDP is 30 seconds.
         """
         return pulumi.get(self, "udp")
 
@@ -1021,8 +1244,12 @@ class PlatformConfigurationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "azureStackEdgeDevice":
+        if key == "azureStackEdgeDevices":
+            suggest = "azure_stack_edge_devices"
+        elif key == "azureStackEdgeDevice":
             suggest = "azure_stack_edge_device"
+        elif key == "azureStackHciCluster":
+            suggest = "azure_stack_hci_cluster"
         elif key == "connectedCluster":
             suggest = "connected_cluster"
         elif key == "customLocation":
@@ -1040,24 +1267,39 @@ class PlatformConfigurationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 azure_stack_edge_devices: Sequence['outputs.AzureStackEdgeDeviceResourceIdResponse'],
                  type: str,
                  azure_stack_edge_device: Optional['outputs.AzureStackEdgeDeviceResourceIdResponse'] = None,
+                 azure_stack_hci_cluster: Optional['outputs.AzureStackHCIClusterResourceIdResponse'] = None,
                  connected_cluster: Optional['outputs.ConnectedClusterResourceIdResponse'] = None,
                  custom_location: Optional['outputs.CustomLocationResourceIdResponse'] = None):
         """
         The platform where the packet core is deployed.
+        :param Sequence['AzureStackEdgeDeviceResourceIdResponse'] azure_stack_edge_devices: The Azure Stack Edge devices where the packet core is deployed. If the packet core is deployed across multiple devices, all devices will appear in this list.
         :param str type: The platform type where packet core is deployed.
-        :param 'AzureStackEdgeDeviceResourceIdResponse' azure_stack_edge_device: The Azure Stack Edge device where where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
+        :param 'AzureStackEdgeDeviceResourceIdResponse' azure_stack_edge_device: The Azure Stack Edge device where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
+        :param 'AzureStackHCIClusterResourceIdResponse' azure_stack_hci_cluster: The Azure Stack HCI cluster where the packet core is deployed.
         :param 'ConnectedClusterResourceIdResponse' connected_cluster: Azure Arc connected cluster where the packet core is deployed.
         :param 'CustomLocationResourceIdResponse' custom_location: Azure Arc custom location where the packet core is deployed.
         """
+        pulumi.set(__self__, "azure_stack_edge_devices", azure_stack_edge_devices)
         pulumi.set(__self__, "type", type)
         if azure_stack_edge_device is not None:
             pulumi.set(__self__, "azure_stack_edge_device", azure_stack_edge_device)
+        if azure_stack_hci_cluster is not None:
+            pulumi.set(__self__, "azure_stack_hci_cluster", azure_stack_hci_cluster)
         if connected_cluster is not None:
             pulumi.set(__self__, "connected_cluster", connected_cluster)
         if custom_location is not None:
             pulumi.set(__self__, "custom_location", custom_location)
+
+    @property
+    @pulumi.getter(name="azureStackEdgeDevices")
+    def azure_stack_edge_devices(self) -> Sequence['outputs.AzureStackEdgeDeviceResourceIdResponse']:
+        """
+        The Azure Stack Edge devices where the packet core is deployed. If the packet core is deployed across multiple devices, all devices will appear in this list.
+        """
+        return pulumi.get(self, "azure_stack_edge_devices")
 
     @property
     @pulumi.getter
@@ -1071,9 +1313,17 @@ class PlatformConfigurationResponse(dict):
     @pulumi.getter(name="azureStackEdgeDevice")
     def azure_stack_edge_device(self) -> Optional['outputs.AzureStackEdgeDeviceResourceIdResponse']:
         """
-        The Azure Stack Edge device where where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
+        The Azure Stack Edge device where the packet core is deployed. If the device is part of a fault tolerant pair, either device in the pair can be specified.
         """
         return pulumi.get(self, "azure_stack_edge_device")
+
+    @property
+    @pulumi.getter(name="azureStackHciCluster")
+    def azure_stack_hci_cluster(self) -> Optional['outputs.AzureStackHCIClusterResourceIdResponse']:
+        """
+        The Azure Stack HCI cluster where the packet core is deployed.
+        """
+        return pulumi.get(self, "azure_stack_hci_cluster")
 
     @property
     @pulumi.getter(name="connectedCluster")
@@ -1266,7 +1516,7 @@ class QosPolicyResponse(dict):
         QoS policy
         :param 'AmbrResponse' maximum_bit_rate: The maximum bit rate (MBR) for all service data flows that use this data flow policy rule or service.
         :param int allocation_and_retention_priority_level: QoS Flow allocation and retention priority (ARP) level. Flows with higher priority preempt flows with lower priority, if the settings of `preemptionCapability` and `preemptionVulnerability` allow it. 1 is the highest level of priority. If this field is not specified then `5qi` is used to derive the ARP value. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
-        :param int five_qi: QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        :param int five_qi: 5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
         :param str preemption_capability: QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         :param str preemption_vulnerability: QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
         """
@@ -1308,7 +1558,7 @@ class QosPolicyResponse(dict):
     @pulumi.getter(name="fiveQi")
     def five_qi(self) -> Optional[int]:
         """
-        QoS Flow 5G QoS Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. This must not be a standardized 5QI value corresponding to a GBR (guaranteed bit rate) QoS Flow. The illegal GBR 5QI values are: 1, 2, 3, 4, 65, 66, 67, 71, 72, 73, 74, 75, 76, 82, 83, 84, and 85. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition of which are the GBR 5QI values.
+        5G QoS Flow Indicator value. The 5QI identifies a specific QoS forwarding treatment to be provided to a flow. See 3GPP TS23.501 section 5.7.2.1 for a full description of the 5QI parameter, and table 5.7.4-1 for the definition the 5QI values.
         """
         return pulumi.get(self, "five_qi")
 
@@ -1489,8 +1739,8 @@ class SimStaticIpPropertiesResponse(dict):
                  static_ip: Optional['outputs.SimStaticIpPropertiesResponseStaticIp'] = None):
         """
         Static IP configuration for a SIM, scoped to a particular attached data network and slice.
-        :param 'AttachedDataNetworkResourceIdResponse' attached_data_network: The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
-        :param 'SliceResourceIdResponse' slice: The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        :param 'AttachedDataNetworkResourceIdResponse' attached_data_network: The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
+        :param 'SliceResourceIdResponse' slice: The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
         :param 'SimStaticIpPropertiesResponseStaticIp' static_ip: The static IP configuration for the SIM to use at the defined network scope.
         """
         if attached_data_network is not None:
@@ -1504,7 +1754,7 @@ class SimStaticIpPropertiesResponse(dict):
     @pulumi.getter(name="attachedDataNetwork")
     def attached_data_network(self) -> Optional['outputs.AttachedDataNetworkResourceIdResponse']:
         """
-        The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        The attached data network on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The attached data network must be in the same location as the SIM.
         """
         return pulumi.get(self, "attached_data_network")
 
@@ -1512,7 +1762,7 @@ class SimStaticIpPropertiesResponse(dict):
     @pulumi.getter
     def slice(self) -> Optional['outputs.SliceResourceIdResponse']:
         """
-        The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address.
+        The network slice on which the static IP address will be used. The combination of attached data network and slice defines the network scope of the IP address. The slice must be in the same location as the SIM.
         """
         return pulumi.get(self, "slice")
 
@@ -1566,6 +1816,28 @@ class SimStaticIpPropertiesResponseStaticIp(dict):
 
 
 @pulumi.output_type
+class SiteResourceIdResponse(dict):
+    """
+    Reference to a site resource.
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        Reference to a site resource.
+        :param str id: Site resource ID.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Site resource ID.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
 class SliceConfigurationResponse(dict):
     """
     Per-slice settings
@@ -1596,8 +1868,8 @@ class SliceConfigurationResponse(dict):
         """
         Per-slice settings
         :param Sequence['DataNetworkConfigurationResponse'] data_network_configurations: The allowed data networks and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
-        :param 'DataNetworkResourceIdResponse' default_data_network: The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map.
-        :param 'SliceResourceIdResponse' slice: A reference to the slice that these settings apply to
+        :param 'DataNetworkResourceIdResponse' default_data_network: The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map. The data network must be in the same location as the SIM policy.
+        :param 'SliceResourceIdResponse' slice: A reference to the slice that these settings apply to. The slice must be in the same location as the SIM policy.
         """
         pulumi.set(__self__, "data_network_configurations", data_network_configurations)
         pulumi.set(__self__, "default_data_network", default_data_network)
@@ -1615,7 +1887,7 @@ class SliceConfigurationResponse(dict):
     @pulumi.getter(name="defaultDataNetwork")
     def default_data_network(self) -> 'outputs.DataNetworkResourceIdResponse':
         """
-        The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map.
+        The default data network to use if the UE does not explicitly specify it. Configuration for this object must exist in the `dataNetworkConfigurations` map. The data network must be in the same location as the SIM policy.
         """
         return pulumi.get(self, "default_data_network")
 
@@ -1623,7 +1895,7 @@ class SliceConfigurationResponse(dict):
     @pulumi.getter
     def slice(self) -> 'outputs.SliceResourceIdResponse':
         """
-        A reference to the slice that these settings apply to
+        A reference to the slice that these settings apply to. The slice must be in the same location as the SIM policy.
         """
         return pulumi.get(self, "slice")
 

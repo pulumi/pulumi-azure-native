@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MobileNetwork
     {
         /// <summary>
         /// Gets information about the specified SIM policy.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2023-06-01.
         /// </summary>
         public static Task<GetSimPolicyResult> InvokeAsync(GetSimPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSimPolicyResult>("azure-native:mobilenetwork:getSimPolicy", args ?? new GetSimPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified SIM policy.
-        /// API Version: 2022-04-01-preview.
+        /// Azure REST API version: 2023-06-01.
         /// </summary>
         public static Output<GetSimPolicyResult> Invoke(GetSimPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimPolicyResult>("azure-native:mobilenetwork:getSimPolicy", args ?? new GetSimPolicyInvokeArgs(), options.WithDefaults());
@@ -84,37 +84,13 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class GetSimPolicyResult
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        public readonly string? CreatedAt;
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedBy;
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        public readonly string? CreatedByType;
-        /// <summary>
-        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map.
+        /// The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
         /// </summary>
         public readonly Outputs.SliceResourceIdResponse DefaultSlice;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        public readonly string? LastModifiedAt;
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedBy;
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        public readonly string? LastModifiedByType;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -128,13 +104,17 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Interval for the UE periodic registration update procedure, in seconds.
+        /// UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
         /// </summary>
         public readonly int? RegistrationTimer;
         /// <summary>
         /// RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
         /// </summary>
         public readonly int? RfspIndex;
+        /// <summary>
+        /// A dictionary of sites to the provisioning state of this SIM policy on that site.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> SiteProvisioningState;
         /// <summary>
         /// The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
         /// </summary>
@@ -158,21 +138,9 @@ namespace Pulumi.AzureNative.MobileNetwork
 
         [OutputConstructor]
         private GetSimPolicyResult(
-            string? createdAt,
-
-            string? createdBy,
-
-            string? createdByType,
-
             Outputs.SliceResourceIdResponse defaultSlice,
 
             string id,
-
-            string? lastModifiedAt,
-
-            string? lastModifiedBy,
-
-            string? lastModifiedByType,
 
             string location,
 
@@ -184,6 +152,8 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             int? rfspIndex,
 
+            ImmutableDictionary<string, string> siteProvisioningState,
+
             ImmutableArray<Outputs.SliceConfigurationResponse> sliceConfigurations,
 
             Outputs.SystemDataResponse systemData,
@@ -194,19 +164,14 @@ namespace Pulumi.AzureNative.MobileNetwork
 
             Outputs.AmbrResponse ueAmbr)
         {
-            CreatedAt = createdAt;
-            CreatedBy = createdBy;
-            CreatedByType = createdByType;
             DefaultSlice = defaultSlice;
             Id = id;
-            LastModifiedAt = lastModifiedAt;
-            LastModifiedBy = lastModifiedBy;
-            LastModifiedByType = lastModifiedByType;
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
             RegistrationTimer = registrationTimer;
             RfspIndex = rfspIndex;
+            SiteProvisioningState = siteProvisioningState;
             SliceConfigurations = sliceConfigurations;
             SystemData = systemData;
             Tags = tags;

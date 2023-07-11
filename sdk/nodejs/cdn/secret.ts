@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Friendly Secret name mapping to the any Secret or secret related information.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class Secret extends pulumi.CustomResource {
     /**
@@ -46,7 +46,11 @@ export class Secret extends pulumi.CustomResource {
     /**
      * object which contains secret parameters
      */
-    public readonly parameters!: pulumi.Output<outputs.cdn.CustomerCertificateParametersResponse | outputs.cdn.ManagedCertificateParametersResponse | outputs.cdn.UrlSigningKeyParametersResponse | undefined>;
+    public readonly parameters!: pulumi.Output<outputs.cdn.AzureFirstPartyManagedCertificateParametersResponse | outputs.cdn.CustomerCertificateParametersResponse | outputs.cdn.ManagedCertificateParametersResponse | outputs.cdn.UrlSigningKeyParametersResponse | undefined>;
+    /**
+     * The name of the profile which holds the secret.
+     */
+    public readonly profileName!: pulumi.Output<string>;
     /**
      * Provisioning status
      */
@@ -90,12 +94,13 @@ export class Secret extends pulumi.CustomResource {
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Secret" }, { type: "azure-native:cdn/v20210601:Secret" }, { type: "azure-native:cdn/v20220501preview:Secret" }, { type: "azure-native:cdn/v20221101preview:Secret" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:Secret" }, { type: "azure-native:cdn/v20210601:Secret" }, { type: "azure-native:cdn/v20220501preview:Secret" }, { type: "azure-native:cdn/v20221101preview:Secret" }, { type: "azure-native:cdn/v20230501:Secret" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Secret.__pulumiType, name, resourceInputs, opts);
     }
@@ -108,9 +113,9 @@ export interface SecretArgs {
     /**
      * object which contains secret parameters
      */
-    parameters?: pulumi.Input<inputs.cdn.CustomerCertificateParametersArgs | inputs.cdn.ManagedCertificateParametersArgs | inputs.cdn.UrlSigningKeyParametersArgs>;
+    parameters?: pulumi.Input<inputs.cdn.AzureFirstPartyManagedCertificateParametersArgs | inputs.cdn.CustomerCertificateParametersArgs | inputs.cdn.ManagedCertificateParametersArgs | inputs.cdn.UrlSigningKeyParametersArgs>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AppPlatform
     {
         /// <summary>
         /// Get the certificate resource.
-        /// API Version: 2020-07-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("azure-native:appplatform:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get the certificate resource.
-        /// API Version: 2020-07-01.
+        /// Azure REST API version: 2023-05-01-preview.
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("azure-native:appplatform:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
@@ -94,7 +94,11 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// Properties of the certificate resource payload.
         /// </summary>
-        public readonly Outputs.CertificatePropertiesResponse Properties;
+        public readonly Union<Outputs.ContentCertificatePropertiesResponse, Outputs.KeyVaultCertificatePropertiesResponse> Properties;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource.
         /// </summary>
@@ -106,13 +110,16 @@ namespace Pulumi.AzureNative.AppPlatform
 
             string name,
 
-            Outputs.CertificatePropertiesResponse properties,
+            Union<Outputs.ContentCertificatePropertiesResponse, Outputs.KeyVaultCertificatePropertiesResponse> properties,
+
+            Outputs.SystemDataResponse systemData,
 
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

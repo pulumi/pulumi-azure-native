@@ -10,11 +10,13 @@ __all__ = [
     'DataAccountType',
     'DoubleEncryption',
     'FilterFileType',
+    'HardwareEncryption',
     'JobDeliveryType',
     'KekType',
     'LogCollectionLevel',
     'NotificationStageName',
     'SkuName',
+    'StorageAccountAccessTier',
     'TransferConfigurationType',
     'TransferType',
     'TransportShipmentTypes',
@@ -54,6 +56,10 @@ class ClassDiscriminator(str, Enum):
     DATA_BOX_HEAVY = "DataBoxHeavy"
     """
     Data Box Heavy orders.
+    """
+    DATA_BOX_CUSTOMER_DISK = "DataBoxCustomerDisk"
+    """
+    Data Box Customer Disk orders.
     """
 
 
@@ -96,6 +102,20 @@ class FilterFileType(str, Enum):
     AZURE_FILE = "AzureFile"
     """
     Filter file is of the type AzureFiles.
+    """
+
+
+class HardwareEncryption(str, Enum):
+    """
+    Defines Hardware level encryption (Only for disk)
+    """
+    ENABLED = "Enabled"
+    """
+    Hardware-based encryption is enabled.
+    """
+    DISABLED = "Disabled"
+    """
+    Hardware-based encryption is enabled.
     """
 
 
@@ -169,6 +189,14 @@ class NotificationStageName(str, Enum):
     """
     Notification at data copy started stage.
     """
+    CREATED = "Created"
+    """
+    Notification at job created stage.
+    """
+    SHIPPED_TO_CUSTOMER = "ShippedToCustomer"
+    """
+    Notification at shipped devices to customer stage.
+    """
 
 
 class SkuName(str, Enum):
@@ -186,6 +214,17 @@ class SkuName(str, Enum):
     DATA_BOX_HEAVY = "DataBoxHeavy"
     """
     Data Box Heavy.
+    """
+    DATA_BOX_CUSTOMER_DISK = "DataBoxCustomerDisk"
+    """
+    Data Box Customer Disk.
+    """
+
+
+class StorageAccountAccessTier(str, Enum):
+    ARCHIVE = "Archive"
+    """
+    Archive Access Tier shares requested by the customer.
     """
 
 

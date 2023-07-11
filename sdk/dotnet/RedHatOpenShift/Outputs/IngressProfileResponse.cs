@@ -17,15 +17,15 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
     public sealed class IngressProfileResponse
     {
         /// <summary>
-        /// The IP of the ingress (immutable).
+        /// The IP of the ingress.
         /// </summary>
         public readonly string? Ip;
         /// <summary>
-        /// The ingress profile name.  Must be "default" (immutable).
+        /// The ingress profile name.
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Ingress visibility (immutable).
+        /// Ingress visibility.
         /// </summary>
         public readonly string? Visibility;
 

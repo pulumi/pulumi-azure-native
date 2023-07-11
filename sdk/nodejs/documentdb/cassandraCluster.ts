@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Representation of a managed Cassandra cluster.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-15. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class CassandraCluster extends pulumi.CustomResource {
     /**
@@ -41,7 +41,7 @@ export class CassandraCluster extends pulumi.CustomResource {
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.documentdb.ManagedServiceIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.documentdb.ManagedCassandraManagedServiceIdentityResponse | undefined>;
     /**
      * The location of the resource group to which the resource belongs.
      */
@@ -94,7 +94,7 @@ export class CassandraCluster extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210301preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210401preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210701preview:CassandraCluster" }, { type: "azure-native:documentdb/v20211015:CassandraCluster" }, { type: "azure-native:documentdb/v20211015preview:CassandraCluster" }, { type: "azure-native:documentdb/v20211115preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220215preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220515:CassandraCluster" }, { type: "azure-native:documentdb/v20220515preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220815:CassandraCluster" }, { type: "azure-native:documentdb/v20220815preview:CassandraCluster" }, { type: "azure-native:documentdb/v20221115:CassandraCluster" }, { type: "azure-native:documentdb/v20230315:CassandraCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:documentdb/v20210301preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210401preview:CassandraCluster" }, { type: "azure-native:documentdb/v20210701preview:CassandraCluster" }, { type: "azure-native:documentdb/v20211015:CassandraCluster" }, { type: "azure-native:documentdb/v20211015preview:CassandraCluster" }, { type: "azure-native:documentdb/v20211115preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220215preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220515:CassandraCluster" }, { type: "azure-native:documentdb/v20220515preview:CassandraCluster" }, { type: "azure-native:documentdb/v20220815:CassandraCluster" }, { type: "azure-native:documentdb/v20220815preview:CassandraCluster" }, { type: "azure-native:documentdb/v20221115:CassandraCluster" }, { type: "azure-native:documentdb/v20221115preview:CassandraCluster" }, { type: "azure-native:documentdb/v20230301preview:CassandraCluster" }, { type: "azure-native:documentdb/v20230315:CassandraCluster" }, { type: "azure-native:documentdb/v20230315preview:CassandraCluster" }, { type: "azure-native:documentdb/v20230415:CassandraCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CassandraCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -111,7 +111,7 @@ export interface CassandraClusterArgs {
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.documentdb.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.documentdb.ManagedCassandraManagedServiceIdentityArgs>;
     /**
      * The location of the resource group to which the resource belongs.
      */

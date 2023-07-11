@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetConnectivityConfigurationResult> InvokeAsync(GetConnectivityConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectivityConfigurationResult>("azure-native:network:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetConnectivityConfigurationResult> Invoke(GetConnectivityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectivityConfigurationResult>("azure-native:network:getConnectivityConfiguration", args ?? new GetConnectivityConfigurationInvokeArgs(), options.WithDefaults());
@@ -100,10 +100,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// A friendly name for the resource.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
         public readonly string Etag;
@@ -128,6 +124,10 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Unique identifier for this resource.
+        /// </summary>
+        public readonly string ResourceGuid;
+        /// <summary>
         /// The system metadata related to this resource.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -146,8 +146,6 @@ namespace Pulumi.AzureNative.Network
 
             string? description,
 
-            string? displayName,
-
             string etag,
 
             ImmutableArray<Outputs.HubResponse> hubs,
@@ -160,6 +158,8 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            string resourceGuid,
+
             Outputs.SystemDataResponse systemData,
 
             string type)
@@ -168,13 +168,13 @@ namespace Pulumi.AzureNative.Network
             ConnectivityTopology = connectivityTopology;
             DeleteExistingPeering = deleteExistingPeering;
             Description = description;
-            DisplayName = displayName;
             Etag = etag;
             Hubs = hubs;
             Id = id;
             IsGlobal = isGlobal;
             Name = name;
             ProvisioningState = provisioningState;
+            ResourceGuid = resourceGuid;
             SystemData = systemData;
             Type = type;
         }

@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         }
 
         [Input("resourceAccessPolicy")]
-        public InputUnion<string, Pulumi.AzureNative.ProviderHub.ResourceAccessPolicy>? ResourceAccessPolicy { get; set; }
+        public Input<string>? ResourceAccessPolicy { get; set; }
 
         [Input("resourceAccessRoles")]
         private InputList<object>? _resourceAccessRoles;

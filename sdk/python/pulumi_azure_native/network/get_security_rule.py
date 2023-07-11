@@ -174,7 +174,7 @@ class GetSecurityRuleResult:
 
     @property
     @pulumi.getter
-    def priority(self) -> Optional[int]:
+    def priority(self) -> int:
         """
         The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
         """
@@ -279,7 +279,7 @@ def get_security_rule(network_security_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityRuleResult:
     """
     Get the specified network security rule.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_security_group_name: The name of the network security group.
@@ -323,7 +323,7 @@ def get_security_rule_output(network_security_group_name: Optional[pulumi.Input[
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityRuleResult]:
     """
     Get the specified network security rule.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_security_group_name: The name of the network security group.

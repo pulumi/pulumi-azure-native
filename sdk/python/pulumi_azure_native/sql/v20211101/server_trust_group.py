@@ -97,12 +97,7 @@ class ServerTrustGroupArgs:
         pulumi.set(self, "server_trust_group_name", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:ServerTrustGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustGroup to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ServerTrustGroup(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:ServerTrustGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustGroup to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,7 +149,6 @@ class ServerTrustGroup(pulumi.CustomResource):
                  server_trust_group_name: Optional[pulumi.Input[str]] = None,
                  trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ServerTrustGroup is deprecated: azure-native:sql/v20211101:ServerTrustGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ServerTrustGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -178,7 +172,7 @@ class ServerTrustGroup(pulumi.CustomResource):
             __props__.__dict__["trust_scopes"] = trust_scopes
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerTrustGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerTrustGroup"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerTrustGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerTrustGroup, __self__).__init__(
             'azure-native:sql/v20211101:ServerTrustGroup',

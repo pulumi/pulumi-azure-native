@@ -21,11 +21,17 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        [Input("userAssignedIdentities")]
+        private InputMap<object>? _userAssignedIdentities;
+
         /// <summary>
         /// The user assigned identities associated with the streaming job resource.
         /// </summary>
-        [Input("userAssignedIdentities")]
-        public Input<object>? UserAssignedIdentities { get; set; }
+        public InputMap<object> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputMap<object>());
+            set => _userAssignedIdentities = value;
+        }
 
         public IdentityArgs()
         {

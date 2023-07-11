@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.Outputs
 {
 
     /// <summary>
-    /// Scope of the extensionInstance. It can be either Cluster or Namespace; but not both.
+    /// Scope of the extension. It can be either Cluster or Namespace; but not both.
     /// </summary>
     [OutputType]
     public sealed class ScopeResponse
     {
         /// <summary>
-        /// Specifies that the scope of the extensionInstance is Cluster
+        /// Specifies that the scope of the extension is Cluster
         /// </summary>
         public readonly Outputs.ScopeClusterResponse? Cluster;
         /// <summary>
-        /// Specifies that the scope of the extensionInstance is Namespace
+        /// Specifies that the scope of the extension is Namespace
         /// </summary>
         public readonly Outputs.ScopeNamespaceResponse? Namespace;
 

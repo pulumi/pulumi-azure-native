@@ -62,11 +62,11 @@ def get_webhook_callback_config(registry_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookCallbackConfigResult:
     """
     Gets the configuration of service URI and custom headers for the webhook.
-    API Version: 2019-05-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str webhook_name: The name of the webhook.
     """
     __args__ = dict()
@@ -88,11 +88,11 @@ def get_webhook_callback_config_output(registry_name: Optional[pulumi.Input[str]
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookCallbackConfigResult]:
     """
     Gets the configuration of service URI and custom headers for the webhook.
-    API Version: 2019-05-01.
+    Azure REST API version: 2022-12-01.
 
 
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str webhook_name: The name of the webhook.
     """
     ...

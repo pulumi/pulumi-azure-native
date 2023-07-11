@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * NetApp account resource
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -43,15 +43,27 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly activeDirectories!: pulumi.Output<outputs.netapp.ActiveDirectoryResponse[] | undefined>;
     /**
+     * Shows the status of disableShowmount for all volumes under the subscription, null equals false
+     */
+    public /*out*/ readonly disableShowmount!: pulumi.Output<boolean>;
+    /**
      * Encryption settings
      */
     public readonly encryption!: pulumi.Output<outputs.netapp.AccountEncryptionResponse | undefined>;
     /**
-     * Resource location
+     * A unique read-only string that changes whenever the resource is updated.
+     */
+    public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * The identity used for the resource.
+     */
+    public readonly identity!: pulumi.Output<outputs.netapp.ManagedServiceIdentityResponse | undefined>;
+    /**
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -59,15 +71,15 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -87,17 +99,23 @@ export class Account extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["activeDirectories"] = args ? args.activeDirectories : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.netapp.accountEncryptionArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["disableShowmount"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activeDirectories"] = undefined /*out*/;
+            resourceInputs["disableShowmount"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -106,7 +124,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20170815:Account" }, { type: "azure-native:netapp/v20190501:Account" }, { type: "azure-native:netapp/v20190601:Account" }, { type: "azure-native:netapp/v20190701:Account" }, { type: "azure-native:netapp/v20190801:Account" }, { type: "azure-native:netapp/v20191001:Account" }, { type: "azure-native:netapp/v20191101:Account" }, { type: "azure-native:netapp/v20200201:Account" }, { type: "azure-native:netapp/v20200301:Account" }, { type: "azure-native:netapp/v20200501:Account" }, { type: "azure-native:netapp/v20200601:Account" }, { type: "azure-native:netapp/v20200701:Account" }, { type: "azure-native:netapp/v20200801:Account" }, { type: "azure-native:netapp/v20200901:Account" }, { type: "azure-native:netapp/v20201101:Account" }, { type: "azure-native:netapp/v20201201:Account" }, { type: "azure-native:netapp/v20210201:Account" }, { type: "azure-native:netapp/v20210401:Account" }, { type: "azure-native:netapp/v20210401preview:Account" }, { type: "azure-native:netapp/v20210601:Account" }, { type: "azure-native:netapp/v20210801:Account" }, { type: "azure-native:netapp/v20211001:Account" }, { type: "azure-native:netapp/v20220101:Account" }, { type: "azure-native:netapp/v20220301:Account" }, { type: "azure-native:netapp/v20220501:Account" }, { type: "azure-native:netapp/v20220901:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp/v20170815:Account" }, { type: "azure-native:netapp/v20190501:Account" }, { type: "azure-native:netapp/v20190601:Account" }, { type: "azure-native:netapp/v20190701:Account" }, { type: "azure-native:netapp/v20190801:Account" }, { type: "azure-native:netapp/v20191001:Account" }, { type: "azure-native:netapp/v20191101:Account" }, { type: "azure-native:netapp/v20200201:Account" }, { type: "azure-native:netapp/v20200301:Account" }, { type: "azure-native:netapp/v20200501:Account" }, { type: "azure-native:netapp/v20200601:Account" }, { type: "azure-native:netapp/v20200701:Account" }, { type: "azure-native:netapp/v20200801:Account" }, { type: "azure-native:netapp/v20200901:Account" }, { type: "azure-native:netapp/v20201101:Account" }, { type: "azure-native:netapp/v20201201:Account" }, { type: "azure-native:netapp/v20210201:Account" }, { type: "azure-native:netapp/v20210401:Account" }, { type: "azure-native:netapp/v20210401preview:Account" }, { type: "azure-native:netapp/v20210601:Account" }, { type: "azure-native:netapp/v20210801:Account" }, { type: "azure-native:netapp/v20211001:Account" }, { type: "azure-native:netapp/v20220101:Account" }, { type: "azure-native:netapp/v20220301:Account" }, { type: "azure-native:netapp/v20220501:Account" }, { type: "azure-native:netapp/v20220901:Account" }, { type: "azure-native:netapp/v20221101:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
@@ -129,15 +147,19 @@ export interface AccountArgs {
      */
     encryption?: pulumi.Input<inputs.netapp.AccountEncryptionArgs>;
     /**
-     * Resource location
+     * The identity used for the resource.
+     */
+    identity?: pulumi.Input<inputs.netapp.ManagedServiceIdentityArgs>;
+    /**
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

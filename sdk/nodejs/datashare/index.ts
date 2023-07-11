@@ -180,6 +180,16 @@ export const getKustoDatabaseDataSetMapping: typeof import("./getKustoDatabaseDa
 export const getKustoDatabaseDataSetMappingOutput: typeof import("./getKustoDatabaseDataSetMapping").getKustoDatabaseDataSetMappingOutput = null as any;
 utilities.lazyLoad(exports, ["getKustoDatabaseDataSetMapping","getKustoDatabaseDataSetMappingOutput"], () => require("./getKustoDatabaseDataSetMapping"));
 
+export { GetKustoTableDataSetArgs, GetKustoTableDataSetResult, GetKustoTableDataSetOutputArgs } from "./getKustoTableDataSet";
+export const getKustoTableDataSet: typeof import("./getKustoTableDataSet").getKustoTableDataSet = null as any;
+export const getKustoTableDataSetOutput: typeof import("./getKustoTableDataSet").getKustoTableDataSetOutput = null as any;
+utilities.lazyLoad(exports, ["getKustoTableDataSet","getKustoTableDataSetOutput"], () => require("./getKustoTableDataSet"));
+
+export { GetKustoTableDataSetMappingArgs, GetKustoTableDataSetMappingResult, GetKustoTableDataSetMappingOutputArgs } from "./getKustoTableDataSetMapping";
+export const getKustoTableDataSetMapping: typeof import("./getKustoTableDataSetMapping").getKustoTableDataSetMapping = null as any;
+export const getKustoTableDataSetMappingOutput: typeof import("./getKustoTableDataSetMapping").getKustoTableDataSetMappingOutput = null as any;
+utilities.lazyLoad(exports, ["getKustoTableDataSetMapping","getKustoTableDataSetMappingOutput"], () => require("./getKustoTableDataSetMapping"));
+
 export { GetScheduledSynchronizationSettingArgs, GetScheduledSynchronizationSettingResult, GetScheduledSynchronizationSettingOutputArgs } from "./getScheduledSynchronizationSetting";
 export const getScheduledSynchronizationSetting: typeof import("./getScheduledSynchronizationSetting").getScheduledSynchronizationSetting = null as any;
 export const getScheduledSynchronizationSettingOutput: typeof import("./getScheduledSynchronizationSetting").getScheduledSynchronizationSettingOutput = null as any;
@@ -254,6 +264,16 @@ export { KustoDatabaseDataSetMappingArgs } from "./kustoDatabaseDataSetMapping";
 export type KustoDatabaseDataSetMapping = import("./kustoDatabaseDataSetMapping").KustoDatabaseDataSetMapping;
 export const KustoDatabaseDataSetMapping: typeof import("./kustoDatabaseDataSetMapping").KustoDatabaseDataSetMapping = null as any;
 utilities.lazyLoad(exports, ["KustoDatabaseDataSetMapping"], () => require("./kustoDatabaseDataSetMapping"));
+
+export { KustoTableDataSetArgs } from "./kustoTableDataSet";
+export type KustoTableDataSet = import("./kustoTableDataSet").KustoTableDataSet;
+export const KustoTableDataSet: typeof import("./kustoTableDataSet").KustoTableDataSet = null as any;
+utilities.lazyLoad(exports, ["KustoTableDataSet"], () => require("./kustoTableDataSet"));
+
+export { KustoTableDataSetMappingArgs } from "./kustoTableDataSetMapping";
+export type KustoTableDataSetMapping = import("./kustoTableDataSetMapping").KustoTableDataSetMapping;
+export const KustoTableDataSetMapping: typeof import("./kustoTableDataSetMapping").KustoTableDataSetMapping = null as any;
+utilities.lazyLoad(exports, ["KustoTableDataSetMapping"], () => require("./kustoTableDataSetMapping"));
 
 export { ListShareSubscriptionSourceShareSynchronizationSettingsArgs, ListShareSubscriptionSourceShareSynchronizationSettingsResult, ListShareSubscriptionSourceShareSynchronizationSettingsOutputArgs } from "./listShareSubscriptionSourceShareSynchronizationSettings";
 export const listShareSubscriptionSourceShareSynchronizationSettings: typeof import("./listShareSubscriptionSourceShareSynchronizationSettings").listShareSubscriptionSourceShareSynchronizationSettings = null as any;
@@ -335,16 +355,10 @@ utilities.lazyLoad(exports, ["SynapseWorkspaceSqlPoolTableDataSetMapping"], () =
 export * from "../types/enums/datashare";
 
 // Export sub-modules:
-import * as v20181101preview from "./v20181101preview";
-import * as v20191101 from "./v20191101";
-import * as v20200901 from "./v20200901";
 import * as v20201001preview from "./v20201001preview";
 import * as v20210801 from "./v20210801";
 
 export {
-    v20181101preview,
-    v20191101,
-    v20200901,
     v20201001preview,
     v20210801,
 };
@@ -393,6 +407,10 @@ const _module = {
                 return new KustoDatabaseDataSet(name, <any>undefined, { urn })
             case "azure-native:datashare:KustoDatabaseDataSetMapping":
                 return new KustoDatabaseDataSetMapping(name, <any>undefined, { urn })
+            case "azure-native:datashare:KustoTableDataSet":
+                return new KustoTableDataSet(name, <any>undefined, { urn })
+            case "azure-native:datashare:KustoTableDataSetMapping":
+                return new KustoTableDataSetMapping(name, <any>undefined, { urn })
             case "azure-native:datashare:ScheduledSynchronizationSetting":
                 return new ScheduledSynchronizationSetting(name, <any>undefined, { urn })
             case "azure-native:datashare:ScheduledTrigger":

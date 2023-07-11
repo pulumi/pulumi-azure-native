@@ -40,11 +40,6 @@ utilities.lazyLoad(exports, ["listTopLevelDomainAgreements","listTopLevelDomainA
 export * from "../types/enums/domainregistration";
 
 // Export sub-modules:
-import * as v20150401 from "./v20150401";
-import * as v20180201 from "./v20180201";
-import * as v20190801 from "./v20190801";
-import * as v20200601 from "./v20200601";
-import * as v20200901 from "./v20200901";
 import * as v20201001 from "./v20201001";
 import * as v20201201 from "./v20201201";
 import * as v20210101 from "./v20210101";
@@ -55,11 +50,6 @@ import * as v20220301 from "./v20220301";
 import * as v20220901 from "./v20220901";
 
 export {
-    v20150401,
-    v20180201,
-    v20190801,
-    v20200601,
-    v20200901,
     v20201001,
     v20201201,
     v20210101,

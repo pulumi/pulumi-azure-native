@@ -105,6 +105,43 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
+    /// The option whether validate the exemption is at or under the assignment scope.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssignmentScopeValidation : IEquatable<AssignmentScopeValidation>
+    {
+        private readonly string _value;
+
+        private AssignmentScopeValidation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// This option will validate the exemption is at or under the assignment scope.
+        /// </summary>
+        public static AssignmentScopeValidation Default { get; } = new AssignmentScopeValidation("Default");
+        /// <summary>
+        /// This option will bypass the validation the exemption scope is at or under the policy assignment scope.
+        /// </summary>
+        public static AssignmentScopeValidation DoNotValidate { get; } = new AssignmentScopeValidation("DoNotValidate");
+
+        public static bool operator ==(AssignmentScopeValidation left, AssignmentScopeValidation right) => left.Equals(right);
+        public static bool operator !=(AssignmentScopeValidation left, AssignmentScopeValidation right) => !left.Equals(right);
+
+        public static explicit operator string(AssignmentScopeValidation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssignmentScopeValidation other && Equals(other);
+        public bool Equals(AssignmentScopeValidation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This specifies the behavior for the autoReview feature when an access review completes.
     /// </summary>
     [EnumType]
@@ -235,6 +272,39 @@ namespace Pulumi.AzureNative.Authorization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is LockLevel other && Equals(other);
         public bool Equals(LockLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The override kind.
+    /// </summary>
+    [EnumType]
+    public readonly struct OverrideKind : IEquatable<OverrideKind>
+    {
+        private readonly string _value;
+
+        private OverrideKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// It will override the policy effect type.
+        /// </summary>
+        public static OverrideKind PolicyEffect { get; } = new OverrideKind("policyEffect");
+
+        public static bool operator ==(OverrideKind left, OverrideKind right) => left.Equals(right);
+        public static bool operator !=(OverrideKind left, OverrideKind right) => !left.Equals(right);
+
+        public static explicit operator string(OverrideKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OverrideKind other && Equals(other);
+        public bool Equals(OverrideKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -374,7 +444,7 @@ namespace Pulumi.AzureNative.Authorization
     }
 
     /// <summary>
-    /// The identity type. This is the only required field when adding a system assigned identity to a resource.
+    /// The identity type. This is the only required field when adding a system or user assigned identity to a resource.
     /// </summary>
     [EnumType]
     public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
@@ -391,6 +461,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
         /// <summary>
+        /// Indicates that a system assigned identity is associated with the resource.
+        /// </summary>
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        /// <summary>
         /// Indicates that no identity is associated with the resource or that the existing identity should be removed.
         /// </summary>
         public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
@@ -403,6 +477,51 @@ namespace Pulumi.AzureNative.Authorization
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The selector kind.
+    /// </summary>
+    [EnumType]
+    public readonly struct SelectorKind : IEquatable<SelectorKind>
+    {
+        private readonly string _value;
+
+        private SelectorKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The selector kind to filter policies by the resource location.
+        /// </summary>
+        public static SelectorKind ResourceLocation { get; } = new SelectorKind("resourceLocation");
+        /// <summary>
+        /// The selector kind to filter policies by the resource type.
+        /// </summary>
+        public static SelectorKind ResourceType { get; } = new SelectorKind("resourceType");
+        /// <summary>
+        /// The selector kind to filter policies by the resource without location.
+        /// </summary>
+        public static SelectorKind ResourceWithoutLocation { get; } = new SelectorKind("resourceWithoutLocation");
+        /// <summary>
+        /// The selector kind to filter policies by the policy definition reference ID.
+        /// </summary>
+        public static SelectorKind PolicyDefinitionReferenceId { get; } = new SelectorKind("policyDefinitionReferenceId");
+
+        public static bool operator ==(SelectorKind left, SelectorKind right) => left.Equals(right);
+        public static bool operator !=(SelectorKind left, SelectorKind right) => !left.Equals(right);
+
+        public static explicit operator string(SelectorKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SelectorKind other && Equals(other);
+        public bool Equals(SelectorKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

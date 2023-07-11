@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.AVS
 {
     /// <summary>
     /// A private cloud resource
-    /// API Version: 2020-03-20.
+    /// Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-03-20
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PrivateCloud")]
     public partial class PrivateCloud : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Properties describing how the cloud is distributed across availability zones
+        /// </summary>
+        [Output("availability")]
+        public Output<Outputs.AvailabilityPropertiesResponse?> Availability { get; private set; } = null!;
+
         /// <summary>
         /// An ExpressRoute Circuit
         /// </summary>
@@ -23,10 +29,28 @@ namespace Pulumi.AzureNative.AVS
         public Output<Outputs.CircuitResponse?> Circuit { get; private set; } = null!;
 
         /// <summary>
+        /// Customer managed key encryption, can be enabled or disabled
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// The endpoints
         /// </summary>
         [Output("endpoints")]
         public Output<Outputs.EndpointsResponse> Endpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// Array of cloud link IDs from other clouds that connect to this one
+        /// </summary>
+        [Output("externalCloudLinks")]
+        public Output<ImmutableArray<string>> ExternalCloudLinks { get; private set; } = null!;
+
+        /// <summary>
+        /// The identity of the private cloud, if configured.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.PrivateCloudIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// vCenter Single Sign On Identity Sources
@@ -71,6 +95,12 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> NetworkBlock { get; private set; } = null!;
 
         /// <summary>
+        /// Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024
+        /// </summary>
+        [Output("nsxPublicIpQuotaRaised")]
+        public Output<string> NsxPublicIpQuotaRaised { get; private set; } = null!;
+
+        /// <summary>
         /// Thumbprint of the NSX-T Manager SSL certificate
         /// </summary>
         [Output("nsxtCertificateThumbprint")]
@@ -93,6 +123,12 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud
+        /// </summary>
+        [Output("secondaryCircuit")]
+        public Output<Outputs.CircuitResponse?> SecondaryCircuit { get; private set; } = null!;
 
         /// <summary>
         /// The private cloud SKU
@@ -184,6 +220,24 @@ namespace Pulumi.AzureNative.AVS
 
     public sealed class PrivateCloudArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Properties describing how the cloud is distributed across availability zones
+        /// </summary>
+        [Input("availability")]
+        public Input<Inputs.AvailabilityPropertiesArgs>? Availability { get; set; }
+
+        /// <summary>
+        /// Customer managed key encryption, can be enabled or disabled
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionArgs>? Encryption { get; set; }
+
+        /// <summary>
+        /// The identity of the private cloud, if configured.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.PrivateCloudIdentityArgs>? Identity { get; set; }
+
         [Input("identitySources")]
         private InputList<Inputs.IdentitySourceArgs>? _identitySources;
 

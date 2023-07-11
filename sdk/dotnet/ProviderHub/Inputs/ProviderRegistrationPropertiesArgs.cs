@@ -52,6 +52,9 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         [Input("providerVersion")]
         public Input<string>? ProviderVersion { get; set; }
 
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }
 

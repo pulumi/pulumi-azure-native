@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the active subscription diagnostic settings for the specified resource.
- * API Version: 2017-05-01-preview.
+ * Azure REST API version: 2021-05-01-preview.
  */
 export function getSubscriptionDiagnosticSetting(args: GetSubscriptionDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDiagnosticSettingResult> {
 
@@ -39,19 +39,19 @@ export interface GetSubscriptionDiagnosticSettingResult {
      */
     readonly eventHubName?: string;
     /**
-     * Azure resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
-    /**
-     * Location of the resource
-     */
-    readonly location?: string;
     /**
      * The list of logs settings.
      */
     readonly logs?: outputs.insights.SubscriptionLogSettingsResponse[];
     /**
-     * Azure resource name
+     * The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+     */
+    readonly marketplacePartnerId?: string;
+    /**
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -63,7 +63,11 @@ export interface GetSubscriptionDiagnosticSettingResult {
      */
     readonly storageAccountId?: string;
     /**
-     * Azure resource type
+     * The system metadata related to this resource.
+     */
+    readonly systemData: outputs.insights.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -73,7 +77,7 @@ export interface GetSubscriptionDiagnosticSettingResult {
 }
 /**
  * Gets the active subscription diagnostic settings for the specified resource.
- * API Version: 2017-05-01-preview.
+ * Azure REST API version: 2021-05-01-preview.
  */
 export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
     return pulumi.output(args).apply((a: any) => getSubscriptionDiagnosticSetting(a, opts))

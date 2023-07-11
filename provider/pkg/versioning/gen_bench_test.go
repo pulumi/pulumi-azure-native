@@ -4,12 +4,12 @@ import (
 	"path"
 	"testing"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
 
 // BenchmarkGen benchmarks the generation of the Pulumi schema.
-// Run by executing `go test -benchmem -run=^$ -tags all -bench ^BenchmarkGen github.com/pulumi/pulumi-azure-native/provider/pkg/versioning -memprofile=gen.mem.pprof` in the provider folder.
+// Run by executing `go test -benchmem -run=^$ -tags all -bench ^BenchmarkGen github.com/pulumi/pulumi-azure-native/v2/provider/pkg/versioning -memprofile=gen.mem.pprof` in the provider folder.
 // View results with `go tool pprof -http=: gen.mem.pprof`
 func BenchmarkGen(b *testing.B) {
 	b.ReportAllocs()
@@ -18,7 +18,7 @@ func BenchmarkGen(b *testing.B) {
 
 	b.ResetTimer()
 
-	versionSources, err := ReadVersionSources(rootDir)
+	versionSources, err := ReadVersionSources(rootDir, 2)
 	if err != nil {
 		b.Fatal(err)
 	}
@@ -28,12 +28,12 @@ func BenchmarkGen(b *testing.B) {
 		b.Fatal(err)
 	}
 
-	versionMetadata, err := calculateVersionMetadata(versionSources, specs)
+	versionMetadata, err := calculateVersionMetadata(versionSources, specs, 2)
 	if err != nil {
 		b.Fatal(err)
 	}
 
-	specs = openapi.ApplyProvidersTransformations(specs, versionMetadata.V2Lock, nil, versionMetadata.Deprecated, map[string][]string{})
+	specs = openapi.ApplyProvidersTransformations(specs, versionMetadata.Lock, nil, versionSources.RemovedVersions, map[string][]string{})
 
-	gen.PulumiSchema(specs)
+	gen.PulumiSchema(specs, versionMetadata)
 }

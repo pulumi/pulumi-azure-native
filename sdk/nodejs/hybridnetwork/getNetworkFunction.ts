@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified network function resource.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getNetworkFunction(args: GetNetworkFunctionArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkFunctionResult> {
 
@@ -36,7 +36,7 @@ export interface GetNetworkFunctionArgs {
  */
 export interface GetNetworkFunctionResult {
     /**
-     * The reference to the device resource.
+     * The reference to the device resource. Once set, it cannot be updated.
      */
     readonly device?: outputs.hybridnetwork.SubResourceResponse;
     /**
@@ -64,6 +64,10 @@ export interface GetNetworkFunctionResult {
      */
     readonly name: string;
     /**
+     * The network function container configurations from the user.
+     */
+    readonly networkFunctionContainerConfigurations?: any;
+    /**
      * The network function configurations from the user.
      */
     readonly networkFunctionUserConfigurations?: outputs.hybridnetwork.NetworkFunctionUserConfigurationResponse[];
@@ -76,13 +80,17 @@ export interface GetNetworkFunctionResult {
      */
     readonly serviceKey: string;
     /**
-     * The sku name for the network function.
+     * The sku name for the network function. Once set, it cannot be updated.
      */
     readonly skuName?: string;
     /**
      * The sku type for the network function.
      */
     readonly skuType: string;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.hybridnetwork.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -92,7 +100,7 @@ export interface GetNetworkFunctionResult {
      */
     readonly type: string;
     /**
-     * The vendor name for the network function.
+     * The vendor name for the network function. Once set, it cannot be updated.
      */
     readonly vendorName?: string;
     /**
@@ -102,7 +110,7 @@ export interface GetNetworkFunctionResult {
 }
 /**
  * Gets information about the specified network function resource.
- * API Version: 2020-01-01-preview.
+ * Azure REST API version: 2022-01-01-preview.
  */
 export function getNetworkFunctionOutput(args: GetNetworkFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkFunctionResult> {
     return pulumi.output(args).apply((a: any) => getNetworkFunction(a, opts))

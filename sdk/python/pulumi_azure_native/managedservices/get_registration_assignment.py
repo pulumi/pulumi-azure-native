@@ -20,9 +20,9 @@ __all__ = [
 @pulumi.output_type
 class GetRegistrationAssignmentResult:
     """
-    Registration assignment.
+    The registration assignment.
     """
-    def __init__(__self__, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -32,6 +32,9 @@ class GetRegistrationAssignmentResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -48,7 +51,7 @@ class GetRegistrationAssignmentResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the registration assignment.
+        The name of the registration assignment.
         """
         return pulumi.get(self, "name")
 
@@ -56,15 +59,23 @@ class GetRegistrationAssignmentResult:
     @pulumi.getter
     def properties(self) -> 'outputs.RegistrationAssignmentPropertiesResponse':
         """
-        Properties of a registration assignment.
+        The properties of a registration assignment.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The metadata for the registration assignment resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of the resource.
+        The type of the Azure resource (Microsoft.ManagedServices/registrationAssignments).
         """
         return pulumi.get(self, "type")
 
@@ -78,6 +89,7 @@ class AwaitableGetRegistrationAssignmentResult(GetRegistrationAssignmentResult):
             id=self.id,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -86,13 +98,13 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
                                 scope: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRegistrationAssignmentResult:
     """
-    Gets the details of specified registration assignment.
-    API Version: 2019-09-01.
+    Gets the details of the specified registration assignment.
+    Azure REST API version: 2022-10-01.
 
 
-    :param bool expand_registration_definition: Tells whether to return registration definition details also along with registration assignment details.
-    :param str registration_assignment_id: Guid of the registration assignment.
-    :param str scope: Scope of the resource.
+    :param bool expand_registration_definition: The flag indicating whether to return the registration definition details along with the registration assignment details.
+    :param str registration_assignment_id: The GUID of the registration assignment.
+    :param str scope: The scope of the resource.
     """
     __args__ = dict()
     __args__['expandRegistrationDefinition'] = expand_registration_definition
@@ -105,6 +117,7 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
         id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -114,12 +127,12 @@ def get_registration_assignment_output(expand_registration_definition: Optional[
                                        scope: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRegistrationAssignmentResult]:
     """
-    Gets the details of specified registration assignment.
-    API Version: 2019-09-01.
+    Gets the details of the specified registration assignment.
+    Azure REST API version: 2022-10-01.
 
 
-    :param bool expand_registration_definition: Tells whether to return registration definition details also along with registration assignment details.
-    :param str registration_assignment_id: Guid of the registration assignment.
-    :param str scope: Scope of the resource.
+    :param bool expand_registration_definition: The flag indicating whether to return the registration definition details along with the registration assignment details.
+    :param str registration_assignment_id: The GUID of the registration assignment.
+    :param str scope: The scope of the resource.
     """
     ...

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a Schedule to execute a task.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -127,7 +127,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Schedule" }, { type: "azure-native:devcenter/v20220901preview:Schedule" }, { type: "azure-native:devcenter/v20221012preview:Schedule" }, { type: "azure-native:devcenter/v20221111preview:Schedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Schedule" }, { type: "azure-native:devcenter/v20220901preview:Schedule" }, { type: "azure-native:devcenter/v20221012preview:Schedule" }, { type: "azure-native:devcenter/v20221111preview:Schedule" }, { type: "azure-native:devcenter/v20230101preview:Schedule" }, { type: "azure-native:devcenter/v20230401:Schedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Schedule.__pulumiType, name, resourceInputs, opts);
     }
@@ -150,7 +150,7 @@ export interface ScheduleArgs {
      */
     projectName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -160,7 +160,7 @@ export interface ScheduleArgs {
     /**
      * Indicates whether or not this scheduled task is enabled.
      */
-    state?: pulumi.Input<string | enums.devcenter.EnableStatus>;
+    state?: pulumi.Input<string | enums.devcenter.ScheduleEnableStatus>;
     /**
      * The target time to trigger the action. The format is HH:MM.
      */

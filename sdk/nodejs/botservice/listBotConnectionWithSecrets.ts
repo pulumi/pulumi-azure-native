@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Connection Setting registration for a Bot Service
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-09-15.
  */
 export function listBotConnectionWithSecrets(args: ListBotConnectionWithSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListBotConnectionWithSecretsResult> {
 
@@ -41,7 +41,7 @@ export interface ListBotConnectionWithSecretsArgs {
  */
 export interface ListBotConnectionWithSecretsResult {
     /**
-     * Entity Tag
+     * Entity Tag.
      */
     readonly etag?: string;
     /**
@@ -83,7 +83,7 @@ export interface ListBotConnectionWithSecretsResult {
 }
 /**
  * Get a Connection Setting registration for a Bot Service
- * API Version: 2021-03-01.
+ * Azure REST API version: 2022-09-15.
  */
 export function listBotConnectionWithSecretsOutput(args: ListBotConnectionWithSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListBotConnectionWithSecretsResult> {
     return pulumi.output(args).apply((a: any) => listBotConnectionWithSecrets(a, opts))

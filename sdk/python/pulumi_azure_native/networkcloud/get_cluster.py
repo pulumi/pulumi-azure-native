@@ -121,7 +121,7 @@ class GetClusterResult:
 
     @property
     @pulumi.getter(name="analyticsWorkspaceId")
-    def analytics_workspace_id(self) -> str:
+    def analytics_workspace_id(self) -> Optional[str]:
         """
         The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         """
@@ -252,7 +252,7 @@ class GetClusterResult:
     @pulumi.getter(name="hybridAksExtendedLocation")
     def hybrid_aks_extended_location(self) -> 'outputs.ExtendedLocationResponse':
         """
-        The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
+        Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
         """
         return pulumi.get(self, "hybrid_aks_extended_location")
 
@@ -260,7 +260,7 @@ class GetClusterResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -396,7 +396,7 @@ def get_cluster(cluster_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClusterResult:
     """
     Get properties of the provided cluster.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str cluster_name: The name of the cluster.
@@ -447,7 +447,7 @@ def get_cluster_output(cluster_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get properties of the provided cluster.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str cluster_name: The name of the cluster.

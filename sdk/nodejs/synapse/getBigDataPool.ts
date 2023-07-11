@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Big Data pool.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getBigDataPool(args: GetBigDataPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBigDataPoolResult> {
 
@@ -31,7 +31,7 @@ export interface GetBigDataPoolArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: string;
 }
@@ -51,11 +51,11 @@ export interface GetBigDataPoolResult {
     /**
      * The cache size
      */
-    readonly cacheSize?: number;
+    readonly cacheSize: number;
     /**
      * The time when the Big Data pool was created.
      */
-    readonly creationDate?: string;
+    readonly creationDate: string;
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
@@ -72,6 +72,10 @@ export interface GetBigDataPoolResult {
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * Whether autotune is required or not.
+     */
+    readonly isAutotuneEnabled?: boolean;
     /**
      * Whether compute isolation is required or not.
      */
@@ -115,7 +119,7 @@ export interface GetBigDataPoolResult {
     /**
      * Spark configuration file to specify additional properties
      */
-    readonly sparkConfigProperties?: outputs.synapse.LibraryRequirementsResponse;
+    readonly sparkConfigProperties?: outputs.synapse.SparkConfigPropertiesResponse;
     /**
      * The Spark events folder
      */
@@ -135,7 +139,7 @@ export interface GetBigDataPoolResult {
 }
 /**
  * Get a Big Data pool.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getBigDataPoolOutput(args: GetBigDataPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBigDataPoolResult> {
     return pulumi.output(args).apply((a: any) => getBigDataPool(a, opts))
@@ -151,7 +155,7 @@ export interface GetBigDataPoolOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

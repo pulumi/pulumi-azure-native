@@ -16,31 +16,43 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
     public sealed class NetworkProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the resource group containing network resources of Azure Spring Cloud Apps
+        /// Name of the resource group containing network resources for customer apps in Azure Spring Apps
         /// </summary>
         [Input("appNetworkResourceGroup")]
         public Input<string>? AppNetworkResourceGroup { get; set; }
 
         /// <summary>
-        /// Fully qualified resource Id of the subnet to host Azure Spring Cloud Apps
+        /// Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps
         /// </summary>
         [Input("appSubnetId")]
         public Input<string>? AppSubnetId { get; set; }
 
         /// <summary>
-        /// Azure Spring Cloud service reserved CIDR
+        /// Ingress configuration payload for Azure Spring Apps resource.
+        /// </summary>
+        [Input("ingressConfig")]
+        public Input<Inputs.IngressConfigArgs>? IngressConfig { get; set; }
+
+        /// <summary>
+        /// The egress traffic type of Azure Spring Apps VNet instances.
+        /// </summary>
+        [Input("outboundType")]
+        public Input<string>? OutboundType { get; set; }
+
+        /// <summary>
+        /// Azure Spring Apps service reserved CIDR
         /// </summary>
         [Input("serviceCidr")]
         public Input<string>? ServiceCidr { get; set; }
 
         /// <summary>
-        /// Name of the resource group containing network resources of Azure Spring Cloud Service Runtime
+        /// Name of the resource group containing network resources of Azure Spring Apps Service Runtime
         /// </summary>
         [Input("serviceRuntimeNetworkResourceGroup")]
         public Input<string>? ServiceRuntimeNetworkResourceGroup { get; set; }
 
         /// <summary>
-        /// Fully qualified resource Id of the subnet to host Azure Spring Cloud Service Runtime
+        /// Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime
         /// </summary>
         [Input("serviceRuntimeSubnetId")]
         public Input<string>? ServiceRuntimeSubnetId { get; set; }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
 {
     /// <summary>
     /// An object that represents a connected registry for a container registry.
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:ConnectedRegistry")]
     public partial class ConnectedRegistry : global::Pulumi.CustomResource
@@ -63,6 +63,12 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of notifications subscription information for the connected registry.
+        /// </summary>
+        [Output("notificationsList")]
+        public Output<ImmutableArray<string>> NotificationsList { get; private set; } = null!;
 
         /// <summary>
         /// The parent of the connected registry.
@@ -184,6 +190,18 @@ namespace Pulumi.AzureNative.ContainerRegistry
         [Input("mode", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ContainerRegistry.ConnectedRegistryMode> Mode { get; set; } = null!;
 
+        [Input("notificationsList")]
+        private InputList<string>? _notificationsList;
+
+        /// <summary>
+        /// The list of notifications subscription information for the connected registry.
+        /// </summary>
+        public InputList<string> NotificationsList
+        {
+            get => _notificationsList ?? (_notificationsList = new InputList<string>());
+            set => _notificationsList = value;
+        }
+
         /// <summary>
         /// The parent of the connected registry.
         /// </summary>
@@ -197,7 +215,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<string> RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

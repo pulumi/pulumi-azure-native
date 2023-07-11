@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Config Server resource
- * API Version: 2020-07-01.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
  */
 export class ConfigServer extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class ConfigServer extends pulumi.CustomResource {
      */
     public readonly properties!: pulumi.Output<outputs.appplatform.ConfigServerPropertiesResponse>;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
+    /**
      * The type of the resource.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -72,14 +76,16 @@ export class ConfigServer extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:ConfigServer" }, { type: "azure-native:appplatform/v20201101preview:ConfigServer" }, { type: "azure-native:appplatform/v20210601preview:ConfigServer" }, { type: "azure-native:appplatform/v20210901preview:ConfigServer" }, { type: "azure-native:appplatform/v20220101preview:ConfigServer" }, { type: "azure-native:appplatform/v20220301preview:ConfigServer" }, { type: "azure-native:appplatform/v20220401:ConfigServer" }, { type: "azure-native:appplatform/v20220501preview:ConfigServer" }, { type: "azure-native:appplatform/v20220901preview:ConfigServer" }, { type: "azure-native:appplatform/v20221101preview:ConfigServer" }, { type: "azure-native:appplatform/v20221201:ConfigServer" }, { type: "azure-native:appplatform/v20230101preview:ConfigServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform/v20200701:ConfigServer" }, { type: "azure-native:appplatform/v20201101preview:ConfigServer" }, { type: "azure-native:appplatform/v20210601preview:ConfigServer" }, { type: "azure-native:appplatform/v20210901preview:ConfigServer" }, { type: "azure-native:appplatform/v20220101preview:ConfigServer" }, { type: "azure-native:appplatform/v20220301preview:ConfigServer" }, { type: "azure-native:appplatform/v20220401:ConfigServer" }, { type: "azure-native:appplatform/v20220501preview:ConfigServer" }, { type: "azure-native:appplatform/v20220901preview:ConfigServer" }, { type: "azure-native:appplatform/v20221101preview:ConfigServer" }, { type: "azure-native:appplatform/v20221201:ConfigServer" }, { type: "azure-native:appplatform/v20230101preview:ConfigServer" }, { type: "azure-native:appplatform/v20230301preview:ConfigServer" }, { type: "azure-native:appplatform/v20230501preview:ConfigServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConfigServer.__pulumiType, name, resourceInputs, opts);
     }

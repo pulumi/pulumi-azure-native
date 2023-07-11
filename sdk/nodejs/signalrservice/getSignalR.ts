@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Get the SignalR service and its properties.
- * API Version: 2020-05-01.
+ * Get the resource and its properties.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
 
@@ -26,13 +26,13 @@ export interface GetSignalRArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the SignalR resource.
+     * The name of the resource.
      */
     resourceName: string;
 }
 
 /**
- * A class represent a SignalR service resource.
+ * A class represent a resource.
  */
 export interface GetSignalRResult {
     /**
@@ -40,25 +40,36 @@ export interface GetSignalRResult {
      */
     readonly cors?: outputs.signalrservice.SignalRCorsSettingsResponse;
     /**
-     * The publicly accessible IP of the SignalR service.
+     * DisableLocalAuth
+     * Enable or disable aad auth
+     * When set as true, connection with AuthType=aad won't work.
+     */
+    readonly disableAadAuth?: boolean;
+    /**
+     * DisableLocalAuth
+     * Enable or disable local auth with AccessKey
+     * When set as true, connection with AccessKey=xxx won't work.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
+     * The publicly accessible IP of the resource.
      */
     readonly externalIP: string;
     /**
-     * List of SignalR featureFlags. e.g. ServiceMode.
+     * List of the featureFlags.
      * 
      * FeatureFlags that are not included in the parameters for the update operation will not be modified.
      * And the response will only include featureFlags that are explicitly set. 
-     * When a featureFlag is not explicitly set, SignalR service will use its globally default value. 
+     * When a featureFlag is not explicitly set, its globally default value will be used
      * But keep in mind, the default value doesn't mean "false". It varies in terms of different FeatureFlags.
      */
     readonly features?: outputs.signalrservice.SignalRFeatureResponse[];
     /**
-     * FQDN of the SignalR service instance. Format: xxx.service.signalr.net
+     * FQDN of the service instance.
      */
     readonly hostName: string;
     /**
-     * Prefix for the hostName of the SignalR service. Retained for future use.
-     * The hostname will be of format: &lt;hostNamePrefix&gt;.service.signalr.net.
+     * Deprecated.
      */
     readonly hostNamePrefix: string;
     /**
@@ -66,11 +77,19 @@ export interface GetSignalRResult {
      */
     readonly id: string;
     /**
-     * The kind of the service - e.g. "SignalR", or "RawWebSockets" for "Microsoft.SignalRService/SignalR"
+     * A class represent managed identities used for request and response
+     */
+    readonly identity?: outputs.signalrservice.ManagedIdentityResponse;
+    /**
+     * The kind of the service, it can be SignalR or RawWebSockets
      */
     readonly kind?: string;
     /**
-     * The GEO location of the SignalR service. e.g. West US | East US | North Central US | South Central US.
+     * Live trace configuration of a Microsoft.SignalRService resource.
+     */
+    readonly liveTraceConfiguration?: outputs.signalrservice.LiveTraceConfigurationResponse;
+    /**
+     * The GEO location of the resource. e.g. West US | East US | North Central US | South Central US.
      */
     readonly location?: string;
     /**
@@ -78,11 +97,11 @@ export interface GetSignalRResult {
      */
     readonly name: string;
     /**
-     * Network ACLs
+     * Network ACLs for the resource
      */
     readonly networkACLs?: outputs.signalrservice.SignalRNetworkACLsResponse;
     /**
-     * Private endpoint connections to the SignalR resource.
+     * Private endpoint connections to the resource.
      */
     readonly privateEndpointConnections: outputs.signalrservice.PrivateEndpointConnectionResponse[];
     /**
@@ -90,37 +109,63 @@ export interface GetSignalRResult {
      */
     readonly provisioningState: string;
     /**
-     * The publicly accessible port of the SignalR service which is designed for browser/client side usage.
+     * Enable or disable public network access. Default to "Enabled".
+     * When it's Enabled, network ACLs still apply.
+     * When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
+     */
+    readonly publicNetworkAccess?: string;
+    /**
+     * The publicly accessible port of the resource which is designed for browser/client side usage.
      */
     readonly publicPort: number;
     /**
-     * The publicly accessible port of the SignalR service which is designed for customer server side usage.
+     * Resource log configuration of a Microsoft.SignalRService resource.
+     */
+    readonly resourceLogConfiguration?: outputs.signalrservice.ResourceLogConfigurationResponse;
+    /**
+     * The publicly accessible port of the resource which is designed for customer server side usage.
      */
     readonly serverPort: number;
     /**
-     * The billing information of the resource.(e.g. Free, Standard)
+     * Serverless settings.
+     */
+    readonly serverless?: outputs.signalrservice.ServerlessSettingsResponse;
+    /**
+     * The list of shared private link resources.
+     */
+    readonly sharedPrivateLinkResources: outputs.signalrservice.SharedPrivateLinkResourceResponse[];
+    /**
+     * The billing information of the resource.
      */
     readonly sku?: outputs.signalrservice.ResourceSkuResponse;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.signalrservice.SystemDataResponse;
     /**
      * Tags of the service which is a list of key value pairs that describe the resource.
      */
     readonly tags?: {[key: string]: string};
     /**
+     * TLS settings for the resource
+     */
+    readonly tls?: outputs.signalrservice.SignalRTlsSettingsResponse;
+    /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
     readonly type: string;
     /**
-     * Upstream settings when the Azure SignalR is in server-less mode.
+     * The settings for the Upstream when the service is in server-less mode.
      */
     readonly upstream?: outputs.signalrservice.ServerlessUpstreamSettingsResponse;
     /**
-     * Version of the SignalR resource. Probably you need the same or higher version of client SDKs.
+     * Version of the resource. Probably you need the same or higher version of client SDKs.
      */
     readonly version: string;
 }
 /**
- * Get the SignalR service and its properties.
- * API Version: 2020-05-01.
+ * Get the resource and its properties.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSignalROutput(args: GetSignalROutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSignalRResult> {
     return pulumi.output(args).apply((a: any) => getSignalR(a, opts))
@@ -132,7 +177,7 @@ export interface GetSignalROutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the SignalR resource.
+     * The name of the resource.
      */
     resourceName: pulumi.Input<string>;
 }

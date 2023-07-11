@@ -51,7 +51,7 @@ def list_transaction_node_api_keys(blockchain_member_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListTransactionNodeApiKeysResult:
     """
     List the API keys for the transaction node.
-    API Version: 2018-06-01-preview.
+    Azure REST API version: 2018-06-01-preview.
 
 
     :param str blockchain_member_name: Blockchain member name.
@@ -76,7 +76,7 @@ def list_transaction_node_api_keys_output(blockchain_member_name: Optional[pulum
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListTransactionNodeApiKeysResult]:
     """
     List the API keys for the transaction node.
-    API Version: 2018-06-01-preview.
+    Azure REST API version: 2018-06-01-preview.
 
 
     :param str blockchain_member_name: Blockchain member name.

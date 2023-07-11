@@ -149,12 +149,12 @@ def get_schedule(pool_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetScheduleResult:
     """
     Gets a schedule resource.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str pool_name: Name of the pool.
     :param str project_name: The name of the project.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str schedule_name: The name of the schedule that uniquely identifies it.
     :param int top: The maximum number of resources to return from the operation. Example: '$top=10'.
     """
@@ -188,12 +188,12 @@ def get_schedule_output(pool_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Gets a schedule resource.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str pool_name: Name of the pool.
     :param str project_name: The name of the project.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str schedule_name: The name of the schedule that uniquely identifies it.
     :param int top: The maximum number of resources to return from the operation. Example: '$top=10'.
     """

@@ -14,8 +14,16 @@ from ._enums import *
 __all__ = [
     'CheckpointResponse',
     'CloudCapacityResponse',
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
     'ExtendedLocationResponse',
+    'GuestAgentProfileResponse',
+    'GuestCredentialResponse',
     'HardwareProfileResponse',
+    'HttpProxyConfigurationResponse',
+    'IdentityResponse',
+    'MachineExtensionInstanceViewResponseStatus',
+    'MachineExtensionPropertiesResponseInstanceView',
     'NetworkInterfacesResponse',
     'NetworkProfileResponse',
     'OsProfileResponse',
@@ -175,6 +183,122 @@ class CloudCapacityResponse(dict):
 
 
 @pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalInfo":
+            suggest = "additional_info"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorDetailResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorDetailResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: str,
+                 target: str):
+        """
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param str message: The error message.
+        :param str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
 class ExtendedLocationResponse(dict):
     """
     The extended location.
@@ -207,6 +331,132 @@ class ExtendedLocationResponse(dict):
         The extended location type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GuestAgentProfileResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentVersion":
+            suggest = "agent_version"
+        elif key == "errorDetails":
+            suggest = "error_details"
+        elif key == "lastStatusChange":
+            suggest = "last_status_change"
+        elif key == "vmUuid":
+            suggest = "vm_uuid"
+        elif key == "clientPublicKey":
+            suggest = "client_public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GuestAgentProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GuestAgentProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GuestAgentProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_version: str,
+                 error_details: Sequence['outputs.ErrorDetailResponse'],
+                 last_status_change: str,
+                 status: str,
+                 vm_uuid: str,
+                 client_public_key: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str agent_version: The hybrid machine agent full version.
+        :param Sequence['ErrorDetailResponse'] error_details: Details about the error state.
+        :param str last_status_change: The time of the last status change.
+        :param str status: The status of the hybrid machine agent.
+        :param str vm_uuid: Specifies the VM's unique SMBIOS ID.
+        :param str client_public_key: Gets or sets the Public Key provided by the client for enabling guest management.
+        """
+        pulumi.set(__self__, "agent_version", agent_version)
+        pulumi.set(__self__, "error_details", error_details)
+        pulumi.set(__self__, "last_status_change", last_status_change)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "vm_uuid", vm_uuid)
+        if client_public_key is not None:
+            pulumi.set(__self__, "client_public_key", client_public_key)
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> str:
+        """
+        The hybrid machine agent full version.
+        """
+        return pulumi.get(self, "agent_version")
+
+    @property
+    @pulumi.getter(name="errorDetails")
+    def error_details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        Details about the error state.
+        """
+        return pulumi.get(self, "error_details")
+
+    @property
+    @pulumi.getter(name="lastStatusChange")
+    def last_status_change(self) -> str:
+        """
+        The time of the last status change.
+        """
+        return pulumi.get(self, "last_status_change")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the hybrid machine agent.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="vmUuid")
+    def vm_uuid(self) -> str:
+        """
+        Specifies the VM's unique SMBIOS ID.
+        """
+        return pulumi.get(self, "vm_uuid")
+
+    @property
+    @pulumi.getter(name="clientPublicKey")
+    def client_public_key(self) -> Optional[str]:
+        """
+        Gets or sets the Public Key provided by the client for enabling guest management.
+        """
+        return pulumi.get(self, "client_public_key")
+
+
+@pulumi.output_type
+class GuestCredentialResponse(dict):
+    """
+    Username / Password Credentials to connect to guest.
+    """
+    def __init__(__self__, *,
+                 username: Optional[str] = None):
+        """
+        Username / Password Credentials to connect to guest.
+        :param str username: Gets or sets username to connect with the guest.
+        """
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        Gets or sets username to connect with the guest.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -331,6 +581,265 @@ class HardwareProfileResponse(dict):
         MemoryMB is the size of a virtual machine's memory, in MB.
         """
         return pulumi.get(self, "memory_mb")
+
+
+@pulumi.output_type
+class HttpProxyConfigurationResponse(dict):
+    """
+    HTTP Proxy configuration for the VM.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpsProxy":
+            suggest = "https_proxy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HttpProxyConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HttpProxyConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HttpProxyConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 https_proxy: Optional[str] = None):
+        """
+        HTTP Proxy configuration for the VM.
+        :param str https_proxy: Gets or sets httpsProxy url.
+        """
+        if https_proxy is not None:
+            pulumi.set(__self__, "https_proxy", https_proxy)
+
+    @property
+    @pulumi.getter(name="httpsProxy")
+    def https_proxy(self) -> Optional[str]:
+        """
+        Gets or sets httpsProxy url.
+        """
+        return pulumi.get(self, "https_proxy")
+
+
+@pulumi.output_type
+class IdentityResponse(dict):
+    """
+    Managed service identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str):
+        """
+        Managed service identity.
+        :param str principal_id: The principal id of managed service identity.
+        :param str tenant_id: The tenant of managed service identity.
+        :param str type: The type of managed service identity.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of managed service identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant of managed service identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MachineExtensionInstanceViewResponseStatus(dict):
+    """
+    Instance view status.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "displayStatus":
+            suggest = "display_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineExtensionInstanceViewResponseStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineExtensionInstanceViewResponseStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineExtensionInstanceViewResponseStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: str,
+                 display_status: str,
+                 level: str,
+                 message: str,
+                 time: str):
+        """
+        Instance view status.
+        :param str code: The status code.
+        :param str display_status: The short localizable label for the status.
+        :param str level: The level code.
+        :param str message: The detailed status message, including for alerts and error messages.
+        :param str time: The time of the status.
+        """
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "display_status", display_status)
+        pulumi.set(__self__, "level", level)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        The status code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="displayStatus")
+    def display_status(self) -> str:
+        """
+        The short localizable label for the status.
+        """
+        return pulumi.get(self, "display_status")
+
+    @property
+    @pulumi.getter
+    def level(self) -> str:
+        """
+        The level code.
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        The detailed status message, including for alerts and error messages.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The time of the status.
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class MachineExtensionPropertiesResponseInstanceView(dict):
+    """
+    The machine extension instance view.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "typeHandlerVersion":
+            suggest = "type_handler_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MachineExtensionPropertiesResponseInstanceView. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MachineExtensionPropertiesResponseInstanceView.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MachineExtensionPropertiesResponseInstanceView.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 type: str,
+                 type_handler_version: str,
+                 status: Optional['outputs.MachineExtensionInstanceViewResponseStatus'] = None):
+        """
+        The machine extension instance view.
+        :param str name: The machine extension name.
+        :param str type: Specifies the type of the extension; an example is "CustomScriptExtension".
+        :param str type_handler_version: Specifies the version of the script handler.
+        :param 'MachineExtensionInstanceViewResponseStatus' status: Instance view status.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The machine extension name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the type of the extension; an example is "CustomScriptExtension".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="typeHandlerVersion")
+    def type_handler_version(self) -> str:
+        """
+        Specifies the version of the script handler.
+        """
+        return pulumi.get(self, "type_handler_version")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['outputs.MachineExtensionInstanceViewResponseStatus']:
+        """
+        Instance view status.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

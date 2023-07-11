@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.HealthcareApis.Outputs
         /// </summary>
         public readonly Outputs.ServiceExportConfigurationInfoResponse? ExportConfiguration;
         /// <summary>
+        /// The settings for the import operation of the service instance.
+        /// </summary>
+        public readonly Outputs.ServiceImportConfigurationInfoResponse? ImportConfiguration;
+        /// <summary>
         /// The list of private endpoint connections that are set up for this resource.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
@@ -67,6 +71,8 @@ namespace Pulumi.AzureNative.HealthcareApis.Outputs
 
             Outputs.ServiceExportConfigurationInfoResponse? exportConfiguration,
 
+            Outputs.ServiceImportConfigurationInfoResponse? importConfiguration,
+
             ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
 
             string provisioningState,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNative.HealthcareApis.Outputs
             CorsConfiguration = corsConfiguration;
             CosmosDbConfiguration = cosmosDbConfiguration;
             ExportConfiguration = exportConfiguration;
+            ImportConfiguration = importConfiguration;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;

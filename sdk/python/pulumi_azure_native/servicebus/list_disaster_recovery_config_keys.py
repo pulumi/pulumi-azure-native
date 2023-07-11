@@ -123,7 +123,7 @@ def list_disaster_recovery_config_keys(alias: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDisasterRecoveryConfigKeysResult:
     """
     Gets the primary and secondary connection strings for the namespace.
-    API Version: 2017-04-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str alias: The Disaster Recovery configuration name
@@ -157,7 +157,7 @@ def list_disaster_recovery_config_keys_output(alias: Optional[pulumi.Input[str]]
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDisasterRecoveryConfigKeysResult]:
     """
     Gets the primary and secondary connection strings for the namespace.
-    API Version: 2017-04-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str alias: The Disaster Recovery configuration name

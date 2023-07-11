@@ -146,7 +146,7 @@ def get_manager(manager_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagerResult:
     """
     Returns the properties of the specified manager name.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str manager_name: The manager name
@@ -176,7 +176,7 @@ def get_manager_output(manager_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagerResult]:
     """
     Returns the properties of the specified manager name.
-    API Version: 2017-06-01.
+    Azure REST API version: 2017-06-01.
 
 
     :param str manager_name: The manager name

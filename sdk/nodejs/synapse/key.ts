@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * A workspace key
- * API Version: 2021-03-01.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class Key extends pulumi.CustomResource {
     /**
@@ -110,7 +110,7 @@ export interface KeyArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the workspace
+     * The name of the workspace.
      */
     workspaceName: pulumi.Input<string>;
 }

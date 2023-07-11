@@ -12,8 +12,13 @@ from ._enums import *
 
 __all__ = [
     'AddressSpaceArgs',
+    'EncryptionEntitiesDefinitionArgs',
+    'EncryptionV2KeyVaultPropertiesArgs',
+    'EncryptionV2Args',
     'EncryptionArgs',
-    'IdentityDataArgs',
+    'ManagedDiskEncryptionKeyVaultPropertiesArgs',
+    'ManagedDiskEncryptionArgs',
+    'ManagedServiceIdentityArgs',
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SkuArgs',
@@ -23,6 +28,7 @@ __all__ = [
     'WorkspaceCustomParametersArgs',
     'WorkspaceCustomStringParameterArgs',
     'WorkspaceEncryptionParameterArgs',
+    'WorkspacePropertiesEncryptionArgs',
     'WorkspaceProviderAuthorizationArgs',
 ]
 
@@ -48,6 +54,138 @@ class AddressSpaceArgs:
     @address_prefixes.setter
     def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "address_prefixes", value)
+
+
+@pulumi.input_type
+class EncryptionEntitiesDefinitionArgs:
+    def __init__(__self__, *,
+                 managed_disk: Optional[pulumi.Input['ManagedDiskEncryptionArgs']] = None,
+                 managed_services: Optional[pulumi.Input['EncryptionV2Args']] = None):
+        """
+        Encryption entities for databricks workspace resource.
+        :param pulumi.Input['ManagedDiskEncryptionArgs'] managed_disk: Encryption properties for the databricks managed disks.
+        :param pulumi.Input['EncryptionV2Args'] managed_services: Encryption properties for the databricks managed services.
+        """
+        if managed_disk is not None:
+            pulumi.set(__self__, "managed_disk", managed_disk)
+        if managed_services is not None:
+            pulumi.set(__self__, "managed_services", managed_services)
+
+    @property
+    @pulumi.getter(name="managedDisk")
+    def managed_disk(self) -> Optional[pulumi.Input['ManagedDiskEncryptionArgs']]:
+        """
+        Encryption properties for the databricks managed disks.
+        """
+        return pulumi.get(self, "managed_disk")
+
+    @managed_disk.setter
+    def managed_disk(self, value: Optional[pulumi.Input['ManagedDiskEncryptionArgs']]):
+        pulumi.set(self, "managed_disk", value)
+
+    @property
+    @pulumi.getter(name="managedServices")
+    def managed_services(self) -> Optional[pulumi.Input['EncryptionV2Args']]:
+        """
+        Encryption properties for the databricks managed services.
+        """
+        return pulumi.get(self, "managed_services")
+
+    @managed_services.setter
+    def managed_services(self, value: Optional[pulumi.Input['EncryptionV2Args']]):
+        pulumi.set(self, "managed_services", value)
+
+
+@pulumi.input_type
+class EncryptionV2KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 key_name: pulumi.Input[str],
+                 key_vault_uri: pulumi.Input[str],
+                 key_version: pulumi.Input[str]):
+        """
+        Key Vault input properties for encryption.
+        :param pulumi.Input[str] key_name: The name of KeyVault key.
+        :param pulumi.Input[str] key_vault_uri: The Uri of KeyVault.
+        :param pulumi.Input[str] key_version: The version of KeyVault key.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        The name of KeyVault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> pulumi.Input[str]:
+        """
+        The Uri of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> pulumi.Input[str]:
+        """
+        The version of KeyVault key.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
+class EncryptionV2Args:
+    def __init__(__self__, *,
+                 key_source: pulumi.Input[Union[str, 'EncryptionKeySource']],
+                 key_vault_properties: Optional[pulumi.Input['EncryptionV2KeyVaultPropertiesArgs']] = None):
+        """
+        The object that contains details of encryption used on the workspace.
+        :param pulumi.Input[Union[str, 'EncryptionKeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        :param pulumi.Input['EncryptionV2KeyVaultPropertiesArgs'] key_vault_properties: Key Vault input properties for encryption.
+        """
+        pulumi.set(__self__, "key_source", key_source)
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> pulumi.Input[Union[str, 'EncryptionKeySource']]:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: pulumi.Input[Union[str, 'EncryptionKeySource']]):
+        pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['EncryptionV2KeyVaultPropertiesArgs']]:
+        """
+        Key Vault input properties for encryption.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['EncryptionV2KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
 
 
 @pulumi.input_type
@@ -125,26 +263,149 @@ class EncryptionArgs:
 
 
 @pulumi.input_type
-class IdentityDataArgs:
+class ManagedDiskEncryptionKeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 type: pulumi.Input[Union[str, 'IdentityType']]):
+                 key_name: pulumi.Input[str],
+                 key_vault_uri: pulumi.Input[str],
+                 key_version: pulumi.Input[str]):
         """
-        Identity for the resource.
-        :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type.
+        Key Vault input properties for encryption.
+        :param pulumi.Input[str] key_name: The name of KeyVault key.
+        :param pulumi.Input[str] key_vault_uri: The URI of KeyVault.
+        :param pulumi.Input[str] key_version: The version of KeyVault key.
+        """
+        pulumi.set(__self__, "key_name", key_name)
+        pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        pulumi.set(__self__, "key_version", key_version)
+
+    @property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[str]:
+        """
+        The name of KeyVault key.
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_name", value)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> pulumi.Input[str]:
+        """
+        The URI of KeyVault.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="keyVersion")
+    def key_version(self) -> pulumi.Input[str]:
+        """
+        The version of KeyVault key.
+        """
+        return pulumi.get(self, "key_version")
+
+    @key_version.setter
+    def key_version(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
+class ManagedDiskEncryptionArgs:
+    def __init__(__self__, *,
+                 key_source: pulumi.Input[Union[str, 'EncryptionKeySource']],
+                 key_vault_properties: pulumi.Input['ManagedDiskEncryptionKeyVaultPropertiesArgs'],
+                 rotation_to_latest_key_version_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The object that contains details of encryption used on the workspace.
+        :param pulumi.Input[Union[str, 'EncryptionKeySource']] key_source: The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        :param pulumi.Input['ManagedDiskEncryptionKeyVaultPropertiesArgs'] key_vault_properties: Key Vault input properties for encryption.
+        :param pulumi.Input[bool] rotation_to_latest_key_version_enabled: Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
+        """
+        pulumi.set(__self__, "key_source", key_source)
+        pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if rotation_to_latest_key_version_enabled is not None:
+            pulumi.set(__self__, "rotation_to_latest_key_version_enabled", rotation_to_latest_key_version_enabled)
+
+    @property
+    @pulumi.getter(name="keySource")
+    def key_source(self) -> pulumi.Input[Union[str, 'EncryptionKeySource']]:
+        """
+        The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
+        """
+        return pulumi.get(self, "key_source")
+
+    @key_source.setter
+    def key_source(self, value: pulumi.Input[Union[str, 'EncryptionKeySource']]):
+        pulumi.set(self, "key_source", value)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> pulumi.Input['ManagedDiskEncryptionKeyVaultPropertiesArgs']:
+        """
+        Key Vault input properties for encryption.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: pulumi.Input['ManagedDiskEncryptionKeyVaultPropertiesArgs']):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
+    def rotation_to_latest_key_version_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
+        """
+        return pulumi.get(self, "rotation_to_latest_key_version_enabled")
+
+    @rotation_to_latest_key_version_enabled.setter
+    def rotation_to_latest_key_version_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "rotation_to_latest_key_version_enabled", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'IdentityType']]:
+    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
         """
-        The identity type.
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'IdentityType']]):
+    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 @pulumi.input_type
@@ -644,6 +905,29 @@ class WorkspaceEncryptionParameterArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input['EncryptionArgs']]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class WorkspacePropertiesEncryptionArgs:
+    def __init__(__self__, *,
+                 entities: pulumi.Input['EncryptionEntitiesDefinitionArgs']):
+        """
+        Encryption properties for databricks workspace
+        :param pulumi.Input['EncryptionEntitiesDefinitionArgs'] entities: Encryption entities definition for the workspace.
+        """
+        pulumi.set(__self__, "entities", entities)
+
+    @property
+    @pulumi.getter
+    def entities(self) -> pulumi.Input['EncryptionEntitiesDefinitionArgs']:
+        """
+        Encryption entities definition for the workspace.
+        """
+        return pulumi.get(self, "entities")
+
+    @entities.setter
+    def entities(self, value: pulumi.Input['EncryptionEntitiesDefinitionArgs']):
+        pulumi.set(self, "entities", value)
 
 
 @pulumi.input_type

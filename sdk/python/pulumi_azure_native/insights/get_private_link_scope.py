@@ -22,7 +22,10 @@ class GetPrivateLinkScopeResult:
     """
     An Azure Monitor PrivateLinkScope definition.
     """
-    def __init__(__self__, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, tags=None, type=None):
+    def __init__(__self__, access_mode_settings=None, id=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, system_data=None, tags=None, type=None):
+        if access_mode_settings and not isinstance(access_mode_settings, dict):
+            raise TypeError("Expected argument 'access_mode_settings' to be a dict")
+        pulumi.set(__self__, "access_mode_settings", access_mode_settings)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -38,6 +41,9 @@ class GetPrivateLinkScopeResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -46,10 +52,18 @@ class GetPrivateLinkScopeResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="accessModeSettings")
+    def access_mode_settings(self) -> 'outputs.AccessModeSettingsResponse':
+        """
+        Access mode settings
+        """
+        return pulumi.get(self, "access_mode_settings")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
-        Azure resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -57,7 +71,7 @@ class GetPrivateLinkScopeResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -65,7 +79,7 @@ class GetPrivateLinkScopeResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -86,10 +100,18 @@ class GetPrivateLinkScopeResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        System data
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -97,7 +119,7 @@ class GetPrivateLinkScopeResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -108,11 +130,13 @@ class AwaitableGetPrivateLinkScopeResult(GetPrivateLinkScopeResult):
         if False:
             yield self
         return GetPrivateLinkScopeResult(
+            access_mode_settings=self.access_mode_settings,
             id=self.id,
             location=self.location,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -122,7 +146,7 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkScopeResult:
     """
     Returns a Azure Monitor PrivateLinkScope.
-    API Version: 2019-10-17-preview.
+    Azure REST API version: 2021-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -135,11 +159,13 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getPrivateLinkScope', __args__, opts=opts, typ=GetPrivateLinkScopeResult).value
 
     return AwaitableGetPrivateLinkScopeResult(
+        access_mode_settings=__ret__.access_mode_settings,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -150,7 +176,7 @@ def get_private_link_scope_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkScopeResult]:
     """
     Returns a Azure Monitor PrivateLinkScope.
-    API Version: 2019-10-17-preview.
+    Azure REST API version: 2021-07-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

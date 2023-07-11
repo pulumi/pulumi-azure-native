@@ -170,24 +170,12 @@ utilities.lazyLoad(exports, ["TopicAuthorizationRule"], () => require("./topicAu
 export * from "../types/enums/servicebus";
 
 // Export sub-modules:
-import * as v20140901 from "./v20140901";
-import * as v20150801 from "./v20150801";
-import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
-import * as v20210101preview from "./v20210101preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20211101 from "./v20211101";
 import * as v20220101preview from "./v20220101preview";
 import * as v20221001preview from "./v20221001preview";
 
 export {
-    v20140901,
-    v20150801,
-    v20170401,
     v20180101preview,
-    v20210101preview,
-    v20210601preview,
-    v20211101,
     v20220101preview,
     v20221001preview,
 };

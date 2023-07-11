@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
- * API Version: 2019-04-30.
+ * Azure REST API version: 2019-10-27-preview.
  */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
 
@@ -64,6 +64,10 @@ export interface GetOpenShiftManagedClusterResult {
      */
     readonly masterPoolProfile?: outputs.containerservice.OpenShiftManagedClusterMasterPoolProfileResponse;
     /**
+     * Configures Log Analytics integration.
+     */
+    readonly monitorProfile?: outputs.containerservice.OpenShiftManagedClusterMonitorProfileResponse;
+    /**
      * Resource name
      */
     readonly name: string;
@@ -84,9 +88,13 @@ export interface GetOpenShiftManagedClusterResult {
      */
     readonly provisioningState: string;
     /**
-     * Service generated FQDN for OpenShift API server.
+     * Service generated FQDN or private IP for OpenShift API server.
      */
     readonly publicHostname: string;
+    /**
+     * Allows node rotation
+     */
+    readonly refreshCluster?: boolean;
     /**
      * Configuration for OpenShift router(s).
      */
@@ -102,7 +110,7 @@ export interface GetOpenShiftManagedClusterResult {
 }
 /**
  * Gets the details of the managed OpenShift cluster with a specified resource group and name.
- * API Version: 2019-04-30.
+ * Azure REST API version: 2019-10-27-preview.
  */
 export function getOpenShiftManagedClusterOutput(args: GetOpenShiftManagedClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenShiftManagedClusterResult> {
     return pulumi.output(args).apply((a: any) => getOpenShiftManagedCluster(a, opts))

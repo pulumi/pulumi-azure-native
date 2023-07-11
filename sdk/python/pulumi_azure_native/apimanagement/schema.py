@@ -127,7 +127,7 @@ class Schema(pulumi.CustomResource):
                  __props__=None):
         """
         Schema Contract details.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2021-04-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +146,7 @@ class Schema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema Contract details.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2021-04-01-preview. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.
@@ -192,7 +192,7 @@ class Schema(pulumi.CustomResource):
             __props__.__dict__["value"] = value
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Schema")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Schema"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Schema")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Schema, __self__).__init__(
             'azure-native:apimanagement:Schema',

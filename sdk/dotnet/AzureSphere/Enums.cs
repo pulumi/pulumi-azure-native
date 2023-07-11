@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.AzureSphere
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Crash dump collection enabled
+        /// </summary>
         public static AllowCrashDumpCollection Enabled { get; } = new AllowCrashDumpCollection("Enabled");
+        /// <summary>
+        /// Crash dump collection disabled
+        /// </summary>
         public static AllowCrashDumpCollection Disabled { get; } = new AllowCrashDumpCollection("Disabled");
 
         public static bool operator ==(AllowCrashDumpCollection left, AllowCrashDumpCollection right) => left.Equals(right);
@@ -51,7 +57,13 @@ namespace Pulumi.AzureNative.AzureSphere
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Retail OS feed type.
+        /// </summary>
         public static OSFeedType Retail { get; } = new OSFeedType("Retail");
+        /// <summary>
+        /// Retail evaluation OS feed type.
+        /// </summary>
         public static OSFeedType RetailEval { get; } = new OSFeedType("RetailEval");
 
         public static bool operator ==(OSFeedType left, OSFeedType right) => left.Equals(right);
@@ -82,7 +94,13 @@ namespace Pulumi.AzureNative.AzureSphere
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// No data boundary
+        /// </summary>
         public static RegionalDataBoundary None { get; } = new RegionalDataBoundary("None");
+        /// <summary>
+        /// EU data boundary
+        /// </summary>
         public static RegionalDataBoundary EU { get; } = new RegionalDataBoundary("EU");
 
         public static bool operator ==(RegionalDataBoundary left, RegionalDataBoundary right) => left.Equals(right);
@@ -113,7 +131,13 @@ namespace Pulumi.AzureNative.AzureSphere
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Update all policy.
+        /// </summary>
         public static UpdatePolicy UpdateAll { get; } = new UpdatePolicy("UpdateAll");
+        /// <summary>
+        /// No update for 3rd party app policy.
+        /// </summary>
         public static UpdatePolicy No3rdPartyAppUpdates { get; } = new UpdatePolicy("No3rdPartyAppUpdates");
 
         public static bool operator ==(UpdatePolicy left, UpdatePolicy right) => left.Equals(right);

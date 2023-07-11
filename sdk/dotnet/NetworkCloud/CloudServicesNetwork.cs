@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// represented in the status of this resource. All resources associated with this cloud services network will be part
     /// of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
     /// virtual machines and/or Hybrid AKS clusters.
-    /// API Version: 2022-12-12-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:CloudServicesNetwork")]
     public partial class CloudServicesNetwork : global::Pulumi.CustomResource
@@ -24,6 +24,12 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// </summary>
         [Output("additionalEgressEndpoints")]
         public Output<ImmutableArray<Outputs.EgressEndpointResponse>> AdditionalEgressEndpoints { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        /// </summary>
+        [Output("associatedResourceIds")]
+        public Output<ImmutableArray<string>> AssociatedResourceIds { get; private set; } = null!;
 
         /// <summary>
         /// The resource ID of the Network Cloud cluster this cloud services network is associated with.
@@ -62,7 +68,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.ExtendedLocationResponse> ExtendedLocation { get; private set; } = null!;
 
         /// <summary>
-        /// The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
+        /// Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
         /// </summary>
         [Output("hybridAksClustersAssociatedIds")]
         public Output<ImmutableArray<string>> HybridAksClustersAssociatedIds { get; private set; } = null!;
@@ -110,7 +116,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
+        /// Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
         /// </summary>
         [Output("virtualMachinesAssociatedIds")]
         public Output<ImmutableArray<string>> VirtualMachinesAssociatedIds { get; private set; } = null!;
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20221212preview:CloudServicesNetwork"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:CloudServicesNetwork"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -25,26 +25,6 @@ export const ChartType = {
  */
 export type ChartType = (typeof ChartType)[keyof typeof ChartType];
 
-export const ExportType = {
-    Usage: "Usage",
-    ActualCost: "ActualCost",
-    AmortizedCost: "AmortizedCost",
-} as const;
-
-/**
- * The type of the export. Note that 'Usage' is equivalent to 'ActualCost' and is applicable to exports that do not yet provide data for charges or amortization for service reservations.
- */
-export type ExportType = (typeof ExportType)[keyof typeof ExportType];
-
-export const FormatType = {
-    Csv: "Csv",
-} as const;
-
-/**
- * The format of the export being delivered. Currently only 'Csv' is supported.
- */
-export type FormatType = (typeof FormatType)[keyof typeof FormatType];
-
 export const FunctionType = {
     Sum: "Sum",
 } as const;
@@ -53,15 +33,6 @@ export const FunctionType = {
  * The name of the aggregation function to use.
  */
 export type FunctionType = (typeof FunctionType)[keyof typeof FunctionType];
-
-export const GranularityType = {
-    Daily: "Daily",
-} as const;
-
-/**
- * The granularity of rows in the export. Currently only 'Daily' is supported.
- */
-export type GranularityType = (typeof GranularityType)[keyof typeof GranularityType];
 
 export const KpiTypeType = {
     Forecast: "Forecast",
@@ -104,18 +75,6 @@ export const PivotTypeType = {
  */
 export type PivotTypeType = (typeof PivotTypeType)[keyof typeof PivotTypeType];
 
-export const RecurrenceType = {
-    Daily: "Daily",
-    Weekly: "Weekly",
-    Monthly: "Monthly",
-    Annually: "Annually",
-} as const;
-
-/**
- * The schedule recurrence.
- */
-export type RecurrenceType = (typeof RecurrenceType)[keyof typeof RecurrenceType];
-
 export const ReportConfigColumnType = {
     Tag: "Tag",
     Dimension: "Dimension",
@@ -156,27 +115,3 @@ export const ReportType = {
  * The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates.
  */
 export type ReportType = (typeof ReportType)[keyof typeof ReportType];
-
-export const StatusType = {
-    Active: "Active",
-    Inactive: "Inactive",
-} as const;
-
-/**
- * The status of the export's schedule. If 'Inactive', the export's schedule is paused.
- */
-export type StatusType = (typeof StatusType)[keyof typeof StatusType];
-
-export const TimeframeType = {
-    MonthToDate: "MonthToDate",
-    BillingMonthToDate: "BillingMonthToDate",
-    TheLastMonth: "TheLastMonth",
-    TheLastBillingMonth: "TheLastBillingMonth",
-    WeekToDate: "WeekToDate",
-    Custom: "Custom",
-} as const;
-
-/**
- * The time frame for pulling data for the export. If custom, then a specific time period must be provided.
- */
-export type TimeframeType = (typeof TimeframeType)[keyof typeof TimeframeType];

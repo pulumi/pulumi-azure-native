@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get baseboard management controller key set of the provided cluster.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBmcKeySet(args: GetBmcKeySetArgs, opts?: pulumi.InvokeOptions): Promise<GetBmcKeySetResult> {
 
@@ -58,7 +58,7 @@ export interface GetBmcKeySetResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -104,7 +104,7 @@ export interface GetBmcKeySetResult {
 }
 /**
  * Get baseboard management controller key set of the provided cluster.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBmcKeySetOutput(args: GetBmcKeySetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBmcKeySetResult> {
     return pulumi.output(args).apply((a: any) => getBmcKeySet(a, opts))

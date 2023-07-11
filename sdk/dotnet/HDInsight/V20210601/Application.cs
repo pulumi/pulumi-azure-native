@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
     /// <summary>
     /// The HDInsight cluster application
     /// </summary>
-    [Obsolete(@"azure-native:hdinsight/v20210601:Application is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Application to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:hdinsight/v20210601:Application")]
     public partial class Application : global::Pulumi.CustomResource
     {
@@ -80,6 +79,7 @@ namespace Pulumi.AzureNative.HDInsight.V20210601
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20150301preview:Application"},
                     new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20180601preview:Application"},
+                    new global::Pulumi.Alias { Type = "azure-native:hdinsight/v20230415preview:Application"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

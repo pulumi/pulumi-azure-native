@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Purview
 {
     /// <summary>
     /// Account resource
-    /// API Version: 2020-12-01-preview.
+    /// Azure REST API version: 2021-12-01. Prior API version in Azure Native 1.x: 2020-12-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:purview:Account")]
     public partial class Account : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Gets or sets the status of the account.
+        /// </summary>
+        [Output("accountStatus")]
+        public Output<Outputs.AccountPropertiesResponseAccountStatus> AccountStatus { get; private set; } = null!;
+
         /// <summary>
         /// Cloud connectors.
         /// External cloud identifier used as part of scanning configuration.
@@ -66,6 +72,12 @@ namespace Pulumi.AzureNative.Purview
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
+        ///  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        /// </summary>
+        [Output("managedEventHubState")]
+        public Output<string?> ManagedEventHubState { get; private set; } = null!;
+
+        /// <summary>
         /// Gets or sets the managed resource group name
         /// </summary>
         [Output("managedResourceGroupName")]
@@ -76,6 +88,12 @@ namespace Pulumi.AzureNative.Purview
         /// </summary>
         [Output("managedResources")]
         public Output<Outputs.AccountPropertiesResponseManagedResources> ManagedResources { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets the public network access for managed resources.
+        /// </summary>
+        [Output("managedResourcesPublicNetworkAccess")]
+        public Output<string?> ManagedResourcesPublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Gets or sets the name.
@@ -111,7 +129,7 @@ namespace Pulumi.AzureNative.Purview
         /// Metadata pertaining to creation and last modification of the resource.
         /// </summary>
         [Output("systemData")]
-        public Output<Outputs.AccountPropertiesResponseSystemData> SystemData { get; private set; } = null!;
+        public Output<Outputs.TrackedResourceResponseSystemData> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Tags on the azure resource.
@@ -152,6 +170,7 @@ namespace Pulumi.AzureNative.Purview
                 {
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20201201preview:Account"},
                     new global::Pulumi.Alias { Type = "azure-native:purview/v20210701:Account"},
+                    new global::Pulumi.Alias { Type = "azure-native:purview/v20211201:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -194,10 +213,22 @@ namespace Pulumi.AzureNative.Purview
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        ///  Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
+        /// </summary>
+        [Input("managedEventHubState")]
+        public InputUnion<string, Pulumi.AzureNative.Purview.ManagedEventHubState>? ManagedEventHubState { get; set; }
+
+        /// <summary>
         /// Gets or sets the managed resource group name
         /// </summary>
         [Input("managedResourceGroupName")]
         public Input<string>? ManagedResourceGroupName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the public network access for managed resources.
+        /// </summary>
+        [Input("managedResourcesPublicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Purview.ManagedResourcesPublicNetworkAccess>? ManagedResourcesPublicNetworkAccess { get; set; }
 
         /// <summary>
         /// Gets or sets the public network access.
@@ -225,6 +256,8 @@ namespace Pulumi.AzureNative.Purview
 
         public AccountArgs()
         {
+            ManagedEventHubState = "NotSpecified";
+            ManagedResourcesPublicNetworkAccess = "NotSpecified";
             PublicNetworkAccess = "Enabled";
         }
         public static new AccountArgs Empty => new AccountArgs();

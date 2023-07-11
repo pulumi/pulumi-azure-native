@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets information about the specified DDoS custom policy.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetDdosCustomPolicyResult> InvokeAsync(GetDdosCustomPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDdosCustomPolicyResult>("azure-native:network:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets information about the specified DDoS custom policy.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetDdosCustomPolicyResult> Invoke(GetDdosCustomPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDdosCustomPolicyResult>("azure-native:network:getDdosCustomPolicy", args ?? new GetDdosCustomPolicyInvokeArgs(), options.WithDefaults());
@@ -88,17 +88,9 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The protocol-specific DDoS policy customization parameters.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.ProtocolCustomSettingsFormatResponse> ProtocolCustomSettings;
-        /// <summary>
         /// The provisioning state of the DDoS custom policy resource.
         /// </summary>
         public readonly string ProvisioningState;
-        /// <summary>
-        /// The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SubResourceResponse> PublicIPAddresses;
         /// <summary>
         /// The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
         /// </summary>
@@ -122,11 +114,7 @@ namespace Pulumi.AzureNative.Network
 
             string name,
 
-            ImmutableArray<Outputs.ProtocolCustomSettingsFormatResponse> protocolCustomSettings,
-
             string provisioningState,
-
-            ImmutableArray<Outputs.SubResourceResponse> publicIPAddresses,
 
             string resourceGuid,
 
@@ -138,9 +126,7 @@ namespace Pulumi.AzureNative.Network
             Id = id;
             Location = location;
             Name = name;
-            ProtocolCustomSettings = protocolCustomSettings;
             ProvisioningState = provisioningState;
-            PublicIPAddresses = publicIPAddresses;
             ResourceGuid = resourceGuid;
             Tags = tags;
             Type = type;

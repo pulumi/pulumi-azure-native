@@ -22,7 +22,7 @@ class GetIotDpsResourceResult:
     """
     The description of the provisioning service.
     """
-    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, sku=None, tags=None, type=None):
+    def __init__(__self__, etag=None, id=None, location=None, name=None, properties=None, resourcegroup=None, sku=None, subscriptionid=None, system_data=None, tags=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -38,9 +38,18 @@ class GetIotDpsResourceResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if resourcegroup and not isinstance(resourcegroup, str):
+            raise TypeError("Expected argument 'resourcegroup' to be a str")
+        pulumi.set(__self__, "resourcegroup", resourcegroup)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if subscriptionid and not isinstance(subscriptionid, str):
+            raise TypeError("Expected argument 'subscriptionid' to be a str")
+        pulumi.set(__self__, "subscriptionid", subscriptionid)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -90,11 +99,35 @@ class GetIotDpsResourceResult:
 
     @property
     @pulumi.getter
+    def resourcegroup(self) -> Optional[str]:
+        """
+        The resource group of the resource.
+        """
+        return pulumi.get(self, "resourcegroup")
+
+    @property
+    @pulumi.getter
     def sku(self) -> 'outputs.IotDpsSkuInfoResponse':
         """
         Sku info for a provisioning Service.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def subscriptionid(self) -> Optional[str]:
+        """
+        The subscription id of the resource.
+        """
+        return pulumi.get(self, "subscriptionid")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -124,7 +157,10 @@ class AwaitableGetIotDpsResourceResult(GetIotDpsResourceResult):
             location=self.location,
             name=self.name,
             properties=self.properties,
+            resourcegroup=self.resourcegroup,
             sku=self.sku,
+            subscriptionid=self.subscriptionid,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -134,7 +170,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotDpsResourceResult:
     """
     Get the metadata of the provisioning service without SAS keys.
-    API Version: 2020-03-01.
+    Azure REST API version: 2022-12-12.
 
 
     :param str provisioning_service_name: Name of the provisioning service to retrieve.
@@ -152,7 +188,10 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         properties=__ret__.properties,
+        resourcegroup=__ret__.resourcegroup,
         sku=__ret__.sku,
+        subscriptionid=__ret__.subscriptionid,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -163,7 +202,7 @@ def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotDpsResourceResult]:
     """
     Get the metadata of the provisioning service without SAS keys.
-    API Version: 2020-03-01.
+    Azure REST API version: 2022-12-12.
 
 
     :param str provisioning_service_name: Name of the provisioning service to retrieve.

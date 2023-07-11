@@ -6,8 +6,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Issue Attachment Contract details.
- *
- * @deprecated azure-native:apimanagement/v20220801:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.
  */
 export class ApiIssueAttachment extends pulumi.CustomResource {
     /**
@@ -19,7 +17,6 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ApiIssueAttachment {
-        pulumi.log.warn("ApiIssueAttachment is deprecated: azure-native:apimanagement/v20220801:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.")
         return new ApiIssueAttachment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -65,9 +62,7 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility. */
     constructor(name: string, args: ApiIssueAttachmentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ApiIssueAttachment is deprecated: azure-native:apimanagement/v20220801:ApiIssueAttachment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiIssueAttachment to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -110,7 +105,7 @@ export class ApiIssueAttachment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20170301:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20180101:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20190101:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20201201:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210101preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210401preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210801:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20211201preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20220401preview:ApiIssueAttachment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20170301:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20180101:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20180601preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20190101:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20191201preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20200601preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20201201:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210101preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210401preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20210801:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20211201preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20220401preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20220901preview:ApiIssueAttachment" }, { type: "azure-native:apimanagement/v20230301preview:ApiIssueAttachment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ApiIssueAttachment.__pulumiType, name, resourceInputs, opts);
     }

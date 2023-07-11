@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.VoiceServices
 {
     /// <summary>
     /// A TestLine resource
-    /// API Version: 2022-12-01-preview.
+    /// Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2022-12-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:voiceservices:TestLine")]
     public partial class TestLine : global::Pulumi.CustomResource
@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.VoiceServices
                 {
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20221201preview:TestLine"},
                     new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20230131:TestLine"},
+                    new global::Pulumi.Alias { Type = "azure-native:voiceservices/v20230403:TestLine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -136,7 +137,7 @@ namespace Pulumi.AzureNative.VoiceServices
         /// Purpose of this test line, e.g. automated or manual testing
         /// </summary>
         [Input("purpose", required: true)]
-        public Input<Pulumi.AzureNative.VoiceServices.TestLinePurpose> Purpose { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.VoiceServices.TestLinePurpose> Purpose { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

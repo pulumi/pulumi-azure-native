@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Web
     {
         /// <summary>
         /// Lists the consent links of a connection
-        /// API Version: 2016-06-01.
+        /// Azure REST API version: 2016-06-01.
         /// </summary>
         public static Task<ListConnectionConsentLinksResult> InvokeAsync(ListConnectionConsentLinksArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListConnectionConsentLinksResult>("azure-native:web:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the consent links of a connection
-        /// API Version: 2016-06-01.
+        /// Azure REST API version: 2016-06-01.
         /// </summary>
         public static Output<ListConnectionConsentLinksResult> Invoke(ListConnectionConsentLinksInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListConnectionConsentLinksResult>("azure-native:web:listConnectionConsentLinks", args ?? new ListConnectionConsentLinksInvokeArgs(), options.WithDefaults());

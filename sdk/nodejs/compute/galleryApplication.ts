@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies information about the gallery Application Definition that you want to create or update.
- * API Version: 2020-09-30.
+ * Azure REST API version: 2022-03-03. Prior API version in Azure Native 1.x: 2020-09-30
  */
 export class GalleryApplication extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class GalleryApplication extends pulumi.CustomResource {
         return obj['__pulumiType'] === GalleryApplication.__pulumiType;
     }
 
+    /**
+     * A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+     */
+    public readonly customActions!: pulumi.Output<outputs.compute.GalleryApplicationCustomActionResponse[] | undefined>;
     /**
      * The description of this gallery Application Definition resource. This property is updatable.
      */
@@ -99,6 +103,7 @@ export class GalleryApplication extends pulumi.CustomResource {
             if ((!args || args.supportedOSType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'supportedOSType'");
             }
+            resourceInputs["customActions"] = args ? args.customActions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
             resourceInputs["eula"] = args ? args.eula : undefined;
@@ -113,6 +118,7 @@ export class GalleryApplication extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["customActions"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["endOfLifeDate"] = undefined /*out*/;
             resourceInputs["eula"] = undefined /*out*/;
@@ -135,6 +141,10 @@ export class GalleryApplication extends pulumi.CustomResource {
  * The set of arguments for constructing a GalleryApplication resource.
  */
 export interface GalleryApplicationArgs {
+    /**
+     * A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
+     */
+    customActions?: pulumi.Input<pulumi.Input<inputs.compute.GalleryApplicationCustomActionArgs>[]>;
     /**
      * The description of this gallery Application Definition resource. This property is updatable.
      */

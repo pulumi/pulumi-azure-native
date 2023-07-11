@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a SQL virtual machine group.
  */
-/** @deprecated azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup to guarantee forwards compatibility. */
 export function getSqlVirtualMachineGroup(args: GetSqlVirtualMachineGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlVirtualMachineGroupResult> {
-    pulumi.log.warn("getSqlVirtualMachineGroup is deprecated: azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sqlvirtualmachine/v20220201:getSqlVirtualMachineGroup", {
@@ -92,7 +90,6 @@ export interface GetSqlVirtualMachineGroupResult {
 /**
  * Gets a SQL virtual machine group.
  */
-/** @deprecated azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachineGroup to guarantee forwards compatibility. */
 export function getSqlVirtualMachineGroupOutput(args: GetSqlVirtualMachineGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSqlVirtualMachineGroupResult> {
     return pulumi.output(args).apply((a: any) => getSqlVirtualMachineGroup(a, opts))
 }

@@ -97,7 +97,7 @@ def list_vendor_skus_credential(sku_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListVendorSkusCredentialResult:
     """
     Generate credentials for publishing SKU images.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str sku_name: The name of the sku.
@@ -123,7 +123,7 @@ def list_vendor_skus_credential_output(sku_name: Optional[pulumi.Input[str]] = N
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListVendorSkusCredentialResult]:
     """
     Generate credentials for publishing SKU images.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str sku_name: The name of the sku.

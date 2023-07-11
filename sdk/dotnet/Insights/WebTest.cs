@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
-    /// An Application Insights web test definition.
-    /// API Version: 2015-05-01.
+    /// An Application Insights WebTest definition.
+    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2015-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:WebTest")]
     public partial class WebTest : global::Pulumi.CustomResource
@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Insights
         public Output<Outputs.WebTestPropertiesResponseConfiguration?> Configuration { get; private set; } = null!;
 
         /// <summary>
-        /// Purpose/user defined descriptive test for this WebTest.
+        /// User defined description for this WebTest.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Insights
         public Output<int?> Frequency { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of web test that this web test watches. Choices are ping and multistep.
+        /// The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
         /// </summary>
         [Output("kind")]
         public Output<string?> Kind { get; private set; } = null!;
@@ -69,6 +69,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// The collection of request properties
+        /// </summary>
+        [Output("request")]
+        public Output<Outputs.WebTestPropertiesResponseRequest?> Request { get; private set; } = null!;
 
         /// <summary>
         /// Allow for retries should this WebTest fail.
@@ -101,7 +107,13 @@ namespace Pulumi.AzureNative.Insights
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The kind of web test this is, valid choices are ping and multistep.
+        /// The collection of validation rule properties
+        /// </summary>
+        [Output("validationRules")]
+        public Output<Outputs.WebTestPropertiesResponseValidationRules?> ValidationRules { get; private set; } = null!;
+
+        /// <summary>
+        /// The kind of web test this is, valid choices are ping, multistep and standard.
         /// </summary>
         [Output("webTestKind")]
         public Output<string> WebTestKind { get; private set; } = null!;
@@ -171,7 +183,7 @@ namespace Pulumi.AzureNative.Insights
         public Input<Inputs.WebTestPropertiesConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
-        /// Purpose/user defined descriptive test for this WebTest.
+        /// User defined description for this WebTest.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -189,7 +201,7 @@ namespace Pulumi.AzureNative.Insights
         public Input<int>? Frequency { get; set; }
 
         /// <summary>
-        /// The kind of web test that this web test watches. Choices are ping and multistep.
+        /// The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
         /// </summary>
         [Input("kind")]
         public Input<Pulumi.AzureNative.Insights.WebTestKind>? Kind { get; set; }
@@ -211,6 +223,12 @@ namespace Pulumi.AzureNative.Insights
             get => _locations ?? (_locations = new InputList<Inputs.WebTestGeolocationArgs>());
             set => _locations = value;
         }
+
+        /// <summary>
+        /// The collection of request properties
+        /// </summary>
+        [Input("request")]
+        public Input<Inputs.WebTestPropertiesRequestArgs>? Request { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -249,7 +267,13 @@ namespace Pulumi.AzureNative.Insights
         public Input<int>? Timeout { get; set; }
 
         /// <summary>
-        /// The kind of web test this is, valid choices are ping and multistep.
+        /// The collection of validation rule properties
+        /// </summary>
+        [Input("validationRules")]
+        public Input<Inputs.WebTestPropertiesValidationRulesArgs>? ValidationRules { get; set; }
+
+        /// <summary>
+        /// The kind of web test this is, valid choices are ping, multistep and standard.
         /// </summary>
         [Input("webTestKind", required: true)]
         public Input<Pulumi.AzureNative.Insights.WebTestKind> WebTestKind { get; set; } = null!;

@@ -3,9 +3,15 @@ module gosimplesplit
 go 1.19
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/resources v1.83.1
-	github.com/pulumi/pulumi-azure-native-sdk/storage v1.83.1
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 v2.0.0-alpha.1
+	github.com/pulumi/pulumi-azure-native-sdk/storage/v2 v2.0.0-alpha.1
 	github.com/pulumi/pulumi/sdk/v3 v3.44.2
+)
+
+replace (
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 => ../../../sdk/pulumi-azure-native-sdk/resources
+	github.com/pulumi/pulumi-azure-native-sdk/storage/v2 => ../../../sdk/pulumi-azure-native-sdk/storage
+	github.com/pulumi/pulumi-azure-native-sdk/v2 => ../../../sdk/pulumi-azure-native-sdk
 )
 
 require (
@@ -40,7 +46,7 @@ require (
 	github.com/opentracing/opentracing-go v1.1.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk v1.83.1 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v2 v2.0.0-alpha.dev // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
 	github.com/rogpeppe/go-internal v1.8.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20180611051255-d3107576ba94 // indirect

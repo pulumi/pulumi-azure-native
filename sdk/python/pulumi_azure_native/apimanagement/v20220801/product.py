@@ -177,12 +177,7 @@ class ProductArgs:
         pulumi.set(self, "terms", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:Product is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Product to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Product(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:Product is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Product to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -249,7 +244,6 @@ class Product(pulumi.CustomResource):
                  subscriptions_limit: Optional[pulumi.Input[int]] = None,
                  terms: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Product is deprecated: azure-native:apimanagement/v20220801:Product is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Product to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -276,7 +270,7 @@ class Product(pulumi.CustomResource):
             __props__.__dict__["terms"] = terms
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Product")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Product"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Product")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Product, __self__).__init__(
             'azure-native:apimanagement/v20220801:Product',

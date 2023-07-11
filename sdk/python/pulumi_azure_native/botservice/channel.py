@@ -164,7 +164,7 @@ class Channel(pulumi.CustomResource):
                  __props__=None):
         """
         Bot channel resource definition
-        API Version: 2021-03-01.
+        Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,7 +185,7 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Bot channel resource definition
-        API Version: 2021-03-01.
+        Azure REST API version: 2022-09-15. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.
@@ -274,7 +274,7 @@ class Channel(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[Optional[str]]:
         """
-        Entity Tag
+        Entity Tag.
         """
         return pulumi.get(self, "etag")
 

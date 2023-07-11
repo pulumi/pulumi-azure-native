@@ -2,25 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20201120 from "./v20201120";
-import * as v20210501preview from "./v20210501preview";
-import * as v20210601preview from "./v20210601preview";
 import * as v20210901preview from "./v20210901preview";
 
 export {
-    v20201120,
-    v20210501preview,
-    v20210601preview,
     v20210901preview,
 };
 
-export const ExtendedLocationType = {
+export const EndpointType = {
     NotSpecified: "NotSpecified",
-    EdgeZone: "EdgeZone",
-    ArcZone: "ArcZone",
+    Canary: "Canary",
+    Production: "Production",
+    TestInProduction: "TestInProduction",
 } as const;
 
-export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 export const ExtensionCategory = {
     NotSpecified: "NotSpecified",
@@ -83,15 +78,6 @@ export const LoggingDirections = {
 
 export type LoggingDirections = (typeof LoggingDirections)[keyof typeof LoggingDirections];
 
-export const MarketplaceType = {
-    NotSpecified: "NotSpecified",
-    AddOn: "AddOn",
-    Bypass: "Bypass",
-    Store: "Store",
-} as const;
-
-export type MarketplaceType = (typeof MarketplaceType)[keyof typeof MarketplaceType];
-
 export const MessageScope = {
     NotSpecified: "NotSpecified",
     RegisteredSubscriptions: "RegisteredSubscriptions",
@@ -107,21 +93,6 @@ export const NotificationMode = {
 
 export type NotificationMode = (typeof NotificationMode)[keyof typeof NotificationMode];
 
-export const OperationActionType = {
-    NotSpecified: "NotSpecified",
-    Internal: "Internal",
-} as const;
-
-export type OperationActionType = (typeof OperationActionType)[keyof typeof OperationActionType];
-
-export const OperationOrigins = {
-    NotSpecified: "NotSpecified",
-    User: "User",
-    System: "System",
-} as const;
-
-export type OperationOrigins = (typeof OperationOrigins)[keyof typeof OperationOrigins];
-
 export const OptInHeaderType = {
     NotSpecified: "NotSpecified",
     SignedUserToken: "SignedUserToken",
@@ -131,6 +102,13 @@ export const OptInHeaderType = {
 } as const;
 
 export type OptInHeaderType = (typeof OptInHeaderType)[keyof typeof OptInHeaderType];
+
+export const Policy = {
+    NotSpecified: "NotSpecified",
+    SynchronizeBeginExtension: "SynchronizeBeginExtension",
+} as const;
+
+export type Policy = (typeof Policy)[keyof typeof Policy];
 
 export const PreflightOption = {
     None: "None",
@@ -156,7 +134,24 @@ export const ProvisioningState = {
     RolloutInProgress: "RolloutInProgress",
 } as const;
 
+/**
+ * The provisioned state of the resource.
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
+
+export const Readiness = {
+    ClosingDown: "ClosingDown",
+    Deprecated: "Deprecated",
+    GA: "GA",
+    InDevelopment: "InDevelopment",
+    InternalOnly: "InternalOnly",
+    PrivatePreview: "PrivatePreview",
+    PublicPreview: "PublicPreview",
+    RemovedFromARM: "RemovedFromARM",
+    Retired: "Retired",
+} as const;
+
+export type Readiness = (typeof Readiness)[keyof typeof Readiness];
 
 export const Regionality = {
     NotSpecified: "NotSpecified",
@@ -165,14 +160,6 @@ export const Regionality = {
 } as const;
 
 export type Regionality = (typeof Regionality)[keyof typeof Regionality];
-
-export const ResourceAccessPolicy = {
-    NotSpecified: "NotSpecified",
-    AcisReadAllowed: "AcisReadAllowed",
-    AcisActionAllowed: "AcisActionAllowed",
-} as const;
-
-export type ResourceAccessPolicy = (typeof ResourceAccessPolicy)[keyof typeof ResourceAccessPolicy];
 
 export const ResourceDeletionPolicy = {
     NotSpecified: "NotSpecified",

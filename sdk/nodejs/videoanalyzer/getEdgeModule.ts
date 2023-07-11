@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieves a specific existing edge module resource in the given Video Analyzer account.
- * API Version: 2021-05-01-preview.
+ * Retrieves an existing edge module resource with the given name.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getEdgeModule(args: GetEdgeModuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEdgeModuleResult> {
 
@@ -27,7 +27,7 @@ export interface GetEdgeModuleArgs {
      */
     accountName: string;
     /**
-     * The name of the edge module to retrieve.
+     * The Edge Module name.
      */
     edgeModuleName: string;
     /**
@@ -53,7 +53,7 @@ export interface GetEdgeModuleResult {
      */
     readonly name: string;
     /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.videoanalyzer.SystemDataResponse;
     /**
@@ -62,8 +62,8 @@ export interface GetEdgeModuleResult {
     readonly type: string;
 }
 /**
- * Retrieves a specific existing edge module resource in the given Video Analyzer account.
- * API Version: 2021-05-01-preview.
+ * Retrieves an existing edge module resource with the given name.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getEdgeModuleOutput(args: GetEdgeModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEdgeModuleResult> {
     return pulumi.output(args).apply((a: any) => getEdgeModule(a, opts))
@@ -75,7 +75,7 @@ export interface GetEdgeModuleOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the edge module to retrieve.
+     * The Edge Module name.
      */
     edgeModuleName: pulumi.Input<string>;
     /**

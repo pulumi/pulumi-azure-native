@@ -2,19 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20160301 from "./v20160301";
 import * as v20170401preview from "./v20170401preview";
 import * as v20200301 from "./v20200301";
 import * as v20200301preview from "./v20200301preview";
 import * as v20211001preview from "./v20211001preview";
 
 export {
-    v20160301,
     v20170401preview,
     v20200301,
     v20200301preview,
     v20211001preview,
 };
+
+export const AuthenticationMode = {
+    Msi: "Msi",
+    UserToken: "UserToken",
+    ConnectionString: "ConnectionString",
+} as const;
+
+/**
+ * Authentication Mode.
+ */
+export type AuthenticationMode = (typeof AuthenticationMode)[keyof typeof AuthenticationMode];
 
 export const ClusterSkuName = {
     /**
@@ -30,12 +39,34 @@ export type ClusterSkuName = (typeof ClusterSkuName)[keyof typeof ClusterSkuName
 
 export const CompatibilityLevel = {
     CompatibilityLevel_1_0: "1.0",
+    CompatibilityLevel_1_2: "1.2",
 } as const;
 
 /**
  * Controls certain runtime behaviors of the streaming job.
  */
 export type CompatibilityLevel = (typeof CompatibilityLevel)[keyof typeof CompatibilityLevel];
+
+export const CompressionType = {
+    None: "None",
+    GZip: "GZip",
+    Deflate: "Deflate",
+} as const;
+
+/**
+ * Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
+ */
+export type CompressionType = (typeof CompressionType)[keyof typeof CompressionType];
+
+export const ContentStoragePolicy = {
+    SystemAccount: "SystemAccount",
+    JobStorageAccount: "JobStorageAccount",
+} as const;
+
+/**
+ * Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+ */
+export type ContentStoragePolicy = (typeof ContentStoragePolicy)[keyof typeof ContentStoragePolicy];
 
 export const Encoding = {
     UTF8: "UTF8",
@@ -50,6 +81,7 @@ export const EventSerializationType = {
     Csv: "Csv",
     Avro: "Avro",
     Json: "Json",
+    Parquet: "Parquet",
 } as const;
 
 /**
@@ -66,6 +98,16 @@ export const EventsOutOfOrderPolicy = {
  * Indicates the policy to apply to events that arrive out of order in the input event stream.
  */
 export type EventsOutOfOrderPolicy = (typeof EventsOutOfOrderPolicy)[keyof typeof EventsOutOfOrderPolicy];
+
+export const JobType = {
+    Cloud: "Cloud",
+    Edge: "Edge",
+} as const;
+
+/**
+ * Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
 
 export const JsonOutputSerializationFormat = {
     LineSeparated: "LineSeparated",
@@ -97,6 +139,17 @@ export const OutputStartMode = {
  * This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
  */
 export type OutputStartMode = (typeof OutputStartMode)[keyof typeof OutputStartMode];
+
+export const RefreshType = {
+    Static: "Static",
+    RefreshPeriodicallyWithFull: "RefreshPeriodicallyWithFull",
+    RefreshPeriodicallyWithDelta: "RefreshPeriodicallyWithDelta",
+} as const;
+
+/**
+ * Indicates the type of data refresh option.
+ */
+export type RefreshType = (typeof RefreshType)[keyof typeof RefreshType];
 
 export const SkuName = {
     Standard: "Standard",

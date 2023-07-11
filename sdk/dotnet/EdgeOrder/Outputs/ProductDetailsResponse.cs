@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
     public sealed class ProductDetailsResponse
     {
         /// <summary>
+        /// Details of all child configurations that are part of the order item.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ConfigurationDeviceDetailsResponse> ChildConfigurationDeviceDetails;
+        /// <summary>
         /// Quantity of the product
         /// </summary>
         public readonly int Count;
@@ -33,12 +37,26 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
         /// </summary>
         public readonly Outputs.HierarchyInformationResponse HierarchyInformation;
         /// <summary>
+        /// Identification type of the configuration.
+        /// </summary>
+        public readonly string? IdentificationType;
+        /// <summary>
+        /// List of additional configurations customer wants in the order item apart from the ones included in the base configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AdditionalConfigurationResponse> OptInAdditionalConfigurations;
+        /// <summary>
+        /// Device details of the parent configuration.
+        /// </summary>
+        public readonly Outputs.DeviceDetailsResponse? ParentDeviceDetails;
+        /// <summary>
         /// Double encryption status of the configuration. Read-only field.
         /// </summary>
         public readonly string ProductDoubleEncryptionStatus;
 
         [OutputConstructor]
         private ProductDetailsResponse(
+            ImmutableArray<Outputs.ConfigurationDeviceDetailsResponse> childConfigurationDeviceDetails,
+
             int count,
 
             ImmutableArray<Outputs.DeviceDetailsResponse> deviceDetails,
@@ -47,12 +65,22 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 
             Outputs.HierarchyInformationResponse hierarchyInformation,
 
+            string? identificationType,
+
+            ImmutableArray<Outputs.AdditionalConfigurationResponse> optInAdditionalConfigurations,
+
+            Outputs.DeviceDetailsResponse? parentDeviceDetails,
+
             string productDoubleEncryptionStatus)
         {
+            ChildConfigurationDeviceDetails = childConfigurationDeviceDetails;
             Count = count;
             DeviceDetails = deviceDetails;
             DisplayInfo = displayInfo;
             HierarchyInformation = hierarchyInformation;
+            IdentificationType = identificationType;
+            OptInAdditionalConfigurations = optInAdditionalConfigurations;
+            ParentDeviceDetails = parentDeviceDetails;
             ProductDoubleEncryptionStatus = productDoubleEncryptionStatus;
         }
     }

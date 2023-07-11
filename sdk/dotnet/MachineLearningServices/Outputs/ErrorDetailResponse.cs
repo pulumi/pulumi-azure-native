@@ -11,28 +11,49 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Error detail information.
+    /// The error detail.
     /// </summary>
     [OutputType]
     public sealed class ErrorDetailResponse
     {
         /// <summary>
-        /// Error code.
+        /// The error additional info.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ErrorAdditionalInfoResponse> AdditionalInfo;
+        /// <summary>
+        /// The error code.
         /// </summary>
         public readonly string Code;
         /// <summary>
-        /// Error message.
+        /// The error details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.ErrorDetailResponse> Details;
+        /// <summary>
+        /// The error message.
         /// </summary>
         public readonly string Message;
+        /// <summary>
+        /// The error target.
+        /// </summary>
+        public readonly string Target;
 
         [OutputConstructor]
         private ErrorDetailResponse(
+            ImmutableArray<Outputs.ErrorAdditionalInfoResponse> additionalInfo,
+
             string code,
 
-            string message)
+            ImmutableArray<Outputs.ErrorDetailResponse> details,
+
+            string message,
+
+            string target)
         {
+            AdditionalInfo = additionalInfo;
             Code = code;
+            Details = details;
             Message = message;
+            Target = target;
         }
     }
 }

@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 {
     /// <summary>
     /// A SQL virtual machine.
-    /// API Version: 2017-03-01-preview.
+    /// Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachine")]
     public partial class SqlVirtualMachine : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Assessment Settings.
+        /// </summary>
+        [Output("assessmentSettings")]
+        public Output<Outputs.AssessmentSettingsResponse?> AssessmentSettings { get; private set; } = null!;
+
         /// <summary>
         /// Auto backup settings for SQL Server.
         /// </summary>
@@ -101,6 +107,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         public Output<Outputs.StorageConfigurationSettingsResponse?> StorageConfigurationSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -123,6 +135,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         [Output("wsfcDomainCredentials")]
         public Output<Outputs.WsfcDomainCredentialsResponse?> WsfcDomainCredentials { get; private set; } = null!;
+
+        /// <summary>
+        /// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+        /// </summary>
+        [Output("wsfcStaticIp")]
+        public Output<string?> WsfcStaticIp { get; private set; } = null!;
 
 
         /// <summary>
@@ -155,6 +173,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220701preview:SqlVirtualMachine"},
                     new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20230101preview:SqlVirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,6 +197,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
 
     public sealed class SqlVirtualMachineArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Assessment Settings.
+        /// </summary>
+        [Input("assessmentSettings")]
+        public Input<Inputs.AssessmentSettingsArgs>? AssessmentSettings { get; set; }
+
         /// <summary>
         /// Auto backup settings for SQL Server.
         /// </summary>
@@ -285,6 +310,12 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// </summary>
         [Input("wsfcDomainCredentials")]
         public Input<Inputs.WsfcDomainCredentialsArgs>? WsfcDomainCredentials { get; set; }
+
+        /// <summary>
+        /// Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
+        /// </summary>
+        [Input("wsfcStaticIp")]
+        public Input<string>? WsfcStaticIp { get; set; }
 
         public SqlVirtualMachineArgs()
         {

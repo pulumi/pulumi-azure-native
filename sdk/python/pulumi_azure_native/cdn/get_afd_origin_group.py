@@ -20,9 +20,9 @@ __all__ = [
 @pulumi.output_type
 class GetAFDOriginGroupResult:
     """
-    AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
     """
-    def __init__(__self__, deployment_status=None, health_probe_settings=None, id=None, load_balancing_settings=None, name=None, provisioning_state=None, response_based_afd_origin_error_detection_settings=None, session_affinity_state=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
+    def __init__(__self__, deployment_status=None, health_probe_settings=None, id=None, load_balancing_settings=None, name=None, profile_name=None, provisioning_state=None, session_affinity_state=None, system_data=None, traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=None, type=None):
         if deployment_status and not isinstance(deployment_status, str):
             raise TypeError("Expected argument 'deployment_status' to be a str")
         pulumi.set(__self__, "deployment_status", deployment_status)
@@ -38,12 +38,12 @@ class GetAFDOriginGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if profile_name and not isinstance(profile_name, str):
+            raise TypeError("Expected argument 'profile_name' to be a str")
+        pulumi.set(__self__, "profile_name", profile_name)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
-        if response_based_afd_origin_error_detection_settings and not isinstance(response_based_afd_origin_error_detection_settings, dict):
-            raise TypeError("Expected argument 'response_based_afd_origin_error_detection_settings' to be a dict")
-        pulumi.set(__self__, "response_based_afd_origin_error_detection_settings", response_based_afd_origin_error_detection_settings)
         if session_affinity_state and not isinstance(session_affinity_state, str):
             raise TypeError("Expected argument 'session_affinity_state' to be a str")
         pulumi.set(__self__, "session_affinity_state", session_affinity_state)
@@ -95,20 +95,20 @@ class GetAFDOriginGroupResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> str:
+        """
+        The name of the profile which holds the origin group.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         Provisioning status
         """
         return pulumi.get(self, "provisioning_state")
-
-    @property
-    @pulumi.getter(name="responseBasedAfdOriginErrorDetectionSettings")
-    def response_based_afd_origin_error_detection_settings(self) -> Optional['outputs.ResponseBasedOriginErrorDetectionParametersResponse']:
-        """
-        The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
-        """
-        return pulumi.get(self, "response_based_afd_origin_error_detection_settings")
 
     @property
     @pulumi.getter(name="sessionAffinityState")
@@ -154,8 +154,8 @@ class AwaitableGetAFDOriginGroupResult(GetAFDOriginGroupResult):
             id=self.id,
             load_balancing_settings=self.load_balancing_settings,
             name=self.name,
+            profile_name=self.profile_name,
             provisioning_state=self.provisioning_state,
-            response_based_afd_origin_error_detection_settings=self.response_based_afd_origin_error_detection_settings,
             session_affinity_state=self.session_affinity_state,
             system_data=self.system_data,
             traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=self.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
@@ -168,11 +168,11 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAFDOriginGroupResult:
     """
     Gets an existing origin group within a profile.
-    API Version: 2020-09-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     __args__ = dict()
@@ -188,8 +188,8 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
         id=__ret__.id,
         load_balancing_settings=__ret__.load_balancing_settings,
         name=__ret__.name,
+        profile_name=__ret__.profile_name,
         provisioning_state=__ret__.provisioning_state,
-        response_based_afd_origin_error_detection_settings=__ret__.response_based_afd_origin_error_detection_settings,
         session_affinity_state=__ret__.session_affinity_state,
         system_data=__ret__.system_data,
         traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=__ret__.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
@@ -203,11 +203,11 @@ def get_afd_origin_group_output(origin_group_name: Optional[pulumi.Input[str]] =
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAFDOriginGroupResult]:
     """
     Gets an existing origin group within a profile.
-    API Version: 2020-09-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str origin_group_name: Name of the origin group which is unique within the endpoint.
-    :param str profile_name: Name of the CDN profile which is unique within the resource group.
+    :param str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
     ...

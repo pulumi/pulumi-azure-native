@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
  */
-/** @deprecated azure-native:hybridcompute/v20221227:Machine is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:Machine to guarantee forwards compatibility. */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
-    pulumi.log.warn("getMachine is deprecated: azure-native:hybridcompute/v20221227:Machine is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:Machine to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:hybridcompute/v20221227:getMachine", {
@@ -189,7 +187,6 @@ export interface GetMachineResult {
 /**
  * Retrieves information about the model view or the instance view of a hybrid machine.
  */
-/** @deprecated azure-native:hybridcompute/v20221227:Machine is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:Machine to guarantee forwards compatibility. */
 export function getMachineOutput(args: GetMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMachineResult> {
     return pulumi.output(args).apply((a: any) => getMachine(a, opts))
 }

@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.ContainerService
     public static class ListManagedClusterMonitoringUserCredentials
     {
         /// <summary>
-        /// Gets cluster monitoring user credential of the managed cluster with a specified resource group and name.
-        /// API Version: 2021-03-01.
+        /// The list credential result response.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<ListManagedClusterMonitoringUserCredentialsResult> InvokeAsync(ListManagedClusterMonitoringUserCredentialsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListManagedClusterMonitoringUserCredentialsResult>("azure-native:containerservice:listManagedClusterMonitoringUserCredentials", args ?? new ListManagedClusterMonitoringUserCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets cluster monitoring user credential of the managed cluster with a specified resource group and name.
-        /// API Version: 2021-03-01.
+        /// The list credential result response.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<ListManagedClusterMonitoringUserCredentialsResult> Invoke(ListManagedClusterMonitoringUserCredentialsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListManagedClusterMonitoringUserCredentialsResult>("azure-native:containerservice:listManagedClusterMonitoringUserCredentials", args ?? new ListManagedClusterMonitoringUserCredentialsInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class ListManagedClusterMonitoringUserCredentialsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -41,6 +41,12 @@ namespace Pulumi.AzureNative.ContainerService
         [Input("resourceName", required: true)]
         public string ResourceName { get; set; } = null!;
 
+        /// <summary>
+        /// server fqdn type for credentials to be returned
+        /// </summary>
+        [Input("serverFqdn")]
+        public string? ServerFqdn { get; set; }
+
         public ListManagedClusterMonitoringUserCredentialsArgs()
         {
         }
@@ -50,7 +56,7 @@ namespace Pulumi.AzureNative.ContainerService
     public sealed class ListManagedClusterMonitoringUserCredentialsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -60,6 +66,12 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         [Input("resourceName", required: true)]
         public Input<string> ResourceName { get; set; } = null!;
+
+        /// <summary>
+        /// server fqdn type for credentials to be returned
+        /// </summary>
+        [Input("serverFqdn")]
+        public Input<string>? ServerFqdn { get; set; }
 
         public ListManagedClusterMonitoringUserCredentialsInvokeArgs()
         {

@@ -3,7 +3,7 @@ package versioning
 import (
 	"sort"
 
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 )
 
 type VersionResources = map[openapi.ApiVersion][]openapi.ResourceName

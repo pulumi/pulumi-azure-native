@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
@@ -56,6 +60,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// If true, files or sub-folders under current folder path will be deleted recursively. Default is false. Type: boolean (or Expression with resultType boolean).
         /// </summary>
         public readonly object? Recursive;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Delete activity store settings.
         /// </summary>
@@ -88,9 +96,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             Outputs.ActivityPolicyResponse? policy,
 
             object? recursive,
+
+            string? state,
 
             object? storeSettings,
 
@@ -106,8 +118,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             LogStorageSettings = logStorageSettings;
             MaxConcurrentConnections = maxConcurrentConnections;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
             Recursive = recursive;
+            State = state;
             StoreSettings = storeSettings;
             Type = type;
             UserProperties = userProperties;

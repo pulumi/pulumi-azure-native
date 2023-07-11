@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Schedule for automatically turning virtual machines in a lab on and off at specified times.
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview
  */
 export class Schedule extends pulumi.CustomResource {
     /**
@@ -133,7 +133,7 @@ export class Schedule extends pulumi.CustomResource {
  */
 export interface ScheduleArgs {
     /**
-     * The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+     * The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
      */
     labName: pulumi.Input<string>;
     /**

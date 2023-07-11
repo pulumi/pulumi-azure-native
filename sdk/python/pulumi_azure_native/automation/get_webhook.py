@@ -207,7 +207,7 @@ def get_webhook(automation_account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebhookResult:
     """
     Retrieve the webhook identified by webhook name.
-    API Version: 2015-10-31.
+    Azure REST API version: 2015-10-31.
 
 
     :param str automation_account_name: The name of the automation account.
@@ -245,7 +245,7 @@ def get_webhook_output(automation_account_name: Optional[pulumi.Input[str]] = No
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Retrieve the webhook identified by webhook name.
-    API Version: 2015-10-31.
+    Azure REST API version: 2015-10-31.
 
 
     :param str automation_account_name: The name of the automation account.

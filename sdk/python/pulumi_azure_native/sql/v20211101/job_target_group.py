@@ -98,12 +98,7 @@ class JobTargetGroupArgs:
         pulumi.set(self, "target_group_name", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobTargetGroup to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class JobTargetGroup(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobTargetGroup to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -155,7 +150,6 @@ class JobTargetGroup(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  target_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""JobTargetGroup is deprecated: azure-native:sql/v20211101:JobTargetGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:JobTargetGroup to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -179,7 +173,7 @@ class JobTargetGroup(pulumi.CustomResource):
             __props__.__dict__["target_group_name"] = target_group_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20170301preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20210201preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20220201preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20220501preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20220801preview:JobTargetGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20170301preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20200202preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20200801preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20201101preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20210201preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20210501preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20210801preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20211101preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20220201preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20220501preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20220801preview:JobTargetGroup"), pulumi.Alias(type_="azure-native:sql/v20221101preview:JobTargetGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(JobTargetGroup, __self__).__init__(
             'azure-native:sql/v20211101:JobTargetGroup',

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a workload group
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getWorkloadGroup(args: GetWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadGroupResult> {
 
@@ -81,7 +81,7 @@ export interface GetWorkloadGroupResult {
 }
 /**
  * Gets a workload group
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getWorkloadGroupOutput(args: GetWorkloadGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadGroupResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadGroup(a, opts))

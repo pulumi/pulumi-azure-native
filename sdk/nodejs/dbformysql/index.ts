@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AzureADAdministratorArgs } from "./azureADAdministrator";
+export type AzureADAdministrator = import("./azureADAdministrator").AzureADAdministrator;
+export const AzureADAdministrator: typeof import("./azureADAdministrator").AzureADAdministrator = null as any;
+utilities.lazyLoad(exports, ["AzureADAdministrator"], () => require("./azureADAdministrator"));
+
 export { ConfigurationArgs } from "./configuration";
 export type Configuration = import("./configuration").Configuration;
 export const Configuration: typeof import("./configuration").Configuration = null as any;
@@ -19,6 +24,11 @@ export { FirewallRuleArgs } from "./firewallRule";
 export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
 utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+
+export { GetAzureADAdministratorArgs, GetAzureADAdministratorResult, GetAzureADAdministratorOutputArgs } from "./getAzureADAdministrator";
+export const getAzureADAdministrator: typeof import("./getAzureADAdministrator").getAzureADAdministrator = null as any;
+export const getAzureADAdministratorOutput: typeof import("./getAzureADAdministrator").getAzureADAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getAzureADAdministrator","getAzureADAdministratorOutput"], () => require("./getAzureADAdministrator"));
 
 export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
 export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
@@ -49,21 +59,6 @@ export const getServer: typeof import("./getServer").getServer = null as any;
 export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
 utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
 
-export { GetServerAdministratorArgs, GetServerAdministratorResult, GetServerAdministratorOutputArgs } from "./getServerAdministrator";
-export const getServerAdministrator: typeof import("./getServerAdministrator").getServerAdministrator = null as any;
-export const getServerAdministratorOutput: typeof import("./getServerAdministrator").getServerAdministratorOutput = null as any;
-utilities.lazyLoad(exports, ["getServerAdministrator","getServerAdministratorOutput"], () => require("./getServerAdministrator"));
-
-export { GetServerKeyArgs, GetServerKeyResult, GetServerKeyOutputArgs } from "./getServerKey";
-export const getServerKey: typeof import("./getServerKey").getServerKey = null as any;
-export const getServerKeyOutput: typeof import("./getServerKey").getServerKeyOutput = null as any;
-utilities.lazyLoad(exports, ["getServerKey","getServerKeyOutput"], () => require("./getServerKey"));
-
-export { GetVirtualNetworkRuleArgs, GetVirtualNetworkRuleResult, GetVirtualNetworkRuleOutputArgs } from "./getVirtualNetworkRule";
-export const getVirtualNetworkRule: typeof import("./getVirtualNetworkRule").getVirtualNetworkRule = null as any;
-export const getVirtualNetworkRuleOutput: typeof import("./getVirtualNetworkRule").getVirtualNetworkRuleOutput = null as any;
-utilities.lazyLoad(exports, ["getVirtualNetworkRule","getVirtualNetworkRuleOutput"], () => require("./getVirtualNetworkRule"));
-
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -74,31 +69,13 @@ export type Server = import("./server").Server;
 export const Server: typeof import("./server").Server = null as any;
 utilities.lazyLoad(exports, ["Server"], () => require("./server"));
 
-export { ServerAdministratorArgs } from "./serverAdministrator";
-export type ServerAdministrator = import("./serverAdministrator").ServerAdministrator;
-export const ServerAdministrator: typeof import("./serverAdministrator").ServerAdministrator = null as any;
-utilities.lazyLoad(exports, ["ServerAdministrator"], () => require("./serverAdministrator"));
-
-export { ServerKeyArgs } from "./serverKey";
-export type ServerKey = import("./serverKey").ServerKey;
-export const ServerKey: typeof import("./serverKey").ServerKey = null as any;
-utilities.lazyLoad(exports, ["ServerKey"], () => require("./serverKey"));
-
-export { VirtualNetworkRuleArgs } from "./virtualNetworkRule";
-export type VirtualNetworkRule = import("./virtualNetworkRule").VirtualNetworkRule;
-export const VirtualNetworkRule: typeof import("./virtualNetworkRule").VirtualNetworkRule = null as any;
-utilities.lazyLoad(exports, ["VirtualNetworkRule"], () => require("./virtualNetworkRule"));
-
 
 // Export enums:
 export * from "../types/enums/dbformysql";
 
 // Export sub-modules:
 import * as v20171201 from "./v20171201";
-import * as v20171201preview from "./v20171201preview";
-import * as v20180601 from "./v20180601";
-import * as v20200101 from "./v20200101";
-import * as v20200101privatepreview from "./v20200101privatepreview";
+import * as v20180601privatepreview from "./v20180601privatepreview";
 import * as v20200701preview from "./v20200701preview";
 import * as v20200701privatepreview from "./v20200701privatepreview";
 import * as v20210501 from "./v20210501";
@@ -109,10 +86,7 @@ import * as v20220930preview from "./v20220930preview";
 
 export {
     v20171201,
-    v20171201preview,
-    v20180601,
-    v20200101,
-    v20200101privatepreview,
+    v20180601privatepreview,
     v20200701preview,
     v20200701privatepreview,
     v20210501,
@@ -126,6 +100,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:dbformysql:AzureADAdministrator":
+                return new AzureADAdministrator(name, <any>undefined, { urn })
             case "azure-native:dbformysql:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
             case "azure-native:dbformysql:Database":
@@ -136,12 +112,6 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:dbformysql:Server":
                 return new Server(name, <any>undefined, { urn })
-            case "azure-native:dbformysql:ServerAdministrator":
-                return new ServerAdministrator(name, <any>undefined, { urn })
-            case "azure-native:dbformysql:ServerKey":
-                return new ServerKey(name, <any>undefined, { urn })
-            case "azure-native:dbformysql:VirtualNetworkRule":
-                return new VirtualNetworkRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

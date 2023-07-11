@@ -52,7 +52,7 @@ def get_build_service_build_result_log(build_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBuildServiceBuildResultLogResult:
     """
     Get a KPack build result log download URL.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str build_name: The name of the build resource.
@@ -83,7 +83,7 @@ def get_build_service_build_result_log_output(build_name: Optional[pulumi.Input[
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildServiceBuildResultLogResult]:
     """
     Get a KPack build result log download URL.
-    API Version: 2022-01-01-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str build_name: The name of the build resource.

@@ -129,12 +129,7 @@ class GroupArgs:
         pulumi.set(self, "type", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Group to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Group(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Group to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -192,7 +187,6 @@ class Group(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input['GroupType']] = None,
                  __props__=None):
-        pulumi.log.warn("""Group is deprecated: azure-native:apimanagement/v20220801:Group is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Group to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -216,7 +210,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["built_in"] = None
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Group")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Group"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Group")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Group, __self__).__init__(
             'azure-native:apimanagement/v20220801:Group',

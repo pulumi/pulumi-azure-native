@@ -10,15 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
+    /// <summary>
+    /// Properties of a labeling job for image data
+    /// </summary>
     [OutputType]
     public sealed class LabelingJobImagePropertiesResponse
     {
         /// <summary>
-        /// Annotation type of image labeling tasks.
+        /// Annotation type of image labeling job.
         /// </summary>
         public readonly string? AnnotationType;
         /// <summary>
         /// Media type of data asset.
+        /// Expected value is 'Image'.
         /// </summary>
         public readonly string MediaType;
 

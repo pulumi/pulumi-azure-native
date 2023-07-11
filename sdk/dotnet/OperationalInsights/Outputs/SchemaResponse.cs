@@ -41,14 +41,6 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// Parameters of the restore operation that initiated this table.
-        /// </summary>
-        public readonly Outputs.RestoredLogsResponse RestoredLogs;
-        /// <summary>
-        /// Parameters of the search job that initiated this table.
-        /// </summary>
-        public readonly Outputs.SearchResultsResponse SearchResults;
-        /// <summary>
         /// List of solutions the table is affiliated with
         /// </summary>
         public readonly ImmutableArray<string> Solutions;
@@ -83,10 +75,6 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
 
             string? name,
 
-            Outputs.RestoredLogsResponse restoredLogs,
-
-            Outputs.SearchResultsResponse searchResults,
-
             ImmutableArray<string> solutions,
 
             string source,
@@ -103,8 +91,6 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
             DisplayName = displayName;
             Labels = labels;
             Name = name;
-            RestoredLogs = restoredLogs;
-            SearchResults = searchResults;
             Solutions = solutions;
             Source = source;
             StandardColumns = standardColumns;

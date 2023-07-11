@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Data Lake Store trusted identity provider.
- * API Version: 2016-11-01.
+ * Azure REST API version: 2016-11-01.
  */
 export function getTrustedIdProvider(args: GetTrustedIdProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustedIdProviderResult> {
 
@@ -56,7 +56,7 @@ export interface GetTrustedIdProviderResult {
 }
 /**
  * Gets the specified Data Lake Store trusted identity provider.
- * API Version: 2016-11-01.
+ * Azure REST API version: 2016-11-01.
  */
 export function getTrustedIdProviderOutput(args: GetTrustedIdProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustedIdProviderResult> {
     return pulumi.output(args).apply((a: any) => getTrustedIdProvider(a, opts))

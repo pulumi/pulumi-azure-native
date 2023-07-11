@@ -28,7 +28,7 @@ class WebAppSitePushSettingsArgs:
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[str] dynamic_tags_json: Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         :param pulumi.Input[str] kind: Kind of resource.
-        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         :param pulumi.Input[str] tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
                Tags can consist of alphanumeric characters and the following:
                '_', '@', '#', '.', ':', '-'. 
@@ -110,7 +110,7 @@ class WebAppSitePushSettingsArgs:
     @pulumi.getter(name="tagWhitelistJson")
     def tag_whitelist_json(self) -> Optional[pulumi.Input[str]]:
         """
-        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 
@@ -149,7 +149,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
                  __props__=None):
         """
         Push settings for the App.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +158,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
         :param pulumi.Input[str] kind: Kind of resource.
         :param pulumi.Input[str] name: Name of web app.
         :param pulumi.Input[str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        :param pulumi.Input[str] tag_whitelist_json: Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         :param pulumi.Input[str] tags_requiring_auth: Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
                Tags can consist of alphanumeric characters and the following:
                '_', '@', '#', '.', ':', '-'. 
@@ -172,7 +172,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Push settings for the App.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param WebAppSitePushSettingsArgs args: The arguments to use to populate this resource's properties.
@@ -288,7 +288,7 @@ class WebAppSitePushSettings(pulumi.CustomResource):
     @pulumi.getter(name="tagWhitelistJson")
     def tag_whitelist_json(self) -> pulumi.Output[Optional[str]]:
         """
-        Gets or sets a JSON string containing a list of tags that are in the allowed list for use by the push registration endpoint.
+        Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 

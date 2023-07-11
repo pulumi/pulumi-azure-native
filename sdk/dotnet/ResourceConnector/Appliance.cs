@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ResourceConnector
 {
     /// <summary>
     /// Appliances definition.
-    /// API Version: 2021-10-31-preview.
+    /// Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:resourceconnector:Appliance")]
     public partial class Appliance : global::Pulumi.CustomResource
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Certificates pair used to download MSI certificate from HIS
+        /// Certificates pair used to download MSI certificate from HIS. Can only be set once.
         /// </summary>
         [Output("publicKey")]
         public Output<string?> PublicKey { get; private set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// Version of the Appliance
         /// </summary>
         [Output("version")]
-        public Output<string> Version { get; private set; } = null!;
+        public Output<string?> Version { get; private set; } = null!;
 
 
         /// <summary>
@@ -164,7 +164,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Certificates pair used to download MSI certificate from HIS
+        /// Certificates pair used to download MSI certificate from HIS. Can only be set once.
         /// </summary>
         [Input("publicKey")]
         public Input<string>? PublicKey { get; set; }
@@ -192,6 +192,12 @@ namespace Pulumi.AzureNative.ResourceConnector
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// Version of the Appliance
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
 
         public ApplianceArgs()
         {

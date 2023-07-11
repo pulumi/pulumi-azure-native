@@ -196,7 +196,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         A server security alert policy.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -219,7 +219,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A server security alert policy.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ServerSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.
@@ -275,7 +275,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerSecurityAlertPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ServerSecurityAlertPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ServerSecurityAlertPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServerSecurityAlertPolicy, __self__).__init__(
             'azure-native:sql:ServerSecurityAlertPolicy',

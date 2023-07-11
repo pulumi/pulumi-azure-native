@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// </summary>
         public readonly bool? AutoRenew;
         /// <summary>
+        /// Commitment plan guid.
+        /// </summary>
+        public readonly string? CommitmentPlanGuid;
+        /// <summary>
         /// Cognitive Services account commitment period.
         /// </summary>
         public readonly Outputs.CommitmentPeriodResponse? Current;
@@ -40,10 +44,20 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
         /// Commitment plan type.
         /// </summary>
         public readonly string? PlanType;
+        /// <summary>
+        /// The list of ProvisioningIssue.
+        /// </summary>
+        public readonly ImmutableArray<string> ProvisioningIssues;
+        /// <summary>
+        /// Gets the status of the resource at the time the operation was called.
+        /// </summary>
+        public readonly string ProvisioningState;
 
         [OutputConstructor]
         private CommitmentPlanPropertiesResponse(
             bool? autoRenew,
+
+            string? commitmentPlanGuid,
 
             Outputs.CommitmentPeriodResponse? current,
 
@@ -53,14 +67,21 @@ namespace Pulumi.AzureNative.CognitiveServices.Outputs
 
             Outputs.CommitmentPeriodResponse? next,
 
-            string? planType)
+            string? planType,
+
+            ImmutableArray<string> provisioningIssues,
+
+            string provisioningState)
         {
             AutoRenew = autoRenew;
+            CommitmentPlanGuid = commitmentPlanGuid;
             Current = current;
             HostingModel = hostingModel;
             Last = last;
             Next = next;
             PlanType = planType;
+            ProvisioningIssues = provisioningIssues;
+            ProvisioningState = provisioningState;
         }
     }
 }

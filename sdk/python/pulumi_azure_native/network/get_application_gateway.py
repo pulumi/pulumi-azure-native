@@ -22,7 +22,7 @@ class GetApplicationGatewayResult:
     """
     Application gateway resource.
     """
-    def __init__(__self__, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings_collection=None, custom_error_configurations=None, enable_fips=None, enable_http2=None, etag=None, firewall_policy=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, http_listeners=None, id=None, identity=None, location=None, name=None, operational_state=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, provisioning_state=None, redirect_configurations=None, request_routing_rules=None, resource_guid=None, rewrite_rule_sets=None, sku=None, ssl_certificates=None, ssl_policy=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, type=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None):
+    def __init__(__self__, authentication_certificates=None, autoscale_configuration=None, backend_address_pools=None, backend_http_settings_collection=None, backend_settings_collection=None, custom_error_configurations=None, default_predefined_ssl_policy=None, enable_fips=None, enable_http2=None, etag=None, firewall_policy=None, force_firewall_policy_association=None, frontend_ip_configurations=None, frontend_ports=None, gateway_ip_configurations=None, global_configuration=None, http_listeners=None, id=None, identity=None, listeners=None, load_distribution_policies=None, location=None, name=None, operational_state=None, private_endpoint_connections=None, private_link_configurations=None, probes=None, provisioning_state=None, redirect_configurations=None, request_routing_rules=None, resource_guid=None, rewrite_rule_sets=None, routing_rules=None, sku=None, ssl_certificates=None, ssl_policy=None, ssl_profiles=None, tags=None, trusted_client_certificates=None, trusted_root_certificates=None, type=None, url_path_maps=None, web_application_firewall_configuration=None, zones=None):
         if authentication_certificates and not isinstance(authentication_certificates, list):
             raise TypeError("Expected argument 'authentication_certificates' to be a list")
         pulumi.set(__self__, "authentication_certificates", authentication_certificates)
@@ -35,9 +35,15 @@ class GetApplicationGatewayResult:
         if backend_http_settings_collection and not isinstance(backend_http_settings_collection, list):
             raise TypeError("Expected argument 'backend_http_settings_collection' to be a list")
         pulumi.set(__self__, "backend_http_settings_collection", backend_http_settings_collection)
+        if backend_settings_collection and not isinstance(backend_settings_collection, list):
+            raise TypeError("Expected argument 'backend_settings_collection' to be a list")
+        pulumi.set(__self__, "backend_settings_collection", backend_settings_collection)
         if custom_error_configurations and not isinstance(custom_error_configurations, list):
             raise TypeError("Expected argument 'custom_error_configurations' to be a list")
         pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
+        if default_predefined_ssl_policy and not isinstance(default_predefined_ssl_policy, str):
+            raise TypeError("Expected argument 'default_predefined_ssl_policy' to be a str")
+        pulumi.set(__self__, "default_predefined_ssl_policy", default_predefined_ssl_policy)
         if enable_fips and not isinstance(enable_fips, bool):
             raise TypeError("Expected argument 'enable_fips' to be a bool")
         pulumi.set(__self__, "enable_fips", enable_fips)
@@ -62,6 +68,9 @@ class GetApplicationGatewayResult:
         if gateway_ip_configurations and not isinstance(gateway_ip_configurations, list):
             raise TypeError("Expected argument 'gateway_ip_configurations' to be a list")
         pulumi.set(__self__, "gateway_ip_configurations", gateway_ip_configurations)
+        if global_configuration and not isinstance(global_configuration, dict):
+            raise TypeError("Expected argument 'global_configuration' to be a dict")
+        pulumi.set(__self__, "global_configuration", global_configuration)
         if http_listeners and not isinstance(http_listeners, list):
             raise TypeError("Expected argument 'http_listeners' to be a list")
         pulumi.set(__self__, "http_listeners", http_listeners)
@@ -71,6 +80,12 @@ class GetApplicationGatewayResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if listeners and not isinstance(listeners, list):
+            raise TypeError("Expected argument 'listeners' to be a list")
+        pulumi.set(__self__, "listeners", listeners)
+        if load_distribution_policies and not isinstance(load_distribution_policies, list):
+            raise TypeError("Expected argument 'load_distribution_policies' to be a list")
+        pulumi.set(__self__, "load_distribution_policies", load_distribution_policies)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -104,6 +119,9 @@ class GetApplicationGatewayResult:
         if rewrite_rule_sets and not isinstance(rewrite_rule_sets, list):
             raise TypeError("Expected argument 'rewrite_rule_sets' to be a list")
         pulumi.set(__self__, "rewrite_rule_sets", rewrite_rule_sets)
+        if routing_rules and not isinstance(routing_rules, list):
+            raise TypeError("Expected argument 'routing_rules' to be a list")
+        pulumi.set(__self__, "routing_rules", routing_rules)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
@@ -171,12 +189,28 @@ class GetApplicationGatewayResult:
         return pulumi.get(self, "backend_http_settings_collection")
 
     @property
+    @pulumi.getter(name="backendSettingsCollection")
+    def backend_settings_collection(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendSettingsResponse']]:
+        """
+        Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "backend_settings_collection")
+
+    @property
     @pulumi.getter(name="customErrorConfigurations")
     def custom_error_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayCustomErrorResponse']]:
         """
         Custom error configurations of the application gateway resource.
         """
         return pulumi.get(self, "custom_error_configurations")
+
+    @property
+    @pulumi.getter(name="defaultPredefinedSslPolicy")
+    def default_predefined_ssl_policy(self) -> str:
+        """
+        The default predefined SSL Policy applied on the application gateway resource.
+        """
+        return pulumi.get(self, "default_predefined_ssl_policy")
 
     @property
     @pulumi.getter(name="enableFips")
@@ -243,6 +277,14 @@ class GetApplicationGatewayResult:
         return pulumi.get(self, "gateway_ip_configurations")
 
     @property
+    @pulumi.getter(name="globalConfiguration")
+    def global_configuration(self) -> Optional['outputs.ApplicationGatewayGlobalConfigurationResponse']:
+        """
+        Global Configuration.
+        """
+        return pulumi.get(self, "global_configuration")
+
+    @property
     @pulumi.getter(name="httpListeners")
     def http_listeners(self) -> Optional[Sequence['outputs.ApplicationGatewayHttpListenerResponse']]:
         """
@@ -265,6 +307,22 @@ class GetApplicationGatewayResult:
         The identity of the application gateway, if configured.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def listeners(self) -> Optional[Sequence['outputs.ApplicationGatewayListenerResponse']]:
+        """
+        Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "listeners")
+
+    @property
+    @pulumi.getter(name="loadDistributionPolicies")
+    def load_distribution_policies(self) -> Optional[Sequence['outputs.ApplicationGatewayLoadDistributionPolicyResponse']]:
+        """
+        Load distribution policies of the application gateway resource.
+        """
+        return pulumi.get(self, "load_distribution_policies")
 
     @property
     @pulumi.getter
@@ -353,6 +411,14 @@ class GetApplicationGatewayResult:
         Rewrite rules for the application gateway resource.
         """
         return pulumi.get(self, "rewrite_rule_sets")
+
+    @property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayRoutingRuleResponse']]:
+        """
+        Routing rules of the application gateway resource.
+        """
+        return pulumi.get(self, "routing_rules")
 
     @property
     @pulumi.getter
@@ -453,7 +519,9 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
             autoscale_configuration=self.autoscale_configuration,
             backend_address_pools=self.backend_address_pools,
             backend_http_settings_collection=self.backend_http_settings_collection,
+            backend_settings_collection=self.backend_settings_collection,
             custom_error_configurations=self.custom_error_configurations,
+            default_predefined_ssl_policy=self.default_predefined_ssl_policy,
             enable_fips=self.enable_fips,
             enable_http2=self.enable_http2,
             etag=self.etag,
@@ -462,9 +530,12 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
             frontend_ip_configurations=self.frontend_ip_configurations,
             frontend_ports=self.frontend_ports,
             gateway_ip_configurations=self.gateway_ip_configurations,
+            global_configuration=self.global_configuration,
             http_listeners=self.http_listeners,
             id=self.id,
             identity=self.identity,
+            listeners=self.listeners,
+            load_distribution_policies=self.load_distribution_policies,
             location=self.location,
             name=self.name,
             operational_state=self.operational_state,
@@ -476,6 +547,7 @@ class AwaitableGetApplicationGatewayResult(GetApplicationGatewayResult):
             request_routing_rules=self.request_routing_rules,
             resource_guid=self.resource_guid,
             rewrite_rule_sets=self.rewrite_rule_sets,
+            routing_rules=self.routing_rules,
             sku=self.sku,
             ssl_certificates=self.ssl_certificates,
             ssl_policy=self.ssl_policy,
@@ -494,7 +566,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplicationGatewayResult:
     """
     Gets the specified application gateway.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str application_gateway_name: The name of the application gateway.
@@ -511,7 +583,9 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
         autoscale_configuration=__ret__.autoscale_configuration,
         backend_address_pools=__ret__.backend_address_pools,
         backend_http_settings_collection=__ret__.backend_http_settings_collection,
+        backend_settings_collection=__ret__.backend_settings_collection,
         custom_error_configurations=__ret__.custom_error_configurations,
+        default_predefined_ssl_policy=__ret__.default_predefined_ssl_policy,
         enable_fips=__ret__.enable_fips,
         enable_http2=__ret__.enable_http2,
         etag=__ret__.etag,
@@ -520,9 +594,12 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
         frontend_ip_configurations=__ret__.frontend_ip_configurations,
         frontend_ports=__ret__.frontend_ports,
         gateway_ip_configurations=__ret__.gateway_ip_configurations,
+        global_configuration=__ret__.global_configuration,
         http_listeners=__ret__.http_listeners,
         id=__ret__.id,
         identity=__ret__.identity,
+        listeners=__ret__.listeners,
+        load_distribution_policies=__ret__.load_distribution_policies,
         location=__ret__.location,
         name=__ret__.name,
         operational_state=__ret__.operational_state,
@@ -534,6 +611,7 @@ def get_application_gateway(application_gateway_name: Optional[str] = None,
         request_routing_rules=__ret__.request_routing_rules,
         resource_guid=__ret__.resource_guid,
         rewrite_rule_sets=__ret__.rewrite_rule_sets,
+        routing_rules=__ret__.routing_rules,
         sku=__ret__.sku,
         ssl_certificates=__ret__.ssl_certificates,
         ssl_policy=__ret__.ssl_policy,
@@ -553,7 +631,7 @@ def get_application_gateway_output(application_gateway_name: Optional[pulumi.Inp
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationGatewayResult]:
     """
     Gets the specified application gateway.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str application_gateway_name: The name of the application gateway.

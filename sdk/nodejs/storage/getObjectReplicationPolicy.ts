@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the object replication policy of the storage account by policy ID.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
 
@@ -27,7 +27,7 @@ export interface GetObjectReplicationPolicyArgs {
      */
     accountName: string;
     /**
-     * The ID of object replication policy or 'default' if the policy ID is unknown.
+     * For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
      */
     objectReplicationPolicyId: string;
     /**
@@ -41,7 +41,7 @@ export interface GetObjectReplicationPolicyArgs {
  */
 export interface GetObjectReplicationPolicyResult {
     /**
-     * Required. Destination account name.
+     * Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
     readonly destinationAccount: string;
     /**
@@ -65,7 +65,7 @@ export interface GetObjectReplicationPolicyResult {
      */
     readonly rules?: outputs.storage.ObjectReplicationPolicyRuleResponse[];
     /**
-     * Required. Source account name.
+     * Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
      */
     readonly sourceAccount: string;
     /**
@@ -75,7 +75,7 @@ export interface GetObjectReplicationPolicyResult {
 }
 /**
  * Get the object replication policy of the storage account by policy ID.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getObjectReplicationPolicyOutput(args: GetObjectReplicationPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectReplicationPolicyResult> {
     return pulumi.output(args).apply((a: any) => getObjectReplicationPolicy(a, opts))
@@ -87,7 +87,7 @@ export interface GetObjectReplicationPolicyOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The ID of object replication policy or 'default' if the policy ID is unknown.
+     * For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
      */
     objectReplicationPolicyId: pulumi.Input<string>;
     /**

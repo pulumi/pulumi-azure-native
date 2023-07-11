@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves information about a proximity placement group .
- * API Version: 2020-12-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getProximityPlacementGroup(args: GetProximityPlacementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetProximityPlacementGroupResult> {
 
@@ -53,6 +53,10 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly id: string;
     /**
+     * Specifies the user intent of the proximity placement group.
+     */
+    readonly intent?: outputs.compute.ProximityPlacementGroupPropertiesResponseIntent;
+    /**
      * Resource location
      */
     readonly location: string;
@@ -61,7 +65,7 @@ export interface GetProximityPlacementGroupResult {
      */
     readonly name: string;
     /**
-     * Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+     * Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
      */
     readonly proximityPlacementGroupType?: string;
     /**
@@ -80,10 +84,14 @@ export interface GetProximityPlacementGroupResult {
      * A list of references to all virtual machines in the proximity placement group.
      */
     readonly virtualMachines: outputs.compute.SubResourceWithColocationStatusResponse[];
+    /**
+     * Specifies the Availability Zone where virtual machine, virtual machine scale set or availability set associated with the  proximity placement group can be created.
+     */
+    readonly zones?: string[];
 }
 /**
  * Retrieves information about a proximity placement group .
- * API Version: 2020-12-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getProximityPlacementGroupOutput(args: GetProximityPlacementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProximityPlacementGroupResult> {
     return pulumi.output(args).apply((a: any) => getProximityPlacementGroup(a, opts))

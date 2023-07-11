@@ -184,8 +184,8 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
                                        slot: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWebAppHybridConnectionSlotResult:
     """
-    Retrieves a specific Service Bus Hybrid Connection used by this Web App.
-    API Version: 2020-12-01.
+    Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: The name of the web app.
@@ -226,8 +226,8 @@ def get_web_app_hybrid_connection_slot_output(name: Optional[pulumi.Input[str]] 
                                               slot: Optional[pulumi.Input[str]] = None,
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWebAppHybridConnectionSlotResult]:
     """
-    Retrieves a specific Service Bus Hybrid Connection used by this Web App.
-    API Version: 2020-12-01.
+    Description for Retrieves a specific Service Bus Hybrid Connection used by this Web App.
+    Azure REST API version: 2022-09-01.
 
 
     :param str name: The name of the web app.

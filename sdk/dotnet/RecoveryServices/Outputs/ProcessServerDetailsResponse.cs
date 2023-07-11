@@ -25,6 +25,22 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double AvailableSpaceInBytes;
         /// <summary>
+        /// The process server Bios Id.
+        /// </summary>
+        public readonly string BiosId;
+        /// <summary>
+        /// The disk usage status.
+        /// </summary>
+        public readonly string DiskUsageStatus;
+        /// <summary>
+        /// The fabric object Id.
+        /// </summary>
+        public readonly string FabricObjectId;
+        /// <summary>
+        /// The process server Fqdn.
+        /// </summary>
+        public readonly string Fqdn;
+        /// <summary>
         /// The free disk space percentage.
         /// </summary>
         public readonly double FreeSpacePercentage;
@@ -45,6 +61,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The list of IP addresses for communicating with the RCM component.
+        /// </summary>
+        public readonly ImmutableArray<string> IpAddresses;
+        /// <summary>
         /// The last heartbeat received from the process server.
         /// </summary>
         public readonly string LastHeartbeatUtc;
@@ -52,6 +72,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// The memory usage percentage.
         /// </summary>
         public readonly double MemoryUsagePercentage;
+        /// <summary>
+        /// The memory usage status.
+        /// </summary>
+        public readonly string MemoryUsageStatus;
         /// <summary>
         /// The process server name.
         /// </summary>
@@ -61,9 +85,29 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double ProcessorUsagePercentage;
         /// <summary>
+        /// The processor usage status.
+        /// </summary>
+        public readonly string ProcessorUsageStatus;
+        /// <summary>
+        /// The protected item count.
+        /// </summary>
+        public readonly int ProtectedItemCount;
+        /// <summary>
+        /// The system load.
+        /// </summary>
+        public readonly double SystemLoad;
+        /// <summary>
+        /// The system load status.
+        /// </summary>
+        public readonly string SystemLoadStatus;
+        /// <summary>
         /// The throughput in bytes.
         /// </summary>
         public readonly double ThroughputInBytes;
+        /// <summary>
+        /// The throughput status.
+        /// </summary>
+        public readonly string ThroughputStatus;
         /// <summary>
         /// The uploading pending data in bytes.
         /// </summary>
@@ -85,7 +129,7 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly double UsedSpaceInBytes;
         /// <summary>
-        /// The process server version.
+        /// The version.
         /// </summary>
         public readonly string Version;
 
@@ -94,6 +138,14 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
             double availableMemoryInBytes,
 
             double availableSpaceInBytes,
+
+            string biosId,
+
+            string diskUsageStatus,
+
+            string fabricObjectId,
+
+            string fqdn,
 
             double freeSpacePercentage,
 
@@ -105,15 +157,29 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string id,
 
+            ImmutableArray<string> ipAddresses,
+
             string lastHeartbeatUtc,
 
             double memoryUsagePercentage,
+
+            string memoryUsageStatus,
 
             string name,
 
             double processorUsagePercentage,
 
+            string processorUsageStatus,
+
+            int protectedItemCount,
+
+            double systemLoad,
+
+            string systemLoadStatus,
+
             double throughputInBytes,
+
+            string throughputStatus,
 
             double throughputUploadPendingDataInBytes,
 
@@ -129,16 +195,27 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         {
             AvailableMemoryInBytes = availableMemoryInBytes;
             AvailableSpaceInBytes = availableSpaceInBytes;
+            BiosId = biosId;
+            DiskUsageStatus = diskUsageStatus;
+            FabricObjectId = fabricObjectId;
+            Fqdn = fqdn;
             FreeSpacePercentage = freeSpacePercentage;
             Health = health;
             HealthErrors = healthErrors;
             HistoricHealth = historicHealth;
             Id = id;
+            IpAddresses = ipAddresses;
             LastHeartbeatUtc = lastHeartbeatUtc;
             MemoryUsagePercentage = memoryUsagePercentage;
+            MemoryUsageStatus = memoryUsageStatus;
             Name = name;
             ProcessorUsagePercentage = processorUsagePercentage;
+            ProcessorUsageStatus = processorUsageStatus;
+            ProtectedItemCount = protectedItemCount;
+            SystemLoad = systemLoad;
+            SystemLoadStatus = systemLoadStatus;
             ThroughputInBytes = throughputInBytes;
+            ThroughputStatus = throughputStatus;
             ThroughputUploadPendingDataInBytes = throughputUploadPendingDataInBytes;
             TotalMemoryInBytes = totalMemoryInBytes;
             TotalSpaceInBytes = totalSpaceInBytes;

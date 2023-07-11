@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['ActionArgs', 'Action']
 
@@ -23,7 +24,7 @@ class ActionArgs:
         """
         The set of arguments for constructing a Action resource.
         :param pulumi.Input[str] logic_app_resource_id: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[str] trigger_uri: Logic App Callback URL for this specific workflow.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -53,7 +54,7 @@ class ActionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group within the user's subscription. The name is case insensitive.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -124,13 +125,13 @@ class Action(pulumi.CustomResource):
                  __props__=None):
         """
         Action for alert rule.
-        API Version: 2020-01-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] action_id: Action ID
         :param pulumi.Input[str] logic_app_resource_id: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] rule_id: Alert rule ID
         :param pulumi.Input[str] trigger_uri: Logic App Callback URL for this specific workflow.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -143,7 +144,7 @@ class Action(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Action for alert rule.
-        API Version: 2020-01-01.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-01-01
 
         :param str resource_name: The name of the resource.
         :param ActionArgs args: The arguments to use to populate this resource's properties.
@@ -193,9 +194,10 @@ class Action(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["workflow_id"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Action")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20200101:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20211001:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220801:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20221101:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20230201:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:Action"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:Action")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Action, __self__).__init__(
             'azure-native:securityinsights:Action',
@@ -222,6 +224,7 @@ class Action(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["logic_app_resource_id"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["workflow_id"] = None
         return Action(resource_name, opts=opts, __props__=__props__)
@@ -246,15 +249,23 @@ class Action(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

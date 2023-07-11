@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetDataContainerResult> InvokeAsync(GetDataContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataContainerResult>("azure-native:machinelearningservices:getDataContainer", args ?? new GetDataContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetDataContainerResult> Invoke(GetDataContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataContainerResult>("azure-native:machinelearningservices:getDataContainer", args ?? new GetDataContainerInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
     public sealed class GetDataContainerResult
     {
         /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        public readonly Outputs.DataContainerResponse DataContainerProperties;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
@@ -92,11 +96,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        public readonly Outputs.DataContainerResponse Properties;
-        /// <summary>
-        /// System data associated with resource provider
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
@@ -106,19 +106,19 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetDataContainerResult(
+            Outputs.DataContainerResponse dataContainerProperties,
+
             string id,
 
             string name,
-
-            Outputs.DataContainerResponse properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
+            DataContainerProperties = dataContainerProperties;
             Id = id;
             Name = name;
-            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

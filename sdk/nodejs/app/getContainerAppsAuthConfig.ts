@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getContainerAppsAuthConfig(args: GetContainerAppsAuthConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsAuthConfigResult> {
 
@@ -79,7 +79,7 @@ export interface GetContainerAppsAuthConfigResult {
 }
 /**
  * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getContainerAppsAuthConfigOutput(args: GetContainerAppsAuthConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsAuthConfigResult> {
     return pulumi.output(args).apply((a: any) => getContainerAppsAuthConfig(a, opts))

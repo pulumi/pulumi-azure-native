@@ -22,13 +22,16 @@ class GetWorkspaceResult:
     """
     A workspace
     """
-    def __init__(__self__, adla_resource_id=None, connectivity_endpoints=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, purview_configuration=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
+    def __init__(__self__, adla_resource_id=None, connectivity_endpoints=None, csp_workspace_admin_properties=None, default_data_lake_storage=None, encryption=None, extra_properties=None, id=None, identity=None, location=None, managed_resource_group_name=None, managed_virtual_network=None, managed_virtual_network_settings=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, purview_configuration=None, settings=None, sql_administrator_login=None, sql_administrator_login_password=None, tags=None, trusted_service_bypass_enabled=None, type=None, virtual_network_profile=None, workspace_repository_configuration=None, workspace_uid=None):
         if adla_resource_id and not isinstance(adla_resource_id, str):
             raise TypeError("Expected argument 'adla_resource_id' to be a str")
         pulumi.set(__self__, "adla_resource_id", adla_resource_id)
         if connectivity_endpoints and not isinstance(connectivity_endpoints, dict):
             raise TypeError("Expected argument 'connectivity_endpoints' to be a dict")
         pulumi.set(__self__, "connectivity_endpoints", connectivity_endpoints)
+        if csp_workspace_admin_properties and not isinstance(csp_workspace_admin_properties, dict):
+            raise TypeError("Expected argument 'csp_workspace_admin_properties' to be a dict")
+        pulumi.set(__self__, "csp_workspace_admin_properties", csp_workspace_admin_properties)
         if default_data_lake_storage and not isinstance(default_data_lake_storage, dict):
             raise TypeError("Expected argument 'default_data_lake_storage' to be a dict")
         pulumi.set(__self__, "default_data_lake_storage", default_data_lake_storage)
@@ -71,6 +74,9 @@ class GetWorkspaceResult:
         if purview_configuration and not isinstance(purview_configuration, dict):
             raise TypeError("Expected argument 'purview_configuration' to be a dict")
         pulumi.set(__self__, "purview_configuration", purview_configuration)
+        if settings and not isinstance(settings, dict):
+            raise TypeError("Expected argument 'settings' to be a dict")
+        pulumi.set(__self__, "settings", settings)
         if sql_administrator_login and not isinstance(sql_administrator_login, str):
             raise TypeError("Expected argument 'sql_administrator_login' to be a str")
         pulumi.set(__self__, "sql_administrator_login", sql_administrator_login)
@@ -80,6 +86,9 @@ class GetWorkspaceResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if trusted_service_bypass_enabled and not isinstance(trusted_service_bypass_enabled, bool):
+            raise TypeError("Expected argument 'trusted_service_bypass_enabled' to be a bool")
+        pulumi.set(__self__, "trusted_service_bypass_enabled", trusted_service_bypass_enabled)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -103,11 +112,19 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="connectivityEndpoints")
-    def connectivity_endpoints(self) -> Optional[Mapping[str, str]]:
+    def connectivity_endpoints(self) -> Mapping[str, str]:
         """
         Connectivity endpoints
         """
         return pulumi.get(self, "connectivity_endpoints")
+
+    @property
+    @pulumi.getter(name="cspWorkspaceAdminProperties")
+    def csp_workspace_admin_properties(self) -> Optional['outputs.CspWorkspaceAdminPropertiesResponse']:
+        """
+        Initial workspace AAD admin properties for a CSP subscription
+        """
+        return pulumi.get(self, "csp_workspace_admin_properties")
 
     @property
     @pulumi.getter(name="defaultDataLakeStorage")
@@ -127,7 +144,7 @@ class GetWorkspaceResult:
 
     @property
     @pulumi.getter(name="extraProperties")
-    def extra_properties(self) -> Mapping[str, Any]:
+    def extra_properties(self) -> Any:
         """
         Workspace level configs and feature flags
         """
@@ -222,6 +239,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "purview_configuration")
 
     @property
+    @pulumi.getter
+    def settings(self) -> Mapping[str, Any]:
+        """
+        Workspace settings
+        """
+        return pulumi.get(self, "settings")
+
+    @property
     @pulumi.getter(name="sqlAdministratorLogin")
     def sql_administrator_login(self) -> Optional[str]:
         """
@@ -244,6 +269,14 @@ class GetWorkspaceResult:
         Resource tags.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedServiceBypassEnabled")
+    def trusted_service_bypass_enabled(self) -> Optional[bool]:
+        """
+        Is trustedServiceBypassEnabled for the workspace
+        """
+        return pulumi.get(self, "trusted_service_bypass_enabled")
 
     @property
     @pulumi.getter
@@ -286,6 +319,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
         return GetWorkspaceResult(
             adla_resource_id=self.adla_resource_id,
             connectivity_endpoints=self.connectivity_endpoints,
+            csp_workspace_admin_properties=self.csp_workspace_admin_properties,
             default_data_lake_storage=self.default_data_lake_storage,
             encryption=self.encryption,
             extra_properties=self.extra_properties,
@@ -300,9 +334,11 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             purview_configuration=self.purview_configuration,
+            settings=self.settings,
             sql_administrator_login=self.sql_administrator_login,
             sql_administrator_login_password=self.sql_administrator_login_password,
             tags=self.tags,
+            trusted_service_bypass_enabled=self.trusted_service_bypass_enabled,
             type=self.type,
             virtual_network_profile=self.virtual_network_profile,
             workspace_repository_configuration=self.workspace_repository_configuration,
@@ -314,11 +350,11 @@ def get_workspace(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Gets a workspace
-    API Version: 2021-03-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -329,6 +365,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     return AwaitableGetWorkspaceResult(
         adla_resource_id=__ret__.adla_resource_id,
         connectivity_endpoints=__ret__.connectivity_endpoints,
+        csp_workspace_admin_properties=__ret__.csp_workspace_admin_properties,
         default_data_lake_storage=__ret__.default_data_lake_storage,
         encryption=__ret__.encryption,
         extra_properties=__ret__.extra_properties,
@@ -343,9 +380,11 @@ def get_workspace(resource_group_name: Optional[str] = None,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
         purview_configuration=__ret__.purview_configuration,
+        settings=__ret__.settings,
         sql_administrator_login=__ret__.sql_administrator_login,
         sql_administrator_login_password=__ret__.sql_administrator_login_password,
         tags=__ret__.tags,
+        trusted_service_bypass_enabled=__ret__.trusted_service_bypass_enabled,
         type=__ret__.type,
         virtual_network_profile=__ret__.virtual_network_profile,
         workspace_repository_configuration=__ret__.workspace_repository_configuration,
@@ -358,10 +397,10 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets a workspace
-    API Version: 2021-03-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     {
         /// <summary>
         /// Gets details of the Flux Configuration.
-        /// API Version: 2021-11-01-preview.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Task<GetFluxConfigurationResult> InvokeAsync(GetFluxConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets details of the Flux Configuration.
-        /// API Version: 2021-11-01-preview.
+        /// Azure REST API version: 2023-05-01.
         /// </summary>
         public static Output<GetFluxConfigurationResult> Invoke(GetFluxConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFluxConfigurationResult>("azure-native:kubernetesconfiguration:getFluxConfiguration", args ?? new GetFluxConfigurationInvokeArgs(), options.WithDefaults());
@@ -36,13 +36,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public string ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         /// </summary>
         [Input("clusterResourceName", required: true)]
         public string ClusterResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         /// </summary>
         [Input("clusterRp", required: true)]
         public string ClusterRp { get; set; } = null!;
@@ -74,13 +74,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster resource name - either managedClusters (for AKS clusters) or connectedClusters (for OnPrem K8S clusters).
+        /// The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         /// </summary>
         [Input("clusterResourceName", required: true)]
         public Input<string> ClusterResourceName { get; set; } = null!;
 
         /// <summary>
-        /// The Kubernetes cluster RP - either Microsoft.ContainerService (for AKS clusters) or Microsoft.Kubernetes (for OnPrem K8S clusters).
+        /// The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         /// </summary>
         [Input("clusterRp", required: true)]
         public Input<string> ClusterRp { get; set; } = null!;
@@ -108,6 +108,14 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     public sealed class GetFluxConfigurationResult
     {
         /// <summary>
+        /// Parameters to reconcile to the AzureBlob source kind type.
+        /// </summary>
+        public readonly Outputs.AzureBlobDefinitionResponse? AzureBlob;
+        /// <summary>
+        /// Parameters to reconcile to the Bucket source kind type.
+        /// </summary>
+        public readonly Outputs.BucketDefinitionResponse? Bucket;
+        /// <summary>
         /// Combined status of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects.
         /// </summary>
         public readonly string ComplianceState;
@@ -132,14 +140,6 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.KustomizationDefinitionResponse>? Kustomizations;
         /// <summary>
-        /// Datetime the fluxConfiguration last synced its source on the cluster.
-        /// </summary>
-        public readonly string LastSourceSyncedAt;
-        /// <summary>
-        /// Branch and SHA of the last source commit synced with the cluster.
-        /// </summary>
-        public readonly string LastSourceSyncedCommitId;
-        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -152,6 +152,10 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Maximum duration to wait for flux configuration reconciliation. E.g PT1H, PT5M, P1D
+        /// </summary>
+        public readonly string? ReconciliationWaitDuration;
+        /// <summary>
         /// Public Key associated with this fluxConfiguration (either generated within the cluster or provided by the user).
         /// </summary>
         public readonly string RepositoryPublicKey;
@@ -163,6 +167,18 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// Source Kind to pull the configuration data from.
         /// </summary>
         public readonly string? SourceKind;
+        /// <summary>
+        /// Branch and/or SHA of the source commit synced with the cluster.
+        /// </summary>
+        public readonly string SourceSyncedCommitId;
+        /// <summary>
+        /// Datetime the fluxConfiguration synced its source on the cluster.
+        /// </summary>
+        public readonly string SourceUpdatedAt;
+        /// <summary>
+        /// Datetime the fluxConfiguration synced its status on the cluster with Azure.
+        /// </summary>
+        public readonly string StatusUpdatedAt;
         /// <summary>
         /// Statuses of the Flux Kubernetes resources created by the fluxConfiguration or created by the managed objects provisioned by the fluxConfiguration.
         /// </summary>
@@ -179,9 +195,17 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// Whether flux configuration deployment should wait for cluster to reconcile the kustomizations.
+        /// </summary>
+        public readonly bool? WaitForReconciliation;
 
         [OutputConstructor]
         private GetFluxConfigurationResult(
+            Outputs.AzureBlobDefinitionResponse? azureBlob,
+
+            Outputs.BucketDefinitionResponse? bucket,
+
             string complianceState,
 
             ImmutableDictionary<string, string>? configurationProtectedSettings,
@@ -194,15 +218,13 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             ImmutableDictionary<string, Outputs.KustomizationDefinitionResponse>? kustomizations,
 
-            string lastSourceSyncedAt,
-
-            string lastSourceSyncedCommitId,
-
             string name,
 
             string? @namespace,
 
             string provisioningState,
+
+            string? reconciliationWaitDuration,
 
             string repositoryPublicKey,
 
@@ -210,32 +232,45 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
 
             string? sourceKind,
 
+            string sourceSyncedCommitId,
+
+            string sourceUpdatedAt,
+
+            string statusUpdatedAt,
+
             ImmutableArray<Outputs.ObjectStatusDefinitionResponse> statuses,
 
             bool? suspend,
 
             Outputs.SystemDataResponse systemData,
 
-            string type)
+            string type,
+
+            bool? waitForReconciliation)
         {
+            AzureBlob = azureBlob;
+            Bucket = bucket;
             ComplianceState = complianceState;
             ConfigurationProtectedSettings = configurationProtectedSettings;
             ErrorMessage = errorMessage;
             GitRepository = gitRepository;
             Id = id;
             Kustomizations = kustomizations;
-            LastSourceSyncedAt = lastSourceSyncedAt;
-            LastSourceSyncedCommitId = lastSourceSyncedCommitId;
             Name = name;
             Namespace = @namespace;
             ProvisioningState = provisioningState;
+            ReconciliationWaitDuration = reconciliationWaitDuration;
             RepositoryPublicKey = repositoryPublicKey;
             Scope = scope;
             SourceKind = sourceKind;
+            SourceSyncedCommitId = sourceSyncedCommitId;
+            SourceUpdatedAt = sourceUpdatedAt;
+            StatusUpdatedAt = statusUpdatedAt;
             Statuses = statuses;
             Suspend = suspend;
             SystemData = systemData;
             Type = type;
+            WaitForReconciliation = waitForReconciliation;
         }
     }
 }

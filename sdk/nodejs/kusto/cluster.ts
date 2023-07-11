@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a Kusto cluster.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class Cluster extends pulumi.CustomResource {
     /**
@@ -39,9 +39,25 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * The cluster's accepted audiences.
+     */
+    public readonly acceptedAudiences!: pulumi.Output<outputs.kusto.AcceptedAudiencesResponse[] | undefined>;
+    /**
+     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     */
+    public readonly allowedFqdnList!: pulumi.Output<string[] | undefined>;
+    /**
+     * The list of ips in the format of CIDR allowed to connect to the cluster.
+     */
+    public readonly allowedIpRangeList!: pulumi.Output<string[] | undefined>;
+    /**
      * The cluster data ingestion URI.
      */
     public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
+    /**
+     * A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    public readonly enableAutoStop!: pulumi.Output<boolean | undefined>;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */
@@ -77,7 +93,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * List of the cluster's language extensions.
      */
-    public /*out*/ readonly languageExtensions!: pulumi.Output<outputs.kusto.LanguageExtensionsListResponse>;
+    public readonly languageExtensions!: pulumi.Output<outputs.kusto.LanguageExtensionsListResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -91,9 +107,25 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly optimizedAutoscale!: pulumi.Output<outputs.kusto.OptimizedAutoscaleResponse | undefined>;
     /**
+     * A list of private endpoint connections.
+     */
+    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.kusto.PrivateEndpointConnectionResponse[]>;
+    /**
      * The provisioned state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+     */
+    public readonly publicIPType!: pulumi.Output<string | undefined>;
+    /**
+     * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+     */
+    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    /**
+     * Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    public readonly restrictOutboundNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * The SKU of the cluster.
      */
@@ -106,6 +138,10 @@ export class Cluster extends pulumi.CustomResource {
      * The reason for the cluster's current state.
      */
     public /*out*/ readonly stateReason!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.kusto.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -148,7 +184,11 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.sku === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
+            resourceInputs["acceptedAudiences"] = args ? args.acceptedAudiences : undefined;
+            resourceInputs["allowedFqdnList"] = args ? args.allowedFqdnList : undefined;
+            resourceInputs["allowedIpRangeList"] = args ? args.allowedIpRangeList : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["enableAutoStop"] = (args ? args.enableAutoStop : undefined) ?? true;
             resourceInputs["enableDiskEncryption"] = (args ? args.enableDiskEncryption : undefined) ?? false;
             resourceInputs["enableDoubleEncryption"] = (args ? args.enableDoubleEncryption : undefined) ?? false;
             resourceInputs["enablePurge"] = (args ? args.enablePurge : undefined) ?? false;
@@ -156,25 +196,35 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["engineType"] = (args ? args.engineType : undefined) ?? "V3";
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
+            resourceInputs["languageExtensions"] = args ? args.languageExtensions : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
+            resourceInputs["publicIPType"] = (args ? args.publicIPType : undefined) ?? "IPv4";
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["restrictOutboundNetworkAccess"] = (args ? args.restrictOutboundNetworkAccess : undefined) ?? "Disabled";
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
+            resourceInputs["virtualClusterGraduationProperties"] = args ? args.virtualClusterGraduationProperties : undefined;
             resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
-            resourceInputs["languageExtensions"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateReason"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["uri"] = undefined /*out*/;
         } else {
+            resourceInputs["acceptedAudiences"] = undefined /*out*/;
+            resourceInputs["allowedFqdnList"] = undefined /*out*/;
+            resourceInputs["allowedIpRangeList"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
+            resourceInputs["enableAutoStop"] = undefined /*out*/;
             resourceInputs["enableDiskEncryption"] = undefined /*out*/;
             resourceInputs["enableDoubleEncryption"] = undefined /*out*/;
             resourceInputs["enablePurge"] = undefined /*out*/;
@@ -187,10 +237,15 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["optimizedAutoscale"] = undefined /*out*/;
+            resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["publicIPType"] = undefined /*out*/;
+            resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["restrictOutboundNetworkAccess"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateReason"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["trustedExternalTenants"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -199,7 +254,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:Cluster" }, { type: "azure-native:kusto/v20180907preview:Cluster" }, { type: "azure-native:kusto/v20190121:Cluster" }, { type: "azure-native:kusto/v20190515:Cluster" }, { type: "azure-native:kusto/v20190907:Cluster" }, { type: "azure-native:kusto/v20191109:Cluster" }, { type: "azure-native:kusto/v20200215:Cluster" }, { type: "azure-native:kusto/v20200614:Cluster" }, { type: "azure-native:kusto/v20200918:Cluster" }, { type: "azure-native:kusto/v20210101:Cluster" }, { type: "azure-native:kusto/v20210827:Cluster" }, { type: "azure-native:kusto/v20220201:Cluster" }, { type: "azure-native:kusto/v20220707:Cluster" }, { type: "azure-native:kusto/v20221111:Cluster" }, { type: "azure-native:kusto/v20221229:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:Cluster" }, { type: "azure-native:kusto/v20180907preview:Cluster" }, { type: "azure-native:kusto/v20190121:Cluster" }, { type: "azure-native:kusto/v20190515:Cluster" }, { type: "azure-native:kusto/v20190907:Cluster" }, { type: "azure-native:kusto/v20191109:Cluster" }, { type: "azure-native:kusto/v20200215:Cluster" }, { type: "azure-native:kusto/v20200614:Cluster" }, { type: "azure-native:kusto/v20200918:Cluster" }, { type: "azure-native:kusto/v20210101:Cluster" }, { type: "azure-native:kusto/v20210827:Cluster" }, { type: "azure-native:kusto/v20220201:Cluster" }, { type: "azure-native:kusto/v20220707:Cluster" }, { type: "azure-native:kusto/v20221111:Cluster" }, { type: "azure-native:kusto/v20221229:Cluster" }, { type: "azure-native:kusto/v20230502:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -210,9 +265,25 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterArgs {
     /**
+     * The cluster's accepted audiences.
+     */
+    acceptedAudiences?: pulumi.Input<pulumi.Input<inputs.kusto.AcceptedAudiencesArgs>[]>;
+    /**
+     * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+     */
+    allowedFqdnList?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The list of ips in the format of CIDR allowed to connect to the cluster.
+     */
+    allowedIpRangeList?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The name of the Kusto cluster.
      */
     clusterName?: pulumi.Input<string>;
+    /**
+     * A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+     */
+    enableAutoStop?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */
@@ -242,6 +313,10 @@ export interface ClusterArgs {
      */
     keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs>;
     /**
+     * List of the cluster's language extensions.
+     */
+    languageExtensions?: pulumi.Input<inputs.kusto.LanguageExtensionsListArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
@@ -250,9 +325,21 @@ export interface ClusterArgs {
      */
     optimizedAutoscale?: pulumi.Input<inputs.kusto.OptimizedAutoscaleArgs>;
     /**
+     * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+     */
+    publicIPType?: pulumi.Input<string | enums.kusto.PublicIPType>;
+    /**
+     * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+     */
+    publicNetworkAccess?: pulumi.Input<string | enums.kusto.PublicNetworkAccess>;
+    /**
      * The name of the resource group containing the Kusto cluster.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    restrictOutboundNetworkAccess?: pulumi.Input<string | enums.kusto.ClusterNetworkAccessFlag>;
     /**
      * The SKU of the cluster.
      */
@@ -265,6 +352,10 @@ export interface ClusterArgs {
      * The cluster's external tenants.
      */
     trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.TrustedExternalTenantArgs>[]>;
+    /**
+     * Virtual Cluster graduation properties
+     */
+    virtualClusterGraduationProperties?: pulumi.Input<string>;
     /**
      * Virtual network definition.
      */

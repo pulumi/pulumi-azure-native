@@ -16,10 +16,16 @@ namespace Pulumi.AzureNative.Storage.Inputs
     public sealed class ActiveDirectoryPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the Active Directory account type for Azure Storage.
+        /// </summary>
+        [Input("accountType")]
+        public InputUnion<string, Pulumi.AzureNative.Storage.AccountType>? AccountType { get; set; }
+
+        /// <summary>
         /// Specifies the security identifier (SID) for Azure Storage.
         /// </summary>
-        [Input("azureStorageSid", required: true)]
-        public Input<string> AzureStorageSid { get; set; } = null!;
+        [Input("azureStorageSid")]
+        public Input<string>? AzureStorageSid { get; set; }
 
         /// <summary>
         /// Specifies the domain GUID.
@@ -36,20 +42,26 @@ namespace Pulumi.AzureNative.Storage.Inputs
         /// <summary>
         /// Specifies the security identifier (SID).
         /// </summary>
-        [Input("domainSid", required: true)]
-        public Input<string> DomainSid { get; set; } = null!;
+        [Input("domainSid")]
+        public Input<string>? DomainSid { get; set; }
 
         /// <summary>
         /// Specifies the Active Directory forest to get.
         /// </summary>
-        [Input("forestName", required: true)]
-        public Input<string> ForestName { get; set; } = null!;
+        [Input("forestName")]
+        public Input<string>? ForestName { get; set; }
 
         /// <summary>
         /// Specifies the NetBIOS domain name.
         /// </summary>
-        [Input("netBiosDomainName", required: true)]
-        public Input<string> NetBiosDomainName { get; set; } = null!;
+        [Input("netBiosDomainName")]
+        public Input<string>? NetBiosDomainName { get; set; }
+
+        /// <summary>
+        /// Specifies the Active Directory SAMAccountName for Azure Storage.
+        /// </summary>
+        [Input("samAccountName")]
+        public Input<string>? SamAccountName { get; set; }
 
         public ActiveDirectoryPropertiesArgs()
         {

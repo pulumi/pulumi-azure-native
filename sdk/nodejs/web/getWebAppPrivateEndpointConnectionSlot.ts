@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets a private endpoint connection
- * API Version: 2020-12-01.
+ * Description for Gets a private endpoint connection
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppPrivateEndpointConnectionSlot(args: GetWebAppPrivateEndpointConnectionSlotArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppPrivateEndpointConnectionSlotResult> {
 
@@ -76,8 +76,8 @@ export interface GetWebAppPrivateEndpointConnectionSlotResult {
     readonly type: string;
 }
 /**
- * Gets a private endpoint connection
- * API Version: 2020-12-01.
+ * Description for Gets a private endpoint connection
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppPrivateEndpointConnectionSlotOutput(args: GetWebAppPrivateEndpointConnectionSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppPrivateEndpointConnectionSlotResult> {
     return pulumi.output(args).apply((a: any) => getWebAppPrivateEndpointConnectionSlot(a, opts))

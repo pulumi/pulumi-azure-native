@@ -110,7 +110,7 @@ class StaticMember(pulumi.CustomResource):
                  __props__=None):
         """
         StaticMember Item.
-        API Version: 2022-02-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,7 +128,7 @@ class StaticMember(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         StaticMember Item.
-        API Version: 2022-02-01-preview.
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2022-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param StaticMemberArgs args: The arguments to use to populate this resource's properties.
@@ -172,9 +172,11 @@ class StaticMember(pulumi.CustomResource):
             __props__.__dict__["static_member_name"] = static_member_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["region"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210501preview:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220101:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220201preview:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220401preview:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220501:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220701:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220901:StaticMember")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210501preview:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220101:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220201preview:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220401preview:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220501:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220701:StaticMember"), pulumi.Alias(type_="azure-native:network/v20220901:StaticMember"), pulumi.Alias(type_="azure-native:network/v20221101:StaticMember"), pulumi.Alias(type_="azure-native:network/v20230201:StaticMember")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StaticMember, __self__).__init__(
             'azure-native:network:StaticMember',
@@ -200,6 +202,8 @@ class StaticMember(pulumi.CustomResource):
 
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["region"] = None
         __props__.__dict__["resource_id"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
@@ -220,6 +224,22 @@ class StaticMember(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        The provisioning state of the scope assignment resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def region(self) -> pulumi.Output[str]:
+        """
+        Resource region.
+        """
+        return pulumi.get(self, "region")
 
     @property
     @pulumi.getter(name="resourceId")

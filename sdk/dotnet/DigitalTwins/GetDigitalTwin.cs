@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DigitalTwins
     {
         /// <summary>
         /// Get DigitalTwinsInstances resource.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2023-01-31.
         /// </summary>
         public static Task<GetDigitalTwinResult> InvokeAsync(GetDigitalTwinArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDigitalTwinResult>("azure-native:digitaltwins:getDigitalTwin", args ?? new GetDigitalTwinArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get DigitalTwinsInstances resource.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2023-01-31.
         /// </summary>
         public static Output<GetDigitalTwinResult> Invoke(GetDigitalTwinInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDigitalTwinResult>("azure-native:digitaltwins:getDigitalTwin", args ?? new GetDigitalTwinInvokeArgs(), options.WithDefaults());
@@ -99,6 +99,9 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// The resource name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The private endpoint connections.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
         /// The provisioning state.
@@ -108,6 +111,10 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// Public network access for the DigitalTwinsInstance.
         /// </summary>
         public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the DigitalTwinsInstance.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The resource tags.
         /// </summary>
@@ -139,6 +146,8 @@ namespace Pulumi.AzureNative.DigitalTwins
 
             string? publicNetworkAccess,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -153,6 +162,7 @@ namespace Pulumi.AzureNative.DigitalTwins
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

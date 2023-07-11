@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a single custom assessment automation by name for the provided subscription and resource group.
- * API Version: 2021-07-01-preview.
+ * Azure REST API version: 2021-07-01-preview.
  */
 export function getCustomAssessmentAutomation(args: GetCustomAssessmentAutomationArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomAssessmentAutomationResult> {
 
@@ -82,7 +82,7 @@ export interface GetCustomAssessmentAutomationResult {
 }
 /**
  * Gets a single custom assessment automation by name for the provided subscription and resource group.
- * API Version: 2021-07-01-preview.
+ * Azure REST API version: 2021-07-01-preview.
  */
 export function getCustomAssessmentAutomationOutput(args: GetCustomAssessmentAutomationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomAssessmentAutomationResult> {
     return pulumi.output(args).apply((a: any) => getCustomAssessmentAutomation(a, opts))

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Automation
 {
     /// <summary>
     /// Definition of hybrid runbook worker group.
-    /// API Version: 2021-06-22.
+    /// Azure REST API version: 2022-08-08. Prior API version in Azure Native 1.x: 2021-06-22
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:HybridRunbookWorkerGroup")]
     public partial class HybridRunbookWorkerGroup : global::Pulumi.CustomResource
@@ -29,16 +29,10 @@ namespace Pulumi.AzureNative.Automation
         public Output<string?> GroupType { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets the list of hybrid runbook workers.
-        /// </summary>
-        [Output("hybridRunbookWorkers")]
-        public Output<ImmutableArray<Outputs.HybridRunbookWorkerLegacyResponse>> HybridRunbookWorkers { get; private set; } = null!;
-
-        /// <summary>
-        /// Gets or sets the name of the group.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Resource system metadata.
@@ -120,6 +114,12 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         [Input("hybridRunbookWorkerGroupName")]
         public Input<string>? HybridRunbookWorkerGroupName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name of the resource.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Name of an Azure Resource group.

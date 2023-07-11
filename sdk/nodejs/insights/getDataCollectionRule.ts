@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2022-06-01.
  */
 export function getDataCollectionRule(args: GetDataCollectionRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDataCollectionRuleResult> {
 
@@ -36,6 +36,10 @@ export interface GetDataCollectionRuleArgs {
  */
 export interface GetDataCollectionRuleResult {
     /**
+     * The resource ID of the data collection endpoint that this rule can be used with.
+     */
+    readonly dataCollectionEndpointId?: string;
+    /**
      * The specification of data flows.
      */
     readonly dataFlows?: outputs.insights.DataFlowResponse[];
@@ -61,6 +65,10 @@ export interface GetDataCollectionRuleResult {
      */
     readonly id: string;
     /**
+     * Managed service identity of the resource.
+     */
+    readonly identity?: outputs.insights.DataCollectionRuleResourceResponseIdentity;
+    /**
      * The immutable ID of this data collection rule. This property is READ-ONLY.
      */
     readonly immutableId: string;
@@ -73,6 +81,10 @@ export interface GetDataCollectionRuleResult {
      */
     readonly location: string;
     /**
+     * Metadata about the resource
+     */
+    readonly metadata: outputs.insights.DataCollectionRuleResponseMetadata;
+    /**
      * The name of the resource.
      */
     readonly name: string;
@@ -80,6 +92,14 @@ export interface GetDataCollectionRuleResult {
      * The resource provisioning state.
      */
     readonly provisioningState: string;
+    /**
+     * Declaration of custom streams used in this rule.
+     */
+    readonly streamDeclarations?: {[key: string]: outputs.insights.StreamDeclarationResponse};
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.insights.DataCollectionRuleResourceResponseSystemData;
     /**
      * Resource tags.
      */
@@ -91,7 +111,7 @@ export interface GetDataCollectionRuleResult {
 }
 /**
  * Definition of ARM tracked top level resource.
- * API Version: 2019-11-01-preview.
+ * Azure REST API version: 2022-06-01.
  */
 export function getDataCollectionRuleOutput(args: GetDataCollectionRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCollectionRuleResult> {
     return pulumi.output(args).apply((a: any) => getDataCollectionRule(a, opts))

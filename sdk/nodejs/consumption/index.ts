@@ -20,40 +20,10 @@ utilities.lazyLoad(exports, ["getBudget","getBudgetOutput"], () => require("./ge
 export * from "../types/enums/consumption";
 
 // Export sub-modules:
-import * as v20171230preview from "./v20171230preview";
-import * as v20180131 from "./v20180131";
-import * as v20180331 from "./v20180331";
-import * as v20180630 from "./v20180630";
-import * as v20180831 from "./v20180831";
-import * as v20181001 from "./v20181001";
-import * as v20190101 from "./v20190101";
-import * as v20190401preview from "./v20190401preview";
-import * as v20190501 from "./v20190501";
-import * as v20190501preview from "./v20190501preview";
-import * as v20190601 from "./v20190601";
-import * as v20191001 from "./v20191001";
-import * as v20191101 from "./v20191101";
-import * as v20210501 from "./v20210501";
-import * as v20211001 from "./v20211001";
-import * as v20220901 from "./v20220901";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20171230preview,
-    v20180131,
-    v20180331,
-    v20180630,
-    v20180831,
-    v20181001,
-    v20190101,
-    v20190401preview,
-    v20190501,
-    v20190501preview,
-    v20190601,
-    v20191001,
-    v20191101,
-    v20210501,
-    v20211001,
-    v20220901,
+    v20230501,
 };
 
 const _module = {

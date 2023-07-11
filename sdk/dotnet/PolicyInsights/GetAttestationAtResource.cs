@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.PolicyInsights
     {
         /// <summary>
         /// Gets an existing attestation at resource scope.
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetAttestationAtResourceResult> InvokeAsync(GetAttestationAtResourceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttestationAtResourceResult>("azure-native:policyinsights:getAttestationAtResource", args ?? new GetAttestationAtResourceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets an existing attestation at resource scope.
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetAttestationAtResourceResult> Invoke(GetAttestationAtResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttestationAtResourceResult>("azure-native:policyinsights:getAttestationAtResource", args ?? new GetAttestationAtResourceInvokeArgs(), options.WithDefaults());
@@ -72,6 +72,10 @@ namespace Pulumi.AzureNative.PolicyInsights
     public sealed class GetAttestationAtResourceResult
     {
         /// <summary>
+        /// The time the evidence was assessed
+        /// </summary>
+        public readonly string? AssessmentDate;
+        /// <summary>
         /// Comments describing why this attestation was created.
         /// </summary>
         public readonly string? Comments;
@@ -95,6 +99,10 @@ namespace Pulumi.AzureNative.PolicyInsights
         /// The time the compliance state was last changed in this attestation.
         /// </summary>
         public readonly string LastComplianceStateChangeAt;
+        /// <summary>
+        /// Additional metadata for this attestation
+        /// </summary>
+        public readonly object? Metadata;
         /// <summary>
         /// The name of the resource
         /// </summary>
@@ -126,6 +134,8 @@ namespace Pulumi.AzureNative.PolicyInsights
 
         [OutputConstructor]
         private GetAttestationAtResourceResult(
+            string? assessmentDate,
+
             string? comments,
 
             string? complianceState,
@@ -137,6 +147,8 @@ namespace Pulumi.AzureNative.PolicyInsights
             string id,
 
             string lastComplianceStateChangeAt,
+
+            object? metadata,
 
             string name,
 
@@ -152,12 +164,14 @@ namespace Pulumi.AzureNative.PolicyInsights
 
             string type)
         {
+            AssessmentDate = assessmentDate;
             Comments = comments;
             ComplianceState = complianceState;
             Evidence = evidence;
             ExpiresOn = expiresOn;
             Id = id;
             LastComplianceStateChangeAt = lastComplianceStateChangeAt;
+            Metadata = metadata;
             Name = name;
             Owner = owner;
             PolicyAssignmentId = policyAssignmentId;

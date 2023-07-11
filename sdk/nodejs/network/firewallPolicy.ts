@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * FirewallPolicy Resource.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class FirewallPolicy extends pulumi.CustomResource {
     /**
@@ -55,6 +55,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Explicit Proxy Settings definition.
+     */
+    public readonly explicitProxy!: pulumi.Output<outputs.network.ExplicitProxyResponse | undefined>;
+    /**
      * List of references to Azure Firewalls that this Firewall Policy is associated with.
      */
     public /*out*/ readonly firewalls!: pulumi.Output<outputs.network.SubResourceResponse[]>;
@@ -95,6 +99,10 @@ export class FirewallPolicy extends pulumi.CustomResource {
      */
     public readonly snat!: pulumi.Output<outputs.network.FirewallPolicySNATResponse | undefined>;
     /**
+     * SQL Settings definition.
+     */
+    public readonly sql!: pulumi.Output<outputs.network.FirewallPolicySQLResponse | undefined>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -131,6 +139,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             }
             resourceInputs["basePolicy"] = args ? args.basePolicy : undefined;
             resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
+            resourceInputs["explicitProxy"] = args ? args.explicitProxy : undefined;
             resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
@@ -140,6 +149,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
             resourceInputs["snat"] = args ? args.snat : undefined;
+            resourceInputs["sql"] = args ? args.sql : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
             resourceInputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
@@ -156,6 +166,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["childPolicies"] = undefined /*out*/;
             resourceInputs["dnsSettings"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["explicitProxy"] = undefined /*out*/;
             resourceInputs["firewalls"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["insights"] = undefined /*out*/;
@@ -166,6 +177,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["ruleCollectionGroups"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
             resourceInputs["snat"] = undefined /*out*/;
+            resourceInputs["sql"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["threatIntelMode"] = undefined /*out*/;
             resourceInputs["threatIntelWhitelist"] = undefined /*out*/;
@@ -173,7 +185,7 @@ export class FirewallPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190601:FirewallPolicy" }, { type: "azure-native:network/v20190701:FirewallPolicy" }, { type: "azure-native:network/v20190801:FirewallPolicy" }, { type: "azure-native:network/v20190901:FirewallPolicy" }, { type: "azure-native:network/v20191101:FirewallPolicy" }, { type: "azure-native:network/v20191201:FirewallPolicy" }, { type: "azure-native:network/v20200301:FirewallPolicy" }, { type: "azure-native:network/v20200401:FirewallPolicy" }, { type: "azure-native:network/v20200501:FirewallPolicy" }, { type: "azure-native:network/v20200601:FirewallPolicy" }, { type: "azure-native:network/v20200701:FirewallPolicy" }, { type: "azure-native:network/v20200801:FirewallPolicy" }, { type: "azure-native:network/v20201101:FirewallPolicy" }, { type: "azure-native:network/v20210201:FirewallPolicy" }, { type: "azure-native:network/v20210301:FirewallPolicy" }, { type: "azure-native:network/v20210501:FirewallPolicy" }, { type: "azure-native:network/v20210801:FirewallPolicy" }, { type: "azure-native:network/v20220101:FirewallPolicy" }, { type: "azure-native:network/v20220501:FirewallPolicy" }, { type: "azure-native:network/v20220701:FirewallPolicy" }, { type: "azure-native:network/v20220901:FirewallPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190601:FirewallPolicy" }, { type: "azure-native:network/v20190701:FirewallPolicy" }, { type: "azure-native:network/v20190801:FirewallPolicy" }, { type: "azure-native:network/v20190901:FirewallPolicy" }, { type: "azure-native:network/v20191101:FirewallPolicy" }, { type: "azure-native:network/v20191201:FirewallPolicy" }, { type: "azure-native:network/v20200301:FirewallPolicy" }, { type: "azure-native:network/v20200401:FirewallPolicy" }, { type: "azure-native:network/v20200501:FirewallPolicy" }, { type: "azure-native:network/v20200601:FirewallPolicy" }, { type: "azure-native:network/v20200701:FirewallPolicy" }, { type: "azure-native:network/v20200801:FirewallPolicy" }, { type: "azure-native:network/v20201101:FirewallPolicy" }, { type: "azure-native:network/v20210201:FirewallPolicy" }, { type: "azure-native:network/v20210301:FirewallPolicy" }, { type: "azure-native:network/v20210501:FirewallPolicy" }, { type: "azure-native:network/v20210801:FirewallPolicy" }, { type: "azure-native:network/v20220101:FirewallPolicy" }, { type: "azure-native:network/v20220501:FirewallPolicy" }, { type: "azure-native:network/v20220701:FirewallPolicy" }, { type: "azure-native:network/v20220901:FirewallPolicy" }, { type: "azure-native:network/v20221101:FirewallPolicy" }, { type: "azure-native:network/v20230201:FirewallPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FirewallPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -191,6 +203,10 @@ export interface FirewallPolicyArgs {
      * DNS Proxy Settings definition.
      */
     dnsSettings?: pulumi.Input<inputs.network.DnsSettingsArgs>;
+    /**
+     * Explicit Proxy Settings definition.
+     */
+    explicitProxy?: pulumi.Input<inputs.network.ExplicitProxyArgs>;
     /**
      * The name of the Firewall Policy.
      */
@@ -227,6 +243,10 @@ export interface FirewallPolicyArgs {
      * The private IP addresses/IP ranges to which traffic will not be SNAT.
      */
     snat?: pulumi.Input<inputs.network.FirewallPolicySNATArgs>;
+    /**
+     * SQL Settings definition.
+     */
+    sql?: pulumi.Input<inputs.network.FirewallPolicySQLArgs>;
     /**
      * Resource tags.
      */

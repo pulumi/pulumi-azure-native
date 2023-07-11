@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided layer 2 (L2) network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getL2Network(args: GetL2NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL2NetworkResult> {
 
@@ -33,6 +33,10 @@ export interface GetL2NetworkArgs {
 
 export interface GetL2NetworkResult {
     /**
+     * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+     */
+    readonly associatedResourceIds: string[];
+    /**
      * The resource ID of the Network Cloud cluster this L2 network is associated with.
      */
     readonly clusterId: string;
@@ -49,15 +53,15 @@ export interface GetL2NetworkResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
+     * Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource ID(s) that are associated with this L2 network.
      */
     readonly hybridAksClustersAssociatedIds: string[];
     /**
-     * The network plugin type for Hybrid AKS.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
     readonly hybridAksPluginType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -93,13 +97,13 @@ export interface GetL2NetworkResult {
      */
     readonly type: string;
     /**
-     * The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
+     * Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource ID(s), excluding any Hybrid AKS virtual machines, that are currently using this L2 network.
      */
     readonly virtualMachinesAssociatedIds: string[];
 }
 /**
  * Get properties of the provided layer 2 (L2) network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getL2NetworkOutput(args: GetL2NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL2NetworkResult> {
     return pulumi.output(args).apply((a: any) => getL2Network(a, opts))

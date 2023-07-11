@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get an resource upload URL for build service, which may be artifacts or source archive.
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBuildServiceResourceUploadUrl(args: GetBuildServiceResourceUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceResourceUploadUrlResult> {
 
@@ -48,7 +48,7 @@ export interface GetBuildServiceResourceUploadUrlResult {
 }
 /**
  * Get an resource upload URL for build service, which may be artifacts or source archive.
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBuildServiceResourceUploadUrlOutput(args: GetBuildServiceResourceUploadUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceResourceUploadUrlResult> {
     return pulumi.output(args).apply((a: any) => getBuildServiceResourceUploadUrl(a, opts))

@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// <summary>
         /// A friendly name for the rule.
         /// </summary>
-        public readonly string DisplayName;
+        public readonly string? DisplayName;
         /// <summary>
         /// Default rule flag.
         /// </summary>
@@ -114,7 +114,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string direction,
 
-            string displayName,
+            string? displayName,
 
             string? flag,
 

@@ -52,6 +52,7 @@ const appInsights = new insights.Component("ai", {
     resourceGroupName: resourceGroup.name,
     kind: "web",
     applicationType: insights.ApplicationType.Web,
+    ingestionMode: insights.IngestionMode.ApplicationInsights
 });
 
 new insights.ComponentCurrentBillingFeature("ccbf", {
@@ -93,7 +94,7 @@ new sql.TransparentDataEncryption("current", {
     resourceGroupName: resourceGroup.name,
     serverName: sqlServer.name,
     databaseName: database.name,
-    status: sql.TransparentDataEncryptionStatus.Enabled,
+    state: sql.TransparentDataEncryptionState.Enabled,
 });
 
 new sql.ServerAdvisor("ForceLastGoodPlan", {

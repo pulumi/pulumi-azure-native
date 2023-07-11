@@ -35,7 +35,7 @@ class ApiDiagnosticArgs:
         The set of arguments for constructing a ApiDiagnostic resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[str] logger_id: Resource Id of a target logger.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Union[str, 'AlwaysLog']] always_log: Specifies for what type of messages sampling settings should not apply.
         :param pulumi.Input['PipelineDiagnosticSettingsArgs'] backend: Diagnostic settings for incoming/outgoing HTTP messages to the Backend
@@ -101,7 +101,7 @@ class ApiDiagnosticArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -264,7 +264,7 @@ class ApiDiagnostic(pulumi.CustomResource):
                  __props__=None):
         """
         Diagnostic details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -278,7 +278,7 @@ class ApiDiagnostic(pulumi.CustomResource):
         :param pulumi.Input[str] logger_id: Resource Id of a target logger.
         :param pulumi.Input[bool] metrics: Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
         :param pulumi.Input[Union[str, 'OperationNameFormat']] operation_name_format: The format of the Operation Name for Application Insights telemetries. Default is Name.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['SamplingSettingsArgs']] sampling: Sampling settings for Diagnostic.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[Union[str, 'Verbosity']] verbosity: The verbosity level applied to traces emitted by trace policies.
@@ -291,7 +291,7 @@ class ApiDiagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Diagnostic details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param ApiDiagnosticArgs args: The arguments to use to populate this resource's properties.
@@ -355,7 +355,7 @@ class ApiDiagnostic(pulumi.CustomResource):
             __props__.__dict__["verbosity"] = verbosity
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiDiagnostic")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiDiagnostic"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ApiDiagnostic")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiDiagnostic, __self__).__init__(
             'azure-native:apimanagement:ApiDiagnostic',
@@ -453,7 +453,7 @@ class ApiDiagnostic(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -477,7 +477,7 @@ class ApiDiagnostic(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

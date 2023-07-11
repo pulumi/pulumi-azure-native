@@ -11,29 +11,11 @@ namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
     /// SIM resource.
-    /// API Version: 2022-04-01-preview.
+    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Sim")]
     public partial class Sim : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        [Output("createdAt")]
-        public Output<string?> CreatedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Output("createdBy")]
-        public Output<string?> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Output("createdByType")]
-        public Output<string?> CreatedByType { get; private set; } = null!;
-
         /// <summary>
         /// An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
         /// </summary>
@@ -53,24 +35,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> InternationalMobileSubscriberIdentity { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Output("lastModifiedAt")]
-        public Output<string?> LastModifiedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<string?> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedByType")]
-        public Output<string?> LastModifiedByType { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
@@ -83,7 +47,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The SIM policy used by this SIM.
+        /// The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
         /// </summary>
         [Output("simPolicy")]
         public Output<Outputs.SimPolicyResourceIdResponse?> SimPolicy { get; private set; } = null!;
@@ -93,6 +57,12 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("simState")]
         public Output<string> SimState { get; private set; } = null!;
+
+        /// <summary>
+        /// A dictionary of sites to the provisioning state of this SIM on that site.
+        /// </summary>
+        [Output("siteProvisioningState")]
+        public Output<ImmutableDictionary<string, string>> SiteProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
@@ -111,6 +81,18 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The public key fingerprint of the SIM vendor who provided this SIM, if any.
+        /// </summary>
+        [Output("vendorKeyFingerprint")]
+        public Output<string> VendorKeyFingerprint { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the SIM vendor who provided this SIM, if any.
+        /// </summary>
+        [Output("vendorName")]
+        public Output<string> VendorName { get; private set; } = null!;
 
 
         /// <summary>
@@ -139,6 +121,7 @@ namespace Pulumi.AzureNative.MobileNetwork
                 {
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:Sim"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:Sim"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:Sim"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -169,24 +152,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string>? AuthenticationKey { get; set; }
 
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Input("createdBy")]
-        public Input<string>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Input("createdByType")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
-
-        /// <summary>
         /// An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
         /// </summary>
         [Input("deviceType")]
@@ -203,24 +168,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Input("internationalMobileSubscriberIdentity", required: true)]
         public Input<string> InternationalMobileSubscriberIdentity { get; set; } = null!;
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Input("lastModifiedAt")]
-        public Input<string>? LastModifiedAt { get; set; }
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedBy")]
-        public Input<string>? LastModifiedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedByType")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? LastModifiedByType { get; set; }
 
         /// <summary>
         /// The Opc value for the SIM.
@@ -247,7 +194,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Input<string>? SimName { get; set; }
 
         /// <summary>
-        /// The SIM policy used by this SIM.
+        /// The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
         /// </summary>
         [Input("simPolicy")]
         public Input<Inputs.SimPolicyResourceIdArgs>? SimPolicy { get; set; }

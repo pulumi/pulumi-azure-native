@@ -10,48 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.MobileNetwork
 {
     /// <summary>
-    /// Site resource.
-    /// API Version: 2022-04-01-preview.
+    /// Site resource. Must be created in the same location as its parent mobile network.
+    /// Azure REST API version: 2023-06-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:Site")]
     public partial class Site : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        [Output("createdAt")]
-        public Output<string?> CreatedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Output("createdBy")]
-        public Output<string?> CreatedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Output("createdByType")]
-        public Output<string?> CreatedByType { get; private set; } = null!;
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Output("lastModifiedAt")]
-        public Output<string?> LastModifiedAt { get; private set; } = null!;
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedBy")]
-        public Output<string?> LastModifiedBy { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Output("lastModifiedByType")]
-        public Output<string?> LastModifiedByType { get; private set; } = null!;
-
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -65,7 +29,7 @@ namespace Pulumi.AzureNative.MobileNetwork
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An array of IDs of the network functions deployed on the site, maintained by the user.
+        /// An array of IDs of the network functions deployed in the site. Deleting the site will delete any network functions that are deployed in the site.
         /// </summary>
         [Output("networkFunctions")]
         public Output<ImmutableArray<Outputs.SubResourceResponse>> NetworkFunctions { get; private set; } = null!;
@@ -122,6 +86,7 @@ namespace Pulumi.AzureNative.MobileNetwork
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220301preview:Site"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20220401preview:Site"},
                     new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20221101:Site"},
+                    new global::Pulumi.Alias { Type = "azure-native:mobilenetwork/v20230601:Site"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,42 +111,6 @@ namespace Pulumi.AzureNative.MobileNetwork
     public sealed class SiteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The timestamp of resource creation (UTC).
-        /// </summary>
-        [Input("createdAt")]
-        public Input<string>? CreatedAt { get; set; }
-
-        /// <summary>
-        /// The identity that created the resource.
-        /// </summary>
-        [Input("createdBy")]
-        public Input<string>? CreatedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that created the resource.
-        /// </summary>
-        [Input("createdByType")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? CreatedByType { get; set; }
-
-        /// <summary>
-        /// The timestamp of resource last modification (UTC)
-        /// </summary>
-        [Input("lastModifiedAt")]
-        public Input<string>? LastModifiedAt { get; set; }
-
-        /// <summary>
-        /// The identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedBy")]
-        public Input<string>? LastModifiedBy { get; set; }
-
-        /// <summary>
-        /// The type of identity that last modified the resource.
-        /// </summary>
-        [Input("lastModifiedByType")]
-        public InputUnion<string, Pulumi.AzureNative.MobileNetwork.CreatedByType>? LastModifiedByType { get; set; }
-
-        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
@@ -192,18 +121,6 @@ namespace Pulumi.AzureNative.MobileNetwork
         /// </summary>
         [Input("mobileNetworkName", required: true)]
         public Input<string> MobileNetworkName { get; set; } = null!;
-
-        [Input("networkFunctions")]
-        private InputList<Inputs.SubResourceArgs>? _networkFunctions;
-
-        /// <summary>
-        /// An array of IDs of the network functions deployed on the site, maintained by the user.
-        /// </summary>
-        public InputList<Inputs.SubResourceArgs> NetworkFunctions
-        {
-            get => _networkFunctions ?? (_networkFunctions = new InputList<Inputs.SubResourceArgs>());
-            set => _networkFunctions = value;
-        }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

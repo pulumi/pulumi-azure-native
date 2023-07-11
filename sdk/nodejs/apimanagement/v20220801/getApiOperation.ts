@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets the details of the API Operation specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20220801:ApiOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperation to guarantee forwards compatibility. */
 export function getApiOperation(args: GetApiOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetApiOperationResult> {
-    pulumi.log.warn("getApiOperation is deprecated: azure-native:apimanagement/v20220801:ApiOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperation to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getApiOperation", {
@@ -94,7 +92,6 @@ export interface GetApiOperationResult {
 /**
  * Gets the details of the API Operation specified by its identifier.
  */
-/** @deprecated azure-native:apimanagement/v20220801:ApiOperation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ApiOperation to guarantee forwards compatibility. */
 export function getApiOperationOutput(args: GetApiOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiOperationResult> {
     return pulumi.output(args).apply((a: any) => getApiOperation(a, opts))
 }

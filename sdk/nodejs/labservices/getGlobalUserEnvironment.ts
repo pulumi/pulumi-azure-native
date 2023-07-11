@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the virtual machine details
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserEnvironment(args: GetGlobalUserEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalUserEnvironmentResult> {
 
@@ -47,7 +47,7 @@ export interface GetGlobalUserEnvironmentResult {
 }
 /**
  * Gets the virtual machine details
- * API Version: 2018-10-15.
+ * Azure REST API version: 2018-10-15.
  */
 export function getGlobalUserEnvironmentOutput(args: GetGlobalUserEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalUserEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getGlobalUserEnvironment(a, opts))

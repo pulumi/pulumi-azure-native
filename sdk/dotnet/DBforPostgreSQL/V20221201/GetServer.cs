@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
 {
-    [Obsolete(@"azure-native:dbforpostgresql/v20221201:Server is being removed in the next major version of this provider. Upgrade to at least azure-native:dbforpostgresql/v20230301preview:Server to guarantee forwards compatibility.")]
     public static class GetServer
     {
         /// <summary>
@@ -123,13 +122,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network properties of a server.
+        /// Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
         /// </summary>
         public readonly Outputs.NetworkResponse? Network;
         /// <summary>
         /// Replicas allowed for a server.
         /// </summary>
-        public readonly int? ReplicaCapacity;
+        public readonly int ReplicaCapacity;
         /// <summary>
         /// Replication role of the server
         /// </summary>
@@ -138,6 +137,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
         /// The SKU (pricing tier) of the server.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
+        /// </summary>
+        public readonly string? SourceServerResourceId;
         /// <summary>
         /// A state of a server that is visible to user.
         /// </summary>
@@ -193,11 +196,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
 
             Outputs.NetworkResponse? network,
 
-            int? replicaCapacity,
+            int replicaCapacity,
 
             string? replicationRole,
 
             Outputs.SkuResponse? sku,
+
+            string? sourceServerResourceId,
 
             string state,
 
@@ -228,6 +233,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
             ReplicaCapacity = replicaCapacity;
             ReplicationRole = replicationRole;
             Sku = sku;
+            SourceServerResourceId = sourceServerResourceId;
             State = state;
             Storage = storage;
             SystemData = systemData;

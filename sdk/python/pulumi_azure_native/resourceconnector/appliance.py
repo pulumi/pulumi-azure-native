@@ -24,7 +24,8 @@ class ApplianceArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Appliance resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -32,9 +33,10 @@ class ApplianceArgs:
         :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input['AppliancePropertiesInfrastructureConfigArgs'] infrastructure_config: Contains infrastructure information about the Appliance
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] public_key: Certificates pair used to download MSI certificate from HIS
+        :param pulumi.Input[str] public_key: Certificates pair used to download MSI certificate from HIS. Can only be set once.
         :param pulumi.Input[str] resource_name: Appliances name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] version: Version of the Appliance
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if distro is None:
@@ -53,6 +55,8 @@ class ApplianceArgs:
             pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -118,7 +122,7 @@ class ApplianceArgs:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Certificates pair used to download MSI certificate from HIS
+        Certificates pair used to download MSI certificate from HIS. Can only be set once.
         """
         return pulumi.get(self, "public_key")
 
@@ -150,6 +154,18 @@ class ApplianceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Version of the Appliance
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
 
 class Appliance(pulumi.CustomResource):
     @overload
@@ -164,10 +180,11 @@ class Appliance(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Appliances definition.
-        API Version: 2021-10-31-preview.
+        Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,10 +192,11 @@ class Appliance(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Identity for the resource.
         :param pulumi.Input[pulumi.InputType['AppliancePropertiesInfrastructureConfigArgs']] infrastructure_config: Contains infrastructure information about the Appliance
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] public_key: Certificates pair used to download MSI certificate from HIS
+        :param pulumi.Input[str] public_key: Certificates pair used to download MSI certificate from HIS. Can only be set once.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: Appliances name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
+        :param pulumi.Input[str] version: Version of the Appliance
         """
         ...
     @overload
@@ -188,7 +206,7 @@ class Appliance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Appliances definition.
-        API Version: 2021-10-31-preview.
+        Azure REST API version: 2022-10-27. Prior API version in Azure Native 1.x: 2021-10-31-preview
 
         :param str resource_name: The name of the resource.
         :param ApplianceArgs args: The arguments to use to populate this resource's properties.
@@ -213,6 +231,7 @@ class Appliance(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -234,12 +253,12 @@ class Appliance(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["version"] = version
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-            __props__.__dict__["version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:resourceconnector/v20211031preview:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20220415preview:Appliance"), pulumi.Alias(type_="azure-native:resourceconnector/v20221027:Appliance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Appliance, __self__).__init__(
@@ -330,7 +349,7 @@ class Appliance(pulumi.CustomResource):
     @pulumi.getter(name="publicKey")
     def public_key(self) -> pulumi.Output[Optional[str]]:
         """
-        Certificates pair used to download MSI certificate from HIS
+        Certificates pair used to download MSI certificate from HIS. Can only be set once.
         """
         return pulumi.get(self, "public_key")
 
@@ -346,7 +365,7 @@ class Appliance(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -368,7 +387,7 @@ class Appliance(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         Version of the Appliance
         """

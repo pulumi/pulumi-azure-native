@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a single private workbook by its resourceName.
- * API Version: 2020-10-20.
+ * Azure REST API version: 2021-03-08.
  */
 export function getMyWorkbook(args: GetMyWorkbookArgs, opts?: pulumi.InvokeOptions): Promise<GetMyWorkbookResult> {
 
@@ -80,6 +80,10 @@ export interface GetMyWorkbookResult {
      */
     readonly storageUri?: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.insights.SystemDataResponse;
+    /**
      * Resource tags
      */
     readonly tags?: {[key: string]: string};
@@ -102,7 +106,7 @@ export interface GetMyWorkbookResult {
 }
 /**
  * Get a single private workbook by its resourceName.
- * API Version: 2020-10-20.
+ * Azure REST API version: 2021-03-08.
  */
 export function getMyWorkbookOutput(args: GetMyWorkbookOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMyWorkbookResult> {
     return pulumi.output(args).apply((a: any) => getMyWorkbook(a, opts))

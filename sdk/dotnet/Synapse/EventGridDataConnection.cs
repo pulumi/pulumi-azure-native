@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
     /// Class representing an Event Grid data connection.
-    /// API Version: 2021-04-01-preview.
+    /// Azure REST API version: 2021-06-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:EventGridDataConnection")]
     public partial class EventGridDataConnection : global::Pulumi.CustomResource
@@ -244,7 +244,7 @@ namespace Pulumi.AzureNative.Synapse
         public Input<string>? TableName { get; set; }
 
         /// <summary>
-        /// The name of the workspace
+        /// The name of the workspace.
         /// </summary>
         [Input("workspaceName", required: true)]
         public Input<string> WorkspaceName { get; set; } = null!;

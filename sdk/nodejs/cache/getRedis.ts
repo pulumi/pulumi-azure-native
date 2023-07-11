@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Redis cache (resource description).
- * API Version: 2020-06-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
 
@@ -48,9 +48,13 @@ export interface GetRedisResult {
      */
     readonly hostName: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
+    /**
+     * The identity of the resource.
+     */
+    readonly identity?: outputs.cache.ManagedServiceIdentityResponse;
     /**
      * List of the Redis instances associated with the cache
      */
@@ -68,7 +72,7 @@ export interface GetRedisResult {
      */
     readonly minimumTlsVersion?: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -92,13 +96,17 @@ export interface GetRedisResult {
      */
     readonly redisConfiguration?: outputs.cache.RedisCommonPropertiesResponseRedisConfiguration;
     /**
-     * Redis version.
+     * Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
      */
-    readonly redisVersion: string;
+    readonly redisVersion?: string;
     /**
-     * The number of replicas to be created per master.
+     * The number of replicas to be created per primary.
      */
     readonly replicasPerMaster?: number;
+    /**
+     * The number of replicas to be created per primary.
+     */
+    readonly replicasPerPrimary?: number;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
@@ -128,7 +136,7 @@ export interface GetRedisResult {
      */
     readonly tenantSettings?: {[key: string]: string};
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -138,7 +146,7 @@ export interface GetRedisResult {
 }
 /**
  * Gets a Redis cache (resource description).
- * API Version: 2020-06-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRedisResult> {
     return pulumi.output(args).apply((a: any) => getRedis(a, opts))

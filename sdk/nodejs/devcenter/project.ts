@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a project resource.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -47,9 +47,17 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly devCenterId!: pulumi.Output<string | undefined>;
     /**
+     * The URI of the Dev Center resource this project is associated with.
+     */
+    public /*out*/ readonly devCenterUri!: pulumi.Output<string>;
+    /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+     */
+    public readonly maxDevBoxesPerUser!: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
@@ -88,9 +96,11 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["devCenterId"] = args ? args.devCenterId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["maxDevBoxesPerUser"] = args ? args.maxDevBoxesPerUser : undefined;
             resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devCenterUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -98,7 +108,9 @@ export class Project extends pulumi.CustomResource {
         } else {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["devCenterId"] = undefined /*out*/;
+            resourceInputs["devCenterUri"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["maxDevBoxesPerUser"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -106,7 +118,7 @@ export class Project extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:Project" }, { type: "azure-native:devcenter/v20220901preview:Project" }, { type: "azure-native:devcenter/v20221012preview:Project" }, { type: "azure-native:devcenter/v20221111preview:Project" }, { type: "azure-native:devcenter/v20230101preview:Project" }, { type: "azure-native:devcenter/v20230401:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Project.__pulumiType, name, resourceInputs, opts);
     }
@@ -129,11 +141,15 @@ export interface ProjectArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+     */
+    maxDevBoxesPerUser?: pulumi.Input<number>;
+    /**
      * The name of the project.
      */
     projectName?: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

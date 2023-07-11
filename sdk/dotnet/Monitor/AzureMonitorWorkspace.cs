@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Monitor
 {
     /// <summary>
     /// An Azure Monitor Workspace definition
-    /// API Version: 2021-06-03-preview.
+    /// Azure REST API version: 2023-04-03. Prior API version in Azure Native 1.x: 2021-06-03-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:AzureMonitorWorkspace")]
     public partial class AzureMonitorWorkspace : global::Pulumi.CustomResource
@@ -53,10 +53,22 @@ namespace Pulumi.AzureNative.Monitor
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// List of private endpoint connections
+        /// </summary>
+        [Output("privateEndpointConnections")]
+        public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
+
+        /// <summary>
         /// The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets allow or disallow public network access to workspace
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.

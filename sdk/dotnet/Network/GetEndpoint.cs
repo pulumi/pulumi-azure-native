@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a Traffic Manager endpoint.
-        /// API Version: 2018-08-01.
+        /// Azure REST API version: 2022-04-01.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:network:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Traffic Manager endpoint.
-        /// API Version: 2018-08-01.
+        /// Azure REST API version: 2022-04-01.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:network:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.Network
         public string ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Traffic Manager endpoint.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.Network
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group containing the Traffic Manager endpoint.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -95,6 +95,10 @@ namespace Pulumi.AzureNative.Network
     [OutputType]
     public sealed class GetEndpointResult
     {
+        /// <summary>
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
+        /// </summary>
+        public readonly string? AlwaysServe;
         /// <summary>
         /// List of custom headers.
         /// </summary>
@@ -162,6 +166,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetEndpointResult(
+            string? alwaysServe,
+
             ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeaders> customHeaders,
 
             string? endpointLocation,
@@ -194,6 +200,7 @@ namespace Pulumi.AzureNative.Network
 
             double? weight)
         {
+            AlwaysServe = alwaysServe;
             CustomHeaders = customHeaders;
             EndpointLocation = endpointLocation;
             EndpointMonitorStatus = endpointMonitorStatus;

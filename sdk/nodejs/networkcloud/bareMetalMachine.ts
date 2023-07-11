@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
  */
 export class BareMetalMachine extends pulumi.CustomResource {
     /**
@@ -37,6 +37,10 @@ export class BareMetalMachine extends pulumi.CustomResource {
         return obj['__pulumiType'] === BareMetalMachine.__pulumiType;
     }
 
+    /**
+     * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+     */
+    public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
     /**
      * The connection string for the baseboard management controller including IP address and protocol.
      */
@@ -82,7 +86,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly hardwareValidationStatus!: pulumi.Output<outputs.networkcloud.HardwareValidationStatusResponse>;
     /**
-     * The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
+     * Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
      */
     public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
     /**
@@ -166,7 +170,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
-     * The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
+     * Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
      */
     public /*out*/ readonly virtualMachinesAssociatedIds!: pulumi.Output<string[]>;
 
@@ -232,6 +236,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["cordonStatus"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
@@ -253,6 +258,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         } else {
+            resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["bmcConnectionString"] = undefined /*out*/;
             resourceInputs["bmcCredentials"] = undefined /*out*/;
             resourceInputs["bmcMacAddress"] = undefined /*out*/;
@@ -288,7 +294,7 @@ export class BareMetalMachine extends pulumi.CustomResource {
             resourceInputs["virtualMachinesAssociatedIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:BareMetalMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20221212preview:BareMetalMachine" }, { type: "azure-native:networkcloud/v20230501preview:BareMetalMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BareMetalMachine.__pulumiType, name, resourceInputs, opts);
     }

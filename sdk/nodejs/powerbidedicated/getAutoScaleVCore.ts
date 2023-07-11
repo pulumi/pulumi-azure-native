@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets details about the specified auto scale v-core.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2021-01-01.
  */
 export function getAutoScaleVCore(args: GetAutoScaleVCoreArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoScaleVCoreResult> {
 
@@ -78,7 +78,7 @@ export interface GetAutoScaleVCoreResult {
 }
 /**
  * Gets details about the specified auto scale v-core.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2021-01-01.
  */
 export function getAutoScaleVCoreOutput(args: GetAutoScaleVCoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScaleVCoreResult> {
     return pulumi.output(args).apply((a: any) => getAutoScaleVCore(a, opts))

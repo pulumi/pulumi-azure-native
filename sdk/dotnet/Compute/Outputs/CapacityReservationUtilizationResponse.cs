@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class CapacityReservationUtilizationResponse
     {
         /// <summary>
+        /// The value provides the current capacity of the VM size which was reserved successfully and for which the customer is getting billed. Minimum api-version: 2022-08-01.
+        /// </summary>
+        public readonly int CurrentCapacity;
+        /// <summary>
         /// A list of all virtual machines resource ids allocated against the capacity reservation.
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceReadOnlyResponse> VirtualMachinesAllocated;
 
         [OutputConstructor]
-        private CapacityReservationUtilizationResponse(ImmutableArray<Outputs.SubResourceReadOnlyResponse> virtualMachinesAllocated)
+        private CapacityReservationUtilizationResponse(
+            int currentCapacity,
+
+            ImmutableArray<Outputs.SubResourceReadOnlyResponse> virtualMachinesAllocated)
         {
+            CurrentCapacity = currentCapacity;
             VirtualMachinesAllocated = virtualMachinesAllocated;
         }
     }

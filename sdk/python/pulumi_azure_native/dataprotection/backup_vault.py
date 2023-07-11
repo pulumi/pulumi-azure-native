@@ -27,7 +27,7 @@ class BackupVaultInitArgs:
         """
         The set of arguments for constructing a BackupVault resource.
         :param pulumi.Input['BackupVaultArgs'] properties: BackupVaultResource properties
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] e_tag: Optional ETag.
         :param pulumi.Input['DppIdentityDetailsArgs'] identity: Input Managed Identity Details
         :param pulumi.Input[str] location: Resource location.
@@ -63,7 +63,7 @@ class BackupVaultInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group where the backup vault is present.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -147,7 +147,7 @@ class BackupVault(pulumi.CustomResource):
                  __props__=None):
         """
         Backup Vault Resource
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +155,7 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DppIdentityDetailsArgs']] identity: Input Managed Identity Details
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[pulumi.InputType['BackupVaultArgs']] properties: BackupVaultResource properties
-        :param pulumi.Input[str] resource_group_name: The name of the resource group where the backup vault is present.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] vault_name: The name of the backup vault.
         """
@@ -167,7 +167,7 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backup Vault Resource
-        API Version: 2021-01-01.
+        Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param BackupVaultInitArgs args: The arguments to use to populate this resource's properties.
@@ -214,7 +214,7 @@ class BackupVault(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupVault")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dataprotection/v20210101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210601preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20210701:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20211001preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20211201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220201preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220301:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220331preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220401:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220501:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20220901preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221001preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221101preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20221201:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20230101:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20230401preview:BackupVault"), pulumi.Alias(type_="azure-native:dataprotection/v20230501:BackupVault")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupVault, __self__).__init__(
             'azure-native:dataprotection:BackupVault',

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a server.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -45,9 +45,13 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * The Azure Active Directory identity of the server.
+     * The Azure Active Directory administrator of the server.
      */
     readonly administrators?: outputs.sql.ServerExternalAdministratorResponse;
+    /**
+     * The Client id used for cross tenant CMK scenario
+     */
+    readonly federatedClientId?: string;
     /**
      * The fully qualified domain name of the server.
      */
@@ -93,6 +97,10 @@ export interface GetServerResult {
      */
     readonly publicNetworkAccess?: string;
     /**
+     * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     */
+    readonly restrictOutboundNetworkAccess?: string;
+    /**
      * The state of the server.
      */
     readonly state: string;
@@ -115,7 +123,7 @@ export interface GetServerResult {
 }
 /**
  * Gets a server.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

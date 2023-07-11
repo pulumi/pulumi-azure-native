@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an instance of a orchestrator.
- * API Version: 2021-03-15.
+ * Azure REST API version: 2021-03-15. Prior API version in Azure Native 1.x: 2021-03-15
  */
 export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     /**
@@ -106,7 +106,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20230518preview:DelegatedSubnetServiceDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DelegatedSubnetServiceDetails.__pulumiType, name, resourceInputs, opts);
     }

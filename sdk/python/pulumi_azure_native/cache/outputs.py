@@ -12,7 +12,13 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ClusterPropertiesResponseCustomerManagedKeyEncryption',
+    'ClusterPropertiesResponseEncryption',
+    'ClusterPropertiesResponseKeyEncryptionKeyIdentity',
+    'DatabasePropertiesResponseGeoReplication',
     'EnterpriseSkuResponse',
+    'LinkedDatabaseResponse',
+    'ManagedServiceIdentityResponse',
     'ModuleResponse',
     'PersistenceResponse',
     'PrivateEndpointConnectionResponse',
@@ -24,7 +30,211 @@ __all__ = [
     'RedisLinkedServerResponse',
     'ScheduleEntryResponse',
     'SkuResponse',
+    'SystemDataResponse',
+    'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class ClusterPropertiesResponseCustomerManagedKeyEncryption(dict):
+    """
+    All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyEncryptionKeyIdentity":
+            suggest = "key_encryption_key_identity"
+        elif key == "keyEncryptionKeyUrl":
+            suggest = "key_encryption_key_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponseCustomerManagedKeyEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponseCustomerManagedKeyEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponseCustomerManagedKeyEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_encryption_key_identity: Optional['outputs.ClusterPropertiesResponseKeyEncryptionKeyIdentity'] = None,
+                 key_encryption_key_url: Optional[str] = None):
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        :param 'ClusterPropertiesResponseKeyEncryptionKeyIdentity' key_encryption_key_identity: All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param str key_encryption_key_url: Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
+        """
+        if key_encryption_key_identity is not None:
+            pulumi.set(__self__, "key_encryption_key_identity", key_encryption_key_identity)
+        if key_encryption_key_url is not None:
+            pulumi.set(__self__, "key_encryption_key_url", key_encryption_key_url)
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyIdentity")
+    def key_encryption_key_identity(self) -> Optional['outputs.ClusterPropertiesResponseKeyEncryptionKeyIdentity']:
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        """
+        return pulumi.get(self, "key_encryption_key_identity")
+
+    @property
+    @pulumi.getter(name="keyEncryptionKeyUrl")
+    def key_encryption_key_url(self) -> Optional[str]:
+        """
+        Key encryption key Url, versioned only. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78
+        """
+        return pulumi.get(self, "key_encryption_key_url")
+
+
+@pulumi.output_type
+class ClusterPropertiesResponseEncryption(dict):
+    """
+    Encryption-at-rest configuration for the cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerManagedKeyEncryption":
+            suggest = "customer_managed_key_encryption"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponseEncryption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponseEncryption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponseEncryption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_managed_key_encryption: Optional['outputs.ClusterPropertiesResponseCustomerManagedKeyEncryption'] = None):
+        """
+        Encryption-at-rest configuration for the cluster.
+        :param 'ClusterPropertiesResponseCustomerManagedKeyEncryption' customer_managed_key_encryption: All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+        if customer_managed_key_encryption is not None:
+            pulumi.set(__self__, "customer_managed_key_encryption", customer_managed_key_encryption)
+
+    @property
+    @pulumi.getter(name="customerManagedKeyEncryption")
+    def customer_managed_key_encryption(self) -> Optional['outputs.ClusterPropertiesResponseCustomerManagedKeyEncryption']:
+        """
+        All Customer-managed key encryption properties for the resource. Set this to an empty object to use Microsoft-managed key encryption.
+        """
+        return pulumi.get(self, "customer_managed_key_encryption")
+
+
+@pulumi.output_type
+class ClusterPropertiesResponseKeyEncryptionKeyIdentity(dict):
+    """
+    All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityType":
+            suggest = "identity_type"
+        elif key == "userAssignedIdentityResourceId":
+            suggest = "user_assigned_identity_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPropertiesResponseKeyEncryptionKeyIdentity. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPropertiesResponseKeyEncryptionKeyIdentity.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPropertiesResponseKeyEncryptionKeyIdentity.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_type: Optional[str] = None,
+                 user_assigned_identity_resource_id: Optional[str] = None):
+        """
+        All identity configuration for Customer-managed key settings defining which identity should be used to auth to Key Vault.
+        :param str identity_type: Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+        :param str user_assigned_identity_resource_id: User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+        if user_assigned_identity_resource_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_resource_id", user_assigned_identity_resource_id)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[str]:
+        """
+        Only userAssignedIdentity is supported in this API version; other types may be supported in the future
+        """
+        return pulumi.get(self, "identity_type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentityResourceId")
+    def user_assigned_identity_resource_id(self) -> Optional[str]:
+        """
+        User assigned identity to use for accessing key encryption key Url. Ex: /subscriptions/<sub uuid>/resourceGroups/<resource group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myId.
+        """
+        return pulumi.get(self, "user_assigned_identity_resource_id")
+
+
+@pulumi.output_type
+class DatabasePropertiesResponseGeoReplication(dict):
+    """
+    Optional set of properties to configure geo replication for this database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupNickname":
+            suggest = "group_nickname"
+        elif key == "linkedDatabases":
+            suggest = "linked_databases"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabasePropertiesResponseGeoReplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabasePropertiesResponseGeoReplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabasePropertiesResponseGeoReplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_nickname: Optional[str] = None,
+                 linked_databases: Optional[Sequence['outputs.LinkedDatabaseResponse']] = None):
+        """
+        Optional set of properties to configure geo replication for this database.
+        :param str group_nickname: Name for the group of linked database resources
+        :param Sequence['LinkedDatabaseResponse'] linked_databases: List of database resources to link with this database
+        """
+        if group_nickname is not None:
+            pulumi.set(__self__, "group_nickname", group_nickname)
+        if linked_databases is not None:
+            pulumi.set(__self__, "linked_databases", linked_databases)
+
+    @property
+    @pulumi.getter(name="groupNickname")
+    def group_nickname(self) -> Optional[str]:
+        """
+        Name for the group of linked database resources
+        """
+        return pulumi.get(self, "group_nickname")
+
+    @property
+    @pulumi.getter(name="linkedDatabases")
+    def linked_databases(self) -> Optional[Sequence['outputs.LinkedDatabaseResponse']]:
+        """
+        List of database resources to link with this database
+        """
+        return pulumi.get(self, "linked_databases")
+
 
 @pulumi.output_type
 class EnterpriseSkuResponse(dict):
@@ -61,6 +271,117 @@ class EnterpriseSkuResponse(dict):
 
 
 @pulumi.output_type
+class LinkedDatabaseResponse(dict):
+    """
+    Specifies details of a linked database resource.
+    """
+    def __init__(__self__, *,
+                 state: str,
+                 id: Optional[str] = None):
+        """
+        Specifies details of a linked database resource.
+        :param str state: State of the link between the database resources.
+        :param str id: Resource ID of a database resource to link with this database.
+        """
+        pulumi.set(__self__, "state", state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        State of the link between the database resources.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID of a database resource to link with this database.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class ModuleResponse(dict):
     """
     Specifies configuration of a redis module
@@ -73,7 +394,7 @@ class ModuleResponse(dict):
         Specifies configuration of a redis module
         :param str name: The name of the module, e.g. 'RedisBloom', 'RediSearch', 'RedisTimeSeries'
         :param str version: The version of the module, e.g. '1.0'.
-        :param str args: Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        :param str args: Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "version", version)
@@ -100,7 +421,7 @@ class ModuleResponse(dict):
     @pulumi.getter
     def args(self) -> Optional[str]:
         """
-        Configuration options for the module, e.g. 'ERROR_RATE 0.00 INITIAL_SIZE 400'.
+        Configuration options for the module, e.g. 'ERROR_RATE 0.01 INITIAL_SIZE 400'.
         """
         return pulumi.get(self, "args")
 
@@ -199,6 +520,8 @@ class PrivateEndpointConnectionResponse(dict):
             suggest = "private_link_service_connection_state"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
         elif key == "privateEndpoint":
             suggest = "private_endpoint"
 
@@ -218,6 +541,7 @@ class PrivateEndpointConnectionResponse(dict):
                  name: str,
                  private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
                  provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: str,
                  private_endpoint: Optional['outputs.PrivateEndpointResponse'] = None):
         """
@@ -226,6 +550,7 @@ class PrivateEndpointConnectionResponse(dict):
         :param str name: The name of the resource
         :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
         """
@@ -233,6 +558,7 @@ class PrivateEndpointConnectionResponse(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if private_endpoint is not None:
             pulumi.set(__self__, "private_endpoint", private_endpoint)
@@ -268,6 +594,14 @@ class PrivateEndpointConnectionResponse(dict):
         The provisioning state of the private endpoint connection resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -432,7 +766,13 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "aofStorageConnectionString0":
+        if key == "preferredDataArchiveAuthMethod":
+            suggest = "preferred_data_archive_auth_method"
+        elif key == "zonalConfiguration":
+            suggest = "zonal_configuration"
+        elif key == "aofBackupEnabled":
+            suggest = "aof_backup_enabled"
+        elif key == "aofStorageConnectionString0":
             suggest = "aof_storage_connection_string0"
         elif key == "aofStorageConnectionString1":
             suggest = "aof_storage_connection_string1"
@@ -444,6 +784,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
             suggest = "maxmemory_policy"
         elif key == "maxmemoryReserved":
             suggest = "maxmemory_reserved"
+        elif key == "preferredDataPersistenceAuthMethod":
+            suggest = "preferred_data_persistence_auth_method"
         elif key == "rdbBackupEnabled":
             suggest = "rdb_backup_enabled"
         elif key == "rdbBackupFrequency":
@@ -452,6 +794,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
             suggest = "rdb_backup_max_snapshot_count"
         elif key == "rdbStorageConnectionString":
             suggest = "rdb_storage_connection_string"
+        elif key == "storageSubscriptionId":
+            suggest = "storage_subscription_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RedisCommonPropertiesResponseRedisConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -466,35 +810,53 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
 
     def __init__(__self__, *,
                  maxclients: str,
+                 preferred_data_archive_auth_method: str,
+                 zonal_configuration: str,
+                 aof_backup_enabled: Optional[str] = None,
                  aof_storage_connection_string0: Optional[str] = None,
                  aof_storage_connection_string1: Optional[str] = None,
+                 authnotrequired: Optional[str] = None,
                  maxfragmentationmemory_reserved: Optional[str] = None,
                  maxmemory_delta: Optional[str] = None,
                  maxmemory_policy: Optional[str] = None,
                  maxmemory_reserved: Optional[str] = None,
+                 preferred_data_persistence_auth_method: Optional[str] = None,
                  rdb_backup_enabled: Optional[str] = None,
                  rdb_backup_frequency: Optional[str] = None,
                  rdb_backup_max_snapshot_count: Optional[str] = None,
-                 rdb_storage_connection_string: Optional[str] = None):
+                 rdb_storage_connection_string: Optional[str] = None,
+                 storage_subscription_id: Optional[str] = None):
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         :param str maxclients: The max clients config
+        :param str preferred_data_archive_auth_method: Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
+        :param str zonal_configuration: Zonal Configuration
+        :param str aof_backup_enabled: Specifies whether the aof backup is enabled
         :param str aof_storage_connection_string0: First storage account connection string
         :param str aof_storage_connection_string1: Second storage account connection string
+        :param str authnotrequired: Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
         :param str maxfragmentationmemory_reserved: Value in megabytes reserved for fragmentation per shard
         :param str maxmemory_delta: Value in megabytes reserved for non-cache usage per shard e.g. failover.
         :param str maxmemory_policy: The eviction strategy used when your data won't fit within its memory limit.
         :param str maxmemory_reserved: Value in megabytes reserved for non-cache usage per shard e.g. failover.
+        :param str preferred_data_persistence_auth_method: Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
         :param str rdb_backup_enabled: Specifies whether the rdb backup is enabled
-        :param str rdb_backup_frequency: Specifies the frequency for creating rdb backup
+        :param str rdb_backup_frequency: Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
         :param str rdb_backup_max_snapshot_count: Specifies the maximum number of snapshots for rdb backup
         :param str rdb_storage_connection_string: The storage account connection string for storing rdb file
+        :param str storage_subscription_id: SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
         """
         pulumi.set(__self__, "maxclients", maxclients)
+        pulumi.set(__self__, "preferred_data_archive_auth_method", preferred_data_archive_auth_method)
+        pulumi.set(__self__, "zonal_configuration", zonal_configuration)
+        if aof_backup_enabled is not None:
+            pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
             pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
             pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+        if authnotrequired is not None:
+            pulumi.set(__self__, "authnotrequired", authnotrequired)
         if maxfragmentationmemory_reserved is not None:
             pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
         if maxmemory_delta is not None:
@@ -503,6 +865,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
             pulumi.set(__self__, "maxmemory_policy", maxmemory_policy)
         if maxmemory_reserved is not None:
             pulumi.set(__self__, "maxmemory_reserved", maxmemory_reserved)
+        if preferred_data_persistence_auth_method is not None:
+            pulumi.set(__self__, "preferred_data_persistence_auth_method", preferred_data_persistence_auth_method)
         if rdb_backup_enabled is not None:
             pulumi.set(__self__, "rdb_backup_enabled", rdb_backup_enabled)
         if rdb_backup_frequency is not None:
@@ -511,6 +875,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
             pulumi.set(__self__, "rdb_backup_max_snapshot_count", rdb_backup_max_snapshot_count)
         if rdb_storage_connection_string is not None:
             pulumi.set(__self__, "rdb_storage_connection_string", rdb_storage_connection_string)
+        if storage_subscription_id is not None:
+            pulumi.set(__self__, "storage_subscription_id", storage_subscription_id)
 
     @property
     @pulumi.getter
@@ -519,6 +885,30 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         The max clients config
         """
         return pulumi.get(self, "maxclients")
+
+    @property
+    @pulumi.getter(name="preferredDataArchiveAuthMethod")
+    def preferred_data_archive_auth_method(self) -> str:
+        """
+        Preferred auth method to communicate to storage account used for data archive, specify SAS or ManagedIdentity, default value is SAS
+        """
+        return pulumi.get(self, "preferred_data_archive_auth_method")
+
+    @property
+    @pulumi.getter(name="zonalConfiguration")
+    def zonal_configuration(self) -> str:
+        """
+        Zonal Configuration
+        """
+        return pulumi.get(self, "zonal_configuration")
+
+    @property
+    @pulumi.getter(name="aofBackupEnabled")
+    def aof_backup_enabled(self) -> Optional[str]:
+        """
+        Specifies whether the aof backup is enabled
+        """
+        return pulumi.get(self, "aof_backup_enabled")
 
     @property
     @pulumi.getter(name="aofStorageConnectionString0")
@@ -535,6 +925,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         Second storage account connection string
         """
         return pulumi.get(self, "aof_storage_connection_string1")
+
+    @property
+    @pulumi.getter
+    def authnotrequired(self) -> Optional[str]:
+        """
+        Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        """
+        return pulumi.get(self, "authnotrequired")
 
     @property
     @pulumi.getter(name="maxfragmentationmemoryReserved")
@@ -569,6 +967,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         return pulumi.get(self, "maxmemory_reserved")
 
     @property
+    @pulumi.getter(name="preferredDataPersistenceAuthMethod")
+    def preferred_data_persistence_auth_method(self) -> Optional[str]:
+        """
+        Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
+        """
+        return pulumi.get(self, "preferred_data_persistence_auth_method")
+
+    @property
     @pulumi.getter(name="rdbBackupEnabled")
     def rdb_backup_enabled(self) -> Optional[str]:
         """
@@ -580,7 +986,7 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
     @pulumi.getter(name="rdbBackupFrequency")
     def rdb_backup_frequency(self) -> Optional[str]:
         """
-        Specifies the frequency for creating rdb backup
+        Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
         """
         return pulumi.get(self, "rdb_backup_frequency")
 
@@ -600,6 +1006,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         """
         return pulumi.get(self, "rdb_storage_connection_string")
 
+    @property
+    @pulumi.getter(name="storageSubscriptionId")
+    def storage_subscription_id(self) -> Optional[str]:
+        """
+        SubscriptionId of the storage account for persistence (aof/rdb) using ManagedIdentity.
+        """
+        return pulumi.get(self, "storage_subscription_id")
+
 
 @pulumi.output_type
 class RedisInstanceDetailsResponse(dict):
@@ -611,6 +1025,8 @@ class RedisInstanceDetailsResponse(dict):
         suggest = None
         if key == "isMaster":
             suggest = "is_master"
+        elif key == "isPrimary":
+            suggest = "is_primary"
         elif key == "nonSslPort":
             suggest = "non_ssl_port"
         elif key == "shardId":
@@ -631,19 +1047,22 @@ class RedisInstanceDetailsResponse(dict):
 
     def __init__(__self__, *,
                  is_master: bool,
+                 is_primary: bool,
                  non_ssl_port: int,
                  shard_id: int,
                  ssl_port: int,
                  zone: str):
         """
         Details of single instance of redis.
-        :param bool is_master: Specifies whether the instance is a master node.
+        :param bool is_master: Specifies whether the instance is a primary node.
+        :param bool is_primary: Specifies whether the instance is a primary node.
         :param int non_ssl_port: If enableNonSslPort is true, provides Redis instance Non-SSL port.
         :param int shard_id: If clustering is enabled, the Shard ID of Redis Instance
         :param int ssl_port: Redis instance SSL port.
         :param str zone: If the Cache uses availability zones, specifies availability zone where this instance is located.
         """
         pulumi.set(__self__, "is_master", is_master)
+        pulumi.set(__self__, "is_primary", is_primary)
         pulumi.set(__self__, "non_ssl_port", non_ssl_port)
         pulumi.set(__self__, "shard_id", shard_id)
         pulumi.set(__self__, "ssl_port", ssl_port)
@@ -653,9 +1072,17 @@ class RedisInstanceDetailsResponse(dict):
     @pulumi.getter(name="isMaster")
     def is_master(self) -> bool:
         """
-        Specifies whether the instance is a master node.
+        Specifies whether the instance is a primary node.
         """
         return pulumi.get(self, "is_master")
+
+    @property
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> bool:
+        """
+        Specifies whether the instance is a primary node.
+        """
+        return pulumi.get(self, "is_primary")
 
     @property
     @pulumi.getter(name="nonSslPort")
@@ -820,5 +1247,167 @@ class SkuResponse(dict):
         The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User assigned identity properties
+        :param str client_id: The client ID of the assigned identity.
+        :param str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 

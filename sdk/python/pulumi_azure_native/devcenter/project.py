@@ -19,14 +19,16 @@ class ProjectArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  dev_center_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_dev_boxes_per_user: Optional[pulumi.Input[int]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] description: Description of the project.
         :param pulumi.Input[str] dev_center_id: Resource Id of an associated DevCenter
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[int] max_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
         :param pulumi.Input[str] project_name: The name of the project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -37,6 +39,8 @@ class ProjectArgs:
             pulumi.set(__self__, "dev_center_id", dev_center_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if max_dev_boxes_per_user is not None:
+            pulumi.set(__self__, "max_dev_boxes_per_user", max_dev_boxes_per_user)
         if project_name is not None:
             pulumi.set(__self__, "project_name", project_name)
         if tags is not None:
@@ -46,7 +50,7 @@ class ProjectArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        Name of the resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -91,6 +95,18 @@ class ProjectArgs:
         pulumi.set(self, "location", value)
 
     @property
+    @pulumi.getter(name="maxDevBoxesPerUser")
+    def max_dev_boxes_per_user(self) -> Optional[pulumi.Input[int]]:
+        """
+        When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+        """
+        return pulumi.get(self, "max_dev_boxes_per_user")
+
+    @max_dev_boxes_per_user.setter
+    def max_dev_boxes_per_user(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_dev_boxes_per_user", value)
+
+    @property
     @pulumi.getter(name="projectName")
     def project_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -123,21 +139,23 @@ class Project(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dev_center_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_dev_boxes_per_user: Optional[pulumi.Input[int]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Represents a project resource.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the project.
         :param pulumi.Input[str] dev_center_id: Resource Id of an associated DevCenter
         :param pulumi.Input[str] location: The geo-location where the resource lives
+        :param pulumi.Input[int] max_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
         :param pulumi.Input[str] project_name: The name of the project.
-        :param pulumi.Input[str] resource_group_name: Name of the resource group within the Azure subscription.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
@@ -148,7 +166,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a project resource.
-        API Version: 2022-09-01-preview.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.
@@ -168,6 +186,7 @@ class Project(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  dev_center_id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
+                 max_dev_boxes_per_user: Optional[pulumi.Input[int]] = None,
                  project_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -183,16 +202,18 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["dev_center_id"] = dev_center_id
             __props__.__dict__["location"] = location
+            __props__.__dict__["max_dev_boxes_per_user"] = max_dev_boxes_per_user
             __props__.__dict__["project_name"] = project_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["dev_center_uri"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Project")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:devcenter/v20220801preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20220901preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20221012preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20221111preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20230101preview:Project"), pulumi.Alias(type_="azure-native:devcenter/v20230401:Project")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Project, __self__).__init__(
             'azure-native:devcenter:Project',
@@ -218,7 +239,9 @@ class Project(pulumi.CustomResource):
 
         __props__.__dict__["description"] = None
         __props__.__dict__["dev_center_id"] = None
+        __props__.__dict__["dev_center_uri"] = None
         __props__.__dict__["location"] = None
+        __props__.__dict__["max_dev_boxes_per_user"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["system_data"] = None
@@ -243,12 +266,28 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "dev_center_id")
 
     @property
+    @pulumi.getter(name="devCenterUri")
+    def dev_center_uri(self) -> pulumi.Output[str]:
+        """
+        The URI of the Dev Center resource this project is associated with.
+        """
+        return pulumi.get(self, "dev_center_uri")
+
+    @property
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="maxDevBoxesPerUser")
+    def max_dev_boxes_per_user(self) -> pulumi.Output[Optional[int]]:
+        """
+        When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+        """
+        return pulumi.get(self, "max_dev_boxes_per_user")
 
     @property
     @pulumi.getter

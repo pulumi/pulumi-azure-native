@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
@@ -48,6 +52,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// Array of script blocks. Type: array.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScriptActivityScriptBlockResponse> Scripts;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'Script'.
@@ -70,11 +78,15 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             Outputs.ActivityPolicyResponse? policy,
 
             object? scriptBlockExecutionTimeout,
 
             ImmutableArray<Outputs.ScriptActivityScriptBlockResponse> scripts,
+
+            string? state,
 
             string type,
 
@@ -85,9 +97,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             LinkedServiceName = linkedServiceName;
             LogSettings = logSettings;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
             ScriptBlockExecutionTimeout = scriptBlockExecutionTimeout;
             Scripts = scripts;
+            State = state;
             Type = type;
             UserProperties = userProperties;
         }

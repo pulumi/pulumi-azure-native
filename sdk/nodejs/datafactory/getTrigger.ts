@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a trigger.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getTrigger(args: GetTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetTriggerResult> {
 
@@ -63,7 +63,7 @@ export interface GetTriggerResult {
 }
 /**
  * Gets a trigger.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getTriggerOutput(args: GetTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTriggerResult> {
     return pulumi.output(args).apply((a: any) => getTrigger(a, opts))

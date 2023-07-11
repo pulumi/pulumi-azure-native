@@ -28,6 +28,14 @@ namespace Pulumi.AzureNative.Compute.Inputs
         }
 
         /// <summary>
+        /// Slot type for the cloud service.
+        /// Possible values are &lt;br /&gt;&lt;br /&gt;**Production**&lt;br /&gt;&lt;br /&gt;**Staging**&lt;br /&gt;&lt;br /&gt;
+        /// If not specified, the default value is Production.
+        /// </summary>
+        [Input("slotType")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.CloudServiceSlotType>? SlotType { get; set; }
+
+        /// <summary>
         /// The id reference of the cloud service containing the target IP with which the subject cloud service can perform a swap. This property cannot be updated once it is set. The swappable cloud service referred by this id must be present otherwise an error will be thrown.
         /// </summary>
         [Input("swappableCloudService")]

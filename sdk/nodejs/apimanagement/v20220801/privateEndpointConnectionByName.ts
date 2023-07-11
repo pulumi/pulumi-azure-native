@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- *
- * @deprecated azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName to guarantee forwards compatibility.
  */
 export class PrivateEndpointConnectionByName extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class PrivateEndpointConnectionByName extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnectionByName {
-        pulumi.log.warn("PrivateEndpointConnectionByName is deprecated: azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName to guarantee forwards compatibility.")
         return new PrivateEndpointConnectionByName(name, undefined as any, { ...opts, id: id });
     }
 
@@ -68,9 +65,7 @@ export class PrivateEndpointConnectionByName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName to guarantee forwards compatibility. */
     constructor(name: string, args: PrivateEndpointConnectionByNameArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateEndpointConnectionByName is deprecated: azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -98,7 +93,7 @@ export class PrivateEndpointConnectionByName extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName" }, { type: "azure-native:apimanagement/v20230301preview:PrivateEndpointConnectionByName" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionByName.__pulumiType, name, resourceInputs, opts);
     }

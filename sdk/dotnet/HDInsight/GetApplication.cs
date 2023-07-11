@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HDInsight
     {
         /// <summary>
         /// Gets properties of the specified application.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("azure-native:hdinsight:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets properties of the specified application.
-        /// API Version: 2018-06-01-preview.
+        /// Azure REST API version: 2021-06-01.
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("azure-native:hdinsight:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.HDInsight
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Fully qualified resource Id for the resource.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -100,11 +100,15 @@ namespace Pulumi.AzureNative.HDInsight
         /// </summary>
         public readonly Outputs.ApplicationPropertiesResponse Properties;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tags for the application.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -118,6 +122,8 @@ namespace Pulumi.AzureNative.HDInsight
 
             Outputs.ApplicationPropertiesResponse properties,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -126,6 +132,7 @@ namespace Pulumi.AzureNative.HDInsight
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

@@ -97,12 +97,7 @@ class DatabaseAdvisorArgs:
         pulumi.set(self, "advisor_name", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:DatabaseAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DatabaseAdvisor to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class DatabaseAdvisor(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:DatabaseAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DatabaseAdvisor to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,7 +149,6 @@ class DatabaseAdvisor(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DatabaseAdvisor is deprecated: azure-native:sql/v20211101:DatabaseAdvisor is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:DatabaseAdvisor to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -185,7 +179,7 @@ class DatabaseAdvisor(pulumi.CustomResource):
             __props__.__dict__["recommendations_status"] = None
             __props__.__dict__["recommended_actions"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20140401:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20150501preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20200202preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20200801preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20201101preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20210201preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DatabaseAdvisor")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20140401:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20150501preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20200202preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20200801preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20201101preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20210201preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20210501preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20210801preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20211101preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20220201preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20220501preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20220801preview:DatabaseAdvisor"), pulumi.Alias(type_="azure-native:sql/v20221101preview:DatabaseAdvisor")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DatabaseAdvisor, __self__).__init__(
             'azure-native:sql/v20211101:DatabaseAdvisor',

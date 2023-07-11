@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.App.V20221001
     /// <summary>
     /// Dapr Component.
     /// </summary>
-    [Obsolete(@"azure-native:app/v20221001:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:DaprComponent to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:app/v20221001:DaprComponent")]
     public partial class DaprComponent : global::Pulumi.CustomResource
     {
@@ -111,6 +110,8 @@ namespace Pulumi.AzureNative.App.V20221001
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220101preview:DaprComponent"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:DaprComponent"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:DaprComponent"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:DaprComponent"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:DaprComponent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

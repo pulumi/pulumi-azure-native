@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
-    /// Required for storage accounts where kind = BlobStorage. The access tier used for billing.
+    /// Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
     /// </summary>
     [EnumType]
     public readonly struct AccessTier : IEquatable<AccessTier>
@@ -22,6 +22,7 @@ namespace Pulumi.AzureNative.Storage
 
         public static AccessTier Hot { get; } = new AccessTier("Hot");
         public static AccessTier Cool { get; } = new AccessTier("Cool");
+        public static AccessTier Premium { get; } = new AccessTier("Premium");
 
         public static bool operator ==(AccessTier left, AccessTier right) => left.Equals(right);
         public static bool operator !=(AccessTier left, AccessTier right) => !left.Equals(right);
@@ -31,6 +32,69 @@ namespace Pulumi.AzureNative.Storage
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AccessTier other && Equals(other);
         public bool Equals(AccessTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The ImmutabilityPolicy state defines the mode of the policy. Disabled state disables the policy, Unlocked state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, Locked state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccountImmutabilityPolicyState : IEquatable<AccountImmutabilityPolicyState>
+    {
+        private readonly string _value;
+
+        private AccountImmutabilityPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccountImmutabilityPolicyState Unlocked { get; } = new AccountImmutabilityPolicyState("Unlocked");
+        public static AccountImmutabilityPolicyState Locked { get; } = new AccountImmutabilityPolicyState("Locked");
+        public static AccountImmutabilityPolicyState Disabled { get; } = new AccountImmutabilityPolicyState("Disabled");
+
+        public static bool operator ==(AccountImmutabilityPolicyState left, AccountImmutabilityPolicyState right) => left.Equals(right);
+        public static bool operator !=(AccountImmutabilityPolicyState left, AccountImmutabilityPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(AccountImmutabilityPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccountImmutabilityPolicyState other && Equals(other);
+        public bool Equals(AccountImmutabilityPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the Active Directory account type for Azure Storage.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccountType : IEquatable<AccountType>
+    {
+        private readonly string _value;
+
+        private AccountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccountType User { get; } = new AccountType("User");
+        public static AccountType Computer { get; } = new AccountType("Computer");
+
+        public static bool operator ==(AccountType left, AccountType right) => left.Equals(right);
+        public static bool operator !=(AccountType left, AccountType right) => !left.Equals(right);
+
+        public static explicit operator string(AccountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccountType other && Equals(other);
+        public bool Equals(AccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -61,6 +125,71 @@ namespace Pulumi.AzureNative.Storage
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Action other && Equals(other);
         public bool Equals(Action other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet.
+    /// </summary>
+    [EnumType]
+    public readonly struct AllowedCopyScope : IEquatable<AllowedCopyScope>
+    {
+        private readonly string _value;
+
+        private AllowedCopyScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AllowedCopyScope PrivateLink { get; } = new AllowedCopyScope("PrivateLink");
+        public static AllowedCopyScope AAD { get; } = new AllowedCopyScope("AAD");
+
+        public static bool operator ==(AllowedCopyScope left, AllowedCopyScope right) => left.Equals(right);
+        public static bool operator !=(AllowedCopyScope left, AllowedCopyScope right) => !left.Equals(right);
+
+        public static explicit operator string(AllowedCopyScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AllowedCopyScope other && Equals(other);
+        public bool Equals(AllowedCopyScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AllowedMethods : IEquatable<AllowedMethods>
+    {
+        private readonly string _value;
+
+        private AllowedMethods(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AllowedMethods DELETE { get; } = new AllowedMethods("DELETE");
+        public static AllowedMethods GET { get; } = new AllowedMethods("GET");
+        public static AllowedMethods HEAD { get; } = new AllowedMethods("HEAD");
+        public static AllowedMethods MERGE { get; } = new AllowedMethods("MERGE");
+        public static AllowedMethods POST { get; } = new AllowedMethods("POST");
+        public static AllowedMethods OPTIONS { get; } = new AllowedMethods("OPTIONS");
+        public static AllowedMethods PUT { get; } = new AllowedMethods("PUT");
+        public static AllowedMethods PATCH { get; } = new AllowedMethods("PATCH");
+
+        public static bool operator ==(AllowedMethods left, AllowedMethods right) => left.Equals(right);
+        public static bool operator !=(AllowedMethods left, AllowedMethods right) => !left.Equals(right);
+
+        public static explicit operator string(AllowedMethods value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AllowedMethods other && Equals(other);
+        public bool Equals(AllowedMethods other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -211,7 +340,40 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
-    /// Indicates the directory service used.
+    /// Default share permission for users using Kerberos authentication if RBAC role is not assigned.
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultSharePermission : IEquatable<DefaultSharePermission>
+    {
+        private readonly string _value;
+
+        private DefaultSharePermission(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DefaultSharePermission None { get; } = new DefaultSharePermission("None");
+        public static DefaultSharePermission StorageFileDataSmbShareReader { get; } = new DefaultSharePermission("StorageFileDataSmbShareReader");
+        public static DefaultSharePermission StorageFileDataSmbShareContributor { get; } = new DefaultSharePermission("StorageFileDataSmbShareContributor");
+        public static DefaultSharePermission StorageFileDataSmbShareElevatedContributor { get; } = new DefaultSharePermission("StorageFileDataSmbShareElevatedContributor");
+
+        public static bool operator ==(DefaultSharePermission left, DefaultSharePermission right) => left.Equals(right);
+        public static bool operator !=(DefaultSharePermission left, DefaultSharePermission right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultSharePermission value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultSharePermission other && Equals(other);
+        public bool Equals(DefaultSharePermission other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the directory service used. Note that this enum may be extended in the future.
     /// </summary>
     [EnumType]
     public readonly struct DirectoryServiceOptions : IEquatable<DirectoryServiceOptions>
@@ -226,6 +388,7 @@ namespace Pulumi.AzureNative.Storage
         public static DirectoryServiceOptions None { get; } = new DirectoryServiceOptions("None");
         public static DirectoryServiceOptions AADDS { get; } = new DirectoryServiceOptions("AADDS");
         public static DirectoryServiceOptions AD { get; } = new DirectoryServiceOptions("AD");
+        public static DirectoryServiceOptions AADKERB { get; } = new DirectoryServiceOptions("AADKERB");
 
         public static bool operator ==(DirectoryServiceOptions left, DirectoryServiceOptions right) => left.Equals(right);
         public static bool operator !=(DirectoryServiceOptions left, DirectoryServiceOptions right) => !left.Equals(right);
@@ -235,6 +398,37 @@ namespace Pulumi.AzureNative.Storage
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DirectoryServiceOptions other && Equals(other);
         public bool Equals(DirectoryServiceOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Allows you to specify the type of endpoint. Set this to AzureDNSZone to create a large number of accounts in a single subscription, which creates accounts in an Azure DNS Zone and the endpoint URL will have an alphanumeric DNS Zone identifier.
+    /// </summary>
+    [EnumType]
+    public readonly struct DnsEndpointType : IEquatable<DnsEndpointType>
+    {
+        private readonly string _value;
+
+        private DnsEndpointType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DnsEndpointType Standard { get; } = new DnsEndpointType("Standard");
+        public static DnsEndpointType AzureDnsZone { get; } = new DnsEndpointType("AzureDnsZone");
+
+        public static bool operator ==(DnsEndpointType left, DnsEndpointType right) => left.Equals(right);
+        public static bool operator !=(DnsEndpointType left, DnsEndpointType right) => !left.Equals(right);
+
+        public static explicit operator string(DnsEndpointType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DnsEndpointType other && Equals(other);
+        public bool Equals(DnsEndpointType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -388,6 +582,37 @@ namespace Pulumi.AzureNative.Storage
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
         public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This is a required field, it specifies the format for the inventory files.
+    /// </summary>
+    [EnumType]
+    public readonly struct Format : IEquatable<Format>
+    {
+        private readonly string _value;
+
+        private Format(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Format Csv { get; } = new Format("Csv");
+        public static Format Parquet { get; } = new Format("Parquet");
+
+        public static bool operator ==(Format left, Format right) => left.Equals(right);
+        public static bool operator !=(Format left, Format right) => !left.Equals(right);
+
+        public static explicit operator string(Format value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Format other && Equals(other);
+        public bool Equals(Format other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -679,6 +904,37 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
+    /// This is a required field. This field specifies the scope of the inventory created either at the blob or container level.
+    /// </summary>
+    [EnumType]
+    public readonly struct ObjectType : IEquatable<ObjectType>
+    {
+        private readonly string _value;
+
+        private ObjectType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ObjectType Blob { get; } = new ObjectType("Blob");
+        public static ObjectType Container { get; } = new ObjectType("Container");
+
+        public static bool operator ==(ObjectType left, ObjectType right) => left.Equals(right);
+        public static bool operator !=(ObjectType left, ObjectType right) => !left.Equals(right);
+
+        public static explicit operator string(ObjectType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ObjectType other && Equals(other);
+        public bool Equals(ObjectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
     /// </summary>
     [EnumType]
@@ -780,6 +1036,37 @@ namespace Pulumi.AzureNative.Storage
     }
 
     /// <summary>
+    /// Allow or disallow public network access to Storage Account. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The property is for NFS share only. The default is NoRootSquash.
     /// </summary>
     [EnumType]
@@ -865,6 +1152,37 @@ namespace Pulumi.AzureNative.Storage
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleType other && Equals(other);
         public bool Equals(RuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This is a required field. This field is used to schedule an inventory formation.
+    /// </summary>
+    [EnumType]
+    public readonly struct Schedule : IEquatable<Schedule>
+    {
+        private readonly string _value;
+
+        private Schedule(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Schedule Daily { get; } = new Schedule("Daily");
+        public static Schedule Weekly { get; } = new Schedule("Weekly");
+
+        public static bool operator ==(Schedule left, Schedule right) => left.Equals(right);
+        public static bool operator !=(Schedule left, Schedule right) => !left.Equals(right);
+
+        public static explicit operator string(Schedule value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Schedule other && Equals(other);
+        public bool Equals(Schedule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1053,11 +1371,11 @@ namespace Pulumi.AzureNative.Storage
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static State Provisioning { get; } = new State("provisioning");
-        public static State Deprovisioning { get; } = new State("deprovisioning");
-        public static State Succeeded { get; } = new State("succeeded");
-        public static State Failed { get; } = new State("failed");
-        public static State NetworkSourceDeleted { get; } = new State("networkSourceDeleted");
+        public static State Provisioning { get; } = new State("Provisioning");
+        public static State Deprovisioning { get; } = new State("Deprovisioning");
+        public static State Succeeded { get; } = new State("Succeeded");
+        public static State Failed { get; } = new State("Failed");
+        public static State NetworkSourceDeleted { get; } = new State("NetworkSourceDeleted");
 
         public static bool operator ==(State left, State right) => left.Equals(right);
         public static bool operator !=(State left, State right) => !left.Equals(right);

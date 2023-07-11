@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.EdgeOrder.Outputs
 {
 
     /// <summary>
-    /// Management RP details
+    /// Management RP details.
     /// </summary>
     [OutputType]
     public sealed class ResourceProviderDetailsResponse
     {
         /// <summary>
-        /// Resource provider namespace
+        /// Resource provider namespace.
         /// </summary>
         public readonly string ResourceProviderNamespace;
 

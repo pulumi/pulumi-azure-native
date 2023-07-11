@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified private endpoint connection associated with the device update account.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2023-07-01.
  */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
 
@@ -75,7 +75,7 @@ export interface GetPrivateEndpointConnectionResult {
 }
 /**
  * Get the specified private endpoint connection associated with the device update account.
- * API Version: 2020-03-01-preview.
+ * Azure REST API version: 2023-07-01.
  */
 export function getPrivateEndpointConnectionOutput(args: GetPrivateEndpointConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrivateEndpointConnectionResult> {
     return pulumi.output(args).apply((a: any) => getPrivateEndpointConnection(a, opts))

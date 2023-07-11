@@ -503,12 +503,7 @@ class ManagedInstanceArgs:
         pulumi.set(self, "zone_redundant", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:ManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstance to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class ManagedInstance(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:ManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstance to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -641,7 +636,6 @@ class ManagedInstance(pulumi.CustomResource):
                  v_cores: Optional[pulumi.Input[int]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""ManagedInstance is deprecated: azure-native:sql/v20211101:ManagedInstance is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:ManagedInstance to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -689,7 +683,7 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstance")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20150501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedInstance"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedInstance")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedInstance, __self__).__init__(
             'azure-native:sql/v20211101:ManagedInstance',

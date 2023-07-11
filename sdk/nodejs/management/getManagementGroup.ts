@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Get the details of the management group.
  *
- * API Version: 2020-05-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
 
@@ -25,7 +25,7 @@ export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.I
 
 export interface GetManagementGroupArgs {
     /**
-     * The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+     * The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
      */
     expand?: string;
     /**
@@ -78,7 +78,7 @@ export interface GetManagementGroupResult {
 /**
  * Get the details of the management group.
  *
- * API Version: 2020-05-01.
+ * Azure REST API version: 2021-04-01.
  */
 export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagementGroupResult> {
     return pulumi.output(args).apply((a: any) => getManagementGroup(a, opts))
@@ -86,7 +86,7 @@ export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opt
 
 export interface GetManagementGroupOutputArgs {
     /**
-     * The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.
+     * The $expand=children query string parameter allows clients to request inclusion of children in the response payload.  $expand=path includes the path from the root group to the current group.  $expand=ancestors includes the ancestor Ids of the current group.
      */
     expand?: pulumi.Input<string>;
     /**

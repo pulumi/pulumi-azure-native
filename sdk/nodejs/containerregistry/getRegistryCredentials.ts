@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the administrator login credentials for the specified container registry.
- * API Version: 2016-06-27-preview.
+ * Azure REST API version: 2016-06-27-preview.
  */
 export function getRegistryCredentials(args: GetRegistryCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistryCredentialsResult> {
 
@@ -43,7 +43,7 @@ export interface GetRegistryCredentialsResult {
 }
 /**
  * Gets the administrator login credentials for the specified container registry.
- * API Version: 2016-06-27-preview.
+ * Azure REST API version: 2016-06-27-preview.
  */
 export function getRegistryCredentialsOutput(args: GetRegistryCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryCredentialsResult> {
     return pulumi.output(args).apply((a: any) => getRegistryCredentials(a, opts))

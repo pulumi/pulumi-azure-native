@@ -64,7 +64,7 @@ def get_global_user_personal_preferences(add_remove: Optional[Union[str, 'AddRem
                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGlobalUserPersonalPreferencesResult:
     """
     Get personal preferences for a user
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param Union[str, 'AddRemove'] add_remove: Enum indicating if user is adding or removing a favorite lab
@@ -93,7 +93,7 @@ def get_global_user_personal_preferences_output(add_remove: Optional[pulumi.Inpu
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalUserPersonalPreferencesResult]:
     """
     Get personal preferences for a user
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param Union[str, 'AddRemove'] add_remove: Enum indicating if user is adding or removing a favorite lab

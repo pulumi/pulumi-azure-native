@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventGrid
     {
         /// <summary>
         /// Get properties of a partner destination.
-        /// API Version: 2021-10-15-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetPartnerDestinationResult> InvokeAsync(GetPartnerDestinationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPartnerDestinationResult>("azure-native:eventgrid:getPartnerDestination", args ?? new GetPartnerDestinationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get properties of a partner destination.
-        /// API Version: 2021-10-15-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetPartnerDestinationResult> Invoke(GetPartnerDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerDestinationResult>("azure-native:eventgrid:getPartnerDestination", args ?? new GetPartnerDestinationInvokeArgs(), options.WithDefaults());
@@ -111,7 +111,7 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Provisioning state of the partner destination.
         /// </summary>
-        public readonly string? ProvisioningState;
+        public readonly string ProvisioningState;
         /// <summary>
         /// The system metadata relating to Partner Destination resource.
         /// </summary>
@@ -145,7 +145,7 @@ namespace Pulumi.AzureNative.EventGrid
 
             string? partnerRegistrationImmutableId,
 
-            string? provisioningState,
+            string provisioningState,
 
             Outputs.SystemDataResponse systemData,
 

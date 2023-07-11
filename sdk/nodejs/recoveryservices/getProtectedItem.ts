@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getProtectedItem(args: GetProtectedItemArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectedItemResult> {
 
@@ -75,7 +75,7 @@ export interface GetProtectedItemResult {
     /**
      * ProtectedItemResource properties
      */
-    readonly properties: outputs.recoveryservices.AzureFileshareProtectedItemResponse | outputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItemResponse | outputs.recoveryservices.AzureIaaSComputeVMProtectedItemResponse | outputs.recoveryservices.AzureIaaSVMProtectedItemResponse | outputs.recoveryservices.AzureSqlProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItemResponse | outputs.recoveryservices.DPMProtectedItemResponse | outputs.recoveryservices.GenericProtectedItemResponse | outputs.recoveryservices.MabFileFolderProtectedItemResponse;
+    readonly properties: outputs.recoveryservices.AzureFileshareProtectedItemResponse | outputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItemResponse | outputs.recoveryservices.AzureIaaSComputeVMProtectedItemResponse | outputs.recoveryservices.AzureIaaSVMProtectedItemResponse | outputs.recoveryservices.AzureSqlProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPHanaDBInstanceProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItemResponse | outputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItemResponse | outputs.recoveryservices.DPMProtectedItemResponse | outputs.recoveryservices.GenericProtectedItemResponse | outputs.recoveryservices.MabFileFolderProtectedItemResponse;
     /**
      * Resource tags.
      */
@@ -88,7 +88,7 @@ export interface GetProtectedItemResult {
 /**
  * Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,
  * call the GetItemOperationResult API.
- * API Version: 2021-02-01.
+ * Azure REST API version: 2023-04-01.
  */
 export function getProtectedItemOutput(args: GetProtectedItemOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectedItemResult> {
     return pulumi.output(args).apply((a: any) => getProtectedItem(a, opts))

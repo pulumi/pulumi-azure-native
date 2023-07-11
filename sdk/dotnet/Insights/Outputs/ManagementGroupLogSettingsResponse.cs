@@ -19,7 +19,11 @@ namespace Pulumi.AzureNative.Insights.Outputs
         /// <summary>
         /// Name of a Management Group Diagnostic Log category for a resource type this setting is applied to.
         /// </summary>
-        public readonly string Category;
+        public readonly string? Category;
+        /// <summary>
+        /// Name of a Management Group Diagnostic Log category group for a resource type this setting is applied to.
+        /// </summary>
+        public readonly string? CategoryGroup;
         /// <summary>
         /// a value indicating whether this log is enabled.
         /// </summary>
@@ -27,11 +31,14 @@ namespace Pulumi.AzureNative.Insights.Outputs
 
         [OutputConstructor]
         private ManagementGroupLogSettingsResponse(
-            string category,
+            string? category,
+
+            string? categoryGroup,
 
             bool enabled)
         {
             Category = category;
+            CategoryGroup = categoryGroup;
             Enabled = enabled;
         }
     }

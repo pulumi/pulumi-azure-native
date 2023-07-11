@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.App
 {
     /// <summary>
     /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-    /// API Version: 2022-03-01.
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2022-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:app:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource
@@ -81,6 +81,8 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220301:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20220601preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

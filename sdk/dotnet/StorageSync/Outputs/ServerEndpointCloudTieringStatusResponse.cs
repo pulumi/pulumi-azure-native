@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.StorageSync.Outputs
         /// </summary>
         public readonly string LastUpdatedTimestamp;
         /// <summary>
+        /// Information regarding the low disk mode state
+        /// </summary>
+        public readonly Outputs.CloudTieringLowDiskModeResponse LowDiskMode;
+        /// <summary>
         /// Information regarding how much local space cloud tiering is saving.
         /// </summary>
         public readonly Outputs.CloudTieringSpaceSavingsResponse SpaceSavings;
@@ -75,6 +79,8 @@ namespace Pulumi.AzureNative.StorageSync.Outputs
 
             string lastUpdatedTimestamp,
 
+            Outputs.CloudTieringLowDiskModeResponse lowDiskMode,
+
             Outputs.CloudTieringSpaceSavingsResponse spaceSavings,
 
             Outputs.CloudTieringVolumeFreeSpacePolicyStatusResponse volumeFreeSpacePolicyStatus)
@@ -87,6 +93,7 @@ namespace Pulumi.AzureNative.StorageSync.Outputs
             LastCloudTieringResult = lastCloudTieringResult;
             LastSuccessTimestamp = lastSuccessTimestamp;
             LastUpdatedTimestamp = lastUpdatedTimestamp;
+            LowDiskMode = lowDiskMode;
             SpaceSavings = spaceSavings;
             VolumeFreeSpacePolicyStatus = volumeFreeSpacePolicyStatus;
         }

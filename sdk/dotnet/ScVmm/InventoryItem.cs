@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ScVmm
 {
     /// <summary>
     /// Defines the inventory item.
-    /// API Version: 2020-06-05-preview.
+    /// Azure REST API version: 2022-05-21-preview. Prior API version in Azure Native 1.x: 2020-06-05-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:InventoryItem")]
     public partial class InventoryItem : global::Pulumi.CustomResource
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.ScVmm
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// The system data.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20200605preview:InventoryItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:InventoryItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

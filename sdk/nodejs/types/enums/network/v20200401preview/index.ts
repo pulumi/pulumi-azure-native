@@ -2,16 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const ForwardingRuleState = {
-    Enabled: "Enabled",
-    Disabled: "Disabled",
-} as const;
-
-/**
- * The state of forwarding rule.
- */
-export type ForwardingRuleState = (typeof ForwardingRuleState)[keyof typeof ForwardingRuleState];
-
 export const IpAllocationMethod = {
     Static: "Static",
     Dynamic: "Dynamic",

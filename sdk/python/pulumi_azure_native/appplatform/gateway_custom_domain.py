@@ -111,7 +111,7 @@ class GatewayCustomDomain(pulumi.CustomResource):
                  __props__=None):
         """
         Custom domain of the Spring Cloud Gateway
-        API Version: 2022-01-01-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class GatewayCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom domain of the Spring Cloud Gateway
-        API Version: 2022-01-01-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-01-01-preview
 
         :param str resource_name: The name of the resource.
         :param GatewayCustomDomainArgs args: The arguments to use to populate this resource's properties.
@@ -174,7 +174,7 @@ class GatewayCustomDomain(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20220101preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20221201:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:GatewayCustomDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20220101preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20221201:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:GatewayCustomDomain"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:GatewayCustomDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GatewayCustomDomain, __self__).__init__(
             'azure-native:appplatform:GatewayCustomDomain',

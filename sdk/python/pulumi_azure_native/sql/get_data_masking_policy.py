@@ -19,7 +19,7 @@ __all__ = [
 @pulumi.output_type
 class GetDataMaskingPolicyResult:
     """
-    Represents a database data masking policy.
+    A database data masking policy.
     """
     def __init__(__self__, application_principals=None, data_masking_state=None, exempt_principals=None, id=None, kind=None, location=None, masking_level=None, name=None, type=None):
         if application_principals and not isinstance(application_principals, str):
@@ -86,7 +86,7 @@ class GetDataMaskingPolicyResult:
     @pulumi.getter
     def kind(self) -> str:
         """
-        The kind of data masking policy. Metadata, used for Azure portal.
+        The kind of Data Masking Policy. Metadata, used for Azure portal.
         """
         return pulumi.get(self, "kind")
 
@@ -146,11 +146,11 @@ def get_data_masking_policy(data_masking_policy_name: Optional[str] = None,
                             server_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataMaskingPolicyResult:
     """
-    Gets a database data masking policy.
-    API Version: 2014-04-01.
+    Gets the database data masking policy.
+    Azure REST API version: 2021-11-01.
 
 
-    :param str data_masking_policy_name: The name of the database for which the data masking rule applies.
+    :param str data_masking_policy_name: The name of the database for which the data masking policy applies.
     :param str database_name: The name of the database.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.
@@ -182,11 +182,11 @@ def get_data_masking_policy_output(data_masking_policy_name: Optional[pulumi.Inp
                                    server_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataMaskingPolicyResult]:
     """
-    Gets a database data masking policy.
-    API Version: 2014-04-01.
+    Gets the database data masking policy.
+    Azure REST API version: 2021-11-01.
 
 
-    :param str data_masking_policy_name: The name of the database for which the data masking rule applies.
+    :param str data_masking_policy_name: The name of the database for which the data masking policy applies.
     :param str database_name: The name of the database.
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str server_name: The name of the server.

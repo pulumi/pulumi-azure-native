@@ -135,12 +135,12 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipelineRunResult:
     """
     Gets the detailed information for a given pipeline run.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str pipeline_run_name: The name of the pipeline run.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['pipelineRunName'] = pipeline_run_name
@@ -167,11 +167,11 @@ def get_pipeline_run_output(pipeline_run_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineRunResult]:
     """
     Gets the detailed information for a given pipeline run.
-    API Version: 2020-11-01-preview.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str pipeline_run_name: The name of the pipeline run.
     :param str registry_name: The name of the container registry.
-    :param str resource_group_name: The name of the resource group to which the container registry belongs.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
     /// <summary>
     /// Information about a partner registration.
     /// </summary>
-    [Obsolete(@"azure-native:eventgrid/v20220615:PartnerRegistration is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerRegistration to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20220615:PartnerRegistration")]
     public partial class PartnerRegistration : global::Pulumi.CustomResource
     {
@@ -89,6 +88,7 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerRegistration"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:PartnerRegistration"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:PartnerRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

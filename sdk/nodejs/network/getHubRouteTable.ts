@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a RouteTable.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getHubRouteTable(args: GetHubRouteTableArgs, opts?: pulumi.InvokeOptions): Promise<GetHubRouteTableResult> {
 
@@ -79,7 +79,7 @@ export interface GetHubRouteTableResult {
 }
 /**
  * Retrieves the details of a RouteTable.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getHubRouteTableOutput(args: GetHubRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubRouteTableResult> {
     return pulumi.output(args).apply((a: any) => getHubRouteTable(a, opts))

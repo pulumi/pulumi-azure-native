@@ -8,8 +8,9 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Lists the PNS Credentials associated with a notification hub .
- * API Version: 2017-04-01.
+ * Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
+ * PNS credentials.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getNotificationHubPnsCredentials(args: GetNotificationHubPnsCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubPnsCredentialsResult> {
 
@@ -23,75 +24,57 @@ export function getNotificationHubPnsCredentials(args: GetNotificationHubPnsCred
 
 export interface GetNotificationHubPnsCredentialsArgs {
     /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName: string;
     /**
-     * The notification hub name.
+     * Notification Hub name
      */
     notificationHubName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
 
 /**
- * Description of a NotificationHub PNS Credentials.
+ * Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
+ * PNS credentials.
  */
 export interface GetNotificationHubPnsCredentialsResult {
     /**
-     * The AdmCredential of the created NotificationHub
-     */
-    readonly admCredential?: outputs.notificationhubs.AdmCredentialResponse;
-    /**
-     * The ApnsCredential of the created NotificationHub
-     */
-    readonly apnsCredential?: outputs.notificationhubs.ApnsCredentialResponse;
-    /**
-     * The BaiduCredential of the created NotificationHub
-     */
-    readonly baiduCredential?: outputs.notificationhubs.BaiduCredentialResponse;
-    /**
-     * The GcmCredential of the created NotificationHub
-     */
-    readonly gcmCredential?: outputs.notificationhubs.GcmCredentialResponse;
-    /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource location
+     * Deprecated - only for compatibility.
      */
     readonly location?: string;
     /**
-     * The MpnsCredential of the created NotificationHub
-     */
-    readonly mpnsCredential?: outputs.notificationhubs.MpnsCredentialResponse;
-    /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * The sku of the created namespace
+     * Collection of Notification Hub or Notification Hub Namespace PNS credentials.
      */
-    readonly sku?: outputs.notificationhubs.SkuResponse;
+    readonly properties: outputs.notificationhubs.PnsCredentialsResponse;
     /**
-     * Resource tags
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.notificationhubs.SystemDataResponse;
+    /**
+     * Deprecated - only for compatibility.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
-    /**
-     * The WnsCredential of the created NotificationHub
-     */
-    readonly wnsCredential?: outputs.notificationhubs.WnsCredentialResponse;
 }
 /**
- * Lists the PNS Credentials associated with a notification hub .
- * API Version: 2017-04-01.
+ * Description of a NotificationHub PNS Credentials. This is a response of the POST requests that return namespace or hubs
+ * PNS credentials.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubPnsCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubPnsCredentialsResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHubPnsCredentials(a, opts))
@@ -99,15 +82,15 @@ export function getNotificationHubPnsCredentialsOutput(args: GetNotificationHubP
 
 export interface GetNotificationHubPnsCredentialsOutputArgs {
     /**
-     * The namespace name.
+     * Namespace name
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * The notification hub name.
+     * Notification Hub name
      */
     notificationHubName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

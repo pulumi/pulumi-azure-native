@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     {
         /// <summary>
         /// Get a scaling plan.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Task<GetScalingPlanResult> InvokeAsync(GetScalingPlanArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScalingPlanResult>("azure-native:desktopvirtualization:getScalingPlan", args ?? new GetScalingPlanArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a scaling plan.
-        /// API Version: 2021-02-01-preview.
+        /// Azure REST API version: 2022-09-09.
         /// </summary>
         public static Output<GetScalingPlanResult> Invoke(GetScalingPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPlanResult>("azure-native:desktopvirtualization:getScalingPlan", args ?? new GetScalingPlanInvokeArgs(), options.WithDefaults());
@@ -122,14 +122,14 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         public readonly string ObjectId;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponsePlan? Plan;
         /// <summary>
-        /// The ring number of scaling plan.
-        /// </summary>
-        public readonly int? Ring;
-        /// <summary>
-        /// List of ScalingSchedule definitions.
+        /// List of ScalingPlanPooledSchedule definitions.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingScheduleResponse> Schedules;
         public readonly Outputs.ResourceModelWithAllowedPropertySetResponseSku? Sku;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// Timezone of the scaling plan.
         /// </summary>
-        public readonly string? TimeZone;
+        public readonly string TimeZone;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -173,15 +173,15 @@ namespace Pulumi.AzureNative.DesktopVirtualization
 
             Outputs.ResourceModelWithAllowedPropertySetResponsePlan? plan,
 
-            int? ring,
-
             ImmutableArray<Outputs.ScalingScheduleResponse> schedules,
 
             Outputs.ResourceModelWithAllowedPropertySetResponseSku? sku,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
-            string? timeZone,
+            string timeZone,
 
             string type)
         {
@@ -199,9 +199,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization
             Name = name;
             ObjectId = objectId;
             Plan = plan;
-            Ring = ring;
             Schedules = schedules;
             Sku = sku;
+            SystemData = systemData;
             Tags = tags;
             TimeZone = timeZone;
             Type = type;

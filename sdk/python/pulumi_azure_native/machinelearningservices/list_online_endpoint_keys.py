@@ -62,7 +62,7 @@ def list_online_endpoint_keys(endpoint_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOnlineEndpointKeysResult:
     """
     Keys for endpoint authentication.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str endpoint_name: Online Endpoint name.
@@ -88,7 +88,7 @@ def list_online_endpoint_keys_output(endpoint_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOnlineEndpointKeysResult]:
     """
     Keys for endpoint authentication.
-    API Version: 2021-03-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str endpoint_name: Online Endpoint name.

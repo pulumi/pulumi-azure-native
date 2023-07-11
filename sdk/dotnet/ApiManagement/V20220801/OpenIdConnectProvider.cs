@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// OpenId Connect Provider details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:OpenIdConnectProvider to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:OpenIdConnectProvider")]
     public partial class OpenIdConnectProvider : global::Pulumi.CustomResource
     {
@@ -111,6 +110,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:OpenIdConnectProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:OpenIdConnectProvider"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:OpenIdConnectProvider"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:OpenIdConnectProvider"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

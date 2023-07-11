@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Kusto
     {
         /// <summary>
         /// Gets a Kusto cluster.
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("azure-native:kusto:getCluster", args ?? new GetClusterArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a Kusto cluster.
-        /// API Version: 2021-01-01.
+        /// Azure REST API version: 2022-12-29.
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("azure-native:kusto:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
@@ -72,9 +72,25 @@ namespace Pulumi.AzureNative.Kusto
     public sealed class GetClusterResult
     {
         /// <summary>
+        /// The cluster's accepted audiences.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AcceptedAudiencesResponse> AcceptedAudiences;
+        /// <summary>
+        /// List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedFqdnList;
+        /// <summary>
+        /// The list of ips in the format of CIDR allowed to connect to the cluster.
+        /// </summary>
+        public readonly ImmutableArray<string> AllowedIpRangeList;
+        /// <summary>
         /// The cluster data ingestion URI.
         /// </summary>
         public readonly string DataIngestionUri;
+        /// <summary>
+        /// A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
+        /// </summary>
+        public readonly bool? EnableAutoStop;
         /// <summary>
         /// A boolean value that indicates if the cluster's disks are encrypted.
         /// </summary>
@@ -114,7 +130,7 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// List of the cluster's language extensions.
         /// </summary>
-        public readonly Outputs.LanguageExtensionsListResponse LanguageExtensions;
+        public readonly Outputs.LanguageExtensionsListResponse? LanguageExtensions;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -128,9 +144,25 @@ namespace Pulumi.AzureNative.Kusto
         /// </summary>
         public readonly Outputs.OptimizedAutoscaleResponse? OptimizedAutoscale;
         /// <summary>
+        /// A list of private endpoint connections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The provisioned state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+        /// </summary>
+        public readonly string? PublicIPType;
+        /// <summary>
+        /// Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+        /// </summary>
+        public readonly string? RestrictOutboundNetworkAccess;
         /// <summary>
         /// The SKU of the cluster.
         /// </summary>
@@ -143,6 +175,10 @@ namespace Pulumi.AzureNative.Kusto
         /// The reason for the cluster's current state.
         /// </summary>
         public readonly string StateReason;
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -170,7 +206,15 @@ namespace Pulumi.AzureNative.Kusto
 
         [OutputConstructor]
         private GetClusterResult(
+            ImmutableArray<Outputs.AcceptedAudiencesResponse> acceptedAudiences,
+
+            ImmutableArray<string> allowedFqdnList,
+
+            ImmutableArray<string> allowedIpRangeList,
+
             string dataIngestionUri,
+
+            bool? enableAutoStop,
 
             bool? enableDiskEncryption,
 
@@ -190,7 +234,7 @@ namespace Pulumi.AzureNative.Kusto
 
             Outputs.KeyVaultPropertiesResponse? keyVaultProperties,
 
-            Outputs.LanguageExtensionsListResponse languageExtensions,
+            Outputs.LanguageExtensionsListResponse? languageExtensions,
 
             string location,
 
@@ -198,13 +242,23 @@ namespace Pulumi.AzureNative.Kusto
 
             Outputs.OptimizedAutoscaleResponse? optimizedAutoscale,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicIPType,
+
+            string? publicNetworkAccess,
+
+            string? restrictOutboundNetworkAccess,
 
             Outputs.AzureSkuResponse sku,
 
             string state,
 
             string stateReason,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -218,7 +272,11 @@ namespace Pulumi.AzureNative.Kusto
 
             ImmutableArray<string> zones)
         {
+            AcceptedAudiences = acceptedAudiences;
+            AllowedFqdnList = allowedFqdnList;
+            AllowedIpRangeList = allowedIpRangeList;
             DataIngestionUri = dataIngestionUri;
+            EnableAutoStop = enableAutoStop;
             EnableDiskEncryption = enableDiskEncryption;
             EnableDoubleEncryption = enableDoubleEncryption;
             EnablePurge = enablePurge;
@@ -232,10 +290,15 @@ namespace Pulumi.AzureNative.Kusto
             Location = location;
             Name = name;
             OptimizedAutoscale = optimizedAutoscale;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicIPType = publicIPType;
+            PublicNetworkAccess = publicNetworkAccess;
+            RestrictOutboundNetworkAccess = restrictOutboundNetworkAccess;
             Sku = sku;
             State = state;
             StateReason = stateReason;
+            SystemData = systemData;
             Tags = tags;
             TrustedExternalTenants = trustedExternalTenants;
             Type = type;

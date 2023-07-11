@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a policy fragment.
  */
-/** @deprecated azure-native:apimanagement/v20220801:PolicyFragment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PolicyFragment to guarantee forwards compatibility. */
 export function getPolicyFragment(args: GetPolicyFragmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyFragmentResult> {
-    pulumi.log.warn("getPolicyFragment is deprecated: azure-native:apimanagement/v20220801:PolicyFragment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PolicyFragment to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getPolicyFragment", {
@@ -71,7 +69,6 @@ export interface GetPolicyFragmentResult {
 /**
  * Gets a policy fragment.
  */
-/** @deprecated azure-native:apimanagement/v20220801:PolicyFragment is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:PolicyFragment to guarantee forwards compatibility. */
 export function getPolicyFragmentOutput(args: GetPolicyFragmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyFragmentResult> {
     return pulumi.output(args).apply((a: any) => getPolicyFragment(a, opts))
 }

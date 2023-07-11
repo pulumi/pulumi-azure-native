@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Dev Box definition
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getDevBoxDefinition(args: GetDevBoxDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetDevBoxDefinitionResult> {
 
@@ -31,7 +31,7 @@ export interface GetDevBoxDefinitionArgs {
      */
     devCenterName: string;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -44,6 +44,10 @@ export interface GetDevBoxDefinitionResult {
      * Image reference information for the currently active image (only populated during updates).
      */
     readonly activeImageReference: outputs.devcenter.ImageReferenceResponse;
+    /**
+     * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+     */
+    readonly hibernateSupport?: string;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -71,7 +75,7 @@ export interface GetDevBoxDefinitionResult {
     /**
      * The storage type used for the Operating System disk of Dev Boxes created using this definition.
      */
-    readonly osStorageType: string;
+    readonly osStorageType?: string;
     /**
      * The provisioning state of the resource.
      */
@@ -95,7 +99,7 @@ export interface GetDevBoxDefinitionResult {
 }
 /**
  * Gets a Dev Box definition
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getDevBoxDefinitionOutput(args: GetDevBoxDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDevBoxDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getDevBoxDefinition(a, opts))
@@ -111,7 +115,7 @@ export interface GetDevBoxDefinitionOutputArgs {
      */
     devCenterName: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

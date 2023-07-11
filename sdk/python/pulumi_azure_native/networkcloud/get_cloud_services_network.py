@@ -25,10 +25,13 @@ class GetCloudServicesNetworkResult:
     of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
     virtual machines and/or Hybrid AKS clusters.
     """
-    def __init__(__self__, additional_egress_endpoints=None, cluster_id=None, detailed_status=None, detailed_status_message=None, enable_default_egress_endpoints=None, enabled_egress_endpoints=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, id=None, interface_name=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
+    def __init__(__self__, additional_egress_endpoints=None, associated_resource_ids=None, cluster_id=None, detailed_status=None, detailed_status_message=None, enable_default_egress_endpoints=None, enabled_egress_endpoints=None, extended_location=None, hybrid_aks_clusters_associated_ids=None, id=None, interface_name=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, virtual_machines_associated_ids=None):
         if additional_egress_endpoints and not isinstance(additional_egress_endpoints, list):
             raise TypeError("Expected argument 'additional_egress_endpoints' to be a list")
         pulumi.set(__self__, "additional_egress_endpoints", additional_egress_endpoints)
+        if associated_resource_ids and not isinstance(associated_resource_ids, list):
+            raise TypeError("Expected argument 'associated_resource_ids' to be a list")
+        pulumi.set(__self__, "associated_resource_ids", associated_resource_ids)
         if cluster_id and not isinstance(cluster_id, str):
             raise TypeError("Expected argument 'cluster_id' to be a str")
         pulumi.set(__self__, "cluster_id", cluster_id)
@@ -87,6 +90,14 @@ class GetCloudServicesNetworkResult:
         return pulumi.get(self, "additional_egress_endpoints")
 
     @property
+    @pulumi.getter(name="associatedResourceIds")
+    def associated_resource_ids(self) -> Sequence[str]:
+        """
+        The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        """
+        return pulumi.get(self, "associated_resource_ids")
+
+    @property
     @pulumi.getter(name="clusterId")
     def cluster_id(self) -> str:
         """
@@ -138,7 +149,7 @@ class GetCloudServicesNetworkResult:
     @pulumi.getter(name="hybridAksClustersAssociatedIds")
     def hybrid_aks_clusters_associated_ids(self) -> Sequence[str]:
         """
-        The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
+        Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
         """
         return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
 
@@ -146,7 +157,7 @@ class GetCloudServicesNetworkResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -210,7 +221,7 @@ class GetCloudServicesNetworkResult:
     @pulumi.getter(name="virtualMachinesAssociatedIds")
     def virtual_machines_associated_ids(self) -> Sequence[str]:
         """
-        The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
+        Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
         """
         return pulumi.get(self, "virtual_machines_associated_ids")
 
@@ -222,6 +233,7 @@ class AwaitableGetCloudServicesNetworkResult(GetCloudServicesNetworkResult):
             yield self
         return GetCloudServicesNetworkResult(
             additional_egress_endpoints=self.additional_egress_endpoints,
+            associated_resource_ids=self.associated_resource_ids,
             cluster_id=self.cluster_id,
             detailed_status=self.detailed_status,
             detailed_status_message=self.detailed_status_message,
@@ -245,7 +257,7 @@ def get_cloud_services_network(cloud_services_network_name: Optional[str] = None
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCloudServicesNetworkResult:
     """
     Get properties of the provided cloud services network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.
@@ -259,6 +271,7 @@ def get_cloud_services_network(cloud_services_network_name: Optional[str] = None
 
     return AwaitableGetCloudServicesNetworkResult(
         additional_egress_endpoints=__ret__.additional_egress_endpoints,
+        associated_resource_ids=__ret__.associated_resource_ids,
         cluster_id=__ret__.cluster_id,
         detailed_status=__ret__.detailed_status,
         detailed_status_message=__ret__.detailed_status_message,
@@ -283,7 +296,7 @@ def get_cloud_services_network_output(cloud_services_network_name: Optional[pulu
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudServicesNetworkResult]:
     """
     Get properties of the provided cloud services network.
-    API Version: 2022-12-12-preview.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str cloud_services_network_name: The name of the cloud services network.

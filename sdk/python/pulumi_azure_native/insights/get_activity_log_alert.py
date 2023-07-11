@@ -22,7 +22,7 @@ class GetActivityLogAlertResult:
     """
     An Activity Log Alert rule resource.
     """
-    def __init__(__self__, actions=None, condition=None, description=None, enabled=None, id=None, location=None, name=None, scopes=None, tags=None, type=None):
+    def __init__(__self__, actions=None, condition=None, description=None, enabled=None, id=None, location=None, name=None, scopes=None, tags=None, tenant_scope=None, type=None):
         if actions and not isinstance(actions, dict):
             raise TypeError("Expected argument 'actions' to be a dict")
         pulumi.set(__self__, "actions", actions)
@@ -50,6 +50,9 @@ class GetActivityLogAlertResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tenant_scope and not isinstance(tenant_scope, str):
+            raise TypeError("Expected argument 'tenant_scope' to be a str")
+        pulumi.set(__self__, "tenant_scope", tenant_scope)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -112,7 +115,7 @@ class GetActivityLogAlertResult:
 
     @property
     @pulumi.getter
-    def scopes(self) -> Sequence[str]:
+    def scopes(self) -> Optional[Sequence[str]]:
         """
         A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
         """
@@ -125,6 +128,14 @@ class GetActivityLogAlertResult:
         The tags of the resource.
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tenantScope")
+    def tenant_scope(self) -> Optional[str]:
+        """
+        The tenant GUID. Must be provided for tenant-level and management group events rules.
+        """
+        return pulumi.get(self, "tenant_scope")
 
     @property
     @pulumi.getter
@@ -150,6 +161,7 @@ class AwaitableGetActivityLogAlertResult(GetActivityLogAlertResult):
             name=self.name,
             scopes=self.scopes,
             tags=self.tags,
+            tenant_scope=self.tenant_scope,
             type=self.type)
 
 
@@ -158,7 +170,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActivityLogAlertResult:
     """
     Get an Activity Log Alert rule.
-    API Version: 2020-10-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str activity_log_alert_name: The name of the Activity Log Alert rule.
@@ -180,6 +192,7 @@ def get_activity_log_alert(activity_log_alert_name: Optional[str] = None,
         name=__ret__.name,
         scopes=__ret__.scopes,
         tags=__ret__.tags,
+        tenant_scope=__ret__.tenant_scope,
         type=__ret__.type)
 
 
@@ -189,7 +202,7 @@ def get_activity_log_alert_output(activity_log_alert_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActivityLogAlertResult]:
     """
     Get an Activity Log Alert rule.
-    API Version: 2020-10-01.
+    Azure REST API version: 2023-01-01-preview.
 
 
     :param str activity_log_alert_name: The name of the Activity Log Alert rule.

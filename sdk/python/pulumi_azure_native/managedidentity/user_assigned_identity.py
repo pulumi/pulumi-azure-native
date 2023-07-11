@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = ['UserAssignedIdentityArgs', 'UserAssignedIdentity']
 
@@ -94,7 +95,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  __props__=None):
         """
         Describes an identity resource.
-        API Version: 2018-11-30.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +112,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an identity resource.
-        API Version: 2018-11-30.
+        Azure REST API version: 2023-01-31. Prior API version in Azure Native 1.x: 2018-11-30
 
         :param str resource_name: The name of the resource.
         :param UserAssignedIdentityArgs args: The arguments to use to populate this resource's properties.
@@ -150,6 +151,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
             __props__.__dict__["client_id"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["principal_id"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["tenant_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedidentity/v20150831preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20181130:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20210930preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20220131preview:UserAssignedIdentity"), pulumi.Alias(type_="azure-native:managedidentity/v20230131:UserAssignedIdentity")])
@@ -180,6 +182,7 @@ class UserAssignedIdentity(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["principal_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
@@ -216,6 +219,14 @@ class UserAssignedIdentity(pulumi.CustomResource):
         The id of the service principal object associated with the created identity.
         """
         return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

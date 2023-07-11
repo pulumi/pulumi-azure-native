@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A SQL Server availability group listener.
- * API Version: 2017-03-01-preview.
+ * Azure REST API version: 2022-02-01. Prior API version in Azure Native 1.x: 2017-03-01-preview
  */
 export class AvailabilityGroupListener extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
     }
 
     /**
+     * Availability Group configuration.
+     */
+    public readonly availabilityGroupConfiguration!: pulumi.Output<outputs.sqlvirtualmachine.AgConfigurationResponse | undefined>;
+    /**
      * Name of the availability group.
      */
     public readonly availabilityGroupName!: pulumi.Output<string | undefined>;
@@ -51,6 +55,10 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
      */
     public readonly loadBalancerConfigurations!: pulumi.Output<outputs.sqlvirtualmachine.LoadBalancerConfigurationResponse[] | undefined>;
     /**
+     * List of multi subnet IP configurations for an AG listener.
+     */
+    public readonly multiSubnetIpConfigurations!: pulumi.Output<outputs.sqlvirtualmachine.MultiSubnetIpConfigurationResponse[] | undefined>;
+    /**
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -62,6 +70,10 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
      * Provisioning state to track the async operation status.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.sqlvirtualmachine.SystemDataResponse>;
     /**
      * Resource type.
      */
@@ -84,27 +96,33 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
             if ((!args || args.sqlVirtualMachineGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlVirtualMachineGroupName'");
             }
+            resourceInputs["availabilityGroupConfiguration"] = args ? args.availabilityGroupConfiguration : undefined;
             resourceInputs["availabilityGroupListenerName"] = args ? args.availabilityGroupListenerName : undefined;
             resourceInputs["availabilityGroupName"] = args ? args.availabilityGroupName : undefined;
             resourceInputs["createDefaultAvailabilityGroupIfNotExist"] = args ? args.createDefaultAvailabilityGroupIfNotExist : undefined;
             resourceInputs["loadBalancerConfigurations"] = args ? args.loadBalancerConfigurations : undefined;
+            resourceInputs["multiSubnetIpConfigurations"] = args ? args.multiSubnetIpConfigurations : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sqlVirtualMachineGroupName"] = args ? args.sqlVirtualMachineGroupName : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["availabilityGroupConfiguration"] = undefined /*out*/;
             resourceInputs["availabilityGroupName"] = undefined /*out*/;
             resourceInputs["createDefaultAvailabilityGroupIfNotExist"] = undefined /*out*/;
             resourceInputs["loadBalancerConfigurations"] = undefined /*out*/;
+            resourceInputs["multiSubnetIpConfigurations"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220701preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener" }, { type: "azure-native:sqlvirtualmachine/v20230101preview:AvailabilityGroupListener" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AvailabilityGroupListener.__pulumiType, name, resourceInputs, opts);
     }
@@ -114,6 +132,10 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
  * The set of arguments for constructing a AvailabilityGroupListener resource.
  */
 export interface AvailabilityGroupListenerArgs {
+    /**
+     * Availability Group configuration.
+     */
+    availabilityGroupConfiguration?: pulumi.Input<inputs.sqlvirtualmachine.AgConfigurationArgs>;
     /**
      * Name of the availability group listener.
      */
@@ -130,6 +152,10 @@ export interface AvailabilityGroupListenerArgs {
      * List of load balancer configurations for an availability group listener.
      */
     loadBalancerConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.LoadBalancerConfigurationArgs>[]>;
+    /**
+     * List of multi subnet IP configurations for an AG listener.
+     */
+    multiSubnetIpConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.MultiSubnetIpConfigurationArgs>[]>;
     /**
      * Listener port.
      */

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a scaling plan definition.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2022-09-09. Prior API version in Azure Native 1.x: 2021-02-01-preview
  */
 export class ScalingPlan extends pulumi.CustomResource {
     /**
@@ -85,14 +85,14 @@ export class ScalingPlan extends pulumi.CustomResource {
     public /*out*/ readonly objectId!: pulumi.Output<string>;
     public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     /**
-     * The ring number of scaling plan.
-     */
-    public readonly ring!: pulumi.Output<number | undefined>;
-    /**
-     * List of ScalingSchedule definitions.
+     * List of ScalingPlanPooledSchedule definitions.
      */
     public readonly schedules!: pulumi.Output<outputs.desktopvirtualization.ScalingScheduleResponse[] | undefined>;
     public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
      * Resource tags.
      */
@@ -100,7 +100,7 @@ export class ScalingPlan extends pulumi.CustomResource {
     /**
      * Timezone of the scaling plan.
      */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
+    public readonly timeZone!: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -120,18 +120,20 @@ export class ScalingPlan extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if ((!args || args.timeZone === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'timeZone'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["exclusionTag"] = args ? args.exclusionTag : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
             resourceInputs["hostPoolReferences"] = args ? args.hostPoolReferences : undefined;
-            resourceInputs["hostPoolType"] = args ? args.hostPoolType : undefined;
+            resourceInputs["hostPoolType"] = (args ? args.hostPoolType : undefined) ?? "Pooled";
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ring"] = args ? args.ring : undefined;
             resourceInputs["scalingPlanName"] = args ? args.scalingPlanName : undefined;
             resourceInputs["schedules"] = args ? args.schedules : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
@@ -140,6 +142,7 @@ export class ScalingPlan extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["description"] = undefined /*out*/;
@@ -155,9 +158,9 @@ export class ScalingPlan extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["objectId"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
-            resourceInputs["ring"] = undefined /*out*/;
             resourceInputs["schedules"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeZone"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -192,7 +195,7 @@ export interface ScalingPlanArgs {
     /**
      * HostPool type for desktop.
      */
-    hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.HostPoolType>;
+    hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.ScalingHostPoolType>;
     identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -212,15 +215,11 @@ export interface ScalingPlanArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The ring number of scaling plan.
-     */
-    ring?: pulumi.Input<number>;
-    /**
      * The name of the scaling plan.
      */
     scalingPlanName?: pulumi.Input<string>;
     /**
-     * List of ScalingSchedule definitions.
+     * List of ScalingPlanPooledSchedule definitions.
      */
     schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingScheduleArgs>[]>;
     sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
@@ -231,5 +230,5 @@ export interface ScalingPlanArgs {
     /**
      * Timezone of the scaling plan.
      */
-    timeZone?: pulumi.Input<string>;
+    timeZone: pulumi.Input<string>;
 }

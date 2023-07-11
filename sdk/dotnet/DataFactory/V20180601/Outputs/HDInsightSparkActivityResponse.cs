@@ -49,6 +49,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
         /// Activity policy.
         /// </summary>
         public readonly Outputs.ActivityPolicyResponse? Policy;
@@ -68,6 +72,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// The storage linked service for uploading the entry file and dependencies, and for receiving logs.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? SparkJobLinkedService;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
         /// <summary>
         /// Type of activity.
         /// Expected value is 'HDInsightSpark'.
@@ -96,6 +104,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
             Outputs.ActivityPolicyResponse? policy,
 
             object? proxyUser,
@@ -105,6 +115,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             ImmutableDictionary<string, object>? sparkConfig,
 
             Outputs.LinkedServiceReferenceResponse? sparkJobLinkedService,
+
+            string? state,
 
             string type,
 
@@ -118,11 +130,13 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             GetDebugInfo = getDebugInfo;
             LinkedServiceName = linkedServiceName;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
             Policy = policy;
             ProxyUser = proxyUser;
             RootPath = rootPath;
             SparkConfig = sparkConfig;
             SparkJobLinkedService = sparkJobLinkedService;
+            State = state;
             Type = type;
             UserProperties = userProperties;
         }

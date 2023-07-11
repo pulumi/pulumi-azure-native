@@ -17,14 +17,29 @@ namespace Pulumi.AzureNative.NetApp.Outputs
     public sealed class AccountEncryptionResponse
     {
         /// <summary>
-        /// Encryption Key Source. Possible values are: 'Microsoft.NetApp'.
+        /// Identity used to authenticate to KeyVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        /// </summary>
+        public readonly Outputs.EncryptionIdentityResponse? Identity;
+        /// <summary>
+        /// The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
         /// </summary>
         public readonly string? KeySource;
+        /// <summary>
+        /// Properties provided by KeVault. Applicable if keySource is 'Microsoft.KeyVault'.
+        /// </summary>
+        public readonly Outputs.KeyVaultPropertiesResponse? KeyVaultProperties;
 
         [OutputConstructor]
-        private AccountEncryptionResponse(string? keySource)
+        private AccountEncryptionResponse(
+            Outputs.EncryptionIdentityResponse? identity,
+
+            string? keySource,
+
+            Outputs.KeyVaultPropertiesResponse? keyVaultProperties)
         {
+            Identity = identity;
             KeySource = keySource;
+            KeyVaultProperties = keyVaultProperties;
         }
     }
 }

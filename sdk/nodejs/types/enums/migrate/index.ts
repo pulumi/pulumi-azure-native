@@ -2,26 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20171111preview from "./v20171111preview";
 import * as v20180202 from "./v20180202";
 import * as v20180901preview from "./v20180901preview";
 import * as v20191001 from "./v20191001";
-import * as v20191001preview from "./v20191001preview";
 import * as v20200501 from "./v20200501";
-import * as v20210101 from "./v20210101";
-import * as v20210801 from "./v20210801";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220801 from "./v20220801";
 
 export {
-    v20171111preview,
     v20180202,
     v20180901preview,
     v20191001,
-    v20191001preview,
     v20200501,
-    v20210101,
-    v20210801,
     v20220501preview,
     v20220801,
 };
@@ -46,6 +38,16 @@ export const AssessmentStage = {
  * User configurable setting that describes the status of the assessment.
  */
 export type AssessmentStage = (typeof AssessmentStage)[keyof typeof AssessmentStage];
+
+export const AutomationArtifactStatus = {
+    NotGenerated: "NotGenerated",
+    Generated: "Generated",
+} as const;
+
+/**
+ * Gets or sets the status of automation artifacts.
+ */
+export type AutomationArtifactStatus = (typeof AutomationArtifactStatus)[keyof typeof AutomationArtifactStatus];
 
 export const AzureDiskType = {
     Unknown: "Unknown",
@@ -217,6 +219,17 @@ export const AzureVmFamily = {
  */
 export type AzureVmFamily = (typeof AzureVmFamily)[keyof typeof AzureVmFamily];
 
+export const ConfigurationType = {
+    IISConnectionString: "IISConnectionString",
+    IISAuthentication: "IISAuthentication",
+    ApacheTomcatContextResource: "ApacheTomcatContextResource",
+} as const;
+
+/**
+ * Gets or sets the configuration type.
+ */
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
 export const Currency = {
     Unknown: "Unknown",
     USD: "USD",
@@ -250,6 +263,23 @@ export const Currency = {
  * Currency to report prices in.
  */
 export type Currency = (typeof Currency)[keyof typeof Currency];
+
+export const LoadBalancerType = {
+    Private: "Private",
+    Public: "Public",
+} as const;
+
+/**
+ * Gets or sets the load balancer type.
+ */
+export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
+
+export const OperatingSystemType = {
+    Windows: "Windows",
+    Linux: "Linux",
+} as const;
+
+export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
 
 export const Percentile = {
     Percentile50: "Percentile50",
@@ -309,6 +339,35 @@ export const ResourceIdentityType = {
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
+export const ResourceIdentityTypes = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+} as const;
+
+export type ResourceIdentityTypes = (typeof ResourceIdentityTypes)[keyof typeof ResourceIdentityTypes];
+
+export const SecretStoreType = {
+    None: "None",
+    KubeSecret: "KubeSecret",
+    KeyVaultSecret: "KeyVaultSecret",
+    AppServiceAppSettings: "AppServiceAppSettings",
+} as const;
+
+export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreType];
+
+export const Status = {
+    Approved: "Approved",
+    Pending: "Pending",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * Private link connection state.
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
 export const TargetAvailabilityZone = {
     One: "1",
     Two: "2",
@@ -321,6 +380,36 @@ export const TargetAvailabilityZone = {
  */
 export type TargetAvailabilityZone = (typeof TargetAvailabilityZone)[keyof typeof TargetAvailabilityZone];
 
+export const TargetHydrationStorageProviderType = {
+    AzureFileShare: "AzureFileShare",
+} as const;
+
+/**
+ * Gets or sets the storage provider type on the target.
+ * Applicable when StorageProjectionType is not ContainerFileSystem.
+ */
+export type TargetHydrationStorageProviderType = (typeof TargetHydrationStorageProviderType)[keyof typeof TargetHydrationStorageProviderType];
+
+export const TargetStorageAccessType = {
+    Shared: "Shared",
+    Exclusive: "Exclusive",
+} as const;
+
+/**
+ * Gets or sets the target storage access type.
+ */
+export type TargetStorageAccessType = (typeof TargetStorageAccessType)[keyof typeof TargetStorageAccessType];
+
+export const TargetStorageProjectionType = {
+    ContainerFileSystem: "ContainerFileSystem",
+    PersistentVolume: "PersistentVolume",
+} as const;
+
+/**
+ * Gets or sets the target projection type.
+ */
+export type TargetStorageProjectionType = (typeof TargetStorageProjectionType)[keyof typeof TargetStorageProjectionType];
+
 export const TimeRange = {
     Day: "Day",
     Week: "Week",
@@ -332,6 +421,37 @@ export const TimeRange = {
  * Time range of performance data used to recommend a size.
  */
 export type TimeRange = (typeof TimeRange)[keyof typeof TimeRange];
+
+export const WorkloadDeploymentTarget = {
+    AzureKubernetesService: "AzureKubernetesService",
+    AzureAppServiceContainer: "AzureAppServiceContainer",
+    AzureAppServiceNative: "AzureAppServiceNative",
+} as const;
+
+/**
+ * Gets or sets the deployment target platform.
+ */
+export type WorkloadDeploymentTarget = (typeof WorkloadDeploymentTarget)[keyof typeof WorkloadDeploymentTarget];
+
+export const WorkloadDeploymentType = {
+    IISAKSWorkloadDeployment: "IISAKSWorkloadDeployment",
+    ApacheTomcatAKSWorkloadDeployment: "ApacheTomcatAKSWorkloadDeployment",
+} as const;
+
+/**
+ * Gets or sets the instance type.
+ */
+export type WorkloadDeploymentType = (typeof WorkloadDeploymentType)[keyof typeof WorkloadDeploymentType];
+
+export const WorkloadType = {
+    IISWorkload: "IISWorkload",
+    ApacheTomcatWorkload: "ApacheTomcatWorkload",
+} as const;
+
+/**
+ * Gets or sets the instance type.
+ */
+export type WorkloadType = (typeof WorkloadType)[keyof typeof WorkloadType];
 
 export const ZoneRedundant = {
     Enable: "Enable",

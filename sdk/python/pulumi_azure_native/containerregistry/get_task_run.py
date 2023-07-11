@@ -160,7 +160,7 @@ def get_task_run(registry_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTaskRunResult:
     """
     Gets the detailed information for a given task run.
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-06-01-preview.
 
 
     :param str registry_name: The name of the container registry.
@@ -194,7 +194,7 @@ def get_task_run_output(registry_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskRunResult]:
     """
     Gets the detailed information for a given task run.
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-06-01-preview.
 
 
     :param str registry_name: The name of the container registry.

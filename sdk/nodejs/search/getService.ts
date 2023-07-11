@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the search service with the given name in the given resource group.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -35,6 +35,18 @@ export interface GetServiceArgs {
  * Describes an Azure Cognitive Search service and its current state.
  */
 export interface GetServiceResult {
+    /**
+     * Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+     */
+    readonly authOptions?: outputs.search.DataPlaneAuthOptionsResponse;
+    /**
+     * When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
+     */
+    readonly disableLocalAuth?: boolean;
+    /**
+     * Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+     */
+    readonly encryptionWithCmk?: outputs.search.EncryptionWithCmkResponse;
     /**
      * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
      */
@@ -106,7 +118,7 @@ export interface GetServiceResult {
 }
 /**
  * Gets the search service with the given name in the given resource group.
- * API Version: 2020-08-01.
+ * Azure REST API version: 2022-09-01.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

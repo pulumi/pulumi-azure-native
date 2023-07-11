@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Sql.V20211101
     /// <summary>
     /// An instance failover group.
     /// </summary>
-    [Obsolete(@"azure-native:sql/v20211101:InstanceFailoverGroup is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:InstanceFailoverGroup to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:sql/v20211101:InstanceFailoverGroup")]
     public partial class InstanceFailoverGroup : global::Pulumi.CustomResource
     {
@@ -101,6 +100,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:InstanceFailoverGroup"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:InstanceFailoverGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:InstanceFailoverGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

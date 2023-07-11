@@ -11,16 +11,34 @@ namespace Pulumi.AzureNative.Compute
 {
     /// <summary>
     /// Snapshot resource.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-07-02. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        /// </summary>
+        [Output("completionPercent")]
+        public Output<double?> CompletionPercent { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
+        /// </summary>
+        [Output("copyCompletionError")]
+        public Output<Outputs.CopyCompletionErrorResponse?> CopyCompletionError { get; private set; } = null!;
+
+        /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Output("creationData")]
         public Output<Outputs.CreationDataResponse> CreationData { get; private set; } = null!;
+
+        /// <summary>
+        /// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        /// </summary>
+        [Output("dataAccessAuthMode")]
+        public Output<string?> DataAccessAuthMode { get; private set; } = null!;
 
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -77,6 +95,12 @@ namespace Pulumi.AzureNative.Compute
         public Output<bool?> Incremental { get; private set; } = null!;
 
         /// <summary>
+        /// Incremental snapshots for a disk share an incremental snapshot family id. The Get Page Range Diff API can only be called on incremental snapshots with the same family id.
+        /// </summary>
+        [Output("incrementalSnapshotFamilyId")]
+        public Output<string> IncrementalSnapshotFamilyId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource location
         /// </summary>
         [Output("location")]
@@ -113,16 +137,34 @@ namespace Pulumi.AzureNative.Compute
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
+        /// Policy for controlling export on the disk.
+        /// </summary>
+        [Output("publicNetworkAccess")]
+        public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
         /// Purchase plan information for the image from which the source disk for the snapshot was originally created.
         /// </summary>
         [Output("purchasePlan")]
         public Output<Outputs.PurchasePlanResponse?> PurchasePlan { get; private set; } = null!;
 
         /// <summary>
+        /// Contains the security related information for the resource.
+        /// </summary>
+        [Output("securityProfile")]
+        public Output<Outputs.DiskSecurityProfileResponse?> SecurityProfile { get; private set; } = null!;
+
+        /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SnapshotSkuResponse?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+        /// </summary>
+        [Output("supportedCapabilities")]
+        public Output<Outputs.SupportedCapabilitiesResponse?> SupportedCapabilities { get; private set; } = null!;
 
         /// <summary>
         /// Indicates the OS on a snapshot supports hibernation.
@@ -196,6 +238,7 @@ namespace Pulumi.AzureNative.Compute
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20211201:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220302:Snapshot"},
                     new global::Pulumi.Alias { Type = "azure-native:compute/v20220702:Snapshot"},
+                    new global::Pulumi.Alias { Type = "azure-native:compute/v20230102:Snapshot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -220,10 +263,28 @@ namespace Pulumi.AzureNative.Compute
     public sealed class SnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Percentage complete for the background copy when a resource is created via the CopyStart operation.
+        /// </summary>
+        [Input("completionPercent")]
+        public Input<double>? CompletionPercent { get; set; }
+
+        /// <summary>
+        /// Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
+        /// </summary>
+        [Input("copyCompletionError")]
+        public Input<Inputs.CopyCompletionErrorArgs>? CopyCompletionError { get; set; }
+
+        /// <summary>
         /// Disk source information. CreationData information cannot be changed after the disk has been created.
         /// </summary>
         [Input("creationData", required: true)]
         public Input<Inputs.CreationDataArgs> CreationData { get; set; } = null!;
+
+        /// <summary>
+        /// Additional authentication requirements when exporting or uploading to a disk or snapshot.
+        /// </summary>
+        [Input("dataAccessAuthMode")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.DataAccessAuthMode>? DataAccessAuthMode { get; set; }
 
         /// <summary>
         /// ARM id of the DiskAccess resource for using private endpoints on disks.
@@ -286,6 +347,12 @@ namespace Pulumi.AzureNative.Compute
         public Input<Pulumi.AzureNative.Compute.OperatingSystemTypes>? OsType { get; set; }
 
         /// <summary>
+        /// Policy for controlling export on the disk.
+        /// </summary>
+        [Input("publicNetworkAccess")]
+        public InputUnion<string, Pulumi.AzureNative.Compute.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
         /// Purchase plan information for the image from which the source disk for the snapshot was originally created.
         /// </summary>
         [Input("purchasePlan")]
@@ -298,16 +365,28 @@ namespace Pulumi.AzureNative.Compute
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
+        /// Contains the security related information for the resource.
+        /// </summary>
+        [Input("securityProfile")]
+        public Input<Inputs.DiskSecurityProfileArgs>? SecurityProfile { get; set; }
+
+        /// <summary>
         /// The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SnapshotSkuArgs>? Sku { get; set; }
 
         /// <summary>
-        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The max name length is 80 characters.
+        /// The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
         /// </summary>
         [Input("snapshotName")]
         public Input<string>? SnapshotName { get; set; }
+
+        /// <summary>
+        /// List of supported capabilities for the image from which the source disk from the snapshot was originally created.
+        /// </summary>
+        [Input("supportedCapabilities")]
+        public Input<Inputs.SupportedCapabilitiesArgs>? SupportedCapabilities { get; set; }
 
         /// <summary>
         /// Indicates the OS on a snapshot supports hibernation.

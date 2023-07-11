@@ -174,12 +174,7 @@ class OpenIdConnectProviderArgs:
         pulumi.set(self, "use_in_test_console", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:OpenIdConnectProvider to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class OpenIdConnectProvider(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:OpenIdConnectProvider to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -246,7 +241,6 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  use_in_api_documentation: Optional[pulumi.Input[bool]] = None,
                  use_in_test_console: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""OpenIdConnectProvider is deprecated: azure-native:apimanagement/v20220801:OpenIdConnectProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:OpenIdConnectProvider to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -277,7 +271,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             __props__.__dict__["use_in_test_console"] = use_in_test_console
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:OpenIdConnectProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:OpenIdConnectProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:OpenIdConnectProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenIdConnectProvider, __self__).__init__(
             'azure-native:apimanagement/v20220801:OpenIdConnectProvider',

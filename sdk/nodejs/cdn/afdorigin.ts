@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
- * API Version: 2020-09-01.
+ * Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class AFDOrigin extends pulumi.CustomResource {
     /**
@@ -48,6 +48,10 @@ export class AFDOrigin extends pulumi.CustomResource {
      */
     public readonly enabledState!: pulumi.Output<string | undefined>;
     /**
+     * Whether to enable certificate name check at origin level
+     */
+    public readonly enforceCertificateNameCheck!: pulumi.Output<boolean | undefined>;
+    /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
     public readonly hostName!: pulumi.Output<string>;
@@ -64,7 +68,11 @@ export class AFDOrigin extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+     * The name of the origin group which contains this origin.
+     */
+    public readonly originGroupName!: pulumi.Output<string>;
+    /**
+     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
     public readonly originHostHeader!: pulumi.Output<string | undefined>;
     /**
@@ -117,6 +125,7 @@ export class AFDOrigin extends pulumi.CustomResource {
             }
             resourceInputs["azureOrigin"] = args ? args.azureOrigin : undefined;
             resourceInputs["enabledState"] = args ? args.enabledState : undefined;
+            resourceInputs["enforceCertificateNameCheck"] = (args ? args.enforceCertificateNameCheck : undefined) ?? true;
             resourceInputs["hostName"] = args ? args.hostName : undefined;
             resourceInputs["httpPort"] = (args ? args.httpPort : undefined) ?? 80;
             resourceInputs["httpsPort"] = (args ? args.httpsPort : undefined) ?? 443;
@@ -137,10 +146,12 @@ export class AFDOrigin extends pulumi.CustomResource {
             resourceInputs["azureOrigin"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["enabledState"] = undefined /*out*/;
+            resourceInputs["enforceCertificateNameCheck"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["httpPort"] = undefined /*out*/;
             resourceInputs["httpsPort"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["originGroupName"] = undefined /*out*/;
             resourceInputs["originHostHeader"] = undefined /*out*/;
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -150,7 +161,7 @@ export class AFDOrigin extends pulumi.CustomResource {
             resourceInputs["weight"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDOrigin" }, { type: "azure-native:cdn/v20210601:AFDOrigin" }, { type: "azure-native:cdn/v20220501preview:AFDOrigin" }, { type: "azure-native:cdn/v20221101preview:AFDOrigin" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:AFDOrigin" }, { type: "azure-native:cdn/v20210601:AFDOrigin" }, { type: "azure-native:cdn/v20220501preview:AFDOrigin" }, { type: "azure-native:cdn/v20221101preview:AFDOrigin" }, { type: "azure-native:cdn/v20230501:AFDOrigin" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AFDOrigin.__pulumiType, name, resourceInputs, opts);
     }
@@ -169,6 +180,10 @@ export interface AFDOriginArgs {
      */
     enabledState?: pulumi.Input<string | enums.cdn.EnabledState>;
     /**
+     * Whether to enable certificate name check at origin level
+     */
+    enforceCertificateNameCheck?: pulumi.Input<boolean>;
+    /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
     hostName: pulumi.Input<string>;
@@ -185,7 +200,7 @@ export interface AFDOriginArgs {
      */
     originGroupName: pulumi.Input<string>;
     /**
-     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+     * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
     originHostHeader?: pulumi.Input<string>;
     /**
@@ -197,7 +212,7 @@ export interface AFDOriginArgs {
      */
     priority?: pulumi.Input<number>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

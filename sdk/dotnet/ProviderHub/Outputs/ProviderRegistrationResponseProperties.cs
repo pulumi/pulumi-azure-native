@@ -23,6 +23,9 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         public readonly Outputs.ProviderRegistrationPropertiesResponseProviderHubMetadata? ProviderHubMetadata;
         public readonly string? ProviderType;
         public readonly string? ProviderVersion;
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         public readonly string? ProvisioningState;
         public readonly Outputs.ResourceProviderManifestPropertiesResponseRequestHeaderOptions? RequestHeaderOptions;
         public readonly ImmutableArray<string> RequiredFeatures;

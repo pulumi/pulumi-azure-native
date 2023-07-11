@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * NSX DHCP
- * API Version: 2020-07-17-preview.
+ * Azure REST API version: 2022-05-01.
  */
 export function getWorkloadNetworkDhcp(args: GetWorkloadNetworkDhcpArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDhcpResult> {
 
@@ -38,14 +41,6 @@ export interface GetWorkloadNetworkDhcpArgs {
  */
 export interface GetWorkloadNetworkDhcpResult {
     /**
-     * Type of DHCP: SERVER or RELAY.
-     */
-    readonly dhcpType: string;
-    /**
-     * Display name of the DHCP entity.
-     */
-    readonly displayName?: string;
-    /**
      * Resource ID.
      */
     readonly id: string;
@@ -54,17 +49,9 @@ export interface GetWorkloadNetworkDhcpResult {
      */
     readonly name: string;
     /**
-     * The provisioning state
+     * DHCP properties.
      */
-    readonly provisioningState: string;
-    /**
-     * NSX revision number.
-     */
-    readonly revision?: number;
-    /**
-     * NSX Segments consuming DHCP.
-     */
-    readonly segments: string[];
+    readonly properties: outputs.avs.WorkloadNetworkDhcpRelayResponse | outputs.avs.WorkloadNetworkDhcpServerResponse;
     /**
      * Resource type.
      */
@@ -72,7 +59,7 @@ export interface GetWorkloadNetworkDhcpResult {
 }
 /**
  * NSX DHCP
- * API Version: 2020-07-17-preview.
+ * Azure REST API version: 2022-05-01.
  */
 export function getWorkloadNetworkDhcpOutput(args: GetWorkloadNetworkDhcpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkDhcpResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkDhcp(a, opts))

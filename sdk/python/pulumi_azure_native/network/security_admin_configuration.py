@@ -18,33 +18,25 @@ class SecurityAdminConfigurationArgs:
     def __init__(__self__, *,
                  network_manager_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 delete_existing_nsgs: Optional[pulumi.Input[Union[str, 'DeleteExistingNSGs']]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None):
+                 description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a SecurityAdminConfiguration resource.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
-        :param pulumi.Input[Union[str, 'DeleteExistingNSGs']] delete_existing_nsgs: Flag if need to delete existing network security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]] apply_on_network_intent_policy_based_services: Enum list of network intent policy based services.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] description: A description of the security configuration.
-        :param pulumi.Input[str] display_name: A display name of the security configuration.
-        :param pulumi.Input[Union[str, 'SecurityType']] security_type: Security Type.
         """
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if apply_on_network_intent_policy_based_services is not None:
+            pulumi.set(__self__, "apply_on_network_intent_policy_based_services", apply_on_network_intent_policy_based_services)
         if configuration_name is not None:
             pulumi.set(__self__, "configuration_name", configuration_name)
-        if delete_existing_nsgs is not None:
-            pulumi.set(__self__, "delete_existing_nsgs", delete_existing_nsgs)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
-        if security_type is not None:
-            pulumi.set(__self__, "security_type", security_type)
 
     @property
     @pulumi.getter(name="networkManagerName")
@@ -71,28 +63,28 @@ class SecurityAdminConfigurationArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="applyOnNetworkIntentPolicyBasedServices")
+    def apply_on_network_intent_policy_based_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]]]:
+        """
+        Enum list of network intent policy based services.
+        """
+        return pulumi.get(self, "apply_on_network_intent_policy_based_services")
+
+    @apply_on_network_intent_policy_based_services.setter
+    def apply_on_network_intent_policy_based_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]]]):
+        pulumi.set(self, "apply_on_network_intent_policy_based_services", value)
+
+    @property
     @pulumi.getter(name="configurationName")
     def configuration_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the network manager security Configuration.
+        The name of the network manager Security Configuration.
         """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
     def configuration_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "configuration_name", value)
-
-    @property
-    @pulumi.getter(name="deleteExistingNSGs")
-    def delete_existing_nsgs(self) -> Optional[pulumi.Input[Union[str, 'DeleteExistingNSGs']]]:
-        """
-        Flag if need to delete existing network security groups.
-        """
-        return pulumi.get(self, "delete_existing_nsgs")
-
-    @delete_existing_nsgs.setter
-    def delete_existing_nsgs(self, value: Optional[pulumi.Input[Union[str, 'DeleteExistingNSGs']]]):
-        pulumi.set(self, "delete_existing_nsgs", value)
 
     @property
     @pulumi.getter
@@ -106,57 +98,29 @@ class SecurityAdminConfigurationArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        A display name of the security configuration.
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter(name="securityType")
-    def security_type(self) -> Optional[pulumi.Input[Union[str, 'SecurityType']]]:
-        """
-        Security Type.
-        """
-        return pulumi.get(self, "security_type")
-
-    @security_type.setter
-    def security_type(self, value: Optional[pulumi.Input[Union[str, 'SecurityType']]]):
-        pulumi.set(self, "security_type", value)
-
 
 class SecurityAdminConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 delete_existing_nsgs: Optional[pulumi.Input[Union[str, 'DeleteExistingNSGs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
                  __props__=None):
         """
-        Defines the security configuration
-        API Version: 2021-02-01-preview.
+        Defines the security admin configuration
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
-        :param pulumi.Input[Union[str, 'DeleteExistingNSGs']] delete_existing_nsgs: Flag if need to delete existing network security groups.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]] apply_on_network_intent_policy_based_services: Enum list of network intent policy based services.
+        :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[str] description: A description of the security configuration.
-        :param pulumi.Input[str] display_name: A display name of the security configuration.
         :param pulumi.Input[str] network_manager_name: The name of the network manager.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Union[str, 'SecurityType']] security_type: Security Type.
         """
         ...
     @overload
@@ -165,8 +129,8 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
                  args: SecurityAdminConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Defines the security configuration
-        API Version: 2021-02-01-preview.
+        Defines the security admin configuration
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
 
         :param str resource_name: The name of the resource.
         :param SecurityAdminConfigurationArgs args: The arguments to use to populate this resource's properties.
@@ -183,13 +147,11 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]]] = None,
                  configuration_name: Optional[pulumi.Input[str]] = None,
-                 delete_existing_nsgs: Optional[pulumi.Input[Union[str, 'DeleteExistingNSGs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
                  network_manager_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 security_type: Optional[pulumi.Input[Union[str, 'SecurityType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -199,23 +161,22 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SecurityAdminConfigurationArgs.__new__(SecurityAdminConfigurationArgs)
 
+            __props__.__dict__["apply_on_network_intent_policy_based_services"] = apply_on_network_intent_policy_based_services
             __props__.__dict__["configuration_name"] = configuration_name
-            __props__.__dict__["delete_existing_nsgs"] = delete_existing_nsgs
             __props__.__dict__["description"] = description
-            __props__.__dict__["display_name"] = display_name
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")
             __props__.__dict__["network_manager_name"] = network_manager_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            __props__.__dict__["security_type"] = security_type
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["resource_guid"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20210501preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220101:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220201preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220401preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220501:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220701:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220901:SecurityAdminConfiguration")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20210501preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220101:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220201preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220401preview:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220501:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220701:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20220901:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20221101:SecurityAdminConfiguration"), pulumi.Alias(type_="azure-native:network/v20230201:SecurityAdminConfiguration")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityAdminConfiguration, __self__).__init__(
             'azure-native:network:SecurityAdminConfiguration',
@@ -239,24 +200,23 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
 
         __props__ = SecurityAdminConfigurationArgs.__new__(SecurityAdminConfigurationArgs)
 
-        __props__.__dict__["delete_existing_nsgs"] = None
+        __props__.__dict__["apply_on_network_intent_policy_based_services"] = None
         __props__.__dict__["description"] = None
-        __props__.__dict__["display_name"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
-        __props__.__dict__["security_type"] = None
+        __props__.__dict__["resource_guid"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SecurityAdminConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @property
-    @pulumi.getter(name="deleteExistingNSGs")
-    def delete_existing_nsgs(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="applyOnNetworkIntentPolicyBasedServices")
+    def apply_on_network_intent_policy_based_services(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Flag if need to delete existing network security groups.
+        Enum list of network intent policy based services.
         """
-        return pulumi.get(self, "delete_existing_nsgs")
+        return pulumi.get(self, "apply_on_network_intent_policy_based_services")
 
     @property
     @pulumi.getter
@@ -265,14 +225,6 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         A description of the security configuration.
         """
         return pulumi.get(self, "description")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        A display name of the security configuration.
-        """
-        return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter
@@ -299,12 +251,12 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
-    @pulumi.getter(name="securityType")
-    def security_type(self) -> pulumi.Output[Optional[str]]:
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> pulumi.Output[str]:
         """
-        Security Type.
+        Unique identifier for this resource.
         """
-        return pulumi.get(self, "security_type")
+        return pulumi.get(self, "resource_guid")
 
     @property
     @pulumi.getter(name="systemData")

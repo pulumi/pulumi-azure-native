@@ -10,29 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Network
 {
     /// <summary>
-    /// Defines the security configuration
-    /// API Version: 2021-02-01-preview.
+    /// Defines the security admin configuration
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityAdminConfiguration")]
     public partial class SecurityAdminConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Flag if need to delete existing network security groups.
+        /// Enum list of network intent policy based services.
         /// </summary>
-        [Output("deleteExistingNSGs")]
-        public Output<string?> DeleteExistingNSGs { get; private set; } = null!;
+        [Output("applyOnNetworkIntentPolicyBasedServices")]
+        public Output<ImmutableArray<string>> ApplyOnNetworkIntentPolicyBasedServices { get; private set; } = null!;
 
         /// <summary>
         /// A description of the security configuration.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A display name of the security configuration.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
@@ -53,10 +47,10 @@ namespace Pulumi.AzureNative.Network
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Security Type.
+        /// Unique identifier for this resource.
         /// </summary>
-        [Output("securityType")]
-        public Output<string?> SecurityType { get; private set; } = null!;
+        [Output("resourceGuid")]
+        public Output<string> ResourceGuid { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata related to this resource.
@@ -103,6 +97,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:SecurityAdminConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:SecurityAdminConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:SecurityAdminConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:SecurityAdminConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:SecurityAdminConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -126,29 +122,29 @@ namespace Pulumi.AzureNative.Network
 
     public sealed class SecurityAdminConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("applyOnNetworkIntentPolicyBasedServices")]
+        private InputList<Union<string, Pulumi.AzureNative.Network.NetworkIntentPolicyBasedService>>? _applyOnNetworkIntentPolicyBasedServices;
+
         /// <summary>
-        /// The name of the network manager security Configuration.
+        /// Enum list of network intent policy based services.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Network.NetworkIntentPolicyBasedService>> ApplyOnNetworkIntentPolicyBasedServices
+        {
+            get => _applyOnNetworkIntentPolicyBasedServices ?? (_applyOnNetworkIntentPolicyBasedServices = new InputList<Union<string, Pulumi.AzureNative.Network.NetworkIntentPolicyBasedService>>());
+            set => _applyOnNetworkIntentPolicyBasedServices = value;
+        }
+
+        /// <summary>
+        /// The name of the network manager Security Configuration.
         /// </summary>
         [Input("configurationName")]
         public Input<string>? ConfigurationName { get; set; }
-
-        /// <summary>
-        /// Flag if need to delete existing network security groups.
-        /// </summary>
-        [Input("deleteExistingNSGs")]
-        public InputUnion<string, Pulumi.AzureNative.Network.DeleteExistingNSGs>? DeleteExistingNSGs { get; set; }
 
         /// <summary>
         /// A description of the security configuration.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A display name of the security configuration.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
 
         /// <summary>
         /// The name of the network manager.
@@ -161,12 +157,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Security Type.
-        /// </summary>
-        [Input("securityType")]
-        public InputUnion<string, Pulumi.AzureNative.Network.SecurityType>? SecurityType { get; set; }
 
         public SecurityAdminConfigurationArgs()
         {

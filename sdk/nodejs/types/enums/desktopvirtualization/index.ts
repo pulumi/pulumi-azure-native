@@ -2,38 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20190123preview from "./v20190123preview";
-import * as v20190924preview from "./v20190924preview";
-import * as v20191210preview from "./v20191210preview";
-import * as v20200921preview from "./v20200921preview";
-import * as v20201019preview from "./v20201019preview";
-import * as v20201102preview from "./v20201102preview";
-import * as v20201110preview from "./v20201110preview";
-import * as v20210114preview from "./v20210114preview";
 import * as v20210201preview from "./v20210201preview";
-import * as v20210309preview from "./v20210309preview";
-import * as v20210401preview from "./v20210401preview";
-import * as v20210712 from "./v20210712";
-import * as v20210903preview from "./v20210903preview";
 import * as v20220210preview from "./v20220210preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20220909 from "./v20220909";
 import * as v20221014preview from "./v20221014preview";
 
 export {
-    v20190123preview,
-    v20190924preview,
-    v20191210preview,
-    v20200921preview,
-    v20201019preview,
-    v20201102preview,
-    v20201110preview,
-    v20210114preview,
     v20210201preview,
-    v20210309preview,
-    v20210401preview,
-    v20210712,
-    v20210903preview,
     v20220210preview,
     v20220401preview,
     v20220909,
@@ -103,34 +79,6 @@ export const LoadBalancerType = {
  * The type of the load balancer.
  */
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
-
-export const Operation = {
-    /**
-     * Start the migration.
-     */
-    Start: "Start",
-    /**
-     * Revoke the migration.
-     */
-    Revoke: "Revoke",
-    /**
-     * Complete the migration.
-     */
-    Complete: "Complete",
-    /**
-     * Hide the hostpool.
-     */
-    Hide: "Hide",
-    /**
-     * Unhide the hostpool.
-     */
-    Unhide: "Unhide",
-} as const;
-
-/**
- * The type of operation for migration.
- */
-export type Operation = (typeof Operation)[keyof typeof Operation];
 
 export const PersonalDesktopAssignmentType = {
     Automatic: "Automatic",
@@ -205,6 +153,34 @@ export const SSOSecretType = {
  * The type of single sign on Secret Type.
  */
 export type SSOSecretType = (typeof SSOSecretType)[keyof typeof SSOSecretType];
+
+export const ScalingHostPoolType = {
+    /**
+     * Users get a new (random) SessionHost every time it connects to the HostPool.
+     */
+    Pooled: "Pooled",
+} as const;
+
+/**
+ * HostPool type for desktop.
+ */
+export type ScalingHostPoolType = (typeof ScalingHostPoolType)[keyof typeof ScalingHostPoolType];
+
+export const SessionHostComponentUpdateType = {
+    /**
+     * Agent and other agent side components are delivery schedule is controlled by WVD Infra.
+     */
+    Default: "Default",
+    /**
+     * TenantAdmin have opted in for Scheduled Component Update feature.
+     */
+    Scheduled: "Scheduled",
+} as const;
+
+/**
+ * The type of maintenance for session host components.
+ */
+export type SessionHostComponentUpdateType = (typeof SessionHostComponentUpdateType)[keyof typeof SessionHostComponentUpdateType];
 
 export const SessionHostLoadBalancingAlgorithm = {
     BreadthFirst: "BreadthFirst",

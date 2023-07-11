@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified public IP address in a specified resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getPublicIPAddress(args: GetPublicIPAddressArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIPAddressResult> {
 
@@ -44,6 +44,10 @@ export interface GetPublicIPAddressResult {
      * The DDoS protection custom policy associated with the public IP address.
      */
     readonly ddosSettings?: outputs.network.DdosSettingsResponse;
+    /**
+     * Specify what happens to the public IP address when the VM using it is deleted
+     */
+    readonly deleteOption?: string;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
@@ -139,7 +143,7 @@ export interface GetPublicIPAddressResult {
 }
 /**
  * Gets the specified public IP address in a specified resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getPublicIPAddressOutput(args: GetPublicIPAddressOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIPAddressResult> {
     return pulumi.output(args).apply((a: any) => getPublicIPAddress(a, opts))

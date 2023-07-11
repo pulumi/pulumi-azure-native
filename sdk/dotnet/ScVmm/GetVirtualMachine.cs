@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ScVmm
     {
         /// <summary>
         /// Implements VirtualMachine GET method.
-        /// API Version: 2020-06-05-preview.
+        /// Azure REST API version: 2022-05-21-preview.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:scvmm:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements VirtualMachine GET method.
-        /// API Version: 2020-06-05-preview.
+        /// Azure REST API version: 2022-05-21-preview.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:scvmm:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly int? Generation;
         /// <summary>
+        /// Guest agent status properties.
+        /// </summary>
+        public readonly Outputs.GuestAgentProfileResponse? GuestAgentProfile;
+        /// <summary>
         /// Hardware properties.
         /// </summary>
         public readonly Outputs.HardwareProfileResponse? HardwareProfile;
@@ -104,9 +108,17 @@ namespace Pulumi.AzureNative.ScVmm
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The identity of the resource.
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
+        /// <summary>
         /// Gets or sets the inventory Item ID for the resource.
         /// </summary>
         public readonly string? InventoryItemId;
+        /// <summary>
+        /// Last restored checkpoint in the vm.
+        /// </summary>
+        public readonly Outputs.CheckpointResponse LastRestoredVMCheckpoint;
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
@@ -178,11 +190,17 @@ namespace Pulumi.AzureNative.ScVmm
 
             int? generation,
 
+            Outputs.GuestAgentProfileResponse? guestAgentProfile,
+
             Outputs.HardwareProfileResponse? hardwareProfile,
 
             string id,
 
+            Outputs.IdentityResponse? identity,
+
             string? inventoryItemId,
+
+            Outputs.CheckpointResponse lastRestoredVMCheckpoint,
 
             string location,
 
@@ -218,9 +236,12 @@ namespace Pulumi.AzureNative.ScVmm
             CloudId = cloudId;
             ExtendedLocation = extendedLocation;
             Generation = generation;
+            GuestAgentProfile = guestAgentProfile;
             HardwareProfile = hardwareProfile;
             Id = id;
+            Identity = identity;
             InventoryItemId = inventoryItemId;
+            LastRestoredVMCheckpoint = lastRestoredVMCheckpoint;
             Location = location;
             Name = name;
             NetworkProfile = networkProfile;

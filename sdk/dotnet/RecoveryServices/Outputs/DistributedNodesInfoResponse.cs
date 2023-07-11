@@ -25,6 +25,10 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string? NodeName;
         /// <summary>
+        /// ARM resource id of the node
+        /// </summary>
+        public readonly string? SourceResourceId;
+        /// <summary>
         /// Status of this Node.
         /// Failed | Succeeded
         /// </summary>
@@ -36,10 +40,13 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string? nodeName,
 
+            string? sourceResourceId,
+
             string? status)
         {
             ErrorDetail = errorDetail;
             NodeName = nodeName;
+            SourceResourceId = sourceResourceId;
             Status = status;
         }
     }

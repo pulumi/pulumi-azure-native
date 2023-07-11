@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// ExpressRoute gateway resource.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteGateway")]
     public partial class ExpressRouteGateway : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Configures this gateway to accept traffic from non Virtual WAN networks.
+        /// </summary>
+        [Output("allowNonVirtualWanTraffic")]
+        public Output<bool?> AllowNonVirtualWanTraffic { get; private set; } = null!;
+
         /// <summary>
         /// Configuration for auto scaling.
         /// </summary>
@@ -122,6 +128,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ExpressRouteGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ExpressRouteGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ExpressRouteGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ExpressRouteGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ExpressRouteGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -146,10 +154,28 @@ namespace Pulumi.AzureNative.Network
     public sealed class ExpressRouteGatewayArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configures this gateway to accept traffic from non Virtual WAN networks.
+        /// </summary>
+        [Input("allowNonVirtualWanTraffic")]
+        public Input<bool>? AllowNonVirtualWanTraffic { get; set; }
+
+        /// <summary>
         /// Configuration for auto scaling.
         /// </summary>
         [Input("autoScaleConfiguration")]
         public Input<Inputs.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>? AutoScaleConfiguration { get; set; }
+
+        [Input("expressRouteConnections")]
+        private InputList<Inputs.ExpressRouteConnectionArgs>? _expressRouteConnections;
+
+        /// <summary>
+        /// List of ExpressRoute connections to the ExpressRoute gateway.
+        /// </summary>
+        public InputList<Inputs.ExpressRouteConnectionArgs> ExpressRouteConnections
+        {
+            get => _expressRouteConnections ?? (_expressRouteConnections = new InputList<Inputs.ExpressRouteConnectionArgs>());
+            set => _expressRouteConnections = value;
+        }
 
         /// <summary>
         /// The name of the ExpressRoute gateway.

@@ -110,7 +110,7 @@ def get_access_policy(access_policy_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccessPolicyResult:
     """
     Gets the access policy with the specified name in the specified environment.
-    API Version: 2020-05-15.
+    Azure REST API version: 2020-05-15.
 
 
     :param str access_policy_name: The name of the Time Series Insights access policy associated with the specified environment.
@@ -140,7 +140,7 @@ def get_access_policy_output(access_policy_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Gets the access policy with the specified name in the specified environment.
-    API Version: 2020-05-15.
+    Azure REST API version: 2020-05-15.
 
 
     :param str access_policy_name: The name of the Time Series Insights access policy associated with the specified environment.

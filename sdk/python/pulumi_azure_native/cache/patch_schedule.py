@@ -95,7 +95,7 @@ class PatchSchedule(pulumi.CustomResource):
                  __props__=None):
         """
         Response to put/get patch schedules for Redis cache.
-        API Version: 2020-06-01.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +112,7 @@ class PatchSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response to put/get patch schedules for Redis cache.
-        API Version: 2020-06-01.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2020-06-01
 
         :param str resource_name: The name of the resource.
         :param PatchScheduleArgs args: The arguments to use to populate this resource's properties.
@@ -152,8 +152,9 @@ class PatchSchedule(pulumi.CustomResource):
             if schedule_entries is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_entries'")
             __props__.__dict__["schedule_entries"] = schedule_entries
+            __props__.__dict__["location"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20171001:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20180301:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20190701:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20200601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20201201:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20210601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220501:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220601:PatchSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20171001:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20180301:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20190701:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20200601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20201201:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20210601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220501:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20220601:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20230401:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20230501preview:PatchSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PatchSchedule, __self__).__init__(
             'azure-native:cache:PatchSchedule',
@@ -177,6 +178,7 @@ class PatchSchedule(pulumi.CustomResource):
 
         __props__ = PatchScheduleArgs.__new__(PatchScheduleArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schedule_entries"] = None
         __props__.__dict__["type"] = None
@@ -184,9 +186,17 @@ class PatchSchedule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -202,7 +212,7 @@ class PatchSchedule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

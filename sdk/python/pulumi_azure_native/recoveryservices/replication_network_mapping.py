@@ -18,27 +18,26 @@ class ReplicationNetworkMappingArgs:
     def __init__(__self__, *,
                  fabric_name: pulumi.Input[str],
                  network_name: pulumi.Input[str],
+                 properties: pulumi.Input['CreateNetworkMappingInputPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
-                 network_mapping_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']] = None):
+                 network_mapping_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ReplicationNetworkMapping resource.
         :param pulumi.Input[str] fabric_name: Primary fabric name.
         :param pulumi.Input[str] network_name: Primary network name.
+        :param pulumi.Input['CreateNetworkMappingInputPropertiesArgs'] properties: Input properties for creating network mapping.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[str] resource_name: The name of the recovery services vault.
         :param pulumi.Input[str] network_mapping_name: Network mapping name.
-        :param pulumi.Input['CreateNetworkMappingInputPropertiesArgs'] properties: Input properties for creating network mapping.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "network_name", network_name)
+        pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if network_mapping_name is not None:
             pulumi.set(__self__, "network_mapping_name", network_mapping_name)
-        if properties is not None:
-            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="fabricName")
@@ -63,6 +62,18 @@ class ReplicationNetworkMappingArgs:
     @network_name.setter
     def network_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "network_name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['CreateNetworkMappingInputPropertiesArgs']:
+        """
+        Input properties for creating network mapping.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['CreateNetworkMappingInputPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -100,18 +111,6 @@ class ReplicationNetworkMappingArgs:
     def network_mapping_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "network_mapping_name", value)
 
-    @property
-    @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']]:
-        """
-        Input properties for creating network mapping.
-        """
-        return pulumi.get(self, "properties")
-
-    @properties.setter
-    def properties(self, value: Optional[pulumi.Input['CreateNetworkMappingInputPropertiesArgs']]):
-        pulumi.set(self, "properties", value)
-
 
 class ReplicationNetworkMapping(pulumi.CustomResource):
     @overload
@@ -127,7 +126,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  __props__=None):
         """
         Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-        API Version: 2018-07-10.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -146,7 +145,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
-        API Version: 2018-07-10.
+        Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2018-07-10
 
         :param str resource_name: The name of the resource.
         :param ReplicationNetworkMappingArgs args: The arguments to use to populate this resource's properties.
@@ -185,6 +184,8 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
             if network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_name'")
             __props__.__dict__["network_name"] = network_name
+            if properties is None and not opts.urn:
+                raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -195,7 +196,7 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
             __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160810:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20180110:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20180710:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20211101:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220501:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220801:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220910:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ReplicationNetworkMapping")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:recoveryservices/v20160810:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20180110:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20180710:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210210:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210301:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210401:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210601:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210701:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20210801:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20211001:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20211101:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20211201:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220101:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220201:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220301:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220401:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220501:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220801:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20220910:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20221001:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20230101:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20230201:ReplicationNetworkMapping"), pulumi.Alias(type_="azure-native:recoveryservices/v20230401:ReplicationNetworkMapping")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ReplicationNetworkMapping, __self__).__init__(
             'azure-native:recoveryservices:ReplicationNetworkMapping',

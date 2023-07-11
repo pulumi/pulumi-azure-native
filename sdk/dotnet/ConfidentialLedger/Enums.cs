@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.ConfidentialLedger
 {
     /// <summary>
+    /// Unique name for the Managed CCF.
+    /// </summary>
+    [EnumType]
+    public readonly struct LanguageRuntime : IEquatable<LanguageRuntime>
+    {
+        private readonly string _value;
+
+        private LanguageRuntime(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LanguageRuntime CPP { get; } = new LanguageRuntime("CPP");
+        public static LanguageRuntime JS { get; } = new LanguageRuntime("JS");
+
+        public static bool operator ==(LanguageRuntime left, LanguageRuntime right) => left.Equals(right);
+        public static bool operator !=(LanguageRuntime left, LanguageRuntime right) => !left.Equals(right);
+
+        public static explicit operator string(LanguageRuntime value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LanguageRuntime other && Equals(other);
+        public bool Equals(LanguageRuntime other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// LedgerRole associated with the Security Principal of Ledger
     /// </summary>
     [EnumType]

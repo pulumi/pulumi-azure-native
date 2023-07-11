@@ -11,11 +11,17 @@ namespace Pulumi.AzureNative.Authorization
 {
     /// <summary>
     /// The policy exemption.
-    /// API Version: 2020-07-01-preview.
+    /// Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2020-07-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyExemption")]
     public partial class PolicyExemption : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The option whether validate the exemption is at or under the assignment scope.
+        /// </summary>
+        [Output("assignmentScopeValidation")]
+        public Output<string?> AssignmentScopeValidation { get; private set; } = null!;
+
         /// <summary>
         /// The description of the policy exemption.
         /// </summary>
@@ -63,6 +69,12 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         [Output("policyDefinitionReferenceIds")]
         public Output<ImmutableArray<string>> PolicyDefinitionReferenceIds { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource selector list to filter policies by resource properties.
+        /// </summary>
+        [Output("resourceSelectors")]
+        public Output<ImmutableArray<Outputs.ResourceSelectorResponse>> ResourceSelectors { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -127,6 +139,12 @@ namespace Pulumi.AzureNative.Authorization
     public sealed class PolicyExemptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The option whether validate the exemption is at or under the assignment scope.
+        /// </summary>
+        [Input("assignmentScopeValidation")]
+        public InputUnion<string, Pulumi.AzureNative.Authorization.AssignmentScopeValidation>? AssignmentScopeValidation { get; set; }
+
+        /// <summary>
         /// The description of the policy exemption.
         /// </summary>
         [Input("description")]
@@ -180,6 +198,18 @@ namespace Pulumi.AzureNative.Authorization
         [Input("policyExemptionName")]
         public Input<string>? PolicyExemptionName { get; set; }
 
+        [Input("resourceSelectors")]
+        private InputList<Inputs.ResourceSelectorArgs>? _resourceSelectors;
+
+        /// <summary>
+        /// The resource selector list to filter policies by resource properties.
+        /// </summary>
+        public InputList<Inputs.ResourceSelectorArgs> ResourceSelectors
+        {
+            get => _resourceSelectors ?? (_resourceSelectors = new InputList<Inputs.ResourceSelectorArgs>());
+            set => _resourceSelectors = value;
+        }
+
         /// <summary>
         /// The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         /// </summary>
@@ -188,6 +218,7 @@ namespace Pulumi.AzureNative.Authorization
 
         public PolicyExemptionArgs()
         {
+            AssignmentScopeValidation = "Default";
         }
         public static new PolicyExemptionArgs Empty => new PolicyExemptionArgs();
     }

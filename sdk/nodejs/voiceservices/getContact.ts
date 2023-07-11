@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a Contact
- * API Version: 2022-12-01-preview.
+ * Azure REST API version: 2022-12-01-preview.
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
 
@@ -87,7 +87,7 @@ export interface GetContactResult {
 }
 /**
  * Get a Contact
- * API Version: 2022-12-01-preview.
+ * Azure REST API version: 2022-12-01-preview.
  */
 export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactResult> {
     return pulumi.output(args).apply((a: any) => getContact(a, opts))

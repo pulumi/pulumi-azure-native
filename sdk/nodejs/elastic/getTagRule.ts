@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * API Version: 2020-07-01.
+ * Azure REST API version: 2023-06-01.
  */
 export function getTagRule(args: GetTagRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetTagRuleResult> {
 
@@ -63,7 +63,7 @@ export interface GetTagRuleResult {
 }
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
- * API Version: 2020-07-01.
+ * Azure REST API version: 2023-06-01.
  */
 export function getTagRuleOutput(args: GetTagRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagRuleResult> {
     return pulumi.output(args).apply((a: any) => getTagRule(a, opts))

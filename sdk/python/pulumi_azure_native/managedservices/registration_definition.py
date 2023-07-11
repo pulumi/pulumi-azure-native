@@ -9,6 +9,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['RegistrationDefinitionArgs', 'RegistrationDefinition']
@@ -22,10 +23,10 @@ class RegistrationDefinitionArgs:
                  registration_definition_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a RegistrationDefinition resource.
-        :param pulumi.Input[str] scope: Scope of the resource.
-        :param pulumi.Input['PlanArgs'] plan: Plan details for the managed services.
-        :param pulumi.Input['RegistrationDefinitionPropertiesArgs'] properties: Properties of a registration definition.
-        :param pulumi.Input[str] registration_definition_id: Guid of the registration definition.
+        :param pulumi.Input[str] scope: The scope of the resource.
+        :param pulumi.Input['PlanArgs'] plan: The details for the Managed Services offer’s plan in Azure Marketplace.
+        :param pulumi.Input['RegistrationDefinitionPropertiesArgs'] properties: The properties of a registration definition.
+        :param pulumi.Input[str] registration_definition_id: The GUID of the registration definition.
         """
         pulumi.set(__self__, "scope", scope)
         if plan is not None:
@@ -39,7 +40,7 @@ class RegistrationDefinitionArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        Scope of the resource.
+        The scope of the resource.
         """
         return pulumi.get(self, "scope")
 
@@ -51,7 +52,7 @@ class RegistrationDefinitionArgs:
     @pulumi.getter
     def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
         """
-        Plan details for the managed services.
+        The details for the Managed Services offer’s plan in Azure Marketplace.
         """
         return pulumi.get(self, "plan")
 
@@ -63,7 +64,7 @@ class RegistrationDefinitionArgs:
     @pulumi.getter
     def properties(self) -> Optional[pulumi.Input['RegistrationDefinitionPropertiesArgs']]:
         """
-        Properties of a registration definition.
+        The properties of a registration definition.
         """
         return pulumi.get(self, "properties")
 
@@ -75,7 +76,7 @@ class RegistrationDefinitionArgs:
     @pulumi.getter(name="registrationDefinitionId")
     def registration_definition_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Guid of the registration definition.
+        The GUID of the registration definition.
         """
         return pulumi.get(self, "registration_definition_id")
 
@@ -95,15 +96,15 @@ class RegistrationDefinition(pulumi.CustomResource):
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Registration definition.
-        API Version: 2019-09-01.
+        The registration definition.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2019-09-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Plan details for the managed services.
-        :param pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']] properties: Properties of a registration definition.
-        :param pulumi.Input[str] registration_definition_id: Guid of the registration definition.
-        :param pulumi.Input[str] scope: Scope of the resource.
+        :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: The details for the Managed Services offer’s plan in Azure Marketplace.
+        :param pulumi.Input[pulumi.InputType['RegistrationDefinitionPropertiesArgs']] properties: The properties of a registration definition.
+        :param pulumi.Input[str] registration_definition_id: The GUID of the registration definition.
+        :param pulumi.Input[str] scope: The scope of the resource.
         """
         ...
     @overload
@@ -112,8 +113,8 @@ class RegistrationDefinition(pulumi.CustomResource):
                  args: RegistrationDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Registration definition.
-        API Version: 2019-09-01.
+        The registration definition.
+        Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2019-09-01
 
         :param str resource_name: The name of the resource.
         :param RegistrationDefinitionArgs args: The arguments to use to populate this resource's properties.
@@ -150,6 +151,7 @@ class RegistrationDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managedservices/v20180601preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20190401preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20190601:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20190901:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20200201preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20220101preview:RegistrationDefinition"), pulumi.Alias(type_="azure-native:managedservices/v20221001:RegistrationDefinition")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -178,6 +180,7 @@ class RegistrationDefinition(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["plan"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return RegistrationDefinition(resource_name, opts=opts, __props__=__props__)
 
@@ -185,7 +188,7 @@ class RegistrationDefinition(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the registration definition.
+        The name of the registration definition.
         """
         return pulumi.get(self, "name")
 
@@ -193,7 +196,7 @@ class RegistrationDefinition(pulumi.CustomResource):
     @pulumi.getter
     def plan(self) -> pulumi.Output[Optional['outputs.PlanResponse']]:
         """
-        Plan details for the managed services.
+        The details for the Managed Services offer’s plan in Azure Marketplace.
         """
         return pulumi.get(self, "plan")
 
@@ -201,15 +204,23 @@ class RegistrationDefinition(pulumi.CustomResource):
     @pulumi.getter
     def properties(self) -> pulumi.Output['outputs.RegistrationDefinitionPropertiesResponse']:
         """
-        Properties of a registration definition.
+        The properties of a registration definition.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The metadata for the registration assignment resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of the resource.
+        The type of the Azure resource (Microsoft.ManagedServices/registrationDefinitions).
         """
         return pulumi.get(self, "type")
 

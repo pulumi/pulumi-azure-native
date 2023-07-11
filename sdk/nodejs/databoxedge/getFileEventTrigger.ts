@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific trigger by name.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getFileEventTrigger(args: GetFileEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetFileEventTriggerResult> {
 
@@ -66,7 +66,7 @@ export interface GetFileEventTriggerResult {
      */
     readonly sourceInfo: outputs.databoxedge.FileSourceInfoResponse;
     /**
-     * Trigger in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of Trigger
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
@@ -76,7 +76,7 @@ export interface GetFileEventTriggerResult {
 }
 /**
  * Get a specific trigger by name.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getFileEventTriggerOutput(args: GetFileEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFileEventTriggerResult> {
     return pulumi.output(args).apply((a: any) => getFileEventTrigger(a, opts))

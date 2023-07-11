@@ -143,7 +143,7 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual machine guest diagnostics settings resource.
-        API Version: 2018-06-01-preview.
+        Azure REST API version: 2018-06-01-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual machine guest diagnostics settings resource.
-        API Version: 2018-06-01-preview.
+        Azure REST API version: 2018-06-01-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview
 
         :param str resource_name: The name of the resource.
         :param GuestDiagnosticsSettingArgs args: The arguments to use to populate this resource's properties.
@@ -206,10 +206,10 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20180601preview:guestDiagnosticsSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:guestDiagnosticsSetting"), pulumi.Alias(type_="azure-native:insights/v20180601preview:GuestDiagnosticsSetting"), pulumi.Alias(type_="azure-native:insights/v20180601preview:guestDiagnosticsSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestDiagnosticsSetting, __self__).__init__(
-            'azure-native:insights:guestDiagnosticsSetting',
+            'azure-native:insights:GuestDiagnosticsSetting',
             resource_name,
             __props__,
             opts)

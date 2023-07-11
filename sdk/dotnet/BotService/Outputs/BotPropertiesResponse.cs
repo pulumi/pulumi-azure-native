@@ -129,6 +129,10 @@ namespace Pulumi.AzureNative.BotService.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
+        /// List of Private Endpoint Connections configured for the bot
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// Provisioning state of the resource
         /// </summary>
         public readonly string ProvisioningState;
@@ -211,6 +215,8 @@ namespace Pulumi.AzureNative.BotService.Outputs
 
             ImmutableDictionary<string, string>? parameters,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
 
             string? publicNetworkAccess,
@@ -251,6 +257,7 @@ namespace Pulumi.AzureNative.BotService.Outputs
             MsaAppType = msaAppType;
             OpenWithHint = openWithHint;
             Parameters = parameters;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             PublishingCredentials = publishingCredentials;

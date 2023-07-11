@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieves details of a specific security connector
- * API Version: 2021-07-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getSecurityConnector(args: GetSecurityConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityConnectorResult> {
 
@@ -36,17 +36,25 @@ export interface GetSecurityConnectorArgs {
  */
 export interface GetSecurityConnectorResult {
     /**
+     * The security connector environment data.
+     */
+    readonly environmentData?: outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse | outputs.security.GitlabScopeEnvironmentDataResponse;
+    /**
      * The multi cloud resource's cloud name.
      */
-    readonly cloudName?: string;
+    readonly environmentName?: string;
     /**
      * Entity tag is used for comparing two or more entities from the same requested resource.
      */
     readonly etag?: string;
     /**
-     * The multi cloud resource identifier (account id in case of AWS connector).
+     * The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
      */
     readonly hierarchyIdentifier?: string;
+    /**
+     * The date on which the trial period will end, if applicable. Trial period exists for 30 days after upgrading to payed offerings.
+     */
+    readonly hierarchyIdentifierTrialEndDate: string;
     /**
      * Resource Id
      */
@@ -66,11 +74,7 @@ export interface GetSecurityConnectorResult {
     /**
      * A collection of offerings for the security connector.
      */
-    readonly offerings?: (outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[];
-    /**
-     * The multi cloud account's organizational data
-     */
-    readonly organizationalData?: outputs.security.SecurityConnectorPropertiesResponseOrganizationalData;
+    readonly offerings?: (outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGitLabOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForDevOpsAzureDevOpsOfferingResponse | outputs.security.DefenderForDevOpsGitLabOfferingResponse | outputs.security.DefenderForDevOpsGithubOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse | outputs.security.InformationProtectionAwsOfferingResponse)[];
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -86,7 +90,7 @@ export interface GetSecurityConnectorResult {
 }
 /**
  * Retrieves details of a specific security connector
- * API Version: 2021-07-01-preview.
+ * Azure REST API version: 2023-03-01-preview.
  */
 export function getSecurityConnectorOutput(args: GetSecurityConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityConnectorResult> {
     return pulumi.output(args).apply((a: any) => getSecurityConnector(a, opts))

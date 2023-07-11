@@ -113,12 +113,7 @@ class IPv6FirewallRuleArgs:
         pulumi.set(self, "start_i_pv6_address", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:IPv6FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:IPv6FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class IPv6FirewallRule(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:IPv6FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:IPv6FirewallRule to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -173,7 +168,6 @@ class IPv6FirewallRule(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  start_i_pv6_address: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""IPv6FirewallRule is deprecated: azure-native:sql/v20211101:IPv6FirewallRule is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:IPv6FirewallRule to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -193,7 +187,7 @@ class IPv6FirewallRule(pulumi.CustomResource):
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["start_i_pv6_address"] = start_i_pv6_address
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20210801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220201preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220501preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220801preview:IPv6FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20210801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20211101preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220201preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220501preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20220801preview:IPv6FirewallRule"), pulumi.Alias(type_="azure-native:sql/v20221101preview:IPv6FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IPv6FirewallRule, __self__).__init__(
             'azure-native:sql/v20211101:IPv6FirewallRule',

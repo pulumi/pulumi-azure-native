@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Stack Versions that this version can upgrade to
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function listUpgradableVersionDetails(args: ListUpgradableVersionDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListUpgradableVersionDetailsResult> {
 
@@ -43,7 +43,7 @@ export interface ListUpgradableVersionDetailsResult {
 }
 /**
  * Stack Versions that this version can upgrade to
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2023-06-01.
  */
 export function listUpgradableVersionDetailsOutput(args: ListUpgradableVersionDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListUpgradableVersionDetailsResult> {
     return pulumi.output(args).apply((a: any) => listUpgradableVersionDetails(a, opts))

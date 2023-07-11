@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A server key.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class ServerKey extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class ServerKey extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:ServerKey" }, { type: "azure-native:sql/v20200202preview:ServerKey" }, { type: "azure-native:sql/v20200801preview:ServerKey" }, { type: "azure-native:sql/v20201101preview:ServerKey" }, { type: "azure-native:sql/v20210201preview:ServerKey" }, { type: "azure-native:sql/v20210501preview:ServerKey" }, { type: "azure-native:sql/v20210801preview:ServerKey" }, { type: "azure-native:sql/v20211101:ServerKey" }, { type: "azure-native:sql/v20211101preview:ServerKey" }, { type: "azure-native:sql/v20220201preview:ServerKey" }, { type: "azure-native:sql/v20220501preview:ServerKey" }, { type: "azure-native:sql/v20220801preview:ServerKey" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:ServerKey" }, { type: "azure-native:sql/v20200202preview:ServerKey" }, { type: "azure-native:sql/v20200801preview:ServerKey" }, { type: "azure-native:sql/v20201101preview:ServerKey" }, { type: "azure-native:sql/v20210201preview:ServerKey" }, { type: "azure-native:sql/v20210501preview:ServerKey" }, { type: "azure-native:sql/v20210801preview:ServerKey" }, { type: "azure-native:sql/v20211101:ServerKey" }, { type: "azure-native:sql/v20211101preview:ServerKey" }, { type: "azure-native:sql/v20220201preview:ServerKey" }, { type: "azure-native:sql/v20220501preview:ServerKey" }, { type: "azure-native:sql/v20220801preview:ServerKey" }, { type: "azure-native:sql/v20221101preview:ServerKey" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServerKey.__pulumiType, name, resourceInputs, opts);
     }
@@ -142,7 +142,7 @@ export interface ServerKeyArgs {
      */
     serverName: pulumi.Input<string>;
     /**
-     * The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required.
+     * The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
      */
     uri?: pulumi.Input<string>;
 }

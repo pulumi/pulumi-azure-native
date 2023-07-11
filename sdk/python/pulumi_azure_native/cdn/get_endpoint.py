@@ -22,10 +22,13 @@ class GetEndpointResult:
     """
     CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
     """
-    def __init__(__self__, content_types_to_compress=None, default_origin_group=None, delivery_policy=None, geo_filters=None, host_name=None, id=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_groups=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, system_data=None, tags=None, type=None, url_signing_keys=None, web_application_firewall_policy_link=None):
+    def __init__(__self__, content_types_to_compress=None, custom_domains=None, default_origin_group=None, delivery_policy=None, geo_filters=None, host_name=None, id=None, is_compression_enabled=None, is_http_allowed=None, is_https_allowed=None, location=None, name=None, optimization_type=None, origin_groups=None, origin_host_header=None, origin_path=None, origins=None, probe_path=None, provisioning_state=None, query_string_caching_behavior=None, resource_state=None, system_data=None, tags=None, type=None, url_signing_keys=None, web_application_firewall_policy_link=None):
         if content_types_to_compress and not isinstance(content_types_to_compress, list):
             raise TypeError("Expected argument 'content_types_to_compress' to be a list")
         pulumi.set(__self__, "content_types_to_compress", content_types_to_compress)
+        if custom_domains and not isinstance(custom_domains, list):
+            raise TypeError("Expected argument 'custom_domains' to be a list")
+        pulumi.set(__self__, "custom_domains", custom_domains)
         if default_origin_group and not isinstance(default_origin_group, dict):
             raise TypeError("Expected argument 'default_origin_group' to be a dict")
         pulumi.set(__self__, "default_origin_group", default_origin_group)
@@ -106,6 +109,14 @@ class GetEndpointResult:
         List of content types on which compression applies. The value should be a valid MIME type.
         """
         return pulumi.get(self, "content_types_to_compress")
+
+    @property
+    @pulumi.getter(name="customDomains")
+    def custom_domains(self) -> Sequence['outputs.DeepCreatedCustomDomainResponse']:
+        """
+        The custom domains under the endpoint.
+        """
+        return pulumi.get(self, "custom_domains")
 
     @property
     @pulumi.getter(name="defaultOriginGroup")
@@ -307,6 +318,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             yield self
         return GetEndpointResult(
             content_types_to_compress=self.content_types_to_compress,
+            custom_domains=self.custom_domains,
             default_origin_group=self.default_origin_group,
             delivery_policy=self.delivery_policy,
             geo_filters=self.geo_filters,
@@ -339,7 +351,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    API Version: 2020-09-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -355,6 +367,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
 
     return AwaitableGetEndpointResult(
         content_types_to_compress=__ret__.content_types_to_compress,
+        custom_domains=__ret__.custom_domains,
         default_origin_group=__ret__.default_origin_group,
         delivery_policy=__ret__.delivery_policy,
         geo_filters=__ret__.geo_filters,
@@ -388,7 +401,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.
-    API Version: 2020-09-01.
+    Azure REST API version: 2023-05-01.
 
 
     :param str endpoint_name: Name of the endpoint under the profile which is unique globally.

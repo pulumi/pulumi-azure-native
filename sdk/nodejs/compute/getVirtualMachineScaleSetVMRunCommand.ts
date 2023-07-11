@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the VMSS VM run command.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVMRunCommand(args: GetVirtualMachineScaleSetVMRunCommandArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMRunCommandResult> {
 
@@ -55,7 +55,11 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
      */
     readonly asyncExecution?: boolean;
     /**
-     * Specifies the Azure storage blob where script error stream will be uploaded.
+     * User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+     */
+    readonly errorBlobManagedIdentity?: outputs.compute.RunCommandManagedIdentityResponse;
+    /**
+     * Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
      */
     readonly errorBlobUri?: string;
     /**
@@ -75,7 +79,11 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
      */
     readonly name: string;
     /**
-     * Specifies the Azure storage blob where script output stream will be uploaded.
+     * User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+     */
+    readonly outputBlobManagedIdentity?: outputs.compute.RunCommandManagedIdentityResponse;
+    /**
+     * Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
      */
     readonly outputBlobUri?: string;
     /**
@@ -87,7 +95,7 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
      */
     readonly protectedParameters?: outputs.compute.RunCommandInputParameterResponse[];
     /**
-     * The provisioning state, which only appears in the response.
+     * The provisioning state, which only appears in the response. If treatFailureAsDeploymentFailure set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If treatFailureAsDeploymentFailure set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
      */
     readonly provisioningState: string;
     /**
@@ -111,13 +119,17 @@ export interface GetVirtualMachineScaleSetVMRunCommandResult {
      */
     readonly timeoutInSeconds?: number;
     /**
+     * Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
+     */
+    readonly treatFailureAsDeploymentFailure?: boolean;
+    /**
      * Resource type
      */
     readonly type: string;
 }
 /**
  * The operation to get the VMSS VM run command.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVMRunCommandOutput(args: GetVirtualMachineScaleSetVMRunCommandOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMRunCommandResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMRunCommand(a, opts))

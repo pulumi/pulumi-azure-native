@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a server.
- * API Version: 2017-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
 
@@ -40,59 +40,63 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * Status showing whether the server data encryption is enabled with customer-managed keys.
+     * AuthConfig properties of a server.
      */
-    readonly byokEnforcement: string;
+    readonly authConfig?: outputs.dbforpostgresql.AuthConfigResponse;
     /**
-     * Earliest restore point creation time (ISO8601 format)
+     * availability zone information of the server.
      */
-    readonly earliestRestoreDate?: string;
+    readonly availabilityZone?: string;
+    /**
+     * Backup properties of a server.
+     */
+    readonly backup?: outputs.dbforpostgresql.BackupResponse;
+    /**
+     * Data encryption properties of a server.
+     */
+    readonly dataEncryption?: outputs.dbforpostgresql.DataEncryptionResponse;
     /**
      * The fully qualified domain name of a server.
      */
-    readonly fullyQualifiedDomainName?: string;
+    readonly fullyQualifiedDomainName: string;
+    /**
+     * High availability properties of a server.
+     */
+    readonly highAvailability?: outputs.dbforpostgresql.HighAvailabilityResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The Azure Active Directory identity of the server.
+     * Describes the identity of the application.
      */
-    readonly identity?: outputs.dbforpostgresql.ResourceIdentityResponse;
-    /**
-     * Status showing whether the server enabled infrastructure encryption.
-     */
-    readonly infrastructureEncryption?: string;
+    readonly identity?: outputs.dbforpostgresql.UserAssignedIdentityResponse;
     /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The master server id of a replica server.
+     * Maintenance window properties of a server.
      */
-    readonly masterServerId?: string;
+    readonly maintenanceWindow?: outputs.dbforpostgresql.MaintenanceWindowResponse;
     /**
-     * Enforce a minimal Tls version for the server.
+     * The minor version of the server.
      */
-    readonly minimalTlsVersion?: string;
+    readonly minorVersion: string;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * List of private endpoint connections on a server
+     * Network properties of a server. This Network property is required to be passed only in case you want the server to be Private access server.
      */
-    readonly privateEndpointConnections: outputs.dbforpostgresql.ServerPrivateEndpointConnectionResponse[];
+    readonly network?: outputs.dbforpostgresql.NetworkResponse;
     /**
-     * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+     * Replicas allowed for a server.
      */
-    readonly publicNetworkAccess?: string;
+    readonly replicaCapacity: number;
     /**
-     * The maximum number of replicas that a master server can have.
-     */
-    readonly replicaCapacity?: number;
-    /**
-     * The replication role of the server.
+     * Replication role of the server
      */
     readonly replicationRole?: string;
     /**
@@ -100,13 +104,21 @@ export interface GetServerResult {
      */
     readonly sku?: outputs.dbforpostgresql.SkuResponse;
     /**
-     * Enable ssl enforcement or not when connect to server.
+     * The source server resource ID to restore from. It's required when 'createMode' is 'PointInTimeRestore' or 'GeoRestore' or 'Replica'. This property is returned only for Replica server
      */
-    readonly sslEnforcement?: string;
+    readonly sourceServerResourceId?: string;
     /**
-     * Storage profile of a server.
+     * A state of a server that is visible to user.
      */
-    readonly storageProfile?: outputs.dbforpostgresql.StorageProfileResponse;
+    readonly state: string;
+    /**
+     * Storage properties of a server.
+     */
+    readonly storage?: outputs.dbforpostgresql.StorageResponse;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -116,17 +128,13 @@ export interface GetServerResult {
      */
     readonly type: string;
     /**
-     * A state of a server that is visible to user.
-     */
-    readonly userVisibleState?: string;
-    /**
-     * Server version.
+     * PostgreSQL Server version.
      */
     readonly version?: string;
 }
 /**
  * Gets information about a server.
- * API Version: 2017-12-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
     return pulumi.output(args).apply((a: any) => getServer(a, opts))

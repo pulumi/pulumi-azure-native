@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a dataset.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getDataset(args: GetDatasetArgs, opts?: pulumi.InvokeOptions): Promise<GetDatasetResult> {
 
@@ -63,7 +63,7 @@ export interface GetDatasetResult {
 }
 /**
  * Gets a dataset.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
     return pulumi.output(args).apply((a: any) => getDataset(a, opts))

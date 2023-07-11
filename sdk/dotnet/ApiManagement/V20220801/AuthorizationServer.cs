@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// External OAuth authorization server settings.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:AuthorizationServer is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationServer to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:AuthorizationServer")]
     public partial class AuthorizationServer : global::Pulumi.CustomResource
     {
@@ -177,6 +176,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:AuthorizationServer"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:AuthorizationServer"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:AuthorizationServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:AuthorizationServer"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:AuthorizationServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * An Azure SQL Database sync agent.
- * API Version: 2020-11-01-preview.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
  */
 export class SyncAgent extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class SyncAgent extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:SyncAgent" }, { type: "azure-native:sql/v20200202preview:SyncAgent" }, { type: "azure-native:sql/v20200801preview:SyncAgent" }, { type: "azure-native:sql/v20201101preview:SyncAgent" }, { type: "azure-native:sql/v20210201preview:SyncAgent" }, { type: "azure-native:sql/v20210501preview:SyncAgent" }, { type: "azure-native:sql/v20210801preview:SyncAgent" }, { type: "azure-native:sql/v20211101:SyncAgent" }, { type: "azure-native:sql/v20211101preview:SyncAgent" }, { type: "azure-native:sql/v20220201preview:SyncAgent" }, { type: "azure-native:sql/v20220501preview:SyncAgent" }, { type: "azure-native:sql/v20220801preview:SyncAgent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20150501preview:SyncAgent" }, { type: "azure-native:sql/v20200202preview:SyncAgent" }, { type: "azure-native:sql/v20200801preview:SyncAgent" }, { type: "azure-native:sql/v20201101preview:SyncAgent" }, { type: "azure-native:sql/v20210201preview:SyncAgent" }, { type: "azure-native:sql/v20210501preview:SyncAgent" }, { type: "azure-native:sql/v20210801preview:SyncAgent" }, { type: "azure-native:sql/v20211101:SyncAgent" }, { type: "azure-native:sql/v20211101preview:SyncAgent" }, { type: "azure-native:sql/v20220201preview:SyncAgent" }, { type: "azure-native:sql/v20220501preview:SyncAgent" }, { type: "azure-native:sql/v20220801preview:SyncAgent" }, { type: "azure-native:sql/v20221101preview:SyncAgent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SyncAgent.__pulumiType, name, resourceInputs, opts);
     }

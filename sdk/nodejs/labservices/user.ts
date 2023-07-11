@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * The User registered to a lab
- * API Version: 2018-10-15.
+ * User of a lab that can register for and use virtual machines within the lab.
+ * Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2018-10-15
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -39,53 +39,49 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * The user email address, as it was specified during registration.
+     * The amount of usage quota time the user gets in addition to the lab usage quota.
      */
-    public /*out*/ readonly email!: pulumi.Output<string>;
+    public readonly additionalUsageQuota!: pulumi.Output<string | undefined>;
     /**
-     * The user family name, as it was specified during registration.
+     * Display name of the user, for example user's full name.
      */
-    public /*out*/ readonly familyName!: pulumi.Output<string>;
+    public /*out*/ readonly displayName!: pulumi.Output<string>;
     /**
-     * The user given name, as it was specified during registration.
+     * Email address of the user.
      */
-    public /*out*/ readonly givenName!: pulumi.Output<string>;
+    public readonly email!: pulumi.Output<string>;
     /**
-     * The details of the latest operation. ex: status, error
+     * Date and time when the invitation message was sent to the user.
      */
-    public /*out*/ readonly latestOperationResult!: pulumi.Output<outputs.labservices.LatestOperationResultResponse>;
+    public /*out*/ readonly invitationSent!: pulumi.Output<string>;
     /**
-     * The location of the resource.
+     * State of the invitation message for the user.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly invitationState!: pulumi.Output<string>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The provisioning status of the resource.
+     * Current provisioning state of the user resource.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * The tags of the resource.
+     * State of the user's registration within the lab.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly registrationState!: pulumi.Output<string>;
     /**
-     * The user tenant ID, as it was specified during registration.
+     * Metadata pertaining to creation and last modification of the user resource.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.labservices.SystemDataResponse>;
     /**
-     * How long the user has used his VMs in this lab
+     * How long the user has used their virtual machines in this lab.
      */
     public /*out*/ readonly totalUsage!: pulumi.Output<string>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    public readonly uniqueIdentifier!: pulumi.Output<string | undefined>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -98,8 +94,8 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'labAccountName'");
+            if ((!args || args.email === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'email'");
             }
             if ((!args || args.labName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
@@ -107,38 +103,35 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["labAccountName"] = args ? args.labAccountName : undefined;
+            resourceInputs["additionalUsageQuota"] = args ? args.additionalUsageQuota : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uniqueIdentifier"] = args ? args.uniqueIdentifier : undefined;
             resourceInputs["userName"] = args ? args.userName : undefined;
-            resourceInputs["email"] = undefined /*out*/;
-            resourceInputs["familyName"] = undefined /*out*/;
-            resourceInputs["givenName"] = undefined /*out*/;
-            resourceInputs["latestOperationResult"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["invitationSent"] = undefined /*out*/;
+            resourceInputs["invitationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["registrationState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalUsage"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["additionalUsageQuota"] = undefined /*out*/;
+            resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
-            resourceInputs["familyName"] = undefined /*out*/;
-            resourceInputs["givenName"] = undefined /*out*/;
-            resourceInputs["latestOperationResult"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["invitationSent"] = undefined /*out*/;
+            resourceInputs["invitationState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["tags"] = undefined /*out*/;
-            resourceInputs["tenantId"] = undefined /*out*/;
+            resourceInputs["registrationState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["totalUsage"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["uniqueIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20181015:User" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:labservices/v20211001preview:User" }, { type: "azure-native:labservices/v20211115preview:User" }, { type: "azure-native:labservices/v20220801:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, resourceInputs, opts);
     }
@@ -149,35 +142,23 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserArgs {
     /**
-     * The name of the lab Account.
+     * The amount of usage quota time the user gets in addition to the lab usage quota.
      */
-    labAccountName: pulumi.Input<string>;
+    additionalUsageQuota?: pulumi.Input<string>;
     /**
-     * The name of the lab.
+     * Email address of the user.
+     */
+    email: pulumi.Input<string>;
+    /**
+     * The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
      */
     labName: pulumi.Input<string>;
     /**
-     * The location of the resource.
-     */
-    location?: pulumi.Input<string>;
-    /**
-     * The provisioning status of the resource.
-     */
-    provisioningState?: pulumi.Input<string>;
-    /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The tags of the resource.
-     */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The unique immutable identifier of a resource (Guid).
-     */
-    uniqueIdentifier?: pulumi.Input<string>;
-    /**
-     * The name of the user.
+     * The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
      */
     userName?: pulumi.Input<string>;
 }

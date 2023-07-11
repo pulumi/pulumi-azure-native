@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A database geo backup policy.
- * API Version: 2014-04-01.
+ * A Geo backup policy.
+ * Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2014-04-01
  */
 export class GeoBackupPolicy extends pulumi.CustomResource {
     /**
@@ -105,7 +105,7 @@ export class GeoBackupPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-native:sql/v20211101:GeoBackupPolicy" }, { type: "azure-native:sql/v20220201preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220501preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220801preview:GeoBackupPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql/v20140401:GeoBackupPolicy" }, { type: "azure-native:sql/v20211101:GeoBackupPolicy" }, { type: "azure-native:sql/v20220201preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220501preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20220801preview:GeoBackupPolicy" }, { type: "azure-native:sql/v20221101preview:GeoBackupPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GeoBackupPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -120,7 +120,7 @@ export interface GeoBackupPolicyArgs {
      */
     databaseName: pulumi.Input<string>;
     /**
-     * The name of the geo backup policy.
+     * The name of the Geo backup policy. This should always be 'Default'.
      */
     geoBackupPolicyName?: pulumi.Input<string>;
     /**

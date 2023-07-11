@@ -8,7 +8,9 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['FileShareArgs', 'FileShare']
 
@@ -23,18 +25,20 @@ class FileShareArgs:
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
-                 share_quota: Optional[pulumi.Input[int]] = None):
+                 share_quota: Optional[pulumi.Input[int]] = None,
+                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]]] = None):
         """
         The set of arguments for constructing a FileShare resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Union[str, 'ShareAccessTier']] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         :param pulumi.Input[Union[str, 'EnabledProtocols']] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
-        :param pulumi.Input[str] expand: Optional, used to create a snapshot.
+        :param pulumi.Input[str] expand: Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the share as metadata.
         :param pulumi.Input[Union[str, 'RootSquashType']] root_squash: The property is for NFS share only. The default is NoRootSquash.
         :param pulumi.Input[str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[int] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        :param pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]] signed_identifiers: List of stored access policies specified on the share.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -52,6 +56,8 @@ class FileShareArgs:
             pulumi.set(__self__, "share_name", share_name)
         if share_quota is not None:
             pulumi.set(__self__, "share_quota", share_quota)
+        if signed_identifiers is not None:
+            pulumi.set(__self__, "signed_identifiers", signed_identifiers)
 
     @property
     @pulumi.getter(name="accountName")
@@ -105,7 +111,7 @@ class FileShareArgs:
     @pulumi.getter
     def expand(self) -> Optional[pulumi.Input[str]]:
         """
-        Optional, used to create a snapshot.
+        Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
         """
         return pulumi.get(self, "expand")
 
@@ -161,6 +167,18 @@ class FileShareArgs:
     def share_quota(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "share_quota", value)
 
+    @property
+    @pulumi.getter(name="signedIdentifiers")
+    def signed_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]]]:
+        """
+        List of stored access policies specified on the share.
+        """
+        return pulumi.get(self, "signed_identifiers")
+
+    @signed_identifiers.setter
+    def signed_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SignedIdentifierArgs']]]]):
+        pulumi.set(self, "signed_identifiers", value)
+
 
 class FileShare(pulumi.CustomResource):
     @overload
@@ -176,22 +194,24 @@ class FileShare(pulumi.CustomResource):
                  root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[int]] = None,
+                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignedIdentifierArgs']]]]] = None,
                  __props__=None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
-        API Version: 2021-02-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ShareAccessTier']] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[Union[str, 'EnabledProtocols']] enabled_protocols: The authentication protocol that is used for the file share. Can only be specified when creating a share.
-        :param pulumi.Input[str] expand: Optional, used to create a snapshot.
+        :param pulumi.Input[str] expand: Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] metadata: A name-value pair to associate with the share as metadata.
         :param pulumi.Input[str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Union[str, 'RootSquashType']] root_squash: The property is for NFS share only. The default is NoRootSquash.
         :param pulumi.Input[str] share_name: The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[int] share_quota: The maximum size of the share, in gigabytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignedIdentifierArgs']]]] signed_identifiers: List of stored access policies specified on the share.
         """
         ...
     @overload
@@ -201,7 +221,7 @@ class FileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of the file share, including Id, resource name, resource type, Etag.
-        API Version: 2021-02-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-02-01
 
         :param str resource_name: The name of the resource.
         :param FileShareArgs args: The arguments to use to populate this resource's properties.
@@ -227,6 +247,7 @@ class FileShare(pulumi.CustomResource):
                  root_squash: Optional[pulumi.Input[Union[str, 'RootSquashType']]] = None,
                  share_name: Optional[pulumi.Input[str]] = None,
                  share_quota: Optional[pulumi.Input[int]] = None,
+                 signed_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SignedIdentifierArgs']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -249,12 +270,16 @@ class FileShare(pulumi.CustomResource):
             __props__.__dict__["root_squash"] = root_squash
             __props__.__dict__["share_name"] = share_name
             __props__.__dict__["share_quota"] = share_quota
+            __props__.__dict__["signed_identifiers"] = signed_identifiers
             __props__.__dict__["access_tier_change_time"] = None
             __props__.__dict__["access_tier_status"] = None
             __props__.__dict__["deleted"] = None
             __props__.__dict__["deleted_time"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["last_modified_time"] = None
+            __props__.__dict__["lease_duration"] = None
+            __props__.__dict__["lease_state"] = None
+            __props__.__dict__["lease_status"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["remaining_retention_days"] = None
             __props__.__dict__["share_usage_bytes"] = None
@@ -293,12 +318,16 @@ class FileShare(pulumi.CustomResource):
         __props__.__dict__["enabled_protocols"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["last_modified_time"] = None
+        __props__.__dict__["lease_duration"] = None
+        __props__.__dict__["lease_state"] = None
+        __props__.__dict__["lease_status"] = None
         __props__.__dict__["metadata"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["remaining_retention_days"] = None
         __props__.__dict__["root_squash"] = None
         __props__.__dict__["share_quota"] = None
         __props__.__dict__["share_usage_bytes"] = None
+        __props__.__dict__["signed_identifiers"] = None
         __props__.__dict__["snapshot_time"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
@@ -369,6 +398,30 @@ class FileShare(pulumi.CustomResource):
         return pulumi.get(self, "last_modified_time")
 
     @property
+    @pulumi.getter(name="leaseDuration")
+    def lease_duration(self) -> pulumi.Output[str]:
+        """
+        Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
+        """
+        return pulumi.get(self, "lease_duration")
+
+    @property
+    @pulumi.getter(name="leaseState")
+    def lease_state(self) -> pulumi.Output[str]:
+        """
+        Lease state of the share.
+        """
+        return pulumi.get(self, "lease_state")
+
+    @property
+    @pulumi.getter(name="leaseStatus")
+    def lease_status(self) -> pulumi.Output[str]:
+        """
+        The lease status of the share.
+        """
+        return pulumi.get(self, "lease_status")
+
+    @property
     @pulumi.getter
     def metadata(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
@@ -415,6 +468,14 @@ class FileShare(pulumi.CustomResource):
         The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
         """
         return pulumi.get(self, "share_usage_bytes")
+
+    @property
+    @pulumi.getter(name="signedIdentifiers")
+    def signed_identifiers(self) -> pulumi.Output[Optional[Sequence['outputs.SignedIdentifierResponse']]]:
+        """
+        List of stored access policies specified on the share.
+        """
+        return pulumi.get(self, "signed_identifiers")
 
     @property
     @pulumi.getter(name="snapshotTime")

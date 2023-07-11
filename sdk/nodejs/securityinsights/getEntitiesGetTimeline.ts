@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Timeline for an entity.
- * API Version: 2019-01-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getEntitiesGetTimeline(args: GetEntitiesGetTimelineArgs, opts?: pulumi.InvokeOptions): Promise<GetEntitiesGetTimelineResult> {
 
@@ -19,7 +19,6 @@ export function getEntitiesGetTimeline(args: GetEntitiesGetTimelineArgs, opts?: 
         "entityId": args.entityId,
         "kinds": args.kinds,
         "numberOfBucket": args.numberOfBucket,
-        "operationalInsightsResourceProvider": args.operationalInsightsResourceProvider,
         "resourceGroupName": args.resourceGroupName,
         "startTime": args.startTime,
         "workspaceName": args.workspaceName,
@@ -44,11 +43,7 @@ export interface GetEntitiesGetTimelineArgs {
      */
     numberOfBucket?: number;
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: string;
-    /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -72,11 +67,11 @@ export interface GetEntitiesGetTimelineResult {
     /**
      * The timeline result values.
      */
-    readonly value?: (outputs.securityinsights.ActivityTimelineItemResponse | outputs.securityinsights.BookmarkTimelineItemResponse | outputs.securityinsights.SecurityAlertTimelineItemResponse)[];
+    readonly value?: (outputs.securityinsights.ActivityTimelineItemResponse | outputs.securityinsights.AnomalyTimelineItemResponse | outputs.securityinsights.BookmarkTimelineItemResponse | outputs.securityinsights.SecurityAlertTimelineItemResponse)[];
 }
 /**
  * Timeline for an entity.
- * API Version: 2019-01-01-preview.
+ * Azure REST API version: 2023-06-01-preview.
  */
 export function getEntitiesGetTimelineOutput(args: GetEntitiesGetTimelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntitiesGetTimelineResult> {
     return pulumi.output(args).apply((a: any) => getEntitiesGetTimeline(a, opts))
@@ -100,11 +95,7 @@ export interface GetEntitiesGetTimelineOutputArgs {
      */
     numberOfBucket?: pulumi.Input<number>;
     /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
-    /**
-     * The name of the resource group within the user's subscription. The name is case insensitive.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

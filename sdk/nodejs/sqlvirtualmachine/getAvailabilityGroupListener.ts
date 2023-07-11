@@ -9,13 +9,14 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an availability group listener.
- * API Version: 2017-03-01-preview.
+ * Azure REST API version: 2022-02-01.
  */
 export function getAvailabilityGroupListener(args: GetAvailabilityGroupListenerArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityGroupListenerResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:sqlvirtualmachine:getAvailabilityGroupListener", {
         "availabilityGroupListenerName": args.availabilityGroupListenerName,
+        "expand": args.expand,
         "resourceGroupName": args.resourceGroupName,
         "sqlVirtualMachineGroupName": args.sqlVirtualMachineGroupName,
     }, opts);
@@ -26,6 +27,10 @@ export interface GetAvailabilityGroupListenerArgs {
      * Name of the availability group listener.
      */
     availabilityGroupListenerName: string;
+    /**
+     * The child resources to include in the response.
+     */
+    expand?: string;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -40,6 +45,10 @@ export interface GetAvailabilityGroupListenerArgs {
  * A SQL Server availability group listener.
  */
 export interface GetAvailabilityGroupListenerResult {
+    /**
+     * Availability Group configuration.
+     */
+    readonly availabilityGroupConfiguration?: outputs.sqlvirtualmachine.AgConfigurationResponse;
     /**
      * Name of the availability group.
      */
@@ -57,6 +66,10 @@ export interface GetAvailabilityGroupListenerResult {
      */
     readonly loadBalancerConfigurations?: outputs.sqlvirtualmachine.LoadBalancerConfigurationResponse[];
     /**
+     * List of multi subnet IP configurations for an AG listener.
+     */
+    readonly multiSubnetIpConfigurations?: outputs.sqlvirtualmachine.MultiSubnetIpConfigurationResponse[];
+    /**
      * Resource name.
      */
     readonly name: string;
@@ -69,13 +82,17 @@ export interface GetAvailabilityGroupListenerResult {
      */
     readonly provisioningState: string;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.sqlvirtualmachine.SystemDataResponse;
+    /**
      * Resource type.
      */
     readonly type: string;
 }
 /**
  * Gets an availability group listener.
- * API Version: 2017-03-01-preview.
+ * Azure REST API version: 2022-02-01.
  */
 export function getAvailabilityGroupListenerOutput(args: GetAvailabilityGroupListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityGroupListenerResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilityGroupListener(a, opts))
@@ -86,6 +103,10 @@ export interface GetAvailabilityGroupListenerOutputArgs {
      * Name of the availability group listener.
      */
     availabilityGroupListenerName: pulumi.Input<string>;
+    /**
+     * The child resources to include in the response.
+     */
+    expand?: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Container App SourceControl.
  */
-/** @deprecated azure-native:app/v20221001:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility. */
 export function getContainerAppsSourceControl(args: GetContainerAppsSourceControlArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerAppsSourceControlResult> {
-    pulumi.log.warn("getContainerAppsSourceControl is deprecated: azure-native:app/v20221001:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:app/v20221001:getContainerAppsSourceControl", {
@@ -79,7 +77,6 @@ export interface GetContainerAppsSourceControlResult {
 /**
  * Container App SourceControl.
  */
-/** @deprecated azure-native:app/v20221001:ContainerAppsSourceControl is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:ContainerAppsSourceControl to guarantee forwards compatibility. */
 export function getContainerAppsSourceControlOutput(args: GetContainerAppsSourceControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerAppsSourceControlResult> {
     return pulumi.output(args).apply((a: any) => getContainerAppsSourceControl(a, opts))
 }

@@ -21,24 +21,6 @@ namespace Pulumi.AzureNative.DevCenter.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        /// <summary>
-        /// The image offer.
-        /// </summary>
-        [Input("offer")]
-        public Input<string>? Offer { get; set; }
-
-        /// <summary>
-        /// The image publisher.
-        /// </summary>
-        [Input("publisher")]
-        public Input<string>? Publisher { get; set; }
-
-        /// <summary>
-        /// The image sku.
-        /// </summary>
-        [Input("sku")]
-        public Input<string>? Sku { get; set; }
-
         public ImageReferenceArgs()
         {
         }

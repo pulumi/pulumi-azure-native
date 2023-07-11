@@ -22,7 +22,7 @@ class GetAzureMonitorWorkspaceResult:
     """
     An Azure Monitor Workspace definition
     """
-    def __init__(__self__, account_id=None, default_ingestion_settings=None, etag=None, id=None, location=None, metrics=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, account_id=None, default_ingestion_settings=None, etag=None, id=None, location=None, metrics=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -44,9 +44,15 @@ class GetAzureMonitorWorkspaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -114,12 +120,28 @@ class GetAzureMonitorWorkspaceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        List of private endpoint connections
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> str:
+        """
+        Gets or sets allow or disallow public network access to workspace
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="systemData")
@@ -159,7 +181,9 @@ class AwaitableGetAzureMonitorWorkspaceResult(GetAzureMonitorWorkspaceResult):
             location=self.location,
             metrics=self.metrics,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -170,7 +194,7 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureMonitorWorkspaceResult:
     """
     Returns the specific Azure Monitor workspace
-    API Version: 2021-06-03-preview.
+    Azure REST API version: 2023-04-03.
 
 
     :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
@@ -190,7 +214,9 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
         location=__ret__.location,
         metrics=__ret__.metrics,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -202,7 +228,7 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureMonitorWorkspaceResult]:
     """
     Returns the specific Azure Monitor workspace
-    API Version: 2021-06-03-preview.
+    Azure REST API version: 2023-04-03.
 
 
     :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive

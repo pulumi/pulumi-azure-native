@@ -24,15 +24,22 @@ namespace Pulumi.AzureNative.OperationalInsights.Outputs
         /// Search job completion percentage.
         /// </summary>
         public readonly double Progress;
+        /// <summary>
+        /// Search job: Amount of scanned data.
+        /// </summary>
+        public readonly double ScannedGb;
 
         [OutputConstructor]
         private ResultStatisticsResponse(
             int ingestedRecords,
 
-            double progress)
+            double progress,
+
+            double scannedGb)
         {
             IngestedRecords = ingestedRecords;
             Progress = progress;
+            ScannedGb = scannedGb;
         }
     }
 }

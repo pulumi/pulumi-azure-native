@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a devcenter resource.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
  */
 export class DevCenter extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class DevCenter extends pulumi.CustomResource {
         return obj['__pulumiType'] === DevCenter.__pulumiType;
     }
 
+    /**
+     * The URI of the Dev Center.
+     */
+    public /*out*/ readonly devCenterUri!: pulumi.Output<string>;
     /**
      * Managed identity properties
      */
@@ -86,11 +90,13 @@ export class DevCenter extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devCenterUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["devCenterUri"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -100,7 +106,7 @@ export class DevCenter extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:DevCenter" }, { type: "azure-native:devcenter/v20220901preview:DevCenter" }, { type: "azure-native:devcenter/v20221012preview:DevCenter" }, { type: "azure-native:devcenter/v20221111preview:DevCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:DevCenter" }, { type: "azure-native:devcenter/v20220901preview:DevCenter" }, { type: "azure-native:devcenter/v20221012preview:DevCenter" }, { type: "azure-native:devcenter/v20221111preview:DevCenter" }, { type: "azure-native:devcenter/v20230101preview:DevCenter" }, { type: "azure-native:devcenter/v20230401:DevCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevCenter.__pulumiType, name, resourceInputs, opts);
     }
@@ -123,7 +129,7 @@ export interface DevCenterArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

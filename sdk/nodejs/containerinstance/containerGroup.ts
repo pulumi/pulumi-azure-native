@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * A container group.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**
@@ -39,6 +39,10 @@ export class ContainerGroup extends pulumi.CustomResource {
     }
 
     /**
+     * The properties for confidential container group
+     */
+    public readonly confidentialComputeProperties!: pulumi.Output<outputs.containerinstance.ConfidentialComputePropertiesResponse | undefined>;
+    /**
      * The containers within the container group.
      */
     public readonly containers!: pulumi.Output<outputs.containerinstance.ContainerResponse[]>;
@@ -55,6 +59,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public readonly encryptionProperties!: pulumi.Output<outputs.containerinstance.EncryptionPropertiesResponse | undefined>;
     /**
+     * extensions used by virtual kubelet
+     */
+    public readonly extensions!: pulumi.Output<outputs.containerinstance.DeploymentExtensionSpecResponse[] | undefined>;
+    /**
      * The identity of the container group, if configured.
      */
     public readonly identity!: pulumi.Output<outputs.containerinstance.ContainerGroupIdentityResponse | undefined>;
@@ -69,7 +77,7 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The instance view of the container group. Only valid in response.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.ContainerGroupResponseInstanceView>;
+    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.ContainerGroupPropertiesResponseInstanceView>;
     /**
      * The IP address type of the container group.
      */
@@ -83,13 +91,13 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * The network profile information for a container group.
-     */
-    public readonly networkProfile!: pulumi.Output<outputs.containerinstance.ContainerGroupNetworkProfileResponse | undefined>;
-    /**
      * The operating system type required by the containers in the container group.
      */
     public readonly osType!: pulumi.Output<string>;
+    /**
+     * The priority of the container group.
+     */
+    public readonly priority!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the container group. This only appears in the response.
      */
@@ -106,6 +114,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
+     * The subnet resource IDs for a container group.
+     */
+    public readonly subnetIds!: pulumi.Output<outputs.containerinstance.ContainerGroupSubnetIdResponse[] | undefined>;
+    /**
      * The resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -117,6 +129,10 @@ export class ContainerGroup extends pulumi.CustomResource {
      * The list of volumes that can be mounted by containers in this container group.
      */
     public readonly volumes!: pulumi.Output<outputs.containerinstance.VolumeResponse[] | undefined>;
+    /**
+     * The zones for the container group.
+     */
+    public readonly zones!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ContainerGroup resource with the given unique name, arguments, and options.
@@ -138,32 +154,38 @@ export class ContainerGroup extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["confidentialComputeProperties"] = args ? args.confidentialComputeProperties : undefined;
             resourceInputs["containerGroupName"] = args ? args.containerGroupName : undefined;
             resourceInputs["containers"] = args ? args.containers : undefined;
             resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
             resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
             resourceInputs["encryptionProperties"] = args ? args.encryptionProperties : undefined;
+            resourceInputs["extensions"] = args ? args.extensions : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
             resourceInputs["initContainers"] = args ? args.initContainers : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["ipAddress"] = args ? (args.ipAddress ? pulumi.output(args.ipAddress).apply(inputs.containerinstance.ipAddressArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["osType"] = args ? args.osType : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["zones"] = args ? args.zones : undefined;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["confidentialComputeProperties"] = undefined /*out*/;
             resourceInputs["containers"] = undefined /*out*/;
             resourceInputs["diagnostics"] = undefined /*out*/;
             resourceInputs["dnsConfig"] = undefined /*out*/;
             resourceInputs["encryptionProperties"] = undefined /*out*/;
+            resourceInputs["extensions"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["imageRegistryCredentials"] = undefined /*out*/;
             resourceInputs["initContainers"] = undefined /*out*/;
@@ -171,17 +193,19 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["networkProfile"] = undefined /*out*/;
             resourceInputs["osType"] = undefined /*out*/;
+            resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["restartPolicy"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["volumes"] = undefined /*out*/;
+            resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180401:ContainerGroup" }, { type: "azure-native:containerinstance/v20180601:ContainerGroup" }, { type: "azure-native:containerinstance/v20180901:ContainerGroup" }, { type: "azure-native:containerinstance/v20181001:ContainerGroup" }, { type: "azure-native:containerinstance/v20191201:ContainerGroup" }, { type: "azure-native:containerinstance/v20201101:ContainerGroup" }, { type: "azure-native:containerinstance/v20210301:ContainerGroup" }, { type: "azure-native:containerinstance/v20210701:ContainerGroup" }, { type: "azure-native:containerinstance/v20210901:ContainerGroup" }, { type: "azure-native:containerinstance/v20211001:ContainerGroup" }, { type: "azure-native:containerinstance/v20220901:ContainerGroup" }, { type: "azure-native:containerinstance/v20221001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20230501:ContainerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerinstance/v20170801preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20171201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20180401:ContainerGroup" }, { type: "azure-native:containerinstance/v20180601:ContainerGroup" }, { type: "azure-native:containerinstance/v20180901:ContainerGroup" }, { type: "azure-native:containerinstance/v20181001:ContainerGroup" }, { type: "azure-native:containerinstance/v20191201:ContainerGroup" }, { type: "azure-native:containerinstance/v20201101:ContainerGroup" }, { type: "azure-native:containerinstance/v20210301:ContainerGroup" }, { type: "azure-native:containerinstance/v20210701:ContainerGroup" }, { type: "azure-native:containerinstance/v20210901:ContainerGroup" }, { type: "azure-native:containerinstance/v20211001:ContainerGroup" }, { type: "azure-native:containerinstance/v20220901:ContainerGroup" }, { type: "azure-native:containerinstance/v20221001preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20230201preview:ContainerGroup" }, { type: "azure-native:containerinstance/v20230501:ContainerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerGroup.__pulumiType, name, resourceInputs, opts);
     }
@@ -191,6 +215,10 @@ export class ContainerGroup extends pulumi.CustomResource {
  * The set of arguments for constructing a ContainerGroup resource.
  */
 export interface ContainerGroupArgs {
+    /**
+     * The properties for confidential container group
+     */
+    confidentialComputeProperties?: pulumi.Input<inputs.containerinstance.ConfidentialComputePropertiesArgs>;
     /**
      * The name of the container group.
      */
@@ -212,6 +240,10 @@ export interface ContainerGroupArgs {
      */
     encryptionProperties?: pulumi.Input<inputs.containerinstance.EncryptionPropertiesArgs>;
     /**
+     * extensions used by virtual kubelet
+     */
+    extensions?: pulumi.Input<pulumi.Input<inputs.containerinstance.DeploymentExtensionSpecArgs>[]>;
+    /**
      * The identity of the container group, if configured.
      */
     identity?: pulumi.Input<inputs.containerinstance.ContainerGroupIdentityArgs>;
@@ -232,13 +264,13 @@ export interface ContainerGroupArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The network profile information for a container group.
-     */
-    networkProfile?: pulumi.Input<inputs.containerinstance.ContainerGroupNetworkProfileArgs>;
-    /**
      * The operating system type required by the containers in the container group.
      */
     osType: pulumi.Input<string | enums.containerinstance.OperatingSystemTypes>;
+    /**
+     * The priority of the container group.
+     */
+    priority?: pulumi.Input<string | enums.containerinstance.ContainerGroupPriority>;
     /**
      * The name of the resource group.
      */
@@ -255,6 +287,10 @@ export interface ContainerGroupArgs {
      */
     sku?: pulumi.Input<string | enums.containerinstance.ContainerGroupSku>;
     /**
+     * The subnet resource IDs for a container group.
+     */
+    subnetIds?: pulumi.Input<pulumi.Input<inputs.containerinstance.ContainerGroupSubnetIdArgs>[]>;
+    /**
      * The resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -262,4 +298,8 @@ export interface ContainerGroupArgs {
      * The list of volumes that can be mounted by containers in this container group.
      */
     volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.VolumeArgs>[]>;
+    /**
+     * The zones for the container group.
+     */
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

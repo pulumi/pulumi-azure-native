@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a packet capture session by name.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetPacketCaptureResult> InvokeAsync(GetPacketCaptureArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a packet capture session by name.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetPacketCaptureResult> Invoke(GetPacketCaptureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPacketCaptureResult>("azure-native:network:getPacketCapture", args ?? new GetPacketCaptureInvokeArgs(), options.WithDefaults());
@@ -108,13 +108,21 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
+        /// </summary>
+        public readonly Outputs.PacketCaptureMachineScopeResponse? Scope;
+        /// <summary>
         /// The storage location for a packet capture session.
         /// </summary>
         public readonly Outputs.PacketCaptureStorageLocationResponse StorageLocation;
         /// <summary>
-        /// The ID of the targeted resource, only VM is currently supported.
+        /// The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
         /// </summary>
         public readonly string Target;
+        /// <summary>
+        /// Target type of the resource provided.
+        /// </summary>
+        public readonly string? TargetType;
         /// <summary>
         /// Maximum duration of the capture session in seconds.
         /// </summary>
@@ -138,9 +146,13 @@ namespace Pulumi.AzureNative.Network
 
             string provisioningState,
 
+            Outputs.PacketCaptureMachineScopeResponse? scope,
+
             Outputs.PacketCaptureStorageLocationResponse storageLocation,
 
             string target,
+
+            string? targetType,
 
             int? timeLimitInSeconds,
 
@@ -152,8 +164,10 @@ namespace Pulumi.AzureNative.Network
             Id = id;
             Name = name;
             ProvisioningState = provisioningState;
+            Scope = scope;
             StorageLocation = storageLocation;
             Target = target;
+            TargetType = targetType;
             TimeLimitInSeconds = timeLimitInSeconds;
             TotalBytesPerSession = totalBytesPerSession;
         }

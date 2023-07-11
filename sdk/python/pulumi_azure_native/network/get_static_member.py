@@ -22,7 +22,7 @@ class GetStaticMemberResult:
     """
     StaticMember Item.
     """
-    def __init__(__self__, etag=None, id=None, name=None, resource_id=None, system_data=None, type=None):
+    def __init__(__self__, etag=None, id=None, name=None, provisioning_state=None, region=None, resource_id=None, system_data=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -32,6 +32,12 @@ class GetStaticMemberResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if provisioning_state and not isinstance(provisioning_state, str):
+            raise TypeError("Expected argument 'provisioning_state' to be a str")
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if region and not isinstance(region, str):
+            raise TypeError("Expected argument 'region' to be a str")
+        pulumi.set(__self__, "region", region)
         if resource_id and not isinstance(resource_id, str):
             raise TypeError("Expected argument 'resource_id' to be a str")
         pulumi.set(__self__, "resource_id", resource_id)
@@ -67,6 +73,22 @@ class GetStaticMemberResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the scope assignment resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        """
+        Resource region.
+        """
+        return pulumi.get(self, "region")
+
+    @property
     @pulumi.getter(name="resourceId")
     def resource_id(self) -> Optional[str]:
         """
@@ -100,6 +122,8 @@ class AwaitableGetStaticMemberResult(GetStaticMemberResult):
             etag=self.etag,
             id=self.id,
             name=self.name,
+            provisioning_state=self.provisioning_state,
+            region=self.region,
             resource_id=self.resource_id,
             system_data=self.system_data,
             type=self.type)
@@ -112,7 +136,7 @@ def get_static_member(network_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStaticMemberResult:
     """
     Gets the specified static member.
-    API Version: 2022-02-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_group_name: The name of the network group.
@@ -132,6 +156,8 @@ def get_static_member(network_group_name: Optional[str] = None,
         etag=__ret__.etag,
         id=__ret__.id,
         name=__ret__.name,
+        provisioning_state=__ret__.provisioning_state,
+        region=__ret__.region,
         resource_id=__ret__.resource_id,
         system_data=__ret__.system_data,
         type=__ret__.type)
@@ -145,7 +171,7 @@ def get_static_member_output(network_group_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStaticMemberResult]:
     """
     Gets the specified static member.
-    API Version: 2022-02-01-preview.
+    Azure REST API version: 2023-02-01.
 
 
     :param str network_group_name: The name of the network group.

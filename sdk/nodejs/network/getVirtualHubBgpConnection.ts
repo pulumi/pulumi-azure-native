@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Retrieves the details of a Virtual Hub Bgp Connection.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualHubBgpConnection(args: GetVirtualHubBgpConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualHubBgpConnectionResult> {
 
@@ -46,6 +49,10 @@ export interface GetVirtualHubBgpConnectionResult {
      */
     readonly etag: string;
     /**
+     * The reference to the HubVirtualNetworkConnection resource.
+     */
+    readonly hubVirtualNetworkConnection?: outputs.network.SubResourceResponse;
+    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -72,7 +79,7 @@ export interface GetVirtualHubBgpConnectionResult {
 }
 /**
  * Retrieves the details of a Virtual Hub Bgp Connection.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getVirtualHubBgpConnectionOutput(args: GetVirtualHubBgpConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualHubBgpConnectionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualHubBgpConnection(a, opts))

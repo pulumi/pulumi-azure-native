@@ -26,6 +26,8 @@ class FhirServiceArgs:
                  export_configuration: Optional[pulumi.Input['FhirServiceExportConfigurationArgs']] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
+                 implementation_guides_configuration: Optional[pulumi.Input['ImplementationGuidesConfigurationArgs']] = None,
+                 import_configuration: Optional[pulumi.Input['FhirServiceImportConfigurationArgs']] = None,
                  kind: Optional[pulumi.Input[Union[str, 'FhirServiceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_version_policy_configuration: Optional[pulumi.Input['ResourceVersionPolicyConfigurationArgs']] = None,
@@ -41,6 +43,8 @@ class FhirServiceArgs:
         :param pulumi.Input['FhirServiceExportConfigurationArgs'] export_configuration: Fhir Service export configuration.
         :param pulumi.Input[str] fhir_service_name: The name of FHIR Service resource.
         :param pulumi.Input['ServiceManagedIdentityIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
+        :param pulumi.Input['ImplementationGuidesConfigurationArgs'] implementation_guides_configuration: Implementation Guides configuration.
+        :param pulumi.Input['FhirServiceImportConfigurationArgs'] import_configuration: Fhir Service import configuration.
         :param pulumi.Input[Union[str, 'FhirServiceKind']] kind: The kind of the service.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input['ResourceVersionPolicyConfigurationArgs'] resource_version_policy_configuration: Determines tracking of history for resources.
@@ -62,6 +66,10 @@ class FhirServiceArgs:
             pulumi.set(__self__, "fhir_service_name", fhir_service_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if implementation_guides_configuration is not None:
+            pulumi.set(__self__, "implementation_guides_configuration", implementation_guides_configuration)
+        if import_configuration is not None:
+            pulumi.set(__self__, "import_configuration", import_configuration)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -180,6 +188,30 @@ class FhirServiceArgs:
         pulumi.set(self, "identity", value)
 
     @property
+    @pulumi.getter(name="implementationGuidesConfiguration")
+    def implementation_guides_configuration(self) -> Optional[pulumi.Input['ImplementationGuidesConfigurationArgs']]:
+        """
+        Implementation Guides configuration.
+        """
+        return pulumi.get(self, "implementation_guides_configuration")
+
+    @implementation_guides_configuration.setter
+    def implementation_guides_configuration(self, value: Optional[pulumi.Input['ImplementationGuidesConfigurationArgs']]):
+        pulumi.set(self, "implementation_guides_configuration", value)
+
+    @property
+    @pulumi.getter(name="importConfiguration")
+    def import_configuration(self) -> Optional[pulumi.Input['FhirServiceImportConfigurationArgs']]:
+        """
+        Fhir Service import configuration.
+        """
+        return pulumi.get(self, "import_configuration")
+
+    @import_configuration.setter
+    def import_configuration(self, value: Optional[pulumi.Input['FhirServiceImportConfigurationArgs']]):
+        pulumi.set(self, "import_configuration", value)
+
+    @property
     @pulumi.getter
     def kind(self) -> Optional[pulumi.Input[Union[str, 'FhirServiceKind']]]:
         """
@@ -240,6 +272,8 @@ class FhirService(pulumi.CustomResource):
                  export_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceExportConfigurationArgs']]] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
+                 implementation_guides_configuration: Optional[pulumi.Input[pulumi.InputType['ImplementationGuidesConfigurationArgs']]] = None,
+                 import_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceImportConfigurationArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'FhirServiceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -249,7 +283,7 @@ class FhirService(pulumi.CustomResource):
                  __props__=None):
         """
         The description of Fhir Service
-        API Version: 2022-05-15.
+        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -260,6 +294,8 @@ class FhirService(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FhirServiceExportConfigurationArgs']] export_configuration: Fhir Service export configuration.
         :param pulumi.Input[str] fhir_service_name: The name of FHIR Service resource.
         :param pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
+        :param pulumi.Input[pulumi.InputType['ImplementationGuidesConfigurationArgs']] implementation_guides_configuration: Implementation Guides configuration.
+        :param pulumi.Input[pulumi.InputType['FhirServiceImportConfigurationArgs']] import_configuration: Fhir Service import configuration.
         :param pulumi.Input[Union[str, 'FhirServiceKind']] kind: The kind of the service.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
@@ -275,7 +311,7 @@ class FhirService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of Fhir Service
-        API Version: 2022-05-15.
+        Azure REST API version: 2023-02-28. Prior API version in Azure Native 1.x: 2022-05-15
 
         :param str resource_name: The name of the resource.
         :param FhirServiceArgs args: The arguments to use to populate this resource's properties.
@@ -299,6 +335,8 @@ class FhirService(pulumi.CustomResource):
                  export_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceExportConfigurationArgs']]] = None,
                  fhir_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
+                 implementation_guides_configuration: Optional[pulumi.Input[pulumi.InputType['ImplementationGuidesConfigurationArgs']]] = None,
+                 import_configuration: Optional[pulumi.Input[pulumi.InputType['FhirServiceImportConfigurationArgs']]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'FhirServiceKind']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -321,6 +359,8 @@ class FhirService(pulumi.CustomResource):
             __props__.__dict__["export_configuration"] = export_configuration
             __props__.__dict__["fhir_service_name"] = fhir_service_name
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["implementation_guides_configuration"] = implementation_guides_configuration
+            __props__.__dict__["import_configuration"] = import_configuration
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
@@ -339,7 +379,7 @@ class FhirService(pulumi.CustomResource):
             __props__.__dict__["public_network_access"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:FhirService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220601:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221001preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20221201:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20230228:FhirService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FhirService, __self__).__init__(
             'azure-native:healthcareapis:FhirService',
@@ -371,6 +411,8 @@ class FhirService(pulumi.CustomResource):
         __props__.__dict__["event_state"] = None
         __props__.__dict__["export_configuration"] = None
         __props__.__dict__["identity"] = None
+        __props__.__dict__["implementation_guides_configuration"] = None
+        __props__.__dict__["import_configuration"] = None
         __props__.__dict__["kind"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -446,6 +488,22 @@ class FhirService(pulumi.CustomResource):
         Setting indicating whether the service has a managed identity associated with it.
         """
         return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="implementationGuidesConfiguration")
+    def implementation_guides_configuration(self) -> pulumi.Output[Optional['outputs.ImplementationGuidesConfigurationResponse']]:
+        """
+        Implementation Guides configuration.
+        """
+        return pulumi.get(self, "implementation_guides_configuration")
+
+    @property
+    @pulumi.getter(name="importConfiguration")
+    def import_configuration(self) -> pulumi.Output[Optional['outputs.FhirServiceImportConfigurationResponse']]:
+        """
+        Fhir Service import configuration.
+        """
+        return pulumi.get(self, "import_configuration")
 
     @property
     @pulumi.getter

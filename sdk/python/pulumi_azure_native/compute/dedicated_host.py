@@ -33,7 +33,7 @@ class DedicatedHostArgs:
         :param pulumi.Input['SkuArgs'] sku: SKU of the dedicated host for Hardware Generation and VM family. Only name is required to be set. List Microsoft.Compute SKUs for a list of possible values.
         :param pulumi.Input[bool] auto_replace_on_failure: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
         :param pulumi.Input[str] host_name: The name of the dedicated host .
-        :param pulumi.Input['DedicatedHostLicenseTypes'] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+        :param pulumi.Input['DedicatedHostLicenseTypes'] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[int] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
@@ -118,7 +118,7 @@ class DedicatedHostArgs:
     @pulumi.getter(name="licenseType")
     def license_type(self) -> Optional[pulumi.Input['DedicatedHostLicenseTypes']]:
         """
-        Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+        Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
         """
         return pulumi.get(self, "license_type")
 
@@ -180,14 +180,14 @@ class DedicatedHost(pulumi.CustomResource):
                  __props__=None):
         """
         Specifies information about the Dedicated host.
-        API Version: 2020-12-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_replace_on_failure: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
         :param pulumi.Input[str] host_group_name: The name of the dedicated host group.
         :param pulumi.Input[str] host_name: The name of the dedicated host .
-        :param pulumi.Input['DedicatedHostLicenseTypes'] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+        :param pulumi.Input['DedicatedHostLicenseTypes'] license_type: Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
         :param pulumi.Input[str] location: Resource location
         :param pulumi.Input[int] platform_fault_domain: Fault domain of the dedicated host within a dedicated host group.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
@@ -202,7 +202,7 @@ class DedicatedHost(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the Dedicated host.
-        API Version: 2020-12-01.
+        Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.
@@ -257,6 +257,7 @@ class DedicatedHost(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["provisioning_time"] = None
+            __props__.__dict__["time_created"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20190301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20190701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20191201:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20200601:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20201201:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210401:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20210701:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20211101:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20220301:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20220801:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20221101:DedicatedHost"), pulumi.Alias(type_="azure-native:compute/v20230301:DedicatedHost")])
@@ -294,6 +295,7 @@ class DedicatedHost(pulumi.CustomResource):
         __props__.__dict__["provisioning_time"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["time_created"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["virtual_machines"] = None
         return DedicatedHost(resource_name, opts=opts, __props__=__props__)
@@ -310,7 +312,7 @@ class DedicatedHost(pulumi.CustomResource):
     @pulumi.getter(name="hostId")
     def host_id(self) -> pulumi.Output[str]:
         """
-        A unique id generated and assigned to the dedicated host by the platform. <br><br> Does not change throughout the lifetime of the host.
+        A unique id generated and assigned to the dedicated host by the platform. Does not change throughout the lifetime of the host.
         """
         return pulumi.get(self, "host_id")
 
@@ -326,7 +328,7 @@ class DedicatedHost(pulumi.CustomResource):
     @pulumi.getter(name="licenseType")
     def license_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the software license type that will be applied to the VMs deployed on the dedicated host. <br><br> Possible values are: <br><br> **None** <br><br> **Windows_Server_Hybrid** <br><br> **Windows_Server_Perpetual** <br><br> Default: **None**
+        Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
         """
         return pulumi.get(self, "license_type")
 
@@ -385,6 +387,14 @@ class DedicatedHost(pulumi.CustomResource):
         Resource tags
         """
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeCreated")
+    def time_created(self) -> pulumi.Output[str]:
+        """
+        Specifies the time at which the Dedicated Host resource was created. Minimum api-version: 2021-11-01.
+        """
+        return pulumi.get(self, "time_created")
 
     @property
     @pulumi.getter

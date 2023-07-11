@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a Virtual Machine run command.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2021-03-01
  */
 export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResource {
     /**
@@ -43,7 +43,11 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
      */
     public readonly asyncExecution!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the Azure storage blob where script error stream will be uploaded.
+     * User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+     */
+    public readonly errorBlobManagedIdentity!: pulumi.Output<outputs.compute.RunCommandManagedIdentityResponse | undefined>;
+    /**
+     * Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
      */
     public readonly errorBlobUri!: pulumi.Output<string | undefined>;
     /**
@@ -59,7 +63,11 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the Azure storage blob where script output stream will be uploaded.
+     * User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+     */
+    public readonly outputBlobManagedIdentity!: pulumi.Output<outputs.compute.RunCommandManagedIdentityResponse | undefined>;
+    /**
+     * Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
      */
     public readonly outputBlobUri!: pulumi.Output<string | undefined>;
     /**
@@ -71,7 +79,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
      */
     public readonly protectedParameters!: pulumi.Output<outputs.compute.RunCommandInputParameterResponse[] | undefined>;
     /**
-     * The provisioning state, which only appears in the response.
+     * The provisioning state, which only appears in the response. If treatFailureAsDeploymentFailure set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If treatFailureAsDeploymentFailure set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
@@ -95,6 +103,10 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
      */
     public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
     /**
+     * Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
+     */
+    public readonly treatFailureAsDeploymentFailure!: pulumi.Output<boolean | undefined>;
+    /**
      * Resource type
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -117,8 +129,10 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
                 throw new Error("Missing required property 'vmName'");
             }
             resourceInputs["asyncExecution"] = (args ? args.asyncExecution : undefined) ?? false;
+            resourceInputs["errorBlobManagedIdentity"] = args ? args.errorBlobManagedIdentity : undefined;
             resourceInputs["errorBlobUri"] = args ? args.errorBlobUri : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["outputBlobManagedIdentity"] = args ? args.outputBlobManagedIdentity : undefined;
             resourceInputs["outputBlobUri"] = args ? args.outputBlobUri : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["protectedParameters"] = args ? args.protectedParameters : undefined;
@@ -129,6 +143,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
+            resourceInputs["treatFailureAsDeploymentFailure"] = (args ? args.treatFailureAsDeploymentFailure : undefined) ?? false;
             resourceInputs["vmName"] = args ? args.vmName : undefined;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -136,10 +151,12 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["asyncExecution"] = undefined /*out*/;
+            resourceInputs["errorBlobManagedIdentity"] = undefined /*out*/;
             resourceInputs["errorBlobUri"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["outputBlobManagedIdentity"] = undefined /*out*/;
             resourceInputs["outputBlobUri"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
             resourceInputs["protectedParameters"] = undefined /*out*/;
@@ -149,6 +166,7 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             resourceInputs["source"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["timeoutInSeconds"] = undefined /*out*/;
+            resourceInputs["treatFailureAsDeploymentFailure"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -167,7 +185,11 @@ export interface VirtualMachineRunCommandByVirtualMachineArgs {
      */
     asyncExecution?: pulumi.Input<boolean>;
     /**
-     * Specifies the Azure storage blob where script error stream will be uploaded.
+     * User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+     */
+    errorBlobManagedIdentity?: pulumi.Input<inputs.compute.RunCommandManagedIdentityArgs>;
+    /**
+     * Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
      */
     errorBlobUri?: pulumi.Input<string>;
     /**
@@ -175,7 +197,11 @@ export interface VirtualMachineRunCommandByVirtualMachineArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the Azure storage blob where script output stream will be uploaded.
+     * User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
+     */
+    outputBlobManagedIdentity?: pulumi.Input<inputs.compute.RunCommandManagedIdentityArgs>;
+    /**
+     * Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
      */
     outputBlobUri?: pulumi.Input<string>;
     /**
@@ -214,6 +240,10 @@ export interface VirtualMachineRunCommandByVirtualMachineArgs {
      * The timeout in seconds to execute the run command.
      */
     timeoutInSeconds?: pulumi.Input<number>;
+    /**
+     * Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results 
+     */
+    treatFailureAsDeploymentFailure?: pulumi.Input<boolean>;
     /**
      * The name of the virtual machine where the run command should be created or updated.
      */

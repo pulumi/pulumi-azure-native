@@ -147,12 +147,12 @@ def get_attached_network_by_dev_center(attached_network_connection_name: Optiona
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAttachedNetworkByDevCenterResult:
     """
     Gets an attached NetworkConnection.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str attached_network_connection_name: The name of the attached NetworkConnection.
     :param str dev_center_name: The name of the devcenter.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['attachedNetworkConnectionName'] = attached_network_connection_name
@@ -180,11 +180,11 @@ def get_attached_network_by_dev_center_output(attached_network_connection_name: 
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAttachedNetworkByDevCenterResult]:
     """
     Gets an attached NetworkConnection.
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str attached_network_connection_name: The name of the attached NetworkConnection.
     :param str dev_center_name: The name of the devcenter.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

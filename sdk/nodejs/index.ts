@@ -19,6 +19,7 @@ import * as advisor from "./advisor";
 import * as agfoodplatform from "./agfoodplatform";
 import * as alertsmanagement from "./alertsmanagement";
 import * as analysisservices from "./analysisservices";
+import * as apicenter from "./apicenter";
 import * as apimanagement from "./apimanagement";
 import * as app from "./app";
 import * as appcomplianceautomation from "./appcomplianceautomation";
@@ -36,6 +37,7 @@ import * as azuredata from "./azuredata";
 import * as azuresphere from "./azuresphere";
 import * as azurestack from "./azurestack";
 import * as azurestackhci from "./azurestackhci";
+import * as baremetalinfrastructure from "./baremetalinfrastructure";
 import * as batch from "./batch";
 import * as billing from "./billing";
 import * as blockchain from "./blockchain";
@@ -101,6 +103,7 @@ import * as eventhub from "./eventhub";
 import * as extendedlocation from "./extendedlocation";
 import * as features from "./features";
 import * as fluidrelay from "./fluidrelay";
+import * as graphservices from "./graphservices";
 import * as guestconfiguration from "./guestconfiguration";
 import * as hanaonazure from "./hanaonazure";
 import * as hardwaresecuritymodules from "./hardwaresecuritymodules";
@@ -117,6 +120,7 @@ import * as importexport from "./importexport";
 import * as insights from "./insights";
 import * as intune from "./intune";
 import * as iotcentral from "./iotcentral";
+import * as iotfirmwaredefense from "./iotfirmwaredefense";
 import * as iotsecurity from "./iotsecurity";
 import * as keyvault from "./keyvault";
 import * as kubernetes from "./kubernetes";
@@ -134,6 +138,7 @@ import * as machinelearningservices from "./machinelearningservices";
 import * as maintenance from "./maintenance";
 import * as managedidentity from "./managedidentity";
 import * as managednetwork from "./managednetwork";
+import * as managednetworkfabric from "./managednetworkfabric";
 import * as managedservices from "./managedservices";
 import * as management from "./management";
 import * as managementpartner from "./managementpartner";
@@ -160,6 +165,7 @@ import * as portal from "./portal";
 import * as powerbi from "./powerbi";
 import * as powerbidedicated from "./powerbidedicated";
 import * as powerplatform from "./powerplatform";
+import * as professionalservice from "./professionalservice";
 import * as providerhub from "./providerhub";
 import * as purview from "./purview";
 import * as quantum from "./quantum";
@@ -223,6 +229,7 @@ export {
     agfoodplatform,
     alertsmanagement,
     analysisservices,
+    apicenter,
     apimanagement,
     app,
     appcomplianceautomation,
@@ -240,6 +247,7 @@ export {
     azuresphere,
     azurestack,
     azurestackhci,
+    baremetalinfrastructure,
     batch,
     billing,
     blockchain,
@@ -305,6 +313,7 @@ export {
     extendedlocation,
     features,
     fluidrelay,
+    graphservices,
     guestconfiguration,
     hanaonazure,
     hardwaresecuritymodules,
@@ -321,6 +330,7 @@ export {
     insights,
     intune,
     iotcentral,
+    iotfirmwaredefense,
     iotsecurity,
     keyvault,
     kubernetes,
@@ -338,6 +348,7 @@ export {
     maintenance,
     managedidentity,
     managednetwork,
+    managednetworkfabric,
     managedservices,
     management,
     managementpartner,
@@ -364,6 +375,7 @@ export {
     powerbi,
     powerbidedicated,
     powerplatform,
+    professionalservice,
     providerhub,
     purview,
     quantum,

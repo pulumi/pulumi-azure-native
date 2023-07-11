@@ -23,7 +23,7 @@ class TagByOperationArgs:
         The set of arguments for constructing a TagByOperation resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
         """
@@ -62,7 +62,7 @@ class TagByOperationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -108,13 +108,13 @@ class TagByOperation(pulumi.CustomResource):
                  __props__=None):
         """
         Tag Contract details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
         """
@@ -126,7 +126,7 @@ class TagByOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Tag Contract details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param TagByOperationArgs args: The arguments to use to populate this resource's properties.
@@ -173,7 +173,7 @@ class TagByOperation(pulumi.CustomResource):
             __props__.__dict__["display_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:TagByOperation")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:TagByOperation"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:TagByOperation")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TagByOperation, __self__).__init__(
             'azure-native:apimanagement:TagByOperation',
@@ -214,7 +214,7 @@ class TagByOperation(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -222,7 +222,7 @@ class TagByOperation(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

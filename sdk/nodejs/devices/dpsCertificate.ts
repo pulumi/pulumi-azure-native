@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The X509 Certificate.
- * API Version: 2020-03-01.
+ * Azure REST API version: 2022-12-12. Prior API version in Azure Native 1.x: 2020-03-01
  */
 export class DpsCertificate extends pulumi.CustomResource {
     /**
@@ -49,7 +49,11 @@ export class DpsCertificate extends pulumi.CustomResource {
     /**
      * properties of a certificate
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.devices.CertificatePropertiesResponse>;
+    public readonly properties!: pulumi.Output<outputs.devices.CertificatePropertiesResponse>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.devices.SystemDataResponse>;
     /**
      * The resource type.
      */
@@ -72,19 +76,19 @@ export class DpsCertificate extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certificate"] = args ? args.certificate : undefined;
             resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["isVerified"] = args ? args.isVerified : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -99,17 +103,13 @@ export class DpsCertificate extends pulumi.CustomResource {
  */
 export interface DpsCertificateArgs {
     /**
-     * Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
-     */
-    certificate?: pulumi.Input<string>;
-    /**
      * The name of the certificate create or update.
      */
     certificateName?: pulumi.Input<string>;
     /**
-     * True indicates that the certificate will be created in verified state and proof of possession will not be required.
+     * properties of a certificate
      */
-    isVerified?: pulumi.Input<boolean>;
+    properties?: pulumi.Input<inputs.devices.CertificatePropertiesArgs>;
     /**
      * The name of the provisioning service.
      */

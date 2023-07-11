@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// ExpressRouteConnection resource.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteConnection")]
     public partial class ExpressRouteConnection : global::Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("enableInternetSecurity")]
         public Output<bool?> EnableInternetSecurity { get; private set; } = null!;
+
+        /// <summary>
+        /// Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        /// </summary>
+        [Output("enablePrivateLinkFastPath")]
+        public Output<bool?> EnablePrivateLinkFastPath { get; private set; } = null!;
 
         /// <summary>
         /// The ExpressRoute circuit peering.
@@ -116,6 +122,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ExpressRouteConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ExpressRouteConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ExpressRouteConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -156,6 +164,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("enableInternetSecurity")]
         public Input<bool>? EnableInternetSecurity { get; set; }
+
+        /// <summary>
+        /// Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
+        /// </summary>
+        [Input("enablePrivateLinkFastPath")]
+        public Input<bool>? EnablePrivateLinkFastPath { get; set; }
 
         /// <summary>
         /// The ExpressRoute circuit peering.

@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * EventGrid System Topic.
- *
- * @deprecated azure-native:eventgrid/v20220615:SystemTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:SystemTopic to guarantee forwards compatibility.
  */
 export class SystemTopic extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class SystemTopic extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SystemTopic {
-        pulumi.log.warn("SystemTopic is deprecated: azure-native:eventgrid/v20220615:SystemTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:SystemTopic to guarantee forwards compatibility.")
         return new SystemTopic(name, undefined as any, { ...opts, id: id });
     }
 
@@ -88,9 +85,7 @@ export class SystemTopic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:eventgrid/v20220615:SystemTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:SystemTopic to guarantee forwards compatibility. */
     constructor(name: string, args: SystemTopicArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SystemTopic is deprecated: azure-native:eventgrid/v20220615:SystemTopic is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:SystemTopic to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -122,7 +117,7 @@ export class SystemTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopic" }, { type: "azure-native:eventgrid/v20200401preview:SystemTopic" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211201:SystemTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:SystemTopic" }, { type: "azure-native:eventgrid/v20200401preview:SystemTopic" }, { type: "azure-native:eventgrid/v20201015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20210601preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211015preview:SystemTopic" }, { type: "azure-native:eventgrid/v20211201:SystemTopic" }, { type: "azure-native:eventgrid/v20230601preview:SystemTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SystemTopic.__pulumiType, name, resourceInputs, opts);
     }

@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// </summary>
         public readonly string? PostalCode;
         /// <summary>
+        /// Flag to indicate if customer has chosen to skip default address validation
+        /// </summary>
+        public readonly bool? SkipAddressValidation;
+        /// <summary>
         /// Name of the State or Province.
         /// </summary>
         public readonly string? StateOrProvince;
@@ -52,6 +56,10 @@ namespace Pulumi.AzureNative.DataBox.Outputs
         /// Street Address line 3.
         /// </summary>
         public readonly string? StreetAddress3;
+        /// <summary>
+        /// Tax Identification Number
+        /// </summary>
+        public readonly string? TaxIdentificationNumber;
         /// <summary>
         /// Extended Zip Code.
         /// </summary>
@@ -69,6 +77,8 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             string? postalCode,
 
+            bool? skipAddressValidation,
+
             string? stateOrProvince,
 
             string streetAddress1,
@@ -77,6 +87,8 @@ namespace Pulumi.AzureNative.DataBox.Outputs
 
             string? streetAddress3,
 
+            string? taxIdentificationNumber,
+
             string? zipExtendedCode)
         {
             AddressType = addressType;
@@ -84,10 +96,12 @@ namespace Pulumi.AzureNative.DataBox.Outputs
             CompanyName = companyName;
             Country = country;
             PostalCode = postalCode;
+            SkipAddressValidation = skipAddressValidation;
             StateOrProvince = stateOrProvince;
             StreetAddress1 = streetAddress1;
             StreetAddress2 = streetAddress2;
             StreetAddress3 = streetAddress3;
+            TaxIdentificationNumber = taxIdentificationNumber;
             ZipExtendedCode = zipExtendedCode;
         }
     }

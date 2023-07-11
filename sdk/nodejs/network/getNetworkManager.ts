@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified Network Manager.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkManager(args: GetNetworkManagerArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkManagerResult> {
 
@@ -40,10 +40,6 @@ export interface GetNetworkManagerResult {
      */
     readonly description?: string;
     /**
-     * A friendly name for the network manager.
-     */
-    readonly displayName?: string;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -62,15 +58,19 @@ export interface GetNetworkManagerResult {
     /**
      * Scope Access.
      */
-    readonly networkManagerScopeAccesses?: string[];
+    readonly networkManagerScopeAccesses: string[];
     /**
      * Scope of Network Manager.
      */
-    readonly networkManagerScopes?: outputs.network.NetworkManagerPropertiesResponseNetworkManagerScopes;
+    readonly networkManagerScopes: outputs.network.NetworkManagerPropertiesResponseNetworkManagerScopes;
     /**
-     * The provisioning state of the scope assignment resource.
+     * The provisioning state of the network manager resource.
      */
     readonly provisioningState: string;
+    /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
     /**
      * The system metadata related to this resource.
      */
@@ -86,7 +86,7 @@ export interface GetNetworkManagerResult {
 }
 /**
  * Gets the specified Network Manager.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkManagerOutput(args: GetNetworkManagerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkManagerResult> {
     return pulumi.output(args).apply((a: any) => getNetworkManager(a, opts))

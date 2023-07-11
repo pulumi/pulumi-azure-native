@@ -19,13 +19,13 @@ class CertificateArgs:
                  resource_group_name: pulumi.Input[str],
                  service_name: pulumi.Input[str],
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input['CertificatePropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input[Union['ContentCertificatePropertiesArgs', 'KeyVaultCertificatePropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
         :param pulumi.Input[str] certificate_name: The name of the certificate resource.
-        :param pulumi.Input['CertificatePropertiesArgs'] properties: Properties of the certificate resource payload.
+        :param pulumi.Input[Union['ContentCertificatePropertiesArgs', 'KeyVaultCertificatePropertiesArgs']] properties: Properties of the certificate resource payload.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
@@ -72,14 +72,14 @@ class CertificateArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['CertificatePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input[Union['ContentCertificatePropertiesArgs', 'KeyVaultCertificatePropertiesArgs']]]:
         """
         Properties of the certificate resource payload.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['CertificatePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input[Union['ContentCertificatePropertiesArgs', 'KeyVaultCertificatePropertiesArgs']]]):
         pulumi.set(self, "properties", value)
 
 
@@ -89,18 +89,18 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ContentCertificatePropertiesArgs'], pulumi.InputType['KeyVaultCertificatePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Certificate resource payload.
-        API Version: 2020-07-01.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: The name of the certificate resource.
-        :param pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']] properties: Properties of the certificate resource payload.
+        :param pulumi.Input[Union[pulumi.InputType['ContentCertificatePropertiesArgs'], pulumi.InputType['KeyVaultCertificatePropertiesArgs']]] properties: Properties of the certificate resource payload.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[str] service_name: The name of the Service resource.
         """
@@ -112,7 +112,7 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Certificate resource payload.
-        API Version: 2020-07-01.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2020-07-01
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
@@ -130,7 +130,7 @@ class Certificate(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[Union[pulumi.InputType['ContentCertificatePropertiesArgs'], pulumi.InputType['KeyVaultCertificatePropertiesArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -151,8 +151,9 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220401:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform/v20200701:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20210601preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220401:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20220901preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20221201:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:Certificate"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-native:appplatform:Certificate',
@@ -178,6 +179,7 @@ class Certificate(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
@@ -191,11 +193,19 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.CertificatePropertiesResponse']:
+    def properties(self) -> pulumi.Output[Any]:
         """
         Properties of the certificate resource payload.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

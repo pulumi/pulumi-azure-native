@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * list source configurations for a linker.
- * API Version: 2021-11-01-preview.
+ * list source configurations for a Linker.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function listLinkerConfigurations(args: ListLinkerConfigurationsArgs, opts?: pulumi.InvokeOptions): Promise<ListLinkerConfigurationsResult> {
 
@@ -41,8 +41,8 @@ export interface ListLinkerConfigurationsResult {
     readonly configurations?: outputs.servicelinker.SourceConfigurationResponse[];
 }
 /**
- * list source configurations for a linker.
- * API Version: 2021-11-01-preview.
+ * list source configurations for a Linker.
+ * Azure REST API version: 2022-11-01-preview.
  */
 export function listLinkerConfigurationsOutput(args: ListLinkerConfigurationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListLinkerConfigurationsResult> {
     return pulumi.output(args).apply((a: any) => listLinkerConfigurations(a, opts))

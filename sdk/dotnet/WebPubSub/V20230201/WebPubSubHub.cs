@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
     /// <summary>
     /// A hub setting
     /// </summary>
-    [Obsolete(@"azure-native:webpubsub/v20230201:WebPubSubHub is being removed in the next major version of this provider. Upgrade to at least azure-native:webpubsub/v20230301preview:WebPubSubHub to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:webpubsub/v20230201:WebPubSubHub")]
     public partial class WebPubSubHub : global::Pulumi.CustomResource
     {
@@ -68,6 +67,8 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub:WebPubSubHub"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20211001:WebPubSubHub"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230301preview:WebPubSubHub"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubHub"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

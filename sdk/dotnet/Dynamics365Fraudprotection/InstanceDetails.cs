@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection
 {
     /// <summary>
     /// Represents an instance of a DFP instance resource.
-    /// API Version: 2021-02-01-preview.
+    /// Azure REST API version: 2021-02-01-preview. Prior API version in Azure Native 1.x: 2021-02-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:dynamics365fraudprotection:InstanceDetails")]
     public partial class InstanceDetails : global::Pulumi.CustomResource

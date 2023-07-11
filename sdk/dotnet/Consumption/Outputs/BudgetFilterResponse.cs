@@ -25,10 +25,6 @@ namespace Pulumi.AzureNative.Consumption.Outputs
         /// </summary>
         public readonly Outputs.BudgetComparisonExpressionResponse? Dimensions;
         /// <summary>
-        /// The logical "NOT" expression.
-        /// </summary>
-        public readonly Outputs.BudgetFilterPropertiesResponse? Not;
-        /// <summary>
         /// Has comparison expression for a tag
         /// </summary>
         public readonly Outputs.BudgetComparisonExpressionResponse? Tags;
@@ -39,13 +35,10 @@ namespace Pulumi.AzureNative.Consumption.Outputs
 
             Outputs.BudgetComparisonExpressionResponse? dimensions,
 
-            Outputs.BudgetFilterPropertiesResponse? not,
-
             Outputs.BudgetComparisonExpressionResponse? tags)
         {
             And = and;
             Dimensions = dimensions;
-            Not = not;
             Tags = tags;
         }
     }

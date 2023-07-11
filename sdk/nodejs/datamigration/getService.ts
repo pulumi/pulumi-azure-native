@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
- * API Version: 2018-04-19.
+ * Azure REST API version: 2021-06-30.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
 
@@ -68,6 +68,10 @@ export interface GetServiceResult {
      */
     readonly sku?: outputs.datamigration.ServiceSkuResponse;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.datamigration.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -76,13 +80,17 @@ export interface GetServiceResult {
      */
     readonly type: string;
     /**
+     * The ID of the Microsoft.Network/networkInterfaces resource which the service have
+     */
+    readonly virtualNicId?: string;
+    /**
      * The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
      */
     readonly virtualSubnetId: string;
 }
 /**
  * The services resource is the top-level resource that represents the Database Migration Service. The GET method retrieves information about a service instance.
- * API Version: 2018-04-19.
+ * Azure REST API version: 2021-06-30.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
     return pulumi.output(args).apply((a: any) => getService(a, opts))

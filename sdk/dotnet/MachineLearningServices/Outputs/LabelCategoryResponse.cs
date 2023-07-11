@@ -11,35 +11,35 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 {
 
     /// <summary>
-    /// Represents a category of labels in a labeling job.
+    /// Label category definition
     /// </summary>
     [OutputType]
     public sealed class LabelCategoryResponse
     {
         /// <summary>
-        /// Indicates whether it is allowed to select multiple classes in this category.
-        /// </summary>
-        public readonly bool? AllowMultiSelect;
-        /// <summary>
         /// Dictionary of label classes in this category.
         /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.LabelClassResponse> Classes;
+        public readonly ImmutableDictionary<string, Outputs.LabelClassResponse>? Classes;
         /// <summary>
         /// Display name of the label category.
         /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// Indicates whether it is allowed to select multiple classes in this category.
+        /// </summary>
+        public readonly string? MultiSelect;
 
         [OutputConstructor]
         private LabelCategoryResponse(
-            bool? allowMultiSelect,
+            ImmutableDictionary<string, Outputs.LabelClassResponse>? classes,
 
-            ImmutableDictionary<string, Outputs.LabelClassResponse> classes,
+            string? displayName,
 
-            string? displayName)
+            string? multiSelect)
         {
-            AllowMultiSelect = allowMultiSelect;
             Classes = classes;
             DisplayName = displayName;
+            MultiSelect = multiSelect;
         }
     }
 }

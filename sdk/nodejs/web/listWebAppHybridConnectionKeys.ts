@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the send key name and value for a Hybrid Connection.
- * API Version: 2018-11-01.
+ * Azure REST API version: 2018-11-01.
  */
 export function listWebAppHybridConnectionKeys(args: ListWebAppHybridConnectionKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppHybridConnectionKeysResult> {
 
@@ -69,7 +69,7 @@ export interface ListWebAppHybridConnectionKeysResult {
 }
 /**
  * Gets the send key name and value for a Hybrid Connection.
- * API Version: 2018-11-01.
+ * Azure REST API version: 2018-11-01.
  */
 export function listWebAppHybridConnectionKeysOutput(args: ListWebAppHybridConnectionKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppHybridConnectionKeysResult> {
     return pulumi.output(args).apply((a: any) => listWebAppHybridConnectionKeys(a, opts))

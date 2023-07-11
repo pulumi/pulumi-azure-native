@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
 
@@ -23,7 +23,7 @@ export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<G
 
 export interface GetJobArgs {
     /**
-     * The name and identifier for the Job.
+     * The name and identifier for the Job. This is case-sensitive.
      */
     id: string;
     /**
@@ -45,15 +45,15 @@ export interface GetJobResult {
      */
     readonly id: string;
     /**
+     * [Required] Additional attributes of the entity.
+     */
+    readonly jobBaseProperties: outputs.machinelearningservices.AutoMLJobResponse | outputs.machinelearningservices.CommandJobResponse | outputs.machinelearningservices.PipelineJobResponse | outputs.machinelearningservices.SweepJobResponse;
+    /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * [Required] Additional attributes of the entity.
-     */
-    readonly properties: outputs.machinelearningservices.CommandJobResponse | outputs.machinelearningservices.SweepJobResponse;
-    /**
-     * System data associated with resource provider
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.machinelearningservices.SystemDataResponse;
     /**
@@ -63,7 +63,7 @@ export interface GetJobResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobResult> {
     return pulumi.output(args).apply((a: any) => getJob(a, opts))
@@ -71,7 +71,7 @@ export function getJobOutput(args: GetJobOutputArgs, opts?: pulumi.InvokeOptions
 
 export interface GetJobOutputArgs {
     /**
-     * The name and identifier for the Job.
+     * The name and identifier for the Job. This is case-sensitive.
      */
     id: pulumi.Input<string>;
     /**

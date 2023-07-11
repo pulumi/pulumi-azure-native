@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified network security group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkSecurityGroup(args: GetNetworkSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkSecurityGroupResult> {
 
@@ -53,6 +53,10 @@ export interface GetNetworkSecurityGroupResult {
      */
     readonly flowLogs: outputs.network.FlowLogResponse[];
     /**
+     * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+     */
+    readonly flushConnection?: boolean;
+    /**
      * Resource ID.
      */
     readonly id?: string;
@@ -95,7 +99,7 @@ export interface GetNetworkSecurityGroupResult {
 }
 /**
  * Gets the specified network security group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getNetworkSecurityGroupOutput(args: GetNetworkSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getNetworkSecurityGroup(a, opts))

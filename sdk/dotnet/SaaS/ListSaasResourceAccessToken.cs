@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SaaS
     {
         /// <summary>
         /// Gets the ISV access token for a SaaS resource.
-        /// API Version: 2018-03-01-beta.
+        /// Azure REST API version: 2018-03-01-beta.
         /// </summary>
         public static Task<ListSaasResourceAccessTokenResult> InvokeAsync(ListSaasResourceAccessTokenArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListSaasResourceAccessTokenResult>("azure-native:saas:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the ISV access token for a SaaS resource.
-        /// API Version: 2018-03-01-beta.
+        /// Azure REST API version: 2018-03-01-beta.
         /// </summary>
         public static Output<ListSaasResourceAccessTokenResult> Invoke(ListSaasResourceAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListSaasResourceAccessTokenResult>("azure-native:saas:listSaasResourceAccessToken", args ?? new ListSaasResourceAccessTokenInvokeArgs(), options.WithDefaults());

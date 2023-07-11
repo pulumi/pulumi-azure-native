@@ -27,7 +27,7 @@ class ExportPipelineArgs:
         """
         The set of arguments for constructing a ExportPipeline resource.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExportPipelineTargetPropertiesArgs'] target: The target properties of the export pipeline.
         :param pulumi.Input[str] export_pipeline_name: The name of the export pipeline.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: The identity of the export pipeline.
@@ -62,7 +62,7 @@ class ExportPipelineArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group to which the container registry belongs.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -146,7 +146,7 @@ class ExportPipeline(pulumi.CustomResource):
                  __props__=None):
         """
         An object that represents an export pipeline for a container registry.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -155,7 +155,7 @@ class ExportPipeline(pulumi.CustomResource):
         :param pulumi.Input[str] location: The location of the export pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'PipelineOptions']]]] options: The list of all options configured for the pipeline.
         :param pulumi.Input[str] registry_name: The name of the container registry.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group to which the container registry belongs.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[pulumi.InputType['ExportPipelineTargetPropertiesArgs']] target: The target properties of the export pipeline.
         """
         ...
@@ -166,7 +166,7 @@ class ExportPipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents an export pipeline for a container registry.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2023-01-01-preview. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ExportPipelineArgs args: The arguments to use to populate this resource's properties.

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
 {
 
     /// <summary>
-    /// Defines the resource properties.
+    /// Specifies the compute and storage placement settings for the virtual machine.
     /// </summary>
     public sealed class PlacementProfileArgs : global::Pulumi.ResourceArgs
     {

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.SecurityInsights
     {
         /// <summary>
         /// Gets a setting.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Task<GetEntityAnalyticsResult> InvokeAsync(GetEntityAnalyticsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEntityAnalyticsResult>("azure-native:securityinsights:getEntityAnalytics", args ?? new GetEntityAnalyticsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a setting.
-        /// API Version: 2021-03-01-preview.
+        /// Azure REST API version: 2023-06-01-preview.
         /// </summary>
         public static Output<GetEntityAnalyticsResult> Invoke(GetEntityAnalyticsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityAnalyticsResult>("azure-native:securityinsights:getEntityAnalytics", args ?? new GetEntityAnalyticsInvokeArgs(), options.WithDefaults());
@@ -29,12 +29,6 @@ namespace Pulumi.AzureNative.SecurityInsights
 
     public sealed class GetEntityAnalyticsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public string OperationalInsightsResourceProvider { get; set; } = null!;
-
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
@@ -61,12 +55,6 @@ namespace Pulumi.AzureNative.SecurityInsights
 
     public sealed class GetEntityAnalyticsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        /// </summary>
-        [Input("operationalInsightsResourceProvider", required: true)]
-        public Input<string> OperationalInsightsResourceProvider { get; set; } = null!;
-
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
@@ -96,24 +84,24 @@ namespace Pulumi.AzureNative.SecurityInsights
     public sealed class GetEntityAnalyticsResult
     {
         /// <summary>
+        /// The relevant entity providers that are synced
+        /// </summary>
+        public readonly ImmutableArray<string> EntityProviders;
+        /// <summary>
         /// Etag of the azure resource
         /// </summary>
         public readonly string? Etag;
         /// <summary>
-        /// Azure resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Determines whether the setting is enable or disabled.
-        /// </summary>
-        public readonly bool IsEnabled;
         /// <summary>
         /// The kind of the setting
         /// Expected value is 'EntityAnalytics'.
         /// </summary>
         public readonly string Kind;
         /// <summary>
-        /// Azure resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -121,17 +109,17 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Azure resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetEntityAnalyticsResult(
+            ImmutableArray<string> entityProviders,
+
             string? etag,
 
             string id,
-
-            bool isEnabled,
 
             string kind,
 
@@ -141,9 +129,9 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string type)
         {
+            EntityProviders = entityProviders;
             Etag = etag;
             Id = id;
-            IsEnabled = isEnabled;
             Kind = kind;
             Name = name;
             SystemData = systemData;

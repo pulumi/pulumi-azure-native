@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Retrieves the details of a VpnServerConfiguration.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetVpnServerConfigurationResult> InvokeAsync(GetVpnServerConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpnServerConfigurationResult>("azure-native:network:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieves the details of a VpnServerConfiguration.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetVpnServerConfigurationResult> Invoke(GetVpnServerConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnServerConfigurationResult>("azure-native:network:getVpnServerConfiguration", args ?? new GetVpnServerConfigurationInvokeArgs(), options.WithDefaults());
@@ -75,6 +75,10 @@ namespace Pulumi.AzureNative.Network
         /// The set of aad vpn authentication parameters.
         /// </summary>
         public readonly Outputs.AadAuthenticationParametersResponse? AadAuthenticationParameters;
+        /// <summary>
+        /// List of all VpnServerConfigurationPolicyGroups.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupResponse> ConfigurationPolicyGroups;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -152,6 +156,8 @@ namespace Pulumi.AzureNative.Network
         private GetVpnServerConfigurationResult(
             Outputs.AadAuthenticationParametersResponse? aadAuthenticationParameters,
 
+            ImmutableArray<Outputs.VpnServerConfigurationPolicyGroupResponse> configurationPolicyGroups,
+
             string etag,
 
             string? id,
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNative.Network
             ImmutableArray<string> vpnProtocols)
         {
             AadAuthenticationParameters = aadAuthenticationParameters;
+            ConfigurationPolicyGroups = configurationPolicyGroups;
             Etag = etag;
             Id = id;
             Location = location;

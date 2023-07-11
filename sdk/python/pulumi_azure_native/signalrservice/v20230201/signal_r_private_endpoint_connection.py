@@ -100,12 +100,7 @@ class SignalRPrivateEndpointConnectionArgs:
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
-warnings.warn("""azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class SignalRPrivateEndpointConnection(pulumi.CustomResource):
-    warnings.warn("""azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -157,7 +152,6 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SignalRPrivateEndpointConnection is deprecated: azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -180,7 +174,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20230601preview:SignalRPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalRPrivateEndpointConnection, __self__).__init__(
             'azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection',

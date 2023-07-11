@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetApp
 {
     /// <summary>
     /// Backup of a Volume
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Backup")]
     public partial class Backup : global::Pulumi.CustomResource
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.NetApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -71,10 +71,22 @@ namespace Pulumi.AzureNative.NetApp
         public Output<double> Size { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        /// </summary>
+        [Output("useExistingSnapshot")]
+        public Output<bool?> UseExistingSnapshot { get; private set; } = null!;
 
         /// <summary>
         /// Volume name
@@ -124,6 +136,7 @@ namespace Pulumi.AzureNative.NetApp
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220301:Backup"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220501:Backup"},
                     new global::Pulumi.Alias { Type = "azure-native:netapp/v20220901:Backup"},
+                    new global::Pulumi.Alias { Type = "azure-native:netapp/v20221101:Backup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,10 +191,16 @@ namespace Pulumi.AzureNative.NetApp
         public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
+        /// </summary>
+        [Input("useExistingSnapshot")]
+        public Input<bool>? UseExistingSnapshot { get; set; }
 
         /// <summary>
         /// The name of the volume
@@ -191,6 +210,7 @@ namespace Pulumi.AzureNative.NetApp
 
         public BackupArgs()
         {
+            UseExistingSnapshot = false;
         }
         public static new BackupArgs Empty => new BackupArgs();
     }

@@ -97,7 +97,7 @@ def get_report(report_name: Optional[str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportResult:
     """
     Get the AppComplianceAutomation report and its properties.
-    API Version: 2022-11-16-preview.
+    Azure REST API version: 2022-11-16-preview.
 
 
     :param str report_name: Report Name.
@@ -120,7 +120,7 @@ def get_report_output(report_name: Optional[pulumi.Input[str]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReportResult]:
     """
     Get the AppComplianceAutomation report and its properties.
-    API Version: 2022-11-16-preview.
+    Azure REST API version: 2022-11-16-preview.
 
 
     :param str report_name: Report Name.

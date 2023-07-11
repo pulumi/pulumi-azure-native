@@ -242,7 +242,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                  __props__=None):
         """
         Event Subscription
-        API Version: 2020-04-01-preview.
+        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,7 +271,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Subscription
-        API Version: 2020-04-01-preview.
+        Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param SystemTopicEventSubscriptionArgs args: The arguments to use to populate this resource's properties.
@@ -332,7 +332,7 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["topic"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:SystemTopicEventSubscription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20201015preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20210601preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20211201:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:SystemTopicEventSubscription"), pulumi.Alias(type_="azure-native:eventgrid/v20230601preview:SystemTopicEventSubscription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SystemTopicEventSubscription, __self__).__init__(
             'azure-native:eventgrid:SystemTopicEventSubscription',

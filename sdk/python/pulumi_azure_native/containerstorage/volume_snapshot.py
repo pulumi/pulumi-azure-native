@@ -142,7 +142,7 @@ class VolumeSnapshot(pulumi.CustomResource):
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        API Version: 2023-03-01-preview.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2023-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class VolumeSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
-        API Version: 2023-03-01-preview.
+        Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2023-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param VolumeSnapshotArgs args: The arguments to use to populate this resource's properties.

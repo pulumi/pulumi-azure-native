@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// Type of authentication (Required to specify MSI) used to connect to AzureML. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Authentication;
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -70,6 +74,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private AzureMLServiceLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
+            object? authentication,
+
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             string? description,
@@ -93,6 +99,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             string type)
         {
             Annotations = annotations;
+            Authentication = authentication;
             ConnectVia = connectVia;
             Description = description;
             EncryptedCredential = encryptedCredential;

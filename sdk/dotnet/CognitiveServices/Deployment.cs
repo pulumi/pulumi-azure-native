@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
     /// Cognitive Services account deployment.
-    /// API Version: 2021-10-01.
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-10-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         [Output("properties")]
         public Output<Outputs.DeploymentPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Metadata pertaining to creation and last modification of the resource.
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20220301:Deployment"},
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221001:Deployment"},
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20221201:Deployment"},
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20230501:Deployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -121,6 +128,12 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource model definition representing SKU
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         public DeploymentArgs()
         {

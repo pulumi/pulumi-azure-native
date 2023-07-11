@@ -131,7 +131,7 @@ class MoveCollection(pulumi.CustomResource):
                  __props__=None):
         """
         Define the move collection.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -150,7 +150,7 @@ class MoveCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the move collection.
-        API Version: 2021-01-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-01-01
 
         :param str resource_name: The name of the resource.
         :param MoveCollectionArgs args: The arguments to use to populate this resource's properties.
@@ -192,6 +192,7 @@ class MoveCollection(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:migrate/v20191001preview:MoveCollection"), pulumi.Alias(type_="azure-native:migrate/v20210101:MoveCollection"), pulumi.Alias(type_="azure-native:migrate/v20210801:MoveCollection"), pulumi.Alias(type_="azure-native:migrate/v20220801:MoveCollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -222,6 +223,7 @@ class MoveCollection(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return MoveCollection(resource_name, opts=opts, __props__=__props__)
@@ -265,6 +267,14 @@ class MoveCollection(pulumi.CustomResource):
         Defines the move collection properties.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

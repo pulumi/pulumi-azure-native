@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ManagedIdentity
     {
         /// <summary>
         /// Lists the associated resources for this identity.
-        /// API Version: 2022-01-31-preview.
+        /// Azure REST API version: 2022-01-31-preview.
         /// </summary>
         public static Task<ListUserAssignedIdentityAssociatedResourcesResult> InvokeAsync(ListUserAssignedIdentityAssociatedResourcesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListUserAssignedIdentityAssociatedResourcesResult>("azure-native:managedidentity:listUserAssignedIdentityAssociatedResources", args ?? new ListUserAssignedIdentityAssociatedResourcesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Lists the associated resources for this identity.
-        /// API Version: 2022-01-31-preview.
+        /// Azure REST API version: 2022-01-31-preview.
         /// </summary>
         public static Output<ListUserAssignedIdentityAssociatedResourcesResult> Invoke(ListUserAssignedIdentityAssociatedResourcesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListUserAssignedIdentityAssociatedResourcesResult>("azure-native:managedidentity:listUserAssignedIdentityAssociatedResources", args ?? new ListUserAssignedIdentityAssociatedResourcesInvokeArgs(), options.WithDefaults());

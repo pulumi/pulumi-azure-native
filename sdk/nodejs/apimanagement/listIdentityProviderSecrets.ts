@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the client secret details of the Identity Provider.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listIdentityProviderSecrets(args: ListIdentityProviderSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListIdentityProviderSecretsResult> {
 
@@ -24,7 +24,7 @@ export interface ListIdentityProviderSecretsArgs {
      */
     identityProviderName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -44,7 +44,7 @@ export interface ListIdentityProviderSecretsResult {
 }
 /**
  * Gets the client secret details of the Identity Provider.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-08-01.
  */
 export function listIdentityProviderSecretsOutput(args: ListIdentityProviderSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIdentityProviderSecretsResult> {
     return pulumi.output(args).apply((a: any) => listIdentityProviderSecrets(a, opts))
@@ -56,7 +56,7 @@ export interface ListIdentityProviderSecretsOutputArgs {
      */
     identityProviderName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

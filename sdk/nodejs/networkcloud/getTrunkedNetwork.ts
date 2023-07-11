@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided trunked network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getTrunkedNetwork(args: GetTrunkedNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetTrunkedNetworkResult> {
 
@@ -33,6 +33,10 @@ export interface GetTrunkedNetworkArgs {
 
 export interface GetTrunkedNetworkResult {
     /**
+     * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+     */
+    readonly associatedResourceIds: string[];
+    /**
      * The resource ID of the Network Cloud cluster this trunked network is associated with.
      */
     readonly clusterId: string;
@@ -49,15 +53,15 @@ export interface GetTrunkedNetworkResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
+     * Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this trunked network.
      */
     readonly hybridAksClustersAssociatedIds: string[];
     /**
-     * The network plugin type for Hybrid AKS.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
     readonly hybridAksPluginType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -93,7 +97,7 @@ export interface GetTrunkedNetworkResult {
      */
     readonly type: string;
     /**
-     * The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
+     * Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network.
      */
     readonly virtualMachinesAssociatedIds: string[];
     /**
@@ -103,7 +107,7 @@ export interface GetTrunkedNetworkResult {
 }
 /**
  * Get properties of the provided trunked network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getTrunkedNetworkOutput(args: GetTrunkedNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrunkedNetworkResult> {
     return pulumi.output(args).apply((a: any) => getTrunkedNetwork(a, opts))

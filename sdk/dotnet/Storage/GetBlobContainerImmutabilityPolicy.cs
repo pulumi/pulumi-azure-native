@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Storage
     {
         /// <summary>
         /// Gets the existing immutability policy along with the corresponding ETag in response headers and body.
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetBlobContainerImmutabilityPolicyResult> InvokeAsync(GetBlobContainerImmutabilityPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the existing immutability policy along with the corresponding ETag in response headers and body.
-        /// API Version: 2021-02-01.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetBlobContainerImmutabilityPolicyResult> Invoke(GetBlobContainerImmutabilityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBlobContainerImmutabilityPolicyResult>("azure-native:storage:getBlobContainerImmutabilityPolicy", args ?? new GetBlobContainerImmutabilityPolicyInvokeArgs(), options.WithDefaults());
@@ -96,9 +96,13 @@ namespace Pulumi.AzureNative.Storage
     public sealed class GetBlobContainerImmutabilityPolicyResult
     {
         /// <summary>
-        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API
+        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
         /// </summary>
         public readonly bool? AllowProtectedAppendWrites;
+        /// <summary>
+        /// This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
+        /// </summary>
+        public readonly bool? AllowProtectedAppendWritesAll;
         /// <summary>
         /// Resource Etag.
         /// </summary>
@@ -128,6 +132,8 @@ namespace Pulumi.AzureNative.Storage
         private GetBlobContainerImmutabilityPolicyResult(
             bool? allowProtectedAppendWrites,
 
+            bool? allowProtectedAppendWritesAll,
+
             string etag,
 
             string id,
@@ -141,6 +147,7 @@ namespace Pulumi.AzureNative.Storage
             string type)
         {
             AllowProtectedAppendWrites = allowProtectedAppendWrites;
+            AllowProtectedAppendWritesAll = allowProtectedAppendWritesAll;
             Etag = etag;
             Id = id;
             ImmutabilityPeriodSinceCreationInDays = immutabilityPeriodSinceCreationInDays;

@@ -17,7 +17,6 @@ __all__ = ['UebaArgs', 'Ueba']
 class UebaArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[str],
-                 operational_insights_resource_provider: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'UebaDataSources']]]]] = None,
@@ -26,14 +25,12 @@ class UebaArgs:
         The set of arguments for constructing a Ueba resource.
         :param pulumi.Input[str] kind: The kind of the setting
                Expected value is 'Ueba'.
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'UebaDataSources']]]] data_sources: The relevant data sources that enriched by ueba
         :param pulumi.Input[str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
         pulumi.set(__self__, "kind", 'Ueba')
-        pulumi.set(__self__, "operational_insights_resource_provider", operational_insights_resource_provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if data_sources is not None:
@@ -53,18 +50,6 @@ class UebaArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[str]):
         pulumi.set(self, "kind", value)
-
-    @property
-    @pulumi.getter(name="operationalInsightsResourceProvider")
-    def operational_insights_resource_provider(self) -> pulumi.Input[str]:
-        """
-        The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-        """
-        return pulumi.get(self, "operational_insights_resource_provider")
-
-    @operational_insights_resource_provider.setter
-    def operational_insights_resource_provider(self, value: pulumi.Input[str]):
-        pulumi.set(self, "operational_insights_resource_provider", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -122,21 +107,19 @@ class Ueba(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'UebaDataSources']]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Settings with single toggle.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'UebaDataSources']]]] data_sources: The relevant data sources that enriched by ueba
         :param pulumi.Input[str] kind: The kind of the setting
                Expected value is 'Ueba'.
-        :param pulumi.Input[str] operational_insights_resource_provider: The namespace of workspaces resource provider- Microsoft.OperationalInsights.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         :param pulumi.Input[str] workspace_name: The name of the workspace.
@@ -149,7 +132,7 @@ class Ueba(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Settings with single toggle.
-        API Version: 2021-03-01-preview.
+        Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
 
         :param str resource_name: The name of the resource.
         :param UebaArgs args: The arguments to use to populate this resource's properties.
@@ -168,7 +151,6 @@ class Ueba(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_sources: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'UebaDataSources']]]]] = None,
                  kind: Optional[pulumi.Input[str]] = None,
-                 operational_insights_resource_provider: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  settings_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
@@ -185,9 +167,6 @@ class Ueba(pulumi.CustomResource):
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = 'Ueba'
-            if operational_insights_resource_provider is None and not opts.urn:
-                raise TypeError("Missing required property 'operational_insights_resource_provider'")
-            __props__.__dict__["operational_insights_resource_provider"] = operational_insights_resource_provider
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -199,7 +178,7 @@ class Ueba(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Ueba")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights/v20190101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20210901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20211001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220501preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220801preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20220901preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221001preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221101preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20221201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230201preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230301preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230401preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230501preview:Ueba"), pulumi.Alias(type_="azure-native:securityinsights/v20230601preview:Ueba")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Ueba, __self__).__init__(
             'azure-native:securityinsights:Ueba',
@@ -260,7 +239,7 @@ class Ueba(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Azure resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -276,7 +255,7 @@ class Ueba(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Azure resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

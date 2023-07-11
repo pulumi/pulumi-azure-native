@@ -2,31 +2,35 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20200320 from "./v20200320";
-import * as v20200717preview from "./v20200717preview";
 import * as v20210101preview from "./v20210101preview";
-import * as v20210601 from "./v20210601";
-import * as v20211201 from "./v20211201";
 import * as v20220501 from "./v20220501";
 
 export {
-    v20200320,
-    v20200717preview,
     v20210101preview,
-    v20210601,
-    v20211201,
     v20220501,
 };
 
 export const AddonType = {
     SRM: "SRM",
     VR: "VR",
+    HCX: "HCX",
+    Arc: "Arc",
 } as const;
 
 /**
  * The type of private cloud addon
  */
 export type AddonType = (typeof AddonType)[keyof typeof AddonType];
+
+export const AffinityStrength = {
+    Should: "Should",
+    Must: "Must",
+} as const;
+
+/**
+ * vm-host placement policy affinity strength (should/must)
+ */
+export type AffinityStrength = (typeof AffinityStrength)[keyof typeof AffinityStrength];
 
 export const AffinityType = {
     Affinity: "Affinity",
@@ -38,8 +42,29 @@ export const AffinityType = {
  */
 export type AffinityType = (typeof AffinityType)[keyof typeof AffinityType];
 
+export const AvailabilityStrategy = {
+    SingleZone: "SingleZone",
+    DualZone: "DualZone",
+} as const;
+
+/**
+ * The availability strategy for the private cloud
+ */
+export type AvailabilityStrategy = (typeof AvailabilityStrategy)[keyof typeof AvailabilityStrategy];
+
+export const AzureHybridBenefitType = {
+    SqlHost: "SqlHost",
+    None: "None",
+} as const;
+
+/**
+ * placement policy azure hybrid benefit opt-in type
+ */
+export type AzureHybridBenefitType = (typeof AzureHybridBenefitType)[keyof typeof AzureHybridBenefitType];
+
 export const DhcpTypeEnum = {
-    SERVER_RELAY: "SERVER, RELAY",
+    SERVER: "SERVER",
+    RELAY: "RELAY",
 } as const;
 
 /**
@@ -60,6 +85,16 @@ export const DnsServiceLogLevelEnum = {
  */
 export type DnsServiceLogLevelEnum = (typeof DnsServiceLogLevelEnum)[keyof typeof DnsServiceLogLevelEnum];
 
+export const EncryptionState = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Status of customer managed encryption key
+ */
+export type EncryptionState = (typeof EncryptionState)[keyof typeof EncryptionState];
+
 export const InternetEnum = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -69,6 +104,16 @@ export const InternetEnum = {
  * Connectivity to internet is enabled or disabled
  */
 export type InternetEnum = (typeof InternetEnum)[keyof typeof InternetEnum];
+
+export const MountOptionEnum = {
+    MOUNT: "MOUNT",
+    ATTACH: "ATTACH",
+} as const;
+
+/**
+ * Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+ */
+export type MountOptionEnum = (typeof MountOptionEnum)[keyof typeof MountOptionEnum];
 
 export const PlacementPolicyState = {
     Enabled: "Enabled",
@@ -91,13 +136,25 @@ export const PlacementPolicyType = {
 export type PlacementPolicyType = (typeof PlacementPolicyType)[keyof typeof PlacementPolicyType];
 
 export const PortMirroringDirectionEnum = {
-    INGRESS_EGRESS_BIDIRECTIONAL: "INGRESS, EGRESS, BIDIRECTIONAL",
+    INGRESS: "INGRESS",
+    EGRESS: "EGRESS",
+    BIDIRECTIONAL: "BIDIRECTIONAL",
 } as const;
 
 /**
  * Direction of port mirroring profile.
  */
 export type PortMirroringDirectionEnum = (typeof PortMirroringDirectionEnum)[keyof typeof PortMirroringDirectionEnum];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const ScriptExecutionParameterType = {
     Value: "Value",

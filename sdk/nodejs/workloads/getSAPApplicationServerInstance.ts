@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPApplicationServerInstance(args: GetSAPApplicationServerInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetSAPApplicationServerInstanceResult> {
 
@@ -85,6 +85,10 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly kernelVersion: string;
     /**
+     * The Load Balancer details such as LoadBalancer ID attached to Application Server Virtual Machines
+     */
+    readonly loadBalancerDetails: outputs.workloads.LoadBalancerDetailsResponse;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
@@ -100,10 +104,6 @@ export interface GetSAPApplicationServerInstanceResult {
      * Defines the SAP Instance status.
      */
     readonly status: string;
-    /**
-     * Storage details of all the Storage Accounts attached to the App Virtual Machine. For e.g. NFS on AFS Shared Storage.
-     */
-    readonly storageDetails: outputs.workloads.StorageInformationResponse[];
     /**
      * Application server Subnet.
      */
@@ -121,13 +121,13 @@ export interface GetSAPApplicationServerInstanceResult {
      */
     readonly type: string;
     /**
-     * The virtual machine.
+     * The list of virtual machines.
      */
-    readonly virtualMachineId: string;
+    readonly vmDetails: outputs.workloads.ApplicationServerVmDetailsResponse[];
 }
 /**
  * Gets the SAP Application Server Instance corresponding to the Virtual Instance for SAP solutions resource.
- * API Version: 2021-12-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getSAPApplicationServerInstanceOutput(args: GetSAPApplicationServerInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSAPApplicationServerInstanceResult> {
     return pulumi.output(args).apply((a: any) => getSAPApplicationServerInstance(a, opts))

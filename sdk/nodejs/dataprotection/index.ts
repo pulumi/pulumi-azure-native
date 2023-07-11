@@ -20,6 +20,11 @@ export type BackupVault = import("./backupVault").BackupVault;
 export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
 utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
 
+export { DppResourceGuardProxyArgs } from "./dppResourceGuardProxy";
+export type DppResourceGuardProxy = import("./dppResourceGuardProxy").DppResourceGuardProxy;
+export const DppResourceGuardProxy: typeof import("./dppResourceGuardProxy").DppResourceGuardProxy = null as any;
+utilities.lazyLoad(exports, ["DppResourceGuardProxy"], () => require("./dppResourceGuardProxy"));
+
 export { GetBackupInstanceArgs, GetBackupInstanceResult, GetBackupInstanceOutputArgs } from "./getBackupInstance";
 export const getBackupInstance: typeof import("./getBackupInstance").getBackupInstance = null as any;
 export const getBackupInstanceOutput: typeof import("./getBackupInstance").getBackupInstanceOutput = null as any;
@@ -34,6 +39,11 @@ export { GetBackupVaultArgs, GetBackupVaultResult, GetBackupVaultOutputArgs } fr
 export const getBackupVault: typeof import("./getBackupVault").getBackupVault = null as any;
 export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
 utilities.lazyLoad(exports, ["getBackupVault","getBackupVaultOutput"], () => require("./getBackupVault"));
+
+export { GetDppResourceGuardProxyArgs, GetDppResourceGuardProxyResult, GetDppResourceGuardProxyOutputArgs } from "./getDppResourceGuardProxy";
+export const getDppResourceGuardProxy: typeof import("./getDppResourceGuardProxy").getDppResourceGuardProxy = null as any;
+export const getDppResourceGuardProxyOutput: typeof import("./getDppResourceGuardProxy").getDppResourceGuardProxyOutput = null as any;
+utilities.lazyLoad(exports, ["getDppResourceGuardProxy","getDppResourceGuardProxyOutput"], () => require("./getDppResourceGuardProxy"));
 
 export { GetResourceGuardArgs, GetResourceGuardResult, GetResourceGuardOutputArgs } from "./getResourceGuard";
 export const getResourceGuard: typeof import("./getResourceGuard").getResourceGuard = null as any;
@@ -50,42 +60,16 @@ utilities.lazyLoad(exports, ["ResourceGuard"], () => require("./resourceGuard"))
 export * from "../types/enums/dataprotection";
 
 // Export sub-modules:
-import * as v20210101 from "./v20210101";
-import * as v20210201preview from "./v20210201preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20210701 from "./v20210701";
-import * as v20211001preview from "./v20211001preview";
-import * as v20211201preview from "./v20211201preview";
-import * as v20220101 from "./v20220101";
-import * as v20220201preview from "./v20220201preview";
-import * as v20220301 from "./v20220301";
-import * as v20220331preview from "./v20220331preview";
-import * as v20220401 from "./v20220401";
-import * as v20220501 from "./v20220501";
-import * as v20220901preview from "./v20220901preview";
-import * as v20221001preview from "./v20221001preview";
 import * as v20221101preview from "./v20221101preview";
-import * as v20221201 from "./v20221201";
 import * as v20230101 from "./v20230101";
+import * as v20230401preview from "./v20230401preview";
+import * as v20230501 from "./v20230501";
 
 export {
-    v20210101,
-    v20210201preview,
-    v20210601preview,
-    v20210701,
-    v20211001preview,
-    v20211201preview,
-    v20220101,
-    v20220201preview,
-    v20220301,
-    v20220331preview,
-    v20220401,
-    v20220501,
-    v20220901preview,
-    v20221001preview,
     v20221101preview,
-    v20221201,
     v20230101,
+    v20230401preview,
+    v20230501,
 };
 
 const _module = {
@@ -98,6 +82,8 @@ const _module = {
                 return new BackupPolicy(name, <any>undefined, { urn })
             case "azure-native:dataprotection:BackupVault":
                 return new BackupVault(name, <any>undefined, { urn })
+            case "azure-native:dataprotection:DppResourceGuardProxy":
+                return new DppResourceGuardProxy(name, <any>undefined, { urn })
             case "azure-native:dataprotection:ResourceGuard":
                 return new ResourceGuard(name, <any>undefined, { urn })
             default:

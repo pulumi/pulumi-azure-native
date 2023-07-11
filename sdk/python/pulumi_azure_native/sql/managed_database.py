@@ -315,7 +315,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  __props__=None):
         """
         A managed database resource.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -345,7 +345,7 @@ class ManagedDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A managed database resource.
-        API Version: 2020-11-01-preview.
+        Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
 
         :param str resource_name: The name of the resource.
         :param ManagedDatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -416,7 +416,7 @@ class ManagedDatabase(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20190601preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedDatabase")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20170301preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20180601preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20190601preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20200202preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20200801preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20201101preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20210201preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20210501preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20210801preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20211101:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20211101preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20220201preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20220501preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20220801preview:ManagedDatabase"), pulumi.Alias(type_="azure-native:sql/v20221101preview:ManagedDatabase")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ManagedDatabase, __self__).__init__(
             'azure-native:sql:ManagedDatabase',

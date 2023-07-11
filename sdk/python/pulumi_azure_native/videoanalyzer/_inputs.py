@@ -17,8 +17,11 @@ __all__ = [
     'EncoderCustomPresetArgs',
     'EncoderProcessorArgs',
     'EncoderSystemPresetArgs',
+    'GroupLevelAccessControlArgs',
+    'IotHubArgs',
     'JwtAuthenticationArgs',
     'KeyVaultPropertiesArgs',
+    'NetworkAccessControlArgs',
     'NodeInputArgs',
     'ParameterDeclarationArgs',
     'ParameterDefinitionArgs',
@@ -36,8 +39,10 @@ __all__ = [
     'UnsecuredEndpointArgs',
     'UsernamePasswordCredentialsArgs',
     'VideoAnalyzerIdentityArgs',
+    'VideoArchivalArgs',
     'VideoCreationPropertiesArgs',
     'VideoEncoderH264Args',
+    'VideoMediaInfoArgs',
     'VideoPublishingOptionsArgs',
     'VideoScaleArgs',
     'VideoSequenceAbsoluteTimeMarkersArgs',
@@ -394,6 +399,68 @@ class EncoderSystemPresetArgs:
 
 
 @pulumi.input_type
+class GroupLevelAccessControlArgs:
+    def __init__(__self__, *,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None):
+        """
+        Group level network access control.
+        :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+        """
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]:
+        """
+        Whether or not public network access is allowed for specified resources under the Video Analyzer account.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]]):
+        pulumi.set(self, "public_network_access", value)
+
+
+@pulumi.input_type
+class IotHubArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 identity: pulumi.Input['ResourceIdentityArgs']):
+        """
+        The IoT Hub details.
+        :param pulumi.Input[str] id: The IoT Hub resource identifier.
+        :param pulumi.Input['ResourceIdentityArgs'] identity: The IoT Hub identity.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        The IoT Hub resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input['ResourceIdentityArgs']:
+        """
+        The IoT Hub identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input['ResourceIdentityArgs']):
+        pulumi.set(self, "identity", value)
+
+
+@pulumi.input_type
 class JwtAuthenticationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
@@ -503,6 +570,62 @@ class KeyVaultPropertiesArgs:
     @key_identifier.setter
     def key_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_identifier", value)
+
+
+@pulumi.input_type
+class NetworkAccessControlArgs:
+    def __init__(__self__, *,
+                 consumption: Optional[pulumi.Input['GroupLevelAccessControlArgs']] = None,
+                 ingestion: Optional[pulumi.Input['GroupLevelAccessControlArgs']] = None,
+                 integration: Optional[pulumi.Input['GroupLevelAccessControlArgs']] = None):
+        """
+        Network access control for video analyzer account.
+        :param pulumi.Input['GroupLevelAccessControlArgs'] consumption: Public network access for consumption group.
+        :param pulumi.Input['GroupLevelAccessControlArgs'] ingestion: Public network access for ingestion group.
+        :param pulumi.Input['GroupLevelAccessControlArgs'] integration: Public network access for integration group.
+        """
+        if consumption is not None:
+            pulumi.set(__self__, "consumption", consumption)
+        if ingestion is not None:
+            pulumi.set(__self__, "ingestion", ingestion)
+        if integration is not None:
+            pulumi.set(__self__, "integration", integration)
+
+    @property
+    @pulumi.getter
+    def consumption(self) -> Optional[pulumi.Input['GroupLevelAccessControlArgs']]:
+        """
+        Public network access for consumption group.
+        """
+        return pulumi.get(self, "consumption")
+
+    @consumption.setter
+    def consumption(self, value: Optional[pulumi.Input['GroupLevelAccessControlArgs']]):
+        pulumi.set(self, "consumption", value)
+
+    @property
+    @pulumi.getter
+    def ingestion(self) -> Optional[pulumi.Input['GroupLevelAccessControlArgs']]:
+        """
+        Public network access for ingestion group.
+        """
+        return pulumi.get(self, "ingestion")
+
+    @ingestion.setter
+    def ingestion(self, value: Optional[pulumi.Input['GroupLevelAccessControlArgs']]):
+        pulumi.set(self, "ingestion", value)
+
+    @property
+    @pulumi.getter
+    def integration(self) -> Optional[pulumi.Input['GroupLevelAccessControlArgs']]:
+        """
+        Public network access for integration group.
+        """
+        return pulumi.get(self, "integration")
+
+    @integration.setter
+    def integration(self, value: Optional[pulumi.Input['GroupLevelAccessControlArgs']]):
+        pulumi.set(self, "integration", value)
 
 
 @pulumi.input_type
@@ -993,28 +1116,27 @@ class SkuArgs:
 @pulumi.input_type
 class StorageAccountArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None,
+                 id: pulumi.Input[str],
                  identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None):
         """
         The details about the associated storage account.
         :param pulumi.Input[str] id: The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
         :param pulumi.Input['ResourceIdentityArgs'] identity: A managed identity that Video Analyzer will use to access the storage account.
         """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "id", id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
 
     @property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
+    def id(self) -> pulumi.Input[str]:
         """
         The ID of the storage account resource. Video Analyzer relies on tables, queues, and blobs. The primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage).
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
+    def id(self, value: pulumi.Input[str]):
         pulumi.set(self, "id", value)
 
     @property
@@ -1341,11 +1463,11 @@ class UsernamePasswordCredentialsArgs:
 class VideoAnalyzerIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The managed identity for the Video Analyzer resource.
         :param pulumi.Input[str] type: The identity type.
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The User Assigned Managed Identities.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The User Assigned Managed Identities.
         """
         pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
@@ -1365,15 +1487,39 @@ class VideoAnalyzerIdentityArgs:
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The User Assigned Managed Identities.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class VideoArchivalArgs:
+    def __init__(__self__, *,
+                 retention_period: Optional[pulumi.Input[str]] = None):
+        """
+        Video archival properties.
+        :param pulumi.Input[str] retention_period: Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+        """
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+
+    @property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> Optional[pulumi.Input[str]]:
+        """
+        Video retention period indicates the maximum age of the video archive segments which are intended to be kept in storage. It must be provided in the ISO8601 duration format in the granularity of days, up to a maximum of 10 years. For example, if this is set to P30D (30 days), content older than 30 days will be periodically deleted. This value can be updated at any time and the new desired retention period will be effective within 24 hours.
+        """
+        return pulumi.get(self, "retention_period")
+
+    @retention_period.setter
+    def retention_period(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "retention_period", value)
 
 
 @pulumi.input_type
@@ -1519,6 +1665,30 @@ class VideoEncoderH264Args:
     @scale.setter
     def scale(self, value: Optional[pulumi.Input['VideoScaleArgs']]):
         pulumi.set(self, "scale", value)
+
+
+@pulumi.input_type
+class VideoMediaInfoArgs:
+    def __init__(__self__, *,
+                 segment_length: Optional[pulumi.Input[str]] = None):
+        """
+        Contains information about the video and audio content.
+        :param pulumi.Input[str] segment_length: Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+        """
+        if segment_length is not None:
+            pulumi.set(__self__, "segment_length", segment_length)
+
+    @property
+    @pulumi.getter(name="segmentLength")
+    def segment_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        Video segment length indicates the length of individual video files (segments) which are persisted to storage. Smaller segments provide lower archive playback latency but generate larger volume of storage transactions. Larger segments reduce the amount of storage transactions while increasing the archive playback latency. Value must be specified in ISO8601 duration format (i.e. "PT30S" equals 30 seconds) and can vary between 30 seconds to 5 minutes, in 30 seconds increments.
+        """
+        return pulumi.get(self, "segment_length")
+
+    @segment_length.setter
+    def segment_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "segment_length", value)
 
 
 @pulumi.input_type

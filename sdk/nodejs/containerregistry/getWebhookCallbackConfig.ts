@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the configuration of service URI and custom headers for the webhook.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getWebhookCallbackConfig(args: GetWebhookCallbackConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetWebhookCallbackConfigResult> {
 
@@ -24,7 +24,7 @@ export interface GetWebhookCallbackConfigArgs {
      */
     registryName: string;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -48,7 +48,7 @@ export interface GetWebhookCallbackConfigResult {
 }
 /**
  * Gets the configuration of service URI and custom headers for the webhook.
- * API Version: 2019-05-01.
+ * Azure REST API version: 2022-12-01.
  */
 export function getWebhookCallbackConfigOutput(args: GetWebhookCallbackConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebhookCallbackConfigResult> {
     return pulumi.output(args).apply((a: any) => getWebhookCallbackConfig(a, opts))
@@ -60,7 +60,7 @@ export interface GetWebhookCallbackConfigOutputArgs {
      */
     registryName: pulumi.Input<string>;
     /**
-     * The name of the resource group to which the container registry belongs.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

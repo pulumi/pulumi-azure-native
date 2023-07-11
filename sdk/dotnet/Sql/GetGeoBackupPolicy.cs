@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Sql
     public static class GetGeoBackupPolicy
     {
         /// <summary>
-        /// Gets a geo backup policy.
-        /// API Version: 2014-04-01.
+        /// Gets a Geo backup policy for the given database resource.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetGeoBackupPolicyResult> InvokeAsync(GetGeoBackupPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGeoBackupPolicyResult>("azure-native:sql:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a geo backup policy.
-        /// API Version: 2014-04-01.
+        /// Gets a Geo backup policy for the given database resource.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetGeoBackupPolicyResult> Invoke(GetGeoBackupPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGeoBackupPolicyResult>("azure-native:sql:getGeoBackupPolicy", args ?? new GetGeoBackupPolicyInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Sql
         public string DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the geo backup policy.
+        /// The name of the Geo backup policy. This should always be 'Default'.
         /// </summary>
         [Input("geoBackupPolicyName", required: true)]
         public string GeoBackupPolicyName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Sql
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the geo backup policy.
+        /// The name of the Geo backup policy. This should always be 'Default'.
         /// </summary>
         [Input("geoBackupPolicyName", required: true)]
         public Input<string> GeoBackupPolicyName { get; set; } = null!;

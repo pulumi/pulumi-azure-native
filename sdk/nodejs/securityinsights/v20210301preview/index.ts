@@ -225,11 +225,6 @@ export const getWatchlist: typeof import("./getWatchlist").getWatchlist = null a
 export const getWatchlistOutput: typeof import("./getWatchlist").getWatchlistOutput = null as any;
 utilities.lazyLoad(exports, ["getWatchlist","getWatchlistOutput"], () => require("./getWatchlist"));
 
-export { GetWatchlistItemArgs, GetWatchlistItemResult, GetWatchlistItemOutputArgs } from "./getWatchlistItem";
-export const getWatchlistItem: typeof import("./getWatchlistItem").getWatchlistItem = null as any;
-export const getWatchlistItemOutput: typeof import("./getWatchlistItem").getWatchlistItemOutput = null as any;
-utilities.lazyLoad(exports, ["getWatchlistItem","getWatchlistItemOutput"], () => require("./getWatchlistItem"));
-
 export { IncidentArgs } from "./incident";
 export type Incident = import("./incident").Incident;
 export const Incident: typeof import("./incident").Incident = null as any;
@@ -335,11 +330,6 @@ export type Watchlist = import("./watchlist").Watchlist;
 export const Watchlist: typeof import("./watchlist").Watchlist = null as any;
 utilities.lazyLoad(exports, ["Watchlist"], () => require("./watchlist"));
 
-export { WatchlistItemArgs } from "./watchlistItem";
-export type WatchlistItem = import("./watchlistItem").WatchlistItem;
-export const WatchlistItem: typeof import("./watchlistItem").WatchlistItem = null as any;
-utilities.lazyLoad(exports, ["WatchlistItem"], () => require("./watchlistItem"));
-
 
 // Export enums:
 export * from "../../types/enums/securityinsights/v20210301preview";
@@ -412,8 +402,6 @@ const _module = {
                 return new Ueba(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20210301preview:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
-            case "azure-native:securityinsights/v20210301preview:WatchlistItem":
-                return new WatchlistItem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

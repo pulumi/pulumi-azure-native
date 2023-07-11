@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents an incident comment
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class IncidentComment extends pulumi.CustomResource {
     /**
@@ -59,7 +59,7 @@ export class IncidentComment extends pulumi.CustomResource {
      */
     public readonly message!: pulumi.Output<string>;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -67,7 +67,7 @@ export class IncidentComment extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -88,9 +88,6 @@ export class IncidentComment extends pulumi.CustomResource {
             if ((!args || args.message === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -100,7 +97,6 @@ export class IncidentComment extends pulumi.CustomResource {
             resourceInputs["incidentCommentId"] = args ? args.incidentCommentId : undefined;
             resourceInputs["incidentId"] = args ? args.incidentId : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
             resourceInputs["author"] = undefined /*out*/;
@@ -121,7 +117,7 @@ export class IncidentComment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210301preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210401:IncidentComment" }, { type: "azure-native:securityinsights/v20210901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20211001:IncidentComment" }, { type: "azure-native:securityinsights/v20211001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220401preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220501preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220601preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220701preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220801:IncidentComment" }, { type: "azure-native:securityinsights/v20220801preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221101:IncidentComment" }, { type: "azure-native:securityinsights/v20221101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230201:IncidentComment" }, { type: "azure-native:securityinsights/v20230201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230401preview:IncidentComment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210301preview:IncidentComment" }, { type: "azure-native:securityinsights/v20210401:IncidentComment" }, { type: "azure-native:securityinsights/v20210901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20211001:IncidentComment" }, { type: "azure-native:securityinsights/v20211001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220401preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220501preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220601preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220701preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220801:IncidentComment" }, { type: "azure-native:securityinsights/v20220801preview:IncidentComment" }, { type: "azure-native:securityinsights/v20220901preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221001preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221101:IncidentComment" }, { type: "azure-native:securityinsights/v20221101preview:IncidentComment" }, { type: "azure-native:securityinsights/v20221201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230201:IncidentComment" }, { type: "azure-native:securityinsights/v20230201preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230301preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230401preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230501preview:IncidentComment" }, { type: "azure-native:securityinsights/v20230601preview:IncidentComment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IncidentComment.__pulumiType, name, resourceInputs, opts);
     }
@@ -143,10 +139,6 @@ export interface IncidentCommentArgs {
      * The comment message
      */
     message: pulumi.Input<string>;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

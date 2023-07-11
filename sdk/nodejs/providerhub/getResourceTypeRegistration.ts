@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a resource type details in the given subscription and provider.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getResourceTypeRegistration(args: GetResourceTypeRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceTypeRegistrationResult> {
 
@@ -42,13 +42,17 @@ export interface GetResourceTypeRegistrationResult {
     readonly name: string;
     readonly properties: outputs.providerhub.ResourceTypeRegistrationResponseProperties;
     /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    readonly systemData: outputs.providerhub.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets a resource type details in the given subscription and provider.
- * API Version: 2020-11-20.
+ * Azure REST API version: 2021-09-01-preview.
  */
 export function getResourceTypeRegistrationOutput(args: GetResourceTypeRegistrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceTypeRegistrationResult> {
     return pulumi.output(args).apply((a: any) => getResourceTypeRegistration(a, opts))

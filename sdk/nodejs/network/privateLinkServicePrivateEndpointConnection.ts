@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * PrivateEndpointConnection resource.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -55,6 +55,10 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
      */
     public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.network.PrivateEndpointResponse>;
     /**
+     * The location of the private endpoint.
+     */
+    public /*out*/ readonly privateEndpointLocation!: pulumi.Output<string>;
+    /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.network.PrivateLinkServiceConnectionStateResponse | undefined>;
@@ -93,6 +97,7 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["linkIdentifier"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
+            resourceInputs["privateEndpointLocation"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -100,12 +105,13 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
             resourceInputs["linkIdentifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
+            resourceInputs["privateEndpointLocation"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200401:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200701:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200801:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20201101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20210201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20210301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20210501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20220101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20220501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20220701:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20190901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20191101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20191201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200401:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200601:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200701:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20200801:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20201101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20210201:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20210301:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20210501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20210801:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20220101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20220501:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20220701:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20221101:PrivateLinkServicePrivateEndpointConnection" }, { type: "azure-native:network/v20230201:PrivateLinkServicePrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateLinkServicePrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

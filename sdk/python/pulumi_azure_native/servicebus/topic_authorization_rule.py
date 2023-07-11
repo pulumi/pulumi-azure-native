@@ -8,6 +8,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['TopicAuthorizationRuleArgs', 'TopicAuthorizationRule']
@@ -17,14 +18,14 @@ class TopicAuthorizationRuleArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 rights: pulumi.Input[Sequence[pulumi.Input['AccessRights']]],
+                 rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
                  topic_name: pulumi.Input[str],
                  authorization_rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TopicAuthorizationRule resource.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         :param pulumi.Input[str] topic_name: The topic name.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         """
@@ -61,14 +62,14 @@ class TopicAuthorizationRuleArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Input[Sequence[pulumi.Input['AccessRights']]]:
+    def rights(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]:
         """
         The rights associated with the rule.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: pulumi.Input[Sequence[pulumi.Input['AccessRights']]]):
+    def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]):
         pulumi.set(self, "rights", value)
 
     @property
@@ -104,19 +105,19 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Description of a namespace authorization rule.
-        API Version: 2017-04-01.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         :param pulumi.Input[str] topic_name: The topic name.
         """
         ...
@@ -127,7 +128,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a namespace authorization rule.
-        API Version: 2017-04-01.
+        Azure REST API version: 2022-01-01-preview. Prior API version in Azure Native 1.x: 2017-04-01
 
         :param str resource_name: The name of the resource.
         :param TopicAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -147,7 +148,7 @@ class TopicAuthorizationRule(pulumi.CustomResource):
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -171,7 +172,9 @@ class TopicAuthorizationRule(pulumi.CustomResource):
             if topic_name is None and not opts.urn:
                 raise TypeError("Missing required property 'topic_name'")
             __props__.__dict__["topic_name"] = topic_name
+            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:servicebus/v20140901:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20150801:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20170401:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20180101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20210601preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20211101:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20220101preview:TopicAuthorizationRule"), pulumi.Alias(type_="azure-native:servicebus/v20221001preview:TopicAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -197,16 +200,26 @@ class TopicAuthorizationRule(pulumi.CustomResource):
 
         __props__ = TopicAuthorizationRuleArgs.__new__(TopicAuthorizationRuleArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rights"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return TopicAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -219,10 +232,18 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         return pulumi.get(self, "rights")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 

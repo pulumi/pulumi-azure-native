@@ -22,7 +22,7 @@ class GetAssetResult:
     """
     An Asset.
     """
-    def __init__(__self__, alternate_id=None, asset_id=None, container=None, created=None, description=None, id=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, system_data=None, type=None):
+    def __init__(__self__, alternate_id=None, asset_id=None, container=None, created=None, description=None, encryption_scope=None, id=None, last_modified=None, name=None, storage_account_name=None, storage_encryption_format=None, system_data=None, type=None):
         if alternate_id and not isinstance(alternate_id, str):
             raise TypeError("Expected argument 'alternate_id' to be a str")
         pulumi.set(__self__, "alternate_id", alternate_id)
@@ -38,6 +38,9 @@ class GetAssetResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if encryption_scope and not isinstance(encryption_scope, str):
+            raise TypeError("Expected argument 'encryption_scope' to be a str")
+        pulumi.set(__self__, "encryption_scope", encryption_scope)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -99,6 +102,14 @@ class GetAssetResult:
         The Asset description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptionScope")
+    def encryption_scope(self) -> Optional[str]:
+        """
+        The Asset container encryption scope in the storage account.
+        """
+        return pulumi.get(self, "encryption_scope")
 
     @property
     @pulumi.getter
@@ -168,6 +179,7 @@ class AwaitableGetAssetResult(GetAssetResult):
             container=self.container,
             created=self.created,
             description=self.description,
+            encryption_scope=self.encryption_scope,
             id=self.id,
             last_modified=self.last_modified,
             name=self.name,
@@ -183,7 +195,7 @@ def get_asset(account_name: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssetResult:
     """
     Get the details of an Asset in the Media Services account
-    API Version: 2020-05-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str account_name: The Media Services account name.
@@ -203,6 +215,7 @@ def get_asset(account_name: Optional[str] = None,
         container=__ret__.container,
         created=__ret__.created,
         description=__ret__.description,
+        encryption_scope=__ret__.encryption_scope,
         id=__ret__.id,
         last_modified=__ret__.last_modified,
         name=__ret__.name,
@@ -219,7 +232,7 @@ def get_asset_output(account_name: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetResult]:
     """
     Get the details of an Asset in the Media Services account
-    API Version: 2020-05-01.
+    Azure REST API version: 2023-01-01.
 
 
     :param str account_name: The Media Services account name.

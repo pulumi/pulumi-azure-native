@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Communication.V20230331
     /// <summary>
     /// A class representing a SenderUsername resource.
     /// </summary>
-    [Obsolete(@"azure-native:communication/v20230331:SenderUsername is being removed in the next major version of this provider. Upgrade to at least azure-native:communication/v20230401preview:SenderUsername to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:communication/v20230331:SenderUsername")]
     public partial class SenderUsername : global::Pulumi.CustomResource
     {
@@ -81,6 +80,12 @@ namespace Pulumi.AzureNative.Communication.V20230331
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:communication:SenderUsername"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230301preview:SenderUsername"},
+                    new global::Pulumi.Alias { Type = "azure-native:communication/v20230401preview:SenderUsername"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

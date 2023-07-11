@@ -11,85 +11,9 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'GitCatalogArgs',
     'ImageReferenceArgs',
-    'ManagedServiceIdentityArgs',
-    'ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs',
     'SkuArgs',
-    'UserRoleAssignmentArgs',
 ]
-
-@pulumi.input_type
-class GitCatalogArgs:
-    def __init__(__self__, *,
-                 branch: Optional[pulumi.Input[str]] = None,
-                 path: Optional[pulumi.Input[str]] = None,
-                 secret_identifier: Optional[pulumi.Input[str]] = None,
-                 uri: Optional[pulumi.Input[str]] = None):
-        """
-        Properties for a Git repository catalog.
-        :param pulumi.Input[str] branch: Git branch.
-        :param pulumi.Input[str] path: The folder where the catalog items can be found inside the repository.
-        :param pulumi.Input[str] secret_identifier: A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
-        :param pulumi.Input[str] uri: Git URI.
-        """
-        if branch is not None:
-            pulumi.set(__self__, "branch", branch)
-        if path is not None:
-            pulumi.set(__self__, "path", path)
-        if secret_identifier is not None:
-            pulumi.set(__self__, "secret_identifier", secret_identifier)
-        if uri is not None:
-            pulumi.set(__self__, "uri", uri)
-
-    @property
-    @pulumi.getter
-    def branch(self) -> Optional[pulumi.Input[str]]:
-        """
-        Git branch.
-        """
-        return pulumi.get(self, "branch")
-
-    @branch.setter
-    def branch(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "branch", value)
-
-    @property
-    @pulumi.getter
-    def path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The folder where the catalog items can be found inside the repository.
-        """
-        return pulumi.get(self, "path")
-
-    @path.setter
-    def path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "path", value)
-
-    @property
-    @pulumi.getter(name="secretIdentifier")
-    def secret_identifier(self) -> Optional[pulumi.Input[str]]:
-        """
-        A reference to the Key Vault secret containing a security token to authenticate to a Git repository.
-        """
-        return pulumi.get(self, "secret_identifier")
-
-    @secret_identifier.setter
-    def secret_identifier(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secret_identifier", value)
-
-    @property
-    @pulumi.getter
-    def uri(self) -> Optional[pulumi.Input[str]]:
-        """
-        Git URI.
-        """
-        return pulumi.get(self, "uri")
-
-    @uri.setter
-    def uri(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "uri", value)
-
 
 @pulumi.input_type
 class ImageReferenceArgs:
@@ -161,69 +85,6 @@ class ImageReferenceArgs:
     @sku.setter
     def sku(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "sku", value)
-
-
-@pulumi.input_type
-class ManagedServiceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[Union[str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        Managed service identity (system assigned and/or user assigned identities)
-        :param pulumi.Input[Union[str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        pulumi.set(__self__, "type", type)
-        if user_assigned_identities is not None:
-            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[Union[str, 'ManagedServiceIdentityType']]:
-        """
-        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[Union[str, 'ManagedServiceIdentityType']]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
-        """
-        return pulumi.get(self, "user_assigned_identities")
-
-    @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "user_assigned_identities", value)
-
-
-@pulumi.input_type
-class ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs:
-    def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        The role definition assigned to the environment creator on backing resources.
-        :param pulumi.Input[Mapping[str, Any]] roles: A map of roles to assign to the environment creator.
-        """
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
-
-    @property
-    @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        A map of roles to assign to the environment creator.
-        """
-        return pulumi.get(self, "roles")
-
-    @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "roles", value)
 
 
 @pulumi.input_type
@@ -311,29 +172,5 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input['SkuTier']]):
         pulumi.set(self, "tier", value)
-
-
-@pulumi.input_type
-class UserRoleAssignmentArgs:
-    def __init__(__self__, *,
-                 roles: Optional[pulumi.Input[Mapping[str, Any]]] = None):
-        """
-        Mapping of user object ID to role assignments.
-        :param pulumi.Input[Mapping[str, Any]] roles: A map of roles to assign to the parent user.
-        """
-        if roles is not None:
-            pulumi.set(__self__, "roles", roles)
-
-    @property
-    @pulumi.getter
-    def roles(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
-        """
-        A map of roles to assign to the parent user.
-        """
-        return pulumi.get(self, "roles")
-
-    @roles.setter
-    def roles(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
-        pulumi.set(self, "roles", value)
 
 

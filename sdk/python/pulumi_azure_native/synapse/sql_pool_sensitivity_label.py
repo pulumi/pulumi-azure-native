@@ -34,7 +34,7 @@ class SqlPoolSensitivityLabelArgs:
         :param pulumi.Input[str] schema_name: The name of the schema.
         :param pulumi.Input[str] sql_pool_name: SQL pool name
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         :param pulumi.Input[str] information_type: The information type.
         :param pulumi.Input[str] information_type_id: The information type ID.
         :param pulumi.Input[str] label_id: The label ID.
@@ -124,7 +124,7 @@ class SqlPoolSensitivityLabelArgs:
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[str]:
         """
-        The name of the workspace
+        The name of the workspace.
         """
         return pulumi.get(self, "workspace_name")
 
@@ -222,7 +222,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
                  __props__=None):
         """
         A sensitivity label.
-        API Version: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -236,7 +236,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
         :param pulumi.Input[str] sensitivity_label_source: The source of the sensitivity label.
         :param pulumi.Input[str] sql_pool_name: SQL pool name
         :param pulumi.Input[str] table_name: The name of the table.
-        :param pulumi.Input[str] workspace_name: The name of the workspace
+        :param pulumi.Input[str] workspace_name: The name of the workspace.
         """
         ...
     @overload
@@ -246,7 +246,7 @@ class SqlPoolSensitivityLabel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A sensitivity label.
-        API Version: 2021-03-01.
+        Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2021-03-01
 
         :param str resource_name: The name of the resource.
         :param SqlPoolSensitivityLabelArgs args: The arguments to use to populate this resource's properties.

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
     /// <summary>
     /// An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
     /// </summary>
-    [AzureNativeResourceType("azure-native:storagecache/v20230301preview:amlFilesystem")]
+    [AzureNativeResourceType("azure-native:storagecache/v20230301preview:AmlFilesystem")]
     public partial class AmlFilesystem : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -138,12 +138,12 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AmlFilesystem(string name, AmlFilesystemArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:storagecache/v20230301preview:amlFilesystem", name, args ?? new AmlFilesystemArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:storagecache/v20230301preview:AmlFilesystem", name, args ?? new AmlFilesystemArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AmlFilesystem(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:storagecache/v20230301preview:amlFilesystem", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:storagecache/v20230301preview:AmlFilesystem", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -152,6 +152,14 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:amlFilesystem"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache:AmlFilesystem"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache:amlFilesystem"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:AmlFilesystem"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:amlFilesystem"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

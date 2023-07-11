@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get single access review definition
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2021-12-01-preview.
  */
 export function getAccessReviewScheduleDefinitionById(args: GetAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewScheduleDefinitionByIdResult> {
 
@@ -67,6 +67,18 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      */
     readonly endDate?: string;
     /**
+     * This is used to indicate the resource id(s) to exclude
+     */
+    readonly excludeResourceId?: string;
+    /**
+     * This is used to indicate the role definition id(s) to exclude
+     */
+    readonly excludeRoleDefinitionId?: string;
+    /**
+     * Flag to indicate whether to expand nested memberships or not.
+     */
+    readonly expandNestedMemberships?: boolean;
+    /**
      * The access review schedule definition id.
      */
     readonly id: string;
@@ -74,6 +86,14 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      * Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
     readonly inactiveDuration?: string;
+    /**
+     * Flag to indicate whether to expand nested memberships or not.
+     */
+    readonly includeAccessBelowResource?: boolean;
+    /**
+     * Flag to indicate whether to expand nested memberships or not.
+     */
+    readonly includeInheritedAccess?: boolean;
     /**
      * The duration in days for an instance.
      */
@@ -114,6 +134,10 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
      * The identity type user/servicePrincipal to review
      */
     readonly principalType: string;
+    /**
+     * Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
+     */
+    readonly recommendationLookBackDuration?: string;
     /**
      * Flag to indicate whether showing recommendations to reviewers is enabled.
      */
@@ -157,7 +181,7 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
 }
 /**
  * Get single access review definition
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2021-12-01-preview.
  */
 export function getAccessReviewScheduleDefinitionByIdOutput(args: GetAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessReviewScheduleDefinitionByIdResult> {
     return pulumi.output(args).apply((a: any) => getAccessReviewScheduleDefinitionById(a, opts))

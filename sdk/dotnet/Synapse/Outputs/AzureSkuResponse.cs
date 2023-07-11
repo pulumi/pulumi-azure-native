@@ -25,9 +25,9 @@ namespace Pulumi.AzureNative.Synapse.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// SKU tier.
+        /// SKU size.
         /// </summary>
-        public readonly string Tier;
+        public readonly string Size;
 
         [OutputConstructor]
         private AzureSkuResponse(
@@ -35,11 +35,11 @@ namespace Pulumi.AzureNative.Synapse.Outputs
 
             string name,
 
-            string tier)
+            string size)
         {
             Capacity = capacity;
             Name = name;
-            Tier = tier;
+            Size = size;
         }
     }
 }

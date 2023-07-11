@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.StorageCache
 {
     /// <summary>
-    /// A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
-    /// API Version: 2021-03-01.
+    /// A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+    /// Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache:Cache")]
     public partial class Cache : global::Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.StorageCache
         public Output<Outputs.CacheEncryptionSettingsResponse?> EncryptionSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Health of the Cache.
+        /// Health of the cache.
         /// </summary>
         [Output("health")]
         public Output<Outputs.CacheHealthResponse> Health { get; private set; } = null!;
@@ -53,13 +53,13 @@ namespace Pulumi.AzureNative.StorageCache
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Array of IP addresses that can be used by clients mounting this Cache.
+        /// Array of IPv4 addresses that can be used by clients mounting this cache.
         /// </summary>
         [Output("mountAddresses")]
         public Output<ImmutableArray<string>> MountAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Name of Cache.
+        /// Name of cache.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -71,10 +71,16 @@ namespace Pulumi.AzureNative.StorageCache
         public Output<Outputs.CacheNetworkSettingsResponse?> NetworkSettings { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the priming jobs defined in the cache.
+        /// </summary>
+        [Output("primingJobs")]
+        public Output<ImmutableArray<Outputs.PrimingJobResponse>> PrimingJobs { get; private set; } = null!;
+
+        /// <summary>
         /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
         /// </summary>
         [Output("provisioningState")]
-        public Output<string?> ProvisioningState { get; private set; } = null!;
+        public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
         /// Specifies security settings of the cache.
@@ -83,13 +89,19 @@ namespace Pulumi.AzureNative.StorageCache
         public Output<Outputs.CacheSecuritySettingsResponse?> SecuritySettings { get; private set; } = null!;
 
         /// <summary>
-        /// SKU for the Cache.
+        /// SKU for the cache.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.CacheResponseSku?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Subnet used for the Cache.
+        /// Specifies the space allocation percentage for each storage target in the cache.
+        /// </summary>
+        [Output("spaceAllocation")]
+        public Output<ImmutableArray<Outputs.StorageTargetSpaceAllocationResponse>> SpaceAllocation { get; private set; } = null!;
+
+        /// <summary>
+        /// Subnet used for the cache.
         /// </summary>
         [Output("subnet")]
         public Output<string?> Subnet { get; private set; } = null!;
@@ -107,16 +119,28 @@ namespace Pulumi.AzureNative.StorageCache
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Type of the Cache; Microsoft.StorageCache/Cache
+        /// Type of the cache; Microsoft.StorageCache/Cache
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Upgrade status of the Cache.
+        /// Upgrade settings of the cache.
+        /// </summary>
+        [Output("upgradeSettings")]
+        public Output<Outputs.CacheUpgradeSettingsResponse?> UpgradeSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Upgrade status of the cache.
         /// </summary>
         [Output("upgradeStatus")]
-        public Output<Outputs.CacheUpgradeStatusResponse?> UpgradeStatus { get; private set; } = null!;
+        public Output<Outputs.CacheUpgradeStatusResponse> UpgradeStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Availability zones for resources. This field should only contain a single element in the array.
+        /// </summary>
+        [Output("zones")]
+        public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
 
 
         /// <summary>
@@ -154,6 +178,7 @@ namespace Pulumi.AzureNative.StorageCache
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20220501:Cache"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230101:Cache"},
                     new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230301preview:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:storagecache/v20230501:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,7 +203,7 @@ namespace Pulumi.AzureNative.StorageCache
     public sealed class CacheArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        /// Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         /// </summary>
         [Input("cacheName")]
         public Input<string>? CacheName { get; set; }
@@ -220,13 +245,7 @@ namespace Pulumi.AzureNative.StorageCache
         public Input<Inputs.CacheNetworkSettingsArgs>? NetworkSettings { get; set; }
 
         /// <summary>
-        /// ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
-        /// </summary>
-        [Input("provisioningState")]
-        public InputUnion<string, Pulumi.AzureNative.StorageCache.ProvisioningStateType>? ProvisioningState { get; set; }
-
-        /// <summary>
-        /// Target resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -238,13 +257,13 @@ namespace Pulumi.AzureNative.StorageCache
         public Input<Inputs.CacheSecuritySettingsArgs>? SecuritySettings { get; set; }
 
         /// <summary>
-        /// SKU for the Cache.
+        /// SKU for the cache.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.CacheSkuArgs>? Sku { get; set; }
 
         /// <summary>
-        /// Subnet used for the Cache.
+        /// Subnet used for the cache.
         /// </summary>
         [Input("subnet")]
         public Input<string>? Subnet { get; set; }
@@ -259,6 +278,24 @@ namespace Pulumi.AzureNative.StorageCache
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        /// <summary>
+        /// Upgrade settings of the cache.
+        /// </summary>
+        [Input("upgradeSettings")]
+        public Input<Inputs.CacheUpgradeSettingsArgs>? UpgradeSettings { get; set; }
+
+        [Input("zones")]
+        private InputList<string>? _zones;
+
+        /// <summary>
+        /// Availability zones for resources. This field should only contain a single element in the array.
+        /// </summary>
+        public InputList<string> Zones
+        {
+            get => _zones ?? (_zones = new InputList<string>());
+            set => _zones = value;
         }
 
         public CacheArgs()

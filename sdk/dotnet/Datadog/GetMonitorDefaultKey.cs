@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Datadog
     {
         /// <summary>
         /// 
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Task<GetMonitorDefaultKeyResult> InvokeAsync(GetMonitorDefaultKeyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyArgs(), options.WithDefaults());
 
         /// <summary>
         /// 
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-06-01.
         /// </summary>
         public static Output<GetMonitorDefaultKeyResult> Invoke(GetMonitorDefaultKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorDefaultKeyResult>("azure-native:datadog:getMonitorDefaultKey", args ?? new GetMonitorDefaultKeyInvokeArgs(), options.WithDefaults());

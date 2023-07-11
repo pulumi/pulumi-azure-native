@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * SecurityPolicy association for AzureFrontDoor profile
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2020-09-01
  */
 export class SecurityPolicy extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class SecurityPolicy extends pulumi.CustomResource {
      * object which contains security policy parameters
      */
     public readonly parameters!: pulumi.Output<outputs.cdn.SecurityPolicyWebApplicationFirewallParametersResponse | undefined>;
+    /**
+     * The name of the profile which holds the security policy.
+     */
+    public readonly profileName!: pulumi.Output<string>;
     /**
      * Provisioning status
      */
@@ -90,12 +94,13 @@ export class SecurityPolicy extends pulumi.CustomResource {
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["parameters"] = undefined /*out*/;
+            resourceInputs["profileName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:SecurityPolicy" }, { type: "azure-native:cdn/v20210601:SecurityPolicy" }, { type: "azure-native:cdn/v20220501preview:SecurityPolicy" }, { type: "azure-native:cdn/v20221101preview:SecurityPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cdn/v20200901:SecurityPolicy" }, { type: "azure-native:cdn/v20210601:SecurityPolicy" }, { type: "azure-native:cdn/v20220501preview:SecurityPolicy" }, { type: "azure-native:cdn/v20221101preview:SecurityPolicy" }, { type: "azure-native:cdn/v20230501:SecurityPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityPolicy.__pulumiType, name, resourceInputs, opts);
     }
@@ -110,7 +115,7 @@ export interface SecurityPolicyArgs {
      */
     parameters?: pulumi.Input<inputs.cdn.SecurityPolicyWebApplicationFirewallParametersArgs>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

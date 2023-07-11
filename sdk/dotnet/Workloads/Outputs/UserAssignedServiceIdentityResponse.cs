@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Workloads.Outputs
 {
 
     /// <summary>
-    /// Managed service identity (user assigned identities)
+    /// A pre-created user assigned identity with appropriate roles assigned. To learn more on identity and roles required, visit the ACSS how-to-guide.
     /// </summary>
     [OutputType]
     public sealed class UserAssignedServiceIdentityResponse

@@ -17,15 +17,16 @@ namespace Pulumi.AzureNative.Compute.Outputs
     public sealed class VirtualMachineScaleSetStorageProfileResponse
     {
         /// <summary>
-        /// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. &lt;br&gt;&lt;br&gt; For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        /// Specifies the parameters that are used to add data disks to the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         public readonly ImmutableArray<Outputs.VirtualMachineScaleSetDataDiskResponse> DataDisks;
+        public readonly ImmutableArray<string> DiskControllerType;
         /// <summary>
         /// Specifies information about the image to use. You can specify information about platform images, marketplace images, or virtual machine images. This element is required when you want to use a platform image, marketplace image, or virtual machine image, but is not used in other creation operations.
         /// </summary>
         public readonly Outputs.ImageReferenceResponse? ImageReference;
         /// <summary>
-        /// Specifies information about the operating system disk used by the virtual machines in the scale set. &lt;br&gt;&lt;br&gt; For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
+        /// Specifies information about the operating system disk used by the virtual machines in the scale set. For more information about disks, see [About disks and VHDs for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview).
         /// </summary>
         public readonly Outputs.VirtualMachineScaleSetOSDiskResponse? OsDisk;
 
@@ -33,11 +34,14 @@ namespace Pulumi.AzureNative.Compute.Outputs
         private VirtualMachineScaleSetStorageProfileResponse(
             ImmutableArray<Outputs.VirtualMachineScaleSetDataDiskResponse> dataDisks,
 
+            ImmutableArray<string> diskControllerType,
+
             Outputs.ImageReferenceResponse? imageReference,
 
             Outputs.VirtualMachineScaleSetOSDiskResponse? osDisk)
         {
             DataDisks = dataDisks;
+            DiskControllerType = diskControllerType;
             ImageReference = imageReference;
             OsDisk = osDisk;
         }

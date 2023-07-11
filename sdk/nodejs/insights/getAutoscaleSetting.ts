@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an autoscale setting
- * API Version: 2015-04-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getAutoscaleSetting(args: GetAutoscaleSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetAutoscaleSettingResult> {
 
@@ -56,11 +56,19 @@ export interface GetAutoscaleSettingResult {
      */
     readonly notifications?: outputs.insights.AutoscaleNotificationResponse[];
     /**
+     * the predictive autoscale policy mode.
+     */
+    readonly predictiveAutoscalePolicy?: outputs.insights.PredictiveAutoscalePolicyResponse;
+    /**
      * the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
      */
     readonly profiles: outputs.insights.AutoscaleProfileResponse[];
     /**
-     * Resource tags
+     * The system metadata related to the response.
+     */
+    readonly systemData: outputs.insights.SystemDataResponse;
+    /**
+     * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
      */
     readonly tags?: {[key: string]: string};
     /**
@@ -78,7 +86,7 @@ export interface GetAutoscaleSettingResult {
 }
 /**
  * Gets an autoscale setting
- * API Version: 2015-04-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function getAutoscaleSettingOutput(args: GetAutoscaleSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscaleSettingResult> {
     return pulumi.output(args).apply((a: any) => getAutoscaleSetting(a, opts))

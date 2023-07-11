@@ -26,7 +26,7 @@ class EmailTemplateArgs:
                  title: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a EmailTemplate resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] body: Email Template Body. This should be a valid XDocument
         :param pulumi.Input[str] description: Description of the Email Template.
@@ -54,7 +54,7 @@ class EmailTemplateArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -163,14 +163,14 @@ class EmailTemplate(pulumi.CustomResource):
                  __props__=None):
         """
         Email Template details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: Email Template Body. This should be a valid XDocument
         :param pulumi.Input[str] description: Description of the Email Template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EmailTemplateParametersContractPropertiesArgs']]]] parameters: Email Template Parameter values.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] subject: Subject of the Template.
         :param pulumi.Input[str] template_name: Email Template Name Identifier.
@@ -184,7 +184,7 @@ class EmailTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Email Template details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param EmailTemplateArgs args: The arguments to use to populate this resource's properties.
@@ -233,7 +233,7 @@ class EmailTemplate(pulumi.CustomResource):
             __props__.__dict__["is_default"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:EmailTemplate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:EmailTemplate"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:EmailTemplate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EmailTemplate, __self__).__init__(
             'azure-native:apimanagement:EmailTemplate',
@@ -287,7 +287,7 @@ class EmailTemplate(pulumi.CustomResource):
     @pulumi.getter(name="isDefault")
     def is_default(self) -> pulumi.Output[bool]:
         """
-        Whether the template is the default template provided by Api Management or has been edited.
+        Whether the template is the default template provided by API Management or has been edited.
         """
         return pulumi.get(self, "is_default")
 
@@ -295,7 +295,7 @@ class EmailTemplate(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -327,7 +327,7 @@ class EmailTemplate(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

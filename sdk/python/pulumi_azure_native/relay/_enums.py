@@ -6,7 +6,9 @@ from enum import Enum
 
 __all__ = [
     'AccessRights',
-    'PrivateEndpointServiceConnectionStatus',
+    'EndPointProvisioningState',
+    'PrivateLinkConnectionStatus',
+    'PublicNetworkAccess',
     'Relaytype',
     'SkuName',
     'SkuTier',
@@ -19,14 +21,35 @@ class AccessRights(str, Enum):
     LISTEN = "Listen"
 
 
-class PrivateEndpointServiceConnectionStatus(str, Enum):
+class EndPointProvisioningState(str, Enum):
     """
-    Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
+    Provisioning state of the Private Endpoint Connection.
+    """
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    SUCCEEDED = "Succeeded"
+    CANCELED = "Canceled"
+    FAILED = "Failed"
+
+
+class PrivateLinkConnectionStatus(str, Enum):
+    """
+    Status of the connection.
     """
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
     DISCONNECTED = "Disconnected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    This determines if traffic is allowed over public network. By default it is enabled.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+    SECURED_BY_PERIMETER = "SecuredByPerimeter"
 
 
 class Relaytype(str, Enum):

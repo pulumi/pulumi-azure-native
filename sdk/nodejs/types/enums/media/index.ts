@@ -2,34 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20180330preview from "./v20180330preview";
 import * as v20180601preview from "./v20180601preview";
-import * as v20180701 from "./v20180701";
 import * as v20190501preview from "./v20190501preview";
 import * as v20200201preview from "./v20200201preview";
-import * as v20200501 from "./v20200501";
-import * as v20210501 from "./v20210501";
-import * as v20210601 from "./v20210601";
-import * as v20211101 from "./v20211101";
-import * as v20220501preview from "./v20220501preview";
 import * as v20220701 from "./v20220701";
-import * as v20220801 from "./v20220801";
 import * as v20221101 from "./v20221101";
 import * as v20230101 from "./v20230101";
 
 export {
-    v20180330preview,
     v20180601preview,
-    v20180701,
     v20190501preview,
     v20200201preview,
-    v20200501,
-    v20210501,
-    v20210601,
-    v20211101,
-    v20220501preview,
     v20220701,
-    v20220801,
     v20221101,
     v20230101,
 };
@@ -182,7 +166,7 @@ export const ChannelMapping = {
      */
     Center: "Center",
     /**
-     * Low Frequency Effects Channel.  Sometimes referred to as the Subwoofer.
+     * Low Frequency Effects Channel.  Sometimes referred to as the subwoofer.
      */
     LowFrequencyEffects: "LowFrequencyEffects",
     /**
@@ -207,6 +191,26 @@ export const ChannelMapping = {
  * Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
  */
 export type ChannelMapping = (typeof ChannelMapping)[keyof typeof ChannelMapping];
+
+export const Complexity = {
+    /**
+     * Configures the encoder to use settings optimized for faster encoding. Quality is sacrificed to decrease encoding time.
+     */
+    Speed: "Speed",
+    /**
+     * Configures the encoder to use settings that achieve a balance between speed and quality.
+     */
+    Balanced: "Balanced",
+    /**
+     * Configures the encoder to use settings optimized to produce higher quality output at the expense of slower overall encode time.
+     */
+    Quality: "Quality",
+} as const;
+
+/**
+ * Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+ */
+export type Complexity = (typeof Complexity)[keyof typeof Complexity];
 
 export const ContentKeyPolicyFairPlayRentalAndLeaseKeyType = {
     /**
@@ -324,6 +328,22 @@ export const ContentKeyPolicyRestrictionTokenType = {
  */
 export type ContentKeyPolicyRestrictionTokenType = (typeof ContentKeyPolicyRestrictionTokenType)[keyof typeof ContentKeyPolicyRestrictionTokenType];
 
+export const DefaultAction = {
+    /**
+     * All public IP addresses are allowed.
+     */
+    Allow: "Allow",
+    /**
+     * Public IP addresses are blocked.
+     */
+    Deny: "Deny",
+} as const;
+
+/**
+ * The behavior for IP access control in Key Delivery.
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
+
 export const DeinterlaceMode = {
     /**
      * Disables de-interlacing of the source video.
@@ -378,9 +398,13 @@ export const EncoderNamedPreset = {
      */
     AdaptiveStreaming: "AdaptiveStreaming",
     /**
-     * Produces a single MP4 file containing only stereo audio encoded at 192 kbps.
+     * Produces a single MP4 file containing only AAC stereo audio encoded at 192 kbps.
      */
     AACGoodQualityAudio: "AACGoodQualityAudio",
+    /**
+     * Produces a single MP4 file containing only DD(Digital Dolby) stereo audio encoded at 192 kbps.
+     */
+    DDGoodQualityAudio: "DDGoodQualityAudio",
     /**
      * Exposes an experimental preset for content-aware encoding. Given any input content, the service attempts to automatically determine the optimal number of layers, appropriate bitrate and resolution settings for delivery by adaptive streaming. The underlying algorithms will continue to evolve over time. The output will contain MP4 files with video and audio interleaved.
      */
@@ -536,6 +560,26 @@ export const H264Complexity = {
  */
 export type H264Complexity = (typeof H264Complexity)[keyof typeof H264Complexity];
 
+export const H264RateControlMode = {
+    /**
+     * Average Bitrate (ABR) mode that hits the target bitrate: Default mode.
+     */
+    ABR: "ABR",
+    /**
+     * Constant Bitrate (CBR) mode that tightens bitrate variations around target bitrate.
+     */
+    CBR: "CBR",
+    /**
+     * Constant Rate Factor (CRF) mode that targets at constant subjective quality.
+     */
+    CRF: "CRF",
+} as const;
+
+/**
+ * The video rate control mode
+ */
+export type H264RateControlMode = (typeof H264RateControlMode)[keyof typeof H264RateControlMode];
+
 export const H264VideoProfile = {
     /**
      * Tells the encoder to automatically determine the appropriate H.264 profile.
@@ -597,6 +641,10 @@ export const H265VideoProfile = {
      * Main profile (https://x265.readthedocs.io/en/default/cli.html?highlight=profile#profile-level-tier)
      */
     Main: "Main",
+    /**
+     * Main 10 profile (https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding#Main_10)
+     */
+    Main10: "Main10",
 } as const;
 
 /**
@@ -624,9 +672,25 @@ export const InsightsType = {
  */
 export type InsightsType = (typeof InsightsType)[keyof typeof InsightsType];
 
+export const InterleaveOutput = {
+    /**
+     * The output is video-only or audio-only.
+     */
+    NonInterleavedOutput: "NonInterleavedOutput",
+    /**
+     * The output includes both audio and video.
+     */
+    InterleavedOutput: "InterleavedOutput",
+} as const;
+
+/**
+ * Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+ */
+export type InterleaveOutput = (typeof InterleaveOutput)[keyof typeof InterleaveOutput];
+
 export const LiveEventEncodingType = {
     /**
-     * A contribution live encoder sends a multiple bitrate stream. The ingested stream passes through the live event without any further processing. It is also called the pass-through mode.
+     * This is the same as PassthroughStandard, please see description below. This enumeration value is being deprecated.
      */
     None: "None",
     /**
@@ -637,10 +701,18 @@ export const LiveEventEncodingType = {
      * A contribution live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The output cannot exceed 1080p in resolution.
      */
     Premium1080p: "Premium1080p",
+    /**
+     * The ingested stream passes through the live event from the contribution encoder without any further processing. In the PassthroughBasic mode, ingestion is limited to up to 5Mbps and only 1 concurrent live output is allowed. Live transcription is not available.
+     */
+    PassthroughBasic: "PassthroughBasic",
+    /**
+     * The ingested stream passes through the live event from the contribution encoder without any further processing. Live transcription is available. Ingestion bitrate limits are much higher and up to 3 concurrent live outputs are allowed.
+     */
+    PassthroughStandard: "PassthroughStandard",
 } as const;
 
 /**
- * Live event type. When encodingType is set to None, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+ * Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
  */
 export type LiveEventEncodingType = (typeof LiveEventEncodingType)[keyof typeof LiveEventEncodingType];
 
@@ -660,22 +732,6 @@ export const LiveEventInputProtocol = {
  */
 export type LiveEventInputProtocol = (typeof LiveEventInputProtocol)[keyof typeof LiveEventInputProtocol];
 
-export const ManagedIdentityType = {
-    /**
-     * A system-assigned managed identity.
-     */
-    SystemAssigned: "SystemAssigned",
-    /**
-     * No managed identity.
-     */
-    None: "None",
-} as const;
-
-/**
- * The identity type.
- */
-export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
-
 export const MediaGraphRtspTransport = {
     /**
      * HTTP/HTTPS transport. This should be used when HTTP tunneling is desired.
@@ -691,6 +747,30 @@ export const MediaGraphRtspTransport = {
  * Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
  */
 export type MediaGraphRtspTransport = (typeof MediaGraphRtspTransport)[keyof typeof MediaGraphRtspTransport];
+
+export const MinimumTlsVersion = {
+    /**
+     * Minimum TLS version is TLS 1.0.
+     */
+    Tls10: "Tls10",
+    /**
+     * Minimum TLS version is TLS 1.1.
+     */
+    Tls11: "Tls11",
+    /**
+     * Minimum TLS version is TLS 1.2.
+     */
+    Tls12: "Tls12",
+    /**
+     * Minimum TLS version is TLS 1.3.
+     */
+    Tls13: "Tls13",
+} as const;
+
+/**
+ * The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+ */
+export type MinimumTlsVersion = (typeof MinimumTlsVersion)[keyof typeof MinimumTlsVersion];
 
 export const OnErrorType = {
     /**
@@ -739,6 +819,22 @@ export const PrivateEndpointServiceConnectionStatus = {
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
+export const PublicNetworkAccess = {
+    /**
+     * Public network access is enabled.
+     */
+    Enabled: "Enabled",
+    /**
+     * Public network access is disabled.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public network access is allowed for resources under the Media Services account.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const Rotation = {
     /**
      * Automatically detect and rotate as needed.
@@ -770,6 +866,30 @@ export const Rotation = {
  * The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
  */
 export type Rotation = (typeof Rotation)[keyof typeof Rotation];
+
+export const SecurityLevel = {
+    /**
+     * Represents a SecurityLevel that is unavailable in current API version.
+     */
+    Unknown: "Unknown",
+    /**
+     * For clients under development or test. No protection against unauthorized use.
+     */
+    SL150: "SL150",
+    /**
+     * For hardened devices and applications consuming commercial content. Software or hardware protection.
+     */
+    SL2000: "SL2000",
+    /**
+     * For hardened devices only. Hardware protection.
+     */
+    SL3000: "SL3000",
+} as const;
+
+/**
+ * The security level.
+ */
+export type SecurityLevel = (typeof SecurityLevel)[keyof typeof SecurityLevel];
 
 export const StorageAccountType = {
     /**
@@ -806,9 +926,13 @@ export const StreamOptionsFlag = {
      */
     Default: "Default",
     /**
-     * The live event provides lower end to end latency by reducing its internal buffers. This could result in more client buffering during playback if network bandwidth is low.
+     * The live event provides lower end to end latency by reducing its internal buffers.
      */
     LowLatency: "LowLatency",
+    /**
+     * The live event is optimized for end to end latency. This option is only available for encoding live events with RTMP input. The outputs can be streamed using HLS or DASH formats. The outputs' archive or DVR rewind length is limited to 6 hours. Use "LowLatency" stream option for all other scenarios.
+     */
+    LowLatencyV2: "LowLatencyV2",
 } as const;
 
 export type StreamOptionsFlag = (typeof StreamOptionsFlag)[keyof typeof StreamOptionsFlag];

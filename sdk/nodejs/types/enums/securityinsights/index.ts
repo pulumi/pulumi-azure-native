@@ -3,52 +3,126 @@
 
 // Export sub-modules:
 import * as v20190101preview from "./v20190101preview";
-import * as v20200101 from "./v20200101";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
 import * as v20210901preview from "./v20210901preview";
-import * as v20211001 from "./v20211001";
 import * as v20211001preview from "./v20211001preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220401preview from "./v20220401preview";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220601preview from "./v20220601preview";
 import * as v20220701preview from "./v20220701preview";
-import * as v20220801 from "./v20220801";
 import * as v20220801preview from "./v20220801preview";
 import * as v20220901preview from "./v20220901preview";
 import * as v20221001preview from "./v20221001preview";
-import * as v20221101 from "./v20221101";
 import * as v20221101preview from "./v20221101preview";
 import * as v20221201preview from "./v20221201preview";
 import * as v20230201 from "./v20230201";
 import * as v20230201preview from "./v20230201preview";
+import * as v20230301preview from "./v20230301preview";
 import * as v20230401preview from "./v20230401preview";
+import * as v20230501preview from "./v20230501preview";
+import * as v20230601preview from "./v20230601preview";
 
 export {
     v20190101preview,
-    v20200101,
     v20210301preview,
     v20210401,
     v20210901preview,
-    v20211001,
     v20211001preview,
     v20220101preview,
     v20220401preview,
     v20220501preview,
     v20220601preview,
     v20220701preview,
-    v20220801,
     v20220801preview,
     v20220901preview,
     v20221001preview,
-    v20221101,
     v20221101preview,
     v20221201preview,
     v20230201,
     v20230201preview,
+    v20230301preview,
     v20230401preview,
+    v20230501preview,
+    v20230601preview,
 };
+
+export const ActionType = {
+    /**
+     * Modify an object's properties
+     */
+    ModifyProperties: "ModifyProperties",
+    /**
+     * Run a playbook on an object
+     */
+    RunPlaybook: "RunPlaybook",
+} as const;
+
+/**
+ * The type of the automation rule action.
+ */
+export type ActionType = (typeof ActionType)[keyof typeof ActionType];
+
+export const AlertDetail = {
+    /**
+     * Alert display name
+     */
+    DisplayName: "DisplayName",
+    /**
+     * Alert severity
+     */
+    Severity: "Severity",
+} as const;
+
+/**
+ * Alert detail
+ */
+export type AlertDetail = (typeof AlertDetail)[keyof typeof AlertDetail];
+
+export const AlertProperty = {
+    /**
+     * Alert's link
+     */
+    AlertLink: "AlertLink",
+    /**
+     * Confidence level property
+     */
+    ConfidenceLevel: "ConfidenceLevel",
+    /**
+     * Confidence score
+     */
+    ConfidenceScore: "ConfidenceScore",
+    /**
+     * Extended links to the alert
+     */
+    ExtendedLinks: "ExtendedLinks",
+    /**
+     * Product name alert property
+     */
+    ProductName: "ProductName",
+    /**
+     * Provider name alert property
+     */
+    ProviderName: "ProviderName",
+    /**
+     * Product component name alert property
+     */
+    ProductComponentName: "ProductComponentName",
+    /**
+     * Remediation steps alert property
+     */
+    RemediationSteps: "RemediationSteps",
+    /**
+     * Techniques alert property
+     */
+    Techniques: "Techniques",
+} as const;
+
+/**
+ * The V3 alert property
+ */
+export type AlertProperty = (typeof AlertProperty)[keyof typeof AlertProperty];
 
 export const AlertRuleKind = {
     Scheduled: "Scheduled",
@@ -110,33 +184,65 @@ export const AttackTactic = {
  */
 export type AttackTactic = (typeof AttackTactic)[keyof typeof AttackTactic];
 
-export const AutomationRuleActionType = {
+export const AutomationRulePropertyArrayChangedConditionSupportedArrayType = {
     /**
-     * Modify an object's properties
+     * Evaluate the condition on the alerts
      */
-    ModifyProperties: "ModifyProperties",
+    Alerts: "Alerts",
     /**
-     * Run a playbook on an object
+     * Evaluate the condition on the labels
      */
-    RunPlaybook: "RunPlaybook",
+    Labels: "Labels",
+    /**
+     * Evaluate the condition on the tactics
+     */
+    Tactics: "Tactics",
+    /**
+     * Evaluate the condition on the comments
+     */
+    Comments: "Comments",
 } as const;
 
-/**
- * The type of the automation rule action
- */
-export type AutomationRuleActionType = (typeof AutomationRuleActionType)[keyof typeof AutomationRuleActionType];
+export type AutomationRulePropertyArrayChangedConditionSupportedArrayType = (typeof AutomationRulePropertyArrayChangedConditionSupportedArrayType)[keyof typeof AutomationRulePropertyArrayChangedConditionSupportedArrayType];
 
-export const AutomationRuleConditionType = {
+export const AutomationRulePropertyArrayChangedConditionSupportedChangeType = {
     /**
-     * Evaluate an object property value
+     * Evaluate the condition on items added to the array
      */
-    Property: "Property",
+    Added: "Added",
 } as const;
 
-/**
- * The type of the automation rule condition
- */
-export type AutomationRuleConditionType = (typeof AutomationRuleConditionType)[keyof typeof AutomationRuleConditionType];
+export type AutomationRulePropertyArrayChangedConditionSupportedChangeType = (typeof AutomationRulePropertyArrayChangedConditionSupportedChangeType)[keyof typeof AutomationRulePropertyArrayChangedConditionSupportedChangeType];
+
+export const AutomationRulePropertyChangedConditionSupportedChangedType = {
+    /**
+     * Evaluate the condition on the previous value of the property
+     */
+    ChangedFrom: "ChangedFrom",
+    /**
+     * Evaluate the condition on the updated value of the property
+     */
+    ChangedTo: "ChangedTo",
+} as const;
+
+export type AutomationRulePropertyChangedConditionSupportedChangedType = (typeof AutomationRulePropertyChangedConditionSupportedChangedType)[keyof typeof AutomationRulePropertyChangedConditionSupportedChangedType];
+
+export const AutomationRulePropertyChangedConditionSupportedPropertyType = {
+    /**
+     * Evaluate the condition on the incident severity
+     */
+    IncidentSeverity: "IncidentSeverity",
+    /**
+     * Evaluate the condition on the incident status
+     */
+    IncidentStatus: "IncidentStatus",
+    /**
+     * Evaluate the condition on the incident owner
+     */
+    IncidentOwner: "IncidentOwner",
+} as const;
+
+export type AutomationRulePropertyChangedConditionSupportedPropertyType = (typeof AutomationRulePropertyChangedConditionSupportedPropertyType)[keyof typeof AutomationRulePropertyChangedConditionSupportedPropertyType];
 
 export const AutomationRulePropertyConditionSupportedOperator = {
     /**
@@ -173,9 +279,6 @@ export const AutomationRulePropertyConditionSupportedOperator = {
     NotEndsWith: "NotEndsWith",
 } as const;
 
-/**
- * The operator to use for evaluation the condition
- */
 export type AutomationRulePropertyConditionSupportedOperator = (typeof AutomationRulePropertyConditionSupportedOperator)[keyof typeof AutomationRulePropertyConditionSupportedOperator];
 
 export const AutomationRulePropertyConditionSupportedProperty = {
@@ -196,23 +299,31 @@ export const AutomationRulePropertyConditionSupportedProperty = {
      */
     IncidentStatus: "IncidentStatus",
     /**
+     * The related Analytic rule ids of the incident
+     */
+    IncidentRelatedAnalyticRuleIds: "IncidentRelatedAnalyticRuleIds",
+    /**
      * The tactics of the incident
      */
     IncidentTactics: "IncidentTactics",
     /**
-     * The related Analytic rule ids of the incident
+     * The labels of the incident
      */
-    IncidentRelatedAnalyticRuleIds: "IncidentRelatedAnalyticRuleIds",
+    IncidentLabel: "IncidentLabel",
     /**
      * The provider name of the incident
      */
     IncidentProviderName: "IncidentProviderName",
     /**
+     * The update source of the incident
+     */
+    IncidentUpdatedBySource: "IncidentUpdatedBySource",
+    /**
      * The account Azure Active Directory tenant id
      */
     AccountAadTenantId: "AccountAadTenantId",
     /**
-     * The account Azure Active Directory user id.
+     * The account Azure Active Directory user id
      */
     AccountAadUserId: "AccountAadUserId",
     /**
@@ -239,6 +350,14 @@ export const AutomationRulePropertyConditionSupportedProperty = {
      * The account user principal name suffix
      */
     AccountUPNSuffix: "AccountUPNSuffix",
+    /**
+     * The name of the product of the alert
+     */
+    AlertProductNames: "AlertProductNames",
+    /**
+     * The analytic rule ids of the alert
+     */
+    AlertAnalyticRuleIds: "AlertAnalyticRuleIds",
     /**
      * The Azure resource id
      */
@@ -292,7 +411,7 @@ export const AutomationRulePropertyConditionSupportedProperty = {
      */
     HostOSVersion: "HostOSVersion",
     /**
-     * The IoT device id
+     * "The IoT device id
      */
     IoTDeviceId: "IoTDeviceId",
     /**
@@ -390,9 +509,26 @@ export const AutomationRulePropertyConditionSupportedProperty = {
 } as const;
 
 /**
- * The property to evaluate
+ * The property to evaluate in an automation rule property condition.
  */
 export type AutomationRulePropertyConditionSupportedProperty = (typeof AutomationRulePropertyConditionSupportedProperty)[keyof typeof AutomationRulePropertyConditionSupportedProperty];
+
+export const ConditionType = {
+    /**
+     * Evaluate an object property value
+     */
+    Property: "Property",
+    /**
+     * Evaluate an object property changed value
+     */
+    PropertyChanged: "PropertyChanged",
+    /**
+     * Evaluate an object array property changed value
+     */
+    PropertyArrayChanged: "PropertyArrayChanged",
+} as const;
+
+export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
 
 export const ContentType = {
     AnalyticRule: "AnalyticRule",
@@ -403,18 +539,6 @@ export const ContentType = {
  * Content type.
  */
 export type ContentType = (typeof ContentType)[keyof typeof ContentType];
-
-export const CreatedByType = {
-    User: "User",
-    Application: "Application",
-    ManagedIdentity: "ManagedIdentity",
-    Key: "Key",
-} as const;
-
-/**
- * The type of identity that last modified the resource.
- */
-export type CreatedByType = (typeof CreatedByType)[keyof typeof CreatedByType];
 
 export const CustomEntityQueryKind = {
     Activity: "Activity",
@@ -451,6 +575,130 @@ export const DataTypeState = {
  */
 export type DataTypeState = (typeof DataTypeState)[keyof typeof DataTypeState];
 
+export const DeploymentFetchStatus = {
+    Success: "Success",
+    Unauthorized: "Unauthorized",
+    NotFound: "NotFound",
+} as const;
+
+/**
+ * Status while fetching the last deployment.
+ */
+export type DeploymentFetchStatus = (typeof DeploymentFetchStatus)[keyof typeof DeploymentFetchStatus];
+
+export const DeploymentResult = {
+    Success: "Success",
+    Canceled: "Canceled",
+    Failed: "Failed",
+} as const;
+
+/**
+ * The outcome of the deployment.
+ */
+export type DeploymentResult = (typeof DeploymentResult)[keyof typeof DeploymentResult];
+
+export const DeploymentState = {
+    In_Progress: "In_Progress",
+    Completed: "Completed",
+    Queued: "Queued",
+    Canceling: "Canceling",
+} as const;
+
+/**
+ * Current status of the deployment.
+ */
+export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentState];
+
+export const EntityMappingType = {
+    /**
+     * User account entity type
+     */
+    Account: "Account",
+    /**
+     * Host entity type
+     */
+    Host: "Host",
+    /**
+     * IP address entity type
+     */
+    IP: "IP",
+    /**
+     * Malware entity type
+     */
+    Malware: "Malware",
+    /**
+     * System file entity type
+     */
+    File: "File",
+    /**
+     * Process entity type
+     */
+    Process: "Process",
+    /**
+     * Cloud app entity type
+     */
+    CloudApplication: "CloudApplication",
+    /**
+     * DNS entity type
+     */
+    DNS: "DNS",
+    /**
+     * Azure resource entity type
+     */
+    AzureResource: "AzureResource",
+    /**
+     * File-hash entity type
+     */
+    FileHash: "FileHash",
+    /**
+     * Registry key entity type
+     */
+    RegistryKey: "RegistryKey",
+    /**
+     * Registry value entity type
+     */
+    RegistryValue: "RegistryValue",
+    /**
+     * Security group entity type
+     */
+    SecurityGroup: "SecurityGroup",
+    /**
+     * URL entity type
+     */
+    URL: "URL",
+    /**
+     * Mailbox entity type
+     */
+    Mailbox: "Mailbox",
+    /**
+     * Mail cluster entity type
+     */
+    MailCluster: "MailCluster",
+    /**
+     * Mail message entity type
+     */
+    MailMessage: "MailMessage",
+    /**
+     * Submission mail entity type
+     */
+    SubmissionMail: "SubmissionMail",
+} as const;
+
+/**
+ * The V3 type of the mapped entity
+ */
+export type EntityMappingType = (typeof EntityMappingType)[keyof typeof EntityMappingType];
+
+export const EntityProviders = {
+    ActiveDirectory: "ActiveDirectory",
+    AzureActiveDirectory: "AzureActiveDirectory",
+} as const;
+
+/**
+ * The entity provider that is synced.
+ */
+export type EntityProviders = (typeof EntityProviders)[keyof typeof EntityProviders];
+
 export const EntityTimelineKind = {
     /**
      * activity
@@ -464,6 +712,10 @@ export const EntityTimelineKind = {
      * security alerts
      */
     SecurityAlert: "SecurityAlert",
+    /**
+     * anomaly
+     */
+    Anomaly: "Anomaly",
 } as const;
 
 /**
@@ -556,12 +808,87 @@ export const EntityType = {
      * Entity represents submission mail in the system.
      */
     SubmissionMail: "SubmissionMail",
+    /**
+     * Entity represents network interface in the system.
+     */
+    Nic: "Nic",
 } as const;
 
 /**
  * The type of the query's source entity
  */
 export type EntityType = (typeof EntityType)[keyof typeof EntityType];
+
+export const EventGroupingAggregationKind = {
+    SingleAlert: "SingleAlert",
+    AlertPerResult: "AlertPerResult",
+} as const;
+
+/**
+ * The event grouping aggregation kinds
+ */
+export type EventGroupingAggregationKind = (typeof EventGroupingAggregationKind)[keyof typeof EventGroupingAggregationKind];
+
+export const FileFormat = {
+    /**
+     * A CSV file.
+     */
+    CSV: "CSV",
+    /**
+     * A JSON file.
+     */
+    JSON: "JSON",
+    /**
+     * A file of other format.
+     */
+    Unspecified: "Unspecified",
+} as const;
+
+/**
+ * The format of the file
+ */
+export type FileFormat = (typeof FileFormat)[keyof typeof FileFormat];
+
+export const FileImportContentType = {
+    /**
+     * File containing records with the core fields of an indicator, plus the observables to construct the STIX pattern.
+     */
+    BasicIndicator: "BasicIndicator",
+    /**
+     * File containing STIX indicators.
+     */
+    StixIndicator: "StixIndicator",
+    /**
+     * File containing other records.
+     */
+    Unspecified: "Unspecified",
+} as const;
+
+/**
+ * The content type of this file.
+ */
+export type FileImportContentType = (typeof FileImportContentType)[keyof typeof FileImportContentType];
+
+export const Flag = {
+    True: "true",
+    False: "false",
+} as const;
+
+/**
+ * Flag indicates if this package is in preview.
+ */
+export type Flag = (typeof Flag)[keyof typeof Flag];
+
+export const HypothesisStatus = {
+    Unknown: "Unknown",
+    Invalidated: "Invalidated",
+    Validated: "Validated",
+} as const;
+
+/**
+ * The hypothesis status of the hunt.
+ */
+export type HypothesisStatus = (typeof HypothesisStatus)[keyof typeof HypothesisStatus];
 
 export const IncidentClassification = {
     /**
@@ -655,6 +982,39 @@ export const IncidentStatus = {
  */
 export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
 
+export const IncidentTaskStatus = {
+    /**
+     * A new task
+     */
+    New: "New",
+    /**
+     * A completed task
+     */
+    Completed: "Completed",
+} as const;
+
+export type IncidentTaskStatus = (typeof IncidentTaskStatus)[keyof typeof IncidentTaskStatus];
+
+export const IngestionMode = {
+    /**
+     * No records should be ingested when invalid records are detected.
+     */
+    IngestOnlyIfAllAreValid: "IngestOnlyIfAllAreValid",
+    /**
+     * Valid records should still be ingested when invalid records are detected.
+     */
+    IngestAnyValidRecords: "IngestAnyValidRecords",
+    /**
+     * Unspecified
+     */
+    Unspecified: "Unspecified",
+} as const;
+
+/**
+ * Describes how to ingest the records in the file.
+ */
+export type IngestionMode = (typeof IngestionMode)[keyof typeof IngestionMode];
+
 export const Kind = {
     DataConnector: "DataConnector",
     DataType: "DataType",
@@ -670,12 +1030,35 @@ export const Kind = {
     Watchlist: "Watchlist",
     WatchlistTemplate: "WatchlistTemplate",
     Solution: "Solution",
+    AzureFunction: "AzureFunction",
+    LogicAppsCustomConnector: "LogicAppsCustomConnector",
+    AutomationRule: "AutomationRule",
 } as const;
 
 /**
- * The kind of content the metadata is for.
+ * Type of the content item we depend on
  */
 export type Kind = (typeof Kind)[keyof typeof Kind];
+
+export const MatchingMethod = {
+    /**
+     * Grouping alerts into a single incident if all the entities match
+     */
+    AllEntities: "AllEntities",
+    /**
+     * Grouping any alerts triggered by this rule into a single incident
+     */
+    AnyAlert: "AnyAlert",
+    /**
+     * Grouping alerts into a single incident if the selected entities, custom details and alert details match
+     */
+    Selected: "Selected",
+} as const;
+
+/**
+ * Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+ */
+export type MatchingMethod = (typeof MatchingMethod)[keyof typeof MatchingMethod];
 
 export const MicrosoftSecurityProductName = {
     Microsoft_Cloud_App_Security: "Microsoft Cloud App Security",
@@ -690,6 +1073,22 @@ export const MicrosoftSecurityProductName = {
  */
 export type MicrosoftSecurityProductName = (typeof MicrosoftSecurityProductName)[keyof typeof MicrosoftSecurityProductName];
 
+export const Mode = {
+    /**
+     * The workspace manager configuration is enabled
+     */
+    Enabled: "Enabled",
+    /**
+     * The workspace manager configuration is disabled
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The current mode of the workspace manager configuration
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
+
 export const Operator = {
     AND: "AND",
     OR: "OR",
@@ -699,6 +1098,36 @@ export const Operator = {
  * Operator used for list of dependencies in criteria array.
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
+
+export const OwnerType = {
+    /**
+     * The incident owner type is unknown
+     */
+    Unknown: "Unknown",
+    /**
+     * The incident owner type is an AAD user
+     */
+    User: "User",
+    /**
+     * The incident owner type is an AAD group
+     */
+    Group: "Group",
+} as const;
+
+/**
+ * The type of the owner the incident is assigned to.
+ */
+export type OwnerType = (typeof OwnerType)[keyof typeof OwnerType];
+
+export const PackageKind = {
+    Solution: "Solution",
+    Standalone: "Standalone",
+} as const;
+
+/**
+ * the packageKind of the package contains this template
+ */
+export type PackageKind = (typeof PackageKind)[keyof typeof PackageKind];
 
 export const RepoType = {
     Github: "Github",
@@ -769,6 +1198,17 @@ export const SourceKind = {
  */
 export type SourceKind = (typeof SourceKind)[keyof typeof SourceKind];
 
+export const Status = {
+    New: "New",
+    Active: "Active",
+    Closed: "Closed",
+} as const;
+
+/**
+ * The status of the hunt.
+ */
+export type Status = (typeof Status)[keyof typeof Status];
+
 export const SupportTier = {
     Microsoft: "Microsoft",
     Partner: "Partner",
@@ -780,7 +1220,7 @@ export const SupportTier = {
  */
 export type SupportTier = (typeof SupportTier)[keyof typeof SupportTier];
 
-export const ThreatIntelligenceResourceKind = {
+export const ThreatIntelligenceResourceInnerKind = {
     /**
      * Entity represents threat intelligence indicator in the system.
      */
@@ -790,7 +1230,7 @@ export const ThreatIntelligenceResourceKind = {
 /**
  * The kind of the entity.
  */
-export type ThreatIntelligenceResourceKind = (typeof ThreatIntelligenceResourceKind)[keyof typeof ThreatIntelligenceResourceKind];
+export type ThreatIntelligenceResourceInnerKind = (typeof ThreatIntelligenceResourceInnerKind)[keyof typeof ThreatIntelligenceResourceInnerKind];
 
 export const TriggerOperator = {
     GreaterThan: "GreaterThan",
@@ -809,11 +1249,12 @@ export const TriggersOn = {
      * Trigger on Incidents
      */
     Incidents: "Incidents",
+    /**
+     * Trigger on Alerts
+     */
+    Alerts: "Alerts",
 } as const;
 
-/**
- * The type of object the automation rule triggers on
- */
 export type TriggersOn = (typeof TriggersOn)[keyof typeof TriggersOn];
 
 export const TriggersWhen = {
@@ -821,11 +1262,12 @@ export const TriggersWhen = {
      * Trigger on created objects
      */
     Created: "Created",
+    /**
+     * Trigger on updated objects
+     */
+    Updated: "Updated",
 } as const;
 
-/**
- * The type of event the automation rule triggers on
- */
 export type TriggersWhen = (typeof TriggersWhen)[keyof typeof TriggersWhen];
 
 export const UebaDataSources = {
@@ -839,3 +1281,13 @@ export const UebaDataSources = {
  * The data source that enriched by ueba.
  */
 export type UebaDataSources = (typeof UebaDataSources)[keyof typeof UebaDataSources];
+
+export const Version = {
+    V1: "V1",
+    V2: "V2",
+} as const;
+
+/**
+ * The version number associated with the source control
+ */
+export type Version = (typeof Version)[keyof typeof Version];

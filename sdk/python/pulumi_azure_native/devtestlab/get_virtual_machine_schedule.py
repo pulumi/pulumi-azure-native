@@ -172,7 +172,7 @@ class GetVirtualMachineScheduleResult:
     @pulumi.getter(name="timeZoneId")
     def time_zone_id(self) -> Optional[str]:
         """
-        The time zone ID (e.g. Pacific Standard time).
+        The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
         """
         return pulumi.get(self, "time_zone_id")
 
@@ -233,7 +233,7 @@ def get_virtual_machine_schedule(expand: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualMachineScheduleResult:
     """
     Get schedule.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'
@@ -279,7 +279,7 @@ def get_virtual_machine_schedule_output(expand: Optional[pulumi.Input[Optional[s
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualMachineScheduleResult]:
     """
     Get schedule.
-    API Version: 2018-09-15.
+    Azure REST API version: 2018-09-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=status)'

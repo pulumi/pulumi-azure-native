@@ -22,7 +22,7 @@ class GetGalleryResult:
     """
     Specifies information about the Shared Image Gallery that you want to create or update.
     """
-    def __init__(__self__, description=None, id=None, identifier=None, location=None, name=None, provisioning_state=None, sharing_profile=None, tags=None, type=None):
+    def __init__(__self__, description=None, id=None, identifier=None, location=None, name=None, provisioning_state=None, sharing_profile=None, sharing_status=None, soft_delete_policy=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -44,6 +44,12 @@ class GetGalleryResult:
         if sharing_profile and not isinstance(sharing_profile, dict):
             raise TypeError("Expected argument 'sharing_profile' to be a dict")
         pulumi.set(__self__, "sharing_profile", sharing_profile)
+        if sharing_status and not isinstance(sharing_status, dict):
+            raise TypeError("Expected argument 'sharing_status' to be a dict")
+        pulumi.set(__self__, "sharing_status", sharing_status)
+        if soft_delete_policy and not isinstance(soft_delete_policy, dict):
+            raise TypeError("Expected argument 'soft_delete_policy' to be a dict")
+        pulumi.set(__self__, "soft_delete_policy", soft_delete_policy)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -108,6 +114,22 @@ class GetGalleryResult:
         return pulumi.get(self, "sharing_profile")
 
     @property
+    @pulumi.getter(name="sharingStatus")
+    def sharing_status(self) -> 'outputs.SharingStatusResponse':
+        """
+        Sharing status of current gallery.
+        """
+        return pulumi.get(self, "sharing_status")
+
+    @property
+    @pulumi.getter(name="softDeletePolicy")
+    def soft_delete_policy(self) -> Optional['outputs.SoftDeletePolicyResponse']:
+        """
+        Contains information about the soft deletion policy of the gallery.
+        """
+        return pulumi.get(self, "soft_delete_policy")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -137,24 +159,29 @@ class AwaitableGetGalleryResult(GetGalleryResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             sharing_profile=self.sharing_profile,
+            sharing_status=self.sharing_status,
+            soft_delete_policy=self.soft_delete_policy,
             tags=self.tags,
             type=self.type)
 
 
-def get_gallery(gallery_name: Optional[str] = None,
+def get_gallery(expand: Optional[str] = None,
+                gallery_name: Optional[str] = None,
                 resource_group_name: Optional[str] = None,
                 select: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryResult:
     """
     Retrieves information about a Shared Image Gallery.
-    API Version: 2020-09-30.
+    Azure REST API version: 2022-03-03.
 
 
+    :param str expand: The expand query option to apply on the operation.
     :param str gallery_name: The name of the Shared Image Gallery.
     :param str resource_group_name: The name of the resource group.
     :param str select: The select expression to apply on the operation.
     """
     __args__ = dict()
+    __args__['expand'] = expand
     __args__['galleryName'] = gallery_name
     __args__['resourceGroupName'] = resource_group_name
     __args__['select'] = select
@@ -169,20 +196,24 @@ def get_gallery(gallery_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         sharing_profile=__ret__.sharing_profile,
+        sharing_status=__ret__.sharing_status,
+        soft_delete_policy=__ret__.soft_delete_policy,
         tags=__ret__.tags,
         type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_gallery)
-def get_gallery_output(gallery_name: Optional[pulumi.Input[str]] = None,
+def get_gallery_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
+                       gallery_name: Optional[pulumi.Input[str]] = None,
                        resource_group_name: Optional[pulumi.Input[str]] = None,
                        select: Optional[pulumi.Input[Optional[str]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryResult]:
     """
     Retrieves information about a Shared Image Gallery.
-    API Version: 2020-09-30.
+    Azure REST API version: 2022-03-03.
 
 
+    :param str expand: The expand query option to apply on the operation.
     :param str gallery_name: The name of the Shared Image Gallery.
     :param str resource_group_name: The name of the resource group.
     :param str select: The select expression to apply on the operation.

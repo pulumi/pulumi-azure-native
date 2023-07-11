@@ -244,7 +244,7 @@ def get_gallery_image(expand: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGalleryImageResult:
     """
     Get gallery image
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=author)'
@@ -288,7 +288,7 @@ def get_gallery_image_output(expand: Optional[pulumi.Input[Optional[str]]] = Non
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGalleryImageResult]:
     """
     Get gallery image
-    API Version: 2018-10-15.
+    Azure REST API version: 2018-10-15.
 
 
     :param str expand: Specify the $expand query. Example: 'properties($select=author)'

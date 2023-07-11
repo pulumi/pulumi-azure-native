@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get function keys for a function in a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get function keys for a function in a web site, or a deployment slot.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppFunctionKeysSlot(args: ListWebAppFunctionKeysSlotArgs, opts?: pulumi.InvokeOptions): Promise<ListWebAppFunctionKeysSlotResult> {
 
@@ -64,8 +64,8 @@ export interface ListWebAppFunctionKeysSlotResult {
     readonly type: string;
 }
 /**
- * Get function keys for a function in a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get function keys for a function in a web site, or a deployment slot.
+ * Azure REST API version: 2022-09-01.
  */
 export function listWebAppFunctionKeysSlotOutput(args: ListWebAppFunctionKeysSlotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListWebAppFunctionKeysSlotResult> {
     return pulumi.output(args).apply((a: any) => listWebAppFunctionKeysSlot(a, opts))

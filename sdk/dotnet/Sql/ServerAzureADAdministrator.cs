@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Sql
 {
     /// <summary>
     /// Azure Active Directory administrator.
-    /// API Version: 2020-11-01-preview.
+    /// Azure REST API version: 2021-11-01. Prior API version in Azure Native 1.x: 2020-11-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerAzureADAdministrator")]
     public partial class ServerAzureADAdministrator : global::Pulumi.CustomResource
@@ -97,6 +97,7 @@ namespace Pulumi.AzureNative.Sql
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220201preview:ServerAzureADAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:ServerAzureADAdministrator"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:ServerAzureADAdministrator"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:ServerAzureADAdministrator"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

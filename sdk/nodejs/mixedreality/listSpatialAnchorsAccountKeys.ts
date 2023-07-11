@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List Both of the 2 Keys of a Spatial Anchors Account
- * API Version: 2021-01-01.
+ * Azure REST API version: 2021-01-01.
  */
 export function listSpatialAnchorsAccountKeys(args: ListSpatialAnchorsAccountKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListSpatialAnchorsAccountKeysResult> {
 
@@ -43,7 +43,7 @@ export interface ListSpatialAnchorsAccountKeysResult {
 }
 /**
  * List Both of the 2 Keys of a Spatial Anchors Account
- * API Version: 2021-01-01.
+ * Azure REST API version: 2021-01-01.
  */
 export function listSpatialAnchorsAccountKeysOutput(args: ListSpatialAnchorsAccountKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListSpatialAnchorsAccountKeysResult> {
     return pulumi.output(args).apply((a: any) => listSpatialAnchorsAccountKeys(a, opts))

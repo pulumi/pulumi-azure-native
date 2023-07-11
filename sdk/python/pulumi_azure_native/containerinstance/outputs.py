@@ -13,18 +13,19 @@ from ._enums import *
 
 __all__ = [
     'AzureFileVolumeResponse',
+    'ConfidentialComputePropertiesResponse',
     'ContainerExecResponse',
     'ContainerGroupDiagnosticsResponse',
     'ContainerGroupIdentityResponse',
-    'ContainerGroupIdentityResponseUserAssignedIdentities',
-    'ContainerGroupNetworkProfileResponse',
-    'ContainerGroupResponseInstanceView',
+    'ContainerGroupPropertiesResponseInstanceView',
+    'ContainerGroupSubnetIdResponse',
     'ContainerHttpGetResponse',
     'ContainerPortResponse',
     'ContainerProbeResponse',
     'ContainerPropertiesResponseInstanceView',
     'ContainerResponse',
     'ContainerStateResponse',
+    'DeploymentExtensionSpecResponse',
     'DnsConfigurationResponse',
     'EncryptionPropertiesResponse',
     'EnvironmentVariableResponse',
@@ -41,6 +42,9 @@ __all__ = [
     'ResourceLimitsResponse',
     'ResourceRequestsResponse',
     'ResourceRequirementsResponse',
+    'SecurityContextCapabilitiesDefinitionResponse',
+    'SecurityContextDefinitionResponse',
+    'UserAssignedIdentitiesResponse',
     'VolumeMountResponse',
     'VolumeResponse',
 ]
@@ -123,6 +127,46 @@ class AzureFileVolumeResponse(dict):
         The storage account access key used to access the Azure File share.
         """
         return pulumi.get(self, "storage_account_key")
+
+
+@pulumi.output_type
+class ConfidentialComputePropertiesResponse(dict):
+    """
+    The properties for confidential container group
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ccePolicy":
+            suggest = "cce_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfidentialComputePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfidentialComputePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfidentialComputePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cce_policy: Optional[str] = None):
+        """
+        The properties for confidential container group
+        :param str cce_policy: The base64 encoded confidential compute enforcement policy
+        """
+        if cce_policy is not None:
+            pulumi.set(__self__, "cce_policy", cce_policy)
+
+    @property
+    @pulumi.getter(name="ccePolicy")
+    def cce_policy(self) -> Optional[str]:
+        """
+        The base64 encoded confidential compute enforcement policy
+        """
+        return pulumi.get(self, "cce_policy")
 
 
 @pulumi.output_type
@@ -218,13 +262,13 @@ class ContainerGroupIdentityResponse(dict):
                  principal_id: str,
                  tenant_id: str,
                  type: Optional[str] = None,
-                 user_assigned_identities: Optional[Mapping[str, 'outputs.ContainerGroupIdentityResponseUserAssignedIdentities']] = None):
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None):
         """
         Identity for the container group.
         :param str principal_id: The principal id of the container group identity. This property will only be provided for a system assigned identity.
         :param str tenant_id: The tenant id associated with the container group. This property will only be provided for a system assigned identity.
         :param str type: The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
-        :param Mapping[str, 'ContainerGroupIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param Mapping[str, 'UserAssignedIdentitiesResponse'] user_assigned_identities: The list of user identities associated with the container group.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -259,85 +303,15 @@ class ContainerGroupIdentityResponse(dict):
 
     @property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ContainerGroupIdentityResponseUserAssignedIdentities']]:
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']]:
         """
-        The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The list of user identities associated with the container group.
         """
         return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
-class ContainerGroupIdentityResponseUserAssignedIdentities(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "clientId":
-            suggest = "client_id"
-        elif key == "principalId":
-            suggest = "principal_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ContainerGroupIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ContainerGroupIdentityResponseUserAssignedIdentities.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 client_id: str,
-                 principal_id: str):
-        """
-        :param str client_id: The client id of user assigned identity.
-        :param str principal_id: The principal id of user assigned identity.
-        """
-        pulumi.set(__self__, "client_id", client_id)
-        pulumi.set(__self__, "principal_id", principal_id)
-
-    @property
-    @pulumi.getter(name="clientId")
-    def client_id(self) -> str:
-        """
-        The client id of user assigned identity.
-        """
-        return pulumi.get(self, "client_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> str:
-        """
-        The principal id of user assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-
-@pulumi.output_type
-class ContainerGroupNetworkProfileResponse(dict):
-    """
-    Container group network profile information.
-    """
-    def __init__(__self__, *,
-                 id: str):
-        """
-        Container group network profile information.
-        :param str id: The identifier for a network profile.
-        """
-        pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> str:
-        """
-        The identifier for a network profile.
-        """
-        return pulumi.get(self, "id")
-
-
-@pulumi.output_type
-class ContainerGroupResponseInstanceView(dict):
+class ContainerGroupPropertiesResponseInstanceView(dict):
     """
     The instance view of the container group. Only valid in response.
     """
@@ -367,6 +341,40 @@ class ContainerGroupResponseInstanceView(dict):
         The state of the container group. Only valid in response.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class ContainerGroupSubnetIdResponse(dict):
+    """
+    Container group subnet information.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: Optional[str] = None):
+        """
+        Container group subnet information.
+        :param str id: Resource ID of virtual network and subnet.
+        :param str name: Friendly name for the subnet.
+        """
+        pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID of virtual network and subnet.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Friendly name for the subnet.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -694,6 +702,8 @@ class ContainerResponse(dict):
             suggest = "liveness_probe"
         elif key == "readinessProbe":
             suggest = "readiness_probe"
+        elif key == "securityContext":
+            suggest = "security_context"
         elif key == "volumeMounts":
             suggest = "volume_mounts"
 
@@ -718,6 +728,7 @@ class ContainerResponse(dict):
                  liveness_probe: Optional['outputs.ContainerProbeResponse'] = None,
                  ports: Optional[Sequence['outputs.ContainerPortResponse']] = None,
                  readiness_probe: Optional['outputs.ContainerProbeResponse'] = None,
+                 security_context: Optional['outputs.SecurityContextDefinitionResponse'] = None,
                  volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
         """
         A container instance.
@@ -730,6 +741,7 @@ class ContainerResponse(dict):
         :param 'ContainerProbeResponse' liveness_probe: The liveness probe.
         :param Sequence['ContainerPortResponse'] ports: The exposed ports on the container instance.
         :param 'ContainerProbeResponse' readiness_probe: The readiness probe.
+        :param 'SecurityContextDefinitionResponse' security_context: The container security properties.
         :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the container instance.
         """
         pulumi.set(__self__, "image", image)
@@ -746,6 +758,8 @@ class ContainerResponse(dict):
             pulumi.set(__self__, "ports", ports)
         if readiness_probe is not None:
             pulumi.set(__self__, "readiness_probe", readiness_probe)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
         if volume_mounts is not None:
             pulumi.set(__self__, "volume_mounts", volume_mounts)
 
@@ -820,6 +834,14 @@ class ContainerResponse(dict):
         The readiness probe.
         """
         return pulumi.get(self, "readiness_probe")
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional['outputs.SecurityContextDefinitionResponse']:
+        """
+        The container security properties.
+        """
+        return pulumi.get(self, "security_context")
 
     @property
     @pulumi.getter(name="volumeMounts")
@@ -920,6 +942,93 @@ class ContainerStateResponse(dict):
 
 
 @pulumi.output_type
+class DeploymentExtensionSpecResponse(dict):
+    """
+    Extension sidecars to be added to the deployment.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionType":
+            suggest = "extension_type"
+        elif key == "protectedSettings":
+            suggest = "protected_settings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentExtensionSpecResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentExtensionSpecResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentExtensionSpecResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extension_type: str,
+                 name: str,
+                 version: str,
+                 protected_settings: Optional[Any] = None,
+                 settings: Optional[Any] = None):
+        """
+        Extension sidecars to be added to the deployment.
+        :param str extension_type: Type of extension to be added.
+        :param str name: Name of the extension.
+        :param str version: Version of the extension being used.
+        :param Any protected_settings: Protected settings for the extension.
+        :param Any settings: Settings for the extension.
+        """
+        pulumi.set(__self__, "extension_type", extension_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "version", version)
+        if protected_settings is not None:
+            pulumi.set(__self__, "protected_settings", protected_settings)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter(name="extensionType")
+    def extension_type(self) -> str:
+        """
+        Type of extension to be added.
+        """
+        return pulumi.get(self, "extension_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the extension.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> str:
+        """
+        Version of the extension being used.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="protectedSettings")
+    def protected_settings(self) -> Optional[Any]:
+        """
+        Protected settings for the extension.
+        """
+        return pulumi.get(self, "protected_settings")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[Any]:
+        """
+        Settings for the extension.
+        """
+        return pulumi.get(self, "settings")
+
+
+@pulumi.output_type
 class DnsConfigurationResponse(dict):
     """
     DNS configuration for the container group.
@@ -1013,16 +1122,20 @@ class EncryptionPropertiesResponse(dict):
     def __init__(__self__, *,
                  key_name: str,
                  key_version: str,
-                 vault_base_url: str):
+                 vault_base_url: str,
+                 identity: Optional[str] = None):
         """
         The container group encryption properties.
         :param str key_name: The encryption key name.
         :param str key_version: The encryption key version.
         :param str vault_base_url: The keyvault base url.
+        :param str identity: The keyvault managed identity.
         """
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "key_version", key_version)
         pulumi.set(__self__, "vault_base_url", vault_base_url)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
 
     @property
     @pulumi.getter(name="keyName")
@@ -1047,6 +1160,14 @@ class EncryptionPropertiesResponse(dict):
         The keyvault base url.
         """
         return pulumi.get(self, "vault_base_url")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[str]:
+        """
+        The keyvault managed identity.
+        """
+        return pulumi.get(self, "identity")
 
 
 @pulumi.output_type
@@ -1290,13 +1411,13 @@ class GpuResourceResponse(dict):
 @pulumi.output_type
 class HttpHeaderResponse(dict):
     """
-    The HTTP header
+    The HTTP header.
     """
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        The HTTP header
+        The HTTP header.
         :param str name: The header name.
         :param str value: The header value.
         """
@@ -1327,20 +1448,46 @@ class ImageRegistryCredentialResponse(dict):
     """
     Image registry credential.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityUrl":
+            suggest = "identity_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRegistryCredentialResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRegistryCredentialResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRegistryCredentialResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  server: str,
-                 username: str,
-                 password: Optional[str] = None):
+                 identity: Optional[str] = None,
+                 identity_url: Optional[str] = None,
+                 password: Optional[str] = None,
+                 username: Optional[str] = None):
         """
         Image registry credential.
         :param str server: The Docker image registry server without a protocol such as "http" and "https".
-        :param str username: The username for the private registry.
+        :param str identity: The identity for the private registry.
+        :param str identity_url: The identity URL for the private registry.
         :param str password: The password for the private registry.
+        :param str username: The username for the private registry.
         """
         pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if identity_url is not None:
+            pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -1352,11 +1499,19 @@ class ImageRegistryCredentialResponse(dict):
 
     @property
     @pulumi.getter
-    def username(self) -> str:
+    def identity(self) -> Optional[str]:
         """
-        The username for the private registry.
+        The identity for the private registry.
         """
-        return pulumi.get(self, "username")
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="identityUrl")
+    def identity_url(self) -> Optional[str]:
+        """
+        The identity URL for the private registry.
+        """
+        return pulumi.get(self, "identity_url")
 
     @property
     @pulumi.getter
@@ -1365,6 +1520,14 @@ class ImageRegistryCredentialResponse(dict):
         The password for the private registry.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username for the private registry.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -1379,6 +1542,8 @@ class InitContainerDefinitionResponse(dict):
             suggest = "instance_view"
         elif key == "environmentVariables":
             suggest = "environment_variables"
+        elif key == "securityContext":
+            suggest = "security_context"
         elif key == "volumeMounts":
             suggest = "volume_mounts"
 
@@ -1399,6 +1564,7 @@ class InitContainerDefinitionResponse(dict):
                  command: Optional[Sequence[str]] = None,
                  environment_variables: Optional[Sequence['outputs.EnvironmentVariableResponse']] = None,
                  image: Optional[str] = None,
+                 security_context: Optional['outputs.SecurityContextDefinitionResponse'] = None,
                  volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
         """
         The init container definition.
@@ -1407,6 +1573,7 @@ class InitContainerDefinitionResponse(dict):
         :param Sequence[str] command: The command to execute within the init container in exec form.
         :param Sequence['EnvironmentVariableResponse'] environment_variables: The environment variables to set in the init container.
         :param str image: The image of the init container.
+        :param 'SecurityContextDefinitionResponse' security_context: The container security properties.
         :param Sequence['VolumeMountResponse'] volume_mounts: The volume mounts available to the init container.
         """
         pulumi.set(__self__, "instance_view", instance_view)
@@ -1417,6 +1584,8 @@ class InitContainerDefinitionResponse(dict):
             pulumi.set(__self__, "environment_variables", environment_variables)
         if image is not None:
             pulumi.set(__self__, "image", image)
+        if security_context is not None:
+            pulumi.set(__self__, "security_context", security_context)
         if volume_mounts is not None:
             pulumi.set(__self__, "volume_mounts", volume_mounts)
 
@@ -1459,6 +1628,14 @@ class InitContainerDefinitionResponse(dict):
         The image of the init container.
         """
         return pulumi.get(self, "image")
+
+    @property
+    @pulumi.getter(name="securityContext")
+    def security_context(self) -> Optional['outputs.SecurityContextDefinitionResponse']:
+        """
+        The container security properties.
+        """
+        return pulumi.get(self, "security_context")
 
     @property
     @pulumi.getter(name="volumeMounts")
@@ -1553,7 +1730,9 @@ class IpAddressResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dnsNameLabel":
+        if key == "autoGeneratedDomainNameLabelScope":
+            suggest = "auto_generated_domain_name_label_scope"
+        elif key == "dnsNameLabel":
             suggest = "dns_name_label"
 
         if suggest:
@@ -1571,6 +1750,7 @@ class IpAddressResponse(dict):
                  fqdn: str,
                  ports: Sequence['outputs.PortResponse'],
                  type: str,
+                 auto_generated_domain_name_label_scope: Optional[str] = None,
                  dns_name_label: Optional[str] = None,
                  ip: Optional[str] = None):
         """
@@ -1578,12 +1758,17 @@ class IpAddressResponse(dict):
         :param str fqdn: The FQDN for the IP.
         :param Sequence['PortResponse'] ports: The list of ports exposed on the container group.
         :param str type: Specifies if the IP is exposed to the public internet or private VNET.
+        :param str auto_generated_domain_name_label_scope: The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
         :param str dns_name_label: The Dns name label for the IP.
         :param str ip: The IP exposed to the public internet.
         """
         pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "ports", ports)
         pulumi.set(__self__, "type", type)
+        if auto_generated_domain_name_label_scope is None:
+            auto_generated_domain_name_label_scope = 'Unsecure'
+        if auto_generated_domain_name_label_scope is not None:
+            pulumi.set(__self__, "auto_generated_domain_name_label_scope", auto_generated_domain_name_label_scope)
         if dns_name_label is not None:
             pulumi.set(__self__, "dns_name_label", dns_name_label)
         if ip is not None:
@@ -1612,6 +1797,14 @@ class IpAddressResponse(dict):
         Specifies if the IP is exposed to the public internet or private VNET.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="autoGeneratedDomainNameLabelScope")
+    def auto_generated_domain_name_label_scope(self) -> Optional[str]:
+        """
+        The value representing the security enum. The 'Unsecure' value is the default value if not selected and means the object's domain name label is not secured against subdomain takeover. The 'TenantReuse' value is the default value if selected and means the object's domain name label can be reused within the same tenant. The 'SubscriptionReuse' value means the object's domain name label can be reused within the same subscription. The 'ResourceGroupReuse' value means the object's domain name label can be reused within the same resource group. The 'NoReuse' value means the object's domain name label cannot be reused within the same resource group, subscription, or tenant.
+        """
+        return pulumi.get(self, "auto_generated_domain_name_label_scope")
 
     @property
     @pulumi.getter(name="dnsNameLabel")
@@ -1663,14 +1856,14 @@ class LogAnalyticsResponse(dict):
                  workspace_key: str,
                  log_type: Optional[str] = None,
                  metadata: Optional[Mapping[str, str]] = None,
-                 workspace_resource_id: Optional[Mapping[str, str]] = None):
+                 workspace_resource_id: Optional[str] = None):
         """
         Container group log analytics information.
         :param str workspace_id: The workspace id for log analytics
         :param str workspace_key: The workspace key for log analytics
         :param str log_type: The log type to be used.
         :param Mapping[str, str] metadata: Metadata for log analytics.
-        :param Mapping[str, str] workspace_resource_id: The workspace resource id for log analytics
+        :param str workspace_resource_id: The workspace resource id for log analytics
         """
         pulumi.set(__self__, "workspace_id", workspace_id)
         pulumi.set(__self__, "workspace_key", workspace_key)
@@ -1715,7 +1908,7 @@ class LogAnalyticsResponse(dict):
 
     @property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[Mapping[str, str]]:
+    def workspace_resource_id(self) -> Optional[str]:
         """
         The workspace resource id for log analytics
         """
@@ -1914,6 +2107,199 @@ class ResourceRequirementsResponse(dict):
         The resource limits of this container instance.
         """
         return pulumi.get(self, "limits")
+
+
+@pulumi.output_type
+class SecurityContextCapabilitiesDefinitionResponse(dict):
+    """
+    The capabilities to add or drop from a container.
+    """
+    def __init__(__self__, *,
+                 add: Optional[Sequence[str]] = None,
+                 drop: Optional[Sequence[str]] = None):
+        """
+        The capabilities to add or drop from a container.
+        :param Sequence[str] add: The capabilities to add to the container.
+        :param Sequence[str] drop: The capabilities to drop from the container.
+        """
+        if add is not None:
+            pulumi.set(__self__, "add", add)
+        if drop is not None:
+            pulumi.set(__self__, "drop", drop)
+
+    @property
+    @pulumi.getter
+    def add(self) -> Optional[Sequence[str]]:
+        """
+        The capabilities to add to the container.
+        """
+        return pulumi.get(self, "add")
+
+    @property
+    @pulumi.getter
+    def drop(self) -> Optional[Sequence[str]]:
+        """
+        The capabilities to drop from the container.
+        """
+        return pulumi.get(self, "drop")
+
+
+@pulumi.output_type
+class SecurityContextDefinitionResponse(dict):
+    """
+    The security context for the container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowPrivilegeEscalation":
+            suggest = "allow_privilege_escalation"
+        elif key == "runAsGroup":
+            suggest = "run_as_group"
+        elif key == "runAsUser":
+            suggest = "run_as_user"
+        elif key == "seccompProfile":
+            suggest = "seccomp_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityContextDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityContextDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityContextDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[bool] = None,
+                 capabilities: Optional['outputs.SecurityContextCapabilitiesDefinitionResponse'] = None,
+                 privileged: Optional[bool] = None,
+                 run_as_group: Optional[int] = None,
+                 run_as_user: Optional[int] = None,
+                 seccomp_profile: Optional[str] = None):
+        """
+        The security context for the container.
+        :param bool allow_privilege_escalation: A boolean value indicating whether the init process can elevate its privileges
+        :param 'SecurityContextCapabilitiesDefinitionResponse' capabilities: The capabilities to add or drop from a container.
+        :param bool privileged: The flag to determine if the container permissions is elevated to Privileged.
+        :param int run_as_group: Sets the User GID for the container.
+        :param int run_as_user: Sets the User UID for the container.
+        :param str seccomp_profile: a base64 encoded string containing the contents of the JSON in the seccomp profile
+        """
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if run_as_group is not None:
+            pulumi.set(__self__, "run_as_group", run_as_group)
+        if run_as_user is not None:
+            pulumi.set(__self__, "run_as_user", run_as_user)
+        if seccomp_profile is not None:
+            pulumi.set(__self__, "seccomp_profile", seccomp_profile)
+
+    @property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[bool]:
+        """
+        A boolean value indicating whether the init process can elevate its privileges
+        """
+        return pulumi.get(self, "allow_privilege_escalation")
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional['outputs.SecurityContextCapabilitiesDefinitionResponse']:
+        """
+        The capabilities to add or drop from a container.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[bool]:
+        """
+        The flag to determine if the container permissions is elevated to Privileged.
+        """
+        return pulumi.get(self, "privileged")
+
+    @property
+    @pulumi.getter(name="runAsGroup")
+    def run_as_group(self) -> Optional[int]:
+        """
+        Sets the User GID for the container.
+        """
+        return pulumi.get(self, "run_as_group")
+
+    @property
+    @pulumi.getter(name="runAsUser")
+    def run_as_user(self) -> Optional[int]:
+        """
+        Sets the User UID for the container.
+        """
+        return pulumi.get(self, "run_as_user")
+
+    @property
+    @pulumi.getter(name="seccompProfile")
+    def seccomp_profile(self) -> Optional[str]:
+        """
+        a base64 encoded string containing the contents of the JSON in the seccomp profile
+        """
+        return pulumi.get(self, "seccomp_profile")
+
+
+@pulumi.output_type
+class UserAssignedIdentitiesResponse(dict):
+    """
+    The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentitiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentitiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentitiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

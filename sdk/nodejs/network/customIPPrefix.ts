@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Custom IP prefix resource.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
  */
 export class CustomIPPrefix extends pulumi.CustomResource {
     /**
@@ -39,6 +39,18 @@ export class CustomIPPrefix extends pulumi.CustomResource {
     }
 
     /**
+     * The ASN for CIDR advertising. Should be an integer as string.
+     */
+    public readonly asn!: pulumi.Output<string | undefined>;
+    /**
+     * Authorization message for WAN validation.
+     */
+    public readonly authorizationMessage!: pulumi.Output<string | undefined>;
+    /**
+     * The list of all Children for IPv6 /48 CustomIpPrefix.
+     */
+    public /*out*/ readonly childCustomIpPrefixes!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    /**
      * The prefix range in CIDR notation. Should include the start address and the prefix length.
      */
     public readonly cidr!: pulumi.Output<string | undefined>;
@@ -47,13 +59,29 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      */
     public readonly commissionedState!: pulumi.Output<string | undefined>;
     /**
+     * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+     */
+    public readonly customIpPrefixParent!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
+     * Whether to do express route advertise.
+     */
+    public readonly expressRouteAdvertise!: pulumi.Output<boolean | undefined>;
+    /**
      * The extended location of the custom IP prefix.
      */
     public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    /**
+     * The reason why resource is in failed state.
+     */
+    public /*out*/ readonly failedReason!: pulumi.Output<string>;
+    /**
+     * The Geo for CIDR advertising. Should be an Geo code.
+     */
+    public readonly geo!: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
@@ -62,6 +90,14 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * Whether to Advertise the range to Internet.
+     */
+    public readonly noInternetAdvertise!: pulumi.Output<boolean | undefined>;
+    /**
+     * Type of custom IP prefix. Should be Singular, Parent, or Child.
+     */
+    public readonly prefixType!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the custom IP prefix resource.
      */
@@ -74,6 +110,10 @@ export class CustomIPPrefix extends pulumi.CustomResource {
      * The resource GUID property of the custom IP prefix resource.
      */
     public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    /**
+     * Signed message for WAN validation.
+     */
+    public readonly signedMessage!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -101,37 +141,57 @@ export class CustomIPPrefix extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["asn"] = args ? args.asn : undefined;
+            resourceInputs["authorizationMessage"] = args ? args.authorizationMessage : undefined;
             resourceInputs["cidr"] = args ? args.cidr : undefined;
             resourceInputs["commissionedState"] = args ? args.commissionedState : undefined;
             resourceInputs["customIpPrefixName"] = args ? args.customIpPrefixName : undefined;
+            resourceInputs["customIpPrefixParent"] = args ? args.customIpPrefixParent : undefined;
+            resourceInputs["expressRouteAdvertise"] = args ? args.expressRouteAdvertise : undefined;
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["geo"] = args ? args.geo : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["noInternetAdvertise"] = args ? args.noInternetAdvertise : undefined;
+            resourceInputs["prefixType"] = args ? args.prefixType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["signedMessage"] = args ? args.signedMessage : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["childCustomIpPrefixes"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["failedReason"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicIpPrefixes"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["asn"] = undefined /*out*/;
+            resourceInputs["authorizationMessage"] = undefined /*out*/;
+            resourceInputs["childCustomIpPrefixes"] = undefined /*out*/;
             resourceInputs["cidr"] = undefined /*out*/;
             resourceInputs["commissionedState"] = undefined /*out*/;
+            resourceInputs["customIpPrefixParent"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["expressRouteAdvertise"] = undefined /*out*/;
             resourceInputs["extendedLocation"] = undefined /*out*/;
+            resourceInputs["failedReason"] = undefined /*out*/;
+            resourceInputs["geo"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["noInternetAdvertise"] = undefined /*out*/;
+            resourceInputs["prefixType"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicIpPrefixes"] = undefined /*out*/;
             resourceInputs["resourceGuid"] = undefined /*out*/;
+            resourceInputs["signedMessage"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zones"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:CustomIPPrefix" }, { type: "azure-native:network/v20200701:CustomIPPrefix" }, { type: "azure-native:network/v20200801:CustomIPPrefix" }, { type: "azure-native:network/v20201101:CustomIPPrefix" }, { type: "azure-native:network/v20210201:CustomIPPrefix" }, { type: "azure-native:network/v20210301:CustomIPPrefix" }, { type: "azure-native:network/v20210501:CustomIPPrefix" }, { type: "azure-native:network/v20210801:CustomIPPrefix" }, { type: "azure-native:network/v20220101:CustomIPPrefix" }, { type: "azure-native:network/v20220501:CustomIPPrefix" }, { type: "azure-native:network/v20220701:CustomIPPrefix" }, { type: "azure-native:network/v20220901:CustomIPPrefix" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20200601:CustomIPPrefix" }, { type: "azure-native:network/v20200701:CustomIPPrefix" }, { type: "azure-native:network/v20200801:CustomIPPrefix" }, { type: "azure-native:network/v20201101:CustomIPPrefix" }, { type: "azure-native:network/v20210201:CustomIPPrefix" }, { type: "azure-native:network/v20210301:CustomIPPrefix" }, { type: "azure-native:network/v20210501:CustomIPPrefix" }, { type: "azure-native:network/v20210801:CustomIPPrefix" }, { type: "azure-native:network/v20220101:CustomIPPrefix" }, { type: "azure-native:network/v20220501:CustomIPPrefix" }, { type: "azure-native:network/v20220701:CustomIPPrefix" }, { type: "azure-native:network/v20220901:CustomIPPrefix" }, { type: "azure-native:network/v20221101:CustomIPPrefix" }, { type: "azure-native:network/v20230201:CustomIPPrefix" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomIPPrefix.__pulumiType, name, resourceInputs, opts);
     }
@@ -141,6 +201,14 @@ export class CustomIPPrefix extends pulumi.CustomResource {
  * The set of arguments for constructing a CustomIPPrefix resource.
  */
 export interface CustomIPPrefixArgs {
+    /**
+     * The ASN for CIDR advertising. Should be an integer as string.
+     */
+    asn?: pulumi.Input<string>;
+    /**
+     * Authorization message for WAN validation.
+     */
+    authorizationMessage?: pulumi.Input<string>;
     /**
      * The prefix range in CIDR notation. Should include the start address and the prefix length.
      */
@@ -154,9 +222,21 @@ export interface CustomIPPrefixArgs {
      */
     customIpPrefixName?: pulumi.Input<string>;
     /**
+     * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
+     */
+    customIpPrefixParent?: pulumi.Input<inputs.network.SubResourceArgs>;
+    /**
+     * Whether to do express route advertise.
+     */
+    expressRouteAdvertise?: pulumi.Input<boolean>;
+    /**
      * The extended location of the custom IP prefix.
      */
     extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
+    /**
+     * The Geo for CIDR advertising. Should be an Geo code.
+     */
+    geo?: pulumi.Input<string | enums.network.Geo>;
     /**
      * Resource ID.
      */
@@ -166,9 +246,21 @@ export interface CustomIPPrefixArgs {
      */
     location?: pulumi.Input<string>;
     /**
+     * Whether to Advertise the range to Internet.
+     */
+    noInternetAdvertise?: pulumi.Input<boolean>;
+    /**
+     * Type of custom IP prefix. Should be Singular, Parent, or Child.
+     */
+    prefixType?: pulumi.Input<string | enums.network.CustomIpPrefixType>;
+    /**
      * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Signed message for WAN validation.
+     */
+    signedMessage?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

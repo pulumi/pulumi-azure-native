@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DataProtection
 {
     /// <summary>
     /// Backup Vault Resource
-    /// API Version: 2021-01-01.
+    /// Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupVault")]
     public partial class BackupVault : global::Pulumi.CustomResource
@@ -106,6 +106,8 @@ namespace Pulumi.AzureNative.DataProtection
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221101preview:BackupVault"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20221201:BackupVault"},
                     new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230101:BackupVault"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230401preview:BackupVault"},
+                    new global::Pulumi.Alias { Type = "azure-native:dataprotection/v20230501:BackupVault"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -154,7 +156,7 @@ namespace Pulumi.AzureNative.DataProtection
         public Input<Inputs.BackupVaultArgs> Properties { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group where the backup vault is present.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a synchronizationSetting in a share
- * API Version: 2020-09-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getScheduledSynchronizationSetting(args: GetScheduledSynchronizationSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledSynchronizationSettingResult> {
 
@@ -89,7 +89,7 @@ export interface GetScheduledSynchronizationSettingResult {
 }
 /**
  * Get a synchronizationSetting in a share
- * API Version: 2020-09-01.
+ * Azure REST API version: 2021-08-01.
  */
 export function getScheduledSynchronizationSettingOutput(args: GetScheduledSynchronizationSettingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledSynchronizationSettingResult> {
     return pulumi.output(args).apply((a: any) => getScheduledSynchronizationSetting(a, opts))

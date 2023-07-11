@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AppPlatform.Inputs
 {
 
     /// <summary>
-    /// Git repository property payload
+    /// Git repository property payload for config server
     /// </summary>
     public sealed class GitPatternRepositoryArgs : global::Pulumi.ResourceArgs
     {

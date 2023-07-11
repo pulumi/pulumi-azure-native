@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getConnectivityConfiguration(args: GetConnectivityConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectivityConfigurationResult> {
 
@@ -43,7 +43,7 @@ export interface GetConnectivityConfigurationResult {
     /**
      * Groups for configuration
      */
-    readonly appliesToGroups?: outputs.network.ConnectivityGroupItemResponse[];
+    readonly appliesToGroups: outputs.network.ConnectivityGroupItemResponse[];
     /**
      * Connectivity topology type.
      */
@@ -56,10 +56,6 @@ export interface GetConnectivityConfigurationResult {
      * A description of the connectivity configuration.
      */
     readonly description?: string;
-    /**
-     * A friendly name for the resource.
-     */
-    readonly displayName?: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -85,6 +81,10 @@ export interface GetConnectivityConfigurationResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The system metadata related to this resource.
      */
     readonly systemData: outputs.network.SystemDataResponse;
@@ -95,7 +95,7 @@ export interface GetConnectivityConfigurationResult {
 }
 /**
  * Gets a Network Connectivity Configuration, specified by the resource group, network manager name, and connectivity Configuration name
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getConnectivityConfigurationOutput(args: GetConnectivityConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectivityConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getConnectivityConfiguration(a, opts))

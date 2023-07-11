@@ -2,33 +2,34 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20200701 from "./v20200701";
-import * as v20201101preview from "./v20201101preview";
-import * as v20210601preview from "./v20210601preview";
-import * as v20210901preview from "./v20210901preview";
-import * as v20220101preview from "./v20220101preview";
-import * as v20220301preview from "./v20220301preview";
-import * as v20220401 from "./v20220401";
-import * as v20220501preview from "./v20220501preview";
-import * as v20220901preview from "./v20220901preview";
-import * as v20221101preview from "./v20221101preview";
-import * as v20221201 from "./v20221201";
-import * as v20230101preview from "./v20230101preview";
+import * as v20230501preview from "./v20230501preview";
 
 export {
-    v20200701,
-    v20201101preview,
-    v20210601preview,
-    v20210901preview,
-    v20220101preview,
-    v20220301preview,
-    v20220401,
-    v20220501preview,
-    v20220901preview,
-    v20221101preview,
-    v20221201,
-    v20230101preview,
+    v20230501preview,
 };
+
+export const ApmType = {
+    ApplicationInsights: "ApplicationInsights",
+    AppDynamics: "AppDynamics",
+    Dynatrace: "Dynatrace",
+    NewRelic: "NewRelic",
+    ElasticAPM: "ElasticAPM",
+} as const;
+
+/**
+ * Type of application performance monitoring
+ */
+export type ApmType = (typeof ApmType)[keyof typeof ApmType];
+
+export const BackendProtocol = {
+    GRPC: "GRPC",
+    Default: "Default",
+} as const;
+
+/**
+ * How ingress should communicate with this app backend service.
+ */
+export type BackendProtocol = (typeof BackendProtocol)[keyof typeof BackendProtocol];
 
 export const BindingType = {
     ApplicationInsights: "ApplicationInsights",
@@ -37,12 +38,105 @@ export const BindingType = {
     Dynatrace: "Dynatrace",
     NewRelic: "NewRelic",
     ElasticAPM: "ElasticAPM",
+    CACertificates: "CACertificates",
 } as const;
 
 /**
  * Buildpack Binding Type
  */
 export type BindingType = (typeof BindingType)[keyof typeof BindingType];
+
+export const ConfigServerEnabledState = {
+    /**
+     * Enable the config server.
+     */
+    Enabled: "Enabled",
+    /**
+     * Disable the config server.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabled state of the config server. This is only used in Consumption tier.
+ */
+export type ConfigServerEnabledState = (typeof ConfigServerEnabledState)[keyof typeof ConfigServerEnabledState];
+
+export const ConfigurationServiceGeneration = {
+    Gen1: "Gen1",
+    Gen2: "Gen2",
+} as const;
+
+/**
+ * The generation of the Application Configuration Service.
+ */
+export type ConfigurationServiceGeneration = (typeof ConfigurationServiceGeneration)[keyof typeof ConfigurationServiceGeneration];
+
+export const DevToolPortalFeatureState = {
+    /**
+     * Enable the plugin in Dev Tool Portal.
+     */
+    Enabled: "Enabled",
+    /**
+     * Disable the plugin in Dev Tool Portal.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * State of the plugin
+ */
+export type DevToolPortalFeatureState = (typeof DevToolPortalFeatureState)[keyof typeof DevToolPortalFeatureState];
+
+export const GatewayCertificateVerification = {
+    /**
+     * Enable certificate verification in Spring Cloud Gateway.
+     */
+    Enabled: "Enabled",
+    /**
+     * Disable certificate verification in Spring Cloud Gateway.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether to enable certificate verification or not
+ */
+export type GatewayCertificateVerification = (typeof GatewayCertificateVerification)[keyof typeof GatewayCertificateVerification];
+
+export const GatewayRouteConfigProtocol = {
+    HTTP: "HTTP",
+    HTTPS: "HTTPS",
+} as const;
+
+/**
+ * Protocol of routed Azure Spring Apps applications.
+ */
+export type GatewayRouteConfigProtocol = (typeof GatewayRouteConfigProtocol)[keyof typeof GatewayRouteConfigProtocol];
+
+export const GitImplementation = {
+    Go_git: "go-git",
+    Libgit2: "libgit2",
+} as const;
+
+/**
+ * Git libraries used to support various repository providers
+ */
+export type GitImplementation = (typeof GitImplementation)[keyof typeof GitImplementation];
+
+export const HTTPSchemeType = {
+    HTTP: "HTTP",
+    HTTPS: "HTTPS",
+} as const;
+
+/**
+ * Scheme to use for connecting to the host. Defaults to HTTP.
+ *
+ * Possible enum values:
+ *  - `"HTTP"` means that the scheme used will be http://
+ *  - `"HTTPS"` means that the scheme used will be https://
+ */
+export type HTTPSchemeType = (typeof HTTPSchemeType)[keyof typeof HTTPSchemeType];
 
 export const ManagedIdentityType = {
     None: "None",
@@ -56,16 +150,26 @@ export const ManagedIdentityType = {
  */
 export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
 
-export const RuntimeVersion = {
-    Java_8: "Java_8",
-    Java_11: "Java_11",
-    NetCore_31: "NetCore_31",
+export const ProbeActionType = {
+    HTTPGetAction: "HTTPGetAction",
+    TCPSocketAction: "TCPSocketAction",
+    ExecAction: "ExecAction",
 } as const;
 
 /**
- * Runtime version
+ * The type of the action to take to perform the health check.
  */
-export type RuntimeVersion = (typeof RuntimeVersion)[keyof typeof RuntimeVersion];
+export type ProbeActionType = (typeof ProbeActionType)[keyof typeof ProbeActionType];
+
+export const SessionAffinity = {
+    Cookie: "Cookie",
+    None: "None",
+} as const;
+
+/**
+ * Type of the affinity, set this to Cookie to enable session affinity.
+ */
+export type SessionAffinity = (typeof SessionAffinity)[keyof typeof SessionAffinity];
 
 export const StorageType = {
     StorageAccount: "StorageAccount",
@@ -76,13 +180,11 @@ export const StorageType = {
  */
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
-export const UserSourceType = {
-    Jar: "Jar",
-    NetCoreZip: "NetCoreZip",
-    Source: "Source",
+export const Type = {
+    AzureFileVolume: "AzureFileVolume",
 } as const;
 
 /**
- * Type of the source uploaded
+ * The type of the underlying resource to mount as a persistent disk.
  */
-export type UserSourceType = (typeof UserSourceType)[keyof typeof UserSourceType];
+export type Type = (typeof Type)[keyof typeof Type];

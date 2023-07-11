@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Managed private endpoint resource type.
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01. Prior API version in Azure Native 1.x: 2018-06-01
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**

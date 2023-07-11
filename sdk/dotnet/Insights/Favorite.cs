@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// Properties that define a favorite that is associated to an Application Insights component.
-    /// API Version: 2015-05-01.
+    /// Azure REST API version: 2015-05-01. Prior API version in Azure Native 1.x: 2015-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:Favorite")]
     public partial class Favorite : global::Pulumi.CustomResource

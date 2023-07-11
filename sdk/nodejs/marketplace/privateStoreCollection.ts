@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Collection data structure.
- * API Version: 2021-12-01.
+ * Azure REST API version: 2023-01-01. Prior API version in Azure Native 1.x: 2021-12-01
  */
 export class PrivateStoreCollection extends pulumi.CustomResource {
     /**
@@ -42,6 +42,18 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
      * Indicating whether all subscriptions are selected (=true) or not (=false).
      */
     public readonly allSubscriptions!: pulumi.Output<boolean | undefined>;
+    /**
+     * Gets list of collection rules
+     */
+    public /*out*/ readonly appliedRules!: pulumi.Output<outputs.marketplace.RuleResponse[]>;
+    /**
+     * Indicating whether all items are approved for this collection (=true) or not (=false).
+     */
+    public /*out*/ readonly approveAllItems!: pulumi.Output<boolean>;
+    /**
+     * Gets the modified date of all items approved.
+     */
+    public /*out*/ readonly approveAllItemsModifiedAt!: pulumi.Output<string>;
     /**
      * Gets or sets the association with Commercial's Billing Account.
      */
@@ -100,12 +112,18 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
             resourceInputs["subscriptionsList"] = args ? args.subscriptionsList : undefined;
+            resourceInputs["appliedRules"] = undefined /*out*/;
+            resourceInputs["approveAllItems"] = undefined /*out*/;
+            resourceInputs["approveAllItemsModifiedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["numberOfOffers"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["allSubscriptions"] = undefined /*out*/;
+            resourceInputs["appliedRules"] = undefined /*out*/;
+            resourceInputs["approveAllItems"] = undefined /*out*/;
+            resourceInputs["approveAllItemsModifiedAt"] = undefined /*out*/;
             resourceInputs["claim"] = undefined /*out*/;
             resourceInputs["collectionId"] = undefined /*out*/;
             resourceInputs["collectionName"] = undefined /*out*/;

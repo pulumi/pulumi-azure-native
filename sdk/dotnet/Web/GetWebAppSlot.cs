@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class GetWebAppSlot
     {
         /// <summary>
-        /// Gets the details of a web, mobile, or API app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the details of a web, mobile, or API app.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<GetWebAppSlotResult> InvokeAsync(GetWebAppSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAppSlotResult>("azure-native:web:getWebAppSlot", args ?? new GetWebAppSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the details of a web, mobile, or API app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the details of a web, mobile, or API app.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<GetWebAppSlotResult> Invoke(GetWebAppSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAppSlotResult>("azure-native:web:getWebAppSlot", args ?? new GetWebAppSlotInvokeArgs(), options.WithDefaults());
@@ -132,6 +132,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly ImmutableArray<string> EnabledHostNames;
         /// <summary>
+        /// Extended Location.
+        /// </summary>
+        public readonly Outputs.ExtendedLocationResponse? ExtendedLocation;
+        /// <summary>
         /// Hostname SSL states are used to manage the SSL bindings for app's hostnames.
         /// </summary>
         public readonly ImmutableArray<Outputs.HostNameSslStateResponse> HostNameSslStates;
@@ -194,6 +198,10 @@ namespace Pulumi.AzureNative.Web
         /// </summary>
         public readonly string Location;
         /// <summary>
+        /// Azure Resource Manager ID of the customer's selected Managed Environment on which to host this app. This must be of the form /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.App/managedEnvironments/{managedEnvironmentName}
+        /// </summary>
+        public readonly string? ManagedEnvironmentId;
+        /// <summary>
         /// Maximum number of workers.
         /// This only applies to Functions container.
         /// </summary>
@@ -210,6 +218,10 @@ namespace Pulumi.AzureNative.Web
         /// List of IP addresses that the app uses for outbound connections (e.g. database access). Includes VIPs from all tenants except dataComponent. Read-only.
         /// </summary>
         public readonly string PossibleOutboundIpAddresses;
+        /// <summary>
+        /// Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled' or an empty string.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Site redundancy mode
         /// </summary>
@@ -279,6 +291,18 @@ namespace Pulumi.AzureNative.Web
         /// This must be of the form /subscriptions/{subscriptionName}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}
         /// </summary>
         public readonly string? VirtualNetworkSubnetId;
+        /// <summary>
+        /// To enable accessing content over virtual network
+        /// </summary>
+        public readonly bool? VnetContentShareEnabled;
+        /// <summary>
+        /// To enable pulling image over Virtual Network
+        /// </summary>
+        public readonly bool? VnetImagePullEnabled;
+        /// <summary>
+        /// Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied.
+        /// </summary>
+        public readonly bool? VnetRouteAllEnabled;
 
         [OutputConstructor]
         private GetWebAppSlotResult(
@@ -303,6 +327,8 @@ namespace Pulumi.AzureNative.Web
             bool? enabled,
 
             ImmutableArray<string> enabledHostNames,
+
+            Outputs.ExtendedLocationResponse? extendedLocation,
 
             ImmutableArray<Outputs.HostNameSslStateResponse> hostNameSslStates,
 
@@ -334,6 +360,8 @@ namespace Pulumi.AzureNative.Web
 
             string location,
 
+            string? managedEnvironmentId,
+
             int maxNumberOfWorkers,
 
             string name,
@@ -341,6 +369,8 @@ namespace Pulumi.AzureNative.Web
             string outboundIpAddresses,
 
             string possibleOutboundIpAddresses,
+
+            string? publicNetworkAccess,
 
             string? redundancyMode,
 
@@ -374,7 +404,13 @@ namespace Pulumi.AzureNative.Web
 
             string usageState,
 
-            string? virtualNetworkSubnetId)
+            string? virtualNetworkSubnetId,
+
+            bool? vnetContentShareEnabled,
+
+            bool? vnetImagePullEnabled,
+
+            bool? vnetRouteAllEnabled)
         {
             AvailabilityState = availabilityState;
             ClientAffinityEnabled = clientAffinityEnabled;
@@ -387,6 +423,7 @@ namespace Pulumi.AzureNative.Web
             DefaultHostName = defaultHostName;
             Enabled = enabled;
             EnabledHostNames = enabledHostNames;
+            ExtendedLocation = extendedLocation;
             HostNameSslStates = hostNameSslStates;
             HostNames = hostNames;
             HostNamesDisabled = hostNamesDisabled;
@@ -402,10 +439,12 @@ namespace Pulumi.AzureNative.Web
             Kind = kind;
             LastModifiedTimeUtc = lastModifiedTimeUtc;
             Location = location;
+            ManagedEnvironmentId = managedEnvironmentId;
             MaxNumberOfWorkers = maxNumberOfWorkers;
             Name = name;
             OutboundIpAddresses = outboundIpAddresses;
             PossibleOutboundIpAddresses = possibleOutboundIpAddresses;
+            PublicNetworkAccess = publicNetworkAccess;
             RedundancyMode = redundancyMode;
             RepositorySiteName = repositorySiteName;
             Reserved = reserved;
@@ -423,6 +462,9 @@ namespace Pulumi.AzureNative.Web
             Type = type;
             UsageState = usageState;
             VirtualNetworkSubnetId = virtualNetworkSubnetId;
+            VnetContentShareEnabled = vnetContentShareEnabled;
+            VnetImagePullEnabled = vnetImagePullEnabled;
+            VnetRouteAllEnabled = vnetRouteAllEnabled;
         }
     }
 }

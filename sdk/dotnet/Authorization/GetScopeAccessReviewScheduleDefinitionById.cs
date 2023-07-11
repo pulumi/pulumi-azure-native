@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get single access review definition
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Task<GetScopeAccessReviewScheduleDefinitionByIdResult> InvokeAsync(GetScopeAccessReviewScheduleDefinitionByIdArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScopeAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getScopeAccessReviewScheduleDefinitionById", args ?? new GetScopeAccessReviewScheduleDefinitionByIdArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get single access review definition
-        /// API Version: 2021-12-01-preview.
+        /// Azure REST API version: 2021-12-01-preview.
         /// </summary>
         public static Output<GetScopeAccessReviewScheduleDefinitionByIdResult> Invoke(GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScopeAccessReviewScheduleDefinitionByIdResult>("azure-native:authorization:getScopeAccessReviewScheduleDefinitionById", args ?? new GetScopeAccessReviewScheduleDefinitionByIdInvokeArgs(), options.WithDefaults());

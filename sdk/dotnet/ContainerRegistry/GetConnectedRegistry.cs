@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerRegistry
     {
         /// <summary>
         /// Gets the properties of the connected registry.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Task<GetConnectedRegistryResult> InvokeAsync(GetConnectedRegistryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the properties of the connected registry.
-        /// API Version: 2020-11-01-preview.
+        /// Azure REST API version: 2023-01-01-preview.
         /// </summary>
         public static Output<GetConnectedRegistryResult> Invoke(GetConnectedRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectedRegistryResult>("azure-native:containerregistry:getConnectedRegistry", args ?? new GetConnectedRegistryInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public string RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
         public Input<string> RegistryName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group to which the container registry belongs.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -120,6 +120,10 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The list of notifications subscription information for the connected registry.
+        /// </summary>
+        public readonly ImmutableArray<string> NotificationsList;
+        /// <summary>
         /// The parent of the connected registry.
         /// </summary>
         public readonly Outputs.ParentPropertiesResponse Parent;
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
 
             string name,
 
+            ImmutableArray<string> notificationsList,
+
             Outputs.ParentPropertiesResponse parent,
 
             string provisioningState,
@@ -185,6 +191,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
             LoginServer = loginServer;
             Mode = mode;
             Name = name;
+            NotificationsList = notificationsList;
             Parent = parent;
             ProvisioningState = provisioningState;
             StatusDetails = statusDetails;

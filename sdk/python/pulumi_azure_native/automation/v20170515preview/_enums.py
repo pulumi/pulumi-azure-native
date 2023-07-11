@@ -9,9 +9,7 @@ __all__ = [
     'OperatingSystemType',
     'ScheduleDay',
     'ScheduleFrequency',
-    'SourceType',
     'TagOperators',
-    'TokenType',
     'WindowsUpdateClasses',
 ]
 
@@ -62,29 +60,12 @@ class ScheduleFrequency(str, Enum):
     """
 
 
-class SourceType(str, Enum):
-    """
-    The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
-    """
-    VSO_GIT = "VsoGit"
-    VSO_TFVC = "VsoTfvc"
-    GIT_HUB = "GitHub"
-
-
 class TagOperators(str, Enum):
     """
     Filter VMs by Any or All specified tags.
     """
     ALL = "All"
     ANY = "Any"
-
-
-class TokenType(str, Enum):
-    """
-    The token type. Must be either PersonalAccessToken or Oauth.
-    """
-    PERSONAL_ACCESS_TOKEN = "PersonalAccessToken"
-    OAUTH = "Oauth"
 
 
 class WindowsUpdateClasses(str, Enum):

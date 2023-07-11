@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a TrafficController
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getTrafficControllerInterface(args: GetTrafficControllerInterfaceArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficControllerInterfaceResult> {
 
@@ -38,7 +38,7 @@ export interface GetTrafficControllerInterfaceResult {
     /**
      * Associations References List
      */
-    readonly associations: outputs.servicenetworking.ResourceIDResponse[];
+    readonly associations: outputs.servicenetworking.ResourceIdResponse[];
     /**
      * Configuration Endpoints.
      */
@@ -46,7 +46,7 @@ export interface GetTrafficControllerInterfaceResult {
     /**
      * Frontends References List
      */
-    readonly frontends: outputs.servicenetworking.ResourceIDResponse[];
+    readonly frontends: outputs.servicenetworking.ResourceIdResponse[];
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -78,7 +78,7 @@ export interface GetTrafficControllerInterfaceResult {
 }
 /**
  * Get a TrafficController
- * API Version: 2022-10-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getTrafficControllerInterfaceOutput(args: GetTrafficControllerInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficControllerInterfaceResult> {
     return pulumi.output(args).apply((a: any) => getTrafficControllerInterface(a, opts))

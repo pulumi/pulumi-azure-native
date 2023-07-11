@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get details of the specified volume group
- * API Version: 2021-10-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getVolumeGroup(args: GetVolumeGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVolumeGroupResult> {
 
@@ -27,7 +27,7 @@ export interface GetVolumeGroupArgs {
      */
     accountName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -61,10 +61,6 @@ export interface GetVolumeGroupResult {
      */
     readonly provisioningState: string;
     /**
-     * Resource tags
-     */
-    readonly tags?: {[key: string]: string};
-    /**
      * Resource type
      */
     readonly type: string;
@@ -75,7 +71,7 @@ export interface GetVolumeGroupResult {
 }
 /**
  * Get details of the specified volume group
- * API Version: 2021-10-01.
+ * Azure REST API version: 2022-11-01.
  */
 export function getVolumeGroupOutput(args: GetVolumeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeGroupResult> {
     return pulumi.output(args).apply((a: any) => getVolumeGroup(a, opts))
@@ -87,7 +83,7 @@ export interface GetVolumeGroupOutputArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

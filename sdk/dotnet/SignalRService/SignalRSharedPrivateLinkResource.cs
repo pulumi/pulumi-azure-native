@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SignalRService
 {
     /// <summary>
     /// Describes a Shared Private Link Resource
-    /// API Version: 2021-04-01-preview.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalRSharedPrivateLinkResource")]
     public partial class SignalRSharedPrivateLinkResource : global::Pulumi.CustomResource
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.SignalRService
         public Output<string> PrivateLinkResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the shared private link resource
+        /// Provisioning state of the resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -96,6 +96,8 @@ namespace Pulumi.AzureNative.SignalRService
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220201:SignalRSharedPrivateLinkResource"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20220801preview:SignalRSharedPrivateLinkResource"},
                     new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230201:SignalRSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230301preview:SignalRSharedPrivateLinkResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:signalrservice/v20230601preview:SignalRSharedPrivateLinkResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

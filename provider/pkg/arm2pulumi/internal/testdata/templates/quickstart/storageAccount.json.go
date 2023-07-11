@@ -1,8 +1,8 @@
 package main
 
 import (
-	resources "github.com/pulumi/pulumi-azure-native-sdk/resources"
-	storage "github.com/pulumi/pulumi-azure-native-sdk/storage/v20190401"
+	"github.com/pulumi/pulumi-azure-native-sdk/resources/v2"
+	"github.com/pulumi/pulumi-azure-native-sdk/storage/v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
@@ -31,7 +31,7 @@ func main() {
 			Kind:              pulumi.String("StorageV2"),
 			Location:          pulumi.String(locationParam),
 			ResourceGroupName: pulumi.String(resourceGroupNameParam),
-			Sku: &storage.SkuArgs{
+			Sku: &v20220901.SkuArgs{
 				Name: pulumi.String(storageAccountTypeParam),
 			},
 		})

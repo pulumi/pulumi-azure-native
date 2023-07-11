@@ -10,16 +10,6 @@ export const getWebPubSub: typeof import("./getWebPubSub").getWebPubSub = null a
 export const getWebPubSubOutput: typeof import("./getWebPubSub").getWebPubSubOutput = null as any;
 utilities.lazyLoad(exports, ["getWebPubSub","getWebPubSubOutput"], () => require("./getWebPubSub"));
 
-export { GetWebPubSubPrivateEndpointConnectionArgs, GetWebPubSubPrivateEndpointConnectionResult, GetWebPubSubPrivateEndpointConnectionOutputArgs } from "./getWebPubSubPrivateEndpointConnection";
-export const getWebPubSubPrivateEndpointConnection: typeof import("./getWebPubSubPrivateEndpointConnection").getWebPubSubPrivateEndpointConnection = null as any;
-export const getWebPubSubPrivateEndpointConnectionOutput: typeof import("./getWebPubSubPrivateEndpointConnection").getWebPubSubPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getWebPubSubPrivateEndpointConnection","getWebPubSubPrivateEndpointConnectionOutput"], () => require("./getWebPubSubPrivateEndpointConnection"));
-
-export { GetWebPubSubSharedPrivateLinkResourceArgs, GetWebPubSubSharedPrivateLinkResourceResult, GetWebPubSubSharedPrivateLinkResourceOutputArgs } from "./getWebPubSubSharedPrivateLinkResource";
-export const getWebPubSubSharedPrivateLinkResource: typeof import("./getWebPubSubSharedPrivateLinkResource").getWebPubSubSharedPrivateLinkResource = null as any;
-export const getWebPubSubSharedPrivateLinkResourceOutput: typeof import("./getWebPubSubSharedPrivateLinkResource").getWebPubSubSharedPrivateLinkResourceOutput = null as any;
-utilities.lazyLoad(exports, ["getWebPubSubSharedPrivateLinkResource","getWebPubSubSharedPrivateLinkResourceOutput"], () => require("./getWebPubSubSharedPrivateLinkResource"));
-
 export { ListWebPubSubKeysArgs, ListWebPubSubKeysResult, ListWebPubSubKeysOutputArgs } from "./listWebPubSubKeys";
 export const listWebPubSubKeys: typeof import("./listWebPubSubKeys").listWebPubSubKeys = null as any;
 export const listWebPubSubKeysOutput: typeof import("./listWebPubSubKeys").listWebPubSubKeysOutput = null as any;
@@ -29,16 +19,6 @@ export { WebPubSubArgs } from "./webPubSub";
 export type WebPubSub = import("./webPubSub").WebPubSub;
 export const WebPubSub: typeof import("./webPubSub").WebPubSub = null as any;
 utilities.lazyLoad(exports, ["WebPubSub"], () => require("./webPubSub"));
-
-export { WebPubSubPrivateEndpointConnectionArgs } from "./webPubSubPrivateEndpointConnection";
-export type WebPubSubPrivateEndpointConnection = import("./webPubSubPrivateEndpointConnection").WebPubSubPrivateEndpointConnection;
-export const WebPubSubPrivateEndpointConnection: typeof import("./webPubSubPrivateEndpointConnection").WebPubSubPrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["WebPubSubPrivateEndpointConnection"], () => require("./webPubSubPrivateEndpointConnection"));
-
-export { WebPubSubSharedPrivateLinkResourceArgs } from "./webPubSubSharedPrivateLinkResource";
-export type WebPubSubSharedPrivateLinkResource = import("./webPubSubSharedPrivateLinkResource").WebPubSubSharedPrivateLinkResource;
-export const WebPubSubSharedPrivateLinkResource: typeof import("./webPubSubSharedPrivateLinkResource").WebPubSubSharedPrivateLinkResource = null as any;
-utilities.lazyLoad(exports, ["WebPubSubSharedPrivateLinkResource"], () => require("./webPubSubSharedPrivateLinkResource"));
 
 
 // Export enums:
@@ -50,10 +30,6 @@ const _module = {
         switch (type) {
             case "azure-native:webpubsub/v20210401preview:WebPubSub":
                 return new WebPubSub(name, <any>undefined, { urn })
-            case "azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection":
-                return new WebPubSubPrivateEndpointConnection(name, <any>undefined, { urn })
-            case "azure-native:webpubsub/v20210401preview:WebPubSubSharedPrivateLinkResource":
-                return new WebPubSubSharedPrivateLinkResource(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the AppComplianceAutomation report and its properties.
- * API Version: 2022-11-16-preview.
+ * Azure REST API version: 2022-11-16-preview.
  */
 export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
 
@@ -53,7 +53,7 @@ export interface GetReportResult {
 }
 /**
  * Get the AppComplianceAutomation report and its properties.
- * API Version: 2022-11-16-preview.
+ * Azure REST API version: 2022-11-16-preview.
  */
 export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportResult> {
     return pulumi.output(args).apply((a: any) => getReport(a, opts))

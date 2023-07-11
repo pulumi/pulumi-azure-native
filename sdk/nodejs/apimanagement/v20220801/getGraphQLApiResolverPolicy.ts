@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Get the policy configuration at the GraphQL API Resolver level.
  */
-/** @deprecated azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GraphQLApiResolverPolicy to guarantee forwards compatibility. */
 export function getGraphQLApiResolverPolicy(args: GetGraphQLApiResolverPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQLApiResolverPolicyResult> {
-    pulumi.log.warn("getGraphQLApiResolverPolicy is deprecated: azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GraphQLApiResolverPolicy to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:apimanagement/v20220801:getGraphQLApiResolverPolicy", {
@@ -77,7 +75,6 @@ export interface GetGraphQLApiResolverPolicyResult {
 /**
  * Get the policy configuration at the GraphQL API Resolver level.
  */
-/** @deprecated azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:GraphQLApiResolverPolicy to guarantee forwards compatibility. */
 export function getGraphQLApiResolverPolicyOutput(args: GetGraphQLApiResolverPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQLApiResolverPolicyResult> {
     return pulumi.output(args).apply((a: any) => getGraphQLApiResolverPolicy(a, opts))
 }

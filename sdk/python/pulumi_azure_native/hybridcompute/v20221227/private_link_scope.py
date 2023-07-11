@@ -101,12 +101,7 @@ class PrivateLinkScopeArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class PrivateLinkScope(pulumi.CustomResource):
-    warnings.warn("""azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -158,7 +153,6 @@ class PrivateLinkScope(pulumi.CustomResource):
                  scope_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""PrivateLinkScope is deprecated: azure-native:hybridcompute/v20221227:PrivateLinkScope is being removed in the next major version of this provider. Upgrade to at least azure-native:hybridcompute/v20230425preview:PrivateLinkScope to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -177,7 +171,7 @@ class PrivateLinkScope(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:PrivateLinkScope")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcompute:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20200815preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210128preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210325preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210422preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210517preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210520:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20210610preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20211210preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220310:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220510preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20220811preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221110:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20221227preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20230315preview:PrivateLinkScope"), pulumi.Alias(type_="azure-native:hybridcompute/v20230425preview:PrivateLinkScope")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateLinkScope, __self__).__init__(
             'azure-native:hybridcompute/v20221227:PrivateLinkScope',

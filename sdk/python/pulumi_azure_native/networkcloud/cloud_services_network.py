@@ -152,7 +152,7 @@ class CloudServicesNetwork(pulumi.CustomResource):
         represented in the status of this resource. All resources associated with this cloud services network will be part
         of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
         virtual machines and/or Hybrid AKS clusters.
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -175,7 +175,7 @@ class CloudServicesNetwork(pulumi.CustomResource):
         represented in the status of this resource. All resources associated with this cloud services network will be part
         of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
         virtual machines and/or Hybrid AKS clusters.
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param CloudServicesNetworkArgs args: The arguments to use to populate this resource's properties.
@@ -221,6 +221,7 @@ class CloudServicesNetwork(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["associated_resource_ids"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
@@ -232,7 +233,7 @@ class CloudServicesNetwork(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:CloudServicesNetwork")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:CloudServicesNetwork"), pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:CloudServicesNetwork")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CloudServicesNetwork, __self__).__init__(
             'azure-native:networkcloud:CloudServicesNetwork',
@@ -257,6 +258,7 @@ class CloudServicesNetwork(pulumi.CustomResource):
         __props__ = CloudServicesNetworkArgs.__new__(CloudServicesNetworkArgs)
 
         __props__.__dict__["additional_egress_endpoints"] = None
+        __props__.__dict__["associated_resource_ids"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
@@ -281,6 +283,14 @@ class CloudServicesNetwork(pulumi.CustomResource):
         The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint.
         """
         return pulumi.get(self, "additional_egress_endpoints")
+
+    @property
+    @pulumi.getter(name="associatedResourceIds")
+    def associated_resource_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        """
+        return pulumi.get(self, "associated_resource_ids")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -334,7 +344,7 @@ class CloudServicesNetwork(pulumi.CustomResource):
     @pulumi.getter(name="hybridAksClustersAssociatedIds")
     def hybrid_aks_clusters_associated_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
+        Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
         """
         return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
 
@@ -398,7 +408,7 @@ class CloudServicesNetwork(pulumi.CustomResource):
     @pulumi.getter(name="virtualMachinesAssociatedIds")
     def virtual_machines_associated_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
+        Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
         """
         return pulumi.get(self, "virtual_machines_associated_ids")
 

@@ -17,9 +17,25 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
     public sealed class VaultPropertiesResponse
     {
         /// <summary>
+        /// Backup storage version
+        /// </summary>
+        public readonly string BackupStorageVersion;
+        /// <summary>
         /// Customer Managed Key details of the resource.
         /// </summary>
         public readonly Outputs.VaultPropertiesResponseEncryption? Encryption;
+        /// <summary>
+        /// Monitoring Settings of the vault
+        /// </summary>
+        public readonly Outputs.MonitoringSettingsResponse? MonitoringSettings;
+        /// <summary>
+        /// The details of the latest move operation performed on the Azure Resource
+        /// </summary>
+        public readonly Outputs.VaultPropertiesResponseMoveDetails? MoveDetails;
+        /// <summary>
+        /// The State of the Resource after the move operation
+        /// </summary>
+        public readonly string MoveState;
         /// <summary>
         /// List of private endpoint connection.
         /// </summary>
@@ -37,13 +53,41 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// property to enable or disable resource provider inbound network traffic from public clients
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
+        /// <summary>
+        /// The redundancy Settings of a Vault
+        /// </summary>
+        public readonly Outputs.VaultPropertiesResponseRedundancySettings? RedundancySettings;
+        /// <summary>
+        /// Restore Settings of the vault
+        /// </summary>
+        public readonly Outputs.RestoreSettingsResponse? RestoreSettings;
+        /// <summary>
+        /// Secure Score of Recovery Services Vault
+        /// </summary>
+        public readonly string SecureScore;
+        /// <summary>
+        /// Security Settings of the vault
+        /// </summary>
+        public readonly Outputs.SecuritySettingsResponse? SecuritySettings;
+        /// <summary>
         /// Details for upgrading vault.
         /// </summary>
         public readonly Outputs.UpgradeDetailsResponse? UpgradeDetails;
 
         [OutputConstructor]
         private VaultPropertiesResponse(
+            string backupStorageVersion,
+
             Outputs.VaultPropertiesResponseEncryption? encryption,
+
+            Outputs.MonitoringSettingsResponse? monitoringSettings,
+
+            Outputs.VaultPropertiesResponseMoveDetails? moveDetails,
+
+            string moveState,
 
             ImmutableArray<Outputs.PrivateEndpointConnectionVaultPropertiesResponse> privateEndpointConnections,
 
@@ -53,13 +97,32 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
 
             string provisioningState,
 
+            string? publicNetworkAccess,
+
+            Outputs.VaultPropertiesResponseRedundancySettings? redundancySettings,
+
+            Outputs.RestoreSettingsResponse? restoreSettings,
+
+            string secureScore,
+
+            Outputs.SecuritySettingsResponse? securitySettings,
+
             Outputs.UpgradeDetailsResponse? upgradeDetails)
         {
+            BackupStorageVersion = backupStorageVersion;
             Encryption = encryption;
+            MonitoringSettings = monitoringSettings;
+            MoveDetails = moveDetails;
+            MoveState = moveState;
             PrivateEndpointConnections = privateEndpointConnections;
             PrivateEndpointStateForBackup = privateEndpointStateForBackup;
             PrivateEndpointStateForSiteRecovery = privateEndpointStateForSiteRecovery;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
+            RedundancySettings = redundancySettings;
+            RestoreSettings = restoreSettings;
+            SecureScore = secureScore;
+            SecuritySettings = securitySettings;
             UpgradeDetails = upgradeDetails;
         }
     }

@@ -24,7 +24,7 @@ class ApiTagDescriptionArgs:
         """
         The set of arguments for constructing a ApiTagDescription resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] description: Description of the Tag.
         :param pulumi.Input[str] external_docs_description: Description of the external resources describing the tag.
@@ -59,7 +59,7 @@ class ApiTagDescriptionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -143,7 +143,7 @@ class ApiTagDescription(pulumi.CustomResource):
                  __props__=None):
         """
         Contract details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -151,7 +151,7 @@ class ApiTagDescription(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the Tag.
         :param pulumi.Input[str] external_docs_description: Description of the external resources describing the tag.
         :param pulumi.Input[str] external_docs_url: Absolute URL of external resources describing the tag.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] tag_description_id: Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
         """
@@ -163,7 +163,7 @@ class ApiTagDescription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contract details.
-        API Version: 2020-12-01.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2020-12-01
 
         :param str resource_name: The name of the resource.
         :param ApiTagDescriptionArgs args: The arguments to use to populate this resource's properties.
@@ -213,7 +213,7 @@ class ApiTagDescription(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["tag_id"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiTagDescription")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20170301:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:ApiTagDescription"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:ApiTagDescription")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ApiTagDescription, __self__).__init__(
             'azure-native:apimanagement:ApiTagDescription',
@@ -282,7 +282,7 @@ class ApiTagDescription(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -298,7 +298,7 @@ class ApiTagDescription(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type for API Management resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

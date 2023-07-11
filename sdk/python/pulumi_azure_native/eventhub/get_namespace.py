@@ -22,13 +22,28 @@ class GetNamespaceResult:
     """
     Single Namespace item in List or Get Operation
     """
-    def __init__(__self__, created_at=None, id=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, name=None, provisioning_state=None, service_bus_endpoint=None, sku=None, tags=None, type=None, updated_at=None):
+    def __init__(__self__, alternate_name=None, cluster_arm_id=None, created_at=None, disable_local_auth=None, encryption=None, id=None, identity=None, is_auto_inflate_enabled=None, kafka_enabled=None, location=None, maximum_throughput_units=None, metric_id=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_bus_endpoint=None, sku=None, status=None, system_data=None, tags=None, type=None, updated_at=None, zone_redundant=None):
+        if alternate_name and not isinstance(alternate_name, str):
+            raise TypeError("Expected argument 'alternate_name' to be a str")
+        pulumi.set(__self__, "alternate_name", alternate_name)
+        if cluster_arm_id and not isinstance(cluster_arm_id, str):
+            raise TypeError("Expected argument 'cluster_arm_id' to be a str")
+        pulumi.set(__self__, "cluster_arm_id", cluster_arm_id)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if disable_local_auth and not isinstance(disable_local_auth, bool):
+            raise TypeError("Expected argument 'disable_local_auth' to be a bool")
+        pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if is_auto_inflate_enabled and not isinstance(is_auto_inflate_enabled, bool):
             raise TypeError("Expected argument 'is_auto_inflate_enabled' to be a bool")
         pulumi.set(__self__, "is_auto_inflate_enabled", is_auto_inflate_enabled)
@@ -44,18 +59,33 @@ class GetNamespaceResult:
         if metric_id and not isinstance(metric_id, str):
             raise TypeError("Expected argument 'metric_id' to be a str")
         pulumi.set(__self__, "metric_id", metric_id)
+        if minimum_tls_version and not isinstance(minimum_tls_version, str):
+            raise TypeError("Expected argument 'minimum_tls_version' to be a str")
+        pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if private_endpoint_connections and not isinstance(private_endpoint_connections, list):
+            raise TypeError("Expected argument 'private_endpoint_connections' to be a list")
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if public_network_access and not isinstance(public_network_access, str):
+            raise TypeError("Expected argument 'public_network_access' to be a str")
+        pulumi.set(__self__, "public_network_access", public_network_access)
         if service_bus_endpoint and not isinstance(service_bus_endpoint, str):
             raise TypeError("Expected argument 'service_bus_endpoint' to be a str")
         pulumi.set(__self__, "service_bus_endpoint", service_bus_endpoint)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -65,6 +95,25 @@ class GetNamespaceResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if zone_redundant and not isinstance(zone_redundant, bool):
+            raise TypeError("Expected argument 'zone_redundant' to be a bool")
+        pulumi.set(__self__, "zone_redundant", zone_redundant)
+
+    @property
+    @pulumi.getter(name="alternateName")
+    def alternate_name(self) -> Optional[str]:
+        """
+        Alternate name specified when alias and namespace names are same.
+        """
+        return pulumi.get(self, "alternate_name")
+
+    @property
+    @pulumi.getter(name="clusterArmId")
+    def cluster_arm_id(self) -> Optional[str]:
+        """
+        Cluster ARM ID of the Namespace.
+        """
+        return pulumi.get(self, "cluster_arm_id")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -75,12 +124,36 @@ class GetNamespaceResult:
         return pulumi.get(self, "created_at")
 
     @property
+    @pulumi.getter(name="disableLocalAuth")
+    def disable_local_auth(self) -> Optional[bool]:
+        """
+        This property disables SAS authentication for the Event Hubs namespace.
+        """
+        return pulumi.get(self, "disable_local_auth")
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionResponse']:
+        """
+        Properties of BYOK Encryption description
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        Properties of BYOK Identity description
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="isAutoInflateEnabled")
@@ -123,6 +196,14 @@ class GetNamespaceResult:
         return pulumi.get(self, "metric_id")
 
     @property
+    @pulumi.getter(name="minimumTlsVersion")
+    def minimum_tls_version(self) -> Optional[str]:
+        """
+        The minimum TLS version for the cluster to support, e.g. '1.2'
+        """
+        return pulumi.get(self, "minimum_tls_version")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         """
@@ -131,12 +212,28 @@ class GetNamespaceResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
+        """
+        List of private endpoint connections.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
         Provisioning state of the Namespace.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[str]:
+        """
+        This determines if traffic is allowed over public network. By default it is enabled.
+        """
+        return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="serviceBusEndpoint")
@@ -153,6 +250,22 @@ class GetNamespaceResult:
         Properties of sku resource
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Status of the Namespace.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -178,6 +291,14 @@ class GetNamespaceResult:
         """
         return pulumi.get(self, "updated_at")
 
+    @property
+    @pulumi.getter(name="zoneRedundant")
+    def zone_redundant(self) -> Optional[bool]:
+        """
+        Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        """
+        return pulumi.get(self, "zone_redundant")
+
 
 class AwaitableGetNamespaceResult(GetNamespaceResult):
     # pylint: disable=using-constant-test
@@ -185,20 +306,31 @@ class AwaitableGetNamespaceResult(GetNamespaceResult):
         if False:
             yield self
         return GetNamespaceResult(
+            alternate_name=self.alternate_name,
+            cluster_arm_id=self.cluster_arm_id,
             created_at=self.created_at,
+            disable_local_auth=self.disable_local_auth,
+            encryption=self.encryption,
             id=self.id,
+            identity=self.identity,
             is_auto_inflate_enabled=self.is_auto_inflate_enabled,
             kafka_enabled=self.kafka_enabled,
             location=self.location,
             maximum_throughput_units=self.maximum_throughput_units,
             metric_id=self.metric_id,
+            minimum_tls_version=self.minimum_tls_version,
             name=self.name,
+            private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
+            public_network_access=self.public_network_access,
             service_bus_endpoint=self.service_bus_endpoint,
             sku=self.sku,
+            status=self.status,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
-            updated_at=self.updated_at)
+            updated_at=self.updated_at,
+            zone_redundant=self.zone_redundant)
 
 
 def get_namespace(namespace_name: Optional[str] = None,
@@ -206,7 +338,7 @@ def get_namespace(namespace_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceResult:
     """
     Gets the description of the specified namespace.
-    API Version: 2017-04-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The Namespace name
@@ -219,20 +351,31 @@ def get_namespace(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub:getNamespace', __args__, opts=opts, typ=GetNamespaceResult).value
 
     return AwaitableGetNamespaceResult(
+        alternate_name=__ret__.alternate_name,
+        cluster_arm_id=__ret__.cluster_arm_id,
         created_at=__ret__.created_at,
+        disable_local_auth=__ret__.disable_local_auth,
+        encryption=__ret__.encryption,
         id=__ret__.id,
+        identity=__ret__.identity,
         is_auto_inflate_enabled=__ret__.is_auto_inflate_enabled,
         kafka_enabled=__ret__.kafka_enabled,
         location=__ret__.location,
         maximum_throughput_units=__ret__.maximum_throughput_units,
         metric_id=__ret__.metric_id,
+        minimum_tls_version=__ret__.minimum_tls_version,
         name=__ret__.name,
+        private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
+        public_network_access=__ret__.public_network_access,
         service_bus_endpoint=__ret__.service_bus_endpoint,
         sku=__ret__.sku,
+        status=__ret__.status,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
-        updated_at=__ret__.updated_at)
+        updated_at=__ret__.updated_at,
+        zone_redundant=__ret__.zone_redundant)
 
 
 @_utilities.lift_output_func(get_namespace)
@@ -241,7 +384,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Gets the description of the specified namespace.
-    API Version: 2017-04-01.
+    Azure REST API version: 2022-10-01-preview.
 
 
     :param str namespace_name: The Namespace name

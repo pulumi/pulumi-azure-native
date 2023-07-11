@@ -147,7 +147,7 @@ def get_volume_group(elastic_san_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVolumeGroupResult:
     """
     Get an VolumeGroups.
-    API Version: 2021-11-20-preview.
+    Azure REST API version: 2021-11-20-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.
@@ -180,7 +180,7 @@ def get_volume_group_output(elastic_san_name: Optional[pulumi.Input[str]] = None
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Get an VolumeGroups.
-    API Version: 2021-11-20-preview.
+    Azure REST API version: 2021-11-20-preview.
 
 
     :param str elastic_san_name: The name of the ElasticSan.

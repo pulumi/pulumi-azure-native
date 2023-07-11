@@ -50,7 +50,7 @@ def list_database_account_connection_strings(account_name: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDatabaseAccountConnectionStringsResult:
     """
     Lists the connection strings for the specified Azure Cosmos DB database account.
-    API Version: 2021-03-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.
@@ -72,7 +72,7 @@ def list_database_account_connection_strings_output(account_name: Optional[pulum
                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDatabaseAccountConnectionStringsResult]:
     """
     Lists the connection strings for the specified Azure Cosmos DB database account.
-    API Version: 2021-03-15.
+    Azure REST API version: 2023-04-15.
 
 
     :param str account_name: Cosmos DB database account name.

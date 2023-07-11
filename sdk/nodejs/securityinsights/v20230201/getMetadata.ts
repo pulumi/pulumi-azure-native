@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Get a Metadata.
  */
-/** @deprecated azure-native:securityinsights/v20230201:Metadata is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Metadata to guarantee forwards compatibility. */
 export function getMetadata(args: GetMetadataArgs, opts?: pulumi.InvokeOptions): Promise<GetMetadataResult> {
-    pulumi.log.warn("getMetadata is deprecated: azure-native:securityinsights/v20230201:Metadata is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Metadata to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:securityinsights/v20230201:getMetadata", {
@@ -141,7 +139,6 @@ export interface GetMetadataResult {
 /**
  * Get a Metadata.
  */
-/** @deprecated azure-native:securityinsights/v20230201:Metadata is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230201preview:Metadata to guarantee forwards compatibility. */
 export function getMetadataOutput(args: GetMetadataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetadataResult> {
     return pulumi.output(args).apply((a: any) => getMetadata(a, opts))
 }

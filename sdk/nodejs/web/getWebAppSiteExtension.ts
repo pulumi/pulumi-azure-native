@@ -5,8 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Get site extension information by its ID for a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get site extension information by its ID for a web site, or a deployment slot.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppSiteExtension(args: GetWebAppSiteExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetWebAppSiteExtensionResult> {
 
@@ -132,8 +132,8 @@ export interface GetWebAppSiteExtensionResult {
     readonly version?: string;
 }
 /**
- * Get site extension information by its ID for a web site, or a deployment slot.
- * API Version: 2020-12-01.
+ * Description for Get site extension information by its ID for a web site, or a deployment slot.
+ * Azure REST API version: 2022-09-01.
  */
 export function getWebAppSiteExtensionOutput(args: GetWebAppSiteExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebAppSiteExtensionResult> {
     return pulumi.output(args).apply((a: any) => getWebAppSiteExtension(a, opts))

@@ -37,6 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
+        /// </summary>
+        public readonly string? OnInactiveMarkAs;
+        /// <summary>
+        /// Activity state. This is an optional property and if not provided, the state will be Active by default.
+        /// </summary>
+        public readonly string? State;
+        /// <summary>
         /// Type of activity.
         /// Expected value is 'Filter'.
         /// </summary>
@@ -58,6 +66,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            string? onInactiveMarkAs,
+
+            string? state,
+
             string type,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
@@ -67,6 +79,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Description = description;
             Items = items;
             Name = name;
+            OnInactiveMarkAs = onInactiveMarkAs;
+            State = state;
             Type = type;
             UserProperties = userProperties;
         }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Payload of the blockchain member which is exposed in the request/response of the resource provider.
- * API Version: 2018-06-01-preview.
+ * Azure REST API version: 2018-06-01-preview. Prior API version in Azure Native 1.x: 2018-06-01-preview
  */
 export class BlockchainMember extends pulumi.CustomResource {
     /**

@@ -131,7 +131,7 @@ class AwaitableGetDefenderSettingResult(GetDefenderSettingResult):
 def get_defender_setting(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDefenderSettingResult:
     """
     Get IoT Defender Settings
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

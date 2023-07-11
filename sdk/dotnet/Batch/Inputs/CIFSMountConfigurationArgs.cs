@@ -30,8 +30,8 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
 
         public CIFSMountConfigurationArgs()
         {

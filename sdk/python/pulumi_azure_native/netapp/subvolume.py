@@ -27,7 +27,7 @@ class SubvolumeArgs:
         The set of arguments for constructing a Subvolume resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] volume_name: The name of the volume
         :param pulumi.Input[str] parent_path: parent path to the subvolume
         :param pulumi.Input[str] path: Path to the subvolume
@@ -75,7 +75,7 @@ class SubvolumeArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -160,7 +160,7 @@ class Subvolume(pulumi.CustomResource):
                  __props__=None):
         """
         Subvolume Information properties
-        API Version: 2021-10-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +168,7 @@ class Subvolume(pulumi.CustomResource):
         :param pulumi.Input[str] parent_path: parent path to the subvolume
         :param pulumi.Input[str] path: Path to the subvolume
         :param pulumi.Input[str] pool_name: The name of the capacity pool
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] size: Truncate subvolume to the provided size in bytes
         :param pulumi.Input[str] subvolume_name: The name of the subvolume.
         :param pulumi.Input[str] volume_name: The name of the volume
@@ -181,7 +181,7 @@ class Subvolume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subvolume Information properties
-        API Version: 2021-10-01.
+        Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2021-10-01
 
         :param str resource_name: The name of the resource.
         :param SubvolumeArgs args: The arguments to use to populate this resource's properties.
@@ -235,7 +235,7 @@ class Subvolume(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20211001:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220901:Subvolume")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp/v20211001:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220101:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220301:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220501:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20220901:Subvolume"), pulumi.Alias(type_="azure-native:netapp/v20221101:Subvolume")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Subvolume, __self__).__init__(
             'azure-native:netapp:Subvolume',
@@ -303,7 +303,7 @@ class Subvolume(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 

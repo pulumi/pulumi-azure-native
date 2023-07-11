@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
     public sealed class HybridComputePrivateLinkScopePropertiesResponse
     {
         /// <summary>
+        /// The collection of associated Private Endpoint Connections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionDataModelResponse> PrivateEndpointConnections;
+        /// <summary>
         /// The Guid id of the private link scope.
         /// </summary>
         public readonly string PrivateLinkScopeId;
@@ -31,12 +35,15 @@ namespace Pulumi.AzureNative.HybridCompute.Outputs
 
         [OutputConstructor]
         private HybridComputePrivateLinkScopePropertiesResponse(
+            ImmutableArray<Outputs.PrivateEndpointConnectionDataModelResponse> privateEndpointConnections,
+
             string privateLinkScopeId,
 
             string provisioningState,
 
             string? publicNetworkAccess)
         {
+            PrivateEndpointConnections = privateEndpointConnections;
             PrivateLinkScopeId = privateLinkScopeId;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;

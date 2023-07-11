@@ -111,7 +111,7 @@ class File(pulumi.CustomResource):
                  __props__=None):
         """
         A file resource
-        API Version: 2018-07-15-preview.
+        Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-07-15-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -129,7 +129,7 @@ class File(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A file resource
-        API Version: 2018-07-15-preview.
+        Azure REST API version: 2021-06-30. Prior API version in Azure Native 1.x: 2018-07-15-preview
 
         :param str resource_name: The name of the resource.
         :param FileArgs args: The arguments to use to populate this resource's properties.
@@ -173,6 +173,7 @@ class File(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20180715preview:File"), pulumi.Alias(type_="azure-native:datamigration/v20210630:File"), pulumi.Alias(type_="azure-native:datamigration/v20211030preview:File"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:File"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:File")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -201,6 +202,7 @@ class File(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return File(resource_name, opts=opts, __props__=__props__)
 
@@ -227,6 +229,14 @@ class File(pulumi.CustomResource):
         Custom file properties
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

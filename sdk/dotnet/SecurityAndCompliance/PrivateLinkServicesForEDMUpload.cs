@@ -11,9 +11,9 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
 {
     /// <summary>
     /// The description of the service.
-    /// API Version: 2021-03-08.
+    /// Azure REST API version: 2021-03-08. Prior API version in Azure Native 1.x: 2021-03-08
     /// </summary>
-    [AzureNativeResourceType("azure-native:securityandcompliance:privateLinkServicesForEDMUpload")]
+    [AzureNativeResourceType("azure-native:securityandcompliance:PrivateLinkServicesForEDMUpload")]
     public partial class PrivateLinkServicesForEDMUpload : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -79,12 +79,12 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PrivateLinkServicesForEDMUpload(string name, PrivateLinkServicesForEDMUploadArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:securityandcompliance:privateLinkServicesForEDMUpload", name, args ?? new PrivateLinkServicesForEDMUploadArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:securityandcompliance:PrivateLinkServicesForEDMUpload", name, args ?? new PrivateLinkServicesForEDMUploadArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private PrivateLinkServicesForEDMUpload(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:securityandcompliance:privateLinkServicesForEDMUpload", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:securityandcompliance:PrivateLinkServicesForEDMUpload", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -95,7 +95,10 @@ namespace Pulumi.AzureNative.SecurityAndCompliance
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance:privateLinkServicesForEDMUpload"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:PrivateLinkServicesForEDMUpload"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210111:privateLinkServicesForEDMUpload"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:PrivateLinkServicesForEDMUpload"},
                     new global::Pulumi.Alias { Type = "azure-native:securityandcompliance/v20210308:privateLinkServicesForEDMUpload"},
                 },
             };

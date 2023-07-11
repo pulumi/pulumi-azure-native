@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified pool.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
 
@@ -56,11 +56,14 @@ export interface GetPoolResult {
     readonly autoScaleRun: outputs.batch.AutoScaleRunResponse;
     /**
      * For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
+     *
+     * Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
      */
     readonly certificates?: outputs.batch.CertificateReferenceResponse[];
     readonly creationTime: string;
     readonly currentDedicatedNodes: number;
     readonly currentLowPriorityNodes: number;
+    readonly currentNodeCommunicationMode: string;
     /**
      * Using CloudServiceConfiguration specifies that the nodes should be creating using Azure Cloud Services (PaaS), while VirtualMachineConfiguration uses Azure Virtual Machines (IaaS).
      */
@@ -120,6 +123,10 @@ export interface GetPoolResult {
      */
     readonly startTask?: outputs.batch.StartTaskResponse;
     /**
+     * If omitted, the default value is Default.
+     */
+    readonly targetNodeCommunicationMode?: string;
+    /**
      * If not specified, the default is spread.
      */
     readonly taskSchedulingPolicy?: outputs.batch.TaskSchedulingPolicyResponse;
@@ -139,7 +146,7 @@ export interface GetPoolResult {
 }
 /**
  * Gets information about the specified pool.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
     return pulumi.output(args).apply((a: any) => getPool(a, opts))

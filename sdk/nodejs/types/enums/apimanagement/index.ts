@@ -2,40 +2,30 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20160707 from "./v20160707";
 import * as v20161010 from "./v20161010";
 import * as v20170301 from "./v20170301";
 import * as v20180101 from "./v20180101";
 import * as v20180601preview from "./v20180601preview";
 import * as v20190101 from "./v20190101";
-import * as v20191201 from "./v20191201";
 import * as v20191201preview from "./v20191201preview";
-import * as v20200601preview from "./v20200601preview";
 import * as v20201201 from "./v20201201";
-import * as v20210101preview from "./v20210101preview";
 import * as v20210401preview from "./v20210401preview";
-import * as v20210801 from "./v20210801";
-import * as v20211201preview from "./v20211201preview";
-import * as v20220401preview from "./v20220401preview";
 import * as v20220801 from "./v20220801";
+import * as v20220901preview from "./v20220901preview";
+import * as v20230301preview from "./v20230301preview";
 
 export {
-    v20160707,
     v20161010,
     v20170301,
     v20180101,
     v20180601preview,
     v20190101,
-    v20191201,
     v20191201preview,
-    v20200601preview,
     v20201201,
-    v20210101preview,
     v20210401preview,
-    v20210801,
-    v20211201preview,
-    v20220401preview,
     v20220801,
+    v20220901preview,
+    v20230301preview,
 };
 
 export const AlwaysLog = {
@@ -53,6 +43,8 @@ export type AlwaysLog = (typeof AlwaysLog)[keyof typeof AlwaysLog];
 export const ApiType = {
     Http: "http",
     Soap: "soap",
+    Websocket: "websocket",
+    Graphql: "graphql",
 } as const;
 
 /**
@@ -101,6 +93,18 @@ export const AuthorizationMethod = {
 
 export type AuthorizationMethod = (typeof AuthorizationMethod)[keyof typeof AuthorizationMethod];
 
+export const AuthorizationType = {
+    /**
+     * OAuth2 authorization type
+     */
+    OAuth2: "OAuth2",
+} as const;
+
+/**
+ * Authorization type options
+ */
+export type AuthorizationType = (typeof AuthorizationType)[keyof typeof AuthorizationType];
+
 export const BackendProtocol = {
     /**
      * The Backend is a RESTful service.
@@ -139,6 +143,29 @@ export const BearerTokenSendingMethods = {
  * Form of an authorization grant, which the client uses to request the access token.
  */
 export type BearerTokenSendingMethods = (typeof BearerTokenSendingMethods)[keyof typeof BearerTokenSendingMethods];
+
+export const CertificateSource = {
+    Managed: "Managed",
+    KeyVault: "KeyVault",
+    Custom: "Custom",
+    BuiltIn: "BuiltIn",
+} as const;
+
+/**
+ * Certificate Source.
+ */
+export type CertificateSource = (typeof CertificateSource)[keyof typeof CertificateSource];
+
+export const CertificateStatus = {
+    Completed: "Completed",
+    Failed: "Failed",
+    InProgress: "InProgress",
+} as const;
+
+/**
+ * Certificate Status.
+ */
+export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
 
 export const ClientAuthenticationMethod = {
     /**
@@ -210,6 +237,10 @@ export const ContentFormat = {
      * The OpenAPI 3.0 JSON document is hosted on a publicly accessible internet address.
      */
     Openapi_json_link: "openapi+json-link",
+    /**
+     * The GraphQL API endpoint hosted on a publicly accessible internet address.
+     */
+    Graphql_link: "graphql-link",
 } as const;
 
 /**
@@ -232,6 +263,18 @@ export const DataMaskingMode = {
  * Data masking mode.
  */
 export type DataMaskingMode = (typeof DataMaskingMode)[keyof typeof DataMaskingMode];
+
+export const GatewayListDebugCredentialsContractPurpose = {
+    /**
+     * The tracing purpose.
+     */
+    Tracing: "tracing",
+} as const;
+
+/**
+ * Purpose of debug credential.
+ */
+export type GatewayListDebugCredentialsContractPurpose = (typeof GatewayListDebugCredentialsContractPurpose)[keyof typeof GatewayListDebugCredentialsContractPurpose];
 
 export const GrantType = {
     /**
@@ -360,6 +403,38 @@ export const LoggerType = {
  */
 export type LoggerType = (typeof LoggerType)[keyof typeof LoggerType];
 
+export const NatGatewayState = {
+    /**
+     * Nat Gateway is enabled for the service.
+     */
+    Enabled: "Enabled",
+    /**
+     * Nat Gateway is disabled for the service.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Property can be used to enable NAT Gateway for this API Management service.
+ */
+export type NatGatewayState = (typeof NatGatewayState)[keyof typeof NatGatewayState];
+
+export const OAuth2GrantType = {
+    /**
+     * Authorization Code grant
+     */
+    AuthorizationCode: "AuthorizationCode",
+    /**
+     * Client Credential grant
+     */
+    ClientCredentials: "ClientCredentials",
+} as const;
+
+/**
+ * OAuth2 grant type options
+ */
+export type OAuth2GrantType = (typeof OAuth2GrantType)[keyof typeof OAuth2GrantType];
+
 export const OperationNameFormat = {
     /**
      * API_NAME;rev=API_REVISION - OPERATION_NAME
@@ -382,7 +457,7 @@ export const PolicyContentFormat = {
      */
     Xml: "xml",
     /**
-     * The policy XML document is hosted on a http endpoint accessible from the API Management service.
+     * The policy XML document is hosted on a HTTP endpoint accessible from the API Management service.
      */
     Xml_link: "xml-link",
     /**
@@ -390,7 +465,7 @@ export const PolicyContentFormat = {
      */
     Rawxml: "rawxml",
     /**
-     * The policy document is not Xml encoded and is hosted on a http endpoint accessible from the API Management service.
+     * The policy document is not XML encoded and is hosted on a HTTP endpoint accessible from the API Management service.
      */
     Rawxml_link: "rawxml-link",
 } as const;
@@ -440,6 +515,8 @@ export type ProductState = (typeof ProductState)[keyof typeof ProductState];
 export const Protocol = {
     Http: "http",
     Https: "https",
+    Ws: "ws",
+    Wss: "wss",
 } as const;
 
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
@@ -452,6 +529,16 @@ export const ProvisioningState = {
  * Provisioning state.
  */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SamplingType = {
     /**
@@ -467,7 +554,7 @@ export type SamplingType = (typeof SamplingType)[keyof typeof SamplingType];
 
 export const SchemaType = {
     /**
-     * Xml schema type.
+     * XML schema type.
      */
     Xml: "xml",
     /**
@@ -519,15 +606,25 @@ export const SoapApiType = {
      */
     SoapToRest: "http",
     /**
-     * Imports the Soap API having a SOAP front end.
+     * Imports the SOAP API having a SOAP front end.
      */
     SoapPassThrough: "soap",
+    /**
+     * Imports the API having a Websocket front end.
+     */
+    WebSocket: "websocket",
+    /**
+     * Imports the API having a GraphQL front end.
+     */
+    GraphQL: "graphql",
 } as const;
 
 /**
- * Type of Api to create. 
- *  * `http` creates a SOAP to REST API 
- *  * `soap` creates a SOAP pass-through API .
+ * Type of API to create. 
+ *  * `http` creates a REST API 
+ *  * `soap` creates a SOAP pass-through API  
+ *  * `websocket` creates websocket API 
+ *  * `graphql` creates GraphQL API.
  */
 export type SoapApiType = (typeof SoapApiType)[keyof typeof SoapApiType];
 
@@ -572,6 +669,22 @@ export const SubscriptionState = {
  * Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
  */
 export type SubscriptionState = (typeof SubscriptionState)[keyof typeof SubscriptionState];
+
+export const TranslateRequiredQueryParametersConduct = {
+    /**
+     * Translates required query parameters to template ones. Is a default value
+     */
+    Template: "template",
+    /**
+     * Leaves required query parameters as they are (no translation done).
+     */
+    Query: "query",
+} as const;
+
+/**
+ * Strategy of translating required query parameters to template ones. By default has value 'template'. Possible values: 'template', 'query'
+ */
+export type TranslateRequiredQueryParametersConduct = (typeof TranslateRequiredQueryParametersConduct)[keyof typeof TranslateRequiredQueryParametersConduct];
 
 export const UserState = {
     /**

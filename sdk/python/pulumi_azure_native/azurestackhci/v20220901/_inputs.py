@@ -11,34 +11,9 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ArcConnectivityPropertiesArgs',
     'ClusterDesiredPropertiesArgs',
     'SoftwareAssurancePropertiesArgs',
 ]
-
-@pulumi.input_type
-class ArcConnectivityPropertiesArgs:
-    def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
-        """
-        Connectivity related configuration required by arc server.
-        :param pulumi.Input[bool] enabled: True indicates ARC connectivity is enabled
-        """
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @property
-    @pulumi.getter
-    def enabled(self) -> Optional[pulumi.Input[bool]]:
-        """
-        True indicates ARC connectivity is enabled
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "enabled", value)
-
 
 @pulumi.input_type
 class ClusterDesiredPropertiesArgs:

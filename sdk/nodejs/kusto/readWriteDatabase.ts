@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Class representing a read write database.
- * API Version: 2021-01-01.
+ * Azure REST API version: 2022-12-29. Prior API version in Azure Native 1.x: 2021-01-01
  */
 export class ReadWriteDatabase extends pulumi.CustomResource {
     /**
@@ -96,6 +96,7 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["callerRole"] = args ? args.callerRole : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
@@ -120,7 +121,7 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20180907preview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190121:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190515:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190907:ReadWriteDatabase" }, { type: "azure-native:kusto/v20191109:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200215:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200614:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200918:ReadWriteDatabase" }, { type: "azure-native:kusto/v20210101:ReadWriteDatabase" }, { type: "azure-native:kusto/v20210827:ReadWriteDatabase" }, { type: "azure-native:kusto/v20220201:ReadWriteDatabase" }, { type: "azure-native:kusto/v20220707:ReadWriteDatabase" }, { type: "azure-native:kusto/v20221111:ReadWriteDatabase" }, { type: "azure-native:kusto/v20221229:ReadWriteDatabase" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kusto/v20170907privatepreview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20180907preview:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190121:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190515:ReadWriteDatabase" }, { type: "azure-native:kusto/v20190907:ReadWriteDatabase" }, { type: "azure-native:kusto/v20191109:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200215:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200614:ReadWriteDatabase" }, { type: "azure-native:kusto/v20200918:ReadWriteDatabase" }, { type: "azure-native:kusto/v20210101:ReadWriteDatabase" }, { type: "azure-native:kusto/v20210827:ReadWriteDatabase" }, { type: "azure-native:kusto/v20220201:ReadWriteDatabase" }, { type: "azure-native:kusto/v20220707:ReadWriteDatabase" }, { type: "azure-native:kusto/v20221111:ReadWriteDatabase" }, { type: "azure-native:kusto/v20221229:ReadWriteDatabase" }, { type: "azure-native:kusto/v20230502:ReadWriteDatabase" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ReadWriteDatabase.__pulumiType, name, resourceInputs, opts);
     }
@@ -130,6 +131,10 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
  * The set of arguments for constructing a ReadWriteDatabase resource.
  */
 export interface ReadWriteDatabaseArgs {
+    /**
+     * By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
+     */
+    callerRole?: pulumi.Input<string>;
     /**
      * The name of the Kusto cluster.
      */

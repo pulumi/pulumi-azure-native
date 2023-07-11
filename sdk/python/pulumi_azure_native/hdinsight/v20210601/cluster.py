@@ -133,12 +133,7 @@ class ClusterArgs:
         pulumi.set(self, "zones", value)
 
 
-warnings.warn("""azure-native:hdinsight/v20210601:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Cluster to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Cluster(pulumi.CustomResource):
-    warnings.warn("""azure-native:hdinsight/v20210601:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Cluster to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -196,7 +191,6 @@ class Cluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Cluster is deprecated: azure-native:hdinsight/v20210601:Cluster is being removed in the next major version of this provider. Upgrade to at least azure-native:hdinsight/v20230415preview:Cluster to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -218,7 +212,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Cluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hdinsight:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20150301preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20180601preview:Cluster"), pulumi.Alias(type_="azure-native:hdinsight/v20230415preview:Cluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Cluster, __self__).__init__(
             'azure-native:hdinsight/v20210601:Cluster',

@@ -10,10 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
+    /// <summary>
+    /// See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
+    /// </summary>
     public sealed class ManagedClusterPodIdentityProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customer consent for enabling AAD pod identity addon in cluster using Kubenet network plugin.
+        /// Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
         /// </summary>
         [Input("allowNetworkPluginKubenet")]
         public Input<bool>? AllowNetworkPluginKubenet { get; set; }
@@ -28,7 +31,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<Inputs.ManagedClusterPodIdentityArgs>? _userAssignedIdentities;
 
         /// <summary>
-        /// User assigned pod identity settings.
+        /// The pod identities to use in the cluster.
         /// </summary>
         public InputList<Inputs.ManagedClusterPodIdentityArgs> UserAssignedIdentities
         {
@@ -40,7 +43,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<Inputs.ManagedClusterPodIdentityExceptionArgs>? _userAssignedIdentityExceptions;
 
         /// <summary>
-        /// User assigned pod identity exception settings.
+        /// The pod identity exceptions to allow.
         /// </summary>
         public InputList<Inputs.ManagedClusterPodIdentityExceptionArgs> UserAssignedIdentityExceptions
         {

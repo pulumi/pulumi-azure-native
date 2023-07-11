@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DevCenter
 {
     /// <summary>
     /// Network related settings
-    /// API Version: 2022-09-01-preview.
+    /// Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:NetworkConnection")]
     public partial class NetworkConnection : global::Pulumi.CustomResource
@@ -129,6 +129,8 @@ namespace Pulumi.AzureNative.DevCenter
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20220901preview:NetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221012preview:NetworkConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:devcenter/v20221111preview:NetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230101preview:NetworkConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:devcenter/v20230401:NetworkConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -201,7 +203,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string>? OrganizationUnit { get; set; }
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

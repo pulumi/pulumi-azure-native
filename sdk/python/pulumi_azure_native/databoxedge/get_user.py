@@ -81,7 +81,7 @@ class GetUserResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        User in DataBoxEdge Resource
+        Metadata pertaining to creation and last modification of User
         """
         return pulumi.get(self, "system_data")
 
@@ -123,7 +123,7 @@ def get_user(device_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUserResult:
     """
     Gets the properties of the specified user.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-03-01.
 
 
     :param str device_name: The device name.
@@ -154,7 +154,7 @@ def get_user_output(device_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
     """
     Gets the properties of the specified user.
-    API Version: 2020-12-01.
+    Azure REST API version: 2022-03-01.
 
 
     :param str device_name: The device name.

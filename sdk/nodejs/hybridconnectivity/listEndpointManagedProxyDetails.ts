@@ -2,11 +2,14 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Fetches the managed proxy details
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2023-03-15.
  */
 export function listEndpointManagedProxyDetails(args: ListEndpointManagedProxyDetailsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointManagedProxyDetailsResult> {
 
@@ -16,6 +19,7 @@ export function listEndpointManagedProxyDetails(args: ListEndpointManagedProxyDe
         "hostname": args.hostname,
         "resourceUri": args.resourceUri,
         "service": args.service,
+        "serviceName": args.serviceName,
     }, opts);
 }
 
@@ -36,6 +40,10 @@ export interface ListEndpointManagedProxyDetailsArgs {
      * The name of the service.
      */
     service: string;
+    /**
+     * The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
+     */
+    serviceName?: string | enums.hybridconnectivity.ServiceName;
 }
 
 /**
@@ -53,7 +61,7 @@ export interface ListEndpointManagedProxyDetailsResult {
 }
 /**
  * Fetches the managed proxy details
- * API Version: 2022-05-01-preview.
+ * Azure REST API version: 2023-03-15.
  */
 export function listEndpointManagedProxyDetailsOutput(args: ListEndpointManagedProxyDetailsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListEndpointManagedProxyDetailsResult> {
     return pulumi.output(args).apply((a: any) => listEndpointManagedProxyDetails(a, opts))
@@ -76,4 +84,8 @@ export interface ListEndpointManagedProxyDetailsOutputArgs {
      * The name of the service.
      */
     service: pulumi.Input<string>;
+    /**
+     * The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
+     */
+    serviceName?: pulumi.Input<string | enums.hybridconnectivity.ServiceName>;
 }

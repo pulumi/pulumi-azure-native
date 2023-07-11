@@ -51,7 +51,7 @@ def get_deployment_log_file_url(app_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentLogFileUrlResult:
     """
     Get deployment log file URL
-    API Version: 2020-07-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str app_name: The name of the App resource.
@@ -79,7 +79,7 @@ def get_deployment_log_file_url_output(app_name: Optional[pulumi.Input[str]] = N
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentLogFileUrlResult]:
     """
     Get deployment log file URL
-    API Version: 2020-07-01.
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str app_name: The name of the App resource.

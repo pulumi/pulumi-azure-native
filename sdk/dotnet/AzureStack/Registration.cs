@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.AzureStack
 {
     /// <summary>
     /// Registration information.
-    /// API Version: 2017-06-01.
+    /// Azure REST API version: 2022-06-01. Prior API version in Azure Native 1.x: 2017-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack:Registration")]
     public partial class Registration : global::Pulumi.CustomResource

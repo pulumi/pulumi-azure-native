@@ -148,7 +148,7 @@ class IntegrationAccount(pulumi.CustomResource):
                  __props__=None):
         """
         The integration account.
-        API Version: 2019-05-01.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -168,7 +168,7 @@ class IntegrationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account.
-        API Version: 2019-05-01.
+        Azure REST API version: 2019-05-01. Prior API version in Azure Native 1.x: 2019-05-01
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountArgs args: The arguments to use to populate this resource's properties.

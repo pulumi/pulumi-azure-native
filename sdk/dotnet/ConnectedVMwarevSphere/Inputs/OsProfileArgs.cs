@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
 {
 
     /// <summary>
-    /// Defines the resource properties.
+    /// Specifies the operating system settings for the virtual machine.
     /// </summary>
     public sealed class OsProfileArgs : global::Pulumi.ResourceArgs
     {
@@ -34,10 +34,28 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.Inputs
         public Input<string>? ComputerName { get; set; }
 
         /// <summary>
+        /// Gets or sets the guestId.
+        /// </summary>
+        [Input("guestId")]
+        public Input<string>? GuestId { get; set; }
+
+        /// <summary>
+        /// Specifies the linux configuration for update management.
+        /// </summary>
+        [Input("linuxConfiguration")]
+        public Input<Inputs.OsProfileLinuxConfigurationArgs>? LinuxConfiguration { get; set; }
+
+        /// <summary>
         /// Gets or sets the type of the os.
         /// </summary>
         [Input("osType")]
         public InputUnion<string, Pulumi.AzureNative.ConnectedVMwarevSphere.OsType>? OsType { get; set; }
+
+        /// <summary>
+        /// Specifies the windows configuration for update management.
+        /// </summary>
+        [Input("windowsConfiguration")]
+        public Input<Inputs.OsProfileWindowsConfigurationArgs>? WindowsConfiguration { get; set; }
 
         public OsProfileArgs()
         {

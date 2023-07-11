@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The operation to get the VMSS VM extension.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMExtensionResult> {
 
@@ -71,6 +71,10 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
      */
     readonly instanceView?: outputs.compute.VirtualMachineExtensionInstanceViewResponse;
     /**
+     * The location of the extension.
+     */
+    readonly location?: string;
+    /**
      * The name of the extension.
      */
     readonly name: string;
@@ -78,6 +82,14 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
     readonly protectedSettings?: any;
+    /**
+     * The extensions protected settings that are passed by reference, and consumed from key vault
+     */
+    readonly protectedSettingsFromKeyVault?: outputs.compute.KeyVaultSecretReferenceResponse;
+    /**
+     * Collection of extension names after which this extension needs to be provisioned.
+     */
+    readonly provisionAfterExtensions?: string[];
     /**
      * The provisioning state, which only appears in the response.
      */
@@ -91,6 +103,10 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
      */
     readonly settings?: any;
     /**
+     * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
+     */
+    readonly suppressFailures?: boolean;
+    /**
      * Resource type
      */
     readonly type: string;
@@ -101,7 +117,7 @@ export interface GetVirtualMachineScaleSetVMExtensionResult {
 }
 /**
  * The operation to get the VMSS VM extension.
- * API Version: 2021-03-01.
+ * Azure REST API version: 2023-03-01.
  */
 export function getVirtualMachineScaleSetVMExtensionOutput(args: GetVirtualMachineScaleSetVMExtensionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualMachineScaleSetVMExtensionResult> {
     return pulumi.output(args).apply((a: any) => getVirtualMachineScaleSetVMExtension(a, opts))

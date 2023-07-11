@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20230201
 {
-    [Obsolete(@"azure-native:securityinsights/v20230201:Bookmark is being removed in the next major version of this provider. Upgrade to at least azure-native:securityinsights/v20230601preview:Bookmark to guarantee forwards compatibility.")]
     public static class GetBookmark
     {
         /// <summary>

@@ -19,23 +19,23 @@ namespace Pulumi.AzureNative.RecoveryServices.Outputs
         /// <summary>
         /// The ARM Id of the job being executed.
         /// </summary>
-        public readonly string? JobId;
+        public readonly string JobId;
         /// <summary>
         /// The job name.
         /// </summary>
-        public readonly string? JobName;
+        public readonly string JobName;
         /// <summary>
         /// The start time of the job.
         /// </summary>
-        public readonly string? StartTime;
+        public readonly string StartTime;
 
         [OutputConstructor]
         private CurrentJobDetailsResponse(
-            string? jobId,
+            string jobId,
 
-            string? jobName,
+            string jobName,
 
-            string? startTime)
+            string startTime)
         {
             JobId = jobId;
             JobName = jobName;

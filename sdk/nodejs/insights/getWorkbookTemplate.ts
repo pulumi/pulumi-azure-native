@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a single workbook template by its resourceName.
- * API Version: 2019-10-17-preview.
+ * Azure REST API version: 2020-11-20.
  */
 export function getWorkbookTemplate(args: GetWorkbookTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkbookTemplateResult> {
 
@@ -78,7 +78,7 @@ export interface GetWorkbookTemplateResult {
 }
 /**
  * Get a single workbook template by its resourceName.
- * API Version: 2019-10-17-preview.
+ * Azure REST API version: 2020-11-20.
  */
 export function getWorkbookTemplateOutput(args: GetWorkbookTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkbookTemplateResult> {
     return pulumi.output(args).apply((a: any) => getWorkbookTemplate(a, opts))

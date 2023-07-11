@@ -115,8 +115,8 @@ def get_sql_migration_service(resource_group_name: Optional[str] = None,
                               sql_migration_service_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlMigrationServiceResult:
     """
-    Retrieve the Migration Service.
-    API Version: 2021-10-30-preview.
+    Retrieve the Database Migration Service
+    Azure REST API version: 2022-03-30-preview.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -144,8 +144,8 @@ def get_sql_migration_service_output(resource_group_name: Optional[pulumi.Input[
                                      sql_migration_service_name: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlMigrationServiceResult]:
     """
-    Retrieve the Migration Service.
-    API Version: 2021-10-30-preview.
+    Retrieve the Database Migration Service
+    Azure REST API version: 2022-03-30-preview.
 
 
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

@@ -147,7 +147,7 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVirtualHubIpConfigurationResult:
     """
     Retrieves the details of a Virtual Hub Ip configuration.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str ip_config_name: The name of the ipconfig.
@@ -180,7 +180,7 @@ def get_virtual_hub_ip_configuration_output(ip_config_name: Optional[pulumi.Inpu
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVirtualHubIpConfigurationResult]:
     """
     Retrieves the details of a Virtual Hub Ip configuration.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str ip_config_name: The name of the ipconfig.

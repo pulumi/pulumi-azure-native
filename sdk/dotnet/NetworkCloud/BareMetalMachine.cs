@@ -10,11 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.NetworkCloud
 {
     /// <summary>
-    /// API Version: 2022-12-12-preview.
+    /// Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:BareMetalMachine")]
     public partial class BareMetalMachine : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        /// </summary>
+        [Output("associatedResourceIds")]
+        public Output<ImmutableArray<string>> AssociatedResourceIds { get; private set; } = null!;
+
         /// <summary>
         /// The connection string for the baseboard management controller including IP address and protocol.
         /// </summary>
@@ -82,7 +88,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<Outputs.HardwareValidationStatusResponse> HardwareValidationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
+        /// Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
         /// </summary>
         [Output("hybridAksClustersAssociatedIds")]
         public Output<ImmutableArray<string>> HybridAksClustersAssociatedIds { get; private set; } = null!;
@@ -208,7 +214,7 @@ namespace Pulumi.AzureNative.NetworkCloud
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
+        /// Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
         /// </summary>
         [Output("virtualMachinesAssociatedIds")]
         public Output<ImmutableArray<string>> VirtualMachinesAssociatedIds { get; private set; } = null!;
@@ -239,6 +245,7 @@ namespace Pulumi.AzureNative.NetworkCloud
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20221212preview:BareMetalMachine"},
+                    new global::Pulumi.Alias { Type = "azure-native:networkcloud/v20230501preview:BareMetalMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

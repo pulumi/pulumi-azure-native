@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Authorization
     {
         /// <summary>
         /// Get a management lock by scope.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Task<GetManagementLockByScopeResult> InvokeAsync(GetManagementLockByScopeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetManagementLockByScopeResult>("azure-native:authorization:getManagementLockByScope", args ?? new GetManagementLockByScopeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a management lock by scope.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2020-05-01.
         /// </summary>
         public static Output<GetManagementLockByScopeResult> Invoke(GetManagementLockByScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagementLockByScopeResult>("azure-native:authorization:getManagementLockByScope", args ?? new GetManagementLockByScopeInvokeArgs(), options.WithDefaults());
@@ -92,6 +92,10 @@ namespace Pulumi.AzureNative.Authorization
         /// </summary>
         public readonly ImmutableArray<Outputs.ManagementLockOwnerResponse> Owners;
         /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The resource type of the lock - Microsoft.Authorization/locks.
         /// </summary>
         public readonly string Type;
@@ -108,6 +112,8 @@ namespace Pulumi.AzureNative.Authorization
 
             ImmutableArray<Outputs.ManagementLockOwnerResponse> owners,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
@@ -115,6 +121,7 @@ namespace Pulumi.AzureNative.Authorization
             Name = name;
             Notes = notes;
             Owners = owners;
+            SystemData = systemData;
             Type = type;
         }
     }

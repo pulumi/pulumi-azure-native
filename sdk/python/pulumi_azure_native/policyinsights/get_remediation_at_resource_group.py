@@ -22,13 +22,19 @@ class GetRemediationAtResourceGroupResult:
     """
     The remediation definition.
     """
-    def __init__(__self__, created_on=None, deployment_status=None, filters=None, id=None, last_updated_on=None, name=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, resource_discovery_mode=None, type=None):
+    def __init__(__self__, correlation_id=None, created_on=None, deployment_status=None, failure_threshold=None, filters=None, id=None, last_updated_on=None, name=None, parallel_deployments=None, policy_assignment_id=None, policy_definition_reference_id=None, provisioning_state=None, resource_count=None, resource_discovery_mode=None, status_message=None, system_data=None, type=None):
+        if correlation_id and not isinstance(correlation_id, str):
+            raise TypeError("Expected argument 'correlation_id' to be a str")
+        pulumi.set(__self__, "correlation_id", correlation_id)
         if created_on and not isinstance(created_on, str):
             raise TypeError("Expected argument 'created_on' to be a str")
         pulumi.set(__self__, "created_on", created_on)
         if deployment_status and not isinstance(deployment_status, dict):
             raise TypeError("Expected argument 'deployment_status' to be a dict")
         pulumi.set(__self__, "deployment_status", deployment_status)
+        if failure_threshold and not isinstance(failure_threshold, dict):
+            raise TypeError("Expected argument 'failure_threshold' to be a dict")
+        pulumi.set(__self__, "failure_threshold", failure_threshold)
         if filters and not isinstance(filters, dict):
             raise TypeError("Expected argument 'filters' to be a dict")
         pulumi.set(__self__, "filters", filters)
@@ -41,6 +47,9 @@ class GetRemediationAtResourceGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if parallel_deployments and not isinstance(parallel_deployments, int):
+            raise TypeError("Expected argument 'parallel_deployments' to be a int")
+        pulumi.set(__self__, "parallel_deployments", parallel_deployments)
         if policy_assignment_id and not isinstance(policy_assignment_id, str):
             raise TypeError("Expected argument 'policy_assignment_id' to be a str")
         pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
@@ -50,12 +59,29 @@ class GetRemediationAtResourceGroupResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_count and not isinstance(resource_count, int):
+            raise TypeError("Expected argument 'resource_count' to be a int")
+        pulumi.set(__self__, "resource_count", resource_count)
         if resource_discovery_mode and not isinstance(resource_discovery_mode, str):
             raise TypeError("Expected argument 'resource_discovery_mode' to be a str")
         pulumi.set(__self__, "resource_discovery_mode", resource_discovery_mode)
+        if status_message and not isinstance(status_message, str):
+            raise TypeError("Expected argument 'status_message' to be a str")
+        pulumi.set(__self__, "status_message", status_message)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="correlationId")
+    def correlation_id(self) -> str:
+        """
+        The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
+        """
+        return pulumi.get(self, "correlation_id")
 
     @property
     @pulumi.getter(name="createdOn")
@@ -72,6 +98,14 @@ class GetRemediationAtResourceGroupResult:
         The deployment status summary for all deployments created by the remediation.
         """
         return pulumi.get(self, "deployment_status")
+
+    @property
+    @pulumi.getter(name="failureThreshold")
+    def failure_threshold(self) -> Optional['outputs.RemediationPropertiesResponseFailureThreshold']:
+        """
+        The remediation failure threshold settings
+        """
+        return pulumi.get(self, "failure_threshold")
 
     @property
     @pulumi.getter
@@ -106,6 +140,14 @@ class GetRemediationAtResourceGroupResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="parallelDeployments")
+    def parallel_deployments(self) -> Optional[int]:
+        """
+        Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
+        """
+        return pulumi.get(self, "parallel_deployments")
+
+    @property
     @pulumi.getter(name="policyAssignmentId")
     def policy_assignment_id(self) -> Optional[str]:
         """
@@ -125,9 +167,17 @@ class GetRemediationAtResourceGroupResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The status of the remediation.
+        The status of the remediation. This refers to the entire remediation task, not individual deployments. Allowed values are Evaluating, Canceled, Cancelling, Failed, Complete, or Succeeded.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceCount")
+    def resource_count(self) -> Optional[int]:
+        """
+        Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
+        """
+        return pulumi.get(self, "resource_count")
 
     @property
     @pulumi.getter(name="resourceDiscoveryMode")
@@ -136,6 +186,22 @@ class GetRemediationAtResourceGroupResult:
         The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
         """
         return pulumi.get(self, "resource_discovery_mode")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        The remediation status message. Provides additional details regarding the state of the remediation.
+        """
+        return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -152,16 +218,22 @@ class AwaitableGetRemediationAtResourceGroupResult(GetRemediationAtResourceGroup
         if False:
             yield self
         return GetRemediationAtResourceGroupResult(
+            correlation_id=self.correlation_id,
             created_on=self.created_on,
             deployment_status=self.deployment_status,
+            failure_threshold=self.failure_threshold,
             filters=self.filters,
             id=self.id,
             last_updated_on=self.last_updated_on,
             name=self.name,
+            parallel_deployments=self.parallel_deployments,
             policy_assignment_id=self.policy_assignment_id,
             policy_definition_reference_id=self.policy_definition_reference_id,
             provisioning_state=self.provisioning_state,
+            resource_count=self.resource_count,
             resource_discovery_mode=self.resource_discovery_mode,
+            status_message=self.status_message,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -170,7 +242,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRemediationAtResourceGroupResult:
     """
     Gets an existing remediation at resource group scope.
-    API Version: 2019-07-01.
+    Azure REST API version: 2021-10-01.
 
 
     :param str remediation_name: The name of the remediation.
@@ -183,16 +255,22 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:policyinsights:getRemediationAtResourceGroup', __args__, opts=opts, typ=GetRemediationAtResourceGroupResult).value
 
     return AwaitableGetRemediationAtResourceGroupResult(
+        correlation_id=__ret__.correlation_id,
         created_on=__ret__.created_on,
         deployment_status=__ret__.deployment_status,
+        failure_threshold=__ret__.failure_threshold,
         filters=__ret__.filters,
         id=__ret__.id,
         last_updated_on=__ret__.last_updated_on,
         name=__ret__.name,
+        parallel_deployments=__ret__.parallel_deployments,
         policy_assignment_id=__ret__.policy_assignment_id,
         policy_definition_reference_id=__ret__.policy_definition_reference_id,
         provisioning_state=__ret__.provisioning_state,
+        resource_count=__ret__.resource_count,
         resource_discovery_mode=__ret__.resource_discovery_mode,
+        status_message=__ret__.status_message,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -202,7 +280,7 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRemediationAtResourceGroupResult]:
     """
     Gets an existing remediation at resource group scope.
-    API Version: 2019-07-01.
+    Azure REST API version: 2021-10-01.
 
 
     :param str remediation_name: The name of the remediation.

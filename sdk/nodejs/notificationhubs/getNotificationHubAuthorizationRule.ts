@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets an authorization rule for a NotificationHub by name.
- * API Version: 2017-04-01.
+ * Response for POST requests that return single SharedAccessAuthorizationRule.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNotificationHubAuthorizationRuleResult> {
 
@@ -24,91 +24,59 @@ export function getNotificationHubAuthorizationRule(args: GetNotificationHubAuth
 
 export interface GetNotificationHubAuthorizationRuleArgs {
     /**
-     * authorization rule name.
+     * Authorization Rule Name
      */
     authorizationRuleName: string;
     /**
-     * The namespace name
+     * Namespace name
      */
     namespaceName: string;
     /**
-     * The notification hub name.
+     * Notification Hub name
      */
     notificationHubName: string;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
 
 /**
- * Description of a Namespace AuthorizationRules.
+ * Response for POST requests that return single SharedAccessAuthorizationRule.
  */
 export interface GetNotificationHubAuthorizationRuleResult {
     /**
-     * A string that describes the claim type
-     */
-    readonly claimType: string;
-    /**
-     * A string that describes the claim value
-     */
-    readonly claimValue: string;
-    /**
-     * The created time for this rule
-     */
-    readonly createdTime: string;
-    /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * A string that describes the authorization rule.
-     */
-    readonly keyName: string;
-    /**
-     * Resource location
+     * Deprecated - only for compatibility.
      */
     readonly location?: string;
     /**
-     * The last modified time for this rule
-     */
-    readonly modifiedTime: string;
-    /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
-     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
+     * SharedAccessAuthorizationRule properties.
      */
-    readonly primaryKey: string;
+    readonly properties: outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse;
     /**
-     * The revision number for the rule
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    readonly revision: number;
+    readonly systemData: outputs.notificationhubs.SystemDataResponse;
     /**
-     * The rights associated with the rule.
-     */
-    readonly rights?: string[];
-    /**
-     * A base64-encoded 256-bit primary key for signing and validating the SAS token.
-     */
-    readonly secondaryKey: string;
-    /**
-     * The sku of the created namespace
-     */
-    readonly sku?: outputs.notificationhubs.SkuResponse;
-    /**
-     * Resource tags
+     * Deprecated - only for compatibility.
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
- * Gets an authorization rule for a NotificationHub by name.
- * API Version: 2017-04-01.
+ * Response for POST requests that return single SharedAccessAuthorizationRule.
+ * Azure REST API version: 2023-01-01-preview.
  */
 export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationHubAuthorizationRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNotificationHubAuthorizationRuleResult> {
     return pulumi.output(args).apply((a: any) => getNotificationHubAuthorizationRule(a, opts))
@@ -116,19 +84,19 @@ export function getNotificationHubAuthorizationRuleOutput(args: GetNotificationH
 
 export interface GetNotificationHubAuthorizationRuleOutputArgs {
     /**
-     * authorization rule name.
+     * Authorization Rule Name
      */
     authorizationRuleName: pulumi.Input<string>;
     /**
-     * The namespace name
+     * Namespace name
      */
     namespaceName: pulumi.Input<string>;
     /**
-     * The notification hub name.
+     * Notification Hub name
      */
     notificationHubName: pulumi.Input<string>;
     /**
-     * The name of the resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

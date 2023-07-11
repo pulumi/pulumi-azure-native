@@ -28,12 +28,19 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         public readonly bool? IsPureProxy;
         public readonly ImmutableArray<Outputs.LinkedAccessCheckResponse> LinkedAccessChecks;
         public readonly ImmutableArray<Outputs.LoggingRuleResponse> LoggingRules;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseManagement? Management;
         public readonly string? MarketplaceType;
+        public readonly Outputs.OpenApiConfigurationResponse? OpenApiConfiguration;
+        /// <summary>
+        /// The provisioned state of the resource.
+        /// </summary>
         public readonly string? ProvisioningState;
         public readonly string? Regionality;
         public readonly Outputs.ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions? RequestHeaderOptions;
         public readonly ImmutableArray<string> RequiredFeatures;
+        public readonly ImmutableDictionary<string, Outputs.ResourceConcurrencyControlOptionResponse>? ResourceConcurrencyControlOptions;
         public readonly string? ResourceDeletionPolicy;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration? ResourceGraphConfiguration;
         public readonly Outputs.ResourceTypeRegistrationPropertiesResponseResourceMovePolicy? ResourceMovePolicy;
         public readonly string? RoutingType;
         public readonly ImmutableArray<Outputs.ServiceTreeInfoResponse> ServiceTreeInfos;
@@ -75,7 +82,11 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<Outputs.LoggingRuleResponse> loggingRules,
 
+            Outputs.ResourceTypeRegistrationPropertiesResponseManagement? management,
+
             string? marketplaceType,
+
+            Outputs.OpenApiConfigurationResponse? openApiConfiguration,
 
             string? provisioningState,
 
@@ -85,7 +96,11 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<string> requiredFeatures,
 
+            ImmutableDictionary<string, Outputs.ResourceConcurrencyControlOptionResponse>? resourceConcurrencyControlOptions,
+
             string? resourceDeletionPolicy,
+
+            Outputs.ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration? resourceGraphConfiguration,
 
             Outputs.ResourceTypeRegistrationPropertiesResponseResourceMovePolicy? resourceMovePolicy,
 
@@ -118,12 +133,16 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
             IsPureProxy = isPureProxy;
             LinkedAccessChecks = linkedAccessChecks;
             LoggingRules = loggingRules;
+            Management = management;
             MarketplaceType = marketplaceType;
+            OpenApiConfiguration = openApiConfiguration;
             ProvisioningState = provisioningState;
             Regionality = regionality;
             RequestHeaderOptions = requestHeaderOptions;
             RequiredFeatures = requiredFeatures;
+            ResourceConcurrencyControlOptions = resourceConcurrencyControlOptions;
             ResourceDeletionPolicy = resourceDeletionPolicy;
+            ResourceGraphConfiguration = resourceGraphConfiguration;
             ResourceMovePolicy = resourceMovePolicy;
             RoutingType = routingType;
             ServiceTreeInfos = serviceTreeInfos;

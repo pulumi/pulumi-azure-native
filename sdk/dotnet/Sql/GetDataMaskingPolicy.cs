@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Sql
     public static class GetDataMaskingPolicy
     {
         /// <summary>
-        /// Gets a database data masking policy.
-        /// API Version: 2014-04-01.
+        /// Gets the database data masking policy.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Task<GetDataMaskingPolicyResult> InvokeAsync(GetDataMaskingPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataMaskingPolicyResult>("azure-native:sql:getDataMaskingPolicy", args ?? new GetDataMaskingPolicyArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a database data masking policy.
-        /// API Version: 2014-04-01.
+        /// Gets the database data masking policy.
+        /// Azure REST API version: 2021-11-01.
         /// </summary>
         public static Output<GetDataMaskingPolicyResult> Invoke(GetDataMaskingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataMaskingPolicyResult>("azure-native:sql:getDataMaskingPolicy", args ?? new GetDataMaskingPolicyInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetDataMaskingPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the database for which the data masking rule applies.
+        /// The name of the database for which the data masking policy applies.
         /// </summary>
         [Input("dataMaskingPolicyName", required: true)]
         public string DataMaskingPolicyName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Sql
     public sealed class GetDataMaskingPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the database for which the data masking rule applies.
+        /// The name of the database for which the data masking policy applies.
         /// </summary>
         [Input("dataMaskingPolicyName", required: true)]
         public Input<string> DataMaskingPolicyName { get; set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The kind of data masking policy. Metadata, used for Azure portal.
+        /// The kind of Data Masking Policy. Metadata, used for Azure portal.
         /// </summary>
         public readonly string Kind;
         /// <summary>

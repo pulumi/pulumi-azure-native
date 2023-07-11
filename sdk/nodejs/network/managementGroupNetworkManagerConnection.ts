@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Network Manager Connection resource
- * API Version: 2021-05-01-preview.
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2021-05-01-preview
  */
 export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
     }
 
     /**
-     * A description of the scope connection.
+     * A description of the network manager connection.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -94,7 +94,7 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:ManagementGroupNetworkManagerConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220101:ManagementGroupNetworkManagerConnection" }, { type: "azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection" }, { type: "azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection" }, { type: "azure-native:network/v20220501:ManagementGroupNetworkManagerConnection" }, { type: "azure-native:network/v20220701:ManagementGroupNetworkManagerConnection" }, { type: "azure-native:network/v20220901:ManagementGroupNetworkManagerConnection" }, { type: "azure-native:network/v20221101:ManagementGroupNetworkManagerConnection" }, { type: "azure-native:network/v20230201:ManagementGroupNetworkManagerConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroupNetworkManagerConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -105,7 +105,7 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
  */
 export interface ManagementGroupNetworkManagerConnectionArgs {
     /**
-     * A description of the scope connection.
+     * A description of the network manager connection.
      */
     description?: pulumi.Input<string>;
     /**

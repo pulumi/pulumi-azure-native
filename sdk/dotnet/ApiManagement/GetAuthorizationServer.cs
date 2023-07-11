@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ApiManagement
     {
         /// <summary>
         /// Gets the details of the authorization server specified by its identifier.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Task<GetAuthorizationServerResult> InvokeAsync(GetAuthorizationServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAuthorizationServerResult>("azure-native:apimanagement:getAuthorizationServer", args ?? new GetAuthorizationServerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of the authorization server specified by its identifier.
-        /// API Version: 2020-12-01.
+        /// Azure REST API version: 2022-08-01.
         /// </summary>
         public static Output<GetAuthorizationServerResult> Invoke(GetAuthorizationServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizationServerResult>("azure-native:apimanagement:getAuthorizationServer", args ?? new GetAuthorizationServerInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public string Authsid { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<string> Authsid { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -128,11 +128,11 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly ImmutableArray<string> GrantTypes;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -156,9 +156,17 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string? TokenEndpoint;
         /// <summary>
-        /// Resource type for API Management resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
+        /// </summary>
+        public readonly bool? UseInApiDocumentation;
+        /// <summary>
+        /// If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
+        /// </summary>
+        public readonly bool? UseInTestConsole;
 
         [OutputConstructor]
         private GetAuthorizationServerResult(
@@ -198,7 +206,11 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string? tokenEndpoint,
 
-            string type)
+            string type,
+
+            bool? useInApiDocumentation,
+
+            bool? useInTestConsole)
         {
             AuthorizationEndpoint = authorizationEndpoint;
             AuthorizationMethods = authorizationMethods;
@@ -219,6 +231,8 @@ namespace Pulumi.AzureNative.ApiManagement
             TokenBodyParameters = tokenBodyParameters;
             TokenEndpoint = tokenEndpoint;
             Type = type;
+            UseInApiDocumentation = useInApiDocumentation;
+            UseInTestConsole = useInTestConsole;
         }
     }
 }

@@ -110,7 +110,7 @@ def get_action_rule_by_name(action_rule_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetActionRuleByNameResult:
     """
     Get a specific action rule
-    API Version: 2019-05-05-preview.
+    Azure REST API version: 2019-05-05-preview.
 
 
     :param str action_rule_name: The name of action rule that needs to be fetched
@@ -137,7 +137,7 @@ def get_action_rule_by_name_output(action_rule_name: Optional[pulumi.Input[str]]
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetActionRuleByNameResult]:
     """
     Get a specific action rule
-    API Version: 2019-05-05-preview.
+    Azure REST API version: 2019-05-05-preview.
 
 
     :param str action_rule_name: The name of action rule that needs to be fetched

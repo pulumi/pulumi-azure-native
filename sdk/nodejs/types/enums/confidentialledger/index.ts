@@ -2,19 +2,23 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export sub-modules:
-import * as v20201201preview from "./v20201201preview";
-import * as v20210513preview from "./v20210513preview";
 import * as v20220513 from "./v20220513";
-import * as v20220908preview from "./v20220908preview";
 import * as v20230126preview from "./v20230126preview";
 
 export {
-    v20201201preview,
-    v20210513preview,
     v20220513,
-    v20220908preview,
     v20230126preview,
 };
+
+export const LanguageRuntime = {
+    CPP: "CPP",
+    JS: "JS",
+} as const;
+
+/**
+ * Unique name for the Managed CCF.
+ */
+export type LanguageRuntime = (typeof LanguageRuntime)[keyof typeof LanguageRuntime];
 
 export const LedgerRoleName = {
     Reader: "Reader",

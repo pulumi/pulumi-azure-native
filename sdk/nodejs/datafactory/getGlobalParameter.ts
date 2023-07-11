@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a Global parameter
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getGlobalParameter(args: GetGlobalParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetGlobalParameterResult> {
 
@@ -63,7 +63,7 @@ export interface GetGlobalParameterResult {
 }
 /**
  * Gets a Global parameter
- * API Version: 2018-06-01.
+ * Azure REST API version: 2018-06-01.
  */
 export function getGlobalParameterOutput(args: GetGlobalParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGlobalParameterResult> {
     return pulumi.output(args).apply((a: any) => getGlobalParameter(a, opts))

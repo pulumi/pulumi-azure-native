@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets a network manager security configuration admin rule.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getDefaultAdminRule(args: GetDefaultAdminRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultAdminRuleResult> {
 
@@ -25,7 +25,7 @@ export function getDefaultAdminRule(args: GetDefaultAdminRuleArgs, opts?: pulumi
 
 export interface GetDefaultAdminRuleArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: string;
     /**
@@ -71,10 +71,6 @@ export interface GetDefaultAdminRuleResult {
      */
     readonly direction: string;
     /**
-     * A friendly name for the rule.
-     */
-    readonly displayName: string;
-    /**
      * A unique read-only string that changes whenever the resource is updated.
      */
     readonly etag: string;
@@ -108,6 +104,10 @@ export interface GetDefaultAdminRuleResult {
      */
     readonly provisioningState: string;
     /**
+     * Unique identifier for this resource.
+     */
+    readonly resourceGuid: string;
+    /**
      * The source port ranges.
      */
     readonly sourcePortRanges: string[];
@@ -126,7 +126,7 @@ export interface GetDefaultAdminRuleResult {
 }
 /**
  * Gets a network manager security configuration admin rule.
- * API Version: 2021-02-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getDefaultAdminRuleOutput(args: GetDefaultAdminRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultAdminRuleResult> {
     return pulumi.output(args).apply((a: any) => getDefaultAdminRule(a, opts))
@@ -134,7 +134,7 @@ export function getDefaultAdminRuleOutput(args: GetDefaultAdminRuleOutputArgs, o
 
 export interface GetDefaultAdminRuleOutputArgs {
     /**
-     * The name of the network manager security Configuration.
+     * The name of the network manager Security Configuration.
      */
     configurationName: pulumi.Input<string>;
     /**

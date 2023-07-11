@@ -70,6 +70,39 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
+    /// The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupStorageRedundancy : IEquatable<BackupStorageRedundancy>
+    {
+        private readonly string _value;
+
+        private BackupStorageRedundancy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupStorageRedundancy Geo { get; } = new BackupStorageRedundancy("Geo");
+        public static BackupStorageRedundancy Local { get; } = new BackupStorageRedundancy("Local");
+        public static BackupStorageRedundancy Zone { get; } = new BackupStorageRedundancy("Zone");
+        public static BackupStorageRedundancy GeoZone { get; } = new BackupStorageRedundancy("GeoZone");
+
+        public static bool operator ==(BackupStorageRedundancy left, BackupStorageRedundancy right) => left.Equals(right);
+        public static bool operator !=(BackupStorageRedundancy left, BackupStorageRedundancy right) => !left.Equals(right);
+
+        public static explicit operator string(BackupStorageRedundancy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupStorageRedundancy other && Equals(other);
+        public bool Equals(BackupStorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
     /// </summary>
     [EnumType]
@@ -199,8 +232,8 @@ namespace Pulumi.AzureNative.Sql
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DataMaskingState Disabled { get; } = new DataMaskingState("Disabled");
         public static DataMaskingState Enabled { get; } = new DataMaskingState("Enabled");
+        public static DataMaskingState Disabled { get; } = new DataMaskingState("Disabled");
 
         public static bool operator ==(DataMaskingState left, DataMaskingState right) => left.Equals(right);
         public static bool operator !=(DataMaskingState left, DataMaskingState right) => !left.Equals(right);
@@ -210,6 +243,37 @@ namespace Pulumi.AzureNative.Sql
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataMaskingState other && Equals(other);
         public bool Equals(DataMaskingState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The identity type
+    /// </summary>
+    [EnumType]
+    public readonly struct DatabaseIdentityType : IEquatable<DatabaseIdentityType>
+    {
+        private readonly string _value;
+
+        private DatabaseIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatabaseIdentityType None { get; } = new DatabaseIdentityType("None");
+        public static DatabaseIdentityType UserAssigned { get; } = new DatabaseIdentityType("UserAssigned");
+
+        public static bool operator ==(DatabaseIdentityType left, DatabaseIdentityType right) => left.Equals(right);
+        public static bool operator !=(DatabaseIdentityType left, DatabaseIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(DatabaseIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatabaseIdentityType other && Equals(other);
+        public bool Equals(DatabaseIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -249,7 +313,7 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
-    /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region.
+    /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
     /// </summary>
     [EnumType]
     public readonly struct DatabaseReadScale : IEquatable<DatabaseReadScale>
@@ -272,6 +336,42 @@ namespace Pulumi.AzureNative.Sql
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatabaseReadScale other && Equals(other);
         public bool Equals(DatabaseReadScale other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Stop day.
+    /// </summary>
+    [EnumType]
+    public readonly struct DayOfWeek : IEquatable<DayOfWeek>
+    {
+        private readonly string _value;
+
+        private DayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
+        public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
+        public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
+        public static DayOfWeek Thursday { get; } = new DayOfWeek("Thursday");
+        public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
+        public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
+
+        public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
+        public static bool operator !=(DayOfWeek left, DayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(DayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
+        public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -323,8 +423,8 @@ namespace Pulumi.AzureNative.Sql
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static GeoBackupPolicyState Disabled { get; } = new GeoBackupPolicyState("Disabled");
         public static GeoBackupPolicyState Enabled { get; } = new GeoBackupPolicyState("Enabled");
+        public static GeoBackupPolicyState Disabled { get; } = new GeoBackupPolicyState("Disabled");
 
         public static bool operator ==(GeoBackupPolicyState left, GeoBackupPolicyState right) => left.Equals(right);
         public static bool operator !=(GeoBackupPolicyState left, GeoBackupPolicyState right) => !left.Equals(right);
@@ -912,38 +1012,6 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
-    /// The storage account type to be used to store backups for this database.
-    /// </summary>
-    [EnumType]
-    public readonly struct RequestedBackupStorageRedundancy : IEquatable<RequestedBackupStorageRedundancy>
-    {
-        private readonly string _value;
-
-        private RequestedBackupStorageRedundancy(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RequestedBackupStorageRedundancy Geo { get; } = new RequestedBackupStorageRedundancy("Geo");
-        public static RequestedBackupStorageRedundancy Local { get; } = new RequestedBackupStorageRedundancy("Local");
-        public static RequestedBackupStorageRedundancy Zone { get; } = new RequestedBackupStorageRedundancy("Zone");
-
-        public static bool operator ==(RequestedBackupStorageRedundancy left, RequestedBackupStorageRedundancy right) => left.Equals(right);
-        public static bool operator !=(RequestedBackupStorageRedundancy left, RequestedBackupStorageRedundancy right) => !left.Equals(right);
-
-        public static explicit operator string(RequestedBackupStorageRedundancy value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RequestedBackupStorageRedundancy other && Equals(other);
-        public bool Equals(RequestedBackupStorageRedundancy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The name of the sample schema to apply when creating this database.
     /// </summary>
     [EnumType]
@@ -999,6 +1067,100 @@ namespace Pulumi.AzureNative.Sql
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SecondaryType other && Equals(other);
         public bool Equals(SecondaryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies that the alert is sent to the account administrators.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityAlertPolicyEmailAccountAdmins : IEquatable<SecurityAlertPolicyEmailAccountAdmins>
+    {
+        private readonly string _value;
+
+        private SecurityAlertPolicyEmailAccountAdmins(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityAlertPolicyEmailAccountAdmins Enabled { get; } = new SecurityAlertPolicyEmailAccountAdmins("Enabled");
+        public static SecurityAlertPolicyEmailAccountAdmins Disabled { get; } = new SecurityAlertPolicyEmailAccountAdmins("Disabled");
+
+        public static bool operator ==(SecurityAlertPolicyEmailAccountAdmins left, SecurityAlertPolicyEmailAccountAdmins right) => left.Equals(right);
+        public static bool operator !=(SecurityAlertPolicyEmailAccountAdmins left, SecurityAlertPolicyEmailAccountAdmins right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityAlertPolicyEmailAccountAdmins value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityAlertPolicyEmailAccountAdmins other && Equals(other);
+        public bool Equals(SecurityAlertPolicyEmailAccountAdmins other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityAlertPolicyState : IEquatable<SecurityAlertPolicyState>
+    {
+        private readonly string _value;
+
+        private SecurityAlertPolicyState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityAlertPolicyState New { get; } = new SecurityAlertPolicyState("New");
+        public static SecurityAlertPolicyState Enabled { get; } = new SecurityAlertPolicyState("Enabled");
+        public static SecurityAlertPolicyState Disabled { get; } = new SecurityAlertPolicyState("Disabled");
+
+        public static bool operator ==(SecurityAlertPolicyState left, SecurityAlertPolicyState right) => left.Equals(right);
+        public static bool operator !=(SecurityAlertPolicyState left, SecurityAlertPolicyState right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityAlertPolicyState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityAlertPolicyState other && Equals(other);
+        public bool Equals(SecurityAlertPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether to use the default server policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityAlertPolicyUseServerDefault : IEquatable<SecurityAlertPolicyUseServerDefault>
+    {
+        private readonly string _value;
+
+        private SecurityAlertPolicyUseServerDefault(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityAlertPolicyUseServerDefault Enabled { get; } = new SecurityAlertPolicyUseServerDefault("Enabled");
+        public static SecurityAlertPolicyUseServerDefault Disabled { get; } = new SecurityAlertPolicyUseServerDefault("Disabled");
+
+        public static bool operator ==(SecurityAlertPolicyUseServerDefault left, SecurityAlertPolicyUseServerDefault right) => left.Equals(right);
+        public static bool operator !=(SecurityAlertPolicyUseServerDefault left, SecurityAlertPolicyUseServerDefault right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityAlertPolicyUseServerDefault value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityAlertPolicyUseServerDefault other && Equals(other);
+        public bool Equals(SecurityAlertPolicyUseServerDefault other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1100,29 +1262,29 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
-    /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    /// Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
     /// </summary>
     [EnumType]
-    public readonly struct ServerPublicNetworkAccess : IEquatable<ServerPublicNetworkAccess>
+    public readonly struct ServerNetworkAccessFlag : IEquatable<ServerNetworkAccessFlag>
     {
         private readonly string _value;
 
-        private ServerPublicNetworkAccess(string value)
+        private ServerNetworkAccessFlag(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ServerPublicNetworkAccess Enabled { get; } = new ServerPublicNetworkAccess("Enabled");
-        public static ServerPublicNetworkAccess Disabled { get; } = new ServerPublicNetworkAccess("Disabled");
+        public static ServerNetworkAccessFlag Enabled { get; } = new ServerNetworkAccessFlag("Enabled");
+        public static ServerNetworkAccessFlag Disabled { get; } = new ServerNetworkAccessFlag("Disabled");
 
-        public static bool operator ==(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => left.Equals(right);
-        public static bool operator !=(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => !left.Equals(right);
+        public static bool operator ==(ServerNetworkAccessFlag left, ServerNetworkAccessFlag right) => left.Equals(right);
+        public static bool operator !=(ServerNetworkAccessFlag left, ServerNetworkAccessFlag right) => !left.Equals(right);
 
-        public static explicit operator string(ServerPublicNetworkAccess value) => value._value;
+        public static explicit operator string(ServerNetworkAccessFlag value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ServerPublicNetworkAccess other && Equals(other);
-        public bool Equals(ServerPublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ServerNetworkAccessFlag other && Equals(other);
+        public bool Equals(ServerNetworkAccessFlag other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1131,30 +1293,60 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
-    /// The storage account type used to store backups for this instance. The options are LRS (LocallyRedundantStorage), ZRS (ZoneRedundantStorage) and GRS (GeoRedundantStorage)
+    /// Service principal type.
     /// </summary>
     [EnumType]
-    public readonly struct StorageAccountType : IEquatable<StorageAccountType>
+    public readonly struct ServicePrincipalType : IEquatable<ServicePrincipalType>
     {
         private readonly string _value;
 
-        private StorageAccountType(string value)
+        private ServicePrincipalType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static StorageAccountType GRS { get; } = new StorageAccountType("GRS");
-        public static StorageAccountType LRS { get; } = new StorageAccountType("LRS");
-        public static StorageAccountType ZRS { get; } = new StorageAccountType("ZRS");
+        public static ServicePrincipalType None { get; } = new ServicePrincipalType("None");
+        public static ServicePrincipalType SystemAssigned { get; } = new ServicePrincipalType("SystemAssigned");
 
-        public static bool operator ==(StorageAccountType left, StorageAccountType right) => left.Equals(right);
-        public static bool operator !=(StorageAccountType left, StorageAccountType right) => !left.Equals(right);
+        public static bool operator ==(ServicePrincipalType left, ServicePrincipalType right) => left.Equals(right);
+        public static bool operator !=(ServicePrincipalType left, ServicePrincipalType right) => !left.Equals(right);
 
-        public static explicit operator string(StorageAccountType value) => value._value;
+        public static explicit operator string(ServicePrincipalType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StorageAccountType other && Equals(other);
-        public bool Equals(StorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is ServicePrincipalType other && Equals(other);
+        public bool Equals(ServicePrincipalType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the state of the SQL Vulnerability Assessment, whether it is enabled or disabled or a state has not been applied yet on the specific database or server.
+    /// </summary>
+    [EnumType]
+    public readonly struct SqlVulnerabilityAssessmentState : IEquatable<SqlVulnerabilityAssessmentState>
+    {
+        private readonly string _value;
+
+        private SqlVulnerabilityAssessmentState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SqlVulnerabilityAssessmentState Enabled { get; } = new SqlVulnerabilityAssessmentState("Enabled");
+        public static SqlVulnerabilityAssessmentState Disabled { get; } = new SqlVulnerabilityAssessmentState("Disabled");
+
+        public static bool operator ==(SqlVulnerabilityAssessmentState left, SqlVulnerabilityAssessmentState right) => left.Equals(right);
+        public static bool operator !=(SqlVulnerabilityAssessmentState left, SqlVulnerabilityAssessmentState right) => !left.Equals(right);
+
+        public static explicit operator string(SqlVulnerabilityAssessmentState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SqlVulnerabilityAssessmentState other && Equals(other);
+        public bool Equals(SqlVulnerabilityAssessmentState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1257,29 +1449,29 @@ namespace Pulumi.AzureNative.Sql
     }
 
     /// <summary>
-    /// The status of the database transparent data encryption.
+    /// Specifies the state of the transparent data encryption.
     /// </summary>
     [EnumType]
-    public readonly struct TransparentDataEncryptionStatus : IEquatable<TransparentDataEncryptionStatus>
+    public readonly struct TransparentDataEncryptionState : IEquatable<TransparentDataEncryptionState>
     {
         private readonly string _value;
 
-        private TransparentDataEncryptionStatus(string value)
+        private TransparentDataEncryptionState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static TransparentDataEncryptionStatus Enabled { get; } = new TransparentDataEncryptionStatus("Enabled");
-        public static TransparentDataEncryptionStatus Disabled { get; } = new TransparentDataEncryptionStatus("Disabled");
+        public static TransparentDataEncryptionState Enabled { get; } = new TransparentDataEncryptionState("Enabled");
+        public static TransparentDataEncryptionState Disabled { get; } = new TransparentDataEncryptionState("Disabled");
 
-        public static bool operator ==(TransparentDataEncryptionStatus left, TransparentDataEncryptionStatus right) => left.Equals(right);
-        public static bool operator !=(TransparentDataEncryptionStatus left, TransparentDataEncryptionStatus right) => !left.Equals(right);
+        public static bool operator ==(TransparentDataEncryptionState left, TransparentDataEncryptionState right) => left.Equals(right);
+        public static bool operator !=(TransparentDataEncryptionState left, TransparentDataEncryptionState right) => !left.Equals(right);
 
-        public static explicit operator string(TransparentDataEncryptionStatus value) => value._value;
+        public static explicit operator string(TransparentDataEncryptionState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is TransparentDataEncryptionStatus other && Equals(other);
-        public bool Equals(TransparentDataEncryptionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is TransparentDataEncryptionState other && Equals(other);
+        public bool Equals(TransparentDataEncryptionState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.EventHub
     {
         /// <summary>
         /// Gets the description of the specified namespace.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Task<GetNamespaceResult> InvokeAsync(GetNamespaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceResult>("azure-native:eventhub:getNamespace", args ?? new GetNamespaceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the description of the specified namespace.
-        /// API Version: 2017-04-01.
+        /// Azure REST API version: 2022-10-01-preview.
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("azure-native:eventhub:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
@@ -72,13 +72,33 @@ namespace Pulumi.AzureNative.EventHub
     public sealed class GetNamespaceResult
     {
         /// <summary>
+        /// Alternate name specified when alias and namespace names are same.
+        /// </summary>
+        public readonly string? AlternateName;
+        /// <summary>
+        /// Cluster ARM ID of the Namespace.
+        /// </summary>
+        public readonly string? ClusterArmId;
+        /// <summary>
         /// The time the Namespace was created.
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
+        /// This property disables SAS authentication for the Event Hubs namespace.
+        /// </summary>
+        public readonly bool? DisableLocalAuth;
+        /// <summary>
+        /// Properties of BYOK Encryption description
+        /// </summary>
+        public readonly Outputs.EncryptionResponse? Encryption;
+        /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Properties of BYOK Identity description
+        /// </summary>
+        public readonly Outputs.IdentityResponse? Identity;
         /// <summary>
         /// Value that indicates whether AutoInflate is enabled for eventhub namespace.
         /// </summary>
@@ -100,13 +120,25 @@ namespace Pulumi.AzureNative.EventHub
         /// </summary>
         public readonly string MetricId;
         /// <summary>
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// </summary>
+        public readonly string? MinimumTlsVersion;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// List of private endpoint connections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
+        /// <summary>
         /// Provisioning state of the Namespace.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// This determines if traffic is allowed over public network. By default it is enabled.
+        /// </summary>
+        public readonly string? PublicNetworkAccess;
         /// <summary>
         /// Endpoint you can use to perform Service Bus operations.
         /// </summary>
@@ -115,6 +147,14 @@ namespace Pulumi.AzureNative.EventHub
         /// Properties of sku resource
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
+        /// <summary>
+        /// Status of the Namespace.
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -127,12 +167,26 @@ namespace Pulumi.AzureNative.EventHub
         /// The time the Namespace was updated.
         /// </summary>
         public readonly string UpdatedAt;
+        /// <summary>
+        /// Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
+        /// </summary>
+        public readonly bool? ZoneRedundant;
 
         [OutputConstructor]
         private GetNamespaceResult(
+            string? alternateName,
+
+            string? clusterArmId,
+
             string createdAt,
 
+            bool? disableLocalAuth,
+
+            Outputs.EncryptionResponse? encryption,
+
             string id,
+
+            Outputs.IdentityResponse? identity,
 
             bool? isAutoInflateEnabled,
 
@@ -144,34 +198,57 @@ namespace Pulumi.AzureNative.EventHub
 
             string metricId,
 
+            string? minimumTlsVersion,
+
             string name,
 
+            ImmutableArray<Outputs.PrivateEndpointConnectionResponse> privateEndpointConnections,
+
             string provisioningState,
+
+            string? publicNetworkAccess,
 
             string serviceBusEndpoint,
 
             Outputs.SkuResponse? sku,
 
+            string status,
+
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type,
 
-            string updatedAt)
+            string updatedAt,
+
+            bool? zoneRedundant)
         {
+            AlternateName = alternateName;
+            ClusterArmId = clusterArmId;
             CreatedAt = createdAt;
+            DisableLocalAuth = disableLocalAuth;
+            Encryption = encryption;
             Id = id;
+            Identity = identity;
             IsAutoInflateEnabled = isAutoInflateEnabled;
             KafkaEnabled = kafkaEnabled;
             Location = location;
             MaximumThroughputUnits = maximumThroughputUnits;
             MetricId = metricId;
+            MinimumTlsVersion = minimumTlsVersion;
             Name = name;
+            PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
+            PublicNetworkAccess = publicNetworkAccess;
             ServiceBusEndpoint = serviceBusEndpoint;
             Sku = sku;
+            Status = status;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
             UpdatedAt = updatedAt;
+            ZoneRedundant = zoneRedundant;
         }
     }
 }

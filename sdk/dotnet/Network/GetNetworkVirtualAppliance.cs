@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets the specified Network Virtual Appliance.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Task<GetNetworkVirtualApplianceResult> InvokeAsync(GetNetworkVirtualApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the specified Network Virtual Appliance.
-        /// API Version: 2020-11-01.
+        /// Azure REST API version: 2023-02-01.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceResult> Invoke(GetNetworkVirtualApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceResult>("azure-native:network:getNetworkVirtualAppliance", args ?? new GetNetworkVirtualApplianceInvokeArgs(), options.WithDefaults());
@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetNetworkVirtualApplianceResult
     {
         /// <summary>
+        /// Details required for Additional Network Interface.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.VirtualApplianceAdditionalNicPropertiesResponse> AdditionalNics;
+        /// <summary>
         /// Address Prefix.
         /// </summary>
         public readonly string AddressPrefix;
@@ -99,6 +103,14 @@ namespace Pulumi.AzureNative.Network
         /// CloudInitConfigurationBlob storage URLs.
         /// </summary>
         public readonly ImmutableArray<string> CloudInitConfigurationBlobs;
+        /// <summary>
+        /// The delegation for the Virtual Appliance
+        /// </summary>
+        public readonly Outputs.DelegationPropertiesResponse? Delegation;
+        /// <summary>
+        /// The deployment type. PartnerManaged for the SaaS NVA
+        /// </summary>
+        public readonly string DeploymentType;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -128,9 +140,17 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.VirtualApplianceSkuPropertiesResponse? NvaSku;
         /// <summary>
+        /// The delegation for the Virtual Appliance
+        /// </summary>
+        public readonly Outputs.PartnerManagedResourcePropertiesResponse? PartnerManagedResource;
+        /// <summary>
         /// The provisioning state of the resource.
         /// </summary>
         public readonly string ProvisioningState;
+        /// <summary>
+        /// Public key for SSH login.
+        /// </summary>
+        public readonly string? SshPublicKey;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -140,9 +160,13 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// VirtualAppliance ASN.
+        /// VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         /// </summary>
         public readonly double? VirtualApplianceAsn;
+        /// <summary>
+        /// List of references to VirtualApplianceConnections.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.SubResourceResponse> VirtualApplianceConnections;
         /// <summary>
         /// List of Virtual Appliance Network Interfaces.
         /// </summary>
@@ -158,6 +182,8 @@ namespace Pulumi.AzureNative.Network
 
         [OutputConstructor]
         private GetNetworkVirtualApplianceResult(
+            ImmutableArray<Outputs.VirtualApplianceAdditionalNicPropertiesResponse> additionalNics,
+
             string addressPrefix,
 
             ImmutableArray<string> bootStrapConfigurationBlobs,
@@ -165,6 +191,10 @@ namespace Pulumi.AzureNative.Network
             string? cloudInitConfiguration,
 
             ImmutableArray<string> cloudInitConfigurationBlobs,
+
+            Outputs.DelegationPropertiesResponse? delegation,
+
+            string deploymentType,
 
             string etag,
 
@@ -180,7 +210,11 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.VirtualApplianceSkuPropertiesResponse? nvaSku,
 
+            Outputs.PartnerManagedResourcePropertiesResponse? partnerManagedResource,
+
             string provisioningState,
+
+            string? sshPublicKey,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -188,16 +222,21 @@ namespace Pulumi.AzureNative.Network
 
             double? virtualApplianceAsn,
 
+            ImmutableArray<Outputs.SubResourceResponse> virtualApplianceConnections,
+
             ImmutableArray<Outputs.VirtualApplianceNicPropertiesResponse> virtualApplianceNics,
 
             ImmutableArray<Outputs.SubResourceResponse> virtualApplianceSites,
 
             Outputs.SubResourceResponse? virtualHub)
         {
+            AdditionalNics = additionalNics;
             AddressPrefix = addressPrefix;
             BootStrapConfigurationBlobs = bootStrapConfigurationBlobs;
             CloudInitConfiguration = cloudInitConfiguration;
             CloudInitConfigurationBlobs = cloudInitConfigurationBlobs;
+            Delegation = delegation;
+            DeploymentType = deploymentType;
             Etag = etag;
             Id = id;
             Identity = identity;
@@ -205,10 +244,13 @@ namespace Pulumi.AzureNative.Network
             Location = location;
             Name = name;
             NvaSku = nvaSku;
+            PartnerManagedResource = partnerManagedResource;
             ProvisioningState = provisioningState;
+            SshPublicKey = sshPublicKey;
             Tags = tags;
             Type = type;
             VirtualApplianceAsn = virtualApplianceAsn;
+            VirtualApplianceConnections = virtualApplianceConnections;
             VirtualApplianceNics = virtualApplianceNics;
             VirtualApplianceSites = virtualApplianceSites;
             VirtualHub = virtualHub;

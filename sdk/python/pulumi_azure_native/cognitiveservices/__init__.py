@@ -8,38 +8,27 @@ import typing
 from ._enums import *
 from .account import *
 from .commitment_plan import *
+from .commitment_plan_association import *
 from .deployment import *
 from .get_account import *
 from .get_commitment_plan import *
+from .get_commitment_plan_association import *
 from .get_deployment import *
 from .get_private_endpoint_connection import *
+from .get_shared_commitment_plan import *
 from .list_account_keys import *
 from .private_endpoint_connection import *
+from .shared_commitment_plan import *
 from ._inputs import *
 from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.cognitiveservices.v20160201preview as __v20160201preview
-    v20160201preview = __v20160201preview
     import pulumi_azure_native.cognitiveservices.v20170418 as __v20170418
     v20170418 = __v20170418
-    import pulumi_azure_native.cognitiveservices.v20210430 as __v20210430
-    v20210430 = __v20210430
-    import pulumi_azure_native.cognitiveservices.v20211001 as __v20211001
-    v20211001 = __v20211001
-    import pulumi_azure_native.cognitiveservices.v20220301 as __v20220301
-    v20220301 = __v20220301
-    import pulumi_azure_native.cognitiveservices.v20221001 as __v20221001
-    v20221001 = __v20221001
-    import pulumi_azure_native.cognitiveservices.v20221201 as __v20221201
-    v20221201 = __v20221201
+    import pulumi_azure_native.cognitiveservices.v20230501 as __v20230501
+    v20230501 = __v20230501
 else:
-    v20160201preview = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20160201preview')
     v20170418 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20170418')
-    v20210430 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20210430')
-    v20211001 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20211001')
-    v20220301 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20220301')
-    v20221001 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20221001')
-    v20221201 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20221201')
+    v20230501 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20230501')
 

@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Kubernetes.V20220501Preview
 {
-    [Obsolete(@"azure-native:kubernetes/v20220501preview:ConnectedCluster is being removed in the next major version of this provider. Upgrade to at least azure-native:kubernetes/v20221001preview:ConnectedCluster to guarantee forwards compatibility.")]
     public static class GetConnectedCluster
     {
         /// <summary>

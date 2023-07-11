@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Resource representation of a workflow
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2022-10-11-preview. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class Workflow extends pulumi.CustomResource {
     /**
@@ -47,6 +47,10 @@ export class Workflow extends pulumi.CustomResource {
      */
     public readonly aksResourceId!: pulumi.Output<string | undefined>;
     /**
+     * The name of the app.
+     */
+    public readonly appName!: pulumi.Output<string | undefined>;
+    /**
      * Determines the authorization status of requests.
      */
     public /*out*/ readonly authStatus!: pulumi.Output<string>;
@@ -54,6 +58,10 @@ export class Workflow extends pulumi.CustomResource {
      * Repository Branch Name
      */
     public readonly branchName!: pulumi.Output<string | undefined>;
+    /**
+     * The version of the language image used for building the code in the generated dockerfile.
+     */
+    public readonly builderVersion!: pulumi.Output<string | undefined>;
     public readonly deploymentProperties!: pulumi.Output<outputs.devhub.DeploymentPropertiesResponse | undefined>;
     /**
      * Path to Dockerfile Build Context within the repository.
@@ -63,11 +71,47 @@ export class Workflow extends pulumi.CustomResource {
      * Path to the Dockerfile within the repository.
      */
     public readonly dockerfile!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lastWorkflowRun!: pulumi.Output<outputs.devhub.WorkflowRunResponse | undefined>;
+    /**
+     * The mode of generation to be used for generating Dockerfiles.
+     */
+    public readonly dockerfileGenerationMode!: pulumi.Output<string | undefined>;
+    /**
+     * The directory to output the generated Dockerfile to.
+     */
+    public readonly dockerfileOutputDirectory!: pulumi.Output<string | undefined>;
+    /**
+     * The programming language used.
+     */
+    public readonly generationLanguage!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the image to be generated.
+     */
+    public readonly imageName!: pulumi.Output<string | undefined>;
+    /**
+     * The tag to apply to the generated image.
+     */
+    public readonly imageTag!: pulumi.Output<string | undefined>;
+    /**
+     * The version of the language image used for execution in the generated dockerfile.
+     */
+    public readonly languageVersion!: pulumi.Output<string | undefined>;
+    public readonly lastWorkflowRun!: pulumi.Output<outputs.devhub.WorkflowRunResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
+    /**
+     * The mode of generation to be used for generating Manifest.
+     */
+    public readonly manifestGenerationMode!: pulumi.Output<string | undefined>;
+    /**
+     * The directory to output the generated manifests to.
+     */
+    public readonly manifestOutputDirectory!: pulumi.Output<string | undefined>;
+    /**
+     * Determines the type of manifests to be generated.
+     */
+    public readonly manifestType!: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
@@ -80,6 +124,10 @@ export class Workflow extends pulumi.CustomResource {
      * The fields needed for OIDC with GitHub.
      */
     public readonly oidcCredentials!: pulumi.Output<outputs.devhub.GitHubWorkflowProfileResponseOidcCredentials | undefined>;
+    /**
+     * The port the application is exposed on.
+     */
+    public readonly port!: pulumi.Output<string | undefined>;
     /**
      * The status of the Pull Request submitted against the users repository.
      */
@@ -129,20 +177,32 @@ export class Workflow extends pulumi.CustomResource {
             }
             resourceInputs["acr"] = args ? args.acr : undefined;
             resourceInputs["aksResourceId"] = args ? args.aksResourceId : undefined;
+            resourceInputs["appName"] = args ? args.appName : undefined;
             resourceInputs["branchName"] = args ? args.branchName : undefined;
+            resourceInputs["builderVersion"] = args ? args.builderVersion : undefined;
             resourceInputs["deploymentProperties"] = args ? args.deploymentProperties : undefined;
             resourceInputs["dockerBuildContext"] = args ? args.dockerBuildContext : undefined;
             resourceInputs["dockerfile"] = args ? args.dockerfile : undefined;
+            resourceInputs["dockerfileGenerationMode"] = args ? args.dockerfileGenerationMode : undefined;
+            resourceInputs["dockerfileOutputDirectory"] = args ? args.dockerfileOutputDirectory : undefined;
+            resourceInputs["generationLanguage"] = args ? args.generationLanguage : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["imageTag"] = args ? args.imageTag : undefined;
+            resourceInputs["languageVersion"] = args ? args.languageVersion : undefined;
+            resourceInputs["lastWorkflowRun"] = args ? args.lastWorkflowRun : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["manifestGenerationMode"] = args ? args.manifestGenerationMode : undefined;
+            resourceInputs["manifestOutputDirectory"] = args ? args.manifestOutputDirectory : undefined;
+            resourceInputs["manifestType"] = args ? args.manifestType : undefined;
             resourceInputs["namespace"] = args ? args.namespace : undefined;
             resourceInputs["oidcCredentials"] = args ? args.oidcCredentials : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
             resourceInputs["repositoryOwner"] = args ? args.repositoryOwner : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["workflowName"] = args ? args.workflowName : undefined;
             resourceInputs["authStatus"] = undefined /*out*/;
-            resourceInputs["lastWorkflowRun"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["prStatus"] = undefined /*out*/;
             resourceInputs["prURL"] = undefined /*out*/;
@@ -152,16 +212,28 @@ export class Workflow extends pulumi.CustomResource {
         } else {
             resourceInputs["acr"] = undefined /*out*/;
             resourceInputs["aksResourceId"] = undefined /*out*/;
+            resourceInputs["appName"] = undefined /*out*/;
             resourceInputs["authStatus"] = undefined /*out*/;
             resourceInputs["branchName"] = undefined /*out*/;
+            resourceInputs["builderVersion"] = undefined /*out*/;
             resourceInputs["deploymentProperties"] = undefined /*out*/;
             resourceInputs["dockerBuildContext"] = undefined /*out*/;
             resourceInputs["dockerfile"] = undefined /*out*/;
+            resourceInputs["dockerfileGenerationMode"] = undefined /*out*/;
+            resourceInputs["dockerfileOutputDirectory"] = undefined /*out*/;
+            resourceInputs["generationLanguage"] = undefined /*out*/;
+            resourceInputs["imageName"] = undefined /*out*/;
+            resourceInputs["imageTag"] = undefined /*out*/;
+            resourceInputs["languageVersion"] = undefined /*out*/;
             resourceInputs["lastWorkflowRun"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["manifestGenerationMode"] = undefined /*out*/;
+            resourceInputs["manifestOutputDirectory"] = undefined /*out*/;
+            resourceInputs["manifestType"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["namespace"] = undefined /*out*/;
             resourceInputs["oidcCredentials"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
             resourceInputs["prStatus"] = undefined /*out*/;
             resourceInputs["prURL"] = undefined /*out*/;
             resourceInputs["pullNumber"] = undefined /*out*/;
@@ -191,9 +263,17 @@ export interface WorkflowArgs {
      */
     aksResourceId?: pulumi.Input<string>;
     /**
+     * The name of the app.
+     */
+    appName?: pulumi.Input<string>;
+    /**
      * Repository Branch Name
      */
     branchName?: pulumi.Input<string>;
+    /**
+     * The version of the language image used for building the code in the generated dockerfile.
+     */
+    builderVersion?: pulumi.Input<string>;
     deploymentProperties?: pulumi.Input<inputs.devhub.DeploymentPropertiesArgs>;
     /**
      * Path to Dockerfile Build Context within the repository.
@@ -204,9 +284,46 @@ export interface WorkflowArgs {
      */
     dockerfile?: pulumi.Input<string>;
     /**
+     * The mode of generation to be used for generating Dockerfiles.
+     */
+    dockerfileGenerationMode?: pulumi.Input<string | enums.devhub.DockerfileGenerationMode>;
+    /**
+     * The directory to output the generated Dockerfile to.
+     */
+    dockerfileOutputDirectory?: pulumi.Input<string>;
+    /**
+     * The programming language used.
+     */
+    generationLanguage?: pulumi.Input<string | enums.devhub.GenerationLanguage>;
+    /**
+     * The name of the image to be generated.
+     */
+    imageName?: pulumi.Input<string>;
+    /**
+     * The tag to apply to the generated image.
+     */
+    imageTag?: pulumi.Input<string>;
+    /**
+     * The version of the language image used for execution in the generated dockerfile.
+     */
+    languageVersion?: pulumi.Input<string>;
+    lastWorkflowRun?: pulumi.Input<inputs.devhub.WorkflowRunArgs>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
+    /**
+     * The mode of generation to be used for generating Manifest.
+     */
+    manifestGenerationMode?: pulumi.Input<string | enums.devhub.ManifestGenerationMode>;
+    /**
+     * The directory to output the generated manifests to.
+     */
+    manifestOutputDirectory?: pulumi.Input<string>;
+    /**
+     * Determines the type of manifests to be generated.
+     */
+    manifestType?: pulumi.Input<string | enums.devhub.GenerationManifestType>;
     /**
      * Kubernetes namespace the application is deployed to.
      */
@@ -215,6 +332,10 @@ export interface WorkflowArgs {
      * The fields needed for OIDC with GitHub.
      */
     oidcCredentials?: pulumi.Input<inputs.devhub.GitHubWorkflowProfileOidcCredentialsArgs>;
+    /**
+     * The port the application is exposed on.
+     */
+    port?: pulumi.Input<string>;
     /**
      * Repository Name
      */

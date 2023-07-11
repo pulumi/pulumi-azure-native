@@ -134,7 +134,7 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetHybridUseBenefitResult:
     """
     Gets a given plan ID
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-12-01.
 
 
     :param str plan_id: This is a unique identifier for a plan. Should be a guid.
@@ -163,7 +163,7 @@ def get_hybrid_use_benefit_output(plan_id: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHybridUseBenefitResult]:
     """
     Gets a given plan ID
-    API Version: 2019-06-01-preview.
+    Azure REST API version: 2019-12-01.
 
 
     :param str plan_id: This is a unique identifier for a plan. Should be a guid.

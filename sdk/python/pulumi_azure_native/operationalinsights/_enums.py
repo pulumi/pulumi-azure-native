@@ -15,7 +15,6 @@ __all__ = [
     'MachineGroupType',
     'PublicNetworkAccessType',
     'TablePlanEnum',
-    'WorkspaceEntityStatus',
     'WorkspaceSkuNameEnum',
 ]
 
@@ -166,19 +165,6 @@ class TablePlanEnum(str, Enum):
     """
     Logs  that allow monitoring and analytics.
     """
-
-
-class WorkspaceEntityStatus(str, Enum):
-    """
-    The provisioning state of the workspace.
-    """
-    CREATING = "Creating"
-    SUCCEEDED = "Succeeded"
-    FAILED = "Failed"
-    CANCELED = "Canceled"
-    DELETING = "Deleting"
-    PROVISIONING_ACCOUNT = "ProvisioningAccount"
-    UPDATING = "Updating"
 
 
 class WorkspaceSkuNameEnum(str, Enum):

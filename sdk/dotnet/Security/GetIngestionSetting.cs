@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Security
     {
         /// <summary>
         /// Settings for ingesting security data and logs to correlate with resources associated with the subscription.
-        /// API Version: 2021-01-15-preview.
+        /// Azure REST API version: 2021-01-15-preview.
         /// </summary>
         public static Task<GetIngestionSettingResult> InvokeAsync(GetIngestionSettingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIngestionSettingResult>("azure-native:security:getIngestionSetting", args ?? new GetIngestionSettingArgs(), options.WithDefaults());
 
         /// <summary>
         /// Settings for ingesting security data and logs to correlate with resources associated with the subscription.
-        /// API Version: 2021-01-15-preview.
+        /// Azure REST API version: 2021-01-15-preview.
         /// </summary>
         public static Output<GetIngestionSettingResult> Invoke(GetIngestionSettingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIngestionSettingResult>("azure-native:security:getIngestionSetting", args ?? new GetIngestionSettingInvokeArgs(), options.WithDefaults());

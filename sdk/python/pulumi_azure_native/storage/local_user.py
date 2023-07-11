@@ -180,7 +180,7 @@ class LocalUser(pulumi.CustomResource):
                  __props__=None):
         """
         The local user associated with the storage accounts.
-        API Version: 2021-08-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-08-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +202,7 @@ class LocalUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The local user associated with the storage accounts.
-        API Version: 2021-08-01.
+        Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2021-08-01
 
         :param str resource_name: The name of the resource.
         :param LocalUserArgs args: The arguments to use to populate this resource's properties.

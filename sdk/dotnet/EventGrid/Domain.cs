@@ -11,16 +11,58 @@ namespace Pulumi.AzureNative.EventGrid
 {
     /// <summary>
     /// EventGrid Domain.
-    /// API Version: 2020-06-01.
+    /// Azure REST API version: 2022-06-15. Prior API version in Azure Native 1.x: 2020-06-01
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Domain")]
     public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Endpoint for the domain.
+        /// This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        /// In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        /// When this property is null or set to true, Event Grid is responsible of automatically creating the domain topic when the first event subscription is
+        /// created at the scope of the domain topic. If this property is set to false, then creating the first event subscription will require creating a domain topic
+        /// by the user. The self-management mode can be used if the user wants full control of when the domain topic is created, while auto-managed mode provides the
+        /// flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
+        /// domain topic on demand if needed.
+        /// </summary>
+        [Output("autoCreateTopicWithFirstSubscription")]
+        public Output<bool?> AutoCreateTopicWithFirstSubscription { get; private set; } = null!;
+
+        /// <summary>
+        /// This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        /// In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        /// When this property is set to true, Event Grid is responsible of automatically deleting the domain topic when the last event subscription at the scope
+        /// of the domain topic is deleted. If this property is set to false, then the user needs to manually delete the domain topic when it is no longer needed
+        /// (e.g., when last event subscription is deleted and the resource needs to be cleaned up). The self-management mode can be used if the user wants full
+        /// control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
+        /// resources by the user.
+        /// </summary>
+        [Output("autoDeleteTopicWithLastSubscription")]
+        public Output<bool?> AutoDeleteTopicWithLastSubscription { get; private set; } = null!;
+
+        /// <summary>
+        /// Data Residency Boundary of the resource.
+        /// </summary>
+        [Output("dataResidencyBoundary")]
+        public Output<string?> DataResidencyBoundary { get; private set; } = null!;
+
+        /// <summary>
+        /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
+        /// </summary>
+        [Output("disableLocalAuth")]
+        public Output<bool?> DisableLocalAuth { get; private set; } = null!;
+
+        /// <summary>
+        /// Endpoint for the Event Grid Domain Resource which is used for publishing the events.
         /// </summary>
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Identity information for the Event Grid Domain resource.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.IdentityInfoResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
@@ -29,7 +71,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<ImmutableArray<Outputs.InboundIpRuleResponse>> InboundIpRules { get; private set; } = null!;
 
         /// <summary>
-        /// This determines the format that Event Grid should expect for incoming events published to the domain.
+        /// This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
         /// </summary>
         [Output("inputSchema")]
         public Output<string?> InputSchema { get; private set; } = null!;
@@ -47,7 +89,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Metric resource id for the domain.
+        /// Metric resource id for the Event Grid Domain Resource.
         /// </summary>
         [Output("metricResourceId")]
         public Output<string> MetricResourceId { get; private set; } = null!;
@@ -65,20 +107,20 @@ namespace Pulumi.AzureNative.EventGrid
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning state of the domain.
+        /// Provisioning state of the Event Grid Domain Resource.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// This determines if traffic is allowed over public network. By default it is enabled. 
+        /// This determines if traffic is allowed over public network. By default it is enabled.
         /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" /&gt;
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
-        /// The system metadata relating to Domain resource.
+        /// The system metadata relating to the Event Grid Domain resource.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -131,6 +173,7 @@ namespace Pulumi.AzureNative.EventGrid
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211015preview:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:Domain"},
                     new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:Domain"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventgrid/v20230601preview:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -155,10 +198,52 @@ namespace Pulumi.AzureNative.EventGrid
     public sealed class DomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// This Boolean is used to specify the creation mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        /// In this context, creation of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        /// When this property is null or set to true, Event Grid is responsible of automatically creating the domain topic when the first event subscription is
+        /// created at the scope of the domain topic. If this property is set to false, then creating the first event subscription will require creating a domain topic
+        /// by the user. The self-management mode can be used if the user wants full control of when the domain topic is created, while auto-managed mode provides the
+        /// flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
+        /// domain topic on demand if needed.
+        /// </summary>
+        [Input("autoCreateTopicWithFirstSubscription")]
+        public Input<bool>? AutoCreateTopicWithFirstSubscription { get; set; }
+
+        /// <summary>
+        /// This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
+        /// In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
+        /// When this property is set to true, Event Grid is responsible of automatically deleting the domain topic when the last event subscription at the scope
+        /// of the domain topic is deleted. If this property is set to false, then the user needs to manually delete the domain topic when it is no longer needed
+        /// (e.g., when last event subscription is deleted and the resource needs to be cleaned up). The self-management mode can be used if the user wants full
+        /// control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
+        /// resources by the user.
+        /// </summary>
+        [Input("autoDeleteTopicWithLastSubscription")]
+        public Input<bool>? AutoDeleteTopicWithLastSubscription { get; set; }
+
+        /// <summary>
+        /// Data Residency Boundary of the resource.
+        /// </summary>
+        [Input("dataResidencyBoundary")]
+        public InputUnion<string, Pulumi.AzureNative.EventGrid.DataResidencyBoundary>? DataResidencyBoundary { get; set; }
+
+        /// <summary>
+        /// This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
+        /// </summary>
+        [Input("disableLocalAuth")]
+        public Input<bool>? DisableLocalAuth { get; set; }
+
+        /// <summary>
         /// Name of the domain.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// Identity information for the Event Grid Domain resource.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.IdentityInfoArgs>? Identity { get; set; }
 
         [Input("inboundIpRules")]
         private InputList<Inputs.InboundIpRuleArgs>? _inboundIpRules;
@@ -173,7 +258,7 @@ namespace Pulumi.AzureNative.EventGrid
         }
 
         /// <summary>
-        /// This determines the format that Event Grid should expect for incoming events published to the domain.
+        /// This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
         /// </summary>
         [Input("inputSchema")]
         public InputUnion<string, Pulumi.AzureNative.EventGrid.InputSchema>? InputSchema { get; set; }
@@ -191,7 +276,7 @@ namespace Pulumi.AzureNative.EventGrid
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// This determines if traffic is allowed over public network. By default it is enabled. 
+        /// This determines if traffic is allowed over public network. By default it is enabled.
         /// You can further restrict to specific IPs by configuring &lt;seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" /&gt;
         /// </summary>
         [Input("publicNetworkAccess")]
@@ -217,6 +302,9 @@ namespace Pulumi.AzureNative.EventGrid
 
         public DomainArgs()
         {
+            AutoCreateTopicWithFirstSubscription = true;
+            AutoDeleteTopicWithLastSubscription = true;
+            DisableLocalAuth = false;
             InputSchema = "EventGridSchema";
             PublicNetworkAccess = "Enabled";
         }

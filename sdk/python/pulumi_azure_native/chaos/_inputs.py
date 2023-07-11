@@ -17,8 +17,11 @@ __all__ = [
     'DiscreteActionArgs',
     'ExperimentPropertiesArgs',
     'KeyValuePairArgs',
+    'ListSelectorArgs',
+    'QuerySelectorArgs',
     'ResourceIdentityArgs',
-    'SelectorArgs',
+    'SimpleFilterParametersArgs',
+    'SimpleFilterArgs',
     'StepArgs',
     'TargetReferenceArgs',
 ]
@@ -274,12 +277,12 @@ class DiscreteActionArgs:
 @pulumi.input_type
 class ExperimentPropertiesArgs:
     def __init__(__self__, *,
-                 selectors: pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]],
+                 selectors: pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]],
                  steps: pulumi.Input[Sequence[pulumi.Input['StepArgs']]],
                  start_on_creation: Optional[pulumi.Input[bool]] = None):
         """
         Model that represents the Experiment properties model.
-        :param pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]] selectors: List of selectors.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]] selectors: List of selectors.
         :param pulumi.Input[Sequence[pulumi.Input['StepArgs']]] steps: List of steps.
         :param pulumi.Input[bool] start_on_creation: A boolean value that indicates if experiment should be started on creation or not.
         """
@@ -290,14 +293,14 @@ class ExperimentPropertiesArgs:
 
     @property
     @pulumi.getter
-    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]:
+    def selectors(self) -> pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]]:
         """
         List of selectors.
         """
         return pulumi.get(self, "selectors")
 
     @selectors.setter
-    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input['SelectorArgs']]]):
+    def selectors(self, value: pulumi.Input[Sequence[pulumi.Input[Union['ListSelectorArgs', 'QuerySelectorArgs']]]]):
         pulumi.set(self, "selectors", value)
 
     @property
@@ -364,43 +367,25 @@ class KeyValuePairArgs:
 
 
 @pulumi.input_type
-class ResourceIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input['ResourceIdentityType']):
-        """
-        The managed identity of a resource.
-        :param pulumi.Input['ResourceIdentityType'] type: String of the resource identity type.
-        """
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def type(self) -> pulumi.Input['ResourceIdentityType']:
-        """
-        String of the resource identity type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input['ResourceIdentityType']):
-        pulumi.set(self, "type", value)
-
-
-@pulumi.input_type
-class SelectorArgs:
+class ListSelectorArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
                  targets: pulumi.Input[Sequence[pulumi.Input['TargetReferenceArgs']]],
-                 type: pulumi.Input['SelectorType']):
+                 type: pulumi.Input[str],
+                 filter: Optional[pulumi.Input['SimpleFilterArgs']] = None):
         """
-        Model that represents a selector in the Experiment resource.
+        Model that represents a list selector.
         :param pulumi.Input[str] id: String of the selector ID.
         :param pulumi.Input[Sequence[pulumi.Input['TargetReferenceArgs']]] targets: List of Target references.
-        :param pulumi.Input['SelectorType'] type: Enum of the selector type.
+        :param pulumi.Input[str] type: Enum of the selector type.
+               Expected value is 'List'.
+        :param pulumi.Input['SimpleFilterArgs'] filter: Model that represents available filter types that can be applied to a targets list.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "targets", targets)
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "type", 'List')
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
 
     @property
     @pulumi.getter
@@ -428,15 +413,218 @@ class SelectorArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['SelectorType']:
+    def type(self) -> pulumi.Input[str]:
         """
         Enum of the selector type.
+        Expected value is 'List'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['SelectorType']):
+    def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['SimpleFilterArgs']]:
+        """
+        Model that represents available filter types that can be applied to a targets list.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['SimpleFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+
+@pulumi.input_type
+class QuerySelectorArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 query_string: pulumi.Input[str],
+                 subscription_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 type: pulumi.Input[str],
+                 filter: Optional[pulumi.Input['SimpleFilterArgs']] = None):
+        """
+        Model that represents a query selector.
+        :param pulumi.Input[str] id: String of the selector ID.
+        :param pulumi.Input[str] query_string: Azure Resource Graph (ARG) Query Language query for target resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subscription_ids: Subscription id list to scope resource query.
+        :param pulumi.Input[str] type: Enum of the selector type.
+               Expected value is 'Query'.
+        :param pulumi.Input['SimpleFilterArgs'] filter: Model that represents available filter types that can be applied to a targets list.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "query_string", query_string)
+        pulumi.set(__self__, "subscription_ids", subscription_ids)
+        pulumi.set(__self__, "type", 'Query')
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        String of the selector ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> pulumi.Input[str]:
+        """
+        Azure Resource Graph (ARG) Query Language query for target resources.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: pulumi.Input[str]):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter(name="subscriptionIds")
+    def subscription_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Subscription id list to scope resource query.
+        """
+        return pulumi.get(self, "subscription_ids")
+
+    @subscription_ids.setter
+    def subscription_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subscription_ids", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Enum of the selector type.
+        Expected value is 'Query'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional[pulumi.Input['SimpleFilterArgs']]:
+        """
+        Model that represents available filter types that can be applied to a targets list.
+        """
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: Optional[pulumi.Input['SimpleFilterArgs']]):
+        pulumi.set(self, "filter", value)
+
+
+@pulumi.input_type
+class ResourceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['ResourceIdentityType'],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The identity of a resource.
+        :param pulumi.Input['ResourceIdentityType'] type: String of the resource identity type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ResourceIdentityType']:
+        """
+        String of the resource identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ResourceIdentityType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user identities associated with the Experiment. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class SimpleFilterParametersArgs:
+    def __init__(__self__, *,
+                 zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Model that represents the Simple filter parameters.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] zones: List of Azure availability zones to filter targets by.
+        """
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Azure availability zones to filter targets by.
+        """
+        return pulumi.get(self, "zones")
+
+    @zones.setter
+    def zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "zones", value)
+
+
+@pulumi.input_type
+class SimpleFilterArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 parameters: Optional[pulumi.Input['SimpleFilterParametersArgs']] = None):
+        """
+        Model that represents a simple target filter.
+        :param pulumi.Input[str] type: Enum that discriminates between filter types. Currently only `Simple` type is supported.
+               Expected value is 'Simple'.
+        :param pulumi.Input['SimpleFilterParametersArgs'] parameters: Model that represents the Simple filter parameters.
+        """
+        pulumi.set(__self__, "type", 'Simple')
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Enum that discriminates between filter types. Currently only `Simple` type is supported.
+        Expected value is 'Simple'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input['SimpleFilterParametersArgs']]:
+        """
+        Model that represents the Simple filter parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input['SimpleFilterParametersArgs']]):
+        pulumi.set(self, "parameters", value)
 
 
 @pulumi.input_type
@@ -481,11 +669,11 @@ class StepArgs:
 class TargetReferenceArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[str],
-                 type: pulumi.Input['TargetReferenceType']):
+                 type: pulumi.Input[Union[str, 'TargetReferenceType']]):
         """
         Model that represents a reference to a Target in the selector.
         :param pulumi.Input[str] id: String of the resource ID of a Target resource.
-        :param pulumi.Input['TargetReferenceType'] type: Enum of the Target reference type.
+        :param pulumi.Input[Union[str, 'TargetReferenceType']] type: Enum of the Target reference type.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -504,14 +692,14 @@ class TargetReferenceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input['TargetReferenceType']:
+    def type(self) -> pulumi.Input[Union[str, 'TargetReferenceType']]:
         """
         Enum of the Target reference type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['TargetReferenceType']):
+    def type(self, value: pulumi.Input[Union[str, 'TargetReferenceType']]):
         pulumi.set(self, "type", value)
 
 

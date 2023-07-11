@@ -97,12 +97,7 @@ class DocumentationArgs:
         pulumi.set(self, "title", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:Documentation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Documentation to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class Documentation(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:Documentation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Documentation to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -154,7 +149,6 @@ class Documentation(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  title: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Documentation is deprecated: azure-native:apimanagement/v20220801:Documentation is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Documentation to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -174,6 +168,8 @@ class Documentation(pulumi.CustomResource):
             __props__.__dict__["title"] = title
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:Documentation"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:Documentation")])
+        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Documentation, __self__).__init__(
             'azure-native:apimanagement/v20220801:Documentation',
             resource_name,

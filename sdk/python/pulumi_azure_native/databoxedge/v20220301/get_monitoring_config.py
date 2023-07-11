@@ -17,8 +17,6 @@ __all__ = [
     'get_monitoring_config_output',
 ]
 
-warnings.warn("""azure-native:databoxedge/v20220301:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetMonitoringConfigResult:
     """
@@ -107,7 +105,6 @@ def get_monitoring_config(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
-    pulumi.log.warn("""get_monitoring_config is deprecated: azure-native:databoxedge/v20220301:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
@@ -136,5 +133,4 @@ def get_monitoring_config_output(device_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
-    pulumi.log.warn("""get_monitoring_config is deprecated: azure-native:databoxedge/v20220301:MonitoringConfig is being removed in the next major version of this provider. Upgrade to at least azure-native:databoxedge/v20230101preview:MonitoringConfig to guarantee forwards compatibility.""")
     ...

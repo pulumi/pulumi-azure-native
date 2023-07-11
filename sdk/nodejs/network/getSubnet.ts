@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets the specified subnet by virtual network and resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSubnet(args: GetSubnetArgs, opts?: pulumi.InvokeOptions): Promise<GetSubnetResult> {
 
@@ -56,7 +56,7 @@ export interface GetSubnetResult {
     /**
      * Application gateway IP configurations of virtual network resource.
      */
-    readonly applicationGatewayIpConfigurations?: outputs.network.ApplicationGatewayIPConfigurationResponse[];
+    readonly applicationGatewayIPConfigurations?: outputs.network.ApplicationGatewayIPConfigurationResponse[];
     /**
      * An array of references to the delegations on the subnet.
      */
@@ -140,7 +140,7 @@ export interface GetSubnetResult {
 }
 /**
  * Gets the specified subnet by virtual network and resource group.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getSubnetOutput(args: GetSubnetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetResult> {
     return pulumi.output(args).apply((a: any) => getSubnet(a, opts))

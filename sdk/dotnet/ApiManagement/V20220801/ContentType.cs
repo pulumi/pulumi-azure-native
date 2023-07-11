@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Content type contract details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:ContentType is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ContentType to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ContentType")]
     public partial class ContentType : global::Pulumi.CustomResource
     {
@@ -80,6 +79,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:ContentType"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:ContentType"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:ContentType"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:ContentType"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

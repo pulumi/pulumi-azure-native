@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Lists all applicable schedules
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function listScheduleApplicable(args: ListScheduleApplicableArgs, opts?: pulumi.InvokeOptions): Promise<ListScheduleApplicableResult> {
 
@@ -51,7 +51,7 @@ export interface ListScheduleApplicableResult {
 }
 /**
  * Lists all applicable schedules
- * API Version: 2018-09-15.
+ * Azure REST API version: 2018-09-15.
  */
 export function listScheduleApplicableOutput(args: ListScheduleApplicableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListScheduleApplicableResult> {
     return pulumi.output(args).apply((a: any) => listScheduleApplicable(a, opts))

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Information about azure databricks accessConnector.
- * API Version: 2022-04-01-preview.
+ * Azure REST API version: 2023-05-01. Prior API version in Azure Native 1.x: 2022-04-01-preview
  */
 export class AccessConnector extends pulumi.CustomResource {
     /**
@@ -39,9 +39,9 @@ export class AccessConnector extends pulumi.CustomResource {
     }
 
     /**
-     * Identity for the resource.
+     * Managed service identity (system assigned and/or user assigned identities)
      */
-    public readonly identity!: pulumi.Output<outputs.databricks.IdentityDataResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.databricks.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
@@ -100,7 +100,7 @@ export class AccessConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20220401preview:AccessConnector" }, { type: "azure-native:databricks/v20221001preview:AccessConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20220401preview:AccessConnector" }, { type: "azure-native:databricks/v20221001preview:AccessConnector" }, { type: "azure-native:databricks/v20230501:AccessConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessConnector.__pulumiType, name, resourceInputs, opts);
     }
@@ -115,9 +115,9 @@ export interface AccessConnectorArgs {
      */
     connectorName?: pulumi.Input<string>;
     /**
-     * Identity for the resource.
+     * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.databricks.IdentityDataArgs>;
+    identity?: pulumi.Input<inputs.databricks.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */

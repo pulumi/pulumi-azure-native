@@ -17,8 +17,6 @@ __all__ = [
     'get_partner_namespace_output',
 ]
 
-warnings.warn("""azure-native:eventgrid/v20220615:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerNamespace to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetPartnerNamespaceResult:
     """
@@ -213,7 +211,6 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
     :param str partner_namespace_name: Name of the partner namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    pulumi.log.warn("""get_partner_namespace is deprecated: azure-native:eventgrid/v20220615:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerNamespace to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['partnerNamespaceName'] = partner_namespace_name
     __args__['resourceGroupName'] = resource_group_name
@@ -248,5 +245,4 @@ def get_partner_namespace_output(partner_namespace_name: Optional[pulumi.Input[s
     :param str partner_namespace_name: Name of the partner namespace.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    pulumi.log.warn("""get_partner_namespace is deprecated: azure-native:eventgrid/v20220615:PartnerNamespace is being removed in the next major version of this provider. Upgrade to at least azure-native:eventgrid/v20230601preview:PartnerNamespace to guarantee forwards compatibility.""")
     ...

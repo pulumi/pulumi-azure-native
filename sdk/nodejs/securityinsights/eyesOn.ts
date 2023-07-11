@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Settings with single toggle.
- * API Version: 2021-03-01-preview.
+ * Azure REST API version: 2023-06-01-preview. Prior API version in Azure Native 1.x: 2021-03-01-preview
  */
 export class EyesOn extends pulumi.CustomResource {
     /**
@@ -52,7 +52,7 @@ export class EyesOn extends pulumi.CustomResource {
      */
     public readonly kind!: pulumi.Output<"EyesOn">;
     /**
-     * Azure resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -60,7 +60,7 @@ export class EyesOn extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
-     * Azure resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -78,9 +78,6 @@ export class EyesOn extends pulumi.CustomResource {
             if ((!args || args.kind === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.operationalInsightsResourceProvider === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'operationalInsightsResourceProvider'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -88,7 +85,6 @@ export class EyesOn extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["kind"] = "EyesOn";
-            resourceInputs["operationalInsightsResourceProvider"] = args ? args.operationalInsightsResourceProvider : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["settingsName"] = args ? args.settingsName : undefined;
             resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
@@ -106,7 +102,7 @@ export class EyesOn extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:EyesOn" }, { type: "azure-native:securityinsights/v20210301preview:EyesOn" }, { type: "azure-native:securityinsights/v20210901preview:EyesOn" }, { type: "azure-native:securityinsights/v20211001preview:EyesOn" }, { type: "azure-native:securityinsights/v20220101preview:EyesOn" }, { type: "azure-native:securityinsights/v20220401preview:EyesOn" }, { type: "azure-native:securityinsights/v20220501preview:EyesOn" }, { type: "azure-native:securityinsights/v20220601preview:EyesOn" }, { type: "azure-native:securityinsights/v20220701preview:EyesOn" }, { type: "azure-native:securityinsights/v20220801preview:EyesOn" }, { type: "azure-native:securityinsights/v20220901preview:EyesOn" }, { type: "azure-native:securityinsights/v20221001preview:EyesOn" }, { type: "azure-native:securityinsights/v20221101preview:EyesOn" }, { type: "azure-native:securityinsights/v20221201preview:EyesOn" }, { type: "azure-native:securityinsights/v20230201preview:EyesOn" }, { type: "azure-native:securityinsights/v20230401preview:EyesOn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20190101preview:EyesOn" }, { type: "azure-native:securityinsights/v20210301preview:EyesOn" }, { type: "azure-native:securityinsights/v20210901preview:EyesOn" }, { type: "azure-native:securityinsights/v20211001preview:EyesOn" }, { type: "azure-native:securityinsights/v20220101preview:EyesOn" }, { type: "azure-native:securityinsights/v20220401preview:EyesOn" }, { type: "azure-native:securityinsights/v20220501preview:EyesOn" }, { type: "azure-native:securityinsights/v20220601preview:EyesOn" }, { type: "azure-native:securityinsights/v20220701preview:EyesOn" }, { type: "azure-native:securityinsights/v20220801preview:EyesOn" }, { type: "azure-native:securityinsights/v20220901preview:EyesOn" }, { type: "azure-native:securityinsights/v20221001preview:EyesOn" }, { type: "azure-native:securityinsights/v20221101preview:EyesOn" }, { type: "azure-native:securityinsights/v20221201preview:EyesOn" }, { type: "azure-native:securityinsights/v20230201preview:EyesOn" }, { type: "azure-native:securityinsights/v20230301preview:EyesOn" }, { type: "azure-native:securityinsights/v20230401preview:EyesOn" }, { type: "azure-native:securityinsights/v20230501preview:EyesOn" }, { type: "azure-native:securityinsights/v20230601preview:EyesOn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EyesOn.__pulumiType, name, resourceInputs, opts);
     }
@@ -121,10 +117,6 @@ export interface EyesOnArgs {
      * Expected value is 'EyesOn'.
      */
     kind: pulumi.Input<"EyesOn">;
-    /**
-     * The namespace of workspaces resource provider- Microsoft.OperationalInsights.
-     */
-    operationalInsightsResourceProvider: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

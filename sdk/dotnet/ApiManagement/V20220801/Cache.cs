@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Cache details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:Cache is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Cache to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:Cache")]
     public partial class Cache : global::Pulumi.CustomResource
     {
@@ -89,6 +88,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Cache"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Cache"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Cache"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:Cache"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

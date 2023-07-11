@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AadIam.V20200701Preview
     /// <summary>
     /// AzureADMetrics resource.
     /// </summary>
-    [AzureNativeResourceType("azure-native:aadiam/v20200701preview:azureADMetric")]
+    [AzureNativeResourceType("azure-native:aadiam/v20200701preview:AzureADMetric")]
     public partial class AzureADMetric : global::Pulumi.CustomResource
     {
         /// <summary>
@@ -51,12 +51,12 @@ namespace Pulumi.AzureNative.AadIam.V20200701Preview
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public AzureADMetric(string name, AzureADMetricArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:aadiam/v20200701preview:azureADMetric", name, args ?? new AzureADMetricArgs(), MakeResourceOptions(options, ""))
+            : base("azure-native:aadiam/v20200701preview:AzureADMetric", name, args ?? new AzureADMetricArgs(), MakeResourceOptions(options, ""))
         {
         }
 
         private AzureADMetric(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:aadiam/v20200701preview:azureADMetric", name, null, MakeResourceOptions(options, id))
+            : base("azure-native:aadiam/v20200701preview:AzureADMetric", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -67,6 +67,8 @@ namespace Pulumi.AzureNative.AadIam.V20200701Preview
                 Version = Utilities.Version,
                 Aliases =
                 {
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam/v20200701preview:azureADMetric"},
+                    new global::Pulumi.Alias { Type = "azure-native:aadiam:AzureADMetric"},
                     new global::Pulumi.Alias { Type = "azure-native:aadiam:azureADMetric"},
                 },
             };

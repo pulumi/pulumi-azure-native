@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// Application gateway resource.
-    /// API Version: 2020-11-01.
+    /// Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-11-01
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ApplicationGateway")]
     public partial class ApplicationGateway : global::Pulumi.CustomResource
@@ -41,10 +41,22 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingsResponse>> BackendHttpSettingsCollection { get; private set; } = null!;
 
         /// <summary>
+        /// Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        [Output("backendSettingsCollection")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayBackendSettingsResponse>> BackendSettingsCollection { get; private set; } = null!;
+
+        /// <summary>
         /// Custom error configurations of the application gateway resource.
         /// </summary>
         [Output("customErrorConfigurations")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayCustomErrorResponse>> CustomErrorConfigurations { get; private set; } = null!;
+
+        /// <summary>
+        /// The default predefined SSL Policy applied on the application gateway resource.
+        /// </summary>
+        [Output("defaultPredefinedSslPolicy")]
+        public Output<string> DefaultPredefinedSslPolicy { get; private set; } = null!;
 
         /// <summary>
         /// Whether FIPS is enabled on the application gateway resource.
@@ -95,6 +107,12 @@ namespace Pulumi.AzureNative.Network
         public Output<ImmutableArray<Outputs.ApplicationGatewayIPConfigurationResponse>> GatewayIPConfigurations { get; private set; } = null!;
 
         /// <summary>
+        /// Global Configuration.
+        /// </summary>
+        [Output("globalConfiguration")]
+        public Output<Outputs.ApplicationGatewayGlobalConfigurationResponse?> GlobalConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         /// </summary>
         [Output("httpListeners")]
@@ -105,6 +123,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        [Output("listeners")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayListenerResponse>> Listeners { get; private set; } = null!;
+
+        /// <summary>
+        /// Load distribution policies of the application gateway resource.
+        /// </summary>
+        [Output("loadDistributionPolicies")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayLoadDistributionPolicyResponse>> LoadDistributionPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Resource location.
@@ -171,6 +201,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("rewriteRuleSets")]
         public Output<ImmutableArray<Outputs.ApplicationGatewayRewriteRuleSetResponse>> RewriteRuleSets { get; private set; } = null!;
+
+        /// <summary>
+        /// Routing rules of the application gateway resource.
+        /// </summary>
+        [Output("routingRules")]
+        public Output<ImmutableArray<Outputs.ApplicationGatewayRoutingRuleResponse>> RoutingRules { get; private set; } = null!;
 
         /// <summary>
         /// SKU of the application gateway resource.
@@ -307,6 +343,8 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220501:ApplicationGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:ApplicationGateway"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ApplicationGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ApplicationGateway"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230201:ApplicationGateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -376,6 +414,18 @@ namespace Pulumi.AzureNative.Network
         {
             get => _backendHttpSettingsCollection ?? (_backendHttpSettingsCollection = new InputList<Inputs.ApplicationGatewayBackendHttpSettingsArgs>());
             set => _backendHttpSettingsCollection = value;
+        }
+
+        [Input("backendSettingsCollection")]
+        private InputList<Inputs.ApplicationGatewayBackendSettingsArgs>? _backendSettingsCollection;
+
+        /// <summary>
+        /// Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayBackendSettingsArgs> BackendSettingsCollection
+        {
+            get => _backendSettingsCollection ?? (_backendSettingsCollection = new InputList<Inputs.ApplicationGatewayBackendSettingsArgs>());
+            set => _backendSettingsCollection = value;
         }
 
         [Input("customErrorConfigurations")]
@@ -450,6 +500,12 @@ namespace Pulumi.AzureNative.Network
             set => _gatewayIPConfigurations = value;
         }
 
+        /// <summary>
+        /// Global Configuration.
+        /// </summary>
+        [Input("globalConfiguration")]
+        public Input<Inputs.ApplicationGatewayGlobalConfigurationArgs>? GlobalConfiguration { get; set; }
+
         [Input("httpListeners")]
         private InputList<Inputs.ApplicationGatewayHttpListenerArgs>? _httpListeners;
 
@@ -473,6 +529,30 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("identity")]
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
+
+        [Input("listeners")]
+        private InputList<Inputs.ApplicationGatewayListenerArgs>? _listeners;
+
+        /// <summary>
+        /// Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayListenerArgs> Listeners
+        {
+            get => _listeners ?? (_listeners = new InputList<Inputs.ApplicationGatewayListenerArgs>());
+            set => _listeners = value;
+        }
+
+        [Input("loadDistributionPolicies")]
+        private InputList<Inputs.ApplicationGatewayLoadDistributionPolicyArgs>? _loadDistributionPolicies;
+
+        /// <summary>
+        /// Load distribution policies of the application gateway resource.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayLoadDistributionPolicyArgs> LoadDistributionPolicies
+        {
+            get => _loadDistributionPolicies ?? (_loadDistributionPolicies = new InputList<Inputs.ApplicationGatewayLoadDistributionPolicyArgs>());
+            set => _loadDistributionPolicies = value;
+        }
 
         /// <summary>
         /// Resource location.
@@ -544,6 +624,18 @@ namespace Pulumi.AzureNative.Network
         {
             get => _rewriteRuleSets ?? (_rewriteRuleSets = new InputList<Inputs.ApplicationGatewayRewriteRuleSetArgs>());
             set => _rewriteRuleSets = value;
+        }
+
+        [Input("routingRules")]
+        private InputList<Inputs.ApplicationGatewayRoutingRuleArgs>? _routingRules;
+
+        /// <summary>
+        /// Routing rules of the application gateway resource.
+        /// </summary>
+        public InputList<Inputs.ApplicationGatewayRoutingRuleArgs> RoutingRules
+        {
+            get => _routingRules ?? (_routingRules = new InputList<Inputs.ApplicationGatewayRoutingRuleArgs>());
+            set => _routingRules = value;
         }
 
         /// <summary>

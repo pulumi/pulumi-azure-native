@@ -181,7 +181,7 @@ class ResourcePool(pulumi.CustomResource):
                  __props__=None):
         """
         Define the resourcePool.
-        API Version: 2020-10-01-preview.
+        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -203,7 +203,7 @@ class ResourcePool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the resourcePool.
-        API Version: 2020-10-01-preview.
+        Azure REST API version: 2022-07-15-preview. Prior API version in Azure Native 1.x: 2020-10-01-preview
 
         :param str resource_name: The name of the resource.
         :param ResourcePoolArgs args: The arguments to use to populate this resource's properties.
@@ -253,11 +253,13 @@ class ResourcePool(pulumi.CustomResource):
             __props__.__dict__["cpu_reservation_m_hz"] = None
             __props__.__dict__["cpu_shares_level"] = None
             __props__.__dict__["custom_resource_name"] = None
+            __props__.__dict__["datastore_ids"] = None
             __props__.__dict__["mem_limit_mb"] = None
             __props__.__dict__["mem_reservation_mb"] = None
             __props__.__dict__["mem_shares_level"] = None
             __props__.__dict__["mo_name"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["network_ids"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["statuses"] = None
             __props__.__dict__["system_data"] = None
@@ -291,6 +293,7 @@ class ResourcePool(pulumi.CustomResource):
         __props__.__dict__["cpu_reservation_m_hz"] = None
         __props__.__dict__["cpu_shares_level"] = None
         __props__.__dict__["custom_resource_name"] = None
+        __props__.__dict__["datastore_ids"] = None
         __props__.__dict__["extended_location"] = None
         __props__.__dict__["inventory_item_id"] = None
         __props__.__dict__["kind"] = None
@@ -301,6 +304,7 @@ class ResourcePool(pulumi.CustomResource):
         __props__.__dict__["mo_name"] = None
         __props__.__dict__["mo_ref_id"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_ids"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["statuses"] = None
         __props__.__dict__["system_data"] = None
@@ -344,6 +348,14 @@ class ResourcePool(pulumi.CustomResource):
         Gets the name of the corresponding resource in Kubernetes.
         """
         return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="datastoreIds")
+    def datastore_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Gets or sets the datastore ARM ids.
+        """
+        return pulumi.get(self, "datastore_ids")
 
     @property
     @pulumi.getter(name="extendedLocation")
@@ -427,6 +439,14 @@ class ResourcePool(pulumi.CustomResource):
         Gets or sets the name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkIds")
+    def network_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Gets or sets the network ARM ids.
+        """
+        return pulumi.get(self, "network_ids")
 
     @property
     @pulumi.getter(name="provisioningState")

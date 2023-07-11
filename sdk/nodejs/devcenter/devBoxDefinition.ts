@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Represents a definition for a Developer Machine.
- * API Version: 2022-09-01-preview.
+ * Azure REST API version: 2023-04-01. Prior API version in Azure Native 1.x: 2022-09-01-preview
  */
 export class DevBoxDefinition extends pulumi.CustomResource {
     /**
@@ -43,6 +43,10 @@ export class DevBoxDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly activeImageReference!: pulumi.Output<outputs.devcenter.ImageReferenceResponse>;
     /**
+     * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+     */
+    public readonly hibernateSupport!: pulumi.Output<string | undefined>;
+    /**
      * Image reference information.
      */
     public readonly imageReference!: pulumi.Output<outputs.devcenter.ImageReferenceResponse>;
@@ -65,7 +69,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
     /**
      * The storage type used for the Operating System disk of Dev Boxes created using this definition.
      */
-    public readonly osStorageType!: pulumi.Output<string>;
+    public readonly osStorageType!: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
@@ -104,9 +108,6 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             if ((!args || args.imageReference === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'imageReference'");
             }
-            if ((!args || args.osStorageType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'osStorageType'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,6 +116,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             }
             resourceInputs["devBoxDefinitionName"] = args ? args.devBoxDefinitionName : undefined;
             resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
+            resourceInputs["hibernateSupport"] = args ? args.hibernateSupport : undefined;
             resourceInputs["imageReference"] = args ? args.imageReference : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["osStorageType"] = args ? args.osStorageType : undefined;
@@ -130,6 +132,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["activeImageReference"] = undefined /*out*/;
+            resourceInputs["hibernateSupport"] = undefined /*out*/;
             resourceInputs["imageReference"] = undefined /*out*/;
             resourceInputs["imageValidationErrorDetails"] = undefined /*out*/;
             resourceInputs["imageValidationStatus"] = undefined /*out*/;
@@ -143,7 +146,7 @@ export class DevBoxDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20220901preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221012preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221111preview:DevBoxDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:devcenter/v20220801preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20220901preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221012preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20221111preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20230101preview:DevBoxDefinition" }, { type: "azure-native:devcenter/v20230401:DevBoxDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DevBoxDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -162,6 +165,10 @@ export interface DevBoxDefinitionArgs {
      */
     devCenterName: pulumi.Input<string>;
     /**
+     * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+     */
+    hibernateSupport?: pulumi.Input<string | enums.devcenter.HibernateSupport>;
+    /**
      * Image reference information.
      */
     imageReference: pulumi.Input<inputs.devcenter.ImageReferenceArgs>;
@@ -172,9 +179,9 @@ export interface DevBoxDefinitionArgs {
     /**
      * The storage type used for the Operating System disk of Dev Boxes created using this definition.
      */
-    osStorageType: pulumi.Input<string>;
+    osStorageType?: pulumi.Input<string>;
     /**
-     * Name of the resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

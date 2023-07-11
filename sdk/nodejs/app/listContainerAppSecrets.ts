@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Container App Secrets Collection ARM resource.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function listContainerAppSecrets(args: ListContainerAppSecretsArgs, opts?: pulumi.InvokeOptions): Promise<ListContainerAppSecretsResult> {
 
@@ -42,7 +42,7 @@ export interface ListContainerAppSecretsResult {
 }
 /**
  * Container App Secrets Collection ARM resource.
- * API Version: 2022-03-01.
+ * Azure REST API version: 2022-10-01.
  */
 export function listContainerAppSecretsOutput(args: ListContainerAppSecretsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListContainerAppSecretsResult> {
     return pulumi.output(args).apply((a: any) => listContainerAppSecrets(a, opts))

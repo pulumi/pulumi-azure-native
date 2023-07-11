@@ -20,7 +20,13 @@ namespace Pulumi.AzureNative.ContainerStorage
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Delete resource
+        /// </summary>
         public static ReclaimPolicy Delete { get; } = new ReclaimPolicy("Delete");
+        /// <summary>
+        /// Retain resource
+        /// </summary>
         public static ReclaimPolicy Retain { get; } = new ReclaimPolicy("Retain");
 
         public static bool operator ==(ReclaimPolicy left, ReclaimPolicy right) => left.Equals(right);
@@ -51,7 +57,13 @@ namespace Pulumi.AzureNative.ContainerStorage
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// FileSystem volume mode
+        /// </summary>
         public static VolumeMode Filesystem { get; } = new VolumeMode("Filesystem");
+        /// <summary>
+        /// Raw volume mode
+        /// </summary>
         public static VolumeMode Raw { get; } = new VolumeMode("Raw");
 
         public static bool operator ==(VolumeMode left, VolumeMode right) => left.Equals(right);

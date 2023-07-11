@@ -9,8 +9,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy Contract details.
- *
- * @deprecated azure-native:apimanagement/v20220801:ProductPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ProductPolicy to guarantee forwards compatibility.
  */
 export class ProductPolicy extends pulumi.CustomResource {
     /**
@@ -22,7 +20,6 @@ export class ProductPolicy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ProductPolicy {
-        pulumi.log.warn("ProductPolicy is deprecated: azure-native:apimanagement/v20220801:ProductPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ProductPolicy to guarantee forwards compatibility.")
         return new ProductPolicy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +61,7 @@ export class ProductPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azure-native:apimanagement/v20220801:ProductPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ProductPolicy to guarantee forwards compatibility. */
     constructor(name: string, args: ProductPolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ProductPolicy is deprecated: azure-native:apimanagement/v20220801:ProductPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:ProductPolicy to guarantee forwards compatibility.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -97,7 +92,7 @@ export class ProductPolicy extends pulumi.CustomResource {
             resourceInputs["value"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductPolicy" }, { type: "azure-native:apimanagement/v20170301:ProductPolicy" }, { type: "azure-native:apimanagement/v20180101:ProductPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20190101:ProductPolicy" }, { type: "azure-native:apimanagement/v20191201:ProductPolicy" }, { type: "azure-native:apimanagement/v20191201preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20201201:ProductPolicy" }, { type: "azure-native:apimanagement/v20210101preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20210401preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20210801:ProductPolicy" }, { type: "azure-native:apimanagement/v20211201preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20220401preview:ProductPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:apimanagement:ProductPolicy" }, { type: "azure-native:apimanagement/v20170301:ProductPolicy" }, { type: "azure-native:apimanagement/v20180101:ProductPolicy" }, { type: "azure-native:apimanagement/v20180601preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20190101:ProductPolicy" }, { type: "azure-native:apimanagement/v20191201:ProductPolicy" }, { type: "azure-native:apimanagement/v20191201preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20200601preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20201201:ProductPolicy" }, { type: "azure-native:apimanagement/v20210101preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20210401preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20210801:ProductPolicy" }, { type: "azure-native:apimanagement/v20211201preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20220401preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20220901preview:ProductPolicy" }, { type: "azure-native:apimanagement/v20230301preview:ProductPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProductPolicy.__pulumiType, name, resourceInputs, opts);
     }

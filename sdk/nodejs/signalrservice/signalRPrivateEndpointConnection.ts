@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A private endpoint connection to SignalR resource
- * API Version: 2020-05-01.
+ * A private endpoint connection to an azure resource
+ * Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-05-01
  */
 export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -39,21 +39,29 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     }
 
     /**
+     * Group IDs
+     */
+    public /*out*/ readonly groupIds!: pulumi.Output<string[]>;
+    /**
      * The name of the resource.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     public readonly privateEndpoint!: pulumi.Output<outputs.signalrservice.PrivateEndpointResponse | undefined>;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.signalrservice.PrivateLinkServiceConnectionStateResponse | undefined>;
     /**
-     * Provisioning state of the private endpoint connection
+     * Provisioning state of the resource.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Metadata pertaining to creation and last modification of the resource.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.signalrservice.SystemDataResponse>;
     /**
      * The type of the resource - e.g. "Microsoft.SignalRService/SignalR"
      */
@@ -81,18 +89,22 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["groupIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpoint"] = undefined /*out*/;
             resourceInputs["privateLinkServiceConnectionState"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection" }, { type: "azure-native:signalrservice/v20230601preview:SignalRPrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SignalRPrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }
@@ -103,15 +115,15 @@ export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
  */
 export interface SignalRPrivateEndpointConnectionArgs {
     /**
-     * Private endpoint associated with the private endpoint connection
+     * Private endpoint
      */
     privateEndpoint?: pulumi.Input<inputs.signalrservice.PrivateEndpointArgs>;
     /**
-     * The name of the private endpoint connection associated with the SignalR resource.
+     * The name of the private endpoint connection
      */
     privateEndpointConnectionName?: pulumi.Input<string>;
     /**
-     * Connection state
+     * Connection state of the private endpoint connection
      */
     privateLinkServiceConnectionState?: pulumi.Input<inputs.signalrservice.PrivateLinkServiceConnectionStateArgs>;
     /**
@@ -119,7 +131,7 @@ export interface SignalRPrivateEndpointConnectionArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the SignalR resource.
+     * The name of the resource.
      */
     resourceName: pulumi.Input<string>;
 }

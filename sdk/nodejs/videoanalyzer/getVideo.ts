@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Retrieves an existing video resource within an account with a given name.
- * API Version: 2021-05-01-preview.
+ * Retrieves an existing video resource with the given name.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getVideo(args: GetVideoArgs, opts?: pulumi.InvokeOptions): Promise<GetVideoResult> {
 
@@ -31,15 +31,23 @@ export interface GetVideoArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the video to retrieve.
+     * The Video name.
      */
     videoName: string;
 }
 
 /**
- * The representation of a single video in a Video Analyzer account.
+ * Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
  */
 export interface GetVideoResult {
+    /**
+     * Video archival properties.
+     */
+    readonly archival?: outputs.videoanalyzer.VideoArchivalResponse;
+    /**
+     * Set of URLs to the video content.
+     */
+    readonly contentUrls: outputs.videoanalyzer.VideoContentUrlsResponse;
     /**
      * Optional video description provided by the user. Value can be up to 2048 characters long.
      */
@@ -55,17 +63,13 @@ export interface GetVideoResult {
     /**
      * Contains information about the video and audio content.
      */
-    readonly mediaInfo: outputs.videoanalyzer.VideoMediaInfoResponse;
+    readonly mediaInfo?: outputs.videoanalyzer.VideoMediaInfoResponse;
     /**
      * The name of the resource
      */
     readonly name: string;
     /**
-     * Video streaming holds information about video streaming URLs.
-     */
-    readonly streaming: outputs.videoanalyzer.VideoStreamingResponse;
-    /**
-     * The system metadata relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.videoanalyzer.SystemDataResponse;
     /**
@@ -78,8 +82,8 @@ export interface GetVideoResult {
     readonly type: string;
 }
 /**
- * Retrieves an existing video resource within an account with a given name.
- * API Version: 2021-05-01-preview.
+ * Retrieves an existing video resource with the given name.
+ * Azure REST API version: 2021-11-01-preview.
  */
 export function getVideoOutput(args: GetVideoOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVideoResult> {
     return pulumi.output(args).apply((a: any) => getVideo(a, opts))
@@ -95,7 +99,7 @@ export interface GetVideoOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the video to retrieve.
+     * The Video name.
      */
     videoName: pulumi.Input<string>;
 }

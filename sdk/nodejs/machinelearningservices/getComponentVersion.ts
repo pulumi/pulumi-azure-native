@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2022-02-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getComponentVersion(args: GetComponentVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetComponentVersionResult> {
 
@@ -48,7 +48,7 @@ export interface GetComponentVersionResult {
     /**
      * [Required] Additional attributes of the entity.
      */
-    readonly componentVersionDetails: outputs.machinelearningservices.ComponentVersionResponse;
+    readonly componentVersionProperties: outputs.machinelearningservices.ComponentVersionResponse;
     /**
      * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
@@ -68,7 +68,7 @@ export interface GetComponentVersionResult {
 }
 /**
  * Azure Resource Manager resource envelope.
- * API Version: 2022-02-01-preview.
+ * Azure REST API version: 2023-04-01.
  */
 export function getComponentVersionOutput(args: GetComponentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentVersionResult> {
     return pulumi.output(args).apply((a: any) => getComponentVersion(a, opts))

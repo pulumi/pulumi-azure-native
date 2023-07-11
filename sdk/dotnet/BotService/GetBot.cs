@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.BotService
     {
         /// <summary>
         /// Returns a BotService specified by the parameters.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-09-15.
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("azure-native:botservice:getBot", args ?? new GetBotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Returns a BotService specified by the parameters.
-        /// API Version: 2021-03-01.
+        /// Azure REST API version: 2022-09-15.
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("azure-native:botservice:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.BotService
     public sealed class GetBotResult
     {
         /// <summary>
-        /// Entity Tag
+        /// Entity Tag.
         /// </summary>
         public readonly string? Etag;
         /// <summary>

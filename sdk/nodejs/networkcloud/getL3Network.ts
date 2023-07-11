@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get properties of the provided layer 3 (L3) network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getL3Network(args: GetL3NetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetL3NetworkResult> {
 
@@ -33,6 +33,10 @@ export interface GetL3NetworkArgs {
 
 export interface GetL3NetworkResult {
     /**
+     * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+     */
+    readonly associatedResourceIds: string[];
+    /**
      * The resource ID of the Network Cloud cluster this L3 network is associated with.
      */
     readonly clusterId: string;
@@ -49,19 +53,19 @@ export interface GetL3NetworkResult {
      */
     readonly extendedLocation: outputs.networkcloud.ExtendedLocationResponse;
     /**
-     * The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
+     * Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
      */
     readonly hybridAksClustersAssociatedIds: string[];
     /**
-     * The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
      */
     readonly hybridAksIpamEnabled?: string;
     /**
-     * The network plugin type for Hybrid AKS.
+     * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
     readonly hybridAksPluginType?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -111,7 +115,7 @@ export interface GetL3NetworkResult {
      */
     readonly type: string;
     /**
-     * The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
+     * Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
      */
     readonly virtualMachinesAssociatedIds: string[];
     /**
@@ -121,7 +125,7 @@ export interface GetL3NetworkResult {
 }
 /**
  * Get properties of the provided layer 3 (L3) network.
- * API Version: 2022-12-12-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getL3NetworkOutput(args: GetL3NetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetL3NetworkResult> {
     return pulumi.output(args).apply((a: any) => getL3Network(a, opts))

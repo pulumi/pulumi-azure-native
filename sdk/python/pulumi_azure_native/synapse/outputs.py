@@ -17,6 +17,7 @@ __all__ = [
     'AzureSkuResponse',
     'CmdkeySetupResponse',
     'ComponentSetupResponse',
+    'CspWorkspaceAdminPropertiesResponse',
     'CustomerManagedKeyDetailsResponse',
     'DataLakeStorageAccountDetailsResponse',
     'DatabaseStatisticsResponse',
@@ -27,12 +28,15 @@ __all__ = [
     'FollowerDatabaseDefinitionResponse',
     'IntegrationRuntimeComputePropertiesResponse',
     'IntegrationRuntimeCustomSetupScriptPropertiesResponse',
+    'IntegrationRuntimeCustomerVirtualNetworkResponse',
     'IntegrationRuntimeDataFlowPropertiesResponse',
     'IntegrationRuntimeDataProxyPropertiesResponse',
     'IntegrationRuntimeSsisCatalogInfoResponse',
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
+    'KekIdentityPropertiesResponse',
     'LanguageExtensionResponse',
+    'LanguageExtensionsListResponse',
     'LibraryInfoResponse',
     'LibraryRequirementsResponse',
     'LinkedIntegrationRuntimeKeyAuthorizationResponse',
@@ -45,6 +49,7 @@ __all__ = [
     'ManagedIntegrationRuntimeResponse',
     'ManagedIntegrationRuntimeStatusResponse',
     'ManagedVirtualNetworkSettingsResponse',
+    'OptimizedAutoscaleResponse',
     'PrivateEndpointConnectionForPrivateLinkHubBasicResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
@@ -55,6 +60,7 @@ __all__ = [
     'SelfHostedIntegrationRuntimeResponse',
     'SelfHostedIntegrationRuntimeStatusResponse',
     'SkuResponse',
+    'SparkConfigPropertiesResponse',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemResponse',
     'SsisEnvironmentReferenceResponse',
     'SsisEnvironmentResponse',
@@ -65,6 +71,7 @@ __all__ = [
     'SsisVariableResponse',
     'SystemDataResponse',
     'TableLevelSharingPropertiesResponse',
+    'UserAssignedManagedIdentityResponse',
     'VirtualNetworkProfileResponse',
     'VulnerabilityAssessmentRecurringScansPropertiesResponse',
     'WorkspaceKeyDetailsResponse',
@@ -196,16 +203,16 @@ class AzureSkuResponse(dict):
     """
     def __init__(__self__, *,
                  name: str,
-                 tier: str,
+                 size: str,
                  capacity: Optional[int] = None):
         """
         Azure SKU definition.
         :param str name: SKU name.
-        :param str tier: SKU tier.
+        :param str size: SKU size.
         :param int capacity: The number of instances of the cluster.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "size", size)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
 
@@ -219,11 +226,11 @@ class AzureSkuResponse(dict):
 
     @property
     @pulumi.getter
-    def tier(self) -> str:
+    def size(self) -> str:
         """
-        SKU tier.
+        SKU size.
         """
-        return pulumi.get(self, "tier")
+        return pulumi.get(self, "size")
 
     @property
     @pulumi.getter
@@ -377,19 +384,80 @@ class ComponentSetupResponse(dict):
 
 
 @pulumi.output_type
+class CspWorkspaceAdminPropertiesResponse(dict):
+    """
+    Initial workspace AAD admin properties for a CSP subscription
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initialWorkspaceAdminObjectId":
+            suggest = "initial_workspace_admin_object_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CspWorkspaceAdminPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CspWorkspaceAdminPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CspWorkspaceAdminPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 initial_workspace_admin_object_id: Optional[str] = None):
+        """
+        Initial workspace AAD admin properties for a CSP subscription
+        :param str initial_workspace_admin_object_id: AAD object ID of initial workspace admin
+        """
+        if initial_workspace_admin_object_id is not None:
+            pulumi.set(__self__, "initial_workspace_admin_object_id", initial_workspace_admin_object_id)
+
+    @property
+    @pulumi.getter(name="initialWorkspaceAdminObjectId")
+    def initial_workspace_admin_object_id(self) -> Optional[str]:
+        """
+        AAD object ID of initial workspace admin
+        """
+        return pulumi.get(self, "initial_workspace_admin_object_id")
+
+
+@pulumi.output_type
 class CustomerManagedKeyDetailsResponse(dict):
     """
     Details of the customer managed key associated with the workspace
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kekIdentity":
+            suggest = "kek_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomerManagedKeyDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomerManagedKeyDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomerManagedKeyDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  status: str,
+                 kek_identity: Optional['outputs.KekIdentityPropertiesResponse'] = None,
                  key: Optional['outputs.WorkspaceKeyDetailsResponse'] = None):
         """
         Details of the customer managed key associated with the workspace
         :param str status: The customer managed key status on the workspace
+        :param 'KekIdentityPropertiesResponse' kek_identity: Key encryption key
         :param 'WorkspaceKeyDetailsResponse' key: The key object of the workspace
         """
         pulumi.set(__self__, "status", status)
+        if kek_identity is not None:
+            pulumi.set(__self__, "kek_identity", kek_identity)
         if key is not None:
             pulumi.set(__self__, "key", key)
 
@@ -400,6 +468,14 @@ class CustomerManagedKeyDetailsResponse(dict):
         The customer managed key status on the workspace
         """
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="kekIdentity")
+    def kek_identity(self) -> Optional['outputs.KekIdentityPropertiesResponse']:
+        """
+        Key encryption key
+        """
+        return pulumi.get(self, "kek_identity")
 
     @property
     @pulumi.getter
@@ -420,6 +496,10 @@ class DataLakeStorageAccountDetailsResponse(dict):
         suggest = None
         if key == "accountUrl":
             suggest = "account_url"
+        elif key == "createManagedPrivateEndpoint":
+            suggest = "create_managed_private_endpoint"
+        elif key == "resourceId":
+            suggest = "resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DataLakeStorageAccountDetailsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -434,16 +514,24 @@ class DataLakeStorageAccountDetailsResponse(dict):
 
     def __init__(__self__, *,
                  account_url: Optional[str] = None,
-                 filesystem: Optional[str] = None):
+                 create_managed_private_endpoint: Optional[bool] = None,
+                 filesystem: Optional[str] = None,
+                 resource_id: Optional[str] = None):
         """
         Details of the data lake storage account associated with the workspace
         :param str account_url: Account URL
+        :param bool create_managed_private_endpoint: Create managed private endpoint to this storage account or not
         :param str filesystem: Filesystem name
+        :param str resource_id: ARM resource Id of this storage account
         """
         if account_url is not None:
             pulumi.set(__self__, "account_url", account_url)
+        if create_managed_private_endpoint is not None:
+            pulumi.set(__self__, "create_managed_private_endpoint", create_managed_private_endpoint)
         if filesystem is not None:
             pulumi.set(__self__, "filesystem", filesystem)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="accountUrl")
@@ -454,12 +542,28 @@ class DataLakeStorageAccountDetailsResponse(dict):
         return pulumi.get(self, "account_url")
 
     @property
+    @pulumi.getter(name="createManagedPrivateEndpoint")
+    def create_managed_private_endpoint(self) -> Optional[bool]:
+        """
+        Create managed private endpoint to this storage account or not
+        """
+        return pulumi.get(self, "create_managed_private_endpoint")
+
+    @property
     @pulumi.getter
     def filesystem(self) -> Optional[str]:
         """
         Filesystem name
         """
         return pulumi.get(self, "filesystem")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        ARM resource Id of this storage account
+        """
+        return pulumi.get(self, "resource_id")
 
 
 @pulumi.output_type
@@ -490,14 +594,41 @@ class DynamicExecutorAllocationResponse(dict):
     """
     Dynamic Executor Allocation Properties
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxExecutors":
+            suggest = "max_executors"
+        elif key == "minExecutors":
+            suggest = "min_executors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicExecutorAllocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicExecutorAllocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicExecutorAllocationResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 enabled: Optional[bool] = None):
+                 enabled: Optional[bool] = None,
+                 max_executors: Optional[int] = None,
+                 min_executors: Optional[int] = None):
         """
         Dynamic Executor Allocation Properties
         :param bool enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
+        :param int max_executors: The maximum number of executors alloted
+        :param int min_executors: The minimum number of executors alloted
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if max_executors is not None:
+            pulumi.set(__self__, "max_executors", max_executors)
+        if min_executors is not None:
+            pulumi.set(__self__, "min_executors", min_executors)
 
     @property
     @pulumi.getter
@@ -506,6 +637,22 @@ class DynamicExecutorAllocationResponse(dict):
         Indicates whether Dynamic Executor Allocation is enabled or not.
         """
         return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="maxExecutors")
+    def max_executors(self) -> Optional[int]:
+        """
+        The maximum number of executors alloted
+        """
+        return pulumi.get(self, "max_executors")
+
+    @property
+    @pulumi.getter(name="minExecutors")
+    def min_executors(self) -> Optional[int]:
+        """
+        The minimum number of executors alloted
+        """
+        return pulumi.get(self, "min_executors")
 
 
 @pulumi.output_type
@@ -880,6 +1027,46 @@ class IntegrationRuntimeCustomSetupScriptPropertiesResponse(dict):
         The SAS token of the Azure blob container.
         """
         return pulumi.get(self, "sas_token")
+
+
+@pulumi.output_type
+class IntegrationRuntimeCustomerVirtualNetworkResponse(dict):
+    """
+    The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationRuntimeCustomerVirtualNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationRuntimeCustomerVirtualNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationRuntimeCustomerVirtualNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnet_id: Optional[str] = None):
+        """
+        The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+        :param str subnet_id: The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -1287,10 +1474,81 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class KekIdentityPropertiesResponse(dict):
+    """
+    Key encryption key properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useSystemAssignedIdentity":
+            suggest = "use_system_assigned_identity"
+        elif key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KekIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KekIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KekIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 use_system_assigned_identity: Optional[Any] = None,
+                 user_assigned_identity: Optional[str] = None):
+        """
+        Key encryption key properties
+        :param Any use_system_assigned_identity: Boolean specifying whether to use system assigned identity or not
+        :param str user_assigned_identity: User assigned identity resource Id
+        """
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[Any]:
+        """
+        Boolean specifying whether to use system assigned identity or not
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[str]:
+        """
+        User assigned identity resource Id
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
 class LanguageExtensionResponse(dict):
     """
     The language extension object.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "languageExtensionName":
+            suggest = "language_extension_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LanguageExtensionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LanguageExtensionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LanguageExtensionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  language_extension_name: Optional[str] = None):
         """
@@ -1307,6 +1565,29 @@ class LanguageExtensionResponse(dict):
         The language extension name.
         """
         return pulumi.get(self, "language_extension_name")
+
+
+@pulumi.output_type
+class LanguageExtensionsListResponse(dict):
+    """
+    The list of language extension objects.
+    """
+    def __init__(__self__, *,
+                 value: Optional[Sequence['outputs.LanguageExtensionResponse']] = None):
+        """
+        The list of language extension objects.
+        :param Sequence['LanguageExtensionResponse'] value: The list of language extensions.
+        """
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence['outputs.LanguageExtensionResponse']]:
+        """
+        The list of language extensions.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1654,6 +1935,8 @@ class ManagedIdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -1669,17 +1952,21 @@ class ManagedIdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: str,
                  tenant_id: str,
-                 type: Optional[str] = None):
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']] = None):
         """
         The workspace managed identity
         :param str principal_id: The principal ID of the workspace managed identity
         :param str tenant_id: The tenant ID of the workspace managed identity
         :param str type: The type of managed identity for the workspace
+        :param Mapping[str, 'UserAssignedManagedIdentityResponse'] user_assigned_identities: The user assigned managed identities.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -1704,6 +1991,14 @@ class ManagedIdentityResponse(dict):
         The type of managed identity for the workspace
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedManagedIdentityResponse']]:
+        """
+        The user assigned managed identities.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -1891,8 +2186,14 @@ class ManagedIntegrationRuntimeResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "computeProperties":
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "computeProperties":
             suggest = "compute_properties"
+        elif key == "customerVirtualNetwork":
+            suggest = "customer_virtual_network"
+        elif key == "referenceName":
+            suggest = "reference_name"
         elif key == "ssisProperties":
             suggest = "ssis_properties"
 
@@ -1908,36 +2209,48 @@ class ManagedIntegrationRuntimeResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 state: str,
+                 provisioning_state: str,
                  type: str,
                  compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesResponse'] = None,
+                 customer_virtual_network: Optional['outputs.IntegrationRuntimeCustomerVirtualNetworkResponse'] = None,
                  description: Optional[str] = None,
+                 id: Optional[str] = None,
+                 reference_name: Optional[str] = None,
                  ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
-        :param str state: Integration runtime state, only valid for managed dedicated integration runtime.
+        :param str provisioning_state: Integration runtime state, only valid for managed dedicated integration runtime.
         :param str type: The type of integration runtime.
                Expected value is 'Managed'.
         :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
+        :param 'IntegrationRuntimeCustomerVirtualNetworkResponse' customer_virtual_network: The name of virtual network to which Azure-SSIS integration runtime will join
         :param str description: Integration runtime description.
+        :param str id: The id of the managed virtual network.
+        :param str reference_name: The reference name of the managed virtual network
         :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
-        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", 'Managed')
         if compute_properties is not None:
             pulumi.set(__self__, "compute_properties", compute_properties)
+        if customer_virtual_network is not None:
+            pulumi.set(__self__, "customer_virtual_network", customer_virtual_network)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
         if ssis_properties is not None:
             pulumi.set(__self__, "ssis_properties", ssis_properties)
 
     @property
-    @pulumi.getter
-    def state(self) -> str:
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
         """
         Integration runtime state, only valid for managed dedicated integration runtime.
         """
-        return pulumi.get(self, "state")
+        return pulumi.get(self, "provisioning_state")
 
     @property
     @pulumi.getter
@@ -1957,12 +2270,36 @@ class ManagedIntegrationRuntimeResponse(dict):
         return pulumi.get(self, "compute_properties")
 
     @property
+    @pulumi.getter(name="customerVirtualNetwork")
+    def customer_virtual_network(self) -> Optional['outputs.IntegrationRuntimeCustomerVirtualNetworkResponse']:
+        """
+        The name of virtual network to which Azure-SSIS integration runtime will join
+        """
+        return pulumi.get(self, "customer_virtual_network")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
         Integration runtime description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The id of the managed virtual network.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[str]:
+        """
+        The reference name of the managed virtual network
+        """
+        return pulumi.get(self, "reference_name")
 
     @property
     @pulumi.getter(name="ssisProperties")
@@ -2129,6 +2466,78 @@ class ManagedVirtualNetworkSettingsResponse(dict):
         Prevent Data Exfiltration
         """
         return pulumi.get(self, "prevent_data_exfiltration")
+
+
+@pulumi.output_type
+class OptimizedAutoscaleResponse(dict):
+    """
+    A class that contains the optimized auto scale definition.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isEnabled":
+            suggest = "is_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OptimizedAutoscaleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OptimizedAutoscaleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OptimizedAutoscaleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_enabled: bool,
+                 maximum: int,
+                 minimum: int,
+                 version: int):
+        """
+        A class that contains the optimized auto scale definition.
+        :param bool is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        :param int maximum: Maximum allowed instances count.
+        :param int minimum: Minimum allowed instances count.
+        :param int version: The version of the template defined, for instance 1.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> bool:
+        """
+        A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> int:
+        """
+        Maximum allowed instances count.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> int:
+        """
+        Minimum allowed instances count.
+        """
+        return pulumi.get(self, "minimum")
+
+    @property
+    @pulumi.getter
+    def version(self) -> int:
+        """
+        The version of the template defined, for instance 1.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type
@@ -3023,6 +3432,81 @@ class SkuResponse(dict):
         The service tier
         """
         return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class SparkConfigPropertiesResponse(dict):
+    """
+    SparkConfig Properties for a Big Data pool powered by Apache Spark
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SparkConfigPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SparkConfigPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SparkConfigPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 time: str,
+                 configuration_type: Optional[str] = None,
+                 content: Optional[str] = None,
+                 filename: Optional[str] = None):
+        """
+        SparkConfig Properties for a Big Data pool powered by Apache Spark
+        :param str time: The last update time of the spark config properties file.
+        :param str configuration_type: The type of the spark config properties file.
+        :param str content: The spark config properties.
+        :param str filename: The filename of the spark config properties file.
+        """
+        pulumi.set(__self__, "time", time)
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter
+    def time(self) -> str:
+        """
+        The last update time of the spark config properties file.
+        """
+        return pulumi.get(self, "time")
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> Optional[str]:
+        """
+        The type of the spark config properties file.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        """
+        The spark config properties.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[str]:
+        """
+        The filename of the spark config properties file.
+        """
+        return pulumi.get(self, "filename")
 
 
 @pulumi.output_type
@@ -3934,6 +4418,58 @@ class TableLevelSharingPropertiesResponse(dict):
         List of tables to include in the follower database
         """
         return pulumi.get(self, "tables_to_include")
+
+
+@pulumi.output_type
+class UserAssignedManagedIdentityResponse(dict):
+    """
+    User Assigned Managed Identity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedManagedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedManagedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedManagedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User Assigned Managed Identity
+        :param str client_id: The client ID.
+        :param str principal_id: The principal ID.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client ID.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal ID.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

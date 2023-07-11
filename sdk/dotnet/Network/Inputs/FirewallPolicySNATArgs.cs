@@ -15,6 +15,12 @@ namespace Pulumi.AzureNative.Network.Inputs
     /// </summary>
     public sealed class FirewallPolicySNATArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The operation mode for automatically learning private ranges to not be SNAT
+        /// </summary>
+        [Input("autoLearnPrivateRanges")]
+        public InputUnion<string, Pulumi.AzureNative.Network.AutoLearnPrivateRangesMode>? AutoLearnPrivateRanges { get; set; }
+
         [Input("privateRanges")]
         private InputList<string>? _privateRanges;
 

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Returns the properties of a lab Schedule.
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2022-08-01.
  */
 export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduleResult> {
 
@@ -23,7 +23,7 @@ export function getSchedule(args: GetScheduleArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetScheduleArgs {
     /**
-     * The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+     * The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
      */
     labName: string;
     /**
@@ -83,7 +83,7 @@ export interface GetScheduleResult {
 }
 /**
  * Returns the properties of a lab Schedule.
- * API Version: 2021-10-01-preview.
+ * Azure REST API version: 2022-08-01.
  */
 export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
     return pulumi.output(args).apply((a: any) => getSchedule(a, opts))
@@ -91,7 +91,7 @@ export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.Inv
 
 export interface GetScheduleOutputArgs {
     /**
-     * The name of the lab that uniquely identifies it within containing lab account. Used in resource URIs.
+     * The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
      */
     labName: pulumi.Input<string>;
     /**

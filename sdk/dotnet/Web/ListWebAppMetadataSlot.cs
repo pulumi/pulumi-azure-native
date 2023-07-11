@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Web
     public static class ListWebAppMetadataSlot
     {
         /// <summary>
-        /// Gets the metadata of an app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the metadata of an app.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Task<ListWebAppMetadataSlotResult> InvokeAsync(ListWebAppMetadataSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListWebAppMetadataSlotResult>("azure-native:web:listWebAppMetadataSlot", args ?? new ListWebAppMetadataSlotArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets the metadata of an app.
-        /// API Version: 2020-12-01.
+        /// Description for Gets the metadata of an app.
+        /// Azure REST API version: 2022-09-01.
         /// </summary>
         public static Output<ListWebAppMetadataSlotResult> Invoke(ListWebAppMetadataSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListWebAppMetadataSlotResult>("azure-native:web:listWebAppMetadataSlot", args ?? new ListWebAppMetadataSlotInvokeArgs(), options.WithDefaults());

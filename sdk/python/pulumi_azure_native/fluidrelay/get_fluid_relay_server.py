@@ -22,7 +22,10 @@ class GetFluidRelayServerResult:
     """
     A FluidRelay Server.
     """
-    def __init__(__self__, fluid_relay_endpoints=None, frs_tenant_id=None, id=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, fluid_relay_endpoints=None, frs_tenant_id=None, id=None, identity=None, location=None, name=None, provisioning_state=None, storagesku=None, system_data=None, tags=None, type=None):
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if fluid_relay_endpoints and not isinstance(fluid_relay_endpoints, dict):
             raise TypeError("Expected argument 'fluid_relay_endpoints' to be a dict")
         pulumi.set(__self__, "fluid_relay_endpoints", fluid_relay_endpoints)
@@ -32,6 +35,9 @@ class GetFluidRelayServerResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -41,6 +47,9 @@ class GetFluidRelayServerResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if storagesku and not isinstance(storagesku, str):
+            raise TypeError("Expected argument 'storagesku' to be a str")
+        pulumi.set(__self__, "storagesku", storagesku)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -50,6 +59,14 @@ class GetFluidRelayServerResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionPropertiesResponse']:
+        """
+        All encryption configuration for a resource.
+        """
+        return pulumi.get(self, "encryption")
 
     @property
     @pulumi.getter(name="fluidRelayEndpoints")
@@ -77,6 +94,14 @@ class GetFluidRelayServerResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.IdentityResponse']:
+        """
+        The type of identity used for the resource.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         The geo-location where the resource lives
@@ -98,6 +123,14 @@ class GetFluidRelayServerResult:
         Provision states for FluidRelay RP
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def storagesku(self) -> Optional[str]:
+        """
+        Sku of the storage associated with the resource
+        """
+        return pulumi.get(self, "storagesku")
 
     @property
     @pulumi.getter(name="systemData")
@@ -130,56 +163,62 @@ class AwaitableGetFluidRelayServerResult(GetFluidRelayServerResult):
         if False:
             yield self
         return GetFluidRelayServerResult(
+            encryption=self.encryption,
             fluid_relay_endpoints=self.fluid_relay_endpoints,
             frs_tenant_id=self.frs_tenant_id,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            storagesku=self.storagesku,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
 
-def get_fluid_relay_server(name: Optional[str] = None,
+def get_fluid_relay_server(fluid_relay_server_name: Optional[str] = None,
                            resource_group: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFluidRelayServerResult:
     """
     A FluidRelay Server.
-    API Version: 2021-03-12-preview.
+    Azure REST API version: 2022-06-01.
 
 
-    :param str name: The resource name.
+    :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['fluidRelayServerName'] = fluid_relay_server_name
     __args__['resourceGroup'] = resource_group
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:fluidrelay:getFluidRelayServer', __args__, opts=opts, typ=GetFluidRelayServerResult).value
 
     return AwaitableGetFluidRelayServerResult(
+        encryption=__ret__.encryption,
         fluid_relay_endpoints=__ret__.fluid_relay_endpoints,
         frs_tenant_id=__ret__.frs_tenant_id,
         id=__ret__.id,
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        storagesku=__ret__.storagesku,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_fluid_relay_server)
-def get_fluid_relay_server_output(name: Optional[pulumi.Input[str]] = None,
+def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input[str]] = None,
                                   resource_group: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFluidRelayServerResult]:
     """
     A FluidRelay Server.
-    API Version: 2021-03-12-preview.
+    Azure REST API version: 2022-06-01.
 
 
-    :param str name: The resource name.
+    :param str fluid_relay_server_name: The Fluid Relay server resource name.
     :param str resource_group: The resource group containing the resource.
     """
     ...

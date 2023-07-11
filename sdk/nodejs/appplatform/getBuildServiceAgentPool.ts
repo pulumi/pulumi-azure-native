@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get build service agent pool.
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBuildServiceAgentPool(args: GetBuildServiceAgentPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildServiceAgentPoolResult> {
 
@@ -68,7 +68,7 @@ export interface GetBuildServiceAgentPoolResult {
 }
 /**
  * Get build service agent pool.
- * API Version: 2022-01-01-preview.
+ * Azure REST API version: 2023-05-01-preview.
  */
 export function getBuildServiceAgentPoolOutput(args: GetBuildServiceAgentPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildServiceAgentPoolResult> {
     return pulumi.output(args).apply((a: any) => getBuildServiceAgentPool(a, opts))

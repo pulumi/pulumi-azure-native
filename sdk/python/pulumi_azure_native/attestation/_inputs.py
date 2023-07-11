@@ -20,13 +20,21 @@ __all__ = [
 @pulumi.input_type
 class AttestationServiceCreationSpecificParamsArgs:
     def __init__(__self__, *,
-                 policy_signing_certificates: Optional[pulumi.Input['JSONWebKeySetArgs']] = None):
+                 policy_signing_certificates: Optional[pulumi.Input['JSONWebKeySetArgs']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]] = None,
+                 tpm_attestation_authentication: Optional[pulumi.Input[Union[str, 'TpmAttestationAuthenticationType']]] = None):
         """
         Client supplied parameters used to create a new attestation provider.
         :param pulumi.Input['JSONWebKeySetArgs'] policy_signing_certificates: JSON Web Key Set defining a set of X.509 Certificates that will represent the parent certificate for the signing certificate used for policy operations
+        :param pulumi.Input[Union[str, 'PublicNetworkAccessType']] public_network_access: Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+        :param pulumi.Input[Union[str, 'TpmAttestationAuthenticationType']] tpm_attestation_authentication: The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
         """
         if policy_signing_certificates is not None:
             pulumi.set(__self__, "policy_signing_certificates", policy_signing_certificates)
+        if public_network_access is not None:
+            pulumi.set(__self__, "public_network_access", public_network_access)
+        if tpm_attestation_authentication is not None:
+            pulumi.set(__self__, "tpm_attestation_authentication", tpm_attestation_authentication)
 
     @property
     @pulumi.getter(name="policySigningCertificates")
@@ -39,6 +47,30 @@ class AttestationServiceCreationSpecificParamsArgs:
     @policy_signing_certificates.setter
     def policy_signing_certificates(self, value: Optional[pulumi.Input['JSONWebKeySetArgs']]):
         pulumi.set(self, "policy_signing_certificates", value)
+
+    @property
+    @pulumi.getter(name="publicNetworkAccess")
+    def public_network_access(self) -> Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]:
+        """
+        Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+        """
+        return pulumi.get(self, "public_network_access")
+
+    @public_network_access.setter
+    def public_network_access(self, value: Optional[pulumi.Input[Union[str, 'PublicNetworkAccessType']]]):
+        pulumi.set(self, "public_network_access", value)
+
+    @property
+    @pulumi.getter(name="tpmAttestationAuthentication")
+    def tpm_attestation_authentication(self) -> Optional[pulumi.Input[Union[str, 'TpmAttestationAuthenticationType']]]:
+        """
+        The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+        """
+        return pulumi.get(self, "tpm_attestation_authentication")
+
+    @tpm_attestation_authentication.setter
+    def tpm_attestation_authentication(self, value: Optional[pulumi.Input[Union[str, 'TpmAttestationAuthenticationType']]]):
+        pulumi.set(self, "tpm_attestation_authentication", value)
 
 
 @pulumi.input_type

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAFDCustomDomain(args: GetAFDCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDCustomDomainResult> {
 
@@ -27,7 +27,7 @@ export interface GetAFDCustomDomainArgs {
      */
     customDomainName: string;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: string;
     /**
@@ -50,6 +50,10 @@ export interface GetAFDCustomDomainResult {
      */
     readonly domainValidationState: string;
     /**
+     * Key-Value pair representing migration properties for domains.
+     */
+    readonly extendedProperties?: {[key: string]: string};
+    /**
      * The host name of the domain. Must be a domain name.
      */
     readonly hostName: string;
@@ -61,6 +65,14 @@ export interface GetAFDCustomDomainResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * Resource reference to the Azure resource where custom domain ownership was prevalidated
+     */
+    readonly preValidatedCustomDomainResourceId?: outputs.cdn.ResourceReferenceResponse;
+    /**
+     * The name of the profile which holds the domain.
+     */
+    readonly profileName: string;
     /**
      * Provisioning status
      */
@@ -84,7 +96,7 @@ export interface GetAFDCustomDomainResult {
 }
 /**
  * Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.
- * API Version: 2020-09-01.
+ * Azure REST API version: 2023-05-01.
  */
 export function getAFDCustomDomainOutput(args: GetAFDCustomDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAFDCustomDomainResult> {
     return pulumi.output(args).apply((a: any) => getAFDCustomDomain(a, opts))
@@ -96,7 +108,7 @@ export interface GetAFDCustomDomainOutputArgs {
      */
     customDomainName: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.ContainerRegistry.Inputs
     public sealed class PoliciesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The export policy for a container registry.
+        /// </summary>
+        [Input("exportPolicy")]
+        public Input<Inputs.ExportPolicyArgs>? ExportPolicy { get; set; }
+
+        /// <summary>
         /// The quarantine policy for a container registry.
         /// </summary>
         [Input("quarantinePolicy")]

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     {
         /// <summary>
         /// Implements virtual machine GET method.
-        /// API Version: 2020-10-01-preview.
+        /// Azure REST API version: 2022-07-15-preview.
         /// </summary>
         public static Task<GetVirtualMachineResult> InvokeAsync(GetVirtualMachineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualMachineResult>("azure-native:connectedvmwarevsphere:getVirtualMachine", args ?? new GetVirtualMachineArgs(), options.WithDefaults());
 
         /// <summary>
         /// Implements virtual machine GET method.
-        /// API Version: 2020-10-01-preview.
+        /// Azure REST API version: 2022-07-15-preview.
         /// </summary>
         public static Output<GetVirtualMachineResult> Invoke(GetVirtualMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMachineResult>("azure-native:connectedvmwarevsphere:getVirtualMachine", args ?? new GetVirtualMachineInvokeArgs(), options.WithDefaults());
@@ -157,6 +157,10 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// </summary>
         public readonly string? ResourcePoolId;
         /// <summary>
+        /// Gets the security profile.
+        /// </summary>
+        public readonly Outputs.SecurityProfileResponse? SecurityProfile;
+        /// <summary>
         /// Gets or sets the SMBIOS UUID of the vm.
         /// </summary>
         public readonly string? SmbiosUuid;
@@ -241,6 +245,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
 
             string? resourcePoolId,
 
+            Outputs.SecurityProfileResponse? securityProfile,
+
             string? smbiosUuid,
 
             ImmutableArray<Outputs.ResourceStatusResponse> statuses,
@@ -282,6 +288,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
             PowerState = powerState;
             ProvisioningState = provisioningState;
             ResourcePoolId = resourcePoolId;
+            SecurityProfile = securityProfile;
             SmbiosUuid = smbiosUuid;
             Statuses = statuses;
             StorageProfile = storageProfile;

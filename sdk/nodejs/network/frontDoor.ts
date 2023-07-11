@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
- * API Version: 2020-05-01.
+ * Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-05-01
  */
 export class FrontDoor extends pulumi.CustomResource {
     /**
@@ -54,6 +54,10 @@ export class FrontDoor extends pulumi.CustomResource {
      * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
      */
     public readonly enabledState!: pulumi.Output<string | undefined>;
+    /**
+     * Key-Value pair representing additional properties for frontdoor.
+     */
+    public /*out*/ readonly extendedProperties!: pulumi.Output<{[key: string]: string}>;
     /**
      * A friendly name for the frontDoor
      */
@@ -134,6 +138,7 @@ export class FrontDoor extends pulumi.CustomResource {
             resourceInputs["routingRules"] = args ? args.routingRules : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["cname"] = undefined /*out*/;
+            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["frontdoorId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -145,6 +150,7 @@ export class FrontDoor extends pulumi.CustomResource {
             resourceInputs["backendPoolsSettings"] = undefined /*out*/;
             resourceInputs["cname"] = undefined /*out*/;
             resourceInputs["enabledState"] = undefined /*out*/;
+            resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["friendlyName"] = undefined /*out*/;
             resourceInputs["frontdoorId"] = undefined /*out*/;
             resourceInputs["frontendEndpoints"] = undefined /*out*/;

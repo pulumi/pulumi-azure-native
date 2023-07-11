@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cache
 {
     /// <summary>
     /// Describes a database on the RedisEnterprise cluster
-    /// API Version: 2021-03-01.
+    /// Azure REST API version: 2023-03-01-preview. Prior API version in Azure Native 1.x: 2021-03-01
     /// </summary>
     [AzureNativeResourceType("azure-native:cache:Database")]
     public partial class Database : global::Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("evictionPolicy")]
         public Output<string?> EvictionPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Optional set of properties to configure geo replication for this database.
+        /// </summary>
+        [Output("geoReplication")]
+        public Output<Outputs.DatabasePropertiesResponseGeoReplication?> GeoReplication { get; private set; } = null!;
 
         /// <summary>
         /// Optional set of redis modules to enable in this database - modules can only be added at creation time.
@@ -69,6 +75,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -160,6 +172,12 @@ namespace Pulumi.AzureNative.Cache
         /// </summary>
         [Input("evictionPolicy")]
         public InputUnion<string, Pulumi.AzureNative.Cache.EvictionPolicy>? EvictionPolicy { get; set; }
+
+        /// <summary>
+        /// Optional set of properties to configure geo replication for this database.
+        /// </summary>
+        [Input("geoReplication")]
+        public Input<Inputs.DatabasePropertiesGeoReplicationArgs>? GeoReplication { get; set; }
 
         [Input("modules")]
         private InputList<Inputs.ModuleArgs>? _modules;

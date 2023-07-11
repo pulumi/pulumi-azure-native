@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DevCenter
     {
         /// <summary>
         /// Gets a machine pool
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azure-native:devcenter:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a machine pool
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azure-native:devcenter:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.DevCenter
         public string ProjectName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.DevCenter
         public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -87,6 +87,14 @@ namespace Pulumi.AzureNative.DevCenter
         /// Name of a Dev Box definition in parent Project of this Pool
         /// </summary>
         public readonly string DevBoxDefinitionName;
+        /// <summary>
+        /// Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
+        /// </summary>
+        public readonly string HealthStatus;
+        /// <summary>
+        /// Details on the Pool health status to help diagnose issues. This is only populated when the pool status indicates the pool is in a non-healthy state
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HealthStatusDetailResponse> HealthStatusDetails;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -116,6 +124,10 @@ namespace Pulumi.AzureNative.DevCenter
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Stop on disconnect configuration settings for Dev Boxes created in this pool.
+        /// </summary>
+        public readonly Outputs.StopOnDisconnectConfigurationResponse? StopOnDisconnect;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -132,6 +144,10 @@ namespace Pulumi.AzureNative.DevCenter
         private GetPoolResult(
             string devBoxDefinitionName,
 
+            string healthStatus,
+
+            ImmutableArray<Outputs.HealthStatusDetailResponse> healthStatusDetails,
+
             string id,
 
             string licenseType,
@@ -146,6 +162,8 @@ namespace Pulumi.AzureNative.DevCenter
 
             string provisioningState,
 
+            Outputs.StopOnDisconnectConfigurationResponse? stopOnDisconnect,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -153,6 +171,8 @@ namespace Pulumi.AzureNative.DevCenter
             string type)
         {
             DevBoxDefinitionName = devBoxDefinitionName;
+            HealthStatus = healthStatus;
+            HealthStatusDetails = healthStatusDetails;
             Id = id;
             LicenseType = licenseType;
             LocalAdministrator = localAdministrator;
@@ -160,6 +180,7 @@ namespace Pulumi.AzureNative.DevCenter
             Name = name;
             NetworkConnectionName = networkConnectionName;
             ProvisioningState = provisioningState;
+            StopOnDisconnect = stopOnDisconnect;
             SystemData = systemData;
             Tags = tags;
             Type = type;

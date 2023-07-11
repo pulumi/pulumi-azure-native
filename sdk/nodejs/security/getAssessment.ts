@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a security assessment on your scanned resource
- * API Version: 2020-01-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
 
@@ -37,7 +37,7 @@ export interface GetAssessmentArgs {
 }
 
 /**
- * Security assessment on a resource
+ * Security assessment on a resource - response format
  */
 export interface GetAssessmentResult {
     /**
@@ -75,7 +75,7 @@ export interface GetAssessmentResult {
     /**
      * The result of the assessment
      */
-    readonly status: outputs.security.AssessmentStatusResponse;
+    readonly status: outputs.security.AssessmentStatusResponseResponse;
     /**
      * Resource type
      */
@@ -83,7 +83,7 @@ export interface GetAssessmentResult {
 }
 /**
  * Get a security assessment on your scanned resource
- * API Version: 2020-01-01.
+ * Azure REST API version: 2021-06-01.
  */
 export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
     return pulumi.output(args).apply((a: any) => getAssessment(a, opts))

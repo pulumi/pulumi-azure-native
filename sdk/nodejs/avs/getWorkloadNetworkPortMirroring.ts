@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX Port Mirroring
- * API Version: 2020-07-17-preview.
+ * Azure REST API version: 2022-05-01.
  */
 export function getWorkloadNetworkPortMirroring(args: GetWorkloadNetworkPortMirroringArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkPortMirroringResult> {
 
@@ -80,7 +80,7 @@ export interface GetWorkloadNetworkPortMirroringResult {
 }
 /**
  * NSX Port Mirroring
- * API Version: 2020-07-17-preview.
+ * Azure REST API version: 2022-05-01.
  */
 export function getWorkloadNetworkPortMirroringOutput(args: GetWorkloadNetworkPortMirroringOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkloadNetworkPortMirroringResult> {
     return pulumi.output(args).apply((a: any) => getWorkloadNetworkPortMirroring(a, opts))

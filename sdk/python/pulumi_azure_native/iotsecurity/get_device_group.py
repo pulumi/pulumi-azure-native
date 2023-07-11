@@ -86,7 +86,7 @@ def get_device_group(device_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeviceGroupResult:
     """
     Get device group
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str device_group_name: Device group name
@@ -111,7 +111,7 @@ def get_device_group_output(device_group_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeviceGroupResult]:
     """
     Get device group
-    API Version: 2021-02-01-preview.
+    Azure REST API version: 2021-02-01-preview.
 
 
     :param str device_group_name: Device group name

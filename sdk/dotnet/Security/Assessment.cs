@@ -10,8 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Security
 {
     /// <summary>
-    /// Security assessment on a resource
-    /// API Version: 2020-01-01.
+    /// Security assessment on a resource - response format
+    /// Azure REST API version: 2021-06-01. Prior API version in Azure Native 1.x: 2020-01-01
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource
@@ -62,7 +62,7 @@ namespace Pulumi.AzureNative.Security
         /// The result of the assessment
         /// </summary>
         [Output("status")]
-        public Output<Outputs.AssessmentStatusResponse> Status { get; private set; } = null!;
+        public Output<Outputs.AssessmentStatusResponseResponse> Status { get; private set; } = null!;
 
         /// <summary>
         /// Resource type

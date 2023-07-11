@@ -36,8 +36,8 @@ class L3NetworkArgs:
         :param pulumi.Input[str] l3_isolation_domain_id: The resource ID of the Network Fabric l3IsolationDomain.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] vlan: The VLAN from the l3IsolationDomain that is used for this network.
-        :param pulumi.Input[Union[str, 'HybridAksIpamEnabled']] hybrid_aks_ipam_enabled: The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
-        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param pulumi.Input[Union[str, 'HybridAksIpamEnabled']] hybrid_aks_ipam_enabled: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         :param pulumi.Input[str] interface_name: The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
         :param pulumi.Input[Union[str, 'IpAllocationType']] ip_allocation_type: The type of the IP address allocation, defaulted to "DualStack".
         :param pulumi.Input[str] ipv4_connected_prefix: The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
@@ -129,7 +129,7 @@ class L3NetworkArgs:
     @pulumi.getter(name="hybridAksIpamEnabled")
     def hybrid_aks_ipam_enabled(self) -> Optional[pulumi.Input[Union[str, 'HybridAksIpamEnabled']]]:
         """
-        The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
         """
         return pulumi.get(self, "hybrid_aks_ipam_enabled")
 
@@ -141,7 +141,7 @@ class L3NetworkArgs:
     @pulumi.getter(name="hybridAksPluginType")
     def hybrid_aks_plugin_type(self) -> Optional[pulumi.Input[Union[str, 'HybridAksPluginType']]]:
         """
-        The network plugin type for Hybrid AKS.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         """
         return pulumi.get(self, "hybrid_aks_plugin_type")
 
@@ -256,13 +256,13 @@ class L3Network(pulumi.CustomResource):
                  vlan: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         """
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
-        :param pulumi.Input[Union[str, 'HybridAksIpamEnabled']] hybrid_aks_ipam_enabled: The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
-        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: The network plugin type for Hybrid AKS.
+        :param pulumi.Input[Union[str, 'HybridAksIpamEnabled']] hybrid_aks_ipam_enabled: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        :param pulumi.Input[Union[str, 'HybridAksPluginType']] hybrid_aks_plugin_type: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         :param pulumi.Input[str] interface_name: The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
         :param pulumi.Input[Union[str, 'IpAllocationType']] ip_allocation_type: The type of the IP address allocation, defaulted to "DualStack".
         :param pulumi.Input[str] ipv4_connected_prefix: The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
@@ -283,7 +283,7 @@ class L3Network(pulumi.CustomResource):
                  args: L3NetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2022-12-12-preview.
+        Azure REST API version: 2023-05-01-preview. Prior API version in Azure Native 1.x: 2022-12-12-preview
 
         :param str resource_name: The name of the resource.
         :param L3NetworkArgs args: The arguments to use to populate this resource's properties.
@@ -349,6 +349,7 @@ class L3Network(pulumi.CustomResource):
             if vlan is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan'")
             __props__.__dict__["vlan"] = vlan
+            __props__.__dict__["associated_resource_ids"] = None
             __props__.__dict__["cluster_id"] = None
             __props__.__dict__["detailed_status"] = None
             __props__.__dict__["detailed_status_message"] = None
@@ -358,7 +359,7 @@ class L3Network(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated_ids"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:L3Network")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20221212preview:L3Network"), pulumi.Alias(type_="azure-native:networkcloud/v20230501preview:L3Network")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(L3Network, __self__).__init__(
             'azure-native:networkcloud:L3Network',
@@ -382,6 +383,7 @@ class L3Network(pulumi.CustomResource):
 
         __props__ = L3NetworkArgs.__new__(L3NetworkArgs)
 
+        __props__.__dict__["associated_resource_ids"] = None
         __props__.__dict__["cluster_id"] = None
         __props__.__dict__["detailed_status"] = None
         __props__.__dict__["detailed_status_message"] = None
@@ -403,6 +405,14 @@ class L3Network(pulumi.CustomResource):
         __props__.__dict__["virtual_machines_associated_ids"] = None
         __props__.__dict__["vlan"] = None
         return L3Network(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="associatedResourceIds")
+    def associated_resource_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
+        """
+        return pulumi.get(self, "associated_resource_ids")
 
     @property
     @pulumi.getter(name="clusterId")
@@ -440,7 +450,7 @@ class L3Network(pulumi.CustomResource):
     @pulumi.getter(name="hybridAksClustersAssociatedIds")
     def hybrid_aks_clusters_associated_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
+        Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
         """
         return pulumi.get(self, "hybrid_aks_clusters_associated_ids")
 
@@ -448,7 +458,7 @@ class L3Network(pulumi.CustomResource):
     @pulumi.getter(name="hybridAksIpamEnabled")
     def hybrid_aks_ipam_enabled(self) -> pulumi.Output[Optional[str]]:
         """
-        The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
         """
         return pulumi.get(self, "hybrid_aks_ipam_enabled")
 
@@ -456,7 +466,7 @@ class L3Network(pulumi.CustomResource):
     @pulumi.getter(name="hybridAksPluginType")
     def hybrid_aks_plugin_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The network plugin type for Hybrid AKS.
+        Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         """
         return pulumi.get(self, "hybrid_aks_plugin_type")
 
@@ -554,7 +564,7 @@ class L3Network(pulumi.CustomResource):
     @pulumi.getter(name="virtualMachinesAssociatedIds")
     def virtual_machines_associated_ids(self) -> pulumi.Output[Sequence[str]]:
         """
-        The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
+        Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
         """
         return pulumi.get(self, "virtual_machines_associated_ids")
 

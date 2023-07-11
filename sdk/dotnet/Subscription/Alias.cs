@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Subscription
 {
     /// <summary>
     /// Subscription Information with the alias.
-    /// API Version: 2020-09-01.
+    /// Azure REST API version: 2021-10-01. Prior API version in Azure Native 1.x: 2020-09-01
     /// </summary>
     [AzureNativeResourceType("azure-native:subscription:Alias")]
     public partial class Alias : global::Pulumi.CustomResource
@@ -23,10 +23,16 @@ namespace Pulumi.AzureNative.Subscription
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Put Alias response properties.
+        /// Subscription Alias response properties.
         /// </summary>
         [Output("properties")]
-        public Output<Outputs.PutAliasResponsePropertiesResponse> Properties { get; private set; } = null!;
+        public Output<Outputs.SubscriptionAliasResponsePropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Metadata pertaining to creation and last modification of the resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource type, Microsoft.Subscription/aliases.
@@ -42,7 +48,7 @@ namespace Pulumi.AzureNative.Subscription
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Alias(string name, AliasArgs args, CustomResourceOptions? options = null)
+        public Alias(string name, AliasArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:subscription:Alias", name, args ?? new AliasArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -86,7 +92,7 @@ namespace Pulumi.AzureNative.Subscription
     public sealed class AliasArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
+        /// AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
         /// </summary>
         [Input("aliasName")]
         public Input<string>? AliasName { get; set; }
@@ -94,8 +100,8 @@ namespace Pulumi.AzureNative.Subscription
         /// <summary>
         /// Put alias request properties.
         /// </summary>
-        [Input("properties", required: true)]
-        public Input<Inputs.PutAliasRequestPropertiesArgs> Properties { get; set; } = null!;
+        [Input("properties")]
+        public Input<Inputs.PutAliasRequestPropertiesArgs>? Properties { get; set; }
 
         public AliasArgs()
         {

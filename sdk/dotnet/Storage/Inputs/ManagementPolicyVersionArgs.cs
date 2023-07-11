@@ -22,16 +22,28 @@ namespace Pulumi.AzureNative.Storage.Inputs
         public Input<Inputs.DateAfterCreationArgs>? Delete { get; set; }
 
         /// <summary>
-        /// The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier
+        /// The function to tier blob version to archive storage.
         /// </summary>
         [Input("tierToArchive")]
         public Input<Inputs.DateAfterCreationArgs>? TierToArchive { get; set; }
 
         /// <summary>
-        /// The function to tier blob version to cool storage. Support blob version currently at Hot tier
+        /// The function to tier blobs to cold storage.
+        /// </summary>
+        [Input("tierToCold")]
+        public Input<Inputs.DateAfterCreationArgs>? TierToCold { get; set; }
+
+        /// <summary>
+        /// The function to tier blob version to cool storage.
         /// </summary>
         [Input("tierToCool")]
         public Input<Inputs.DateAfterCreationArgs>? TierToCool { get; set; }
+
+        /// <summary>
+        /// The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts
+        /// </summary>
+        [Input("tierToHot")]
+        public Input<Inputs.DateAfterCreationArgs>? TierToHot { get; set; }
 
         public ManagementPolicyVersionArgs()
         {

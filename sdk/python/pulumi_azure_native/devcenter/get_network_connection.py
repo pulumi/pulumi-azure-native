@@ -218,11 +218,11 @@ def get_network_connection(network_connection_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkConnectionResult:
     """
     Gets a network connection resource
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['networkConnectionName'] = network_connection_name
@@ -254,10 +254,10 @@ def get_network_connection_output(network_connection_name: Optional[pulumi.Input
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkConnectionResult]:
     """
     Gets a network connection resource
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str network_connection_name: Name of the Network Connection that can be applied to a Pool.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

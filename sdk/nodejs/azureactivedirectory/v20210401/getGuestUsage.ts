@@ -10,9 +10,7 @@ import * as utilities from "../../utilities";
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  */
-/** @deprecated azure-native:azureactivedirectory/v20210401:GuestUsage is being removed in the next major version of this provider. Upgrade to at least azure-native:azureactivedirectory/v20230118preview:GuestUsage to guarantee forwards compatibility. */
 export function getGuestUsage(args: GetGuestUsageArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestUsageResult> {
-    pulumi.log.warn("getGuestUsage is deprecated: azure-native:azureactivedirectory/v20210401:GuestUsage is being removed in the next major version of this provider. Upgrade to at least azure-native:azureactivedirectory/v20230118preview:GuestUsage to guarantee forwards compatibility.")
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:azureactivedirectory/v20210401:getGuestUsage", {
@@ -68,7 +66,6 @@ export interface GetGuestUsageResult {
 /**
  * Gets a Guest Usages resource for the Microsoft.AzureActiveDirectory resource provider
  */
-/** @deprecated azure-native:azureactivedirectory/v20210401:GuestUsage is being removed in the next major version of this provider. Upgrade to at least azure-native:azureactivedirectory/v20230118preview:GuestUsage to guarantee forwards compatibility. */
 export function getGuestUsageOutput(args: GetGuestUsageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGuestUsageResult> {
     return pulumi.output(args).apply((a: any) => getGuestUsage(a, opts))
 }

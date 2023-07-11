@@ -22,13 +22,19 @@ class GetDatastoreResult:
     """
     Define the datastore.
     """
-    def __init__(__self__, custom_resource_name=None, extended_location=None, id=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+    def __init__(__self__, capacity_gb=None, custom_resource_name=None, extended_location=None, free_space_gb=None, id=None, inventory_item_id=None, kind=None, location=None, mo_name=None, mo_ref_id=None, name=None, provisioning_state=None, statuses=None, system_data=None, tags=None, type=None, uuid=None, v_center_id=None):
+        if capacity_gb and not isinstance(capacity_gb, float):
+            raise TypeError("Expected argument 'capacity_gb' to be a float")
+        pulumi.set(__self__, "capacity_gb", capacity_gb)
         if custom_resource_name and not isinstance(custom_resource_name, str):
             raise TypeError("Expected argument 'custom_resource_name' to be a str")
         pulumi.set(__self__, "custom_resource_name", custom_resource_name)
         if extended_location and not isinstance(extended_location, dict):
             raise TypeError("Expected argument 'extended_location' to be a dict")
         pulumi.set(__self__, "extended_location", extended_location)
+        if free_space_gb and not isinstance(free_space_gb, float):
+            raise TypeError("Expected argument 'free_space_gb' to be a float")
+        pulumi.set(__self__, "free_space_gb", free_space_gb)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -73,6 +79,14 @@ class GetDatastoreResult:
         pulumi.set(__self__, "v_center_id", v_center_id)
 
     @property
+    @pulumi.getter(name="capacityGB")
+    def capacity_gb(self) -> float:
+        """
+        Gets or sets Maximum capacity of this datastore in GBs.
+        """
+        return pulumi.get(self, "capacity_gb")
+
+    @property
     @pulumi.getter(name="customResourceName")
     def custom_resource_name(self) -> str:
         """
@@ -87,6 +101,14 @@ class GetDatastoreResult:
         Gets or sets the extended location.
         """
         return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter(name="freeSpaceGB")
+    def free_space_gb(self) -> float:
+        """
+        Gets or sets Available space of this datastore in GBs.
+        """
+        return pulumi.get(self, "free_space_gb")
 
     @property
     @pulumi.getter
@@ -207,8 +229,10 @@ class AwaitableGetDatastoreResult(GetDatastoreResult):
         if False:
             yield self
         return GetDatastoreResult(
+            capacity_gb=self.capacity_gb,
             custom_resource_name=self.custom_resource_name,
             extended_location=self.extended_location,
+            free_space_gb=self.free_space_gb,
             id=self.id,
             inventory_item_id=self.inventory_item_id,
             kind=self.kind,
@@ -230,7 +254,7 @@ def get_datastore(datastore_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatastoreResult:
     """
     Implements datastore GET method.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str datastore_name: Name of the datastore.
@@ -243,8 +267,10 @@ def get_datastore(datastore_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getDatastore', __args__, opts=opts, typ=GetDatastoreResult).value
 
     return AwaitableGetDatastoreResult(
+        capacity_gb=__ret__.capacity_gb,
         custom_resource_name=__ret__.custom_resource_name,
         extended_location=__ret__.extended_location,
+        free_space_gb=__ret__.free_space_gb,
         id=__ret__.id,
         inventory_item_id=__ret__.inventory_item_id,
         kind=__ret__.kind,
@@ -267,7 +293,7 @@ def get_datastore_output(datastore_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatastoreResult]:
     """
     Implements datastore GET method.
-    API Version: 2020-10-01-preview.
+    Azure REST API version: 2022-07-15-preview.
 
 
     :param str datastore_name: Name of the datastore.

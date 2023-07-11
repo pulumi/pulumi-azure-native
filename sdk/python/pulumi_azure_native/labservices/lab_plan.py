@@ -22,6 +22,7 @@ class LabPlanArgs:
                  default_auto_shutdown_profile: Optional[pulumi.Input['AutoShutdownProfileArgs']] = None,
                  default_connection_profile: Optional[pulumi.Input['ConnectionProfileArgs']] = None,
                  default_network_profile: Optional[pulumi.Input['LabPlanNetworkProfileArgs']] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  lab_plan_name: Optional[pulumi.Input[str]] = None,
                  linked_lms_instance: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -35,6 +36,7 @@ class LabPlanArgs:
         :param pulumi.Input['AutoShutdownProfileArgs'] default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input['ConnectionProfileArgs'] default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input['LabPlanNetworkProfileArgs'] default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+        :param pulumi.Input['IdentityArgs'] identity: Managed Identity Information
         :param pulumi.Input[str] lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
         :param pulumi.Input[str] linked_lms_instance: Base Url of the lms instance this lab plan can link lab rosters against.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -51,6 +53,8 @@ class LabPlanArgs:
             pulumi.set(__self__, "default_connection_profile", default_connection_profile)
         if default_network_profile is not None:
             pulumi.set(__self__, "default_network_profile", default_network_profile)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if lab_plan_name is not None:
             pulumi.set(__self__, "lab_plan_name", lab_plan_name)
         if linked_lms_instance is not None:
@@ -123,6 +127,18 @@ class LabPlanArgs:
     @default_network_profile.setter
     def default_network_profile(self, value: Optional[pulumi.Input['LabPlanNetworkProfileArgs']]):
         pulumi.set(self, "default_network_profile", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+        """
+        Managed Identity Information
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter(name="labPlanName")
@@ -206,6 +222,7 @@ class LabPlan(pulumi.CustomResource):
                  default_auto_shutdown_profile: Optional[pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']]] = None,
                  default_connection_profile: Optional[pulumi.Input[pulumi.InputType['ConnectionProfileArgs']]] = None,
                  default_network_profile: Optional[pulumi.Input[pulumi.InputType['LabPlanNetworkProfileArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  lab_plan_name: Optional[pulumi.Input[str]] = None,
                  linked_lms_instance: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -216,7 +233,7 @@ class LabPlan(pulumi.CustomResource):
                  __props__=None):
         """
         Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
-        API Version: 2021-10-01-preview.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -224,6 +241,7 @@ class LabPlan(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']] default_auto_shutdown_profile: The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input[pulumi.InputType['ConnectionProfileArgs']] default_connection_profile: The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
         :param pulumi.Input[pulumi.InputType['LabPlanNetworkProfileArgs']] default_network_profile: The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
+        :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Managed Identity Information
         :param pulumi.Input[str] lab_plan_name: The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
         :param pulumi.Input[str] linked_lms_instance: Base Url of the lms instance this lab plan can link lab rosters against.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -240,7 +258,7 @@ class LabPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
-        API Version: 2021-10-01-preview.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-10-01-preview
 
         :param str resource_name: The name of the resource.
         :param LabPlanArgs args: The arguments to use to populate this resource's properties.
@@ -261,6 +279,7 @@ class LabPlan(pulumi.CustomResource):
                  default_auto_shutdown_profile: Optional[pulumi.Input[pulumi.InputType['AutoShutdownProfileArgs']]] = None,
                  default_connection_profile: Optional[pulumi.Input[pulumi.InputType['ConnectionProfileArgs']]] = None,
                  default_network_profile: Optional[pulumi.Input[pulumi.InputType['LabPlanNetworkProfileArgs']]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['IdentityArgs']]] = None,
                  lab_plan_name: Optional[pulumi.Input[str]] = None,
                  linked_lms_instance: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -281,6 +300,7 @@ class LabPlan(pulumi.CustomResource):
             __props__.__dict__["default_auto_shutdown_profile"] = default_auto_shutdown_profile
             __props__.__dict__["default_connection_profile"] = default_connection_profile
             __props__.__dict__["default_network_profile"] = default_network_profile
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["lab_plan_name"] = lab_plan_name
             __props__.__dict__["linked_lms_instance"] = linked_lms_instance
             __props__.__dict__["location"] = location
@@ -322,6 +342,7 @@ class LabPlan(pulumi.CustomResource):
         __props__.__dict__["default_auto_shutdown_profile"] = None
         __props__.__dict__["default_connection_profile"] = None
         __props__.__dict__["default_network_profile"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["linked_lms_instance"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
@@ -364,6 +385,14 @@ class LabPlan(pulumi.CustomResource):
         The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
         """
         return pulumi.get(self, "default_network_profile")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.IdentityResponse']]:
+        """
+        Managed Identity Information
+        """
+        return pulumi.get(self, "identity")
 
     @property
     @pulumi.getter(name="linkedLmsInstance")

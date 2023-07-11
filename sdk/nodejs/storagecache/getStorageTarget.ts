@@ -8,8 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns a Storage Target from a Cache.
- * API Version: 2021-03-01.
+ * Returns a Storage Target from a cache.
+ * Azure REST API version: 2023-05-01.
  */
 export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageTargetResult> {
 
@@ -23,11 +23,11 @@ export function getStorageTarget(args: GetStorageTargetArgs, opts?: pulumi.Invok
 
 export interface GetStorageTargetArgs {
     /**
-     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     cacheName: string;
     /**
-     * Target resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -41,6 +41,10 @@ export interface GetStorageTargetArgs {
  */
 export interface GetStorageTargetResult {
     /**
+     * The percentage of cache space allocated for this storage target
+     */
+    readonly allocationPercentage: number;
+    /**
      * Properties when targetType is blobNfs.
      */
     readonly blobNfs?: outputs.storagecache.BlobNfsTargetResponse;
@@ -53,7 +57,7 @@ export interface GetStorageTargetResult {
      */
     readonly id: string;
     /**
-     * List of Cache namespace junctions to target for namespace associations.
+     * List of cache namespace junctions to target for namespace associations.
      */
     readonly junctions?: outputs.storagecache.NamespaceJunctionResponse[];
     /**
@@ -71,7 +75,11 @@ export interface GetStorageTargetResult {
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    readonly provisioningState?: string;
+    readonly provisioningState: string;
+    /**
+     * Storage target operational state.
+     */
+    readonly state?: string;
     /**
      * The system meta data relating to this resource.
      */
@@ -90,8 +98,8 @@ export interface GetStorageTargetResult {
     readonly unknown?: outputs.storagecache.UnknownTargetResponse;
 }
 /**
- * Returns a Storage Target from a Cache.
- * API Version: 2021-03-01.
+ * Returns a Storage Target from a cache.
+ * Azure REST API version: 2023-05-01.
  */
 export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageTargetResult> {
     return pulumi.output(args).apply((a: any) => getStorageTarget(a, opts))
@@ -99,11 +107,11 @@ export function getStorageTargetOutput(args: GetStorageTargetOutputArgs, opts?: 
 
 export interface GetStorageTargetOutputArgs {
     /**
-     * Name of Cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+     * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
     cacheName: pulumi.Input<string>;
     /**
-     * Target resource group.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

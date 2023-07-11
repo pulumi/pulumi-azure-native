@@ -22,7 +22,7 @@ class GetLiveOutputResult:
     """
     The Live Output.
     """
-    def __init__(__self__, archive_window_length=None, asset_name=None, created=None, description=None, hls=None, id=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, type=None):
+    def __init__(__self__, archive_window_length=None, asset_name=None, created=None, description=None, hls=None, id=None, last_modified=None, manifest_name=None, name=None, output_snap_time=None, provisioning_state=None, resource_state=None, rewind_window_length=None, system_data=None, type=None):
         if archive_window_length and not isinstance(archive_window_length, str):
             raise TypeError("Expected argument 'archive_window_length' to be a str")
         pulumi.set(__self__, "archive_window_length", archive_window_length)
@@ -59,6 +59,12 @@ class GetLiveOutputResult:
         if resource_state and not isinstance(resource_state, str):
             raise TypeError("Expected argument 'resource_state' to be a str")
         pulumi.set(__self__, "resource_state", resource_state)
+        if rewind_window_length and not isinstance(rewind_window_length, str):
+            raise TypeError("Expected argument 'rewind_window_length' to be a str")
+        pulumi.set(__self__, "rewind_window_length", rewind_window_length)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -160,6 +166,22 @@ class GetLiveOutputResult:
         return pulumi.get(self, "resource_state")
 
     @property
+    @pulumi.getter(name="rewindWindowLength")
+    def rewind_window_length(self) -> Optional[str]:
+        """
+        ISO 8601 time between 1 minute to the duration of archiveWindowLength to control seek-able window length during Live. The service won't use this property once LiveOutput stops. The archived VOD will have full content with original ArchiveWindowLength. For example, use PT1H30M to indicate 1 hour and 30 minutes of rewind window length. Service will use implicit default value 30m only if Live Event enables LL.
+        """
+        return pulumi.get(self, "rewind_window_length")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -186,6 +208,8 @@ class AwaitableGetLiveOutputResult(GetLiveOutputResult):
             output_snap_time=self.output_snap_time,
             provisioning_state=self.provisioning_state,
             resource_state=self.resource_state,
+            rewind_window_length=self.rewind_window_length,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -196,7 +220,7 @@ def get_live_output(account_name: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLiveOutputResult:
     """
     Gets a live output.
-    API Version: 2020-05-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.
@@ -225,6 +249,8 @@ def get_live_output(account_name: Optional[str] = None,
         output_snap_time=__ret__.output_snap_time,
         provisioning_state=__ret__.provisioning_state,
         resource_state=__ret__.resource_state,
+        rewind_window_length=__ret__.rewind_window_length,
+        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -236,7 +262,7 @@ def get_live_output_output(account_name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveOutputResult]:
     """
     Gets a live output.
-    API Version: 2020-05-01.
+    Azure REST API version: 2022-11-01.
 
 
     :param str account_name: The Media Services account name.

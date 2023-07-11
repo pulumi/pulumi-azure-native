@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.StreamAnalytics
 {
     /// <summary>
+    /// Authentication Mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationMode : IEquatable<AuthenticationMode>
+    {
+        private readonly string _value;
+
+        private AuthenticationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthenticationMode Msi { get; } = new AuthenticationMode("Msi");
+        public static AuthenticationMode UserToken { get; } = new AuthenticationMode("UserToken");
+        public static AuthenticationMode ConnectionString { get; } = new AuthenticationMode("ConnectionString");
+
+        public static bool operator ==(AuthenticationMode left, AuthenticationMode right) => left.Equals(right);
+        public static bool operator !=(AuthenticationMode left, AuthenticationMode right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationMode other && Equals(other);
+        public bool Equals(AuthenticationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the SKU name of the cluster. Required on PUT (CreateOrUpdate) requests.
     /// </summary>
     [EnumType]
@@ -54,6 +86,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         }
 
         public static CompatibilityLevel CompatibilityLevel_1_0 { get; } = new CompatibilityLevel("1.0");
+        public static CompatibilityLevel CompatibilityLevel_1_2 { get; } = new CompatibilityLevel("1.2");
 
         public static bool operator ==(CompatibilityLevel left, CompatibilityLevel right) => left.Equals(right);
         public static bool operator !=(CompatibilityLevel left, CompatibilityLevel right) => !left.Equals(right);
@@ -63,6 +96,69 @@ namespace Pulumi.AzureNative.StreamAnalytics
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is CompatibilityLevel other && Equals(other);
         public bool Equals(CompatibilityLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the type of compression that the input uses. Required on PUT (CreateOrReplace) requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct CompressionType : IEquatable<CompressionType>
+    {
+        private readonly string _value;
+
+        private CompressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CompressionType None { get; } = new CompressionType("None");
+        public static CompressionType GZip { get; } = new CompressionType("GZip");
+        public static CompressionType Deflate { get; } = new CompressionType("Deflate");
+
+        public static bool operator ==(CompressionType left, CompressionType right) => left.Equals(right);
+        public static bool operator !=(CompressionType left, CompressionType right) => !left.Equals(right);
+
+        public static explicit operator string(CompressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CompressionType other && Equals(other);
+        public bool Equals(CompressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
+    /// </summary>
+    [EnumType]
+    public readonly struct ContentStoragePolicy : IEquatable<ContentStoragePolicy>
+    {
+        private readonly string _value;
+
+        private ContentStoragePolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContentStoragePolicy SystemAccount { get; } = new ContentStoragePolicy("SystemAccount");
+        public static ContentStoragePolicy JobStorageAccount { get; } = new ContentStoragePolicy("JobStorageAccount");
+
+        public static bool operator ==(ContentStoragePolicy left, ContentStoragePolicy right) => left.Equals(right);
+        public static bool operator !=(ContentStoragePolicy left, ContentStoragePolicy right) => !left.Equals(right);
+
+        public static explicit operator string(ContentStoragePolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContentStoragePolicy other && Equals(other);
+        public bool Equals(ContentStoragePolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -116,6 +212,7 @@ namespace Pulumi.AzureNative.StreamAnalytics
         public static EventSerializationType Csv { get; } = new EventSerializationType("Csv");
         public static EventSerializationType Avro { get; } = new EventSerializationType("Avro");
         public static EventSerializationType Json { get; } = new EventSerializationType("Json");
+        public static EventSerializationType Parquet { get; } = new EventSerializationType("Parquet");
 
         public static bool operator ==(EventSerializationType left, EventSerializationType right) => left.Equals(right);
         public static bool operator !=(EventSerializationType left, EventSerializationType right) => !left.Equals(right);
@@ -156,6 +253,37 @@ namespace Pulumi.AzureNative.StreamAnalytics
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EventsOutOfOrderPolicy other && Equals(other);
         public bool Equals(EventsOutOfOrderPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
+    /// </summary>
+    [EnumType]
+    public readonly struct JobType : IEquatable<JobType>
+    {
+        private readonly string _value;
+
+        private JobType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static JobType Cloud { get; } = new JobType("Cloud");
+        public static JobType Edge { get; } = new JobType("Edge");
+
+        public static bool operator ==(JobType left, JobType right) => left.Equals(right);
+        public static bool operator !=(JobType left, JobType right) => !left.Equals(right);
+
+        public static explicit operator string(JobType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is JobType other && Equals(other);
+        public bool Equals(JobType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -250,6 +378,38 @@ namespace Pulumi.AzureNative.StreamAnalytics
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OutputStartMode other && Equals(other);
         public bool Equals(OutputStartMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the type of data refresh option.
+    /// </summary>
+    [EnumType]
+    public readonly struct RefreshType : IEquatable<RefreshType>
+    {
+        private readonly string _value;
+
+        private RefreshType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RefreshType Static { get; } = new RefreshType("Static");
+        public static RefreshType RefreshPeriodicallyWithFull { get; } = new RefreshType("RefreshPeriodicallyWithFull");
+        public static RefreshType RefreshPeriodicallyWithDelta { get; } = new RefreshType("RefreshPeriodicallyWithDelta");
+
+        public static bool operator ==(RefreshType left, RefreshType right) => left.Equals(right);
+        public static bool operator !=(RefreshType left, RefreshType right) => !left.Equals(right);
+
+        public static explicit operator string(RefreshType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RefreshType other && Equals(other);
+        public bool Equals(RefreshType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

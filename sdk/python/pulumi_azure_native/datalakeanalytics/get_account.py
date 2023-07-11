@@ -22,7 +22,7 @@ class GetAccountResult:
     """
     A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     """
-    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_active_job_count_per_user=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, max_job_running_time_in_min=None, max_queued_job_count_per_user=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, public_data_lake_store_accounts=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
+    def __init__(__self__, account_id=None, compute_policies=None, creation_time=None, current_tier=None, data_lake_store_accounts=None, debug_data_access_level=None, default_data_lake_store_account=None, default_data_lake_store_account_type=None, endpoint=None, firewall_allow_azure_ips=None, firewall_rules=None, firewall_state=None, hive_metastores=None, id=None, last_modified_time=None, location=None, max_active_job_count_per_user=None, max_degree_of_parallelism=None, max_degree_of_parallelism_per_job=None, max_job_count=None, max_job_running_time_in_min=None, max_queued_job_count_per_user=None, min_priority_per_job=None, name=None, new_tier=None, provisioning_state=None, public_data_lake_store_accounts=None, query_store_retention=None, state=None, storage_accounts=None, system_max_degree_of_parallelism=None, system_max_job_count=None, tags=None, type=None, virtual_network_rules=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
@@ -44,6 +44,9 @@ class GetAccountResult:
         if default_data_lake_store_account and not isinstance(default_data_lake_store_account, str):
             raise TypeError("Expected argument 'default_data_lake_store_account' to be a str")
         pulumi.set(__self__, "default_data_lake_store_account", default_data_lake_store_account)
+        if default_data_lake_store_account_type and not isinstance(default_data_lake_store_account_type, str):
+            raise TypeError("Expected argument 'default_data_lake_store_account_type' to be a str")
+        pulumi.set(__self__, "default_data_lake_store_account_type", default_data_lake_store_account_type)
         if endpoint and not isinstance(endpoint, str):
             raise TypeError("Expected argument 'endpoint' to be a str")
         pulumi.set(__self__, "endpoint", endpoint)
@@ -181,6 +184,14 @@ class GetAccountResult:
         The default Data Lake Store account associated with this account.
         """
         return pulumi.get(self, "default_data_lake_store_account")
+
+    @property
+    @pulumi.getter(name="defaultDataLakeStoreAccountType")
+    def default_data_lake_store_account_type(self) -> str:
+        """
+        The type of the default Data Lake Store account associated with this account.
+        """
+        return pulumi.get(self, "default_data_lake_store_account_type")
 
     @property
     @pulumi.getter
@@ -412,6 +423,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             data_lake_store_accounts=self.data_lake_store_accounts,
             debug_data_access_level=self.debug_data_access_level,
             default_data_lake_store_account=self.default_data_lake_store_account,
+            default_data_lake_store_account_type=self.default_data_lake_store_account_type,
             endpoint=self.endpoint,
             firewall_allow_azure_ips=self.firewall_allow_azure_ips,
             firewall_rules=self.firewall_rules,
@@ -446,7 +458,7 @@ def get_account(account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
     Gets details of the specified Data Lake Analytics account.
-    API Version: 2016-11-01.
+    Azure REST API version: 2019-11-01-preview.
 
 
     :param str account_name: The name of the Data Lake Analytics account.
@@ -466,6 +478,7 @@ def get_account(account_name: Optional[str] = None,
         data_lake_store_accounts=__ret__.data_lake_store_accounts,
         debug_data_access_level=__ret__.debug_data_access_level,
         default_data_lake_store_account=__ret__.default_data_lake_store_account,
+        default_data_lake_store_account_type=__ret__.default_data_lake_store_account_type,
         endpoint=__ret__.endpoint,
         firewall_allow_azure_ips=__ret__.firewall_allow_azure_ips,
         firewall_rules=__ret__.firewall_rules,
@@ -501,7 +514,7 @@ def get_account_output(account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountResult]:
     """
     Gets details of the specified Data Lake Analytics account.
-    API Version: 2016-11-01.
+    Azure REST API version: 2019-11-01-preview.
 
 
     :param str account_name: The name of the Data Lake Analytics account.

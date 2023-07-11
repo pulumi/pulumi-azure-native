@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DeploymentManager
     {
         /// <summary>
         /// Defines the PUT rollout request body.
-        /// API Version: 2019-11-01-preview.
+        /// Azure REST API version: 2019-11-01-preview.
         /// </summary>
         public static Task<GetRolloutResult> InvokeAsync(GetRolloutArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRolloutResult>("azure-native:deploymentmanager:getRollout", args ?? new GetRolloutArgs(), options.WithDefaults());
 
         /// <summary>
         /// Defines the PUT rollout request body.
-        /// API Version: 2019-11-01-preview.
+        /// Azure REST API version: 2019-11-01-preview.
         /// </summary>
         public static Output<GetRolloutResult> Invoke(GetRolloutInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRolloutResult>("azure-native:deploymentmanager:getRollout", args ?? new GetRolloutInvokeArgs(), options.WithDefaults());

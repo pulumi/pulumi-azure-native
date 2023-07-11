@@ -63,7 +63,7 @@ def list_monitor_user_roles(email_address: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListMonitorUserRolesResult:
     """
     Response for list of user's role for Logz.io account.
-    API Version: 2020-10-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str email_address: Email of the user used by Logz for contacting them if needed
@@ -89,7 +89,7 @@ def list_monitor_user_roles_output(email_address: Optional[pulumi.Input[Optional
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListMonitorUserRolesResult]:
     """
     Response for list of user's role for Logz.io account.
-    API Version: 2020-10-01.
+    Azure REST API version: 2022-01-01-preview.
 
 
     :param str email_address: Email of the user used by Logz for contacting them if needed

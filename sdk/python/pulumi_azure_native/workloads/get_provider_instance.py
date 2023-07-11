@@ -68,7 +68,7 @@ class GetProviderInstanceResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.UserAssignedServiceIdentityResponse']:
         """
-        Managed service identity (user assigned identities)
+        [currently not in use] Managed service identity(user assigned identities)
         """
         return pulumi.get(self, "identity")
 
@@ -84,7 +84,7 @@ class GetProviderInstanceResult:
     @pulumi.getter(name="providerSettings")
     def provider_settings(self) -> Optional[Any]:
         """
-        Defines the provider instance errors.
+        Defines the provider specific properties.
         """
         return pulumi.get(self, "provider_settings")
 
@@ -135,7 +135,7 @@ def get_provider_instance(monitor_name: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProviderInstanceResult:
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str monitor_name: Name of the SAP monitor resource.
@@ -167,7 +167,7 @@ def get_provider_instance_output(monitor_name: Optional[pulumi.Input[str]] = Non
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProviderInstanceResult]:
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str monitor_name: Name of the SAP monitor resource.

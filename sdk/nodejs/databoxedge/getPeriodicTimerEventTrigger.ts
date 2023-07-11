@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get a specific trigger by name.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getPeriodicTimerEventTrigger(args: GetPeriodicTimerEventTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetPeriodicTimerEventTriggerResult> {
 
@@ -66,7 +66,7 @@ export interface GetPeriodicTimerEventTriggerResult {
      */
     readonly sourceInfo: outputs.databoxedge.PeriodicTimerSourceInfoResponse;
     /**
-     * Trigger in DataBoxEdge Resource
+     * Metadata pertaining to creation and last modification of Trigger
      */
     readonly systemData: outputs.databoxedge.SystemDataResponse;
     /**
@@ -76,7 +76,7 @@ export interface GetPeriodicTimerEventTriggerResult {
 }
 /**
  * Get a specific trigger by name.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-03-01.
  */
 export function getPeriodicTimerEventTriggerOutput(args: GetPeriodicTimerEventTriggerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPeriodicTimerEventTriggerResult> {
     return pulumi.output(args).apply((a: any) => getPeriodicTimerEventTrigger(a, opts))

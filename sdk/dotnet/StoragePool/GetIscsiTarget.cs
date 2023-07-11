@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.StoragePool
     public static class GetIscsiTarget
     {
         /// <summary>
-        /// Get an iSCSI target.
-        /// API Version: 2020-03-15-preview.
+        /// Get an iSCSI Target.
+        /// Azure REST API version: 2021-08-01.
         /// </summary>
         public static Task<GetIscsiTargetResult> InvokeAsync(GetIscsiTargetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Get an iSCSI target.
-        /// API Version: 2020-03-15-preview.
+        /// Get an iSCSI Target.
+        /// Azure REST API version: 2021-08-01.
         /// </summary>
         public static Output<GetIscsiTargetResult> Invoke(GetIscsiTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIscsiTargetResult>("azure-native:storagepool:getIscsiTarget", args ?? new GetIscsiTargetInvokeArgs(), options.WithDefaults());
@@ -30,13 +30,13 @@ namespace Pulumi.AzureNative.StoragePool
     public sealed class GetIscsiTargetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Disk pool.
+        /// The name of the Disk Pool.
         /// </summary>
         [Input("diskPoolName", required: true)]
         public string DiskPoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the iSCSI target.
+        /// The name of the iSCSI Target.
         /// </summary>
         [Input("iscsiTargetName", required: true)]
         public string IscsiTargetName { get; set; } = null!;
@@ -56,13 +56,13 @@ namespace Pulumi.AzureNative.StoragePool
     public sealed class GetIscsiTargetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Disk pool.
+        /// The name of the Disk Pool.
         /// </summary>
         [Input("diskPoolName", required: true)]
         public Input<string> DiskPoolName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the iSCSI target.
+        /// The name of the iSCSI Target.
         /// </summary>
         [Input("iscsiTargetName", required: true)]
         public Input<string> IscsiTargetName { get; set; } = null!;
@@ -84,29 +84,61 @@ namespace Pulumi.AzureNative.StoragePool
     public sealed class GetIscsiTargetResult
     {
         /// <summary>
+        /// Mode for Target connectivity.
+        /// </summary>
+        public readonly string AclMode;
+        /// <summary>
+        /// List of private IPv4 addresses to connect to the iSCSI Target.
+        /// </summary>
+        public readonly ImmutableArray<string> Endpoints;
+        /// <summary>
         /// Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of LUNs to be exposed through iSCSI Target.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IscsiLunResponse> Luns;
+        /// <summary>
+        /// Azure resource id. Indicates if this resource is managed by another Azure resource.
+        /// </summary>
+        public readonly string ManagedBy;
+        /// <summary>
+        /// List of Azure resource ids that manage this resource.
+        /// </summary>
+        public readonly ImmutableArray<string> ManagedByExtended;
         /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The port used by iSCSI Target portal group.
+        /// </summary>
+        public readonly int? Port;
+        /// <summary>
         /// State of the operation on the resource.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Operational status of the iSCSI target.
+        /// List of identifiers for active sessions on the iSCSI target
+        /// </summary>
+        public readonly ImmutableArray<string> Sessions;
+        /// <summary>
+        /// Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AclResponse> StaticAcls;
+        /// <summary>
+        /// Operational status of the iSCSI Target.
         /// </summary>
         public readonly string Status;
         /// <summary>
-        /// iSCSI target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
+        /// Resource metadata required by ARM RPC
+        /// </summary>
+        public readonly Outputs.SystemMetadataResponse SystemData;
+        /// <summary>
+        /// iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
         /// </summary>
         public readonly string TargetIqn;
-        /// <summary>
-        /// List of iSCSI target portal groups. Can have 1 portal group at most.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TargetPortalGroupResponse> Tpgs;
         /// <summary>
         /// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
         /// </summary>
@@ -114,26 +146,50 @@ namespace Pulumi.AzureNative.StoragePool
 
         [OutputConstructor]
         private GetIscsiTargetResult(
+            string aclMode,
+
+            ImmutableArray<string> endpoints,
+
             string id,
+
+            ImmutableArray<Outputs.IscsiLunResponse> luns,
+
+            string managedBy,
+
+            ImmutableArray<string> managedByExtended,
 
             string name,
 
+            int? port,
+
             string provisioningState,
+
+            ImmutableArray<string> sessions,
+
+            ImmutableArray<Outputs.AclResponse> staticAcls,
 
             string status,
 
-            string targetIqn,
+            Outputs.SystemMetadataResponse systemData,
 
-            ImmutableArray<Outputs.TargetPortalGroupResponse> tpgs,
+            string targetIqn,
 
             string type)
         {
+            AclMode = aclMode;
+            Endpoints = endpoints;
             Id = id;
+            Luns = luns;
+            ManagedBy = managedBy;
+            ManagedByExtended = managedByExtended;
             Name = name;
+            Port = port;
             ProvisioningState = provisioningState;
+            Sessions = sessions;
+            StaticAcls = staticAcls;
             Status = status;
+            SystemData = systemData;
             TargetIqn = targetIqn;
-            Tpgs = tpgs;
             Type = type;
         }
     }

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
- * API Version: 2020-06-01.
+ * Azure REST API version: 2023-03-01. Prior API version in Azure Native 1.x: 2020-06-01
  */
 export class ConfigurationStore extends pulumi.CustomResource {
     /**
@@ -43,6 +43,14 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
     /**
+     * Disables all authentication methods other than AAD authentication.
+     */
+    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    /**
+     * Property specifying whether protection against purge is enabled for this configuration store.
+     */
+    public readonly enablePurgeProtection!: pulumi.Output<boolean | undefined>;
+    /**
      * The encryption settings of the configuration store.
      */
     public readonly encryption!: pulumi.Output<outputs.appconfiguration.EncryptionPropertiesResponse | undefined>;
@@ -55,11 +63,11 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public readonly identity!: pulumi.Output<outputs.appconfiguration.ResourceIdentityResponse | undefined>;
     /**
-     * The location of the resource. This cannot be changed after the resource is created.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -79,11 +87,19 @@ export class ConfigurationStore extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<outputs.appconfiguration.SkuResponse>;
     /**
-     * The tags of the resource.
+     * The amount of time in days that the configuration store will be retained when it is soft deleted.
+     */
+    public readonly softDeleteRetentionInDays!: pulumi.Output<number | undefined>;
+    /**
+     * Resource system metadata.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.appconfiguration.SystemDataResponse>;
+    /**
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * The type of the resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -105,21 +121,28 @@ export class ConfigurationStore extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sku'");
             }
             resourceInputs["configStoreName"] = args ? args.configStoreName : undefined;
+            resourceInputs["createMode"] = args ? args.createMode : undefined;
+            resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
+            resourceInputs["enablePurgeProtection"] = (args ? args.enablePurgeProtection : undefined) ?? false;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["softDeleteRetentionInDays"] = (args ? args.softDeleteRetentionInDays : undefined) ?? 7;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["disableLocalAuth"] = undefined /*out*/;
+            resourceInputs["enablePurgeProtection"] = undefined /*out*/;
             resourceInputs["encryption"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
@@ -129,6 +152,8 @@ export class ConfigurationStore extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
+            resourceInputs["softDeleteRetentionInDays"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -148,6 +173,18 @@ export interface ConfigurationStoreArgs {
      */
     configStoreName?: pulumi.Input<string>;
     /**
+     * Indicates whether the configuration store need to be recovered.
+     */
+    createMode?: pulumi.Input<enums.appconfiguration.CreateMode>;
+    /**
+     * Disables all authentication methods other than AAD authentication.
+     */
+    disableLocalAuth?: pulumi.Input<boolean>;
+    /**
+     * Property specifying whether protection against purge is enabled for this configuration store.
+     */
+    enablePurgeProtection?: pulumi.Input<boolean>;
+    /**
      * The encryption settings of the configuration store.
      */
     encryption?: pulumi.Input<inputs.appconfiguration.EncryptionPropertiesArgs>;
@@ -156,7 +193,7 @@ export interface ConfigurationStoreArgs {
      */
     identity?: pulumi.Input<inputs.appconfiguration.ResourceIdentityArgs>;
     /**
-     * The location of the resource. This cannot be changed after the resource is created.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -172,7 +209,11 @@ export interface ConfigurationStoreArgs {
      */
     sku: pulumi.Input<inputs.appconfiguration.SkuArgs>;
     /**
-     * The tags of the resource.
+     * The amount of time in days that the configuration store will be retained when it is soft deleted.
+     */
+    softDeleteRetentionInDays?: pulumi.Input<number>;
+    /**
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

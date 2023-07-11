@@ -2,14 +2,11 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Gets information about the specified DDoS custom policy.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getDdosCustomPolicy(args: GetDdosCustomPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetDdosCustomPolicyResult> {
 
@@ -52,17 +49,9 @@ export interface GetDdosCustomPolicyResult {
      */
     readonly name: string;
     /**
-     * The protocol-specific DDoS policy customization parameters.
-     */
-    readonly protocolCustomSettings?: outputs.network.ProtocolCustomSettingsFormatResponse[];
-    /**
      * The provisioning state of the DDoS custom policy resource.
      */
     readonly provisioningState: string;
-    /**
-     * The list of public IPs associated with the DDoS custom policy resource. This list is read-only.
-     */
-    readonly publicIPAddresses: outputs.network.SubResourceResponse[];
     /**
      * The resource GUID property of the DDoS custom policy resource. It uniquely identifies the resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
      */
@@ -78,7 +67,7 @@ export interface GetDdosCustomPolicyResult {
 }
 /**
  * Gets information about the specified DDoS custom policy.
- * API Version: 2020-11-01.
+ * Azure REST API version: 2023-02-01.
  */
 export function getDdosCustomPolicyOutput(args: GetDdosCustomPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDdosCustomPolicyResult> {
     return pulumi.output(args).apply((a: any) => getDdosCustomPolicy(a, opts))

@@ -5,7 +5,7 @@
 from enum import Enum
 
 __all__ = [
-    'KustomizationValidationType',
+    'AKSIdentityType',
     'LevelType',
     'OperatorScopeType',
     'OperatorType',
@@ -17,13 +17,12 @@ __all__ = [
 ]
 
 
-class KustomizationValidationType(str, Enum):
+class AKSIdentityType(str, Enum):
     """
-    Specify whether to validate the Kubernetes objects referenced in the Kustomization before applying them to the cluster.
+    The identity type.
     """
-    NONE = "none"
-    CLIENT = "client"
-    SERVER = "server"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
 
 
 class LevelType(str, Enum):
@@ -75,10 +74,9 @@ class PublicNetworkAccessType(str, Enum):
 
 class ResourceIdentityType(str, Enum):
     """
-    The type of identity used for the configuration. Type 'SystemAssigned' will use an implicitly created identity. Type 'None' will not use Managed Identity for the configuration.
+    The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
-    NONE = "None"
 
 
 class ScopeType(str, Enum):
@@ -94,3 +92,5 @@ class SourceKindType(str, Enum):
     Source Kind to pull the configuration data from.
     """
     GIT_REPOSITORY = "GitRepository"
+    BUCKET = "Bucket"
+    AZURE_BLOB = "AzureBlob"

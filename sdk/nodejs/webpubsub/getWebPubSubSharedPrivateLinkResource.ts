@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the specified shared private link resource
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWebPubSubSharedPrivateLinkResource(args: GetWebPubSubSharedPrivateLinkResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetWebPubSubSharedPrivateLinkResourceResult> {
 
@@ -57,7 +57,7 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
      */
     readonly privateLinkResourceId: string;
     /**
-     * Provisioning state of the shared private link resource
+     * Provisioning state of the resource.
      */
     readonly provisioningState: string;
     /**
@@ -79,7 +79,7 @@ export interface GetWebPubSubSharedPrivateLinkResourceResult {
 }
 /**
  * Get the specified shared private link resource
- * API Version: 2021-04-01-preview.
+ * Azure REST API version: 2023-02-01.
  */
 export function getWebPubSubSharedPrivateLinkResourceOutput(args: GetWebPubSubSharedPrivateLinkResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWebPubSubSharedPrivateLinkResourceResult> {
     return pulumi.output(args).apply((a: any) => getWebPubSubSharedPrivateLinkResource(a, opts))

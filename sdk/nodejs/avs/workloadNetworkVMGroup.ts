@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * NSX VM Group
- * API Version: 2020-07-17-preview.
+ * Azure REST API version: 2022-05-01. Prior API version in Azure Native 1.x: 2020-07-17-preview
  */
 export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
     /**

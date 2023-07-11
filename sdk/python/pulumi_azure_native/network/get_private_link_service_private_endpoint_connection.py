@@ -22,7 +22,7 @@ class GetPrivateLinkServicePrivateEndpointConnectionResult:
     """
     PrivateEndpointConnection resource.
     """
-    def __init__(__self__, etag=None, id=None, link_identifier=None, name=None, private_endpoint=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
+    def __init__(__self__, etag=None, id=None, link_identifier=None, name=None, private_endpoint=None, private_endpoint_location=None, private_link_service_connection_state=None, provisioning_state=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -38,6 +38,9 @@ class GetPrivateLinkServicePrivateEndpointConnectionResult:
         if private_endpoint and not isinstance(private_endpoint, dict):
             raise TypeError("Expected argument 'private_endpoint' to be a dict")
         pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_endpoint_location and not isinstance(private_endpoint_location, str):
+            raise TypeError("Expected argument 'private_endpoint_location' to be a str")
+        pulumi.set(__self__, "private_endpoint_location", private_endpoint_location)
         if private_link_service_connection_state and not isinstance(private_link_service_connection_state, dict):
             raise TypeError("Expected argument 'private_link_service_connection_state' to be a dict")
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -89,6 +92,14 @@ class GetPrivateLinkServicePrivateEndpointConnectionResult:
         return pulumi.get(self, "private_endpoint")
 
     @property
+    @pulumi.getter(name="privateEndpointLocation")
+    def private_endpoint_location(self) -> str:
+        """
+        The location of the private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint_location")
+
+    @property
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
         """
@@ -124,6 +135,7 @@ class AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult(GetPrivateLi
             link_identifier=self.link_identifier,
             name=self.name,
             private_endpoint=self.private_endpoint,
+            private_endpoint_location=self.private_endpoint_location,
             private_link_service_connection_state=self.private_link_service_connection_state,
             provisioning_state=self.provisioning_state,
             type=self.type)
@@ -136,7 +148,7 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
                                                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult:
     """
     Get the specific private end point connection by specific private link service in the resource group.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.
@@ -158,6 +170,7 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
         link_identifier=__ret__.link_identifier,
         name=__ret__.name,
         private_endpoint=__ret__.private_endpoint,
+        private_endpoint_location=__ret__.private_endpoint_location,
         private_link_service_connection_state=__ret__.private_link_service_connection_state,
         provisioning_state=__ret__.provisioning_state,
         type=__ret__.type)
@@ -171,7 +184,7 @@ def get_private_link_service_private_endpoint_connection_output(expand: Optional
                                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateLinkServicePrivateEndpointConnectionResult]:
     """
     Get the specific private end point connection by specific private link service in the resource group.
-    API Version: 2020-11-01.
+    Azure REST API version: 2023-02-01.
 
 
     :param str expand: Expands referenced resources.

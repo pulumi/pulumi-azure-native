@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * The policy exemption.
- * API Version: 2020-07-01-preview.
+ * Azure REST API version: 2022-07-01-preview. Prior API version in Azure Native 1.x: 2020-07-01-preview
  */
 export class PolicyExemption extends pulumi.CustomResource {
     /**
@@ -38,6 +38,10 @@ export class PolicyExemption extends pulumi.CustomResource {
         return obj['__pulumiType'] === PolicyExemption.__pulumiType;
     }
 
+    /**
+     * The option whether validate the exemption is at or under the assignment scope.
+     */
+    public readonly assignmentScopeValidation!: pulumi.Output<string | undefined>;
     /**
      * The description of the policy exemption.
      */
@@ -71,6 +75,10 @@ export class PolicyExemption extends pulumi.CustomResource {
      */
     public readonly policyDefinitionReferenceIds!: pulumi.Output<string[] | undefined>;
     /**
+     * The resource selector list to filter policies by resource properties.
+     */
+    public readonly resourceSelectors!: pulumi.Output<outputs.authorization.ResourceSelectorResponse[] | undefined>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
@@ -99,6 +107,7 @@ export class PolicyExemption extends pulumi.CustomResource {
             if ((!args || args.scope === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            resourceInputs["assignmentScopeValidation"] = (args ? args.assignmentScopeValidation : undefined) ?? "Default";
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["exemptionCategory"] = args ? args.exemptionCategory : undefined;
@@ -107,11 +116,13 @@ export class PolicyExemption extends pulumi.CustomResource {
             resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
             resourceInputs["policyDefinitionReferenceIds"] = args ? args.policyDefinitionReferenceIds : undefined;
             resourceInputs["policyExemptionName"] = args ? args.policyExemptionName : undefined;
+            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
             resourceInputs["scope"] = args ? args.scope : undefined;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["assignmentScopeValidation"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["exemptionCategory"] = undefined /*out*/;
@@ -120,6 +131,7 @@ export class PolicyExemption extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyAssignmentId"] = undefined /*out*/;
             resourceInputs["policyDefinitionReferenceIds"] = undefined /*out*/;
+            resourceInputs["resourceSelectors"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -134,6 +146,10 @@ export class PolicyExemption extends pulumi.CustomResource {
  * The set of arguments for constructing a PolicyExemption resource.
  */
 export interface PolicyExemptionArgs {
+    /**
+     * The option whether validate the exemption is at or under the assignment scope.
+     */
+    assignmentScopeValidation?: pulumi.Input<string | enums.authorization.AssignmentScopeValidation>;
     /**
      * The description of the policy exemption.
      */
@@ -166,6 +182,10 @@ export interface PolicyExemptionArgs {
      * The name of the policy exemption to delete.
      */
     policyExemptionName?: pulumi.Input<string>;
+    /**
+     * The resource selector list to filter policies by resource properties.
+     */
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.authorization.ResourceSelectorArgs>[]>;
     /**
      * The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

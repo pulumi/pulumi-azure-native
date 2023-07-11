@@ -22,10 +22,16 @@ class GetPoolResult:
     """
     A pool of Virtual Machines.
     """
-    def __init__(__self__, dev_box_definition_name=None, id=None, license_type=None, local_administrator=None, location=None, name=None, network_connection_name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, dev_box_definition_name=None, health_status=None, health_status_details=None, id=None, license_type=None, local_administrator=None, location=None, name=None, network_connection_name=None, provisioning_state=None, stop_on_disconnect=None, system_data=None, tags=None, type=None):
         if dev_box_definition_name and not isinstance(dev_box_definition_name, str):
             raise TypeError("Expected argument 'dev_box_definition_name' to be a str")
         pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
+        if health_status and not isinstance(health_status, str):
+            raise TypeError("Expected argument 'health_status' to be a str")
+        pulumi.set(__self__, "health_status", health_status)
+        if health_status_details and not isinstance(health_status_details, list):
+            raise TypeError("Expected argument 'health_status_details' to be a list")
+        pulumi.set(__self__, "health_status_details", health_status_details)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,6 +53,9 @@ class GetPoolResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if stop_on_disconnect and not isinstance(stop_on_disconnect, dict):
+            raise TypeError("Expected argument 'stop_on_disconnect' to be a dict")
+        pulumi.set(__self__, "stop_on_disconnect", stop_on_disconnect)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -64,6 +73,22 @@ class GetPoolResult:
         Name of a Dev Box definition in parent Project of this Pool
         """
         return pulumi.get(self, "dev_box_definition_name")
+
+    @property
+    @pulumi.getter(name="healthStatus")
+    def health_status(self) -> str:
+        """
+        Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
+        """
+        return pulumi.get(self, "health_status")
+
+    @property
+    @pulumi.getter(name="healthStatusDetails")
+    def health_status_details(self) -> Sequence['outputs.HealthStatusDetailResponse']:
+        """
+        Details on the Pool health status to help diagnose issues. This is only populated when the pool status indicates the pool is in a non-healthy state
+        """
+        return pulumi.get(self, "health_status_details")
 
     @property
     @pulumi.getter
@@ -122,6 +147,14 @@ class GetPoolResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="stopOnDisconnect")
+    def stop_on_disconnect(self) -> Optional['outputs.StopOnDisconnectConfigurationResponse']:
+        """
+        Stop on disconnect configuration settings for Dev Boxes created in this pool.
+        """
+        return pulumi.get(self, "stop_on_disconnect")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -153,6 +186,8 @@ class AwaitableGetPoolResult(GetPoolResult):
             yield self
         return GetPoolResult(
             dev_box_definition_name=self.dev_box_definition_name,
+            health_status=self.health_status,
+            health_status_details=self.health_status_details,
             id=self.id,
             license_type=self.license_type,
             local_administrator=self.local_administrator,
@@ -160,6 +195,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             name=self.name,
             network_connection_name=self.network_connection_name,
             provisioning_state=self.provisioning_state,
+            stop_on_disconnect=self.stop_on_disconnect,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -171,12 +207,12 @@ def get_pool(pool_name: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Gets a machine pool
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str pool_name: Name of the pool.
     :param str project_name: The name of the project.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['poolName'] = pool_name
@@ -187,6 +223,8 @@ def get_pool(pool_name: Optional[str] = None,
 
     return AwaitableGetPoolResult(
         dev_box_definition_name=__ret__.dev_box_definition_name,
+        health_status=__ret__.health_status,
+        health_status_details=__ret__.health_status_details,
         id=__ret__.id,
         license_type=__ret__.license_type,
         local_administrator=__ret__.local_administrator,
@@ -194,6 +232,7 @@ def get_pool(pool_name: Optional[str] = None,
         name=__ret__.name,
         network_connection_name=__ret__.network_connection_name,
         provisioning_state=__ret__.provisioning_state,
+        stop_on_disconnect=__ret__.stop_on_disconnect,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -206,11 +245,11 @@ def get_pool_output(pool_name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Gets a machine pool
-    API Version: 2022-09-01-preview.
+    Azure REST API version: 2023-04-01.
 
 
     :param str pool_name: Name of the pool.
     :param str project_name: The name of the project.
-    :param str resource_group_name: Name of the resource group within the Azure subscription.
+    :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

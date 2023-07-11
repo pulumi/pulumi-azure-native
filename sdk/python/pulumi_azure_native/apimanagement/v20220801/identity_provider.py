@@ -240,12 +240,7 @@ class IdentityProviderArgs:
         pulumi.set(self, "type", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:IdentityProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:IdentityProvider to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class IdentityProvider(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:IdentityProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:IdentityProvider to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -324,7 +319,6 @@ class IdentityProvider(pulumi.CustomResource):
                  signup_policy_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[Union[str, 'IdentityProviderType']]] = None,
                  __props__=None):
-        pulumi.log.warn("""IdentityProvider is deprecated: azure-native:apimanagement/v20220801:IdentityProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:IdentityProvider to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -356,7 +350,7 @@ class IdentityProvider(pulumi.CustomResource):
             __props__.__dict__["signup_policy_name"] = signup_policy_name
             __props__.__dict__["type"] = type
             __props__.__dict__["name"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:IdentityProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20160707:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20161010:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20170301:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20180601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20190101:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20191201preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20200601preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20201201:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210101preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:IdentityProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:IdentityProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(IdentityProvider, __self__).__init__(
             'azure-native:apimanagement/v20220801:IdentityProvider',

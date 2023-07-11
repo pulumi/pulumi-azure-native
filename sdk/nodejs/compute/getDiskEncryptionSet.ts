@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Gets information about a disk encryption set.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-07-02.
  */
 export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskEncryptionSetResult> {
 
@@ -22,7 +22,7 @@ export function getDiskEncryptionSet(args: GetDiskEncryptionSetArgs, opts?: pulu
 
 export interface GetDiskEncryptionSetArgs {
     /**
-     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskEncryptionSetName: string;
     /**
@@ -40,9 +40,17 @@ export interface GetDiskEncryptionSetResult {
      */
     readonly activeKey?: outputs.compute.KeyForDiskEncryptionSetResponse;
     /**
+     * The error that was encountered during auto-key rotation. If an error is present, then auto-key rotation will not be attempted until the error on this disk encryption set is fixed.
+     */
+    readonly autoKeyRotationError: outputs.compute.ApiErrorResponse;
+    /**
      * The type of key used to encrypt the data of the disk.
      */
     readonly encryptionType?: string;
+    /**
+     * Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
+     */
+    readonly federatedClientId?: string;
     /**
      * Resource Id
      */
@@ -86,7 +94,7 @@ export interface GetDiskEncryptionSetResult {
 }
 /**
  * Gets information about a disk encryption set.
- * API Version: 2020-12-01.
+ * Azure REST API version: 2022-07-02.
  */
 export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDiskEncryptionSetResult> {
     return pulumi.output(args).apply((a: any) => getDiskEncryptionSet(a, opts))
@@ -94,7 +102,7 @@ export function getDiskEncryptionSetOutput(args: GetDiskEncryptionSetOutputArgs,
 
 export interface GetDiskEncryptionSetOutputArgs {
     /**
-     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9 and _. The maximum name length is 80 characters.
+     * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
     diskEncryptionSetName: pulumi.Input<string>;
     /**

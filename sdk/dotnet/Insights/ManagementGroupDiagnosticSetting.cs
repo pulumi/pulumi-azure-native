@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// The management group diagnostic setting resource.
-    /// API Version: 2020-01-01-preview.
+    /// Azure REST API version: 2021-05-01-preview. Prior API version in Azure Native 1.x: 2020-01-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ManagementGroupDiagnosticSetting")]
     public partial class ManagementGroupDiagnosticSetting : global::Pulumi.CustomResource
@@ -29,19 +29,19 @@ namespace Pulumi.AzureNative.Insights
         public Output<string?> EventHubName { get; private set; } = null!;
 
         /// <summary>
-        /// Location of the resource
-        /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
         /// The list of logs settings.
         /// </summary>
         [Output("logs")]
         public Output<ImmutableArray<Outputs.ManagementGroupLogSettingsResponse>> Logs { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource name
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Output("marketplacePartnerId")]
+        public Output<string?> MarketplacePartnerId { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -59,7 +59,13 @@ namespace Pulumi.AzureNative.Insights
         public Output<string?> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Azure resource type
+        /// The system metadata related to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -132,12 +138,6 @@ namespace Pulumi.AzureNative.Insights
         [Input("eventHubName")]
         public Input<string>? EventHubName { get; set; }
 
-        /// <summary>
-        /// Location of the resource
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
-
         [Input("logs")]
         private InputList<Inputs.ManagementGroupLogSettingsArgs>? _logs;
 
@@ -155,6 +155,12 @@ namespace Pulumi.AzureNative.Insights
         /// </summary>
         [Input("managementGroupId", required: true)]
         public Input<string> ManagementGroupId { get; set; } = null!;
+
+        /// <summary>
+        /// The full ARM resource ID of the Marketplace resource to which you would like to send Diagnostic Logs.
+        /// </summary>
+        [Input("marketplacePartnerId")]
+        public Input<string>? MarketplacePartnerId { get; set; }
 
         /// <summary>
         /// The name of the diagnostic setting.

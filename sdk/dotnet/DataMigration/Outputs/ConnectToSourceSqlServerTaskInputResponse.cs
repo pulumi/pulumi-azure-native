@@ -25,13 +25,25 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
         /// </summary>
         public readonly bool? CollectAgentJobs;
         /// <summary>
+        /// Flag for whether to collect databases from source server.
+        /// </summary>
+        public readonly bool? CollectDatabases;
+        /// <summary>
         /// Flag for whether to collect logins from source server.
         /// </summary>
         public readonly bool? CollectLogins;
         /// <summary>
+        /// Flag for whether to collect TDE Certificate names from source server.
+        /// </summary>
+        public readonly bool? CollectTdeCertificateInfo;
+        /// <summary>
         /// Connection information for Source SQL Server
         /// </summary>
         public readonly Outputs.SqlConnectionInfoResponse SourceConnectionInfo;
+        /// <summary>
+        /// Flag for whether to validate SSIS catalog is reachable on the source server.
+        /// </summary>
+        public readonly bool? ValidateSsisCatalogOnly;
 
         [OutputConstructor]
         private ConnectToSourceSqlServerTaskInputResponse(
@@ -39,14 +51,23 @@ namespace Pulumi.AzureNative.DataMigration.Outputs
 
             bool? collectAgentJobs,
 
+            bool? collectDatabases,
+
             bool? collectLogins,
 
-            Outputs.SqlConnectionInfoResponse sourceConnectionInfo)
+            bool? collectTdeCertificateInfo,
+
+            Outputs.SqlConnectionInfoResponse sourceConnectionInfo,
+
+            bool? validateSsisCatalogOnly)
         {
             CheckPermissionsGroup = checkPermissionsGroup;
             CollectAgentJobs = collectAgentJobs;
+            CollectDatabases = collectDatabases;
             CollectLogins = collectLogins;
+            CollectTdeCertificateInfo = collectTdeCertificateInfo;
             SourceConnectionInfo = sourceConnectionInfo;
+            ValidateSsisCatalogOnly = validateSsisCatalogOnly;
         }
     }
 }

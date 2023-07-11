@@ -195,7 +195,7 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSqlPoolSensitivityLabelResult:
     """
     Gets the sensitivity label of a given column
-    API Version: 2021-03-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str column_name: The name of the column.
@@ -204,7 +204,7 @@ def get_sql_pool_sensitivity_label(column_name: Optional[str] = None,
     :param str sensitivity_label_source: The source of the sensitivity label.
     :param str sql_pool_name: SQL pool name
     :param str table_name: The name of the table.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     __args__ = dict()
     __args__['columnName'] = column_name
@@ -244,7 +244,7 @@ def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSqlPoolSensitivityLabelResult]:
     """
     Gets the sensitivity label of a given column
-    API Version: 2021-03-01.
+    Azure REST API version: 2021-06-01.
 
 
     :param str column_name: The name of the column.
@@ -253,6 +253,6 @@ def get_sql_pool_sensitivity_label_output(column_name: Optional[pulumi.Input[str
     :param str sensitivity_label_source: The source of the sensitivity label.
     :param str sql_pool_name: SQL pool name
     :param str table_name: The name of the table.
-    :param str workspace_name: The name of the workspace
+    :param str workspace_name: The name of the workspace.
     """
     ...

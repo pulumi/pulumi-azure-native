@@ -24,7 +24,7 @@ class PrivateEndpointConnectionByNameArgs:
                  properties: Optional[pulumi.Input['PrivateEndpointConnectionRequestPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionByName resource.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         :param pulumi.Input[str] id: Private Endpoint Connection Resource Id.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection.
@@ -43,7 +43,7 @@ class PrivateEndpointConnectionByNameArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[str]:
         """
-        The name of the resource group.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -113,14 +113,14 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Private Endpoint Connection Resource Id.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointConnectionRequestPropertiesArgs']] properties: The connection state of the private endpoint connection.
-        :param pulumi.Input[str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] service_name: The name of the API Management service.
         """
         ...
@@ -131,7 +131,7 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-04-01-preview.
+        Azure REST API version: 2022-08-01. Prior API version in Azure Native 1.x: 2021-04-01-preview
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionByNameArgs args: The arguments to use to populate this resource's properties.
@@ -176,7 +176,7 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
             __props__.__dict__["private_link_service_connection_state"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20210401preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20210801:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20211201preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20220801:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:PrivateEndpointConnectionByName"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:PrivateEndpointConnectionByName")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionByName, __self__).__init__(
             'azure-native:apimanagement:PrivateEndpointConnectionByName',

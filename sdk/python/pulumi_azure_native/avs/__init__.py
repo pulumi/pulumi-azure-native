@@ -31,6 +31,7 @@ from .get_workload_network_segment import *
 from .get_workload_network_vm_group import *
 from .global_reach_connection import *
 from .hcx_enterprise_site import *
+from .list_cluster_zones import *
 from .list_private_cloud_admin_credentials import *
 from .placement_policy import *
 from .private_cloud import *
@@ -49,21 +50,15 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.avs.v20200320 as __v20200320
     v20200320 = __v20200320
-    import pulumi_azure_native.avs.v20200717preview as __v20200717preview
-    v20200717preview = __v20200717preview
     import pulumi_azure_native.avs.v20210101preview as __v20210101preview
     v20210101preview = __v20210101preview
     import pulumi_azure_native.avs.v20210601 as __v20210601
     v20210601 = __v20210601
-    import pulumi_azure_native.avs.v20211201 as __v20211201
-    v20211201 = __v20211201
     import pulumi_azure_native.avs.v20220501 as __v20220501
     v20220501 = __v20220501
 else:
     v20200320 = _utilities.lazy_import('pulumi_azure_native.avs.v20200320')
-    v20200717preview = _utilities.lazy_import('pulumi_azure_native.avs.v20200717preview')
     v20210101preview = _utilities.lazy_import('pulumi_azure_native.avs.v20210101preview')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.avs.v20210601')
-    v20211201 = _utilities.lazy_import('pulumi_azure_native.avs.v20211201')
     v20220501 = _utilities.lazy_import('pulumi_azure_native.avs.v20220501')
 

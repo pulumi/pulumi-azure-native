@@ -50,7 +50,7 @@ def list_blockchain_member_api_keys(blockchain_member_name: Optional[str] = None
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListBlockchainMemberApiKeysResult:
     """
     Lists the API keys for a blockchain member.
-    API Version: 2018-06-01-preview.
+    Azure REST API version: 2018-06-01-preview.
 
 
     :param str blockchain_member_name: Blockchain member name.
@@ -72,7 +72,7 @@ def list_blockchain_member_api_keys_output(blockchain_member_name: Optional[pulu
                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListBlockchainMemberApiKeysResult]:
     """
     Lists the API keys for a blockchain member.
-    API Version: 2018-06-01-preview.
+    Azure REST API version: 2018-06-01-preview.
 
 
     :param str blockchain_member_name: Blockchain member name.

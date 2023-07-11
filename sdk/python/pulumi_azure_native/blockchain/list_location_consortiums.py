@@ -49,7 +49,7 @@ def list_location_consortiums(location_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListLocationConsortiumsResult:
     """
     Lists the available consortiums for a subscription.
-    API Version: 2018-06-01-preview.
+    Azure REST API version: 2018-06-01-preview.
 
 
     :param str location_name: Location Name.
@@ -68,7 +68,7 @@ def list_location_consortiums_output(location_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListLocationConsortiumsResult]:
     """
     Lists the available consortiums for a subscription.
-    API Version: 2018-06-01-preview.
+    Azure REST API version: 2018-06-01-preview.
 
 
     :param str location_name: Location Name.

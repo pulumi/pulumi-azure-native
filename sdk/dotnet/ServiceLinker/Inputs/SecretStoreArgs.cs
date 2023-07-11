@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.ServiceLinker.Inputs
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
+        /// <summary>
+        /// The key vault secret name to store secret, only valid when storing one secret
+        /// </summary>
+        [Input("keyVaultSecretName")]
+        public Input<string>? KeyVaultSecretName { get; set; }
+
         public SecretStoreArgs()
         {
         }

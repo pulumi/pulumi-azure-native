@@ -16,6 +16,7 @@ __all__ = [
     'AzureSkuArgs',
     'CmdkeySetupArgs',
     'ComponentSetupArgs',
+    'CspWorkspaceAdminPropertiesArgs',
     'CustomerManagedKeyDetailsArgs',
     'DataLakeStorageAccountDetailsArgs',
     'DynamicExecutorAllocationArgs',
@@ -24,11 +25,13 @@ __all__ = [
     'EnvironmentVariableSetupArgs',
     'IntegrationRuntimeComputePropertiesArgs',
     'IntegrationRuntimeCustomSetupScriptPropertiesArgs',
+    'IntegrationRuntimeCustomerVirtualNetworkArgs',
     'IntegrationRuntimeDataFlowPropertiesArgs',
     'IntegrationRuntimeDataProxyPropertiesArgs',
     'IntegrationRuntimeSsisCatalogInfoArgs',
     'IntegrationRuntimeSsisPropertiesArgs',
     'IntegrationRuntimeVNetPropertiesArgs',
+    'KekIdentityPropertiesArgs',
     'LibraryInfoArgs',
     'LibraryRequirementsArgs',
     'LinkedIntegrationRuntimeKeyAuthorizationArgs',
@@ -36,12 +39,14 @@ __all__ = [
     'ManagedIdentityArgs',
     'ManagedIntegrationRuntimeArgs',
     'ManagedVirtualNetworkSettingsArgs',
+    'OptimizedAutoscaleArgs',
     'PrivateEndpointConnectionArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'PurviewConfigurationArgs',
     'SecureStringArgs',
     'SelfHostedIntegrationRuntimeArgs',
     'SkuArgs',
+    'SparkConfigPropertiesArgs',
     'SqlPoolVulnerabilityAssessmentRuleBaselineItemArgs',
     'TableLevelSharingPropertiesArgs',
     'VirtualNetworkProfileArgs',
@@ -149,43 +154,43 @@ class AutoScalePropertiesArgs:
 @pulumi.input_type
 class AzureSkuArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[Union[str, 'AzureSkuName']],
-                 tier: pulumi.Input[Union[str, 'AzureSkuTier']],
+                 name: pulumi.Input[Union[str, 'SkuName']],
+                 size: pulumi.Input[Union[str, 'SkuSize']],
                  capacity: Optional[pulumi.Input[int]] = None):
         """
         Azure SKU definition.
-        :param pulumi.Input[Union[str, 'AzureSkuName']] name: SKU name.
-        :param pulumi.Input[Union[str, 'AzureSkuTier']] tier: SKU tier.
+        :param pulumi.Input[Union[str, 'SkuName']] name: SKU name.
+        :param pulumi.Input[Union[str, 'SkuSize']] size: SKU size.
         :param pulumi.Input[int] capacity: The number of instances of the cluster.
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "size", size)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[Union[str, 'AzureSkuName']]:
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
         SKU name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[Union[str, 'AzureSkuName']]):
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
         pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Input[Union[str, 'AzureSkuTier']]:
+    def size(self) -> pulumi.Input[Union[str, 'SkuSize']]:
         """
-        SKU tier.
+        SKU size.
         """
-        return pulumi.get(self, "tier")
+        return pulumi.get(self, "size")
 
-    @tier.setter
-    def tier(self, value: pulumi.Input[Union[str, 'AzureSkuTier']]):
-        pulumi.set(self, "tier", value)
+    @size.setter
+    def size(self, value: pulumi.Input[Union[str, 'SkuSize']]):
+        pulumi.set(self, "size", value)
 
     @property
     @pulumi.getter
@@ -327,15 +332,55 @@ class ComponentSetupArgs:
 
 
 @pulumi.input_type
+class CspWorkspaceAdminPropertiesArgs:
+    def __init__(__self__, *,
+                 initial_workspace_admin_object_id: Optional[pulumi.Input[str]] = None):
+        """
+        Initial workspace AAD admin properties for a CSP subscription
+        :param pulumi.Input[str] initial_workspace_admin_object_id: AAD object ID of initial workspace admin
+        """
+        if initial_workspace_admin_object_id is not None:
+            pulumi.set(__self__, "initial_workspace_admin_object_id", initial_workspace_admin_object_id)
+
+    @property
+    @pulumi.getter(name="initialWorkspaceAdminObjectId")
+    def initial_workspace_admin_object_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        AAD object ID of initial workspace admin
+        """
+        return pulumi.get(self, "initial_workspace_admin_object_id")
+
+    @initial_workspace_admin_object_id.setter
+    def initial_workspace_admin_object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "initial_workspace_admin_object_id", value)
+
+
+@pulumi.input_type
 class CustomerManagedKeyDetailsArgs:
     def __init__(__self__, *,
+                 kek_identity: Optional[pulumi.Input['KekIdentityPropertiesArgs']] = None,
                  key: Optional[pulumi.Input['WorkspaceKeyDetailsArgs']] = None):
         """
         Details of the customer managed key associated with the workspace
+        :param pulumi.Input['KekIdentityPropertiesArgs'] kek_identity: Key encryption key
         :param pulumi.Input['WorkspaceKeyDetailsArgs'] key: The key object of the workspace
         """
+        if kek_identity is not None:
+            pulumi.set(__self__, "kek_identity", kek_identity)
         if key is not None:
             pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter(name="kekIdentity")
+    def kek_identity(self) -> Optional[pulumi.Input['KekIdentityPropertiesArgs']]:
+        """
+        Key encryption key
+        """
+        return pulumi.get(self, "kek_identity")
+
+    @kek_identity.setter
+    def kek_identity(self, value: Optional[pulumi.Input['KekIdentityPropertiesArgs']]):
+        pulumi.set(self, "kek_identity", value)
 
     @property
     @pulumi.getter
@@ -354,16 +399,24 @@ class CustomerManagedKeyDetailsArgs:
 class DataLakeStorageAccountDetailsArgs:
     def __init__(__self__, *,
                  account_url: Optional[pulumi.Input[str]] = None,
-                 filesystem: Optional[pulumi.Input[str]] = None):
+                 create_managed_private_endpoint: Optional[pulumi.Input[bool]] = None,
+                 filesystem: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None):
         """
         Details of the data lake storage account associated with the workspace
         :param pulumi.Input[str] account_url: Account URL
+        :param pulumi.Input[bool] create_managed_private_endpoint: Create managed private endpoint to this storage account or not
         :param pulumi.Input[str] filesystem: Filesystem name
+        :param pulumi.Input[str] resource_id: ARM resource Id of this storage account
         """
         if account_url is not None:
             pulumi.set(__self__, "account_url", account_url)
+        if create_managed_private_endpoint is not None:
+            pulumi.set(__self__, "create_managed_private_endpoint", create_managed_private_endpoint)
         if filesystem is not None:
             pulumi.set(__self__, "filesystem", filesystem)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="accountUrl")
@@ -378,6 +431,18 @@ class DataLakeStorageAccountDetailsArgs:
         pulumi.set(self, "account_url", value)
 
     @property
+    @pulumi.getter(name="createManagedPrivateEndpoint")
+    def create_managed_private_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Create managed private endpoint to this storage account or not
+        """
+        return pulumi.get(self, "create_managed_private_endpoint")
+
+    @create_managed_private_endpoint.setter
+    def create_managed_private_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_managed_private_endpoint", value)
+
+    @property
     @pulumi.getter
     def filesystem(self) -> Optional[pulumi.Input[str]]:
         """
@@ -389,17 +454,37 @@ class DataLakeStorageAccountDetailsArgs:
     def filesystem(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "filesystem", value)
 
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM resource Id of this storage account
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_id", value)
+
 
 @pulumi.input_type
 class DynamicExecutorAllocationArgs:
     def __init__(__self__, *,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 max_executors: Optional[pulumi.Input[int]] = None,
+                 min_executors: Optional[pulumi.Input[int]] = None):
         """
         Dynamic Executor Allocation Properties
         :param pulumi.Input[bool] enabled: Indicates whether Dynamic Executor Allocation is enabled or not.
+        :param pulumi.Input[int] max_executors: The maximum number of executors alloted
+        :param pulumi.Input[int] min_executors: The minimum number of executors alloted
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if max_executors is not None:
+            pulumi.set(__self__, "max_executors", max_executors)
+        if min_executors is not None:
+            pulumi.set(__self__, "min_executors", min_executors)
 
     @property
     @pulumi.getter
@@ -412,6 +497,30 @@ class DynamicExecutorAllocationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="maxExecutors")
+    def max_executors(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of executors alloted
+        """
+        return pulumi.get(self, "max_executors")
+
+    @max_executors.setter
+    def max_executors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_executors", value)
+
+    @property
+    @pulumi.getter(name="minExecutors")
+    def min_executors(self) -> Optional[pulumi.Input[int]]:
+        """
+        The minimum number of executors alloted
+        """
+        return pulumi.get(self, "min_executors")
+
+    @min_executors.setter
+    def min_executors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min_executors", value)
 
 
 @pulumi.input_type
@@ -675,6 +784,30 @@ class IntegrationRuntimeCustomSetupScriptPropertiesArgs:
     @sas_token.setter
     def sas_token(self, value: Optional[pulumi.Input['SecureStringArgs']]):
         pulumi.set(self, "sas_token", value)
+
+
+@pulumi.input_type
+class IntegrationRuntimeCustomerVirtualNetworkArgs:
+    def __init__(__self__, *,
+                 subnet_id: Optional[pulumi.Input[str]] = None):
+        """
+        The definition and properties of virtual network to which Azure-SSIS integration runtime will join.
+        :param pulumi.Input[str] subnet_id: The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of subnet to which Azure-SSIS integration runtime will join.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 @pulumi.input_type
@@ -1038,6 +1171,46 @@ class IntegrationRuntimeVNetPropertiesArgs:
 
 
 @pulumi.input_type
+class KekIdentityPropertiesArgs:
+    def __init__(__self__, *,
+                 use_system_assigned_identity: Optional[Any] = None,
+                 user_assigned_identity: Optional[pulumi.Input[str]] = None):
+        """
+        Key encryption key properties
+        :param Any use_system_assigned_identity: Boolean specifying whether to use system assigned identity or not
+        :param pulumi.Input[str] user_assigned_identity: User assigned identity resource Id
+        """
+        if use_system_assigned_identity is not None:
+            pulumi.set(__self__, "use_system_assigned_identity", use_system_assigned_identity)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter(name="useSystemAssignedIdentity")
+    def use_system_assigned_identity(self) -> Optional[Any]:
+        """
+        Boolean specifying whether to use system assigned identity or not
+        """
+        return pulumi.get(self, "use_system_assigned_identity")
+
+    @use_system_assigned_identity.setter
+    def use_system_assigned_identity(self, value: Optional[Any]):
+        pulumi.set(self, "use_system_assigned_identity", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        User assigned identity resource Id
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_assigned_identity", value)
+
+
+@pulumi.input_type
 class LibraryInfoArgs:
     def __init__(__self__, *,
                  container_name: Optional[pulumi.Input[str]] = None,
@@ -1232,13 +1405,17 @@ class LinkedIntegrationRuntimeRbacAuthorizationArgs:
 @pulumi.input_type
 class ManagedIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The workspace managed identity
         :param pulumi.Input['ResourceIdentityType'] type: The type of managed identity for the workspace
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The user assigned managed identities.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter
@@ -1252,27 +1429,51 @@ class ManagedIdentityArgs:
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The user assigned managed identities.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
 
 @pulumi.input_type
 class ManagedIntegrationRuntimeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  compute_properties: Optional[pulumi.Input['IntegrationRuntimeComputePropertiesArgs']] = None,
+                 customer_virtual_network: Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
+                 reference_name: Optional[pulumi.Input[str]] = None,
                  ssis_properties: Optional[pulumi.Input['IntegrationRuntimeSsisPropertiesArgs']] = None):
         """
         Managed integration runtime, including managed elastic and managed dedicated integration runtimes.
         :param pulumi.Input[str] type: The type of integration runtime.
                Expected value is 'Managed'.
         :param pulumi.Input['IntegrationRuntimeComputePropertiesArgs'] compute_properties: The compute resource for managed integration runtime.
+        :param pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs'] customer_virtual_network: The name of virtual network to which Azure-SSIS integration runtime will join
         :param pulumi.Input[str] description: Integration runtime description.
+        :param pulumi.Input[str] id: The id of the managed virtual network.
+        :param pulumi.Input[str] reference_name: The reference name of the managed virtual network
         :param pulumi.Input['IntegrationRuntimeSsisPropertiesArgs'] ssis_properties: SSIS properties for managed integration runtime.
         """
         pulumi.set(__self__, "type", 'Managed')
         if compute_properties is not None:
             pulumi.set(__self__, "compute_properties", compute_properties)
+        if customer_virtual_network is not None:
+            pulumi.set(__self__, "customer_virtual_network", customer_virtual_network)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if reference_name is not None:
+            pulumi.set(__self__, "reference_name", reference_name)
         if ssis_properties is not None:
             pulumi.set(__self__, "ssis_properties", ssis_properties)
 
@@ -1302,6 +1503,18 @@ class ManagedIntegrationRuntimeArgs:
         pulumi.set(self, "compute_properties", value)
 
     @property
+    @pulumi.getter(name="customerVirtualNetwork")
+    def customer_virtual_network(self) -> Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']]:
+        """
+        The name of virtual network to which Azure-SSIS integration runtime will join
+        """
+        return pulumi.get(self, "customer_virtual_network")
+
+    @customer_virtual_network.setter
+    def customer_virtual_network(self, value: Optional[pulumi.Input['IntegrationRuntimeCustomerVirtualNetworkArgs']]):
+        pulumi.set(self, "customer_virtual_network", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1312,6 +1525,30 @@ class ManagedIntegrationRuntimeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the managed virtual network.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="referenceName")
+    def reference_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The reference name of the managed virtual network
+        """
+        return pulumi.get(self, "reference_name")
+
+    @reference_name.setter
+    def reference_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reference_name", value)
 
     @property
     @pulumi.getter(name="ssisProperties")
@@ -1380,6 +1617,74 @@ class ManagedVirtualNetworkSettingsArgs:
     @prevent_data_exfiltration.setter
     def prevent_data_exfiltration(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "prevent_data_exfiltration", value)
+
+
+@pulumi.input_type
+class OptimizedAutoscaleArgs:
+    def __init__(__self__, *,
+                 is_enabled: pulumi.Input[bool],
+                 maximum: pulumi.Input[int],
+                 minimum: pulumi.Input[int],
+                 version: pulumi.Input[int]):
+        """
+        A class that contains the optimized auto scale definition.
+        :param pulumi.Input[bool] is_enabled: A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        :param pulumi.Input[int] maximum: Maximum allowed instances count.
+        :param pulumi.Input[int] minimum: Minimum allowed instances count.
+        :param pulumi.Input[int] version: The version of the template defined, for instance 1.
+        """
+        pulumi.set(__self__, "is_enabled", is_enabled)
+        pulumi.set(__self__, "maximum", maximum)
+        pulumi.set(__self__, "minimum", minimum)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="isEnabled")
+    def is_enabled(self) -> pulumi.Input[bool]:
+        """
+        A boolean value that indicate if the optimized autoscale feature is enabled or not.
+        """
+        return pulumi.get(self, "is_enabled")
+
+    @is_enabled.setter
+    def is_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "is_enabled", value)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> pulumi.Input[int]:
+        """
+        Maximum allowed instances count.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: pulumi.Input[int]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> pulumi.Input[int]:
+        """
+        Minimum allowed instances count.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: pulumi.Input[int]):
+        pulumi.set(self, "minimum", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[int]:
+        """
+        The version of the template defined, for instance 1.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[int]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type
@@ -1621,6 +1926,62 @@ class SkuArgs:
     @tier.setter
     def tier(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class SparkConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 configuration_type: Optional[pulumi.Input[Union[str, 'ConfigurationType']]] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 filename: Optional[pulumi.Input[str]] = None):
+        """
+        SparkConfig Properties for a Big Data pool powered by Apache Spark
+        :param pulumi.Input[Union[str, 'ConfigurationType']] configuration_type: The type of the spark config properties file.
+        :param pulumi.Input[str] content: The spark config properties.
+        :param pulumi.Input[str] filename: The filename of the spark config properties file.
+        """
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> Optional[pulumi.Input[Union[str, 'ConfigurationType']]]:
+        """
+        The type of the spark config properties file.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: Optional[pulumi.Input[Union[str, 'ConfigurationType']]]):
+        pulumi.set(self, "configuration_type", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        """
+        The spark config properties.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[pulumi.Input[str]]:
+        """
+        The filename of the spark config properties file.
+        """
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filename", value)
 
 
 @pulumi.input_type

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// Product details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:Product is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:Product to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:Product")]
     public partial class Product : global::Pulumi.CustomResource
     {
@@ -111,6 +110,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:Product"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:Product"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:Product"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:Product"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

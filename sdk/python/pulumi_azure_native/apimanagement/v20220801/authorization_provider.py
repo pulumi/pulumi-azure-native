@@ -115,12 +115,7 @@ class AuthorizationProviderArgs:
         pulumi.set(self, "oauth2", value)
 
 
-warnings.warn("""azure-native:apimanagement/v20220801:AuthorizationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationProvider to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class AuthorizationProvider(pulumi.CustomResource):
-    warnings.warn("""azure-native:apimanagement/v20220801:AuthorizationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationProvider to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -175,7 +170,6 @@ class AuthorizationProvider(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""AuthorizationProvider is deprecated: azure-native:apimanagement/v20220801:AuthorizationProvider is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:AuthorizationProvider to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -196,7 +190,7 @@ class AuthorizationProvider(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:AuthorizationProvider")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:apimanagement:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220401preview:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20220901preview:AuthorizationProvider"), pulumi.Alias(type_="azure-native:apimanagement/v20230301preview:AuthorizationProvider")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AuthorizationProvider, __self__).__init__(
             'azure-native:apimanagement/v20220801:AuthorizationProvider',

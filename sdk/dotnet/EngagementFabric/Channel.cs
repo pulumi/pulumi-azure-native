@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.EngagementFabric
 {
     /// <summary>
     /// The EngagementFabric channel
-    /// API Version: 2018-09-01-preview.
+    /// Azure REST API version: 2018-09-01-preview. Prior API version in Azure Native 1.x: 2018-09-01-preview
     /// </summary>
     [AzureNativeResourceType("azure-native:engagementfabric:Channel")]
     public partial class Channel : global::Pulumi.CustomResource

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
     /// <summary>
     /// User details.
     /// </summary>
-    [Obsolete(@"azure-native:apimanagement/v20220801:User is being removed in the next major version of this provider. Upgrade to at least azure-native:apimanagement/v20220901preview:User to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:User")]
     public partial class User : global::Pulumi.CustomResource
     {
@@ -117,6 +116,8 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20210801:User"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20211201preview:User"},
                     new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220401preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20220901preview:User"},
+                    new global::Pulumi.Alias { Type = "azure-native:apimanagement/v20230301preview:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

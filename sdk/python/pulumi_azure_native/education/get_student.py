@@ -220,7 +220,7 @@ def get_student(billing_account_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStudentResult:
     """
     Get the details for a specific student in the specified lab by student alias
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.
@@ -262,7 +262,7 @@ def get_student_output(billing_account_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudentResult]:
     """
     Get the details for a specific student in the specified lab by student alias
-    API Version: 2021-12-01-preview.
+    Azure REST API version: 2021-12-01-preview.
 
 
     :param str billing_account_name: The ID that uniquely identifies a billing account.

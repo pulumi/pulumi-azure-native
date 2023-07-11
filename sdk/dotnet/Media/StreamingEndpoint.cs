@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Media
 {
     /// <summary>
     /// The streaming endpoint.
-    /// API Version: 2020-05-01.
+    /// Azure REST API version: 2022-11-01. Prior API version in Azure Native 1.x: 2020-05-01
     /// </summary>
     [AzureNativeResourceType("azure-native:media:StreamingEndpoint")]
     public partial class StreamingEndpoint : global::Pulumi.CustomResource
@@ -123,6 +123,12 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         [Output("scaleUnits")]
         public Output<int> ScaleUnits { get; private set; } = null!;
+
+        /// <summary>
+        /// The streaming endpoint sku.
+        /// </summary>
+        [Output("sku")]
+        public Output<Outputs.ArmStreamingEndpointCurrentSkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// The system metadata relating to this resource.
@@ -288,6 +294,12 @@ namespace Pulumi.AzureNative.Media
         /// </summary>
         [Input("scaleUnits", required: true)]
         public Input<int> ScaleUnits { get; set; } = null!;
+
+        /// <summary>
+        /// The streaming endpoint sku.
+        /// </summary>
+        [Input("sku")]
+        public Input<Inputs.ArmStreamingEndpointCurrentSkuArgs>? Sku { get; set; }
 
         /// <summary>
         /// The name of the streaming endpoint, maximum length is 24.

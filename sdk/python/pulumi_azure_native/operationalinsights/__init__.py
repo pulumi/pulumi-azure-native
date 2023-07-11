@@ -22,6 +22,7 @@ from .get_shared_keys import *
 from .get_storage_insight_config import *
 from .get_table import *
 from .get_workspace import *
+from .get_workspace_shared_keys import *
 from .linked_service import *
 from .linked_storage_account import *
 from .machine_group import *
@@ -36,18 +37,12 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.operationalinsights.v20150320 as __v20150320
-    v20150320 = __v20150320
     import pulumi_azure_native.operationalinsights.v20151101preview as __v20151101preview
     v20151101preview = __v20151101preview
-    import pulumi_azure_native.operationalinsights.v20190801preview as __v20190801preview
-    v20190801preview = __v20190801preview
     import pulumi_azure_native.operationalinsights.v20190901 as __v20190901
     v20190901 = __v20190901
     import pulumi_azure_native.operationalinsights.v20190901preview as __v20190901preview
     v20190901preview = __v20190901preview
-    import pulumi_azure_native.operationalinsights.v20200301preview as __v20200301preview
-    v20200301preview = __v20200301preview
     import pulumi_azure_native.operationalinsights.v20200801 as __v20200801
     v20200801 = __v20200801
     import pulumi_azure_native.operationalinsights.v20201001 as __v20201001
@@ -59,12 +54,9 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.operationalinsights.v20221001 as __v20221001
     v20221001 = __v20221001
 else:
-    v20150320 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20150320')
     v20151101preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20151101preview')
-    v20190801preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20190801preview')
     v20190901 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20190901')
     v20190901preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20190901preview')
-    v20200301preview = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20200301preview')
     v20200801 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20200801')
     v20201001 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20201001')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.operationalinsights.v20210601')

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Insights
 {
     /// <summary>
     /// The autoscale setting resource.
-    /// API Version: 2015-04-01.
+    /// Azure REST API version: 2022-10-01. Prior API version in Azure Native 1.x: 2015-04-01
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:AutoscaleSetting")]
     public partial class AutoscaleSetting : global::Pulumi.CustomResource
@@ -41,13 +41,25 @@ namespace Pulumi.AzureNative.Insights
         public Output<ImmutableArray<Outputs.AutoscaleNotificationResponse>> Notifications { get; private set; } = null!;
 
         /// <summary>
+        /// the predictive autoscale policy mode.
+        /// </summary>
+        [Output("predictiveAutoscalePolicy")]
+        public Output<Outputs.PredictiveAutoscalePolicyResponse?> PredictiveAutoscalePolicy { get; private set; } = null!;
+
+        /// <summary>
         /// the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         /// </summary>
         [Output("profiles")]
         public Output<ImmutableArray<Outputs.AutoscaleProfileResponse>> Profiles { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// The system metadata related to the response.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -158,6 +170,12 @@ namespace Pulumi.AzureNative.Insights
             set => _notifications = value;
         }
 
+        /// <summary>
+        /// the predictive autoscale policy mode.
+        /// </summary>
+        [Input("predictiveAutoscalePolicy")]
+        public Input<Inputs.PredictiveAutoscalePolicyArgs>? PredictiveAutoscalePolicy { get; set; }
+
         [Input("profiles", required: true)]
         private InputList<Inputs.AutoscaleProfileArgs>? _profiles;
 
@@ -180,7 +198,7 @@ namespace Pulumi.AzureNative.Insights
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
         /// </summary>
         public InputMap<string> Tags
         {

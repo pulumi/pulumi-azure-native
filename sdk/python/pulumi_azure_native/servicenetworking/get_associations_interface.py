@@ -87,7 +87,7 @@ class GetAssociationsInterfaceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning State
+        Provisioning State of Traffic Controller Association Resource
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -146,8 +146,8 @@ def get_associations_interface(association_name: Optional[str] = None,
                                traffic_controller_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAssociationsInterfaceResult:
     """
-    Get a Traffic Controller Association
-    API Version: 2022-10-01-preview.
+    Get a Association
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str association_name: Name of Association
@@ -179,8 +179,8 @@ def get_associations_interface_output(association_name: Optional[pulumi.Input[st
                                       traffic_controller_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociationsInterfaceResult]:
     """
-    Get a Traffic Controller Association
-    API Version: 2022-10-01-preview.
+    Get a Association
+    Azure REST API version: 2023-05-01-preview.
 
 
     :param str association_name: Name of Association

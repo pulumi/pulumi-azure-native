@@ -24,7 +24,7 @@ export class VirtualmachineRetrieve extends pulumi.CustomResource {
     }
 
     /** @internal */
-    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve';
+    public static readonly __pulumiType = 'azure-native:azurestackhci/v20210901preview:VirtualmachineRetrieve';
 
     /**
      * Returns true if the given object is an instance of VirtualmachineRetrieve.  This is designed to work even
@@ -118,14 +118,14 @@ export class VirtualmachineRetrieve extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
+            resourceInputs["hardwareProfile"] = args ? (args.hardwareProfile ? pulumi.output(args.hardwareProfile).apply(inputs.azurestackhci.v20210901preview.virtualmachinesPropertiesHardwareProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
             resourceInputs["osProfile"] = args ? args.osProfile : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
+            resourceInputs["securityProfile"] = args ? (args.securityProfile ? pulumi.output(args.securityProfile).apply(inputs.azurestackhci.v20210901preview.virtualmachinesPropertiesSecurityProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["virtualmachinesName"] = args ? args.virtualmachinesName : undefined;
@@ -156,7 +156,7 @@ export class VirtualmachineRetrieve extends pulumi.CustomResource {
             resourceInputs["vmId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve" }, { type: "azure-native:azurestackhci:VirtualmachineRetrieve" }, { type: "azure-native:azurestackhci:virtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:VirtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:virtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualmachineRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:virtualmachineRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualmachineRetrieve.__pulumiType, name, resourceInputs, opts);
     }

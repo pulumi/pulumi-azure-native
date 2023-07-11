@@ -81,6 +81,11 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly string? DocumentRoot;
         /// <summary>
+        /// Maximum number of workers that a site can scale out to.
+        /// This setting only applies to apps in plans where ElasticScaleEnabled is &lt;code&gt;true&lt;/code&gt;
+        /// </summary>
+        public readonly int? ElasticWebAppScaleLimit;
+        /// <summary>
         /// This is work around for polymorphic types.
         /// </summary>
         public readonly Outputs.ExperimentsResponse? Experiments;
@@ -119,6 +124,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// IP security restrictions for main.
         /// </summary>
         public readonly ImmutableArray<Outputs.IpSecurityRestrictionResponse> IpSecurityRestrictions;
+        /// <summary>
+        /// Default action for main access restriction if no rules are matched.
+        /// </summary>
+        public readonly string? IpSecurityRestrictionsDefaultAction;
         /// <summary>
         /// Java container.
         /// </summary>
@@ -238,6 +247,10 @@ namespace Pulumi.AzureNative.Web.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.IpSecurityRestrictionResponse> ScmIpSecurityRestrictions;
         /// <summary>
+        /// Default action for scm access restriction if no rules are matched.
+        /// </summary>
+        public readonly string? ScmIpSecurityRestrictionsDefaultAction;
+        /// <summary>
         /// IP security restrictions for scm to use main.
         /// </summary>
         public readonly bool? ScmIpSecurityRestrictionsUseMain;
@@ -324,6 +337,8 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             string? documentRoot,
 
+            int? elasticWebAppScaleLimit,
+
             Outputs.ExperimentsResponse? experiments,
 
             string? ftpsState,
@@ -341,6 +356,8 @@ namespace Pulumi.AzureNative.Web.Outputs
             bool? httpLoggingEnabled,
 
             ImmutableArray<Outputs.IpSecurityRestrictionResponse> ipSecurityRestrictions,
+
+            string? ipSecurityRestrictionsDefaultAction,
 
             string? javaContainer,
 
@@ -400,6 +417,8 @@ namespace Pulumi.AzureNative.Web.Outputs
 
             ImmutableArray<Outputs.IpSecurityRestrictionResponse> scmIpSecurityRestrictions,
 
+            string? scmIpSecurityRestrictionsDefaultAction,
+
             bool? scmIpSecurityRestrictionsUseMain,
 
             string? scmMinTlsVersion,
@@ -442,6 +461,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             DefaultDocuments = defaultDocuments;
             DetailedErrorLoggingEnabled = detailedErrorLoggingEnabled;
             DocumentRoot = documentRoot;
+            ElasticWebAppScaleLimit = elasticWebAppScaleLimit;
             Experiments = experiments;
             FtpsState = ftpsState;
             FunctionAppScaleLimit = functionAppScaleLimit;
@@ -451,6 +471,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             Http20Enabled = http20Enabled;
             HttpLoggingEnabled = httpLoggingEnabled;
             IpSecurityRestrictions = ipSecurityRestrictions;
+            IpSecurityRestrictionsDefaultAction = ipSecurityRestrictionsDefaultAction;
             JavaContainer = javaContainer;
             JavaContainerVersion = javaContainerVersion;
             JavaVersion = javaVersion;
@@ -480,6 +501,7 @@ namespace Pulumi.AzureNative.Web.Outputs
             RequestTracingEnabled = requestTracingEnabled;
             RequestTracingExpirationTime = requestTracingExpirationTime;
             ScmIpSecurityRestrictions = scmIpSecurityRestrictions;
+            ScmIpSecurityRestrictionsDefaultAction = scmIpSecurityRestrictionsDefaultAction;
             ScmIpSecurityRestrictionsUseMain = scmIpSecurityRestrictionsUseMain;
             ScmMinTlsVersion = scmMinTlsVersion;
             ScmType = scmType;

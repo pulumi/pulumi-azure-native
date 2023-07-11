@@ -17,8 +17,6 @@ __all__ = [
     'get_dapr_component_output',
 ]
 
-warnings.warn("""azure-native:app/v20221001:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:DaprComponent to guarantee forwards compatibility.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetDaprComponentResult:
     """
@@ -191,7 +189,6 @@ def get_dapr_component(component_name: Optional[str] = None,
     :param str environment_name: Name of the Managed Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_dapr_component is deprecated: azure-native:app/v20221001:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:DaprComponent to guarantee forwards compatibility.""")
     __args__ = dict()
     __args__['componentName'] = component_name
     __args__['environmentName'] = environment_name
@@ -227,5 +224,4 @@ def get_dapr_component_output(component_name: Optional[pulumi.Input[str]] = None
     :param str environment_name: Name of the Managed Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_dapr_component is deprecated: azure-native:app/v20221001:DaprComponent is being removed in the next major version of this provider. Upgrade to at least azure-native:app/v20230401preview:DaprComponent to guarantee forwards compatibility.""")
     ...

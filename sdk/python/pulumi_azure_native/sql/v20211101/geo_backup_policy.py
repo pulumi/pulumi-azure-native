@@ -96,12 +96,7 @@ class GeoBackupPolicyArgs:
         pulumi.set(self, "geo_backup_policy_name", value)
 
 
-warnings.warn("""azure-native:sql/v20211101:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
-
 class GeoBackupPolicy(pulumi.CustomResource):
-    warnings.warn("""azure-native:sql/v20211101:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -153,7 +148,6 @@ class GeoBackupPolicy(pulumi.CustomResource):
                  server_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['GeoBackupPolicyState']] = None,
                  __props__=None):
-        pulumi.log.warn("""GeoBackupPolicy is deprecated: azure-native:sql/v20211101:GeoBackupPolicy is being removed in the next major version of this provider. Upgrade to at least azure-native:sql/v20221101preview:GeoBackupPolicy to guarantee forwards compatibility.""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
@@ -180,7 +174,7 @@ class GeoBackupPolicy(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["storage_type"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20140401:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:GeoBackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20140401:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220201preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220501preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20220801preview:GeoBackupPolicy"), pulumi.Alias(type_="azure-native:sql/v20221101preview:GeoBackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GeoBackupPolicy, __self__).__init__(
             'azure-native:sql/v20211101:GeoBackupPolicy',

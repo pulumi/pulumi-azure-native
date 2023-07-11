@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.Devices.V20221212
     /// <summary>
     /// The private endpoint connection of a provisioning service
     /// </summary>
-    [Obsolete(@"azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection is being removed in the next major version of this provider. Upgrade to at least azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection to guarantee forwards compatibility.")]
     [AzureNativeResourceType("azure-native:devices/v20221212:IotDpsResourcePrivateEndpointConnection")]
     public partial class IotDpsResourcePrivateEndpointConnection : global::Pulumi.CustomResource
     {

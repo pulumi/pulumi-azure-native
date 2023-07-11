@@ -105,6 +105,11 @@ export const getPython2Package: typeof import("./getPython2Package").getPython2P
 export const getPython2PackageOutput: typeof import("./getPython2Package").getPython2PackageOutput = null as any;
 utilities.lazyLoad(exports, ["getPython2Package","getPython2PackageOutput"], () => require("./getPython2Package"));
 
+export { GetPython3PackageArgs, GetPython3PackageResult, GetPython3PackageOutputArgs } from "./getPython3Package";
+export const getPython3Package: typeof import("./getPython3Package").getPython3Package = null as any;
+export const getPython3PackageOutput: typeof import("./getPython3Package").getPython3PackageOutput = null as any;
+utilities.lazyLoad(exports, ["getPython3Package","getPython3PackageOutput"], () => require("./getPython3Package"));
+
 export { GetRunbookArgs, GetRunbookResult, GetRunbookOutputArgs } from "./getRunbook";
 export const getRunbook: typeof import("./getRunbook").getRunbook = null as any;
 export const getRunbookOutput: typeof import("./getRunbook").getRunbookOutput = null as any;
@@ -175,6 +180,11 @@ export type Python2Package = import("./python2Package").Python2Package;
 export const Python2Package: typeof import("./python2Package").Python2Package = null as any;
 utilities.lazyLoad(exports, ["Python2Package"], () => require("./python2Package"));
 
+export { Python3PackageArgs } from "./python3Package";
+export type Python3Package = import("./python3Package").Python3Package;
+export const Python3Package: typeof import("./python3Package").Python3Package = null as any;
+utilities.lazyLoad(exports, ["Python3Package"], () => require("./python3Package"));
+
 export { RunbookArgs } from "./runbook";
 export type Runbook = import("./runbook").Runbook;
 export const Runbook: typeof import("./runbook").Runbook = null as any;
@@ -217,23 +227,17 @@ export * from "../types/enums/automation";
 // Export sub-modules:
 import * as v20151031 from "./v20151031";
 import * as v20170515preview from "./v20170515preview";
-import * as v20180115 from "./v20180115";
-import * as v20180630 from "./v20180630";
 import * as v20190601 from "./v20190601";
 import * as v20200113preview from "./v20200113preview";
 import * as v20210622 from "./v20210622";
-import * as v20220222 from "./v20220222";
 import * as v20220808 from "./v20220808";
 
 export {
     v20151031,
     v20170515preview,
-    v20180115,
-    v20180630,
     v20190601,
     v20200113preview,
     v20210622,
-    v20220222,
     v20220808,
 };
 
@@ -267,6 +271,8 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:automation:Python2Package":
                 return new Python2Package(name, <any>undefined, { urn })
+            case "azure-native:automation:Python3Package":
+                return new Python3Package(name, <any>undefined, { urn })
             case "azure-native:automation:Runbook":
                 return new Runbook(name, <any>undefined, { urn })
             case "azure-native:automation:Schedule":

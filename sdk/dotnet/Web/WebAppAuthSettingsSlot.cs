@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Web
 {
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
-    /// API Version: 2020-12-01.
+    /// Azure REST API version: 2022-09-01. Prior API version in Azure Native 1.x: 2020-12-01
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAuthSettingsSlot")]
     public partial class WebAppAuthSettingsSlot : global::Pulumi.CustomResource
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Web
         public Output<ImmutableArray<string>> AdditionalLoginParams { get; private set; } = null!;
 
         /// <summary>
-        /// Allowed audience values to consider when validating JWTs issued by 
+        /// Allowed audience values to consider when validating JSON Web Tokens issued by 
         /// Azure Active Directory. Note that the &lt;code&gt;ClientID&lt;/code&gt; value is always considered an
         /// allowed audience, regardless of this setting.
         /// </summary>
@@ -400,7 +400,7 @@ namespace Pulumi.AzureNative.Web
         private InputList<string>? _allowedAudiences;
 
         /// <summary>
-        /// Allowed audience values to consider when validating JWTs issued by 
+        /// Allowed audience values to consider when validating JSON Web Tokens issued by 
         /// Azure Active Directory. Note that the &lt;code&gt;ClientID&lt;/code&gt; value is always considered an
         /// allowed audience, regardless of this setting.
         /// </summary>

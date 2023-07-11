@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.AzureSphere
     {
         /// <summary>
         /// Get a Image
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("azure-native:azuresphere:getImage", args ?? new GetImageArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a Image
-        /// API Version: 2022-09-01-preview.
+        /// Azure REST API version: 2022-09-01-preview.
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("azure-native:azuresphere:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());

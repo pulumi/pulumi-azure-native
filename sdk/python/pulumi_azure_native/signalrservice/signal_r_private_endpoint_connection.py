@@ -25,10 +25,10 @@ class SignalRPrivateEndpointConnectionArgs:
         """
         The set of arguments for constructing a SignalRPrivateEndpointConnection resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] resource_name: The name of the SignalR resource.
-        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Private endpoint associated with the private endpoint connection
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the SignalR resource.
-        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state
+        :param pulumi.Input[str] resource_name: The name of the resource.
+        :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: Private endpoint
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
+        :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: Connection state of the private endpoint connection
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
@@ -55,7 +55,7 @@ class SignalRPrivateEndpointConnectionArgs:
     @pulumi.getter(name="resourceName")
     def resource_name(self) -> pulumi.Input[str]:
         """
-        The name of the SignalR resource.
+        The name of the resource.
         """
         return pulumi.get(self, "resource_name")
 
@@ -67,7 +67,7 @@ class SignalRPrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> Optional[pulumi.Input['PrivateEndpointArgs']]:
         """
-        Private endpoint associated with the private endpoint connection
+        Private endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -79,7 +79,7 @@ class SignalRPrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the private endpoint connection associated with the SignalR resource.
+        The name of the private endpoint connection
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -91,7 +91,7 @@ class SignalRPrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional[pulumi.Input['PrivateLinkServiceConnectionStateArgs']]:
         """
-        Connection state
+        Connection state of the private endpoint connection
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -112,16 +112,16 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        A private endpoint connection to SignalR resource
-        API Version: 2020-05-01.
+        A private endpoint connection to an azure resource
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-05-01
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: Private endpoint associated with the private endpoint connection
-        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the SignalR resource.
-        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: Connection state
+        :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: Private endpoint
+        :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
+        :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: Connection state of the private endpoint connection
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[str] resource_name_: The name of the SignalR resource.
+        :param pulumi.Input[str] resource_name_: The name of the resource.
         """
         ...
     @overload
@@ -130,8 +130,8 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
                  args: SignalRPrivateEndpointConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A private endpoint connection to SignalR resource
-        API Version: 2020-05-01.
+        A private endpoint connection to an azure resource
+        Azure REST API version: 2023-02-01. Prior API version in Azure Native 1.x: 2020-05-01
 
         :param str resource_name: The name of the resource.
         :param SignalRPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -171,10 +171,12 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
+            __props__.__dict__["group_ids"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:signalrservice/v20200501:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20200701preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210401preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210601preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20210901preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20211001:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20220201:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20220801preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:signalrservice/v20230601preview:SignalRPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SignalRPrivateEndpointConnection, __self__).__init__(
             'azure-native:signalrservice:SignalRPrivateEndpointConnection',
@@ -198,12 +200,22 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
 
         __props__ = SignalRPrivateEndpointConnectionArgs.__new__(SignalRPrivateEndpointConnectionArgs)
 
+        __props__.__dict__["group_ids"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["private_endpoint"] = None
         __props__.__dict__["private_link_service_connection_state"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return SignalRPrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Group IDs
+        """
+        return pulumi.get(self, "group_ids")
 
     @property
     @pulumi.getter
@@ -217,7 +229,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpoint")
     def private_endpoint(self) -> pulumi.Output[Optional['outputs.PrivateEndpointResponse']]:
         """
-        Private endpoint associated with the private endpoint connection
+        Private endpoint
         """
         return pulumi.get(self, "private_endpoint")
 
@@ -225,7 +237,7 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> pulumi.Output[Optional['outputs.PrivateLinkServiceConnectionStateResponse']]:
         """
-        Connection state
+        Connection state of the private endpoint connection
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -233,9 +245,17 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning state of the private endpoint connection
+        Provisioning state of the resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

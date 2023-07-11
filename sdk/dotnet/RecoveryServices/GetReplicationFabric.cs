@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.RecoveryServices
     {
         /// <summary>
         /// Gets the details of an Azure Site Recovery fabric.
-        /// API Version: 2018-07-10.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetReplicationFabricResult> InvokeAsync(GetReplicationFabricArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationFabricResult>("azure-native:recoveryservices:getReplicationFabric", args ?? new GetReplicationFabricArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets the details of an Azure Site Recovery fabric.
-        /// API Version: 2018-07-10.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetReplicationFabricResult> Invoke(GetReplicationFabricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationFabricResult>("azure-native:recoveryservices:getReplicationFabric", args ?? new GetReplicationFabricInvokeArgs(), options.WithDefaults());
@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// </summary>
         [Input("fabricName", required: true)]
         public string FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// OData filter options.
+        /// </summary>
+        [Input("filter")]
+        public string? Filter { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.
@@ -60,6 +66,12 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// </summary>
         [Input("fabricName", required: true)]
         public Input<string> FabricName { get; set; } = null!;
+
+        /// <summary>
+        /// OData filter options.
+        /// </summary>
+        [Input("filter")]
+        public Input<string>? Filter { get; set; }
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

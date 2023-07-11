@@ -123,7 +123,7 @@ class GetApplianceResult:
     @pulumi.getter(name="publicKey")
     def public_key(self) -> Optional[str]:
         """
-        Certificates pair used to download MSI certificate from HIS
+        Certificates pair used to download MSI certificate from HIS. Can only be set once.
         """
         return pulumi.get(self, "public_key")
 
@@ -139,7 +139,7 @@ class GetApplianceResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Metadata pertaining to creation and last modification of the resource
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -161,7 +161,7 @@ class GetApplianceResult:
 
     @property
     @pulumi.getter
-    def version(self) -> str:
+    def version(self) -> Optional[str]:
         """
         Version of the Appliance
         """
@@ -194,7 +194,7 @@ def get_appliance(resource_group_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetApplianceResult:
     """
     Gets the details of an Appliance with a specified resource group and name.
-    API Version: 2021-10-31-preview.
+    Azure REST API version: 2022-10-27.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -228,7 +228,7 @@ def get_appliance_output(resource_group_name: Optional[pulumi.Input[str]] = None
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplianceResult]:
     """
     Gets the details of an Appliance with a specified resource group and name.
-    API Version: 2021-10-31-preview.
+    Azure REST API version: 2022-10-27.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

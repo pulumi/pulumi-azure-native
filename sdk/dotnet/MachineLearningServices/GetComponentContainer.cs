@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.MachineLearningServices
     {
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2022-02-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Task<GetComponentContainerResult> InvokeAsync(GetComponentContainerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetComponentContainerResult>("azure-native:machinelearningservices:getComponentContainer", args ?? new GetComponentContainerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Resource Manager resource envelope.
-        /// API Version: 2022-02-01-preview.
+        /// Azure REST API version: 2023-04-01.
         /// </summary>
         public static Output<GetComponentContainerResult> Invoke(GetComponentContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentContainerResult>("azure-native:machinelearningservices:getComponentContainer", args ?? new GetComponentContainerInvokeArgs(), options.WithDefaults());
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        public readonly Outputs.ComponentContainerResponse ComponentContainerDetails;
+        public readonly Outputs.ComponentContainerResponse ComponentContainerProperties;
         /// <summary>
         /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [OutputConstructor]
         private GetComponentContainerResult(
-            Outputs.ComponentContainerResponse componentContainerDetails,
+            Outputs.ComponentContainerResponse componentContainerProperties,
 
             string id,
 
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             string type)
         {
-            ComponentContainerDetails = componentContainerDetails;
+            ComponentContainerProperties = componentContainerProperties;
             Id = id;
             Name = name;
             SystemData = systemData;

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.ContainerStorage
     {
         /// <summary>
         /// Get a VolumeSnapshot
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Task<GetVolumeSnapshotResult> InvokeAsync(GetVolumeSnapshotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVolumeSnapshotResult>("azure-native:containerstorage:getVolumeSnapshot", args ?? new GetVolumeSnapshotArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get a VolumeSnapshot
-        /// API Version: 2023-03-01-preview.
+        /// Azure REST API version: 2023-03-01-preview.
         /// </summary>
         public static Output<GetVolumeSnapshotResult> Invoke(GetVolumeSnapshotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVolumeSnapshotResult>("azure-native:containerstorage:getVolumeSnapshot", args ?? new GetVolumeSnapshotInvokeArgs(), options.WithDefaults());
