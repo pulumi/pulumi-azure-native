@@ -1,3 +1,0 @@
-name: goaks
-runtime: go
-description: An minimal Azure Kbernetes Service Go Pulumi program

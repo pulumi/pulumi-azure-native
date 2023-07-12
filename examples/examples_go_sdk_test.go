@@ -22,7 +22,7 @@ import (
 const sdkPath = "../sdk/pulumi-azure-native-sdk"
 
 func testDir(t *testing.T, testCaseDirs ...string) string {
-	segments := []string{getCwd(t), "azure-native-sdk"}
+	segments := []string{getCwd(t), "azure-native-sdk-v2"}
 	segments = append(segments, testCaseDirs...)
 	return filepath.Join(segments...)
 }
