@@ -46,7 +46,7 @@ jobs:
     # not a prerelease or v2 version. v2 versions are currently listed as separate entities in the registry and this will
     # overwrite the docs for the v1 version. We can remove this conditional once we only want to display the v2 version
     # in registry.
-    if: ${{ !contains(github.ref_name,'-') || !startsWith(github.ref_name, 'v2') }}
+    if: ${{ !contains(github.ref_name,'-') && !startsWith(github.ref_name, 'v2') }}
     steps:
       - name: Install pulumictl
         uses: jaxxstorm/action-install-gh-release@v1.9.0
