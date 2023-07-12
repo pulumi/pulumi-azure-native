@@ -3,8 +3,8 @@ module go-servicebus-recreate
 go 1.19
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 v2.0.0-alpha.dev
-	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v2 v2.0.0-alpha.dev
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 v2.0.0-beta.4
+	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v2 v2.0.0-beta.4
 	github.com/pulumi/pulumi/sdk/v3 v3.74.0
 )
 

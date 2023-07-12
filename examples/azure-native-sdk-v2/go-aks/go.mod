@@ -3,8 +3,8 @@ module goaks
 go 1.19
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/containerservice/v2 v2.0.0-alpha.1
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 v2.0.0-alpha.1
+	github.com/pulumi/pulumi-azure-native-sdk/containerservice/v2 v2.0.0-beta.4
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v2 v2.0.0-beta.4
 	github.com/pulumi/pulumi-azuread/sdk/v5 v5.38.0
 	github.com/pulumi/pulumi-random/sdk/v4 v4.13.2
 	github.com/pulumi/pulumi-tls/sdk/v4 v4.10.0
@@ -51,7 +51,7 @@ require (
 	github.com/pjbgf/sha1cd v0.3.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v2 v2.0.0-alpha.dev // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v2 v2.0.0-beta.4 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
