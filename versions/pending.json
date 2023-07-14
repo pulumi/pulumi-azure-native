@@ -294,7 +294,9 @@
   "Elastic": [
     "2023-06-15-preview"
   ],
-  "ElasticSan": [],
+  "ElasticSan": [
+    "2022-12-01-preview"
+  ],
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
   "EventGrid": [
@@ -478,7 +480,9 @@
     "2023-01-31"
   ],
   "ManagedNetwork": [],
-  "ManagedNetworkFabric": [],
+  "ManagedNetworkFabric": [
+    "2023-06-15"
+  ],
   "ManagedServices": [],
   "Management": [],
   "ManagementPartner": [],
@@ -711,7 +715,9 @@
   "StorSimple": [],
   "Storage": [],
   "StorageCache": [],
-  "StorageMover": [],
+  "StorageMover": [
+    "2023-07-01-preview"
+  ],
   "StoragePool": [],
   "StorageSync": [],
   "StreamAnalytics": [
