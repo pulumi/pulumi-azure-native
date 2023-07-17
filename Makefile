@@ -193,7 +193,7 @@ upgrade_schematools:
 .pulumi/bin/pulumi: PULUMI_VERSION := $(shell cat .pulumi.version)
 .pulumi/bin/pulumi: HOME := $(WORKING_DIR)
 .pulumi/bin/pulumi: .pulumi.version
-	curl -fsSL https://get.pulumi.com | sh -s -- --version "$(PULUMI_VERSION)"
+	curl -fsSL https://get.pulumi.com | sh -s PULUMI_IGNORE_AMBIENT_PLUGINS=true -- --version "$(PULUMI_VERSION)"
 
 # Download local copy of pulumictl based on the version in .pulumictl.version
 # Anywhere which uses VERSION_GENERIC or VERSION_FLAGS should depend on bin/pulumictl
