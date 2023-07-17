@@ -5,7 +5,7 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "declaration": true,
-        "inlineSourceMap": true,
+        "sourceMap": true,
         "stripInternal": true,
         "experimentalDecorators": true,
         "noFallthroughCasesInSwitch": true,
