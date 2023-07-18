@@ -5674,6 +5674,7 @@ _utilities.register(
   "mod": "keyvault",
   "fqn": "pulumi_azure_native.keyvault",
   "classes": {
+   "azure-native:keyvault:AccessPolicy": "AccessPolicy",
    "azure-native:keyvault:Key": "Key",
    "azure-native:keyvault:MHSMPrivateEndpointConnection": "MHSMPrivateEndpointConnection",
    "azure-native:keyvault:ManagedHsm": "ManagedHsm",

@@ -5052,6 +5052,7 @@
         "iotsecurity/v20210201preview/onPremiseSensor.ts",
         "iotsecurity/v20210201preview/sensor.ts",
         "iotsecurity/v20210201preview/site.ts",
+        "keyvault/accessPolicy.ts",
         "keyvault/getKey.ts",
         "keyvault/getMHSMPrivateEndpointConnection.ts",
         "keyvault/getManagedHsm.ts",
