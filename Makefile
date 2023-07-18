@@ -329,7 +329,7 @@ export FAKE_MODULE
 .make/generate_nodejs: bin/pulumictl .pulumi/bin/pulumi bin/schema-full.json
 	mkdir -p sdk/nodejs
 	rm -rf $$(find sdk/nodejs -mindepth 1 -maxdepth 1 ! -name "go.mod")
-	.pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language nodejs
+	PULUMI_IGNORE_AMBIENT_PLUGINS=true .pulumi/bin/pulumi package gen-sdk bin/schema-full.json --language nodejs
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_nodejs_module/g' > sdk/nodejs/go.mod
 	sed -i.bak -e "s/sourceMap/inlineSourceMap/g" sdk/nodejs/tsconfig.json
 	rm sdk/nodejs/tsconfig.json.bak
