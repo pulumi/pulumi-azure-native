@@ -5,11 +5,12 @@ package resources
 import (
 	"context"
 	"fmt"
+	"net/http"
+
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"net/http"
 )
 
 // keyVaultSecret creates a custom resource for Azure KeyVault Secret.

@@ -6,6 +6,7 @@ import (
 	"context"
 
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
+	keyvaultmgmt "github.com/Azure/azure-sdk-for-go/services/keyvault/mgmt/2022-07-01/keyvault"
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
@@ -52,10 +53,15 @@ func BuildCustomResources(env *azure.Environment,
 	storageAccountsClient.Authorizer = tokenAuth
 	storageAccountsClient.UserAgent = userAgent
 
+	kvMgmtClient := keyvaultmgmt.NewVaultsClient(subscriptionID)
+	kvMgmtClient.Authorizer = bearerAuth
+	kvMgmtClient.UserAgent = userAgent
+
 	resources := []*CustomResource{
 		// Azure KeyVault resources.
 		keyVaultSecret(env.KeyVaultDNSSuffix, &kvClient),
 		keyVaultKey(env.KeyVaultDNSSuffix, &kvClient),
+		keyVaultAccessPolicy(kvMgmtClient),
 		// Storage resources.
 		newStorageAccountStaticWebsite(env, &storageAccountsClient),
 		newBlob(env, &storageAccountsClient),
