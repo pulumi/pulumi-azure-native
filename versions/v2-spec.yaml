@@ -392,6 +392,8 @@ Elastic:
         getOrganizationElasticToAzureSubscriptionMapping: 2023-06-15-preview
 ElasticSan:
     tracking: 2021-11-20-preview
+    additions:
+        PrivateEndpointConnection: 2022-12-01-preview
 EngagementFabric:
     tracking: 2018-09-01-preview
 EnterpriseKnowledgeGraph:
@@ -578,6 +580,9 @@ MachineLearningServices:
         listWorkspaceConnectionSecrets: 2023-06-01-preview
 Maintenance:
     tracking: 2022-11-01-preview
+    additions:
+        ConfigurationAssignmentsForResourceGroup: "2023-04-01"
+        ConfigurationAssignmentsForSubscription: "2023-04-01"
 ManagedIdentity:
     tracking: "2023-01-31"
     additions:
@@ -586,6 +591,14 @@ ManagedNetwork:
     tracking: 2019-06-01-preview
 ManagedNetworkFabric:
     tracking: 2023-02-01-preview
+    additions:
+        InternetGateway: "2023-06-15"
+        InternetGatewayRule: "2023-06-15"
+        NeighborGroup: "2023-06-15"
+        NetworkPacketBroker: "2023-06-15"
+        NetworkTap: "2023-06-15"
+        NetworkTapRule: "2023-06-15"
+        getNetworkFabricTopology: "2023-06-15"
 ManagedServices:
     tracking: "2022-10-01"
 Management:

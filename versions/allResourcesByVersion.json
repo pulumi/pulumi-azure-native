@@ -7262,6 +7262,12 @@
       "ElasticSan",
       "Volume",
       "VolumeGroup"
+    ],
+    "2022-12-01-preview": [
+      "ElasticSan",
+      "PrivateEndpointConnection",
+      "Volume",
+      "VolumeGroup"
     ]
   },
   "EngagementFabric": {
@@ -9624,6 +9630,13 @@
       "ConfigurationAssignment",
       "ConfigurationAssignmentParent",
       "MaintenanceConfiguration"
+    ],
+    "2023-04-01": [
+      "ConfigurationAssignment",
+      "ConfigurationAssignmentParent",
+      "ConfigurationAssignmentsForResourceGroup",
+      "ConfigurationAssignmentsForSubscription",
+      "MaintenanceConfiguration"
     ]
   },
   "ManagedIdentity": {
@@ -9677,6 +9690,30 @@
       "getNetworkDeviceStaticInterfaceMaps",
       "getNetworkDeviceStatus",
       "getNetworkInterfaceStatus"
+    ],
+    "2023-06-15": [
+      "AccessControlList",
+      "ExternalNetwork",
+      "InternalNetwork",
+      "InternetGateway",
+      "InternetGatewayRule",
+      "IpCommunity",
+      "IpExtendedCommunity",
+      "IpPrefix",
+      "L2IsolationDomain",
+      "L3IsolationDomain",
+      "NeighborGroup",
+      "NetworkDevice",
+      "NetworkFabric",
+      "NetworkFabricController",
+      "NetworkInterface",
+      "NetworkPacketBroker",
+      "NetworkRack",
+      "NetworkTap",
+      "NetworkTapRule",
+      "NetworkToNetworkInterconnect",
+      "RoutePolicy",
+      "getNetworkFabricTopology"
     ]
   },
   "ManagedServices": {
@@ -17170,6 +17207,13 @@
       "StorageMover"
     ],
     "2023-03-01": [
+      "Agent",
+      "Endpoint",
+      "JobDefinition",
+      "Project",
+      "StorageMover"
+    ],
+    "2023-07-01-preview": [
       "Agent",
       "Endpoint",
       "JobDefinition",

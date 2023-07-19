@@ -7378,13 +7378,19 @@
   },
   "ElasticSan": {
     "ElasticSan": [
-      "2021-11-20-preview"
+      "2021-11-20-preview",
+      "2022-12-01-preview"
+    ],
+    "PrivateEndpointConnection": [
+      "2022-12-01-preview"
     ],
     "Volume": [
-      "2021-11-20-preview"
+      "2021-11-20-preview",
+      "2022-12-01-preview"
     ],
     "VolumeGroup": [
-      "2021-11-20-preview"
+      "2021-11-20-preview",
+      "2022-12-01-preview"
     ]
   },
   "EngagementFabric": {
@@ -9888,13 +9894,21 @@
       "2021-04-01-preview",
       "2021-09-01-preview",
       "2022-07-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2023-04-01"
     ],
     "ConfigurationAssignmentParent": [
       "2021-04-01-preview",
       "2021-09-01-preview",
       "2022-07-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2023-04-01"
+    ],
+    "ConfigurationAssignmentsForResourceGroup": [
+      "2023-04-01"
+    ],
+    "ConfigurationAssignmentsForSubscription": [
+      "2023-04-01"
     ],
     "MaintenanceConfiguration": [
       "2018-06-01-preview",
@@ -9904,7 +9918,8 @@
       "2021-05-01",
       "2021-09-01-preview",
       "2022-07-01-preview",
-      "2022-11-01-preview"
+      "2022-11-01-preview",
+      "2023-04-01"
     ]
   },
   "ManagedIdentity": {
@@ -9940,49 +9955,82 @@
   },
   "ManagedNetworkFabric": {
     "AccessControlList": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "ExternalNetwork": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "InternalNetwork": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
+    ],
+    "InternetGateway": [
+      "2023-06-15"
+    ],
+    "InternetGatewayRule": [
+      "2023-06-15"
     ],
     "IpCommunity": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "IpExtendedCommunity": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "IpPrefix": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "L2IsolationDomain": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "L3IsolationDomain": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
+    ],
+    "NeighborGroup": [
+      "2023-06-15"
     ],
     "NetworkDevice": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "NetworkFabric": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "NetworkFabricController": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "NetworkInterface": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
+    ],
+    "NetworkPacketBroker": [
+      "2023-06-15"
     ],
     "NetworkRack": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
+    ],
+    "NetworkTap": [
+      "2023-06-15"
+    ],
+    "NetworkTapRule": [
+      "2023-06-15"
     ],
     "NetworkToNetworkInterconnect": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "RoutePolicy": [
-      "2023-02-01-preview"
+      "2023-02-01-preview",
+      "2023-06-15"
     ],
     "getL2IsolationDomainArpEntries": [
       "2023-02-01-preview"
@@ -9995,6 +10043,9 @@
     ],
     "getNetworkDeviceStatus": [
       "2023-02-01-preview"
+    ],
+    "getNetworkFabricTopology": [
+      "2023-06-15"
     ],
     "getNetworkInterfaceStatus": [
       "2023-02-01-preview"
@@ -17865,23 +17916,28 @@
   "StorageMover": {
     "Agent": [
       "2022-07-01-preview",
-      "2023-03-01"
+      "2023-03-01",
+      "2023-07-01-preview"
     ],
     "Endpoint": [
       "2022-07-01-preview",
-      "2023-03-01"
+      "2023-03-01",
+      "2023-07-01-preview"
     ],
     "JobDefinition": [
       "2022-07-01-preview",
-      "2023-03-01"
+      "2023-03-01",
+      "2023-07-01-preview"
     ],
     "Project": [
       "2022-07-01-preview",
-      "2023-03-01"
+      "2023-03-01",
+      "2023-07-01-preview"
     ],
     "StorageMover": [
       "2022-07-01-preview",
-      "2023-03-01"
+      "2023-03-01",
+      "2023-07-01-preview"
     ]
   },
   "StoragePool": {
