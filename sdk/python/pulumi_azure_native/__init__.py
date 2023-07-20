@@ -7169,7 +7169,6 @@ _utilities.register(
    "azure-native:network:DefaultUserRule": "DefaultUserRule",
    "azure-native:network:DnsForwardingRuleset": "DnsForwardingRuleset",
    "azure-native:network:DnsResolver": "DnsResolver",
-   "azure-native:network:DnssecConfig": "DnssecConfig",
    "azure-native:network:DscpConfiguration": "DscpConfiguration",
    "azure-native:network:Endpoint": "Endpoint",
    "azure-native:network:Experiment": "Experiment",
@@ -7273,6 +7272,15 @@ _utilities.register(
    "azure-native:network:VpnSite": "VpnSite",
    "azure-native:network:WebApplicationFirewallPolicy": "WebApplicationFirewallPolicy",
    "azure-native:network:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "network/v20180501",
+  "fqn": "pulumi_azure_native.network.v20180501",
+  "classes": {
+   "azure-native:network/v20180501:RecordSet": "RecordSet",
+   "azure-native:network/v20180501:Zone": "Zone"
   }
  },
  {

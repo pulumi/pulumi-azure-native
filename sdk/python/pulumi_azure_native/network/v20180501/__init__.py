@@ -5,6 +5,11 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .get_dns_resource_reference_by_tar_resources import *
+from .get_record_set import *
+from .get_zone import *
+from .record_set import *
+from .zone import *
 from ._inputs import *
 from . import outputs

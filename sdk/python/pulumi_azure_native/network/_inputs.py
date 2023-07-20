@@ -111,10 +111,8 @@ __all__ = [
     'DelegationArgs',
     'DevicePropertiesArgs',
     'DhcpOptionsArgs',
-    'DigestArgs',
     'DnsConfigArgs',
     'DnsSettingsArgs',
-    'DsRecordArgs',
     'EndpointPropertiesCustomHeadersArgs',
     'EndpointPropertiesSubnetsArgs',
     'EndpointServiceArgs',
@@ -211,7 +209,6 @@ __all__ = [
     'MonitorConfigExpectedStatusCodeRangesArgs',
     'MonitorConfigArgs',
     'MxRecordArgs',
-    'NaptrRecordArgs',
     'NatGatewaySkuArgs',
     'NatGatewayArgs',
     'NatRuleConditionArgs',
@@ -293,7 +290,6 @@ __all__ = [
     'SubnetArgs',
     'SubscriptionIdArgs',
     'TargetDnsServerArgs',
-    'TlsaRecordArgs',
     'TrafficAnalyticsConfigurationPropertiesArgs',
     'TrafficAnalyticsPropertiesArgs',
     'TrafficSelectorPolicyArgs',
@@ -7963,46 +7959,6 @@ class DhcpOptionsArgs:
 
 
 @pulumi.input_type
-class DigestArgs:
-    def __init__(__self__, *,
-                 algorithm_type: Optional[pulumi.Input[int]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        A digest.
-        :param pulumi.Input[int] algorithm_type: The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
-        :param pulumi.Input[str] value: The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
-        """
-        if algorithm_type is not None:
-            pulumi.set(__self__, "algorithm_type", algorithm_type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter(name="algorithmType")
-    def algorithm_type(self) -> Optional[pulumi.Input[int]]:
-        """
-        The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
-        """
-        return pulumi.get(self, "algorithm_type")
-
-    @algorithm_type.setter
-    def algorithm_type(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "algorithm_type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
 class DnsConfigArgs:
     def __init__(__self__, *,
                  relative_name: Optional[pulumi.Input[str]] = None,
@@ -8096,62 +8052,6 @@ class DnsSettingsArgs:
     @servers.setter
     def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "servers", value)
-
-
-@pulumi.input_type
-class DsRecordArgs:
-    def __init__(__self__, *,
-                 algorithm: Optional[pulumi.Input[int]] = None,
-                 digest: Optional[pulumi.Input['DigestArgs']] = None,
-                 key_tag: Optional[pulumi.Input[int]] = None):
-        """
-        A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
-        :param pulumi.Input[int] algorithm: The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
-        :param pulumi.Input['DigestArgs'] digest: The digest entity.
-        :param pulumi.Input[int] key_tag: The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
-        """
-        if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
-        if digest is not None:
-            pulumi.set(__self__, "digest", digest)
-        if key_tag is not None:
-            pulumi.set(__self__, "key_tag", key_tag)
-
-    @property
-    @pulumi.getter
-    def algorithm(self) -> Optional[pulumi.Input[int]]:
-        """
-        The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
-        """
-        return pulumi.get(self, "algorithm")
-
-    @algorithm.setter
-    def algorithm(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "algorithm", value)
-
-    @property
-    @pulumi.getter
-    def digest(self) -> Optional[pulumi.Input['DigestArgs']]:
-        """
-        The digest entity.
-        """
-        return pulumi.get(self, "digest")
-
-    @digest.setter
-    def digest(self, value: Optional[pulumi.Input['DigestArgs']]):
-        pulumi.set(self, "digest", value)
-
-    @property
-    @pulumi.getter(name="keyTag")
-    def key_tag(self) -> Optional[pulumi.Input[int]]:
-        """
-        The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
-        """
-        return pulumi.get(self, "key_tag")
-
-    @key_tag.setter
-    def key_tag(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "key_tag", value)
 
 
 @pulumi.input_type
@@ -14736,110 +14636,6 @@ class MxRecordArgs:
     @preference.setter
     def preference(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "preference", value)
-
-
-@pulumi.input_type
-class NaptrRecordArgs:
-    def __init__(__self__, *,
-                 flags: Optional[pulumi.Input[str]] = None,
-                 order: Optional[pulumi.Input[int]] = None,
-                 preference: Optional[pulumi.Input[int]] = None,
-                 regexp: Optional[pulumi.Input[str]] = None,
-                 replacement: Optional[pulumi.Input[str]] = None,
-                 services: Optional[pulumi.Input[str]] = None):
-        """
-        A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
-        :param pulumi.Input[str] flags: The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
-        :param pulumi.Input[int] order: The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
-        :param pulumi.Input[int] preference: The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
-        :param pulumi.Input[str] regexp: The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
-        :param pulumi.Input[str] replacement: The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
-        :param pulumi.Input[str] services: The services specific to DDDS applications. Enclose Services in quotation marks.
-        """
-        if flags is not None:
-            pulumi.set(__self__, "flags", flags)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if preference is not None:
-            pulumi.set(__self__, "preference", preference)
-        if regexp is not None:
-            pulumi.set(__self__, "regexp", regexp)
-        if replacement is not None:
-            pulumi.set(__self__, "replacement", replacement)
-        if services is not None:
-            pulumi.set(__self__, "services", services)
-
-    @property
-    @pulumi.getter
-    def flags(self) -> Optional[pulumi.Input[str]]:
-        """
-        The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
-        """
-        return pulumi.get(self, "flags")
-
-    @flags.setter
-    def flags(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "flags", value)
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[pulumi.Input[int]]:
-        """
-        The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
-        """
-        return pulumi.get(self, "order")
-
-    @order.setter
-    def order(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "order", value)
-
-    @property
-    @pulumi.getter
-    def preference(self) -> Optional[pulumi.Input[int]]:
-        """
-        The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
-        """
-        return pulumi.get(self, "preference")
-
-    @preference.setter
-    def preference(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "preference", value)
-
-    @property
-    @pulumi.getter
-    def regexp(self) -> Optional[pulumi.Input[str]]:
-        """
-        The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
-        """
-        return pulumi.get(self, "regexp")
-
-    @regexp.setter
-    def regexp(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "regexp", value)
-
-    @property
-    @pulumi.getter
-    def replacement(self) -> Optional[pulumi.Input[str]]:
-        """
-        The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
-        """
-        return pulumi.get(self, "replacement")
-
-    @replacement.setter
-    def replacement(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "replacement", value)
-
-    @property
-    @pulumi.getter
-    def services(self) -> Optional[pulumi.Input[str]]:
-        """
-        The services specific to DDDS applications. Enclose Services in quotation marks.
-        """
-        return pulumi.get(self, "services")
-
-    @services.setter
-    def services(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "services", value)
 
 
 @pulumi.input_type
@@ -21698,78 +21494,6 @@ class TargetDnsServerArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
-
-
-@pulumi.input_type
-class TlsaRecordArgs:
-    def __init__(__self__, *,
-                 cert_association_data: Optional[pulumi.Input[str]] = None,
-                 matching_type: Optional[pulumi.Input[int]] = None,
-                 selector: Optional[pulumi.Input[int]] = None,
-                 usage: Optional[pulumi.Input[int]] = None):
-        """
-        A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
-        :param pulumi.Input[str] cert_association_data: This specifies the certificate association data to be matched.
-        :param pulumi.Input[int] matching_type: The matching type specifies how the certificate association is presented.
-        :param pulumi.Input[int] selector: The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
-        :param pulumi.Input[int] usage: The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
-        """
-        if cert_association_data is not None:
-            pulumi.set(__self__, "cert_association_data", cert_association_data)
-        if matching_type is not None:
-            pulumi.set(__self__, "matching_type", matching_type)
-        if selector is not None:
-            pulumi.set(__self__, "selector", selector)
-        if usage is not None:
-            pulumi.set(__self__, "usage", usage)
-
-    @property
-    @pulumi.getter(name="certAssociationData")
-    def cert_association_data(self) -> Optional[pulumi.Input[str]]:
-        """
-        This specifies the certificate association data to be matched.
-        """
-        return pulumi.get(self, "cert_association_data")
-
-    @cert_association_data.setter
-    def cert_association_data(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "cert_association_data", value)
-
-    @property
-    @pulumi.getter(name="matchingType")
-    def matching_type(self) -> Optional[pulumi.Input[int]]:
-        """
-        The matching type specifies how the certificate association is presented.
-        """
-        return pulumi.get(self, "matching_type")
-
-    @matching_type.setter
-    def matching_type(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "matching_type", value)
-
-    @property
-    @pulumi.getter
-    def selector(self) -> Optional[pulumi.Input[int]]:
-        """
-        The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
-        """
-        return pulumi.get(self, "selector")
-
-    @selector.setter
-    def selector(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "selector", value)
-
-    @property
-    @pulumi.getter
-    def usage(self) -> Optional[pulumi.Input[int]]:
-        """
-        The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
-        """
-        return pulumi.get(self, "usage")
-
-    @usage.setter
-    def usage(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "usage", value)
 
 
 @pulumi.input_type

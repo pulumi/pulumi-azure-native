@@ -90,11 +90,6 @@ export type DnsResolver = import("./dnsResolver").DnsResolver;
 export const DnsResolver: typeof import("./dnsResolver").DnsResolver = null as any;
 utilities.lazyLoad(exports, ["DnsResolver"], () => require("./dnsResolver"));
 
-export { DnssecConfigArgs } from "./dnssecConfig";
-export type DnssecConfig = import("./dnssecConfig").DnssecConfig;
-export const DnssecConfig: typeof import("./dnssecConfig").DnssecConfig = null as any;
-utilities.lazyLoad(exports, ["DnssecConfig"], () => require("./dnssecConfig"));
-
 export { DscpConfigurationArgs } from "./dscpConfiguration";
 export type DscpConfiguration = import("./dscpConfiguration").DscpConfiguration;
 export const DscpConfiguration: typeof import("./dscpConfiguration").DscpConfiguration = null as any;
@@ -289,11 +284,6 @@ export { GetDnsResourceReferenceByTarResourcesArgs, GetDnsResourceReferenceByTar
 export const getDnsResourceReferenceByTarResources: typeof import("./getDnsResourceReferenceByTarResources").getDnsResourceReferenceByTarResources = null as any;
 export const getDnsResourceReferenceByTarResourcesOutput: typeof import("./getDnsResourceReferenceByTarResources").getDnsResourceReferenceByTarResourcesOutput = null as any;
 utilities.lazyLoad(exports, ["getDnsResourceReferenceByTarResources","getDnsResourceReferenceByTarResourcesOutput"], () => require("./getDnsResourceReferenceByTarResources"));
-
-export { GetDnssecConfigArgs, GetDnssecConfigResult, GetDnssecConfigOutputArgs } from "./getDnssecConfig";
-export const getDnssecConfig: typeof import("./getDnssecConfig").getDnssecConfig = null as any;
-export const getDnssecConfigOutput: typeof import("./getDnssecConfig").getDnssecConfigOutput = null as any;
-utilities.lazyLoad(exports, ["getDnssecConfig","getDnssecConfigOutput"], () => require("./getDnssecConfig"));
 
 export { GetDscpConfigurationArgs, GetDscpConfigurationResult, GetDscpConfigurationOutputArgs } from "./getDscpConfiguration";
 export const getDscpConfiguration: typeof import("./getDscpConfiguration").getDscpConfiguration = null as any;
@@ -1462,8 +1452,6 @@ const _module = {
                 return new DnsForwardingRuleset(name, <any>undefined, { urn })
             case "azure-native:network:DnsResolver":
                 return new DnsResolver(name, <any>undefined, { urn })
-            case "azure-native:network:DnssecConfig":
-                return new DnssecConfig(name, <any>undefined, { urn })
             case "azure-native:network:DscpConfiguration":
                 return new DscpConfiguration(name, <any>undefined, { urn })
             case "azure-native:network:Endpoint":

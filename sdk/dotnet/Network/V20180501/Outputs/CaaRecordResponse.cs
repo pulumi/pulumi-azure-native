@@ -7,31 +7,38 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Network.Outputs
+namespace Pulumi.AzureNative.Network.V20180501.Outputs
 {
 
     /// <summary>
-    /// A digest.
+    /// A CAA record.
     /// </summary>
     [OutputType]
-    public sealed class DigestResponse
+    public sealed class CaaRecordResponse
     {
         /// <summary>
-        /// The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
+        /// The flags for this CAA record as an integer between 0 and 255.
         /// </summary>
-        public readonly int? AlgorithmType;
+        public readonly int? Flags;
         /// <summary>
-        /// The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
+        /// The tag for this CAA record.
+        /// </summary>
+        public readonly string? Tag;
+        /// <summary>
+        /// The value for this CAA record.
         /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]
-        private DigestResponse(
-            int? algorithmType,
+        private CaaRecordResponse(
+            int? flags,
+
+            string? tag,
 
             string? value)
         {
-            AlgorithmType = algorithmType;
+            Flags = flags;
+            Tag = tag;
             Value = value;
         }
     }

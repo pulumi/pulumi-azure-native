@@ -23,7 +23,6 @@ from .default_admin_rule import *
 from .default_user_rule import *
 from .dns_forwarding_ruleset import *
 from .dns_resolver import *
-from .dnssec_config import *
 from .dscp_configuration import *
 from .endpoint import *
 from .experiment import *
@@ -63,7 +62,6 @@ from .get_default_user_rule import *
 from .get_dns_forwarding_ruleset import *
 from .get_dns_resolver import *
 from .get_dns_resource_reference_by_tar_resources import *
-from .get_dnssec_config import *
 from .get_dscp_configuration import *
 from .get_endpoint import *
 from .get_experiment import *
