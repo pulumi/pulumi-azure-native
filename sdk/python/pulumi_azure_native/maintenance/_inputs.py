@@ -11,12 +11,102 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ConfigurationAssignmentFilterPropertiesArgs',
     'InputLinuxParametersArgs',
     'InputPatchConfigurationArgs',
     'InputWindowsParametersArgs',
     'MaintenanceOverridePropertiesArgs',
+    'TagSettingsPropertiesArgs',
     'TaskPropertiesArgs',
 ]
+
+@pulumi.input_type
+class ConfigurationAssignmentFilterPropertiesArgs:
+    def __init__(__self__, *,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 os_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tag_settings: Optional[pulumi.Input['TagSettingsPropertiesArgs']] = None):
+        """
+        Azure query for the update configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: List of locations to scope the query to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] os_types: List of allowed operating systems.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_groups: List of allowed resource groups.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: List of allowed resources.
+        :param pulumi.Input['TagSettingsPropertiesArgs'] tag_settings: Tag settings for the VM.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if os_types is not None:
+            pulumi.set(__self__, "os_types", os_types)
+        if resource_groups is not None:
+            pulumi.set(__self__, "resource_groups", resource_groups)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if tag_settings is not None:
+            pulumi.set(__self__, "tag_settings", tag_settings)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of locations to scope the query to.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter(name="osTypes")
+    def os_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of allowed operating systems.
+        """
+        return pulumi.get(self, "os_types")
+
+    @os_types.setter
+    def os_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "os_types", value)
+
+    @property
+    @pulumi.getter(name="resourceGroups")
+    def resource_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of allowed resource groups.
+        """
+        return pulumi.get(self, "resource_groups")
+
+    @resource_groups.setter
+    def resource_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_groups", value)
+
+    @property
+    @pulumi.getter(name="resourceTypes")
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of allowed resources.
+        """
+        return pulumi.get(self, "resource_types")
+
+    @resource_types.setter
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "resource_types", value)
+
+    @property
+    @pulumi.getter(name="tagSettings")
+    def tag_settings(self) -> Optional[pulumi.Input['TagSettingsPropertiesArgs']]:
+        """
+        Tag settings for the VM.
+        """
+        return pulumi.get(self, "tag_settings")
+
+    @tag_settings.setter
+    def tag_settings(self, value: Optional[pulumi.Input['TagSettingsPropertiesArgs']]):
+        pulumi.set(self, "tag_settings", value)
+
 
 @pulumi.input_type
 class InputLinuxParametersArgs:
@@ -306,6 +396,46 @@ class MaintenanceOverridePropertiesArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class TagSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 filter_operator: Optional[pulumi.Input['TagOperators']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]] = None):
+        """
+        Tag filter information for the VM.
+        :param pulumi.Input['TagOperators'] filter_operator: Filter VMs by Any or All specified tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]] tags: Dictionary of tags with its list of values.
+        """
+        if filter_operator is not None:
+            pulumi.set(__self__, "filter_operator", filter_operator)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="filterOperator")
+    def filter_operator(self) -> Optional[pulumi.Input['TagOperators']]:
+        """
+        Filter VMs by Any or All specified tags.
+        """
+        return pulumi.get(self, "filter_operator")
+
+    @filter_operator.setter
+    def filter_operator(self, value: Optional[pulumi.Input['TagOperators']]):
+        pulumi.set(self, "filter_operator", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]:
+        """
+        Dictionary of tags with its list of values.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[str]]]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

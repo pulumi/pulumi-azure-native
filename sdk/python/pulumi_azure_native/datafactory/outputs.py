@@ -47675,8 +47675,8 @@ class MongoDbAtlasLinkedServiceResponse(dict):
             suggest = "connection_string"
         elif key == "connectVia":
             suggest = "connect_via"
-        elif key == "mongoDbAtlasDriverVersion":
-            suggest = "mongo_db_atlas_driver_version"
+        elif key == "driverVersion":
+            suggest = "driver_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MongoDbAtlasLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -47696,7 +47696,7 @@ class MongoDbAtlasLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  description: Optional[str] = None,
-                 mongo_db_atlas_driver_version: Optional[Any] = None,
+                 driver_version: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None):
         """
         Linked service for MongoDB Atlas data source.
@@ -47707,7 +47707,7 @@ class MongoDbAtlasLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param str description: Linked service description.
-        :param Any mongo_db_atlas_driver_version: The MongoDB Atlas Driver version that you want to choose. Allowed value are 2.10.4 and 2.19.0. Type: string (or Expression with resultType string).
+        :param Any driver_version: The driver version that you want to choose. Allowed value are v1 and v2. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         """
         pulumi.set(__self__, "connection_string", connection_string)
@@ -47719,8 +47719,8 @@ class MongoDbAtlasLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if mongo_db_atlas_driver_version is not None:
-            pulumi.set(__self__, "mongo_db_atlas_driver_version", mongo_db_atlas_driver_version)
+        if driver_version is not None:
+            pulumi.set(__self__, "driver_version", driver_version)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
 
@@ -47774,12 +47774,12 @@ class MongoDbAtlasLinkedServiceResponse(dict):
         return pulumi.get(self, "description")
 
     @property
-    @pulumi.getter(name="mongoDbAtlasDriverVersion")
-    def mongo_db_atlas_driver_version(self) -> Optional[Any]:
+    @pulumi.getter(name="driverVersion")
+    def driver_version(self) -> Optional[Any]:
         """
-        The MongoDB Atlas Driver version that you want to choose. Allowed value are 2.10.4 and 2.19.0. Type: string (or Expression with resultType string).
+        The driver version that you want to choose. Allowed value are v1 and v2. Type: string (or Expression with resultType string).
         """
-        return pulumi.get(self, "mongo_db_atlas_driver_version")
+        return pulumi.get(self, "driver_version")
 
     @property
     @pulumi.getter

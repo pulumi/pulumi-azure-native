@@ -17,27 +17,41 @@ __all__ = [
     'AggregateRouteConfigurationArgs',
     'AggregateRouteArgs',
     'BgpConfigurationArgs',
+    'CommonDynamicMatchConfigurationArgs',
     'ConnectedSubnetArgs',
     'ExpressRouteConnectionInformationArgs',
     'ExternalNetworkPropertiesOptionAPropertiesArgs',
     'FabricOptionBPropertiesArgs',
     'IpCommunityIdListArgs',
     'IpExtendedCommunityIdListArgs',
+    'IpGroupPropertiesArgs',
+    'IpMatchConditionArgs',
     'IpPrefixPropertiesIpPrefixRulesArgs',
+    'IsolationDomainPropertiesArgs',
     'L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs',
     'Layer2ConfigurationArgs',
     'Layer3ConfigurationArgs',
     'ManagedResourceGroupConfigurationArgs',
     'ManagementNetworkConfigurationArgs',
     'NeighborAddressArgs',
+    'NeighborGroupDestinationArgs',
+    'NetworkTapPropertiesDestinationsArgs',
+    'NetworkTapRuleActionArgs',
+    'NetworkTapRuleMatchConditionArgs',
+    'NetworkTapRuleMatchConfigurationArgs',
     'OptionAPropertiesArgs',
     'OptionBPropertiesArgs',
+    'PortConditionArgs',
+    'PortGroupPropertiesArgs',
     'RoutePolicyStatementPropertiesArgs',
+    'RulePropertiesArgs',
     'StatementActionPropertiesArgs',
     'StatementConditionPropertiesArgs',
     'StaticRouteConfigurationArgs',
     'StaticRoutePropertiesArgs',
     'TerminalServerConfigurationArgs',
+    'VlanGroupPropertiesArgs',
+    'VlanMatchConditionArgs',
     'VpnConfigurationPropertiesArgs',
 ]
 
@@ -500,6 +514,62 @@ class BgpConfigurationArgs:
 
 
 @pulumi.input_type
+class CommonDynamicMatchConfigurationArgs:
+    def __init__(__self__, *,
+                 ip_groups: Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]] = None,
+                 port_groups: Optional[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]] = None,
+                 vlan_groups: Optional[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]] = None):
+        """
+        Dynamic match configuration object.
+        :param pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgs']]] ip_groups: List of IP Groups.
+        :param pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]] port_groups: List of the port group.
+        :param pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]] vlan_groups: List of vlan groups.
+        """
+        if ip_groups is not None:
+            pulumi.set(__self__, "ip_groups", ip_groups)
+        if port_groups is not None:
+            pulumi.set(__self__, "port_groups", port_groups)
+        if vlan_groups is not None:
+            pulumi.set(__self__, "vlan_groups", vlan_groups)
+
+    @property
+    @pulumi.getter(name="ipGroups")
+    def ip_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]]:
+        """
+        List of IP Groups.
+        """
+        return pulumi.get(self, "ip_groups")
+
+    @ip_groups.setter
+    def ip_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpGroupPropertiesArgs']]]]):
+        pulumi.set(self, "ip_groups", value)
+
+    @property
+    @pulumi.getter(name="portGroups")
+    def port_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]]:
+        """
+        List of the port group.
+        """
+        return pulumi.get(self, "port_groups")
+
+    @port_groups.setter
+    def port_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PortGroupPropertiesArgs']]]]):
+        pulumi.set(self, "port_groups", value)
+
+    @property
+    @pulumi.getter(name="vlanGroups")
+    def vlan_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]]:
+        """
+        List of vlan groups.
+        """
+        return pulumi.get(self, "vlan_groups")
+
+    @vlan_groups.setter
+    def vlan_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VlanGroupPropertiesArgs']]]]):
+        pulumi.set(self, "vlan_groups", value)
+
+
+@pulumi.input_type
 class ConnectedSubnetArgs:
     def __init__(__self__, *,
                  annotation: Optional[pulumi.Input[str]] = None,
@@ -784,6 +854,134 @@ class IpExtendedCommunityIdListArgs:
 
 
 @pulumi.input_type
+class IpGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 ip_address_type: Optional[pulumi.Input[Union[str, 'IPAddressType']]] = None,
+                 ip_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        IP Group properties.
+        :param pulumi.Input[Union[str, 'IPAddressType']] ip_address_type: IP Address type.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_prefixes: List of IP Prefixes.
+        :param pulumi.Input[str] name: IP Group name.
+        """
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if ip_prefixes is not None:
+            pulumi.set(__self__, "ip_prefixes", ip_prefixes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[Union[str, 'IPAddressType']]]:
+        """
+        IP Address type.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[Union[str, 'IPAddressType']]]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @property
+    @pulumi.getter(name="ipPrefixes")
+    def ip_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of IP Prefixes.
+        """
+        return pulumi.get(self, "ip_prefixes")
+
+    @ip_prefixes.setter
+    def ip_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_prefixes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP Group name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class IpMatchConditionArgs:
+    def __init__(__self__, *,
+                 ip_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ip_prefix_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 prefix_type: Optional[pulumi.Input[Union[str, 'PrefixType']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'SourceDestinationType']]] = None):
+        """
+        Defines the condition that can be filtered using the selected IPs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_group_names: The List of IP Group Names that need to be matched.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_prefix_values: The list of IP Prefixes.
+        :param pulumi.Input[Union[str, 'PrefixType']] prefix_type: IP Prefix Type.
+        :param pulumi.Input[Union[str, 'SourceDestinationType']] type: IP Address type.
+        """
+        if ip_group_names is not None:
+            pulumi.set(__self__, "ip_group_names", ip_group_names)
+        if ip_prefix_values is not None:
+            pulumi.set(__self__, "ip_prefix_values", ip_prefix_values)
+        if prefix_type is not None:
+            pulumi.set(__self__, "prefix_type", prefix_type)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="ipGroupNames")
+    def ip_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The List of IP Group Names that need to be matched.
+        """
+        return pulumi.get(self, "ip_group_names")
+
+    @ip_group_names.setter
+    def ip_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_group_names", value)
+
+    @property
+    @pulumi.getter(name="ipPrefixValues")
+    def ip_prefix_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of IP Prefixes.
+        """
+        return pulumi.get(self, "ip_prefix_values")
+
+    @ip_prefix_values.setter
+    def ip_prefix_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ip_prefix_values", value)
+
+    @property
+    @pulumi.getter(name="prefixType")
+    def prefix_type(self) -> Optional[pulumi.Input[Union[str, 'PrefixType']]]:
+        """
+        IP Prefix Type.
+        """
+        return pulumi.get(self, "prefix_type")
+
+    @prefix_type.setter
+    def prefix_type(self, value: Optional[pulumi.Input[Union[str, 'PrefixType']]]):
+        pulumi.set(self, "prefix_type", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'SourceDestinationType']]]:
+        """
+        IP Address type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'SourceDestinationType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class IpPrefixPropertiesIpPrefixRulesArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[Union[str, 'CommunityActionTypes']],
@@ -865,6 +1063,46 @@ class IpPrefixPropertiesIpPrefixRulesArgs:
     @subnet_mask_length.setter
     def subnet_mask_length(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "subnet_mask_length", value)
+
+
+@pulumi.input_type
+class IsolationDomainPropertiesArgs:
+    def __init__(__self__, *,
+                 encapsulation: Optional[pulumi.Input[Union[str, 'Encapsulation']]] = None,
+                 neighbor_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Isolation Domain Properties.
+        :param pulumi.Input[Union[str, 'Encapsulation']] encapsulation: Type of encapsulation.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] neighbor_group_ids: List of Neighbor Group IDs.
+        """
+        if encapsulation is not None:
+            pulumi.set(__self__, "encapsulation", encapsulation)
+        if neighbor_group_ids is not None:
+            pulumi.set(__self__, "neighbor_group_ids", neighbor_group_ids)
+
+    @property
+    @pulumi.getter
+    def encapsulation(self) -> Optional[pulumi.Input[Union[str, 'Encapsulation']]]:
+        """
+        Type of encapsulation.
+        """
+        return pulumi.get(self, "encapsulation")
+
+    @encapsulation.setter
+    def encapsulation(self, value: Optional[pulumi.Input[Union[str, 'Encapsulation']]]):
+        pulumi.set(self, "encapsulation", value)
+
+    @property
+    @pulumi.getter(name="neighborGroupIds")
+    def neighbor_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of Neighbor Group IDs.
+        """
+        return pulumi.get(self, "neighbor_group_ids")
+
+    @neighbor_group_ids.setter
+    def neighbor_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "neighbor_group_ids", value)
 
 
 @pulumi.input_type
@@ -1171,6 +1409,397 @@ class NeighborAddressArgs:
 
 
 @pulumi.input_type
+class NeighborGroupDestinationArgs:
+    def __init__(__self__, *,
+                 ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        An array of destination IPv4 Addresses or IPv6 Addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_addresses: Array of IPv4 Addresses.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: Array of IPv6 Addresses.
+        """
+        if ipv4_addresses is not None:
+            pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        if ipv6_addresses is not None:
+            pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+
+    @property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of IPv4 Addresses.
+        """
+        return pulumi.get(self, "ipv4_addresses")
+
+    @ipv4_addresses.setter
+    def ipv4_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv4_addresses", value)
+
+    @property
+    @pulumi.getter(name="ipv6Addresses")
+    def ipv6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Array of IPv6 Addresses.
+        """
+        return pulumi.get(self, "ipv6_addresses")
+
+    @ipv6_addresses.setter
+    def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ipv6_addresses", value)
+
+
+@pulumi.input_type
+class NetworkTapPropertiesDestinationsArgs:
+    def __init__(__self__, *,
+                 destination_id: pulumi.Input[str],
+                 destination_type: pulumi.Input[Union[str, 'DestinationType']],
+                 name: pulumi.Input[str],
+                 destination_tap_rule_id: Optional[pulumi.Input[str]] = None,
+                 isolation_domain_properties: Optional[pulumi.Input['IsolationDomainPropertiesArgs']] = None):
+        """
+        Destination.
+        :param pulumi.Input[str] destination_id: The destination Id. ARM Resource ID of either NNI or Internal Networks.
+        :param pulumi.Input[Union[str, 'DestinationType']] destination_type: Type of destination. Input can be IsolationDomain or Direct.
+        :param pulumi.Input[str] name: Destination name.
+        :param pulumi.Input[str] destination_tap_rule_id: ARM Resource ID of destination Tap Rule that contains match configurations.
+        :param pulumi.Input['IsolationDomainPropertiesArgs'] isolation_domain_properties: Isolation Domain Properties.
+        """
+        pulumi.set(__self__, "destination_id", destination_id)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "name", name)
+        if destination_tap_rule_id is not None:
+            pulumi.set(__self__, "destination_tap_rule_id", destination_tap_rule_id)
+        if isolation_domain_properties is not None:
+            pulumi.set(__self__, "isolation_domain_properties", isolation_domain_properties)
+
+    @property
+    @pulumi.getter(name="destinationId")
+    def destination_id(self) -> pulumi.Input[str]:
+        """
+        The destination Id. ARM Resource ID of either NNI or Internal Networks.
+        """
+        return pulumi.get(self, "destination_id")
+
+    @destination_id.setter
+    def destination_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_id", value)
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> pulumi.Input[Union[str, 'DestinationType']]:
+        """
+        Type of destination. Input can be IsolationDomain or Direct.
+        """
+        return pulumi.get(self, "destination_type")
+
+    @destination_type.setter
+    def destination_type(self, value: pulumi.Input[Union[str, 'DestinationType']]):
+        pulumi.set(self, "destination_type", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Destination name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="destinationTapRuleId")
+    def destination_tap_rule_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ARM Resource ID of destination Tap Rule that contains match configurations.
+        """
+        return pulumi.get(self, "destination_tap_rule_id")
+
+    @destination_tap_rule_id.setter
+    def destination_tap_rule_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_tap_rule_id", value)
+
+    @property
+    @pulumi.getter(name="isolationDomainProperties")
+    def isolation_domain_properties(self) -> Optional[pulumi.Input['IsolationDomainPropertiesArgs']]:
+        """
+        Isolation Domain Properties.
+        """
+        return pulumi.get(self, "isolation_domain_properties")
+
+    @isolation_domain_properties.setter
+    def isolation_domain_properties(self, value: Optional[pulumi.Input['IsolationDomainPropertiesArgs']]):
+        pulumi.set(self, "isolation_domain_properties", value)
+
+
+@pulumi.input_type
+class NetworkTapRuleActionArgs:
+    def __init__(__self__, *,
+                 destination_id: Optional[pulumi.Input[str]] = None,
+                 is_timestamp_enabled: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]] = None,
+                 match_configuration_name: Optional[pulumi.Input[str]] = None,
+                 truncate: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'TapRuleActionType']]] = None):
+        """
+        Action that need to performed.
+        :param pulumi.Input[str] destination_id: Destination Id. The ARM resource Id may be either Network To Network Interconnect or NeighborGroup.
+        :param pulumi.Input[Union[str, 'BooleanEnumProperty']] is_timestamp_enabled: The parameter to enable or disable the timestamp.
+        :param pulumi.Input[str] match_configuration_name: The name of the match configuration. This is used when Goto type is provided. If Goto type is selected and no match configuration name is provided. It goes to next configuration.
+        :param pulumi.Input[str] truncate: Truncate. 0 indicates do not truncate.
+        :param pulumi.Input[Union[str, 'TapRuleActionType']] type: Type of actions that can be performed.
+        """
+        if destination_id is not None:
+            pulumi.set(__self__, "destination_id", destination_id)
+        if is_timestamp_enabled is not None:
+            pulumi.set(__self__, "is_timestamp_enabled", is_timestamp_enabled)
+        if match_configuration_name is not None:
+            pulumi.set(__self__, "match_configuration_name", match_configuration_name)
+        if truncate is not None:
+            pulumi.set(__self__, "truncate", truncate)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="destinationId")
+    def destination_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Destination Id. The ARM resource Id may be either Network To Network Interconnect or NeighborGroup.
+        """
+        return pulumi.get(self, "destination_id")
+
+    @destination_id.setter
+    def destination_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_id", value)
+
+    @property
+    @pulumi.getter(name="isTimestampEnabled")
+    def is_timestamp_enabled(self) -> Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]]:
+        """
+        The parameter to enable or disable the timestamp.
+        """
+        return pulumi.get(self, "is_timestamp_enabled")
+
+    @is_timestamp_enabled.setter
+    def is_timestamp_enabled(self, value: Optional[pulumi.Input[Union[str, 'BooleanEnumProperty']]]):
+        pulumi.set(self, "is_timestamp_enabled", value)
+
+    @property
+    @pulumi.getter(name="matchConfigurationName")
+    def match_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the match configuration. This is used when Goto type is provided. If Goto type is selected and no match configuration name is provided. It goes to next configuration.
+        """
+        return pulumi.get(self, "match_configuration_name")
+
+    @match_configuration_name.setter
+    def match_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_configuration_name", value)
+
+    @property
+    @pulumi.getter
+    def truncate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Truncate. 0 indicates do not truncate.
+        """
+        return pulumi.get(self, "truncate")
+
+    @truncate.setter
+    def truncate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "truncate", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'TapRuleActionType']]]:
+        """
+        Type of actions that can be performed.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'TapRuleActionType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class NetworkTapRuleMatchConditionArgs:
+    def __init__(__self__, *,
+                 encapsulation_type: Optional[pulumi.Input[Union[str, 'EncapsulationType']]] = None,
+                 ip_condition: Optional[pulumi.Input['IpMatchConditionArgs']] = None,
+                 port_condition: Optional[pulumi.Input['PortConditionArgs']] = None,
+                 protocol_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vlan_match_condition: Optional[pulumi.Input['VlanMatchConditionArgs']] = None):
+        """
+        Defines the match condition that is supported to filter the traffic.
+        :param pulumi.Input[Union[str, 'EncapsulationType']] encapsulation_type: Encapsulation Type.
+        :param pulumi.Input['IpMatchConditionArgs'] ip_condition: IP condition that needs to be matched.
+        :param pulumi.Input['PortConditionArgs'] port_condition: Defines the port condition that needs to be matched.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] protocol_types: List of the protocols that need to be matched.
+        :param pulumi.Input['VlanMatchConditionArgs'] vlan_match_condition: Vlan match condition that needs to be matched.
+        """
+        if encapsulation_type is None:
+            encapsulation_type = 'None'
+        if encapsulation_type is not None:
+            pulumi.set(__self__, "encapsulation_type", encapsulation_type)
+        if ip_condition is not None:
+            pulumi.set(__self__, "ip_condition", ip_condition)
+        if port_condition is not None:
+            pulumi.set(__self__, "port_condition", port_condition)
+        if protocol_types is not None:
+            pulumi.set(__self__, "protocol_types", protocol_types)
+        if vlan_match_condition is not None:
+            pulumi.set(__self__, "vlan_match_condition", vlan_match_condition)
+
+    @property
+    @pulumi.getter(name="encapsulationType")
+    def encapsulation_type(self) -> Optional[pulumi.Input[Union[str, 'EncapsulationType']]]:
+        """
+        Encapsulation Type.
+        """
+        return pulumi.get(self, "encapsulation_type")
+
+    @encapsulation_type.setter
+    def encapsulation_type(self, value: Optional[pulumi.Input[Union[str, 'EncapsulationType']]]):
+        pulumi.set(self, "encapsulation_type", value)
+
+    @property
+    @pulumi.getter(name="ipCondition")
+    def ip_condition(self) -> Optional[pulumi.Input['IpMatchConditionArgs']]:
+        """
+        IP condition that needs to be matched.
+        """
+        return pulumi.get(self, "ip_condition")
+
+    @ip_condition.setter
+    def ip_condition(self, value: Optional[pulumi.Input['IpMatchConditionArgs']]):
+        pulumi.set(self, "ip_condition", value)
+
+    @property
+    @pulumi.getter(name="portCondition")
+    def port_condition(self) -> Optional[pulumi.Input['PortConditionArgs']]:
+        """
+        Defines the port condition that needs to be matched.
+        """
+        return pulumi.get(self, "port_condition")
+
+    @port_condition.setter
+    def port_condition(self, value: Optional[pulumi.Input['PortConditionArgs']]):
+        pulumi.set(self, "port_condition", value)
+
+    @property
+    @pulumi.getter(name="protocolTypes")
+    def protocol_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the protocols that need to be matched.
+        """
+        return pulumi.get(self, "protocol_types")
+
+    @protocol_types.setter
+    def protocol_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "protocol_types", value)
+
+    @property
+    @pulumi.getter(name="vlanMatchCondition")
+    def vlan_match_condition(self) -> Optional[pulumi.Input['VlanMatchConditionArgs']]:
+        """
+        Vlan match condition that needs to be matched.
+        """
+        return pulumi.get(self, "vlan_match_condition")
+
+    @vlan_match_condition.setter
+    def vlan_match_condition(self, value: Optional[pulumi.Input['VlanMatchConditionArgs']]):
+        pulumi.set(self, "vlan_match_condition", value)
+
+
+@pulumi.input_type
+class NetworkTapRuleMatchConfigurationArgs:
+    def __init__(__self__, *,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]] = None,
+                 ip_address_type: Optional[pulumi.Input[Union[str, 'IPAddressType']]] = None,
+                 match_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]] = None,
+                 match_configuration_name: Optional[pulumi.Input[str]] = None,
+                 sequence_number: Optional[pulumi.Input[float]] = None):
+        """
+        Defines the match configuration that are supported to filter the traffic.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]] actions: List of actions that need to be performed for the matched conditions.
+        :param pulumi.Input[Union[str, 'IPAddressType']] ip_address_type: Type of IP Address. IPv4 or IPv6
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]] match_conditions: List of the match conditions.
+        :param pulumi.Input[str] match_configuration_name: The name of the match configuration.
+        :param pulumi.Input[float] sequence_number: Sequence Number of the match configuration..
+        """
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
+        if match_conditions is not None:
+            pulumi.set(__self__, "match_conditions", match_conditions)
+        if match_configuration_name is not None:
+            pulumi.set(__self__, "match_configuration_name", match_configuration_name)
+        if sequence_number is not None:
+            pulumi.set(__self__, "sequence_number", sequence_number)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]]:
+        """
+        List of actions that need to be performed for the matched conditions.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleActionArgs']]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[Union[str, 'IPAddressType']]]:
+        """
+        Type of IP Address. IPv4 or IPv6
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[Union[str, 'IPAddressType']]]):
+        pulumi.set(self, "ip_address_type", value)
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]]:
+        """
+        List of the match conditions.
+        """
+        return pulumi.get(self, "match_conditions")
+
+    @match_conditions.setter
+    def match_conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConditionArgs']]]]):
+        pulumi.set(self, "match_conditions", value)
+
+    @property
+    @pulumi.getter(name="matchConfigurationName")
+    def match_configuration_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the match configuration.
+        """
+        return pulumi.get(self, "match_configuration_name")
+
+    @match_configuration_name.setter
+    def match_configuration_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_configuration_name", value)
+
+    @property
+    @pulumi.getter(name="sequenceNumber")
+    def sequence_number(self) -> Optional[pulumi.Input[float]]:
+        """
+        Sequence Number of the match configuration..
+        """
+        return pulumi.get(self, "sequence_number")
+
+    @sequence_number.setter
+    def sequence_number(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "sequence_number", value)
+
+
+@pulumi.input_type
 class OptionAPropertiesArgs:
     def __init__(__self__, *,
                  mtu: Optional[pulumi.Input[int]] = None,
@@ -1333,6 +1962,117 @@ class OptionBPropertiesArgs:
 
 
 @pulumi.input_type
+class PortConditionArgs:
+    def __init__(__self__, *,
+                 layer4_protocol: pulumi.Input[Union[str, 'Layer4Protocol']],
+                 port_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 port_type: Optional[pulumi.Input[Union[str, 'PortType']]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Port condition that needs to be matched.
+        :param pulumi.Input[Union[str, 'Layer4Protocol']] layer4_protocol: Layer4 protocol type that needs to be matched.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_group_names: List of the port Group Names that to be matched.
+        :param pulumi.Input[Union[str, 'PortType']] port_type: Port type that needs to be matched.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ports: List of the Ports that need to be matched.
+        """
+        pulumi.set(__self__, "layer4_protocol", layer4_protocol)
+        if port_group_names is not None:
+            pulumi.set(__self__, "port_group_names", port_group_names)
+        if port_type is not None:
+            pulumi.set(__self__, "port_type", port_type)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter(name="layer4Protocol")
+    def layer4_protocol(self) -> pulumi.Input[Union[str, 'Layer4Protocol']]:
+        """
+        Layer4 protocol type that needs to be matched.
+        """
+        return pulumi.get(self, "layer4_protocol")
+
+    @layer4_protocol.setter
+    def layer4_protocol(self, value: pulumi.Input[Union[str, 'Layer4Protocol']]):
+        pulumi.set(self, "layer4_protocol", value)
+
+    @property
+    @pulumi.getter(name="portGroupNames")
+    def port_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the port Group Names that to be matched.
+        """
+        return pulumi.get(self, "port_group_names")
+
+    @port_group_names.setter
+    def port_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "port_group_names", value)
+
+    @property
+    @pulumi.getter(name="portType")
+    def port_type(self) -> Optional[pulumi.Input[Union[str, 'PortType']]]:
+        """
+        Port type that needs to be matched.
+        """
+        return pulumi.get(self, "port_type")
+
+    @port_type.setter
+    def port_type(self, value: Optional[pulumi.Input[Union[str, 'PortType']]]):
+        pulumi.set(self, "port_type", value)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the Ports that need to be matched.
+        """
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ports", value)
+
+
+@pulumi.input_type
+class PortGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 ports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Port Group properties.
+        :param pulumi.Input[str] name: The name of the port group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ports: List of the ports that needs to be matched.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the port group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of the ports that needs to be matched.
+        """
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "ports", value)
+
+
+@pulumi.input_type
 class RoutePolicyStatementPropertiesArgs:
     def __init__(__self__, *,
                  action: pulumi.Input['StatementActionPropertiesArgs'],
@@ -1399,6 +2139,44 @@ class RoutePolicyStatementPropertiesArgs:
     @annotation.setter
     def annotation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "annotation", value)
+
+
+@pulumi.input_type
+class RulePropertiesArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[Union[str, 'Action']],
+                 address_list: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Rules for the InternetGateways
+        :param pulumi.Input[Union[str, 'Action']] action: Specify action.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] address_list: List of Addresses to be allowed or denied.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "address_list", address_list)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[Union[str, 'Action']]:
+        """
+        Specify action.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[Union[str, 'Action']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="addressList")
+    def address_list(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of Addresses to be allowed or denied.
+        """
+        return pulumi.get(self, "address_list")
+
+    @address_list.setter
+    def address_list(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "address_list", value)
 
 
 @pulumi.input_type
@@ -1720,6 +2498,102 @@ class TerminalServerConfigurationArgs:
     @serial_number.setter
     def serial_number(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "serial_number", value)
+
+
+@pulumi.input_type
+class VlanGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Vlan group properties.
+        :param pulumi.Input[str] name: Vlan group name.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: List of vlans.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if vlans is not None:
+            pulumi.set(__self__, "vlans", vlans)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Vlan group name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of vlans.
+        """
+        return pulumi.get(self, "vlans")
+
+    @vlans.setter
+    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vlans", value)
+
+
+@pulumi.input_type
+class VlanMatchConditionArgs:
+    def __init__(__self__, *,
+                 inner_vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vlan_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The vlan match conditions that needs to be matched.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] inner_vlans: List of inner vlans that needs to be matched.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlan_group_names: List of vlan group names that to be matched.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: List of vlans that needs to be matched.
+        """
+        if inner_vlans is not None:
+            pulumi.set(__self__, "inner_vlans", inner_vlans)
+        if vlan_group_names is not None:
+            pulumi.set(__self__, "vlan_group_names", vlan_group_names)
+        if vlans is not None:
+            pulumi.set(__self__, "vlans", vlans)
+
+    @property
+    @pulumi.getter(name="innerVlans")
+    def inner_vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of inner vlans that needs to be matched.
+        """
+        return pulumi.get(self, "inner_vlans")
+
+    @inner_vlans.setter
+    def inner_vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "inner_vlans", value)
+
+    @property
+    @pulumi.getter(name="vlanGroupNames")
+    def vlan_group_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of vlan group names that to be matched.
+        """
+        return pulumi.get(self, "vlan_group_names")
+
+    @vlan_group_names.setter
+    def vlan_group_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vlan_group_names", value)
+
+    @property
+    @pulumi.getter
+    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of vlans that needs to be matched.
+        """
+        return pulumi.get(self, "vlans")
+
+    @vlans.setter
+    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vlans", value)
 
 
 @pulumi.input_type

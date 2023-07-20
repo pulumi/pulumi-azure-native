@@ -927,6 +927,7 @@
   },
   "ElasticSan": {
     "ElasticSan": "2021-11-20-preview",
+    "PrivateEndpointConnection": "2022-12-01-preview",
     "Volume": "2021-11-20-preview",
     "VolumeGroup": "2021-11-20-preview"
   },
@@ -1348,6 +1349,8 @@
   "Maintenance": {
     "ConfigurationAssignment": "2022-11-01-preview",
     "ConfigurationAssignmentParent": "2022-11-01-preview",
+    "ConfigurationAssignmentsForResourceGroup": "2023-04-01",
+    "ConfigurationAssignmentsForSubscription": "2023-04-01",
     "MaintenanceConfiguration": "2022-11-01-preview"
   },
   "ManagedIdentity": {
@@ -1365,22 +1368,29 @@
     "AccessControlList": "2023-02-01-preview",
     "ExternalNetwork": "2023-02-01-preview",
     "InternalNetwork": "2023-02-01-preview",
+    "InternetGateway": "2023-06-15",
+    "InternetGatewayRule": "2023-06-15",
     "IpCommunity": "2023-02-01-preview",
     "IpExtendedCommunity": "2023-02-01-preview",
     "IpPrefix": "2023-02-01-preview",
     "L2IsolationDomain": "2023-02-01-preview",
     "L3IsolationDomain": "2023-02-01-preview",
+    "NeighborGroup": "2023-06-15",
     "NetworkDevice": "2023-02-01-preview",
     "NetworkFabric": "2023-02-01-preview",
     "NetworkFabricController": "2023-02-01-preview",
     "NetworkInterface": "2023-02-01-preview",
+    "NetworkPacketBroker": "2023-06-15",
     "NetworkRack": "2023-02-01-preview",
+    "NetworkTap": "2023-06-15",
+    "NetworkTapRule": "2023-06-15",
     "NetworkToNetworkInterconnect": "2023-02-01-preview",
     "RoutePolicy": "2023-02-01-preview",
     "getL2IsolationDomainArpEntries": "2023-02-01-preview",
     "getNetworkDeviceDynamicInterfaceMaps": "2023-02-01-preview",
     "getNetworkDeviceStaticInterfaceMaps": "2023-02-01-preview",
     "getNetworkDeviceStatus": "2023-02-01-preview",
+    "getNetworkFabricTopology": "2023-06-15",
     "getNetworkInterfaceStatus": "2023-02-01-preview"
   },
   "ManagedServices": {

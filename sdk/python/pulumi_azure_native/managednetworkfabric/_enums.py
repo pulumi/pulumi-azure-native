@@ -5,19 +5,40 @@
 from enum import Enum
 
 __all__ = [
+    'Action',
     'AddressFamily',
     'AllowASOverride',
     'BooleanEnumProperty',
     'CommunityActionTypes',
     'Condition',
     'ConditionActionType',
+    'ConfigurationType',
+    'DestinationType',
+    'Encapsulation',
+    'EncapsulationType',
+    'GatewayType',
+    'IPAddressType',
+    'Layer4Protocol',
     'NetworkDeviceRoleTypes',
     'NniType',
     'PeeringOption',
+    'PollingType',
+    'PortType',
+    'PrefixType',
     'RedistributeConnectedSubnets',
     'RedistributeStaticRoutes',
+    'SourceDestinationType',
+    'TapRuleActionType',
     'WellKnownCommunities',
 ]
+
+
+class Action(str, Enum):
+    """
+    Specify action.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
 
 
 class AddressFamily(str, Enum):
@@ -69,6 +90,62 @@ class ConditionActionType(str, Enum):
     DENY = "deny"
 
 
+class ConfigurationType(str, Enum):
+    """
+    Input method to configure Network Tap Rule.
+    """
+    FILE = "File"
+    INLINE = "Inline"
+
+
+class DestinationType(str, Enum):
+    """
+    Type of destination. Input can be IsolationDomain or Direct.
+    """
+    ISOLATION_DOMAIN = "IsolationDomain"
+    DIRECT = "Direct"
+
+
+class Encapsulation(str, Enum):
+    """
+    Type of encapsulation.
+    """
+    NONE = "None"
+    GRE = "GRE"
+
+
+class EncapsulationType(str, Enum):
+    """
+    Encapsulation Type.
+    """
+    NONE = "None"
+    GT_PV1 = "GTPv1"
+
+
+class GatewayType(str, Enum):
+    """
+    Gateway Type of the resource.
+    """
+    INFRASTRUCTURE = "Infrastructure"
+    WORKLOAD = "Workload"
+
+
+class IPAddressType(str, Enum):
+    """
+    Type of IP Address. IPv4 or IPv6
+    """
+    I_PV4 = "IPv4"
+    I_PV6 = "IPv6"
+
+
+class Layer4Protocol(str, Enum):
+    """
+    Layer4 protocol type that needs to be matched.
+    """
+    TCP = "TCP"
+    UDP = "UDP"
+
+
 class NetworkDeviceRoleTypes(str, Enum):
     """
     networkDeviceRole is the device role: Example: CE | ToR.
@@ -96,6 +173,30 @@ class PeeringOption(str, Enum):
     OPTION_B = "OptionB"
 
 
+class PollingType(str, Enum):
+    """
+    Polling type.
+    """
+    PULL = "Pull"
+    PUSH = "Push"
+
+
+class PortType(str, Enum):
+    """
+    Port type that needs to be matched.
+    """
+    SOURCE_PORT = "SourcePort"
+    DESTINATION_PORT = "DestinationPort"
+
+
+class PrefixType(str, Enum):
+    """
+    IP Prefix Type.
+    """
+    PREFIX = "Prefix"
+    LONGEST_PREFIX = "LongestPrefix"
+
+
 class RedistributeConnectedSubnets(str, Enum):
     """
     Advertise Connected Subnets. Ex: "True" | "False".
@@ -110,6 +211,27 @@ class RedistributeStaticRoutes(str, Enum):
     """
     TRUE = "True"
     FALSE = "False"
+
+
+class SourceDestinationType(str, Enum):
+    """
+    IP Address type.
+    """
+    SOURCE_IP = "SourceIP"
+    DESTINATION_IP = "DestinationIP"
+
+
+class TapRuleActionType(str, Enum):
+    """
+    Type of actions that can be performed.
+    """
+    DROP = "Drop"
+    COUNT = "Count"
+    LOG = "Log"
+    REPLICATE = "Replicate"
+    GOTO = "Goto"
+    REDIRECT = "Redirect"
+    MIRROR = "Mirror"
 
 
 class WellKnownCommunities(str, Enum):

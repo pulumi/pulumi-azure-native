@@ -8,8 +8,10 @@ import typing
 from ._enums import *
 from .elastic_san import *
 from .get_elastic_san import *
+from .get_private_endpoint_connection import *
 from .get_volume import *
 from .get_volume_group import *
+from .private_endpoint_connection import *
 from .volume import *
 from .volume_group import *
 from ._inputs import *
@@ -19,6 +21,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.elasticsan.v20211120preview as __v20211120preview
     v20211120preview = __v20211120preview
+    import pulumi_azure_native.elasticsan.v20221201preview as __v20221201preview
+    v20221201preview = __v20221201preview
 else:
     v20211120preview = _utilities.lazy_import('pulumi_azure_native.elasticsan.v20211120preview')
+    v20221201preview = _utilities.lazy_import('pulumi_azure_native.elasticsan.v20221201preview')
 

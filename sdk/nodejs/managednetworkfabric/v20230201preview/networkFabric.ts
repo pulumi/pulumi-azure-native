@@ -204,7 +204,7 @@ export class NetworkFabric extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric:NetworkFabric" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric:NetworkFabric" }, { type: "azure-native:managednetworkfabric/v20230615:NetworkFabric" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkFabric.__pulumiType, name, resourceInputs, opts);
     }

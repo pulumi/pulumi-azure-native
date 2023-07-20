@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20220930preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20230630:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

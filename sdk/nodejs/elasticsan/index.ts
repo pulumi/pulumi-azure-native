@@ -15,6 +15,11 @@ export const getElasticSan: typeof import("./getElasticSan").getElasticSan = nul
 export const getElasticSanOutput: typeof import("./getElasticSan").getElasticSanOutput = null as any;
 utilities.lazyLoad(exports, ["getElasticSan","getElasticSanOutput"], () => require("./getElasticSan"));
 
+export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
+export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
+export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
+
 export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
 export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
@@ -24,6 +29,11 @@ export { GetVolumeGroupArgs, GetVolumeGroupResult, GetVolumeGroupOutputArgs } fr
 export const getVolumeGroup: typeof import("./getVolumeGroup").getVolumeGroup = null as any;
 export const getVolumeGroupOutput: typeof import("./getVolumeGroup").getVolumeGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getVolumeGroup","getVolumeGroupOutput"], () => require("./getVolumeGroup"));
+
+export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
+export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
+export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
 
 export { VolumeArgs } from "./volume";
 export type Volume = import("./volume").Volume;
@@ -41,9 +51,11 @@ export * from "../types/enums/elasticsan";
 
 // Export sub-modules:
 import * as v20211120preview from "./v20211120preview";
+import * as v20221201preview from "./v20221201preview";
 
 export {
     v20211120preview,
+    v20221201preview,
 };
 
 const _module = {
@@ -52,6 +64,8 @@ const _module = {
         switch (type) {
             case "azure-native:elasticsan:ElasticSan":
                 return new ElasticSan(name, <any>undefined, { urn })
+            case "azure-native:elasticsan:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:elasticsan:Volume":
                 return new Volume(name, <any>undefined, { urn })
             case "azure-native:elasticsan:VolumeGroup":

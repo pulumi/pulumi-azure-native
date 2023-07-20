@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.ManagedNetworkFabric
 {
     /// <summary>
+    /// Specify action.
+    /// </summary>
+    [EnumType]
+    public readonly struct Action : IEquatable<Action>
+    {
+        private readonly string _value;
+
+        private Action(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Action Allow { get; } = new Action("Allow");
+        public static Action Deny { get; } = new Action("Deny");
+
+        public static bool operator ==(Action left, Action right) => left.Equals(right);
+        public static bool operator !=(Action left, Action right) => !left.Equals(right);
+
+        public static explicit operator string(Action value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Action other && Equals(other);
+        public bool Equals(Action other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// IP address family. Example: ipv4 | ipv6.
     /// </summary>
     [EnumType]
@@ -195,6 +226,223 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     }
 
     /// <summary>
+    /// Input method to configure Network Tap Rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
+    {
+        private readonly string _value;
+
+        private ConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfigurationType File { get; } = new ConfigurationType("File");
+        public static ConfigurationType Inline { get; } = new ConfigurationType("Inline");
+
+        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
+        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of destination. Input can be IsolationDomain or Direct.
+    /// </summary>
+    [EnumType]
+    public readonly struct DestinationType : IEquatable<DestinationType>
+    {
+        private readonly string _value;
+
+        private DestinationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DestinationType IsolationDomain { get; } = new DestinationType("IsolationDomain");
+        public static DestinationType Direct { get; } = new DestinationType("Direct");
+
+        public static bool operator ==(DestinationType left, DestinationType right) => left.Equals(right);
+        public static bool operator !=(DestinationType left, DestinationType right) => !left.Equals(right);
+
+        public static explicit operator string(DestinationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DestinationType other && Equals(other);
+        public bool Equals(DestinationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of encapsulation.
+    /// </summary>
+    [EnumType]
+    public readonly struct Encapsulation : IEquatable<Encapsulation>
+    {
+        private readonly string _value;
+
+        private Encapsulation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Encapsulation None { get; } = new Encapsulation("None");
+        public static Encapsulation GRE { get; } = new Encapsulation("GRE");
+
+        public static bool operator ==(Encapsulation left, Encapsulation right) => left.Equals(right);
+        public static bool operator !=(Encapsulation left, Encapsulation right) => !left.Equals(right);
+
+        public static explicit operator string(Encapsulation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Encapsulation other && Equals(other);
+        public bool Equals(Encapsulation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Encapsulation Type.
+    /// </summary>
+    [EnumType]
+    public readonly struct EncapsulationType : IEquatable<EncapsulationType>
+    {
+        private readonly string _value;
+
+        private EncapsulationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EncapsulationType None { get; } = new EncapsulationType("None");
+        public static EncapsulationType GTPv1 { get; } = new EncapsulationType("GTPv1");
+
+        public static bool operator ==(EncapsulationType left, EncapsulationType right) => left.Equals(right);
+        public static bool operator !=(EncapsulationType left, EncapsulationType right) => !left.Equals(right);
+
+        public static explicit operator string(EncapsulationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EncapsulationType other && Equals(other);
+        public bool Equals(EncapsulationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gateway Type of the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct GatewayType : IEquatable<GatewayType>
+    {
+        private readonly string _value;
+
+        private GatewayType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayType Infrastructure { get; } = new GatewayType("Infrastructure");
+        public static GatewayType Workload { get; } = new GatewayType("Workload");
+
+        public static bool operator ==(GatewayType left, GatewayType right) => left.Equals(right);
+        public static bool operator !=(GatewayType left, GatewayType right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayType other && Equals(other);
+        public bool Equals(GatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of IP Address. IPv4 or IPv6
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAddressType : IEquatable<IPAddressType>
+    {
+        private readonly string _value;
+
+        private IPAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAddressType IPv4 { get; } = new IPAddressType("IPv4");
+        public static IPAddressType IPv6 { get; } = new IPAddressType("IPv6");
+
+        public static bool operator ==(IPAddressType left, IPAddressType right) => left.Equals(right);
+        public static bool operator !=(IPAddressType left, IPAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(IPAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAddressType other && Equals(other);
+        public bool Equals(IPAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Layer4 protocol type that needs to be matched.
+    /// </summary>
+    [EnumType]
+    public readonly struct Layer4Protocol : IEquatable<Layer4Protocol>
+    {
+        private readonly string _value;
+
+        private Layer4Protocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Layer4Protocol TCP { get; } = new Layer4Protocol("TCP");
+        public static Layer4Protocol UDP { get; } = new Layer4Protocol("UDP");
+
+        public static bool operator ==(Layer4Protocol left, Layer4Protocol right) => left.Equals(right);
+        public static bool operator !=(Layer4Protocol left, Layer4Protocol right) => !left.Equals(right);
+
+        public static explicit operator string(Layer4Protocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Layer4Protocol other && Equals(other);
+        public bool Equals(Layer4Protocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// networkDeviceRole is the device role: Example: CE | ToR.
     /// </summary>
     [EnumType]
@@ -291,6 +539,99 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     }
 
     /// <summary>
+    /// Polling type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PollingType : IEquatable<PollingType>
+    {
+        private readonly string _value;
+
+        private PollingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PollingType Pull { get; } = new PollingType("Pull");
+        public static PollingType Push { get; } = new PollingType("Push");
+
+        public static bool operator ==(PollingType left, PollingType right) => left.Equals(right);
+        public static bool operator !=(PollingType left, PollingType right) => !left.Equals(right);
+
+        public static explicit operator string(PollingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PollingType other && Equals(other);
+        public bool Equals(PollingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Port type that needs to be matched.
+    /// </summary>
+    [EnumType]
+    public readonly struct PortType : IEquatable<PortType>
+    {
+        private readonly string _value;
+
+        private PortType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PortType SourcePort { get; } = new PortType("SourcePort");
+        public static PortType DestinationPort { get; } = new PortType("DestinationPort");
+
+        public static bool operator ==(PortType left, PortType right) => left.Equals(right);
+        public static bool operator !=(PortType left, PortType right) => !left.Equals(right);
+
+        public static explicit operator string(PortType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PortType other && Equals(other);
+        public bool Equals(PortType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// IP Prefix Type.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrefixType : IEquatable<PrefixType>
+    {
+        private readonly string _value;
+
+        private PrefixType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrefixType Prefix { get; } = new PrefixType("Prefix");
+        public static PrefixType LongestPrefix { get; } = new PrefixType("LongestPrefix");
+
+        public static bool operator ==(PrefixType left, PrefixType right) => left.Equals(right);
+        public static bool operator !=(PrefixType left, PrefixType right) => !left.Equals(right);
+
+        public static explicit operator string(PrefixType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrefixType other && Equals(other);
+        public bool Equals(PrefixType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Advertise Connected Subnets. Ex: "True" | "False".
     /// </summary>
     [EnumType]
@@ -345,6 +686,73 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RedistributeStaticRoutes other && Equals(other);
         public bool Equals(RedistributeStaticRoutes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// IP Address type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SourceDestinationType : IEquatable<SourceDestinationType>
+    {
+        private readonly string _value;
+
+        private SourceDestinationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SourceDestinationType SourceIP { get; } = new SourceDestinationType("SourceIP");
+        public static SourceDestinationType DestinationIP { get; } = new SourceDestinationType("DestinationIP");
+
+        public static bool operator ==(SourceDestinationType left, SourceDestinationType right) => left.Equals(right);
+        public static bool operator !=(SourceDestinationType left, SourceDestinationType right) => !left.Equals(right);
+
+        public static explicit operator string(SourceDestinationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SourceDestinationType other && Equals(other);
+        public bool Equals(SourceDestinationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of actions that can be performed.
+    /// </summary>
+    [EnumType]
+    public readonly struct TapRuleActionType : IEquatable<TapRuleActionType>
+    {
+        private readonly string _value;
+
+        private TapRuleActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TapRuleActionType Drop { get; } = new TapRuleActionType("Drop");
+        public static TapRuleActionType Count { get; } = new TapRuleActionType("Count");
+        public static TapRuleActionType Log { get; } = new TapRuleActionType("Log");
+        public static TapRuleActionType Replicate { get; } = new TapRuleActionType("Replicate");
+        public static TapRuleActionType Goto { get; } = new TapRuleActionType("Goto");
+        public static TapRuleActionType Redirect { get; } = new TapRuleActionType("Redirect");
+        public static TapRuleActionType Mirror { get; } = new TapRuleActionType("Mirror");
+
+        public static bool operator ==(TapRuleActionType left, TapRuleActionType right) => left.Equals(right);
+        public static bool operator !=(TapRuleActionType left, TapRuleActionType right) => !left.Equals(right);
+
+        public static explicit operator string(TapRuleActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TapRuleActionType other && Equals(other);
+        public bool Equals(TapRuleActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -3860,6 +3860,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dbformysql/v20230630",
+  "fqn": "pulumi_azure_native.dbformysql.v20230630",
+  "classes": {
+   "azure-native:dbformysql/v20230630:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "dbforpostgresql",
   "fqn": "pulumi_azure_native.dbforpostgresql",
   "classes": {
@@ -4628,6 +4636,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.elasticsan",
   "classes": {
    "azure-native:elasticsan:ElasticSan": "ElasticSan",
+   "azure-native:elasticsan:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:elasticsan:Volume": "Volume",
    "azure-native:elasticsan:VolumeGroup": "VolumeGroup"
   }
@@ -4640,6 +4649,17 @@ _utilities.register(
    "azure-native:elasticsan/v20211120preview:ElasticSan": "ElasticSan",
    "azure-native:elasticsan/v20211120preview:Volume": "Volume",
    "azure-native:elasticsan/v20211120preview:VolumeGroup": "VolumeGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "elasticsan/v20221201preview",
+  "fqn": "pulumi_azure_native.elasticsan.v20221201preview",
+  "classes": {
+   "azure-native:elasticsan/v20221201preview:ElasticSan": "ElasticSan",
+   "azure-native:elasticsan/v20221201preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:elasticsan/v20221201preview:Volume": "Volume",
+   "azure-native:elasticsan/v20221201preview:VolumeGroup": "VolumeGroup"
   }
  },
  {
@@ -6474,6 +6494,8 @@ _utilities.register(
   "classes": {
    "azure-native:maintenance:ConfigurationAssignment": "ConfigurationAssignment",
    "azure-native:maintenance:ConfigurationAssignmentParent": "ConfigurationAssignmentParent",
+   "azure-native:maintenance:ConfigurationAssignmentsForResourceGroup": "ConfigurationAssignmentsForResourceGroup",
+   "azure-native:maintenance:ConfigurationAssignmentsForSubscription": "ConfigurationAssignmentsForSubscription",
    "azure-native:maintenance:MaintenanceConfiguration": "MaintenanceConfiguration"
   }
  },
@@ -6485,6 +6507,18 @@ _utilities.register(
    "azure-native:maintenance/v20221101preview:ConfigurationAssignment": "ConfigurationAssignment",
    "azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent": "ConfigurationAssignmentParent",
    "azure-native:maintenance/v20221101preview:MaintenanceConfiguration": "MaintenanceConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "maintenance/v20230401",
+  "fqn": "pulumi_azure_native.maintenance.v20230401",
+  "classes": {
+   "azure-native:maintenance/v20230401:ConfigurationAssignment": "ConfigurationAssignment",
+   "azure-native:maintenance/v20230401:ConfigurationAssignmentParent": "ConfigurationAssignmentParent",
+   "azure-native:maintenance/v20230401:ConfigurationAssignmentsForResourceGroup": "ConfigurationAssignmentsForResourceGroup",
+   "azure-native:maintenance/v20230401:ConfigurationAssignmentsForSubscription": "ConfigurationAssignmentsForSubscription",
+   "azure-native:maintenance/v20230401:MaintenanceConfiguration": "MaintenanceConfiguration"
   }
  },
  {
@@ -6535,16 +6569,22 @@ _utilities.register(
    "azure-native:managednetworkfabric:AccessControlList": "AccessControlList",
    "azure-native:managednetworkfabric:ExternalNetwork": "ExternalNetwork",
    "azure-native:managednetworkfabric:InternalNetwork": "InternalNetwork",
+   "azure-native:managednetworkfabric:InternetGateway": "InternetGateway",
+   "azure-native:managednetworkfabric:InternetGatewayRule": "InternetGatewayRule",
    "azure-native:managednetworkfabric:IpCommunity": "IpCommunity",
    "azure-native:managednetworkfabric:IpExtendedCommunity": "IpExtendedCommunity",
    "azure-native:managednetworkfabric:IpPrefix": "IpPrefix",
    "azure-native:managednetworkfabric:L2IsolationDomain": "L2IsolationDomain",
    "azure-native:managednetworkfabric:L3IsolationDomain": "L3IsolationDomain",
+   "azure-native:managednetworkfabric:NeighborGroup": "NeighborGroup",
    "azure-native:managednetworkfabric:NetworkDevice": "NetworkDevice",
    "azure-native:managednetworkfabric:NetworkFabric": "NetworkFabric",
    "azure-native:managednetworkfabric:NetworkFabricController": "NetworkFabricController",
    "azure-native:managednetworkfabric:NetworkInterface": "NetworkInterface",
+   "azure-native:managednetworkfabric:NetworkPacketBroker": "NetworkPacketBroker",
    "azure-native:managednetworkfabric:NetworkRack": "NetworkRack",
+   "azure-native:managednetworkfabric:NetworkTap": "NetworkTap",
+   "azure-native:managednetworkfabric:NetworkTapRule": "NetworkTapRule",
    "azure-native:managednetworkfabric:NetworkToNetworkInterconnect": "NetworkToNetworkInterconnect",
    "azure-native:managednetworkfabric:RoutePolicy": "RoutePolicy"
   }
@@ -6569,6 +6609,34 @@ _utilities.register(
    "azure-native:managednetworkfabric/v20230201preview:NetworkRack": "NetworkRack",
    "azure-native:managednetworkfabric/v20230201preview:NetworkToNetworkInterconnect": "NetworkToNetworkInterconnect",
    "azure-native:managednetworkfabric/v20230201preview:RoutePolicy": "RoutePolicy"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "managednetworkfabric/v20230615",
+  "fqn": "pulumi_azure_native.managednetworkfabric.v20230615",
+  "classes": {
+   "azure-native:managednetworkfabric/v20230615:AccessControlList": "AccessControlList",
+   "azure-native:managednetworkfabric/v20230615:ExternalNetwork": "ExternalNetwork",
+   "azure-native:managednetworkfabric/v20230615:InternalNetwork": "InternalNetwork",
+   "azure-native:managednetworkfabric/v20230615:InternetGateway": "InternetGateway",
+   "azure-native:managednetworkfabric/v20230615:InternetGatewayRule": "InternetGatewayRule",
+   "azure-native:managednetworkfabric/v20230615:IpCommunity": "IpCommunity",
+   "azure-native:managednetworkfabric/v20230615:IpExtendedCommunity": "IpExtendedCommunity",
+   "azure-native:managednetworkfabric/v20230615:IpPrefix": "IpPrefix",
+   "azure-native:managednetworkfabric/v20230615:L2IsolationDomain": "L2IsolationDomain",
+   "azure-native:managednetworkfabric/v20230615:L3IsolationDomain": "L3IsolationDomain",
+   "azure-native:managednetworkfabric/v20230615:NeighborGroup": "NeighborGroup",
+   "azure-native:managednetworkfabric/v20230615:NetworkDevice": "NetworkDevice",
+   "azure-native:managednetworkfabric/v20230615:NetworkFabric": "NetworkFabric",
+   "azure-native:managednetworkfabric/v20230615:NetworkFabricController": "NetworkFabricController",
+   "azure-native:managednetworkfabric/v20230615:NetworkInterface": "NetworkInterface",
+   "azure-native:managednetworkfabric/v20230615:NetworkPacketBroker": "NetworkPacketBroker",
+   "azure-native:managednetworkfabric/v20230615:NetworkRack": "NetworkRack",
+   "azure-native:managednetworkfabric/v20230615:NetworkTap": "NetworkTap",
+   "azure-native:managednetworkfabric/v20230615:NetworkTapRule": "NetworkTapRule",
+   "azure-native:managednetworkfabric/v20230615:NetworkToNetworkInterconnect": "NetworkToNetworkInterconnect",
+   "azure-native:managednetworkfabric/v20230615:RoutePolicy": "RoutePolicy"
   }
  },
  {
@@ -9834,6 +9902,18 @@ _utilities.register(
    "azure-native:storagemover/v20230301:JobDefinition": "JobDefinition",
    "azure-native:storagemover/v20230301:Project": "Project",
    "azure-native:storagemover/v20230301:StorageMover": "StorageMover"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storagemover/v20230701preview",
+  "fqn": "pulumi_azure_native.storagemover.v20230701preview",
+  "classes": {
+   "azure-native:storagemover/v20230701preview:Agent": "Agent",
+   "azure-native:storagemover/v20230701preview:Endpoint": "Endpoint",
+   "azure-native:storagemover/v20230701preview:JobDefinition": "JobDefinition",
+   "azure-native:storagemover/v20230701preview:Project": "Project",
+   "azure-native:storagemover/v20230701preview:StorageMover": "StorageMover"
   }
  },
  {

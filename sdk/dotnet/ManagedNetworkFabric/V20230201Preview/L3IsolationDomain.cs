@@ -137,6 +137,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric:L3IsolationDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:L3IsolationDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

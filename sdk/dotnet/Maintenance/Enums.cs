@@ -97,6 +97,37 @@ namespace Pulumi.AzureNative.Maintenance
     }
 
     /// <summary>
+    /// Filter VMs by Any or All specified tags.
+    /// </summary>
+    [EnumType]
+    public readonly struct TagOperators : IEquatable<TagOperators>
+    {
+        private readonly string _value;
+
+        private TagOperators(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TagOperators All { get; } = new TagOperators("All");
+        public static TagOperators Any { get; } = new TagOperators("Any");
+
+        public static bool operator ==(TagOperators left, TagOperators right) => left.Equals(right);
+        public static bool operator !=(TagOperators left, TagOperators right) => !left.Equals(right);
+
+        public static explicit operator string(TagOperators value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TagOperators other && Equals(other);
+        public bool Equals(TagOperators other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Global Task execute once when schedule trigger. Resource task execute for each VM.
     /// </summary>
     [EnumType]

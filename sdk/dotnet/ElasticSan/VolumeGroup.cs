@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.ElasticSan
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20211120preview:VolumeGroup"},
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20221201preview:VolumeGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

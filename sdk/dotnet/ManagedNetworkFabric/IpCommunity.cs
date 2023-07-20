@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230201preview:IpCommunity"},
+                    new global::Pulumi.Alias { Type = "azure-native:managednetworkfabric/v20230615:IpCommunity"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

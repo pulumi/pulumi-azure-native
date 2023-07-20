@@ -136,7 +136,7 @@ export class L2IsolationDomain extends pulumi.CustomResource {
             resourceInputs["vlanId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:L2IsolationDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:managednetworkfabric/v20230201preview:L2IsolationDomain" }, { type: "azure-native:managednetworkfabric/v20230615:L2IsolationDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(L2IsolationDomain.__pulumiType, name, resourceInputs, opts);
     }

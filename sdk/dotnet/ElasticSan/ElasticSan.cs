@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.ElasticSan
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20211120preview:ElasticSan"},
+                    new global::Pulumi.Alias { Type = "azure-native:elasticsan/v20221201preview:ElasticSan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

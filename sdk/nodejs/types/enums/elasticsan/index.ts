@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20211120preview from "./v20211120preview";
+import * as v20221201preview from "./v20221201preview";
 
 export {
     v20211120preview,
+    v20221201preview,
 };
 
 export const Action = {
@@ -28,6 +30,18 @@ export const EncryptionType = {
  * Type of encryption
  */
 export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Failed: "Failed",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const SkuName = {
     /**

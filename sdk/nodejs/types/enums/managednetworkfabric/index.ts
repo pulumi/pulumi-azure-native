@@ -3,10 +3,22 @@
 
 // Export sub-modules:
 import * as v20230201preview from "./v20230201preview";
+import * as v20230615 from "./v20230615";
 
 export {
     v20230201preview,
+    v20230615,
 };
+
+export const Action = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * Specify action.
+ */
+export type Action = (typeof Action)[keyof typeof Action];
 
 export const AddressFamily = {
     Ipv4: "ipv4",
@@ -69,6 +81,76 @@ export const ConditionActionType = {
  */
 export type ConditionActionType = (typeof ConditionActionType)[keyof typeof ConditionActionType];
 
+export const ConfigurationType = {
+    File: "File",
+    Inline: "Inline",
+} as const;
+
+/**
+ * Input method to configure Network Tap Rule.
+ */
+export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
+
+export const DestinationType = {
+    IsolationDomain: "IsolationDomain",
+    Direct: "Direct",
+} as const;
+
+/**
+ * Type of destination. Input can be IsolationDomain or Direct.
+ */
+export type DestinationType = (typeof DestinationType)[keyof typeof DestinationType];
+
+export const Encapsulation = {
+    None: "None",
+    GRE: "GRE",
+} as const;
+
+/**
+ * Type of encapsulation.
+ */
+export type Encapsulation = (typeof Encapsulation)[keyof typeof Encapsulation];
+
+export const EncapsulationType = {
+    None: "None",
+    GTPv1: "GTPv1",
+} as const;
+
+/**
+ * Encapsulation Type.
+ */
+export type EncapsulationType = (typeof EncapsulationType)[keyof typeof EncapsulationType];
+
+export const GatewayType = {
+    Infrastructure: "Infrastructure",
+    Workload: "Workload",
+} as const;
+
+/**
+ * Gateway Type of the resource.
+ */
+export type GatewayType = (typeof GatewayType)[keyof typeof GatewayType];
+
+export const IPAddressType = {
+    IPv4: "IPv4",
+    IPv6: "IPv6",
+} as const;
+
+/**
+ * Type of IP Address. IPv4 or IPv6
+ */
+export type IPAddressType = (typeof IPAddressType)[keyof typeof IPAddressType];
+
+export const Layer4Protocol = {
+    TCP: "TCP",
+    UDP: "UDP",
+} as const;
+
+/**
+ * Layer4 protocol type that needs to be matched.
+ */
+export type Layer4Protocol = (typeof Layer4Protocol)[keyof typeof Layer4Protocol];
+
 export const NetworkDeviceRoleTypes = {
     CE: "CE",
     ToR: "ToR",
@@ -102,6 +184,36 @@ export const PeeringOption = {
  */
 export type PeeringOption = (typeof PeeringOption)[keyof typeof PeeringOption];
 
+export const PollingType = {
+    Pull: "Pull",
+    Push: "Push",
+} as const;
+
+/**
+ * Polling type.
+ */
+export type PollingType = (typeof PollingType)[keyof typeof PollingType];
+
+export const PortType = {
+    SourcePort: "SourcePort",
+    DestinationPort: "DestinationPort",
+} as const;
+
+/**
+ * Port type that needs to be matched.
+ */
+export type PortType = (typeof PortType)[keyof typeof PortType];
+
+export const PrefixType = {
+    Prefix: "Prefix",
+    LongestPrefix: "LongestPrefix",
+} as const;
+
+/**
+ * IP Prefix Type.
+ */
+export type PrefixType = (typeof PrefixType)[keyof typeof PrefixType];
+
 export const RedistributeConnectedSubnets = {
     True: "True",
     False: "False",
@@ -121,6 +233,31 @@ export const RedistributeStaticRoutes = {
  * Advertise Static Routes. Ex: "True" | "False".
  */
 export type RedistributeStaticRoutes = (typeof RedistributeStaticRoutes)[keyof typeof RedistributeStaticRoutes];
+
+export const SourceDestinationType = {
+    SourceIP: "SourceIP",
+    DestinationIP: "DestinationIP",
+} as const;
+
+/**
+ * IP Address type.
+ */
+export type SourceDestinationType = (typeof SourceDestinationType)[keyof typeof SourceDestinationType];
+
+export const TapRuleActionType = {
+    Drop: "Drop",
+    Count: "Count",
+    Log: "Log",
+    Replicate: "Replicate",
+    Goto: "Goto",
+    Redirect: "Redirect",
+    Mirror: "Mirror",
+} as const;
+
+/**
+ * Type of actions that can be performed.
+ */
+export type TapRuleActionType = (typeof TapRuleActionType)[keyof typeof TapRuleActionType];
 
 export const WellKnownCommunities = {
     Internet: "Internet",

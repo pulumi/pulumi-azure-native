@@ -236,7 +236,7 @@ class L2IsolationDomain(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230201preview:L2IsolationDomain")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:managednetworkfabric/v20230201preview:L2IsolationDomain"), pulumi.Alias(type_="azure-native:managednetworkfabric/v20230615:L2IsolationDomain")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(L2IsolationDomain, __self__).__init__(
             'azure-native:managednetworkfabric:L2IsolationDomain',

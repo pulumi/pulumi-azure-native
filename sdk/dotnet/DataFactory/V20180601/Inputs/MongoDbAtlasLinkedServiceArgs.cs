@@ -52,10 +52,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The MongoDB Atlas Driver version that you want to choose. Allowed value are 2.10.4 and 2.19.0. Type: string (or Expression with resultType string).
+        /// The driver version that you want to choose. Allowed value are v1 and v2. Type: string (or Expression with resultType string).
         /// </summary>
-        [Input("mongoDbAtlasDriverVersion")]
-        public Input<object>? MongoDbAtlasDriverVersion { get; set; }
+        [Input("driverVersion")]
+        public Input<object>? DriverVersion { get; set; }
 
         [Input("parameters")]
         private InputMap<Inputs.ParameterSpecificationArgs>? _parameters;

@@ -177,7 +177,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:JobDefinition" }, { type: "azure-native:storagemover/v20230301:JobDefinition" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:JobDefinition" }, { type: "azure-native:storagemover/v20230301:JobDefinition" }, { type: "azure-native:storagemover/v20230701preview:JobDefinition" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JobDefinition.__pulumiType, name, resourceInputs, opts);
     }
