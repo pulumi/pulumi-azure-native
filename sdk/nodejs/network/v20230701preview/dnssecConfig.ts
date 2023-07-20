@@ -96,8 +96,6 @@ export class DnssecConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:DnssecConfig" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnssecConfig.__pulumiType, name, resourceInputs, opts);
     }
 }

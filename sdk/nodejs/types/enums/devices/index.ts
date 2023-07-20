@@ -3,12 +3,14 @@
 
 // Export sub-modules:
 import * as v20200901preview from "./v20200901preview";
+import * as v20220430preview from "./v20220430preview";
 import * as v20221115preview from "./v20221115preview";
 import * as v20221212 from "./v20221212";
 import * as v20230301preview from "./v20230301preview";
 
 export {
     v20200901preview,
+    v20220430preview,
     v20221115preview,
     v20221212,
     v20230301preview,
@@ -136,17 +138,6 @@ export const IpFilterTargetType = {
  * Target for requests captured by this rule.
  */
 export type IpFilterTargetType = (typeof IpFilterTargetType)[keyof typeof IpFilterTargetType];
-
-export const IpVersion = {
-    Ipv4: "ipv4",
-    Ipv6: "ipv6",
-    Ipv4ipv6: "ipv4ipv6",
-} as const;
-
-/**
- * This property specifies the IP Version the hub is currently utilizing.
- */
-export type IpVersion = (typeof IpVersion)[keyof typeof IpVersion];
 
 export const NetworkRuleIPAction = {
     Allow: "Allow",

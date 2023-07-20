@@ -127,14 +127,11 @@ __all__ = [
     'DdosSettingsResponse',
     'DelegationPropertiesResponse',
     'DelegationResponse',
-    'DelegationSignerInfoResponse',
     'DevicePropertiesResponse',
     'DhcpOptionsResponse',
-    'DigestResponse',
     'DnsConfigResponse',
     'DnsResourceReferenceResponse',
     'DnsSettingsResponse',
-    'DsRecordResponse',
     'EffectiveConnectivityConfigurationResponse',
     'EffectiveDefaultSecurityAdminRuleResponse',
     'EffectiveSecurityAdminRuleResponse',
@@ -243,7 +240,6 @@ __all__ = [
     'MonitorConfigResponseCustomHeaders',
     'MonitorConfigResponseExpectedStatusCodeRanges',
     'MxRecordResponse',
-    'NaptrRecordResponse',
     'NatGatewayResponse',
     'NatGatewaySkuResponse',
     'NatRuleConditionResponse',
@@ -329,7 +325,6 @@ __all__ = [
     'ServiceEndpointPolicyDefinitionResponse',
     'ServiceEndpointPolicyResponse',
     'ServiceEndpointPropertiesFormatResponse',
-    'SigningKeyResponse',
     'SingleQueryResultResponse',
     'SkuResponse',
     'SoaRecordResponse',
@@ -341,7 +336,6 @@ __all__ = [
     'SubscriptionIdResponse',
     'SystemDataResponse',
     'TargetDnsServerResponse',
-    'TlsaRecordResponse',
     'TrafficAnalyticsConfigurationPropertiesResponse',
     'TrafficAnalyticsPropertiesResponse',
     'TrafficSelectorPolicyResponse',
@@ -12311,69 +12305,6 @@ class DelegationResponse(dict):
 
 
 @pulumi.output_type
-class DelegationSignerInfoResponse(dict):
-    """
-    The delegation signer information.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "digestAlgorithmType":
-            suggest = "digest_algorithm_type"
-        elif key == "digestValue":
-            suggest = "digest_value"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DelegationSignerInfoResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DelegationSignerInfoResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DelegationSignerInfoResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 digest_algorithm_type: int,
-                 digest_value: str,
-                 record: str):
-        """
-        The delegation signer information.
-        :param int digest_algorithm_type: The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
-        :param str digest_value: The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
-        :param str record: The record represents a delegation signer (DS) record.
-        """
-        pulumi.set(__self__, "digest_algorithm_type", digest_algorithm_type)
-        pulumi.set(__self__, "digest_value", digest_value)
-        pulumi.set(__self__, "record", record)
-
-    @property
-    @pulumi.getter(name="digestAlgorithmType")
-    def digest_algorithm_type(self) -> int:
-        """
-        The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
-        """
-        return pulumi.get(self, "digest_algorithm_type")
-
-    @property
-    @pulumi.getter(name="digestValue")
-    def digest_value(self) -> str:
-        """
-        The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
-        """
-        return pulumi.get(self, "digest_value")
-
-    @property
-    @pulumi.getter
-    def record(self) -> str:
-        """
-        The record represents a delegation signer (DS) record.
-        """
-        return pulumi.get(self, "record")
-
-
-@pulumi.output_type
 class DevicePropertiesResponse(dict):
     """
     List of properties of the device.
@@ -12479,58 +12410,6 @@ class DhcpOptionsResponse(dict):
         The list of DNS servers IP addresses.
         """
         return pulumi.get(self, "dns_servers")
-
-
-@pulumi.output_type
-class DigestResponse(dict):
-    """
-    A digest.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "algorithmType":
-            suggest = "algorithm_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DigestResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DigestResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DigestResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 algorithm_type: Optional[int] = None,
-                 value: Optional[str] = None):
-        """
-        A digest.
-        :param int algorithm_type: The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
-        :param str value: The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
-        """
-        if algorithm_type is not None:
-            pulumi.set(__self__, "algorithm_type", algorithm_type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter(name="algorithmType")
-    def algorithm_type(self) -> Optional[int]:
-        """
-        The digest algorithm type represents the standard digest algorithm number used to construct the digest. See: https://www.iana.org/assignments/ds-rr-types/ds-rr-types.xhtml
-        """
-        return pulumi.get(self, "algorithm_type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The digest value is a cryptographic hash value of the referenced DNSKEY Resource Record.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -12695,70 +12574,6 @@ class DnsSettingsResponse(dict):
         List of Custom DNS Servers.
         """
         return pulumi.get(self, "servers")
-
-
-@pulumi.output_type
-class DsRecordResponse(dict):
-    """
-    A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "keyTag":
-            suggest = "key_tag"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DsRecordResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DsRecordResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DsRecordResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 algorithm: Optional[int] = None,
-                 digest: Optional['outputs.DigestResponse'] = None,
-                 key_tag: Optional[int] = None):
-        """
-        A DS record. For more information about the DS record format, see RFC 4034: https://www.rfc-editor.org/rfc/rfc4034
-        :param int algorithm: The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
-        :param 'DigestResponse' digest: The digest entity.
-        :param int key_tag: The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
-        """
-        if algorithm is not None:
-            pulumi.set(__self__, "algorithm", algorithm)
-        if digest is not None:
-            pulumi.set(__self__, "digest", digest)
-        if key_tag is not None:
-            pulumi.set(__self__, "key_tag", key_tag)
-
-    @property
-    @pulumi.getter
-    def algorithm(self) -> Optional[int]:
-        """
-        The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
-        """
-        return pulumi.get(self, "algorithm")
-
-    @property
-    @pulumi.getter
-    def digest(self) -> Optional['outputs.DigestResponse']:
-        """
-        The digest entity.
-        """
-        return pulumi.get(self, "digest")
-
-    @property
-    @pulumi.getter(name="keyTag")
-    def key_tag(self) -> Optional[int]:
-        """
-        The key tag value is used to determine which DNSKEY Resource Record is used for signature verification.
-        """
-        return pulumi.get(self, "key_tag")
 
 
 @pulumi.output_type
@@ -21816,89 +21631,6 @@ class MxRecordResponse(dict):
 
 
 @pulumi.output_type
-class NaptrRecordResponse(dict):
-    """
-    A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
-    """
-    def __init__(__self__, *,
-                 flags: Optional[str] = None,
-                 order: Optional[int] = None,
-                 preference: Optional[int] = None,
-                 regexp: Optional[str] = None,
-                 replacement: Optional[str] = None,
-                 services: Optional[str] = None):
-        """
-        A NAPTR record. For more information about the NAPTR record format, see RFC 3403: https://www.rfc-editor.org/rfc/rfc3403
-        :param str flags: The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
-        :param int order: The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
-        :param int preference: The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
-        :param str regexp: The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
-        :param str replacement: The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
-        :param str services: The services specific to DDDS applications. Enclose Services in quotation marks.
-        """
-        if flags is not None:
-            pulumi.set(__self__, "flags", flags)
-        if order is not None:
-            pulumi.set(__self__, "order", order)
-        if preference is not None:
-            pulumi.set(__self__, "preference", preference)
-        if regexp is not None:
-            pulumi.set(__self__, "regexp", regexp)
-        if replacement is not None:
-            pulumi.set(__self__, "replacement", replacement)
-        if services is not None:
-            pulumi.set(__self__, "services", services)
-
-    @property
-    @pulumi.getter
-    def flags(self) -> Optional[str]:
-        """
-        The flags specific to DDDS applications. Values currently defined in RFC 3404 are uppercase and lowercase letters "A", "P", "S", and "U", and the empty string, "". Enclose Flags in quotation marks.
-        """
-        return pulumi.get(self, "flags")
-
-    @property
-    @pulumi.getter
-    def order(self) -> Optional[int]:
-        """
-        The order in which the NAPTR records MUST be processed in order to accurately represent the ordered list of rules. The ordering is from lowest to highest. Valid values: 0-65535.
-        """
-        return pulumi.get(self, "order")
-
-    @property
-    @pulumi.getter
-    def preference(self) -> Optional[int]:
-        """
-        The preference specifies the order in which NAPTR records with equal 'order' values should be processed, low numbers being processed before high numbers. Valid values: 0-65535.
-        """
-        return pulumi.get(self, "preference")
-
-    @property
-    @pulumi.getter
-    def regexp(self) -> Optional[str]:
-        """
-        The regular expression that the DDDS application uses to convert an input value into an output value. For example: an IP phone system might use a regular expression to convert a phone number that is entered by a user into a SIP URI. Enclose the regular expression in quotation marks. Specify either a value for 'regexp' or a value for 'replacement'.
-        """
-        return pulumi.get(self, "regexp")
-
-    @property
-    @pulumi.getter
-    def replacement(self) -> Optional[str]:
-        """
-        The replacement is a fully qualified domain name (FQDN) of the next domain name that you want the DDDS application to submit a DNS query for. The DDDS application replaces the input value with the value specified for replacement. Specify either a value for 'regexp' or a value for 'replacement'. If you specify a value for 'regexp', specify a dot (.) for 'replacement'.
-        """
-        return pulumi.get(self, "replacement")
-
-    @property
-    @pulumi.getter
-    def services(self) -> Optional[str]:
-        """
-        The services specific to DDDS applications. Enclose Services in quotation marks.
-        """
-        return pulumi.get(self, "services")
-
-
-@pulumi.output_type
 class NatGatewayResponse(dict):
     """
     Nat Gateway resource.
@@ -30773,106 +30505,6 @@ class ServiceEndpointPropertiesFormatResponse(dict):
 
 
 @pulumi.output_type
-class SigningKeyResponse(dict):
-    """
-    Represents the signing key.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "delegationSignerInfo":
-            suggest = "delegation_signer_info"
-        elif key == "keyTag":
-            suggest = "key_tag"
-        elif key == "publicKey":
-            suggest = "public_key"
-        elif key == "securityAlgorithmType":
-            suggest = "security_algorithm_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in SigningKeyResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        SigningKeyResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        SigningKeyResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 delegation_signer_info: Sequence['outputs.DelegationSignerInfoResponse'],
-                 flags: int,
-                 key_tag: int,
-                 protocol: int,
-                 public_key: str,
-                 security_algorithm_type: int):
-        """
-        Represents the signing key.
-        :param Sequence['DelegationSignerInfoResponse'] delegation_signer_info: The delegation signer information.
-        :param int flags: The flags specifies how the key is used.
-        :param int key_tag: The key tag value of the DNSKEY Resource Record.
-        :param int protocol: The protocol value. The value is always 3.
-        :param str public_key: The public key, represented as a Base64 encoding.
-        :param int security_algorithm_type: The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
-        """
-        pulumi.set(__self__, "delegation_signer_info", delegation_signer_info)
-        pulumi.set(__self__, "flags", flags)
-        pulumi.set(__self__, "key_tag", key_tag)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "public_key", public_key)
-        pulumi.set(__self__, "security_algorithm_type", security_algorithm_type)
-
-    @property
-    @pulumi.getter(name="delegationSignerInfo")
-    def delegation_signer_info(self) -> Sequence['outputs.DelegationSignerInfoResponse']:
-        """
-        The delegation signer information.
-        """
-        return pulumi.get(self, "delegation_signer_info")
-
-    @property
-    @pulumi.getter
-    def flags(self) -> int:
-        """
-        The flags specifies how the key is used.
-        """
-        return pulumi.get(self, "flags")
-
-    @property
-    @pulumi.getter(name="keyTag")
-    def key_tag(self) -> int:
-        """
-        The key tag value of the DNSKEY Resource Record.
-        """
-        return pulumi.get(self, "key_tag")
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> int:
-        """
-        The protocol value. The value is always 3.
-        """
-        return pulumi.get(self, "protocol")
-
-    @property
-    @pulumi.getter(name="publicKey")
-    def public_key(self) -> str:
-        """
-        The public key, represented as a Base64 encoding.
-        """
-        return pulumi.get(self, "public_key")
-
-    @property
-    @pulumi.getter(name="securityAlgorithmType")
-    def security_algorithm_type(self) -> int:
-        """
-        The security algorithm type represents the standard security algorithm number of the DNSKEY Resource Record. See: https://www.iana.org/assignments/dns-sec-alg-numbers/dns-sec-alg-numbers.xhtml
-        """
-        return pulumi.get(self, "security_algorithm_type")
-
-
-@pulumi.output_type
 class SingleQueryResultResponse(dict):
     def __init__(__self__, *,
                  description: Optional[str] = None,
@@ -31763,7 +31395,7 @@ class SystemDataResponse(dict):
         :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_at: The type of identity that last modified the resource.
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -31808,7 +31440,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The timestamp of resource last modification (UTC)
+        The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_at")
 
@@ -31880,84 +31512,6 @@ class TargetDnsServerResponse(dict):
         DNS server port.
         """
         return pulumi.get(self, "port")
-
-
-@pulumi.output_type
-class TlsaRecordResponse(dict):
-    """
-    A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "certAssociationData":
-            suggest = "cert_association_data"
-        elif key == "matchingType":
-            suggest = "matching_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in TlsaRecordResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        TlsaRecordResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        TlsaRecordResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 cert_association_data: Optional[str] = None,
-                 matching_type: Optional[int] = None,
-                 selector: Optional[int] = None,
-                 usage: Optional[int] = None):
-        """
-        A TLSA record. For more information about the TLSA record format, see RFC 6698: https://www.rfc-editor.org/rfc/rfc6698
-        :param str cert_association_data: This specifies the certificate association data to be matched.
-        :param int matching_type: The matching type specifies how the certificate association is presented.
-        :param int selector: The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
-        :param int usage: The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
-        """
-        if cert_association_data is not None:
-            pulumi.set(__self__, "cert_association_data", cert_association_data)
-        if matching_type is not None:
-            pulumi.set(__self__, "matching_type", matching_type)
-        if selector is not None:
-            pulumi.set(__self__, "selector", selector)
-        if usage is not None:
-            pulumi.set(__self__, "usage", usage)
-
-    @property
-    @pulumi.getter(name="certAssociationData")
-    def cert_association_data(self) -> Optional[str]:
-        """
-        This specifies the certificate association data to be matched.
-        """
-        return pulumi.get(self, "cert_association_data")
-
-    @property
-    @pulumi.getter(name="matchingType")
-    def matching_type(self) -> Optional[int]:
-        """
-        The matching type specifies how the certificate association is presented.
-        """
-        return pulumi.get(self, "matching_type")
-
-    @property
-    @pulumi.getter
-    def selector(self) -> Optional[int]:
-        """
-        The selector specifies which part of the TLS certificate presented by the server will be matched against the association data.
-        """
-        return pulumi.get(self, "selector")
-
-    @property
-    @pulumi.getter
-    def usage(self) -> Optional[int]:
-        """
-        The usage specifies the provided association that will be used to match the certificate presented in the TLS handshake.
-        """
-        return pulumi.get(self, "usage")
 
 
 @pulumi.output_type

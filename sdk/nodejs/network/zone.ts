@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Describes a DNS zone.
- * Azure REST API version: 2023-07-01-preview. Prior API version in Azure Native 1.x: 2018-05-01
+ * Azure REST API version: 2018-05-01. Prior API version in Azure Native 1.x: 2018-05-01
  */
 export class Zone extends pulumi.CustomResource {
     /**
@@ -75,14 +75,6 @@ export class Zone extends pulumi.CustomResource {
      */
     public readonly resolutionVirtualNetworks!: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
     /**
-     * The list of signing keys.
-     */
-    public /*out*/ readonly signingKeys!: pulumi.Output<outputs.network.SigningKeyResponse[]>;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.network.SystemDataResponse>;
-    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -122,8 +114,6 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nameServers"] = undefined /*out*/;
             resourceInputs["numberOfRecordSets"] = undefined /*out*/;
-            resourceInputs["signingKeys"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
@@ -135,8 +125,6 @@ export class Zone extends pulumi.CustomResource {
             resourceInputs["numberOfRecordSets"] = undefined /*out*/;
             resourceInputs["registrationVirtualNetworks"] = undefined /*out*/;
             resourceInputs["resolutionVirtualNetworks"] = undefined /*out*/;
-            resourceInputs["signingKeys"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["zoneType"] = undefined /*out*/;
@@ -165,7 +153,7 @@ export interface ZoneArgs {
      */
     resolutionVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
     /**
-     * The name of the resource group. The name is case insensitive.
+     * The name of the resource group.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

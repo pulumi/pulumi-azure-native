@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Azure REST API version: 2018-05-01.
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Azure REST API version: 2018-05-01.
         /// </summary>
         public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZoneResult>("azure-native:network:getZone", args ?? new GetZoneInvokeArgs(), options.WithDefaults());
@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetZoneArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.Network
     public sealed class GetZoneInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -112,14 +112,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> ResolutionVirtualNetworks;
         /// <summary>
-        /// The list of signing keys.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.SigningKeyResponse> SigningKeys;
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the resource.
-        /// </summary>
-        public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -154,10 +146,6 @@ namespace Pulumi.AzureNative.Network
 
             ImmutableArray<Outputs.SubResourceResponse> resolutionVirtualNetworks,
 
-            ImmutableArray<Outputs.SigningKeyResponse> signingKeys,
-
-            Outputs.SystemDataResponse systemData,
-
             ImmutableDictionary<string, string>? tags,
 
             string type,
@@ -174,8 +162,6 @@ namespace Pulumi.AzureNative.Network
             NumberOfRecordSets = numberOfRecordSets;
             RegistrationVirtualNetworks = registrationVirtualNetworks;
             ResolutionVirtualNetworks = resolutionVirtualNetworks;
-            SigningKeys = signingKeys;
-            SystemData = systemData;
             Tags = tags;
             Type = type;
             ZoneType = zoneType;

@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
- * Azure REST API version: 2022-11-15-preview.
+ * Azure REST API version: 2022-04-30-preview.
  */
 export function listIotHubResourceKeys(args: ListIotHubResourceKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListIotHubResourceKeysResult> {
 
@@ -46,7 +46,7 @@ export interface ListIotHubResourceKeysResult {
 }
 /**
  * Get the security metadata for an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.
- * Azure REST API version: 2022-11-15-preview.
+ * Azure REST API version: 2022-04-30-preview.
  */
 export function listIotHubResourceKeysOutput(args: ListIotHubResourceKeysOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ListIotHubResourceKeysResult> {
     return pulumi.output(args).apply((a: any) => listIotHubResourceKeys(a, opts))

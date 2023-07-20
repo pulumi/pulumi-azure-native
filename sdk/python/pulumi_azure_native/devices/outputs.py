@@ -1103,8 +1103,6 @@ class IotHubPropertiesResponse(dict):
             suggest = "event_hub_endpoints"
         elif key == "ipFilterRules":
             suggest = "ip_filter_rules"
-        elif key == "ipVersion":
-            suggest = "ip_version"
         elif key == "messagingEndpoints":
             suggest = "messaging_endpoints"
         elif key == "minTlsVersion":
@@ -1152,7 +1150,6 @@ class IotHubPropertiesResponse(dict):
                  event_hub_endpoints: Optional[Mapping[str, 'outputs.EventHubPropertiesResponse']] = None,
                  features: Optional[str] = None,
                  ip_filter_rules: Optional[Sequence['outputs.IpFilterRuleResponse']] = None,
-                 ip_version: Optional[str] = None,
                  messaging_endpoints: Optional[Mapping[str, 'outputs.MessagingEndpointPropertiesResponse']] = None,
                  min_tls_version: Optional[str] = None,
                  network_rule_sets: Optional['outputs.NetworkRuleSetPropertiesResponse'] = None,
@@ -1182,7 +1179,6 @@ class IotHubPropertiesResponse(dict):
         :param Mapping[str, 'EventHubPropertiesResponse'] event_hub_endpoints: The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
         :param str features: The capabilities and features enabled for the IoT hub.
         :param Sequence['IpFilterRuleResponse'] ip_filter_rules: The IP filter rules.
-        :param str ip_version: This property specifies the IP Version the hub is currently utilizing.
         :param Mapping[str, 'MessagingEndpointPropertiesResponse'] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param str min_tls_version: Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
         :param 'NetworkRuleSetPropertiesResponse' network_rule_sets: Network Rule Set Properties of IotHub
@@ -1225,8 +1221,6 @@ class IotHubPropertiesResponse(dict):
             pulumi.set(__self__, "features", features)
         if ip_filter_rules is not None:
             pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
-        if ip_version is not None:
-            pulumi.set(__self__, "ip_version", ip_version)
         if messaging_endpoints is not None:
             pulumi.set(__self__, "messaging_endpoints", messaging_endpoints)
         if min_tls_version is not None:
@@ -1389,14 +1383,6 @@ class IotHubPropertiesResponse(dict):
         The IP filter rules.
         """
         return pulumi.get(self, "ip_filter_rules")
-
-    @property
-    @pulumi.getter(name="ipVersion")
-    def ip_version(self) -> Optional[str]:
-        """
-        This property specifies the IP Version the hub is currently utilizing.
-        """
-        return pulumi.get(self, "ip_version")
 
     @property
     @pulumi.getter(name="messagingEndpoints")

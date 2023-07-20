@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// Gets a record set.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Azure REST API version: 2018-05-01.
         /// </summary>
         public static Task<GetRecordSetResult> InvokeAsync(GetRecordSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetArgs(), options.WithDefaults());
 
         /// <summary>
         /// Gets a record set.
-        /// Azure REST API version: 2023-07-01-preview.
+        /// Azure REST API version: 2018-05-01.
         /// </summary>
         public static Output<GetRecordSetResult> Invoke(GetRecordSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordSetResult>("azure-native:network:getRecordSet", args ?? new GetRecordSetInvokeArgs(), options.WithDefaults());
@@ -42,7 +42,7 @@ namespace Pulumi.AzureNative.Network
         public string RelativeRecordSetName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -74,7 +74,7 @@ namespace Pulumi.AzureNative.Network
         public Input<string> RelativeRecordSetName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group. The name is case insensitive.
+        /// The name of the resource group.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -112,10 +112,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.CnameRecordResponse? CnameRecord;
         /// <summary>
-        /// The list of DS records in the record set.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.DsRecordResponse> DsRecords;
-        /// <summary>
         /// The etag of the record set.
         /// </summary>
         public readonly string? Etag;
@@ -139,10 +135,6 @@ namespace Pulumi.AzureNative.Network
         /// The name of the record set.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The list of NAPTR records in the record set.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.NaptrRecordResponse> NaptrRecords;
         /// <summary>
         /// The list of NS records in the record set.
         /// </summary>
@@ -168,10 +160,6 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         public readonly Outputs.SubResourceResponse? TargetResource;
         /// <summary>
-        /// The list of TLSA records in the record set.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.TlsaRecordResponse> TlsaRecords;
-        /// <summary>
         /// The TTL (time-to-live) of the records in the record set.
         /// </summary>
         public readonly double? Ttl;
@@ -194,8 +182,6 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.CnameRecordResponse? cnameRecord,
 
-            ImmutableArray<Outputs.DsRecordResponse> dsRecords,
-
             string? etag,
 
             string fqdn,
@@ -207,8 +193,6 @@ namespace Pulumi.AzureNative.Network
             ImmutableArray<Outputs.MxRecordResponse> mxRecords,
 
             string name,
-
-            ImmutableArray<Outputs.NaptrRecordResponse> naptrRecords,
 
             ImmutableArray<Outputs.NsRecordResponse> nsRecords,
 
@@ -222,8 +206,6 @@ namespace Pulumi.AzureNative.Network
 
             Outputs.SubResourceResponse? targetResource,
 
-            ImmutableArray<Outputs.TlsaRecordResponse> tlsaRecords,
-
             double? ttl,
 
             ImmutableArray<Outputs.TxtRecordResponse> txtRecords,
@@ -234,21 +216,18 @@ namespace Pulumi.AzureNative.Network
             AaaaRecords = aaaaRecords;
             CaaRecords = caaRecords;
             CnameRecord = cnameRecord;
-            DsRecords = dsRecords;
             Etag = etag;
             Fqdn = fqdn;
             Id = id;
             Metadata = metadata;
             MxRecords = mxRecords;
             Name = name;
-            NaptrRecords = naptrRecords;
             NsRecords = nsRecords;
             ProvisioningState = provisioningState;
             PtrRecords = ptrRecords;
             SoaRecord = soaRecord;
             SrvRecords = srvRecords;
             TargetResource = targetResource;
-            TlsaRecords = tlsaRecords;
             Ttl = ttl;
             TxtRecords = txtRecords;
             Type = type;

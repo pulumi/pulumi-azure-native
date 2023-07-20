@@ -15,7 +15,6 @@ __all__ = [
     'IotHubSku',
     'IpFilterActionType',
     'IpFilterTargetType',
-    'IpVersion',
     'NetworkRuleIPAction',
     'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
@@ -126,15 +125,6 @@ class IpFilterTargetType(str, Enum):
     ALL = "all"
     SERVICE_API = "serviceApi"
     DEVICE_API = "deviceApi"
-
-
-class IpVersion(str, Enum):
-    """
-    This property specifies the IP Version the hub is currently utilizing.
-    """
-    IPV4 = "ipv4"
-    IPV6 = "ipv6"
-    IPV4IPV6 = "ipv4ipv6"
 
 
 class NetworkRuleIPAction(str, Enum):

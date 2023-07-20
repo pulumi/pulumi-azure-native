@@ -4238,6 +4238,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devices/v20220430preview",
+  "fqn": "pulumi_azure_native.devices.v20220430preview",
+  "classes": {
+   "azure-native:devices/v20220430preview:Certificate": "Certificate",
+   "azure-native:devices/v20220430preview:IotHubResource": "IotHubResource",
+   "azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup": "IotHubResourceEventHubConsumerGroup",
+   "azure-native:devices/v20220430preview:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devices/v20221115preview",
   "fqn": "pulumi_azure_native.devices.v20221115preview",
   "classes": {
@@ -7169,7 +7180,6 @@ _utilities.register(
    "azure-native:network:DefaultUserRule": "DefaultUserRule",
    "azure-native:network:DnsForwardingRuleset": "DnsForwardingRuleset",
    "azure-native:network:DnsResolver": "DnsResolver",
-   "azure-native:network:DnssecConfig": "DnssecConfig",
    "azure-native:network:DscpConfiguration": "DscpConfiguration",
    "azure-native:network:Endpoint": "Endpoint",
    "azure-native:network:Experiment": "Experiment",
@@ -7273,6 +7283,15 @@ _utilities.register(
    "azure-native:network:VpnSite": "VpnSite",
    "azure-native:network:WebApplicationFirewallPolicy": "WebApplicationFirewallPolicy",
    "azure-native:network:Zone": "Zone"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "network/v20180501",
+  "fqn": "pulumi_azure_native.network.v20180501",
+  "classes": {
+   "azure-native:network/v20180501:RecordSet": "RecordSet",
+   "azure-native:network/v20180501:Zone": "Zone"
   }
  },
  {
