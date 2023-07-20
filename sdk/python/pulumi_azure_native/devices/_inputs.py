@@ -799,7 +799,6 @@ class IotHubPropertiesArgs:
                  event_hub_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]]] = None,
                  features: Optional[pulumi.Input[Union[str, 'Capabilities']]] = None,
                  ip_filter_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]] = None,
-                 ip_version: Optional[pulumi.Input[Union[str, 'IpVersion']]] = None,
                  messaging_endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  network_rule_sets: Optional[pulumi.Input['NetworkRuleSetPropertiesArgs']] = None,
@@ -825,7 +824,6 @@ class IotHubPropertiesArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['EventHubPropertiesArgs']]] event_hub_endpoints: The Event Hub-compatible endpoint properties. The only possible keys to this dictionary is events. This key has to be present in the dictionary while making create or update calls for the IoT hub.
         :param pulumi.Input[Union[str, 'Capabilities']] features: The capabilities and features enabled for the IoT hub.
         :param pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]] ip_filter_rules: The IP filter rules.
-        :param pulumi.Input[Union[str, 'IpVersion']] ip_version: This property specifies the IP Version the hub is currently utilizing.
         :param pulumi.Input[Mapping[str, pulumi.Input['MessagingEndpointPropertiesArgs']]] messaging_endpoints: The messaging endpoint properties for the file upload notification queue.
         :param pulumi.Input[str] min_tls_version: Specifies the minimum TLS version to support for this hub. Can be set to "1.2" to have clients that use a TLS version below 1.2 to be rejected.
         :param pulumi.Input['NetworkRuleSetPropertiesArgs'] network_rule_sets: Network Rule Set Properties of IotHub
@@ -864,8 +862,6 @@ class IotHubPropertiesArgs:
             pulumi.set(__self__, "features", features)
         if ip_filter_rules is not None:
             pulumi.set(__self__, "ip_filter_rules", ip_filter_rules)
-        if ip_version is not None:
-            pulumi.set(__self__, "ip_version", ip_version)
         if messaging_endpoints is not None:
             pulumi.set(__self__, "messaging_endpoints", messaging_endpoints)
         if min_tls_version is not None:
@@ -1052,18 +1048,6 @@ class IotHubPropertiesArgs:
     @ip_filter_rules.setter
     def ip_filter_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IpFilterRuleArgs']]]]):
         pulumi.set(self, "ip_filter_rules", value)
-
-    @property
-    @pulumi.getter(name="ipVersion")
-    def ip_version(self) -> Optional[pulumi.Input[Union[str, 'IpVersion']]]:
-        """
-        This property specifies the IP Version the hub is currently utilizing.
-        """
-        return pulumi.get(self, "ip_version")
-
-    @ip_version.setter
-    def ip_version(self, value: Optional[pulumi.Input[Union[str, 'IpVersion']]]):
-        pulumi.set(self, "ip_version", value)
 
     @property
     @pulumi.getter(name="messagingEndpoints")

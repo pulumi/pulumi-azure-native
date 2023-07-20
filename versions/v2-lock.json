@@ -834,17 +834,17 @@
     "PrivateEndpointConnectionProxy": "2023-07-01"
   },
   "Devices": {
-    "Certificate": "2022-11-15-preview",
+    "Certificate": "2022-04-30-preview",
     "DpsCertificate": "2022-12-12",
     "IotDpsResource": "2022-12-12",
     "IotDpsResourcePrivateEndpointConnection": "2022-12-12",
-    "IotHubResource": "2022-11-15-preview",
-    "IotHubResourceEventHubConsumerGroup": "2022-11-15-preview",
-    "PrivateEndpointConnection": "2022-11-15-preview",
+    "IotHubResource": "2022-04-30-preview",
+    "IotHubResourceEventHubConsumerGroup": "2022-04-30-preview",
+    "PrivateEndpointConnection": "2022-04-30-preview",
     "listIotDpsResourceKeys": "2022-12-12",
     "listIotDpsResourceKeysForKeyName": "2022-12-12",
-    "listIotHubResourceKeys": "2022-11-15-preview",
-    "listIotHubResourceKeysForKeyName": "2022-11-15-preview"
+    "listIotHubResourceKeys": "2022-04-30-preview",
+    "listIotHubResourceKeysForKeyName": "2022-04-30-preview"
   },
   "DigitalTwins": {
     "DigitalTwin": "2023-01-31",

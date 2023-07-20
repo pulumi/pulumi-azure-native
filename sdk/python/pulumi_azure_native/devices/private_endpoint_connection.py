@@ -95,7 +95,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The private endpoint connection of an IotHub
-        Azure REST API version: 2022-11-15-preview. Prior API version in Azure Native 1.x: 2020-08-31
+        Azure REST API version: 2022-04-30-preview. Prior API version in Azure Native 1.x: 2020-08-31
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,7 +112,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection of an IotHub
-        Azure REST API version: 2022-11-15-preview. Prior API version in Azure Native 1.x: 2020-08-31
+        Azure REST API version: 2022-04-30-preview. Prior API version in Azure Native 1.x: 2020-08-31
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

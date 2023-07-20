@@ -123,12 +123,6 @@ namespace Pulumi.AzureNative.Devices.Inputs
             set => _ipFilterRules = value;
         }
 
-        /// <summary>
-        /// This property specifies the IP Version the hub is currently utilizing.
-        /// </summary>
-        [Input("ipVersion")]
-        public InputUnion<string, Pulumi.AzureNative.Devices.IpVersion>? IpVersion { get; set; }
-
         [Input("messagingEndpoints")]
         private InputMap<Inputs.MessagingEndpointPropertiesArgs>? _messagingEndpoints;
 

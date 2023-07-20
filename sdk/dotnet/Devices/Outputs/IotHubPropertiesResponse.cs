@@ -77,10 +77,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.IpFilterRuleResponse> IpFilterRules;
         /// <summary>
-        /// This property specifies the IP Version the hub is currently utilizing.
-        /// </summary>
-        public readonly string? IpVersion;
-        /// <summary>
         /// Primary and secondary location for iot hub
         /// </summary>
         public readonly ImmutableArray<Outputs.IotHubLocationDescriptionResponse> Locations;
@@ -161,8 +157,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
 
             ImmutableArray<Outputs.IpFilterRuleResponse> ipFilterRules,
 
-            string? ipVersion,
-
             ImmutableArray<Outputs.IotHubLocationDescriptionResponse> locations,
 
             ImmutableDictionary<string, Outputs.MessagingEndpointPropertiesResponse>? messagingEndpoints,
@@ -202,7 +196,6 @@ namespace Pulumi.AzureNative.Devices.Outputs
             Features = features;
             HostName = hostName;
             IpFilterRules = ipFilterRules;
-            IpVersion = ipVersion;
             Locations = locations;
             MessagingEndpoints = messagingEndpoints;
             MinTlsVersion = minTlsVersion;
