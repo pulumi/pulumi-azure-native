@@ -233,21 +233,21 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20160601:getRosettaNetProcessConfiguration', __args__, opts=opts, typ=GetRosettaNetProcessConfigurationResult).value
 
     return AwaitableGetRosettaNetProcessConfigurationResult(
-        activity_settings=__ret__.activity_settings,
-        changed_time=__ret__.changed_time,
-        created_time=__ret__.created_time,
-        description=__ret__.description,
-        id=__ret__.id,
-        initiator_role_settings=__ret__.initiator_role_settings,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        process_code=__ret__.process_code,
-        process_name=__ret__.process_name,
-        process_version=__ret__.process_version,
-        responder_role_settings=__ret__.responder_role_settings,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        activity_settings=pulumi.get(__ret__, 'activity_settings'),
+        changed_time=pulumi.get(__ret__, 'changed_time'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        initiator_role_settings=pulumi.get(__ret__, 'initiator_role_settings'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        process_code=pulumi.get(__ret__, 'process_code'),
+        process_name=pulumi.get(__ret__, 'process_name'),
+        process_version=pulumi.get(__ret__, 'process_version'),
+        responder_role_settings=pulumi.get(__ret__, 'responder_role_settings'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_rosetta_net_process_configuration)

@@ -112,11 +112,11 @@ def get_customer_subscription(customer_subscription_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestack/v20220601:getCustomerSubscription', __args__, opts=opts, typ=GetCustomerSubscriptionResult).value
 
     return AwaitableGetCustomerSubscriptionResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_customer_subscription)

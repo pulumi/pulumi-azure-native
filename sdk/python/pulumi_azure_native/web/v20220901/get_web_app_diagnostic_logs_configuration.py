@@ -146,14 +146,14 @@ def get_web_app_diagnostic_logs_configuration(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getWebAppDiagnosticLogsConfiguration', __args__, opts=opts, typ=GetWebAppDiagnosticLogsConfigurationResult).value
 
     return AwaitableGetWebAppDiagnosticLogsConfigurationResult(
-        application_logs=__ret__.application_logs,
-        detailed_error_messages=__ret__.detailed_error_messages,
-        failed_requests_tracing=__ret__.failed_requests_tracing,
-        http_logs=__ret__.http_logs,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        type=__ret__.type)
+        application_logs=pulumi.get(__ret__, 'application_logs'),
+        detailed_error_messages=pulumi.get(__ret__, 'detailed_error_messages'),
+        failed_requests_tracing=pulumi.get(__ret__, 'failed_requests_tracing'),
+        http_logs=pulumi.get(__ret__, 'http_logs'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_diagnostic_logs_configuration)

@@ -77,8 +77,8 @@ def list_remediation_deployments_at_resource_group(remediation_name: Optional[st
     __ret__ = pulumi.runtime.invoke('azure-native:policyinsights/v20211001:listRemediationDeploymentsAtResourceGroup', __args__, opts=opts, typ=ListRemediationDeploymentsAtResourceGroupResult).value
 
     return AwaitableListRemediationDeploymentsAtResourceGroupResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_remediation_deployments_at_resource_group)

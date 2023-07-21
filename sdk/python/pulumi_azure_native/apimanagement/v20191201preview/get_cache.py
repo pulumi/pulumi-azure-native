@@ -124,12 +124,12 @@ def get_cache(cache_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20191201preview:getCache', __args__, opts=opts, typ=GetCacheResult).value
 
     return AwaitableGetCacheResult(
-        connection_string=__ret__.connection_string,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_id=__ret__.resource_id,
-        type=__ret__.type)
+        connection_string=pulumi.get(__ret__, 'connection_string'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cache)

@@ -195,18 +195,18 @@ def get_peering_service(peering_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:peering:getPeeringService', __args__, opts=opts, typ=GetPeeringServiceResult).value
 
     return AwaitableGetPeeringServiceResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        log_analytics_workspace_properties=__ret__.log_analytics_workspace_properties,
-        name=__ret__.name,
-        peering_service_location=__ret__.peering_service_location,
-        peering_service_provider=__ret__.peering_service_provider,
-        provider_backup_peering_location=__ret__.provider_backup_peering_location,
-        provider_primary_peering_location=__ret__.provider_primary_peering_location,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        log_analytics_workspace_properties=pulumi.get(__ret__, 'log_analytics_workspace_properties'),
+        name=pulumi.get(__ret__, 'name'),
+        peering_service_location=pulumi.get(__ret__, 'peering_service_location'),
+        peering_service_provider=pulumi.get(__ret__, 'peering_service_provider'),
+        provider_backup_peering_location=pulumi.get(__ret__, 'provider_backup_peering_location'),
+        provider_primary_peering_location=pulumi.get(__ret__, 'provider_primary_peering_location'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_peering_service)

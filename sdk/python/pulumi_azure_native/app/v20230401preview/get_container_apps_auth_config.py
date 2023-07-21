@@ -161,15 +161,15 @@ def get_container_apps_auth_config(auth_config_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app/v20230401preview:getContainerAppsAuthConfig', __args__, opts=opts, typ=GetContainerAppsAuthConfigResult).value
 
     return AwaitableGetContainerAppsAuthConfigResult(
-        global_validation=__ret__.global_validation,
-        http_settings=__ret__.http_settings,
-        id=__ret__.id,
-        identity_providers=__ret__.identity_providers,
-        login=__ret__.login,
-        name=__ret__.name,
-        platform=__ret__.platform,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        global_validation=pulumi.get(__ret__, 'global_validation'),
+        http_settings=pulumi.get(__ret__, 'http_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_providers=pulumi.get(__ret__, 'identity_providers'),
+        login=pulumi.get(__ret__, 'login'),
+        name=pulumi.get(__ret__, 'name'),
+        platform=pulumi.get(__ret__, 'platform'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_container_apps_auth_config)

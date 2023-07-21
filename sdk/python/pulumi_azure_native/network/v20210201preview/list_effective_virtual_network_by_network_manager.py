@@ -83,8 +83,8 @@ def list_effective_virtual_network_by_network_manager(conditional_members: Optio
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210201preview:listEffectiveVirtualNetworkByNetworkManager', __args__, opts=opts, typ=ListEffectiveVirtualNetworkByNetworkManagerResult).value
 
     return AwaitableListEffectiveVirtualNetworkByNetworkManagerResult(
-        skip_token=__ret__.skip_token,
-        value=__ret__.value)
+        skip_token=pulumi.get(__ret__, 'skip_token'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_effective_virtual_network_by_network_manager)

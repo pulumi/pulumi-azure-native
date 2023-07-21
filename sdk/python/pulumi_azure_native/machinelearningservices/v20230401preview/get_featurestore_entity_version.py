@@ -116,11 +116,11 @@ def get_featurestore_entity_version(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230401preview:getFeaturestoreEntityVersion', __args__, opts=opts, typ=GetFeaturestoreEntityVersionResult).value
 
     return AwaitableGetFeaturestoreEntityVersionResult(
-        featurestore_entity_version_properties=__ret__.featurestore_entity_version_properties,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        featurestore_entity_version_properties=pulumi.get(__ret__, 'featurestore_entity_version_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_featurestore_entity_version)

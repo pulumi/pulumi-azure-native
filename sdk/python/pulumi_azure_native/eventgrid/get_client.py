@@ -188,17 +188,17 @@ def get_client(client_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getClient', __args__, opts=opts, typ=GetClientResult).value
 
     return AwaitableGetClientResult(
-        attributes=__ret__.attributes,
-        authentication=__ret__.authentication,
-        authentication_name=__ret__.authentication_name,
-        client_certificate_authentication=__ret__.client_certificate_authentication,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        state=__ret__.state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        attributes=pulumi.get(__ret__, 'attributes'),
+        authentication=pulumi.get(__ret__, 'authentication'),
+        authentication_name=pulumi.get(__ret__, 'authentication_name'),
+        client_certificate_authentication=pulumi.get(__ret__, 'client_certificate_authentication'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_client)

@@ -164,15 +164,15 @@ def get_event_hub_connection(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getEventHubConnection', __args__, opts=opts, typ=GetEventHubConnectionResult).value
 
     return AwaitableGetEventHubConnectionResult(
-        consumer_group=__ret__.consumer_group,
-        data_format=__ret__.data_format,
-        event_hub_resource_id=__ret__.event_hub_resource_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        mapping_rule_name=__ret__.mapping_rule_name,
-        name=__ret__.name,
-        table_name=__ret__.table_name,
-        type=__ret__.type)
+        consumer_group=pulumi.get(__ret__, 'consumer_group'),
+        data_format=pulumi.get(__ret__, 'data_format'),
+        event_hub_resource_id=pulumi.get(__ret__, 'event_hub_resource_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mapping_rule_name=pulumi.get(__ret__, 'mapping_rule_name'),
+        name=pulumi.get(__ret__, 'name'),
+        table_name=pulumi.get(__ret__, 'table_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_event_hub_connection)

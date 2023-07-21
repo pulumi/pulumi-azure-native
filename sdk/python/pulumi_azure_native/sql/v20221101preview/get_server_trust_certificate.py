@@ -124,12 +124,12 @@ def get_server_trust_certificate(certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20221101preview:getServerTrustCertificate', __args__, opts=opts, typ=GetServerTrustCertificateResult).value
 
     return AwaitableGetServerTrustCertificateResult(
-        certificate_name=__ret__.certificate_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        public_blob=__ret__.public_blob,
-        thumbprint=__ret__.thumbprint,
-        type=__ret__.type)
+        certificate_name=pulumi.get(__ret__, 'certificate_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        public_blob=pulumi.get(__ret__, 'public_blob'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_trust_certificate)

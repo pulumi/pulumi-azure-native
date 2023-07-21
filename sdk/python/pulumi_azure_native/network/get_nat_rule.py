@@ -186,17 +186,17 @@ def get_nat_rule(gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNatRule', __args__, opts=opts, typ=GetNatRuleResult).value
 
     return AwaitableGetNatRuleResult(
-        egress_vpn_site_link_connections=__ret__.egress_vpn_site_link_connections,
-        etag=__ret__.etag,
-        external_mappings=__ret__.external_mappings,
-        id=__ret__.id,
-        ingress_vpn_site_link_connections=__ret__.ingress_vpn_site_link_connections,
-        internal_mappings=__ret__.internal_mappings,
-        ip_configuration_id=__ret__.ip_configuration_id,
-        mode=__ret__.mode,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        egress_vpn_site_link_connections=pulumi.get(__ret__, 'egress_vpn_site_link_connections'),
+        etag=pulumi.get(__ret__, 'etag'),
+        external_mappings=pulumi.get(__ret__, 'external_mappings'),
+        id=pulumi.get(__ret__, 'id'),
+        ingress_vpn_site_link_connections=pulumi.get(__ret__, 'ingress_vpn_site_link_connections'),
+        internal_mappings=pulumi.get(__ret__, 'internal_mappings'),
+        ip_configuration_id=pulumi.get(__ret__, 'ip_configuration_id'),
+        mode=pulumi.get(__ret__, 'mode'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_nat_rule)

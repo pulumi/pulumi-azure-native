@@ -89,8 +89,8 @@ def get_entity_insights(add_default_extended_time_range: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20221101preview:getEntityInsights', __args__, opts=opts, typ=GetEntityInsightsResult).value
 
     return AwaitableGetEntityInsightsResult(
-        meta_data=__ret__.meta_data,
-        value=__ret__.value)
+        meta_data=pulumi.get(__ret__, 'meta_data'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_entity_insights)

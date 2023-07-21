@@ -206,19 +206,19 @@ def get_billing_role_assignment_by_billing_account(billing_account_name: Optiona
     __ret__ = pulumi.runtime.invoke('azure-native:billing:getBillingRoleAssignmentByBillingAccount', __args__, opts=opts, typ=GetBillingRoleAssignmentByBillingAccountResult).value
 
     return AwaitableGetBillingRoleAssignmentByBillingAccountResult(
-        created_by_principal_id=__ret__.created_by_principal_id,
-        created_by_principal_tenant_id=__ret__.created_by_principal_tenant_id,
-        created_by_user_email_address=__ret__.created_by_user_email_address,
-        created_on=__ret__.created_on,
-        id=__ret__.id,
-        name=__ret__.name,
-        principal_id=__ret__.principal_id,
-        principal_tenant_id=__ret__.principal_tenant_id,
-        role_definition_id=__ret__.role_definition_id,
-        scope=__ret__.scope,
-        type=__ret__.type,
-        user_authentication_type=__ret__.user_authentication_type,
-        user_email_address=__ret__.user_email_address)
+        created_by_principal_id=pulumi.get(__ret__, 'created_by_principal_id'),
+        created_by_principal_tenant_id=pulumi.get(__ret__, 'created_by_principal_tenant_id'),
+        created_by_user_email_address=pulumi.get(__ret__, 'created_by_user_email_address'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        principal_tenant_id=pulumi.get(__ret__, 'principal_tenant_id'),
+        role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
+        scope=pulumi.get(__ret__, 'scope'),
+        type=pulumi.get(__ret__, 'type'),
+        user_authentication_type=pulumi.get(__ret__, 'user_authentication_type'),
+        user_email_address=pulumi.get(__ret__, 'user_email_address'))
 
 
 @_utilities.lift_output_func(get_billing_role_assignment_by_billing_account)

@@ -266,23 +266,23 @@ def get_environment(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20181015:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
-        claimed_by_user_name=__ret__.claimed_by_user_name,
-        claimed_by_user_object_id=__ret__.claimed_by_user_object_id,
-        claimed_by_user_principal_id=__ret__.claimed_by_user_principal_id,
-        id=__ret__.id,
-        is_claimed=__ret__.is_claimed,
-        last_known_power_state=__ret__.last_known_power_state,
-        latest_operation_result=__ret__.latest_operation_result,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_interface=__ret__.network_interface,
-        password_last_reset=__ret__.password_last_reset,
-        provisioning_state=__ret__.provisioning_state,
-        resource_sets=__ret__.resource_sets,
-        tags=__ret__.tags,
-        total_usage=__ret__.total_usage,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        claimed_by_user_name=pulumi.get(__ret__, 'claimed_by_user_name'),
+        claimed_by_user_object_id=pulumi.get(__ret__, 'claimed_by_user_object_id'),
+        claimed_by_user_principal_id=pulumi.get(__ret__, 'claimed_by_user_principal_id'),
+        id=pulumi.get(__ret__, 'id'),
+        is_claimed=pulumi.get(__ret__, 'is_claimed'),
+        last_known_power_state=pulumi.get(__ret__, 'last_known_power_state'),
+        latest_operation_result=pulumi.get(__ret__, 'latest_operation_result'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interface=pulumi.get(__ret__, 'network_interface'),
+        password_last_reset=pulumi.get(__ret__, 'password_last_reset'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_sets=pulumi.get(__ret__, 'resource_sets'),
+        tags=pulumi.get(__ret__, 'tags'),
+        total_usage=pulumi.get(__ret__, 'total_usage'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_environment)

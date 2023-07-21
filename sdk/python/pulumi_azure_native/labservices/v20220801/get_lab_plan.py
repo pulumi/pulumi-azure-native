@@ -230,21 +230,21 @@ def get_lab_plan(lab_plan_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20220801:getLabPlan', __args__, opts=opts, typ=GetLabPlanResult).value
 
     return AwaitableGetLabPlanResult(
-        allowed_regions=__ret__.allowed_regions,
-        default_auto_shutdown_profile=__ret__.default_auto_shutdown_profile,
-        default_connection_profile=__ret__.default_connection_profile,
-        default_network_profile=__ret__.default_network_profile,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        linked_lms_instance=__ret__.linked_lms_instance,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        shared_gallery_id=__ret__.shared_gallery_id,
-        support_info=__ret__.support_info,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        allowed_regions=pulumi.get(__ret__, 'allowed_regions'),
+        default_auto_shutdown_profile=pulumi.get(__ret__, 'default_auto_shutdown_profile'),
+        default_connection_profile=pulumi.get(__ret__, 'default_connection_profile'),
+        default_network_profile=pulumi.get(__ret__, 'default_network_profile'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        linked_lms_instance=pulumi.get(__ret__, 'linked_lms_instance'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        shared_gallery_id=pulumi.get(__ret__, 'shared_gallery_id'),
+        support_info=pulumi.get(__ret__, 'support_info'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_lab_plan)

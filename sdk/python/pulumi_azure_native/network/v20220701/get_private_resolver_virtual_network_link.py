@@ -149,14 +149,14 @@ def get_private_resolver_virtual_network_link(dns_forwarding_ruleset_name: Optio
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220701:getPrivateResolverVirtualNetworkLink', __args__, opts=opts, typ=GetPrivateResolverVirtualNetworkLinkResult).value
 
     return AwaitableGetPrivateResolverVirtualNetworkLinkResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        virtual_network=__ret__.virtual_network)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network=pulumi.get(__ret__, 'virtual_network'))
 
 
 @_utilities.lift_output_func(get_private_resolver_virtual_network_link)

@@ -124,12 +124,12 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights/v20200515:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult).value
 
     return AwaitableGetAccessPolicyResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        principal_object_id=__ret__.principal_object_id,
-        roles=__ret__.roles,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        principal_object_id=pulumi.get(__ret__, 'principal_object_id'),
+        roles=pulumi.get(__ret__, 'roles'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_access_policy)

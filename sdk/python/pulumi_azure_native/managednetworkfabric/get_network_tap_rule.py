@@ -255,23 +255,23 @@ def get_network_tap_rule(network_tap_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getNetworkTapRule', __args__, opts=opts, typ=GetNetworkTapRuleResult).value
 
     return AwaitableGetNetworkTapRuleResult(
-        administrative_state=__ret__.administrative_state,
-        annotation=__ret__.annotation,
-        configuration_state=__ret__.configuration_state,
-        configuration_type=__ret__.configuration_type,
-        dynamic_match_configurations=__ret__.dynamic_match_configurations,
-        id=__ret__.id,
-        last_synced_time=__ret__.last_synced_time,
-        location=__ret__.location,
-        match_configurations=__ret__.match_configurations,
-        name=__ret__.name,
-        network_tap_id=__ret__.network_tap_id,
-        polling_interval_in_seconds=__ret__.polling_interval_in_seconds,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        tap_rules_url=__ret__.tap_rules_url,
-        type=__ret__.type)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        configuration_type=pulumi.get(__ret__, 'configuration_type'),
+        dynamic_match_configurations=pulumi.get(__ret__, 'dynamic_match_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        last_synced_time=pulumi.get(__ret__, 'last_synced_time'),
+        location=pulumi.get(__ret__, 'location'),
+        match_configurations=pulumi.get(__ret__, 'match_configurations'),
+        name=pulumi.get(__ret__, 'name'),
+        network_tap_id=pulumi.get(__ret__, 'network_tap_id'),
+        polling_interval_in_seconds=pulumi.get(__ret__, 'polling_interval_in_seconds'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tap_rules_url=pulumi.get(__ret__, 'tap_rules_url'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_tap_rule)

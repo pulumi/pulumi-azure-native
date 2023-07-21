@@ -184,17 +184,17 @@ def get_prediction_model_status(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights/v20170426:getPredictionModelStatus', __args__, opts=opts, typ=GetPredictionModelStatusResult).value
 
     return AwaitableGetPredictionModelStatusResult(
-        message=__ret__.message,
-        model_version=__ret__.model_version,
-        prediction_guid_id=__ret__.prediction_guid_id,
-        prediction_name=__ret__.prediction_name,
-        signals_used=__ret__.signals_used,
-        status=__ret__.status,
-        tenant_id=__ret__.tenant_id,
-        test_set_count=__ret__.test_set_count,
-        training_accuracy=__ret__.training_accuracy,
-        training_set_count=__ret__.training_set_count,
-        validation_set_count=__ret__.validation_set_count)
+        message=pulumi.get(__ret__, 'message'),
+        model_version=pulumi.get(__ret__, 'model_version'),
+        prediction_guid_id=pulumi.get(__ret__, 'prediction_guid_id'),
+        prediction_name=pulumi.get(__ret__, 'prediction_name'),
+        signals_used=pulumi.get(__ret__, 'signals_used'),
+        status=pulumi.get(__ret__, 'status'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        test_set_count=pulumi.get(__ret__, 'test_set_count'),
+        training_accuracy=pulumi.get(__ret__, 'training_accuracy'),
+        training_set_count=pulumi.get(__ret__, 'training_set_count'),
+        validation_set_count=pulumi.get(__ret__, 'validation_set_count'))
 
 
 @_utilities.lift_output_func(get_prediction_model_status)

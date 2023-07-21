@@ -257,23 +257,23 @@ def get_python3_package(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation/v20220808:getPython3Package', __args__, opts=opts, typ=GetPython3PackageResult).value
 
     return AwaitableGetPython3PackageResult(
-        activity_count=__ret__.activity_count,
-        content_link=__ret__.content_link,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        error=__ret__.error,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        is_composite=__ret__.is_composite,
-        is_global=__ret__.is_global,
-        last_modified_time=__ret__.last_modified_time,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        size_in_bytes=__ret__.size_in_bytes,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        activity_count=pulumi.get(__ret__, 'activity_count'),
+        content_link=pulumi.get(__ret__, 'content_link'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        error=pulumi.get(__ret__, 'error'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        is_composite=pulumi.get(__ret__, 'is_composite'),
+        is_global=pulumi.get(__ret__, 'is_global'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_python3_package)

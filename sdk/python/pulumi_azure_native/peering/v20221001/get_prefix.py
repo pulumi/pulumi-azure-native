@@ -176,16 +176,16 @@ def get_prefix(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:peering/v20221001:getPrefix', __args__, opts=opts, typ=GetPrefixResult).value
 
     return AwaitableGetPrefixResult(
-        error_message=__ret__.error_message,
-        events=__ret__.events,
-        id=__ret__.id,
-        learned_type=__ret__.learned_type,
-        name=__ret__.name,
-        peering_service_prefix_key=__ret__.peering_service_prefix_key,
-        prefix=__ret__.prefix,
-        prefix_validation_state=__ret__.prefix_validation_state,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        error_message=pulumi.get(__ret__, 'error_message'),
+        events=pulumi.get(__ret__, 'events'),
+        id=pulumi.get(__ret__, 'id'),
+        learned_type=pulumi.get(__ret__, 'learned_type'),
+        name=pulumi.get(__ret__, 'name'),
+        peering_service_prefix_key=pulumi.get(__ret__, 'peering_service_prefix_key'),
+        prefix=pulumi.get(__ret__, 'prefix'),
+        prefix_validation_state=pulumi.get(__ret__, 'prefix_validation_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_prefix)

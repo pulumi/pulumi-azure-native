@@ -272,24 +272,24 @@ def get_connector_mapping(connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights/v20170426:getConnectorMapping', __args__, opts=opts, typ=GetConnectorMappingResult).value
 
     return AwaitableGetConnectorMappingResult(
-        connector_mapping_name=__ret__.connector_mapping_name,
-        connector_name=__ret__.connector_name,
-        connector_type=__ret__.connector_type,
-        created=__ret__.created,
-        data_format_id=__ret__.data_format_id,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        entity_type=__ret__.entity_type,
-        entity_type_name=__ret__.entity_type_name,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        mapping_properties=__ret__.mapping_properties,
-        name=__ret__.name,
-        next_run_time=__ret__.next_run_time,
-        run_id=__ret__.run_id,
-        state=__ret__.state,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        connector_mapping_name=pulumi.get(__ret__, 'connector_mapping_name'),
+        connector_name=pulumi.get(__ret__, 'connector_name'),
+        connector_type=pulumi.get(__ret__, 'connector_type'),
+        created=pulumi.get(__ret__, 'created'),
+        data_format_id=pulumi.get(__ret__, 'data_format_id'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        entity_type=pulumi.get(__ret__, 'entity_type'),
+        entity_type_name=pulumi.get(__ret__, 'entity_type_name'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        mapping_properties=pulumi.get(__ret__, 'mapping_properties'),
+        name=pulumi.get(__ret__, 'name'),
+        next_run_time=pulumi.get(__ret__, 'next_run_time'),
+        run_id=pulumi.get(__ret__, 'run_id'),
+        state=pulumi.get(__ret__, 'state'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connector_mapping)

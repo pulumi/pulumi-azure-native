@@ -247,22 +247,22 @@ def get_artifact_source(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab/v20180915:getArtifactSource', __args__, opts=opts, typ=GetArtifactSourceResult).value
 
     return AwaitableGetArtifactSourceResult(
-        arm_template_folder_path=__ret__.arm_template_folder_path,
-        branch_ref=__ret__.branch_ref,
-        created_date=__ret__.created_date,
-        display_name=__ret__.display_name,
-        folder_path=__ret__.folder_path,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        security_token=__ret__.security_token,
-        source_type=__ret__.source_type,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        uri=__ret__.uri)
+        arm_template_folder_path=pulumi.get(__ret__, 'arm_template_folder_path'),
+        branch_ref=pulumi.get(__ret__, 'branch_ref'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        folder_path=pulumi.get(__ret__, 'folder_path'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        security_token=pulumi.get(__ret__, 'security_token'),
+        source_type=pulumi.get(__ret__, 'source_type'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
+        uri=pulumi.get(__ret__, 'uri'))
 
 
 @_utilities.lift_output_func(get_artifact_source)

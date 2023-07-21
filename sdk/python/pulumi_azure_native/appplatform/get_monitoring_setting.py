@@ -111,11 +111,11 @@ def get_monitoring_setting(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform:getMonitoringSetting', __args__, opts=opts, typ=GetMonitoringSettingResult).value
 
     return AwaitableGetMonitoringSettingResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_monitoring_setting)

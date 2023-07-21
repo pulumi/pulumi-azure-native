@@ -171,16 +171,16 @@ def get_data_collection_rule_association(association_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getDataCollectionRuleAssociation', __args__, opts=opts, typ=GetDataCollectionRuleAssociationResult).value
 
     return AwaitableGetDataCollectionRuleAssociationResult(
-        data_collection_endpoint_id=__ret__.data_collection_endpoint_id,
-        data_collection_rule_id=__ret__.data_collection_rule_id,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        data_collection_endpoint_id=pulumi.get(__ret__, 'data_collection_endpoint_id'),
+        data_collection_rule_id=pulumi.get(__ret__, 'data_collection_rule_id'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_collection_rule_association)

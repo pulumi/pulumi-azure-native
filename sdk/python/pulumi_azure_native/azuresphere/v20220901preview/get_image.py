@@ -209,19 +209,19 @@ def get_image(catalog_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuresphere/v20220901preview:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        component_id=__ret__.component_id,
-        description=__ret__.description,
-        id=__ret__.id,
-        image=__ret__.image,
-        image_id=__ret__.image_id,
-        image_name=__ret__.image_name,
-        image_type=__ret__.image_type,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        regional_data_boundary=__ret__.regional_data_boundary,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        uri=__ret__.uri)
+        component_id=pulumi.get(__ret__, 'component_id'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        image=pulumi.get(__ret__, 'image'),
+        image_id=pulumi.get(__ret__, 'image_id'),
+        image_name=pulumi.get(__ret__, 'image_name'),
+        image_type=pulumi.get(__ret__, 'image_type'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        regional_data_boundary=pulumi.get(__ret__, 'regional_data_boundary'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        uri=pulumi.get(__ret__, 'uri'))
 
 
 @_utilities.lift_output_func(get_image)

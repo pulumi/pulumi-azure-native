@@ -182,17 +182,17 @@ def get_blueprint(blueprint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blueprint/v20181101preview:getBlueprint', __args__, opts=opts, typ=GetBlueprintResult).value
 
     return AwaitableGetBlueprintResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        layout=__ret__.layout,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        resource_groups=__ret__.resource_groups,
-        status=__ret__.status,
-        target_scope=__ret__.target_scope,
-        type=__ret__.type,
-        versions=__ret__.versions)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        layout=pulumi.get(__ret__, 'layout'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        resource_groups=pulumi.get(__ret__, 'resource_groups'),
+        status=pulumi.get(__ret__, 'status'),
+        target_scope=pulumi.get(__ret__, 'target_scope'),
+        type=pulumi.get(__ret__, 'type'),
+        versions=pulumi.get(__ret__, 'versions'))
 
 
 @_utilities.lift_output_func(get_blueprint)

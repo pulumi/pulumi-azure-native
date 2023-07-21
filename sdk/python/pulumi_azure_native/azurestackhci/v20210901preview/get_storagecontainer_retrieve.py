@@ -199,19 +199,19 @@ def get_storagecontainer_retrieve(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20210901preview:getStoragecontainerRetrieve', __args__, opts=opts, typ=GetStoragecontainerRetrieveResult).value
 
     return AwaitableGetStoragecontainerRetrieveResult(
-        available_size_mb=__ret__.available_size_mb,
-        container_size_mb=__ret__.container_size_mb,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        path=__ret__.path,
-        provisioning_state=__ret__.provisioning_state,
-        resource_name=__ret__.resource_name,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        available_size_mb=pulumi.get(__ret__, 'available_size_mb'),
+        container_size_mb=pulumi.get(__ret__, 'container_size_mb'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        path=pulumi.get(__ret__, 'path'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_name=pulumi.get(__ret__, 'resource_name'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_storagecontainer_retrieve)

@@ -266,24 +266,24 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere/v20220715preview:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        custom_resource_name=__ret__.custom_resource_name,
-        datastore_ids=__ret__.datastore_ids,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        inventory_item_id=__ret__.inventory_item_id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        mo_name=__ret__.mo_name,
-        mo_ref_id=__ret__.mo_ref_id,
-        name=__ret__.name,
-        network_ids=__ret__.network_ids,
-        provisioning_state=__ret__.provisioning_state,
-        statuses=__ret__.statuses,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        uuid=__ret__.uuid,
-        v_center_id=__ret__.v_center_id)
+        custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
+        datastore_ids=pulumi.get(__ret__, 'datastore_ids'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        inventory_item_id=pulumi.get(__ret__, 'inventory_item_id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        mo_name=pulumi.get(__ret__, 'mo_name'),
+        mo_ref_id=pulumi.get(__ret__, 'mo_ref_id'),
+        name=pulumi.get(__ret__, 'name'),
+        network_ids=pulumi.get(__ret__, 'network_ids'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        statuses=pulumi.get(__ret__, 'statuses'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        uuid=pulumi.get(__ret__, 'uuid'),
+        v_center_id=pulumi.get(__ret__, 'v_center_id'))
 
 
 @_utilities.lift_output_func(get_cluster)

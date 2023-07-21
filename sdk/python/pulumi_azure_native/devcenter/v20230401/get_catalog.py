@@ -161,15 +161,15 @@ def get_catalog(catalog_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter/v20230401:getCatalog', __args__, opts=opts, typ=GetCatalogResult).value
 
     return AwaitableGetCatalogResult(
-        ado_git=__ret__.ado_git,
-        git_hub=__ret__.git_hub,
-        id=__ret__.id,
-        last_sync_time=__ret__.last_sync_time,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sync_state=__ret__.sync_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        ado_git=pulumi.get(__ret__, 'ado_git'),
+        git_hub=pulumi.get(__ret__, 'git_hub'),
+        id=pulumi.get(__ret__, 'id'),
+        last_sync_time=pulumi.get(__ret__, 'last_sync_time'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sync_state=pulumi.get(__ret__, 'sync_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_catalog)

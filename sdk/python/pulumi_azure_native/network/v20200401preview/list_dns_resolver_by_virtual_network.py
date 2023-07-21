@@ -77,8 +77,8 @@ def list_dns_resolver_by_virtual_network(resource_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20200401preview:listDnsResolverByVirtualNetwork', __args__, opts=opts, typ=ListDnsResolverByVirtualNetworkResult).value
 
     return AwaitableListDnsResolverByVirtualNetworkResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_dns_resolver_by_virtual_network)

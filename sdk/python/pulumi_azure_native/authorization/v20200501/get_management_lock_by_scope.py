@@ -134,13 +134,13 @@ def get_management_lock_by_scope(lock_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20200501:getManagementLockByScope', __args__, opts=opts, typ=GetManagementLockByScopeResult).value
 
     return AwaitableGetManagementLockByScopeResult(
-        id=__ret__.id,
-        level=__ret__.level,
-        name=__ret__.name,
-        notes=__ret__.notes,
-        owners=__ret__.owners,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        level=pulumi.get(__ret__, 'level'),
+        name=pulumi.get(__ret__, 'name'),
+        notes=pulumi.get(__ret__, 'notes'),
+        owners=pulumi.get(__ret__, 'owners'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_management_lock_by_scope)

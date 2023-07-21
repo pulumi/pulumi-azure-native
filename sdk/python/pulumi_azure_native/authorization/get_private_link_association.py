@@ -96,10 +96,10 @@ def get_private_link_association(group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getPrivateLinkAssociation', __args__, opts=opts, typ=GetPrivateLinkAssociationResult).value
 
     return AwaitableGetPrivateLinkAssociationResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_link_association)

@@ -182,18 +182,18 @@ def get_adaptive_application_control(asc_location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20200101:getAdaptiveApplicationControl', __args__, opts=opts, typ=GetAdaptiveApplicationControlResult).value
 
     return AwaitableGetAdaptiveApplicationControlResult(
-        configuration_status=__ret__.configuration_status,
-        enforcement_mode=__ret__.enforcement_mode,
-        id=__ret__.id,
-        issues=__ret__.issues,
-        location=__ret__.location,
-        name=__ret__.name,
-        path_recommendations=__ret__.path_recommendations,
-        protection_mode=__ret__.protection_mode,
-        recommendation_status=__ret__.recommendation_status,
-        source_system=__ret__.source_system,
-        type=__ret__.type,
-        vm_recommendations=__ret__.vm_recommendations)
+        configuration_status=pulumi.get(__ret__, 'configuration_status'),
+        enforcement_mode=pulumi.get(__ret__, 'enforcement_mode'),
+        id=pulumi.get(__ret__, 'id'),
+        issues=pulumi.get(__ret__, 'issues'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        path_recommendations=pulumi.get(__ret__, 'path_recommendations'),
+        protection_mode=pulumi.get(__ret__, 'protection_mode'),
+        recommendation_status=pulumi.get(__ret__, 'recommendation_status'),
+        source_system=pulumi.get(__ret__, 'source_system'),
+        type=pulumi.get(__ret__, 'type'),
+        vm_recommendations=pulumi.get(__ret__, 'vm_recommendations'))
 
 
 @_utilities.lift_output_func(get_adaptive_application_control)

@@ -62,7 +62,7 @@ def get_lab_account_regional_availability(lab_account_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20181015:getLabAccountRegionalAvailability', __args__, opts=opts, typ=GetLabAccountRegionalAvailabilityResult).value
 
     return AwaitableGetLabAccountRegionalAvailabilityResult(
-        regional_availability=__ret__.regional_availability)
+        regional_availability=pulumi.get(__ret__, 'regional_availability'))
 
 
 @_utilities.lift_output_func(get_lab_account_regional_availability)

@@ -150,14 +150,14 @@ def get_signal_r_custom_certificate(certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:signalrservice:getSignalRCustomCertificate', __args__, opts=opts, typ=GetSignalRCustomCertificateResult).value
 
     return AwaitableGetSignalRCustomCertificateResult(
-        id=__ret__.id,
-        key_vault_base_uri=__ret__.key_vault_base_uri,
-        key_vault_secret_name=__ret__.key_vault_secret_name,
-        key_vault_secret_version=__ret__.key_vault_secret_version,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_base_uri=pulumi.get(__ret__, 'key_vault_base_uri'),
+        key_vault_secret_name=pulumi.get(__ret__, 'key_vault_secret_name'),
+        key_vault_secret_version=pulumi.get(__ret__, 'key_vault_secret_version'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_signal_r_custom_certificate)

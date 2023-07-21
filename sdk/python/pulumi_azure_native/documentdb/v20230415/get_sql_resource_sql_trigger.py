@@ -128,12 +128,12 @@ def get_sql_resource_sql_trigger(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20230415:getSqlResourceSqlTrigger', __args__, opts=opts, typ=GetSqlResourceSqlTriggerResult).value
 
     return AwaitableGetSqlResourceSqlTriggerResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource=__ret__.resource,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource=pulumi.get(__ret__, 'resource'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sql_resource_sql_trigger)

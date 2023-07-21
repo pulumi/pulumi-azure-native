@@ -209,19 +209,19 @@ def get_connectivity_configuration(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210201preview:getConnectivityConfiguration', __args__, opts=opts, typ=GetConnectivityConfigurationResult).value
 
     return AwaitableGetConnectivityConfigurationResult(
-        applies_to_groups=__ret__.applies_to_groups,
-        connectivity_topology=__ret__.connectivity_topology,
-        delete_existing_peering=__ret__.delete_existing_peering,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        hubs=__ret__.hubs,
-        id=__ret__.id,
-        is_global=__ret__.is_global,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        applies_to_groups=pulumi.get(__ret__, 'applies_to_groups'),
+        connectivity_topology=pulumi.get(__ret__, 'connectivity_topology'),
+        delete_existing_peering=pulumi.get(__ret__, 'delete_existing_peering'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        hubs=pulumi.get(__ret__, 'hubs'),
+        id=pulumi.get(__ret__, 'id'),
+        is_global=pulumi.get(__ret__, 'is_global'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connectivity_configuration)

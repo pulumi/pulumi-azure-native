@@ -71,7 +71,7 @@ def get_authorization_login_link_post(authorization_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getAuthorizationLoginLinkPost', __args__, opts=opts, typ=GetAuthorizationLoginLinkPostResult).value
 
     return AwaitableGetAuthorizationLoginLinkPostResult(
-        login_link=__ret__.login_link)
+        login_link=pulumi.get(__ret__, 'login_link'))
 
 
 @_utilities.lift_output_func(get_authorization_login_link_post)

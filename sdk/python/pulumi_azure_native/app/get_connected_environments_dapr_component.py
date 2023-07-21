@@ -198,18 +198,18 @@ def get_connected_environments_dapr_component(component_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:app:getConnectedEnvironmentsDaprComponent', __args__, opts=opts, typ=GetConnectedEnvironmentsDaprComponentResult).value
 
     return AwaitableGetConnectedEnvironmentsDaprComponentResult(
-        component_type=__ret__.component_type,
-        id=__ret__.id,
-        ignore_errors=__ret__.ignore_errors,
-        init_timeout=__ret__.init_timeout,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        scopes=__ret__.scopes,
-        secret_store_component=__ret__.secret_store_component,
-        secrets=__ret__.secrets,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        component_type=pulumi.get(__ret__, 'component_type'),
+        id=pulumi.get(__ret__, 'id'),
+        ignore_errors=pulumi.get(__ret__, 'ignore_errors'),
+        init_timeout=pulumi.get(__ret__, 'init_timeout'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        scopes=pulumi.get(__ret__, 'scopes'),
+        secret_store_component=pulumi.get(__ret__, 'secret_store_component'),
+        secrets=pulumi.get(__ret__, 'secrets'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_connected_environments_dapr_component)

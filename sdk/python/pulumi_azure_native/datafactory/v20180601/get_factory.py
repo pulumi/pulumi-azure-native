@@ -230,21 +230,21 @@ def get_factory(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory/v20180601:getFactory', __args__, opts=opts, typ=GetFactoryResult).value
 
     return AwaitableGetFactoryResult(
-        create_time=__ret__.create_time,
-        e_tag=__ret__.e_tag,
-        encryption=__ret__.encryption,
-        global_parameters=__ret__.global_parameters,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        purview_configuration=__ret__.purview_configuration,
-        repo_configuration=__ret__.repo_configuration,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        create_time=pulumi.get(__ret__, 'create_time'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        encryption=pulumi.get(__ret__, 'encryption'),
+        global_parameters=pulumi.get(__ret__, 'global_parameters'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        purview_configuration=pulumi.get(__ret__, 'purview_configuration'),
+        repo_configuration=pulumi.get(__ret__, 'repo_configuration'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_factory)

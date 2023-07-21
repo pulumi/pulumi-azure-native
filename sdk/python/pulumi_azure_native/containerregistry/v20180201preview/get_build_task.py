@@ -197,18 +197,18 @@ def get_build_task(build_task_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20180201preview:getBuildTask', __args__, opts=opts, typ=GetBuildTaskResult).value
 
     return AwaitableGetBuildTaskResult(
-        alias=__ret__.alias,
-        creation_date=__ret__.creation_date,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        platform=__ret__.platform,
-        provisioning_state=__ret__.provisioning_state,
-        source_repository=__ret__.source_repository,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        timeout=__ret__.timeout,
-        type=__ret__.type)
+        alias=pulumi.get(__ret__, 'alias'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        platform=pulumi.get(__ret__, 'platform'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_repository=pulumi.get(__ret__, 'source_repository'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        timeout=pulumi.get(__ret__, 'timeout'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_build_task)

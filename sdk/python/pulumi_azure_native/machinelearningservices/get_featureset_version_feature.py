@@ -107,10 +107,10 @@ def get_featureset_version_feature(feature_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getFeaturesetVersionFeature', __args__, opts=opts, typ=GetFeaturesetVersionFeatureResult).value
 
     return AwaitableGetFeaturesetVersionFeatureResult(
-        data_type=__ret__.data_type,
-        description=__ret__.description,
-        feature_name=__ret__.feature_name,
-        tags=__ret__.tags)
+        data_type=pulumi.get(__ret__, 'data_type'),
+        description=pulumi.get(__ret__, 'description'),
+        feature_name=pulumi.get(__ret__, 'feature_name'),
+        tags=pulumi.get(__ret__, 'tags'))
 
 
 @_utilities.lift_output_func(get_featureset_version_feature)

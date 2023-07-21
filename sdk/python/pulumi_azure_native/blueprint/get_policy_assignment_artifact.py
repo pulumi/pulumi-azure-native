@@ -175,16 +175,16 @@ def get_policy_assignment_artifact(artifact_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blueprint:getPolicyAssignmentArtifact', __args__, opts=opts, typ=GetPolicyAssignmentArtifactResult).value
 
     return AwaitableGetPolicyAssignmentArtifactResult(
-        depends_on=__ret__.depends_on,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        policy_definition_id=__ret__.policy_definition_id,
-        resource_group=__ret__.resource_group,
-        type=__ret__.type)
+        depends_on=pulumi.get(__ret__, 'depends_on'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
+        resource_group=pulumi.get(__ret__, 'resource_group'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_policy_assignment_artifact)

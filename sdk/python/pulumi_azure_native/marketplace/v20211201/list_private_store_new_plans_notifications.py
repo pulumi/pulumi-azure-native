@@ -56,7 +56,7 @@ def list_private_store_new_plans_notifications(private_store_id: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:marketplace/v20211201:listPrivateStoreNewPlansNotifications', __args__, opts=opts, typ=ListPrivateStoreNewPlansNotificationsResult).value
 
     return AwaitableListPrivateStoreNewPlansNotificationsResult(
-        new_plans_notifications=__ret__.new_plans_notifications)
+        new_plans_notifications=pulumi.get(__ret__, 'new_plans_notifications'))
 
 
 @_utilities.lift_output_func(list_private_store_new_plans_notifications)

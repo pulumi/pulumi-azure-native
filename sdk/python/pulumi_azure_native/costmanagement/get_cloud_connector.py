@@ -267,24 +267,24 @@ def get_cloud_connector(connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement:getCloudConnector', __args__, opts=opts, typ=GetCloudConnectorResult).value
 
     return AwaitableGetCloudConnectorResult(
-        billing_model=__ret__.billing_model,
-        collection_info=__ret__.collection_info,
-        created_on=__ret__.created_on,
-        credentials_key=__ret__.credentials_key,
-        days_trial_remaining=__ret__.days_trial_remaining,
-        default_management_group_id=__ret__.default_management_group_id,
-        display_name=__ret__.display_name,
-        external_billing_account_id=__ret__.external_billing_account_id,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        modified_on=__ret__.modified_on,
-        name=__ret__.name,
-        provider_billing_account_display_name=__ret__.provider_billing_account_display_name,
-        provider_billing_account_id=__ret__.provider_billing_account_id,
-        report_id=__ret__.report_id,
-        status=__ret__.status,
-        subscription_id=__ret__.subscription_id,
-        type=__ret__.type)
+        billing_model=pulumi.get(__ret__, 'billing_model'),
+        collection_info=pulumi.get(__ret__, 'collection_info'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        credentials_key=pulumi.get(__ret__, 'credentials_key'),
+        days_trial_remaining=pulumi.get(__ret__, 'days_trial_remaining'),
+        default_management_group_id=pulumi.get(__ret__, 'default_management_group_id'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        external_billing_account_id=pulumi.get(__ret__, 'external_billing_account_id'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        modified_on=pulumi.get(__ret__, 'modified_on'),
+        name=pulumi.get(__ret__, 'name'),
+        provider_billing_account_display_name=pulumi.get(__ret__, 'provider_billing_account_display_name'),
+        provider_billing_account_id=pulumi.get(__ret__, 'provider_billing_account_id'),
+        report_id=pulumi.get(__ret__, 'report_id'),
+        status=pulumi.get(__ret__, 'status'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cloud_connector)

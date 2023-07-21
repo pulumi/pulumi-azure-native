@@ -126,12 +126,12 @@ def get_access_policy(access_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult).value
 
     return AwaitableGetAccessPolicyResult(
-        authentication=__ret__.authentication,
-        id=__ret__.id,
-        name=__ret__.name,
-        role=__ret__.role,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        authentication=pulumi.get(__ret__, 'authentication'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        role=pulumi.get(__ret__, 'role'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_access_policy)

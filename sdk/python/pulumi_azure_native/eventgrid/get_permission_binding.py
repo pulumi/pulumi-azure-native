@@ -164,15 +164,15 @@ def get_permission_binding(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getPermissionBinding', __args__, opts=opts, typ=GetPermissionBindingResult).value
 
     return AwaitableGetPermissionBindingResult(
-        client_group_name=__ret__.client_group_name,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        permission=__ret__.permission,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        topic_space_name=__ret__.topic_space_name,
-        type=__ret__.type)
+        client_group_name=pulumi.get(__ret__, 'client_group_name'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        permission=pulumi.get(__ret__, 'permission'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        topic_space_name=pulumi.get(__ret__, 'topic_space_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_permission_binding)

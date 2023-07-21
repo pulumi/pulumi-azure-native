@@ -109,11 +109,11 @@ def get_workflow_access_key(access_key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20150201preview:getWorkflowAccessKey', __args__, opts=opts, typ=GetWorkflowAccessKeyResult).value
 
     return AwaitableGetWorkflowAccessKeyResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        not_after=__ret__.not_after,
-        not_before=__ret__.not_before,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        not_after=pulumi.get(__ret__, 'not_after'),
+        not_before=pulumi.get(__ret__, 'not_before'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workflow_access_key)

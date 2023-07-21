@@ -71,8 +71,8 @@ def list_saas_resource_access_token(resource_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:saas:listSaasResourceAccessToken', __args__, opts=opts, typ=ListSaasResourceAccessTokenResult).value
 
     return AwaitableListSaasResourceAccessTokenResult(
-        publisher_offer_base_uri=__ret__.publisher_offer_base_uri,
-        token=__ret__.token)
+        publisher_offer_base_uri=pulumi.get(__ret__, 'publisher_offer_base_uri'),
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(list_saas_resource_access_token)

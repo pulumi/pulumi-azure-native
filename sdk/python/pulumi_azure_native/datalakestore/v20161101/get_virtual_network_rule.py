@@ -100,10 +100,10 @@ def get_virtual_network_rule(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datalakestore/v20161101:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult).value
 
     return AwaitableGetVirtualNetworkRuleResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        subnet_id=__ret__.subnet_id,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_virtual_network_rule)

@@ -130,12 +130,12 @@ def get_workspace_policy_fragment(format: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getWorkspacePolicyFragment', __args__, opts=opts, typ=GetWorkspacePolicyFragmentResult).value
 
     return AwaitableGetWorkspacePolicyFragmentResult(
-        description=__ret__.description,
-        format=__ret__.format,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type,
-        value=__ret__.value)
+        description=pulumi.get(__ret__, 'description'),
+        format=pulumi.get(__ret__, 'format'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_workspace_policy_fragment)

@@ -63,8 +63,8 @@ def list_notebook_keys(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20200901preview:listNotebookKeys', __args__, opts=opts, typ=ListNotebookKeysResult).value
 
     return AwaitableListNotebookKeysResult(
-        primary_access_key=__ret__.primary_access_key,
-        secondary_access_key=__ret__.secondary_access_key)
+        primary_access_key=pulumi.get(__ret__, 'primary_access_key'),
+        secondary_access_key=pulumi.get(__ret__, 'secondary_access_key'))
 
 
 @_utilities.lift_output_func(list_notebook_keys)

@@ -164,15 +164,15 @@ def list_web_app_site_push_settings_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20201001:listWebAppSitePushSettingsSlot', __args__, opts=opts, typ=ListWebAppSitePushSettingsSlotResult).value
 
     return AwaitableListWebAppSitePushSettingsSlotResult(
-        dynamic_tags_json=__ret__.dynamic_tags_json,
-        id=__ret__.id,
-        is_push_enabled=__ret__.is_push_enabled,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        tag_whitelist_json=__ret__.tag_whitelist_json,
-        tags_requiring_auth=__ret__.tags_requiring_auth,
-        type=__ret__.type)
+        dynamic_tags_json=pulumi.get(__ret__, 'dynamic_tags_json'),
+        id=pulumi.get(__ret__, 'id'),
+        is_push_enabled=pulumi.get(__ret__, 'is_push_enabled'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tag_whitelist_json=pulumi.get(__ret__, 'tag_whitelist_json'),
+        tags_requiring_auth=pulumi.get(__ret__, 'tags_requiring_auth'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_web_app_site_push_settings_slot)

@@ -305,27 +305,27 @@ def get_sap_application_server_instance(application_instance_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:workloads/v20230401:getSAPApplicationServerInstance', __args__, opts=opts, typ=GetSAPApplicationServerInstanceResult).value
 
     return AwaitableGetSAPApplicationServerInstanceResult(
-        errors=__ret__.errors,
-        gateway_port=__ret__.gateway_port,
-        health=__ret__.health,
-        hostname=__ret__.hostname,
-        icm_http_port=__ret__.icm_http_port,
-        icm_https_port=__ret__.icm_https_port,
-        id=__ret__.id,
-        instance_no=__ret__.instance_no,
-        ip_address=__ret__.ip_address,
-        kernel_patch=__ret__.kernel_patch,
-        kernel_version=__ret__.kernel_version,
-        load_balancer_details=__ret__.load_balancer_details,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        subnet=__ret__.subnet,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vm_details=__ret__.vm_details)
+        errors=pulumi.get(__ret__, 'errors'),
+        gateway_port=pulumi.get(__ret__, 'gateway_port'),
+        health=pulumi.get(__ret__, 'health'),
+        hostname=pulumi.get(__ret__, 'hostname'),
+        icm_http_port=pulumi.get(__ret__, 'icm_http_port'),
+        icm_https_port=pulumi.get(__ret__, 'icm_https_port'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_no=pulumi.get(__ret__, 'instance_no'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        kernel_patch=pulumi.get(__ret__, 'kernel_patch'),
+        kernel_version=pulumi.get(__ret__, 'kernel_version'),
+        load_balancer_details=pulumi.get(__ret__, 'load_balancer_details'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        subnet=pulumi.get(__ret__, 'subnet'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vm_details=pulumi.get(__ret__, 'vm_details'))
 
 
 @_utilities.lift_output_func(get_sap_application_server_instance)

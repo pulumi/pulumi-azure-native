@@ -230,21 +230,21 @@ def get_container_app(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app/v20220101preview:getContainerApp', __args__, opts=opts, typ=GetContainerAppResult).value
 
     return AwaitableGetContainerAppResult(
-        configuration=__ret__.configuration,
-        custom_domain_verification_id=__ret__.custom_domain_verification_id,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        latest_revision_fqdn=__ret__.latest_revision_fqdn,
-        latest_revision_name=__ret__.latest_revision_name,
-        location=__ret__.location,
-        managed_environment_id=__ret__.managed_environment_id,
-        name=__ret__.name,
-        outbound_ip_addresses=__ret__.outbound_ip_addresses,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        template=__ret__.template,
-        type=__ret__.type)
+        configuration=pulumi.get(__ret__, 'configuration'),
+        custom_domain_verification_id=pulumi.get(__ret__, 'custom_domain_verification_id'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        latest_revision_fqdn=pulumi.get(__ret__, 'latest_revision_fqdn'),
+        latest_revision_name=pulumi.get(__ret__, 'latest_revision_name'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_environment_id=pulumi.get(__ret__, 'managed_environment_id'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template=pulumi.get(__ret__, 'template'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_container_app)

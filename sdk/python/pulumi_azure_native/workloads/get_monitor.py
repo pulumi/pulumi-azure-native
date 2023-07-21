@@ -255,23 +255,23 @@ def get_monitor(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getMonitor', __args__, opts=opts, typ=GetMonitorResult).value
 
     return AwaitableGetMonitorResult(
-        app_location=__ret__.app_location,
-        errors=__ret__.errors,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        log_analytics_workspace_arm_id=__ret__.log_analytics_workspace_arm_id,
-        managed_resource_group_configuration=__ret__.managed_resource_group_configuration,
-        monitor_subnet=__ret__.monitor_subnet,
-        msi_arm_id=__ret__.msi_arm_id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        routing_preference=__ret__.routing_preference,
-        storage_account_arm_id=__ret__.storage_account_arm_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zone_redundancy_preference=__ret__.zone_redundancy_preference)
+        app_location=pulumi.get(__ret__, 'app_location'),
+        errors=pulumi.get(__ret__, 'errors'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        log_analytics_workspace_arm_id=pulumi.get(__ret__, 'log_analytics_workspace_arm_id'),
+        managed_resource_group_configuration=pulumi.get(__ret__, 'managed_resource_group_configuration'),
+        monitor_subnet=pulumi.get(__ret__, 'monitor_subnet'),
+        msi_arm_id=pulumi.get(__ret__, 'msi_arm_id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        routing_preference=pulumi.get(__ret__, 'routing_preference'),
+        storage_account_arm_id=pulumi.get(__ret__, 'storage_account_arm_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zone_redundancy_preference=pulumi.get(__ret__, 'zone_redundancy_preference'))
 
 
 @_utilities.lift_output_func(get_monitor)

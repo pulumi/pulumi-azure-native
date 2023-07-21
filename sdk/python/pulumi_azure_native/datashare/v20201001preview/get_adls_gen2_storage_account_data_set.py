@@ -165,15 +165,15 @@ def get_adls_gen2_storage_account_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSet', __args__, opts=opts, typ=GetADLSGen2StorageAccountDataSetResult).value
 
     return AwaitableGetADLSGen2StorageAccountDataSetResult(
-        data_set_id=__ret__.data_set_id,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        paths=__ret__.paths,
-        storage_account_resource_id=__ret__.storage_account_resource_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        paths=pulumi.get(__ret__, 'paths'),
+        storage_account_resource_id=pulumi.get(__ret__, 'storage_account_resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_adls_gen2_storage_account_data_set)

@@ -207,19 +207,19 @@ def get_security_connector(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getSecurityConnector', __args__, opts=opts, typ=GetSecurityConnectorResult).value
 
     return AwaitableGetSecurityConnectorResult(
-        environment_data=__ret__.environment_data,
-        environment_name=__ret__.environment_name,
-        etag=__ret__.etag,
-        hierarchy_identifier=__ret__.hierarchy_identifier,
-        hierarchy_identifier_trial_end_date=__ret__.hierarchy_identifier_trial_end_date,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        offerings=__ret__.offerings,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        environment_data=pulumi.get(__ret__, 'environment_data'),
+        environment_name=pulumi.get(__ret__, 'environment_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        hierarchy_identifier=pulumi.get(__ret__, 'hierarchy_identifier'),
+        hierarchy_identifier_trial_end_date=pulumi.get(__ret__, 'hierarchy_identifier_trial_end_date'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        offerings=pulumi.get(__ret__, 'offerings'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_security_connector)

@@ -113,11 +113,11 @@ def get_patch_schedule(default: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache/v20230501preview:getPatchSchedule', __args__, opts=opts, typ=GetPatchScheduleResult).value
 
     return AwaitableGetPatchScheduleResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        schedule_entries=__ret__.schedule_entries,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        schedule_entries=pulumi.get(__ret__, 'schedule_entries'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_patch_schedule)

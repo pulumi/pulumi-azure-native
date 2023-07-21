@@ -213,19 +213,19 @@ def get_notification_channel(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult).value
 
     return AwaitableGetNotificationChannelResult(
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        email_recipient=__ret__.email_recipient,
-        events=__ret__.events,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        notification_locale=__ret__.notification_locale,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        web_hook_url=__ret__.web_hook_url)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        email_recipient=pulumi.get(__ret__, 'email_recipient'),
+        events=pulumi.get(__ret__, 'events'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        notification_locale=pulumi.get(__ret__, 'notification_locale'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
+        web_hook_url=pulumi.get(__ret__, 'web_hook_url'))
 
 
 @_utilities.lift_output_func(get_notification_channel)

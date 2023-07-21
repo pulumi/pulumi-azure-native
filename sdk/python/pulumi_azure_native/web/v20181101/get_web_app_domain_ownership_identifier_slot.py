@@ -103,10 +103,10 @@ def get_web_app_domain_ownership_identifier_slot(domain_ownership_identifier_nam
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20181101:getWebAppDomainOwnershipIdentifierSlot', __args__, opts=opts, typ=GetWebAppDomainOwnershipIdentifierSlotResult).value
 
     return AwaitableGetWebAppDomainOwnershipIdentifierSlotResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_domain_ownership_identifier_slot)

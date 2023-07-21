@@ -182,17 +182,17 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20180701:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult).value
 
     return AwaitableGetVpnGatewayResult(
-        bgp_settings=__ret__.bgp_settings,
-        connections=__ret__.connections,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        policies=__ret__.policies,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_hub=__ret__.virtual_hub)
+        bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
+        connections=pulumi.get(__ret__, 'connections'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        policies=pulumi.get(__ret__, 'policies'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 
 
 @_utilities.lift_output_func(get_vpn_gateway)

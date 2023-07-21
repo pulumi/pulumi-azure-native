@@ -206,19 +206,19 @@ def get_vpn_site(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20180701:getVpnSite', __args__, opts=opts, typ=GetVpnSiteResult).value
 
     return AwaitableGetVpnSiteResult(
-        address_space=__ret__.address_space,
-        bgp_properties=__ret__.bgp_properties,
-        device_properties=__ret__.device_properties,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        ip_address=__ret__.ip_address,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        site_key=__ret__.site_key,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_wan=__ret__.virtual_wan)
+        address_space=pulumi.get(__ret__, 'address_space'),
+        bgp_properties=pulumi.get(__ret__, 'bgp_properties'),
+        device_properties=pulumi.get(__ret__, 'device_properties'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        site_key=pulumi.get(__ret__, 'site_key'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_wan=pulumi.get(__ret__, 'virtual_wan'))
 
 
 @_utilities.lift_output_func(get_vpn_site)

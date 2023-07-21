@@ -140,13 +140,13 @@ def get_managed_instance_long_term_retention_policy(database_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getManagedInstanceLongTermRetentionPolicy', __args__, opts=opts, typ=GetManagedInstanceLongTermRetentionPolicyResult).value
 
     return AwaitableGetManagedInstanceLongTermRetentionPolicyResult(
-        id=__ret__.id,
-        monthly_retention=__ret__.monthly_retention,
-        name=__ret__.name,
-        type=__ret__.type,
-        week_of_year=__ret__.week_of_year,
-        weekly_retention=__ret__.weekly_retention,
-        yearly_retention=__ret__.yearly_retention)
+        id=pulumi.get(__ret__, 'id'),
+        monthly_retention=pulumi.get(__ret__, 'monthly_retention'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        week_of_year=pulumi.get(__ret__, 'week_of_year'),
+        weekly_retention=pulumi.get(__ret__, 'weekly_retention'),
+        yearly_retention=pulumi.get(__ret__, 'yearly_retention'))
 
 
 @_utilities.lift_output_func(get_managed_instance_long_term_retention_policy)

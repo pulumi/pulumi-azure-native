@@ -198,18 +198,18 @@ def get_interface_endpoint(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getInterfaceEndpoint', __args__, opts=opts, typ=GetInterfaceEndpointResult).value
 
     return AwaitableGetInterfaceEndpointResult(
-        endpoint_service=__ret__.endpoint_service,
-        etag=__ret__.etag,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_interfaces=__ret__.network_interfaces,
-        owner=__ret__.owner,
-        provisioning_state=__ret__.provisioning_state,
-        subnet=__ret__.subnet,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        endpoint_service=pulumi.get(__ret__, 'endpoint_service'),
+        etag=pulumi.get(__ret__, 'etag'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        owner=pulumi.get(__ret__, 'owner'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        subnet=pulumi.get(__ret__, 'subnet'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_interface_endpoint)

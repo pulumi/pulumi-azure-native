@@ -71,8 +71,8 @@ def list_billing_account_invoice_sections_by_create_subscription_permission(bill
     __ret__ = pulumi.runtime.invoke('azure-native:billing/v20191001preview:listBillingAccountInvoiceSectionsByCreateSubscriptionPermission', __args__, opts=opts, typ=ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult).value
 
     return AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_billing_account_invoice_sections_by_create_subscription_permission)

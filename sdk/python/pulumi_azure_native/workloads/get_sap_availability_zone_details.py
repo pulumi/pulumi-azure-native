@@ -70,7 +70,7 @@ def get_sap_availability_zone_details(app_location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSAPAvailabilityZoneDetails', __args__, opts=opts, typ=GetSAPAvailabilityZoneDetailsResult).value
 
     return AwaitableGetSAPAvailabilityZoneDetailsResult(
-        availability_zone_pairs=__ret__.availability_zone_pairs)
+        availability_zone_pairs=pulumi.get(__ret__, 'availability_zone_pairs'))
 
 
 @_utilities.lift_output_func(get_sap_availability_zone_details)

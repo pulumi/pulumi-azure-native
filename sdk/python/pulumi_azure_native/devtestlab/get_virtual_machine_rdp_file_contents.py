@@ -65,7 +65,7 @@ def get_virtual_machine_rdp_file_contents(lab_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getVirtualMachineRdpFileContents', __args__, opts=opts, typ=GetVirtualMachineRdpFileContentsResult).value
 
     return AwaitableGetVirtualMachineRdpFileContentsResult(
-        contents=__ret__.contents)
+        contents=pulumi.get(__ret__, 'contents'))
 
 
 @_utilities.lift_output_func(get_virtual_machine_rdp_file_contents)

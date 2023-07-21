@@ -232,21 +232,21 @@ def get_watcher(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation/v20200113preview:getWatcher', __args__, opts=opts, typ=GetWatcherResult).value
 
     return AwaitableGetWatcherResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        execution_frequency_in_seconds=__ret__.execution_frequency_in_seconds,
-        id=__ret__.id,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_time=__ret__.last_modified_time,
-        location=__ret__.location,
-        name=__ret__.name,
-        script_name=__ret__.script_name,
-        script_parameters=__ret__.script_parameters,
-        script_run_on=__ret__.script_run_on,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        execution_frequency_in_seconds=pulumi.get(__ret__, 'execution_frequency_in_seconds'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        script_name=pulumi.get(__ret__, 'script_name'),
+        script_parameters=pulumi.get(__ret__, 'script_parameters'),
+        script_run_on=pulumi.get(__ret__, 'script_run_on'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_watcher)

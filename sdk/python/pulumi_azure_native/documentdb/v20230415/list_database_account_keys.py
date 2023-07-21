@@ -97,10 +97,10 @@ def list_database_account_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20230415:listDatabaseAccountKeys', __args__, opts=opts, typ=ListDatabaseAccountKeysResult).value
 
     return AwaitableListDatabaseAccountKeysResult(
-        primary_master_key=__ret__.primary_master_key,
-        primary_readonly_master_key=__ret__.primary_readonly_master_key,
-        secondary_master_key=__ret__.secondary_master_key,
-        secondary_readonly_master_key=__ret__.secondary_readonly_master_key)
+        primary_master_key=pulumi.get(__ret__, 'primary_master_key'),
+        primary_readonly_master_key=pulumi.get(__ret__, 'primary_readonly_master_key'),
+        secondary_master_key=pulumi.get(__ret__, 'secondary_master_key'),
+        secondary_readonly_master_key=pulumi.get(__ret__, 'secondary_readonly_master_key'))
 
 
 @_utilities.lift_output_func(list_database_account_keys)

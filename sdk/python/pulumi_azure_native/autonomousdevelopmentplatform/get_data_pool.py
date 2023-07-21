@@ -150,14 +150,14 @@ def get_data_pool(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:autonomousdevelopmentplatform:getDataPool', __args__, opts=opts, typ=GetDataPoolResult).value
 
     return AwaitableGetDataPoolResult(
-        data_pool_id=__ret__.data_pool_id,
-        id=__ret__.id,
-        locations=__ret__.locations,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        data_pool_id=pulumi.get(__ret__, 'data_pool_id'),
+        id=pulumi.get(__ret__, 'id'),
+        locations=pulumi.get(__ret__, 'locations'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_pool)

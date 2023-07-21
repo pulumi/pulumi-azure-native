@@ -209,19 +209,19 @@ def get_connection_monitor(connection_monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20190901:getConnectionMonitor', __args__, opts=opts, typ=GetConnectionMonitorResult).value
 
     return AwaitableGetConnectionMonitorResult(
-        auto_start=__ret__.auto_start,
-        destination=__ret__.destination,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        monitoring_interval_in_seconds=__ret__.monitoring_interval_in_seconds,
-        monitoring_status=__ret__.monitoring_status,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        source=__ret__.source,
-        start_time=__ret__.start_time,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        auto_start=pulumi.get(__ret__, 'auto_start'),
+        destination=pulumi.get(__ret__, 'destination'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        monitoring_interval_in_seconds=pulumi.get(__ret__, 'monitoring_interval_in_seconds'),
+        monitoring_status=pulumi.get(__ret__, 'monitoring_status'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source=pulumi.get(__ret__, 'source'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connection_monitor)

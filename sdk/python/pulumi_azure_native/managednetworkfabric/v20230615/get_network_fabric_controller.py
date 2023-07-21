@@ -290,26 +290,26 @@ def get_network_fabric_controller(network_fabric_controller_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230615:getNetworkFabricController', __args__, opts=opts, typ=GetNetworkFabricControllerResult).value
 
     return AwaitableGetNetworkFabricControllerResult(
-        annotation=__ret__.annotation,
-        id=__ret__.id,
-        infrastructure_express_route_connections=__ret__.infrastructure_express_route_connections,
-        infrastructure_services=__ret__.infrastructure_services,
-        ipv4_address_space=__ret__.ipv4_address_space,
-        ipv6_address_space=__ret__.ipv6_address_space,
-        is_workload_management_network_enabled=__ret__.is_workload_management_network_enabled,
-        location=__ret__.location,
-        managed_resource_group_configuration=__ret__.managed_resource_group_configuration,
-        name=__ret__.name,
-        network_fabric_ids=__ret__.network_fabric_ids,
-        nfc_sku=__ret__.nfc_sku,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        tenant_internet_gateway_ids=__ret__.tenant_internet_gateway_ids,
-        type=__ret__.type,
-        workload_express_route_connections=__ret__.workload_express_route_connections,
-        workload_management_network=__ret__.workload_management_network,
-        workload_services=__ret__.workload_services)
+        annotation=pulumi.get(__ret__, 'annotation'),
+        id=pulumi.get(__ret__, 'id'),
+        infrastructure_express_route_connections=pulumi.get(__ret__, 'infrastructure_express_route_connections'),
+        infrastructure_services=pulumi.get(__ret__, 'infrastructure_services'),
+        ipv4_address_space=pulumi.get(__ret__, 'ipv4_address_space'),
+        ipv6_address_space=pulumi.get(__ret__, 'ipv6_address_space'),
+        is_workload_management_network_enabled=pulumi.get(__ret__, 'is_workload_management_network_enabled'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_resource_group_configuration=pulumi.get(__ret__, 'managed_resource_group_configuration'),
+        name=pulumi.get(__ret__, 'name'),
+        network_fabric_ids=pulumi.get(__ret__, 'network_fabric_ids'),
+        nfc_sku=pulumi.get(__ret__, 'nfc_sku'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_internet_gateway_ids=pulumi.get(__ret__, 'tenant_internet_gateway_ids'),
+        type=pulumi.get(__ret__, 'type'),
+        workload_express_route_connections=pulumi.get(__ret__, 'workload_express_route_connections'),
+        workload_management_network=pulumi.get(__ret__, 'workload_management_network'),
+        workload_services=pulumi.get(__ret__, 'workload_services'))
 
 
 @_utilities.lift_output_func(get_network_fabric_controller)

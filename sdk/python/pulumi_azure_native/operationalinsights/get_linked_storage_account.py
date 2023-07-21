@@ -113,11 +113,11 @@ def get_linked_storage_account(data_source_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getLinkedStorageAccount', __args__, opts=opts, typ=GetLinkedStorageAccountResult).value
 
     return AwaitableGetLinkedStorageAccountResult(
-        data_source_type=__ret__.data_source_type,
-        id=__ret__.id,
-        name=__ret__.name,
-        storage_account_ids=__ret__.storage_account_ids,
-        type=__ret__.type)
+        data_source_type=pulumi.get(__ret__, 'data_source_type'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_account_ids=pulumi.get(__ret__, 'storage_account_ids'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_linked_storage_account)

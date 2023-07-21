@@ -202,19 +202,19 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:windowsesu/v20190916preview:getMultipleActivationKey', __args__, opts=opts, typ=GetMultipleActivationKeyResult).value
 
     return AwaitableGetMultipleActivationKeyResult(
-        agreement_number=__ret__.agreement_number,
-        expiration_date=__ret__.expiration_date,
-        id=__ret__.id,
-        installed_server_number=__ret__.installed_server_number,
-        is_eligible=__ret__.is_eligible,
-        location=__ret__.location,
-        multiple_activation_key=__ret__.multiple_activation_key,
-        name=__ret__.name,
-        os_type=__ret__.os_type,
-        provisioning_state=__ret__.provisioning_state,
-        support_type=__ret__.support_type,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        agreement_number=pulumi.get(__ret__, 'agreement_number'),
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        id=pulumi.get(__ret__, 'id'),
+        installed_server_number=pulumi.get(__ret__, 'installed_server_number'),
+        is_eligible=pulumi.get(__ret__, 'is_eligible'),
+        location=pulumi.get(__ret__, 'location'),
+        multiple_activation_key=pulumi.get(__ret__, 'multiple_activation_key'),
+        name=pulumi.get(__ret__, 'name'),
+        os_type=pulumi.get(__ret__, 'os_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        support_type=pulumi.get(__ret__, 'support_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_multiple_activation_key)

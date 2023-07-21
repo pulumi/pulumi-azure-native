@@ -100,10 +100,10 @@ def get_online_endpoint_token(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230601preview:getOnlineEndpointToken', __args__, opts=opts, typ=GetOnlineEndpointTokenResult).value
 
     return AwaitableGetOnlineEndpointTokenResult(
-        access_token=__ret__.access_token,
-        expiry_time_utc=__ret__.expiry_time_utc,
-        refresh_after_time_utc=__ret__.refresh_after_time_utc,
-        token_type=__ret__.token_type)
+        access_token=pulumi.get(__ret__, 'access_token'),
+        expiry_time_utc=pulumi.get(__ret__, 'expiry_time_utc'),
+        refresh_after_time_utc=pulumi.get(__ret__, 'refresh_after_time_utc'),
+        token_type=pulumi.get(__ret__, 'token_type'))
 
 
 @_utilities.lift_output_func(get_online_endpoint_token)

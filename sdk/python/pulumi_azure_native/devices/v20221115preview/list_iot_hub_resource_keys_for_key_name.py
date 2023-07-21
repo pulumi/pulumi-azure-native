@@ -100,10 +100,10 @@ def list_iot_hub_resource_keys_for_key_name(key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devices/v20221115preview:listIotHubResourceKeysForKeyName', __args__, opts=opts, typ=ListIotHubResourceKeysForKeyNameResult).value
 
     return AwaitableListIotHubResourceKeysForKeyNameResult(
-        key_name=__ret__.key_name,
-        primary_key=__ret__.primary_key,
-        rights=__ret__.rights,
-        secondary_key=__ret__.secondary_key)
+        key_name=pulumi.get(__ret__, 'key_name'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        rights=pulumi.get(__ret__, 'rights'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_iot_hub_resource_keys_for_key_name)

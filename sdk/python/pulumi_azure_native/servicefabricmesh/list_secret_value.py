@@ -65,7 +65,7 @@ def list_secret_value(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabricmesh:listSecretValue', __args__, opts=opts, typ=ListSecretValueResult).value
 
     return AwaitableListSecretValueResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_secret_value)

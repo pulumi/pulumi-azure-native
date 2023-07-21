@@ -191,17 +191,17 @@ def get_pipeline_topology(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer:getPipelineTopology', __args__, opts=opts, typ=GetPipelineTopologyResult).value
 
     return AwaitableGetPipelineTopologyResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        processors=__ret__.processors,
-        sinks=__ret__.sinks,
-        sku=__ret__.sku,
-        sources=__ret__.sources,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        processors=pulumi.get(__ret__, 'processors'),
+        sinks=pulumi.get(__ret__, 'sinks'),
+        sku=pulumi.get(__ret__, 'sku'),
+        sources=pulumi.get(__ret__, 'sources'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_pipeline_topology)

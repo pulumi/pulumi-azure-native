@@ -167,16 +167,16 @@ def get_subscription_diagnostic_setting(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20170501preview:getSubscriptionDiagnosticSetting', __args__, opts=opts, typ=GetSubscriptionDiagnosticSettingResult).value
 
     return AwaitableGetSubscriptionDiagnosticSettingResult(
-        event_hub_authorization_rule_id=__ret__.event_hub_authorization_rule_id,
-        event_hub_name=__ret__.event_hub_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        logs=__ret__.logs,
-        name=__ret__.name,
-        service_bus_rule_id=__ret__.service_bus_rule_id,
-        storage_account_id=__ret__.storage_account_id,
-        type=__ret__.type,
-        workspace_id=__ret__.workspace_id)
+        event_hub_authorization_rule_id=pulumi.get(__ret__, 'event_hub_authorization_rule_id'),
+        event_hub_name=pulumi.get(__ret__, 'event_hub_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        logs=pulumi.get(__ret__, 'logs'),
+        name=pulumi.get(__ret__, 'name'),
+        service_bus_rule_id=pulumi.get(__ret__, 'service_bus_rule_id'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
+        type=pulumi.get(__ret__, 'type'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_subscription_diagnostic_setting)

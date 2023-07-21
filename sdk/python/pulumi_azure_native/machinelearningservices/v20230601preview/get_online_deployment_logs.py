@@ -70,7 +70,7 @@ def get_online_deployment_logs(container_type: Optional[Union[str, 'ContainerTyp
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230601preview:getOnlineDeploymentLogs', __args__, opts=opts, typ=GetOnlineDeploymentLogsResult).value
 
     return AwaitableGetOnlineDeploymentLogsResult(
-        content=__ret__.content)
+        content=pulumi.get(__ret__, 'content'))
 
 
 @_utilities.lift_output_func(get_online_deployment_logs)

@@ -165,15 +165,15 @@ def get_incident_relation(incident_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getIncidentRelation', __args__, opts=opts, typ=GetIncidentRelationResult).value
 
     return AwaitableGetIncidentRelationResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        related_resource_id=__ret__.related_resource_id,
-        related_resource_kind=__ret__.related_resource_kind,
-        related_resource_name=__ret__.related_resource_name,
-        related_resource_type=__ret__.related_resource_type,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        related_resource_id=pulumi.get(__ret__, 'related_resource_id'),
+        related_resource_kind=pulumi.get(__ret__, 'related_resource_kind'),
+        related_resource_name=pulumi.get(__ret__, 'related_resource_name'),
+        related_resource_type=pulumi.get(__ret__, 'related_resource_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_incident_relation)

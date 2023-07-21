@@ -209,19 +209,19 @@ def get_smart_detector_alert_rule(alert_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:alertsmanagement/v20210401:getSmartDetectorAlertRule', __args__, opts=opts, typ=GetSmartDetectorAlertRuleResult).value
 
     return AwaitableGetSmartDetectorAlertRuleResult(
-        action_groups=__ret__.action_groups,
-        description=__ret__.description,
-        detector=__ret__.detector,
-        frequency=__ret__.frequency,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        scope=__ret__.scope,
-        severity=__ret__.severity,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        throttling=__ret__.throttling,
-        type=__ret__.type)
+        action_groups=pulumi.get(__ret__, 'action_groups'),
+        description=pulumi.get(__ret__, 'description'),
+        detector=pulumi.get(__ret__, 'detector'),
+        frequency=pulumi.get(__ret__, 'frequency'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        scope=pulumi.get(__ret__, 'scope'),
+        severity=pulumi.get(__ret__, 'severity'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        throttling=pulumi.get(__ret__, 'throttling'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_smart_detector_alert_rule)

@@ -148,14 +148,14 @@ def get_workspace_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20210401:getWorkspaceConnection', __args__, opts=opts, typ=GetWorkspaceConnectionResult).value
 
     return AwaitableGetWorkspaceConnectionResult(
-        auth_type=__ret__.auth_type,
-        category=__ret__.category,
-        id=__ret__.id,
-        name=__ret__.name,
-        target=__ret__.target,
-        type=__ret__.type,
-        value=__ret__.value,
-        value_format=__ret__.value_format)
+        auth_type=pulumi.get(__ret__, 'auth_type'),
+        category=pulumi.get(__ret__, 'category'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        target=pulumi.get(__ret__, 'target'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'),
+        value_format=pulumi.get(__ret__, 'value_format'))
 
 
 @_utilities.lift_output_func(get_workspace_connection)

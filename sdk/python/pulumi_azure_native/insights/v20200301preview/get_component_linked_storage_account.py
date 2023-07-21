@@ -100,10 +100,10 @@ def get_component_linked_storage_account(resource_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20200301preview:getComponentLinkedStorageAccount', __args__, opts=opts, typ=GetComponentLinkedStorageAccountResult).value
 
     return AwaitableGetComponentLinkedStorageAccountResult(
-        id=__ret__.id,
-        linked_storage_account=__ret__.linked_storage_account,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        linked_storage_account=pulumi.get(__ret__, 'linked_storage_account'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_component_linked_storage_account)

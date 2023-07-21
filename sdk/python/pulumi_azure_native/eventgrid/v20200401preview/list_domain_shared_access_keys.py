@@ -73,8 +73,8 @@ def list_domain_shared_access_keys(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20200401preview:listDomainSharedAccessKeys', __args__, opts=opts, typ=ListDomainSharedAccessKeysResult).value
 
     return AwaitableListDomainSharedAccessKeysResult(
-        key1=__ret__.key1,
-        key2=__ret__.key2)
+        key1=pulumi.get(__ret__, 'key1'),
+        key2=pulumi.get(__ret__, 'key2'))
 
 
 @_utilities.lift_output_func(list_domain_shared_access_keys)

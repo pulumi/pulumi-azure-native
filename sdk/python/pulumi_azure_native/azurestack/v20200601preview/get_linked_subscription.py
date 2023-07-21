@@ -230,21 +230,21 @@ def get_linked_subscription(linked_subscription_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestack/v20200601preview:getLinkedSubscription', __args__, opts=opts, typ=GetLinkedSubscriptionResult).value
 
     return AwaitableGetLinkedSubscriptionResult(
-        device_connection_status=__ret__.device_connection_status,
-        device_id=__ret__.device_id,
-        device_link_state=__ret__.device_link_state,
-        device_object_id=__ret__.device_object_id,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_connected_time=__ret__.last_connected_time,
-        linked_subscription_id=__ret__.linked_subscription_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        registration_resource_id=__ret__.registration_resource_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        device_connection_status=pulumi.get(__ret__, 'device_connection_status'),
+        device_id=pulumi.get(__ret__, 'device_id'),
+        device_link_state=pulumi.get(__ret__, 'device_link_state'),
+        device_object_id=pulumi.get(__ret__, 'device_object_id'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_connected_time=pulumi.get(__ret__, 'last_connected_time'),
+        linked_subscription_id=pulumi.get(__ret__, 'linked_subscription_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        registration_resource_id=pulumi.get(__ret__, 'registration_resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_linked_subscription)

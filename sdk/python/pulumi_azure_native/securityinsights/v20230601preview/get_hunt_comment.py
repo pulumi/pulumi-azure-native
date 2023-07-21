@@ -128,12 +128,12 @@ def get_hunt_comment(hunt_comment_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230601preview:getHuntComment', __args__, opts=opts, typ=GetHuntCommentResult).value
 
     return AwaitableGetHuntCommentResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        message=__ret__.message,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        message=pulumi.get(__ret__, 'message'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hunt_comment)

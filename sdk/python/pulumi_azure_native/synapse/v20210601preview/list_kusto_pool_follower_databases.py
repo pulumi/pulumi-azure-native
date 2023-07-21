@@ -65,7 +65,7 @@ def list_kusto_pool_follower_databases(kusto_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:listKustoPoolFollowerDatabases', __args__, opts=opts, typ=ListKustoPoolFollowerDatabasesResult).value
 
     return AwaitableListKustoPoolFollowerDatabasesResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_kusto_pool_follower_databases)

@@ -202,18 +202,18 @@ def get_sql_db_table_data_set_mapping(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getSqlDBTableDataSetMapping', __args__, opts=opts, typ=GetSqlDBTableDataSetMappingResult).value
 
     return AwaitableGetSqlDBTableDataSetMappingResult(
-        data_set_id=__ret__.data_set_id,
-        data_set_mapping_status=__ret__.data_set_mapping_status,
-        database_name=__ret__.database_name,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        schema_name=__ret__.schema_name,
-        sql_server_resource_id=__ret__.sql_server_resource_id,
-        system_data=__ret__.system_data,
-        table_name=__ret__.table_name,
-        type=__ret__.type)
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        data_set_mapping_status=pulumi.get(__ret__, 'data_set_mapping_status'),
+        database_name=pulumi.get(__ret__, 'database_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        schema_name=pulumi.get(__ret__, 'schema_name'),
+        sql_server_resource_id=pulumi.get(__ret__, 'sql_server_resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        table_name=pulumi.get(__ret__, 'table_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sql_db_table_data_set_mapping)

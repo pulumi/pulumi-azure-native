@@ -246,22 +246,22 @@ def get_dsc_configuration(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getDscConfiguration', __args__, opts=opts, typ=GetDscConfigurationResult).value
 
     return AwaitableGetDscConfigurationResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        job_count=__ret__.job_count,
-        last_modified_time=__ret__.last_modified_time,
-        location=__ret__.location,
-        log_verbose=__ret__.log_verbose,
-        name=__ret__.name,
-        node_configuration_count=__ret__.node_configuration_count,
-        parameters=__ret__.parameters,
-        provisioning_state=__ret__.provisioning_state,
-        source=__ret__.source,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        job_count=pulumi.get(__ret__, 'job_count'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        location=pulumi.get(__ret__, 'location'),
+        log_verbose=pulumi.get(__ret__, 'log_verbose'),
+        name=pulumi.get(__ret__, 'name'),
+        node_configuration_count=pulumi.get(__ret__, 'node_configuration_count'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source=pulumi.get(__ret__, 'source'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dsc_configuration)

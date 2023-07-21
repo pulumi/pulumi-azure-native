@@ -116,11 +116,11 @@ def get_data_version(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20220201preview:getDataVersion', __args__, opts=opts, typ=GetDataVersionResult).value
 
     return AwaitableGetDataVersionResult(
-        data_version_base_details=__ret__.data_version_base_details,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        data_version_base_details=pulumi.get(__ret__, 'data_version_base_details'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_version)

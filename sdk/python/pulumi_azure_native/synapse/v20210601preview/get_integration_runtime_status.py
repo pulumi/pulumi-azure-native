@@ -77,8 +77,8 @@ def get_integration_runtime_status(integration_runtime_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getIntegrationRuntimeStatus', __args__, opts=opts, typ=GetIntegrationRuntimeStatusResult).value
 
     return AwaitableGetIntegrationRuntimeStatusResult(
-        name=__ret__.name,
-        properties=__ret__.properties)
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_integration_runtime_status)

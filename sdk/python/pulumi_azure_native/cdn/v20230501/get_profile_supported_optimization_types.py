@@ -61,7 +61,7 @@ def get_profile_supported_optimization_types(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20230501:getProfileSupportedOptimizationTypes', __args__, opts=opts, typ=GetProfileSupportedOptimizationTypesResult).value
 
     return AwaitableGetProfileSupportedOptimizationTypesResult(
-        supported_optimization_types=__ret__.supported_optimization_types)
+        supported_optimization_types=pulumi.get(__ret__, 'supported_optimization_types'))
 
 
 @_utilities.lift_output_func(get_profile_supported_optimization_types)

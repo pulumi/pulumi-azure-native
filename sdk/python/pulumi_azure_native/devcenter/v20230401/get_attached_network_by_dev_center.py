@@ -161,15 +161,15 @@ def get_attached_network_by_dev_center(attached_network_connection_name: Optiona
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter/v20230401:getAttachedNetworkByDevCenter', __args__, opts=opts, typ=GetAttachedNetworkByDevCenterResult).value
 
     return AwaitableGetAttachedNetworkByDevCenterResult(
-        domain_join_type=__ret__.domain_join_type,
-        health_check_status=__ret__.health_check_status,
-        id=__ret__.id,
-        name=__ret__.name,
-        network_connection_id=__ret__.network_connection_id,
-        network_connection_location=__ret__.network_connection_location,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        domain_join_type=pulumi.get(__ret__, 'domain_join_type'),
+        health_check_status=pulumi.get(__ret__, 'health_check_status'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        network_connection_id=pulumi.get(__ret__, 'network_connection_id'),
+        network_connection_location=pulumi.get(__ret__, 'network_connection_location'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_attached_network_by_dev_center)

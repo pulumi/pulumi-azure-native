@@ -65,5 +65,5 @@ def list_bot_connection_service_providers(opts: Optional[pulumi.InvokeOptions] =
     __ret__ = pulumi.runtime.invoke('azure-native:botservice/v20210501preview:listBotConnectionServiceProviders', __args__, opts=opts, typ=ListBotConnectionServiceProvidersResult).value
 
     return AwaitableListBotConnectionServiceProvidersResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
