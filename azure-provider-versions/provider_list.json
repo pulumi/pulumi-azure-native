@@ -7955,6 +7955,7 @@
       {
         "resourceType": "availabilitySets",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -7983,6 +7984,7 @@
       {
         "resourceType": "capacityReservationGroups",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -7998,6 +8000,7 @@
       {
         "resourceType": "capacityReservationGroups/capacityReservations",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8119,6 +8122,7 @@
       {
         "resourceType": "galleries",
         "apiVersions": [
+          "2023-07-03",
           "2022-08-03",
           "2022-03-03",
           "2022-01-03",
@@ -8135,6 +8139,7 @@
       {
         "resourceType": "galleries/applications",
         "apiVersions": [
+          "2023-07-03",
           "2022-08-03",
           "2022-03-03",
           "2022-01-03",
@@ -8150,6 +8155,7 @@
       {
         "resourceType": "galleries/applications/versions",
         "apiVersions": [
+          "2023-07-03",
           "2022-08-03",
           "2022-03-03",
           "2022-01-03",
@@ -8165,6 +8171,7 @@
       {
         "resourceType": "galleries/images",
         "apiVersions": [
+          "2023-07-03",
           "2022-08-03",
           "2022-03-03",
           "2022-01-03",
@@ -8181,6 +8188,7 @@
       {
         "resourceType": "galleries/images/versions",
         "apiVersions": [
+          "2023-07-03",
           "2022-08-03",
           "2022-03-03",
           "2022-01-03",
@@ -8197,6 +8205,7 @@
       {
         "resourceType": "hostGroups",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8216,6 +8225,7 @@
       {
         "resourceType": "hostGroups/hosts",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8235,6 +8245,7 @@
       {
         "resourceType": "images",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8260,6 +8271,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8294,6 +8306,7 @@
       {
         "resourceType": "locations/capsoperations",
         "apiVersions": [
+          "2023-07-03",
           "2022-08-03",
           "2022-03-03",
           "2022-01-03",
@@ -8327,6 +8340,8 @@
       {
         "resourceType": "locations/communityGalleries",
         "apiVersions": [
+          "2023-07-03",
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-03",
@@ -8404,6 +8419,7 @@
       {
         "resourceType": "locations/edgeZones",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8418,6 +8434,7 @@
       {
         "resourceType": "locations/edgeZones/publishers",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8432,6 +8449,7 @@
       {
         "resourceType": "locations/edgeZones/vmimages",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8446,6 +8464,7 @@
       {
         "resourceType": "locations/galleries",
         "apiVersions": [
+          "2023-07-03",
           "2022-08-03",
           "2022-03-03",
           "2022-01-03",
@@ -8462,6 +8481,7 @@
       {
         "resourceType": "locations/logAnalytics",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8484,6 +8504,7 @@
       {
         "resourceType": "locations/operations",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8513,6 +8534,8 @@
       {
         "resourceType": "locations/publishers",
         "apiVersions": [
+          "2023-07-03",
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-03",
@@ -8545,6 +8568,7 @@
       {
         "resourceType": "locations/recommendations",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8556,6 +8580,7 @@
       {
         "resourceType": "locations/runCommands",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8579,6 +8604,8 @@
       {
         "resourceType": "locations/sharedGalleries",
         "apiVersions": [
+          "2023-07-03",
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-03",
@@ -8611,6 +8638,7 @@
       {
         "resourceType": "locations/spotEvictionRates",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8626,6 +8654,7 @@
       {
         "resourceType": "locations/spotPriceHistory",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8641,6 +8670,7 @@
       {
         "resourceType": "locations/usages",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8669,6 +8699,7 @@
       {
         "resourceType": "locations/virtualMachineScaleSets",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8693,6 +8724,7 @@
       {
         "resourceType": "locations/virtualMachines",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8717,6 +8749,7 @@
       {
         "resourceType": "locations/vmSizes",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8745,6 +8778,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8772,6 +8806,7 @@
       {
         "resourceType": "proximityPlacementGroups",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8793,6 +8828,7 @@
       {
         "resourceType": "restorePointCollections",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8816,6 +8852,7 @@
       {
         "resourceType": "restorePointCollections/restorePoints",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8889,6 +8926,7 @@
       {
         "resourceType": "sshPublicKeys",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8905,6 +8943,7 @@
       {
         "resourceType": "virtualMachineScaleSets",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8934,6 +8973,7 @@
       {
         "resourceType": "virtualMachineScaleSets/applications",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8943,8 +8983,33 @@
         ]
       },
       {
+        "resourceType": "virtualMachineScaleSets/disks",
+        "apiVersions": [
+          "2023-04-02",
+          "2023-01-02",
+          "2022-07-02",
+          "2022-03-02",
+          "2021-12-01",
+          "2021-08-01",
+          "2021-04-01",
+          "2020-12-01",
+          "2020-09-30",
+          "2020-06-30",
+          "2020-05-01",
+          "2019-11-01",
+          "2019-07-01",
+          "2019-03-01",
+          "2018-09-30",
+          "2018-06-01",
+          "2018-04-01",
+          "2017-03-30",
+          "2016-04-30-preview"
+        ]
+      },
+      {
         "resourceType": "virtualMachineScaleSets/extensions",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -8974,6 +9039,7 @@
       {
         "resourceType": "virtualMachineScaleSets/networkInterfaces",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -9005,6 +9071,7 @@
       {
         "resourceType": "virtualMachineScaleSets/publicIPAddresses",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -9028,6 +9095,7 @@
       {
         "resourceType": "virtualMachineScaleSets/virtualMachines",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -9057,6 +9125,7 @@
       {
         "resourceType": "virtualMachineScaleSets/virtualMachines/extensions",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -9086,6 +9155,7 @@
       {
         "resourceType": "virtualMachineScaleSets/virtualMachines/networkInterfaces",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -9117,6 +9187,7 @@
       {
         "resourceType": "virtualMachines",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -9145,6 +9216,7 @@
       {
         "resourceType": "virtualMachines/VMApplications",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -9156,6 +9228,7 @@
       {
         "resourceType": "virtualMachines/extensions",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",
@@ -9190,6 +9263,7 @@
       {
         "resourceType": "virtualMachines/runCommands",
         "apiVersions": [
+          "2023-07-01",
           "2023-03-01",
           "2022-11-01",
           "2022-08-01",

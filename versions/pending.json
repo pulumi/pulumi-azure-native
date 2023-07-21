@@ -197,7 +197,8 @@
     "2023-04-01",
     "2023-04-02-preview",
     "2023-05-01",
-    "2023-05-02-preview"
+    "2023-05-02-preview",
+    "2023-06-01"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -294,7 +295,8 @@
   "EdgeOrderPartner": [],
   "Education": [],
   "Elastic": [
-    "2023-06-15-preview"
+    "2023-06-15-preview",
+    "2023-07-01-preview"
   ],
   "ElasticSan": [
     "2022-12-01-preview"
@@ -579,6 +581,7 @@
     "2022-09-01",
     "2022-11-01",
     "2023-02-01",
+    "2023-04-01",
     "2023-07-01-preview"
   ],
   "NetworkCloud": [
@@ -725,7 +728,9 @@
     "2023-01-01-preview"
   ],
   "StorSimple": [],
-  "Storage": [],
+  "Storage": [
+    "2023-01-01"
+  ],
   "StorageCache": [],
   "StorageMover": [
     "2023-07-01-preview"
