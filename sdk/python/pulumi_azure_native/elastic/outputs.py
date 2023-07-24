@@ -12,6 +12,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ConnectedPartnerResourcePropertiesResponse',
+    'ConnectedPartnerResourcesListFormatResponse',
     'ElasticCloudDeploymentResponse',
     'ElasticCloudUserResponse',
     'ElasticOrganizationToAzureSubscriptionMappingResponsePropertiesResponse',
@@ -26,11 +28,94 @@ __all__ = [
     'MonitorPropertiesResponse',
     'MonitoredResourceResponse',
     'MonitoringTagRulesPropertiesResponse',
+    'PartnerBillingEntityResponse',
     'ResourceSkuResponse',
     'SystemDataResponse',
     'UserApiKeyResponsePropertiesResponse',
     'VMResourcesResponse',
 ]
+
+@pulumi.output_type
+class ConnectedPartnerResourcePropertiesResponse(dict):
+    """
+    Connected Partner Resource Properties
+    """
+    def __init__(__self__, *,
+                 azure_resource_id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 partner_deployment_name: Optional[str] = None,
+                 partner_deployment_uri: Optional[str] = None):
+        """
+        Connected Partner Resource Properties
+        :param str azure_resource_id: The azure resource Id of the deployment.
+        :param str location: The location of the deployment.
+        :param str partner_deployment_name: Elastic deployment name
+        :param str partner_deployment_uri: Deployment URL of the elasticsearch in Elastic cloud deployment.
+        """
+        if azure_resource_id is not None:
+            pulumi.set(__self__, "azure_resource_id", azure_resource_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if partner_deployment_name is not None:
+            pulumi.set(__self__, "partner_deployment_name", partner_deployment_name)
+        if partner_deployment_uri is not None:
+            pulumi.set(__self__, "partner_deployment_uri", partner_deployment_uri)
+
+    @property
+    @pulumi.getter(name="azureResourceId")
+    def azure_resource_id(self) -> Optional[str]:
+        """
+        The azure resource Id of the deployment.
+        """
+        return pulumi.get(self, "azure_resource_id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the deployment.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="partnerDeploymentName")
+    def partner_deployment_name(self) -> Optional[str]:
+        """
+        Elastic deployment name
+        """
+        return pulumi.get(self, "partner_deployment_name")
+
+    @property
+    @pulumi.getter(name="partnerDeploymentUri")
+    def partner_deployment_uri(self) -> Optional[str]:
+        """
+        Deployment URL of the elasticsearch in Elastic cloud deployment.
+        """
+        return pulumi.get(self, "partner_deployment_uri")
+
+
+@pulumi.output_type
+class ConnectedPartnerResourcesListFormatResponse(dict):
+    """
+    Connected Partner Resources List Format
+    """
+    def __init__(__self__, *,
+                 properties: Optional['outputs.ConnectedPartnerResourcePropertiesResponse'] = None):
+        """
+        Connected Partner Resources List Format
+        :param 'ConnectedPartnerResourcePropertiesResponse' properties: Connected Partner Resource Properties
+        """
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.ConnectedPartnerResourcePropertiesResponse']:
+        """
+        Connected Partner Resource Properties
+        """
+        return pulumi.get(self, "properties")
+
 
 @pulumi.output_type
 class ElasticCloudDeploymentResponse(dict):
@@ -687,17 +772,23 @@ class MarketplaceSaaSInfoResponse(dict):
     Marketplace SAAS Info of the resource.
     """
     def __init__(__self__, *,
+                 billed_azure_subscription_id: Optional[str] = None,
                  marketplace_name: Optional[str] = None,
                  marketplace_resource_id: Optional[str] = None,
                  marketplace_status: Optional[str] = None,
-                 marketplace_subscription: Optional['outputs.MarketplaceSaaSInfoResponseMarketplaceSubscription'] = None):
+                 marketplace_subscription: Optional['outputs.MarketplaceSaaSInfoResponseMarketplaceSubscription'] = None,
+                 subscribed: Optional[bool] = None):
         """
         Marketplace SAAS Info of the resource.
+        :param str billed_azure_subscription_id: The Azure Subscription ID to which the Marketplace Subscription belongs and gets billed into.
         :param str marketplace_name: Marketplace Subscription Details: SAAS Name
         :param str marketplace_resource_id: Marketplace Subscription Details: Resource URI
         :param str marketplace_status: Marketplace Subscription Details: SaaS Subscription Status
         :param 'MarketplaceSaaSInfoResponseMarketplaceSubscription' marketplace_subscription: Marketplace Subscription
+        :param bool subscribed: Flag specifying if the Marketplace status is subscribed or not.
         """
+        if billed_azure_subscription_id is not None:
+            pulumi.set(__self__, "billed_azure_subscription_id", billed_azure_subscription_id)
         if marketplace_name is not None:
             pulumi.set(__self__, "marketplace_name", marketplace_name)
         if marketplace_resource_id is not None:
@@ -706,6 +797,16 @@ class MarketplaceSaaSInfoResponse(dict):
             pulumi.set(__self__, "marketplace_status", marketplace_status)
         if marketplace_subscription is not None:
             pulumi.set(__self__, "marketplace_subscription", marketplace_subscription)
+        if subscribed is not None:
+            pulumi.set(__self__, "subscribed", subscribed)
+
+    @property
+    @pulumi.getter(name="billedAzureSubscriptionId")
+    def billed_azure_subscription_id(self) -> Optional[str]:
+        """
+        The Azure Subscription ID to which the Marketplace Subscription belongs and gets billed into.
+        """
+        return pulumi.get(self, "billed_azure_subscription_id")
 
     @property
     @pulumi.getter(name="marketplaceName")
@@ -738,6 +839,14 @@ class MarketplaceSaaSInfoResponse(dict):
         Marketplace Subscription
         """
         return pulumi.get(self, "marketplace_subscription")
+
+    @property
+    @pulumi.getter
+    def subscribed(self) -> Optional[bool]:
+        """
+        Flag specifying if the Marketplace status is subscribed or not.
+        """
+        return pulumi.get(self, "subscribed")
 
 
 @pulumi.output_type
@@ -978,6 +1087,53 @@ class MonitoringTagRulesPropertiesResponse(dict):
         Provisioning state of the monitoring tag rules.
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class PartnerBillingEntityResponse(dict):
+    """
+    Partner Billing details associated with the resource.
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 partner_entity_uri: Optional[str] = None):
+        """
+        Partner Billing details associated with the resource.
+        :param str id: The Elastic Organization Id.
+        :param str name: The Elastic Organization Name.
+        :param str partner_entity_uri: Link to the elastic organization page
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if partner_entity_uri is not None:
+            pulumi.set(__self__, "partner_entity_uri", partner_entity_uri)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The Elastic Organization Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The Elastic Organization Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partnerEntityUri")
+    def partner_entity_uri(self) -> Optional[str]:
+        """
+        Link to the elastic organization page
+        """
+        return pulumi.get(self, "partner_entity_uri")
 
 
 @pulumi.output_type

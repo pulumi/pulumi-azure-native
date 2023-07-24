@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetBillingInfoArgs, GetBillingInfoResult, GetBillingInfoOutputArgs } from "./getBillingInfo";
+export const getBillingInfo: typeof import("./getBillingInfo").getBillingInfo = null as any;
+export const getBillingInfoOutput: typeof import("./getBillingInfo").getBillingInfoOutput = null as any;
+utilities.lazyLoad(exports, ["getBillingInfo","getBillingInfoOutput"], () => require("./getBillingInfo"));
+
 export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
 export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
 export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
@@ -28,6 +33,11 @@ export { ListAllTrafficFilterArgs, ListAllTrafficFilterResult, ListAllTrafficFil
 export const listAllTrafficFilter: typeof import("./listAllTrafficFilter").listAllTrafficFilter = null as any;
 export const listAllTrafficFilterOutput: typeof import("./listAllTrafficFilter").listAllTrafficFilterOutput = null as any;
 utilities.lazyLoad(exports, ["listAllTrafficFilter","listAllTrafficFilterOutput"], () => require("./listAllTrafficFilter"));
+
+export { ListConnectedPartnerResourceArgs, ListConnectedPartnerResourceResult, ListConnectedPartnerResourceOutputArgs } from "./listConnectedPartnerResource";
+export const listConnectedPartnerResource: typeof import("./listConnectedPartnerResource").listConnectedPartnerResource = null as any;
+export const listConnectedPartnerResourceOutput: typeof import("./listConnectedPartnerResource").listConnectedPartnerResourceOutput = null as any;
+utilities.lazyLoad(exports, ["listConnectedPartnerResource","listConnectedPartnerResourceOutput"], () => require("./listConnectedPartnerResource"));
 
 export { ListDeploymentInfoArgs, ListDeploymentInfoResult, ListDeploymentInfoOutputArgs } from "./listDeploymentInfo";
 export const listDeploymentInfo: typeof import("./listDeploymentInfo").listDeploymentInfo = null as any;
@@ -73,12 +83,14 @@ import * as v20230201preview from "./v20230201preview";
 import * as v20230501preview from "./v20230501preview";
 import * as v20230601 from "./v20230601";
 import * as v20230615preview from "./v20230615preview";
+import * as v20230701preview from "./v20230701preview";
 
 export {
     v20230201preview,
     v20230501preview,
     v20230601,
     v20230615preview,
+    v20230701preview,
 };
 
 const _module = {

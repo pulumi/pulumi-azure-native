@@ -141,6 +141,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:LoadBalancerBackendAddressPool"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:LoadBalancerBackendAddressPool"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:LoadBalancerBackendAddressPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230401:LoadBalancerBackendAddressPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

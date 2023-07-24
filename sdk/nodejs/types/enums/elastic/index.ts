@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20230601 from "./v20230601";
 import * as v20230615preview from "./v20230615preview";
+import * as v20230701preview from "./v20230701preview";
 
 export {
     v20230601,
     v20230615preview,
+    v20230701preview,
 };
 
 export const ManagedIdentityTypes = {

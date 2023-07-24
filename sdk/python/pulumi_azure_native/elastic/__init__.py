@@ -6,11 +6,13 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_billing_info import *
 from .get_monitor import *
 from .get_organization_api_key import *
 from .get_organization_elastic_to_azure_subscription_mapping import *
 from .get_tag_rule import *
 from .list_all_traffic_filter import *
+from .list_connected_partner_resource import *
 from .list_deployment_info import *
 from .list_monitored_resource import *
 from .list_upgradable_version_details import *
@@ -31,9 +33,12 @@ if typing.TYPE_CHECKING:
     v20230601 = __v20230601
     import pulumi_azure_native.elastic.v20230615preview as __v20230615preview
     v20230615preview = __v20230615preview
+    import pulumi_azure_native.elastic.v20230701preview as __v20230701preview
+    v20230701preview = __v20230701preview
 else:
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230201preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230501preview')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.elastic.v20230601')
     v20230615preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230615preview')
+    v20230701preview = _utilities.lazy_import('pulumi_azure_native.elastic.v20230701preview')
 

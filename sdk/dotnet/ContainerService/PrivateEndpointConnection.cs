@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.ContainerService
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230402preview:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230501:PrivateEndpointConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230502preview:PrivateEndpointConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230601:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
