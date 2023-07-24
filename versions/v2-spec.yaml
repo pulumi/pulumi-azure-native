@@ -389,7 +389,9 @@ Education:
 Elastic:
     tracking: "2023-06-01"
     additions:
+        getBillingInfo: 2023-07-01-preview
         getOrganizationElasticToAzureSubscriptionMapping: 2023-06-15-preview
+        listConnectedPartnerResource: 2023-07-01-preview
 ElasticSan:
     tracking: 2021-11-20-preview
     additions:

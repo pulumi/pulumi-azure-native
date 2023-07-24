@@ -916,9 +916,11 @@
   "Elastic": {
     "Monitor": "2023-06-01",
     "TagRule": "2023-06-01",
+    "getBillingInfo": "2023-07-01-preview",
     "getOrganizationApiKey": "2023-06-01",
     "getOrganizationElasticToAzureSubscriptionMapping": "2023-06-15-preview",
     "listAllTrafficFilter": "2023-06-01",
+    "listConnectedPartnerResource": "2023-07-01-preview",
     "listDeploymentInfo": "2023-06-01",
     "listMonitoredResource": "2023-06-01",
     "listUpgradableVersionDetails": "2023-06-01",
