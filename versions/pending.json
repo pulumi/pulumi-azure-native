@@ -585,7 +585,8 @@
     "2023-07-01-preview"
   ],
   "NetworkCloud": [
-    "2023-05-01-preview"
+    "2023-05-01-preview",
+    "2023-07-01"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [],
@@ -631,7 +632,9 @@
     "2023-02-01",
     "2023-04-01"
   ],
-  "RedHatOpenShift": [],
+  "RedHatOpenShift": [
+    "2023-04-01"
+  ],
   "Relay": [],
   "ResourceConnector": [
     "2022-10-27"

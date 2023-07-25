@@ -14131,35 +14131,43 @@
   },
   "NetworkCloud": {
     "AgentPool": [
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "BareMetalMachine": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "BareMetalMachineKeySet": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "BmcKeySet": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "CloudServicesNetwork": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "Cluster": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "ClusterManager": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "Console": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "DefaultCniNetwork": [
       "2022-12-12-preview"
@@ -14168,39 +14176,48 @@
       "2022-12-12-preview"
     ],
     "KubernetesCluster": [
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "L2Network": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "L3Network": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "MetricsConfiguration": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "Rack": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "StorageAppliance": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "TrunkedNetwork": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "VirtualMachine": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ],
     "Volume": [
       "2022-12-12-preview",
-      "2023-05-01-preview"
+      "2023-05-01-preview",
+      "2023-07-01"
     ]
   },
   "NetworkFunction": {
@@ -15137,33 +15154,40 @@
   },
   "RedHatOpenShift": {
     "MachinePool": [
-      "2022-09-04"
+      "2022-09-04",
+      "2023-04-01"
     ],
     "OpenShiftCluster": [
       "2020-04-30",
       "2021-09-01-preview",
       "2022-04-01",
-      "2022-09-04"
+      "2022-09-04",
+      "2023-04-01"
     ],
     "Secret": [
-      "2022-09-04"
+      "2022-09-04",
+      "2023-04-01"
     ],
     "SyncIdentityProvider": [
-      "2022-09-04"
+      "2022-09-04",
+      "2023-04-01"
     ],
     "SyncSet": [
-      "2022-09-04"
+      "2022-09-04",
+      "2023-04-01"
     ],
     "listOpenShiftClusterAdminCredentials": [
       "2021-09-01-preview",
       "2022-04-01",
-      "2022-09-04"
+      "2022-09-04",
+      "2023-04-01"
     ],
     "listOpenShiftClusterCredentials": [
       "2020-04-30",
       "2021-09-01-preview",
       "2022-04-01",
-      "2022-09-04"
+      "2022-09-04",
+      "2023-04-01"
     ]
   },
   "Relay": {
