@@ -2560,7 +2560,7 @@
       "2022-04-01-preview",
       "2022-08-01-preview"
     ],
-    "locations/operationstatuses": [],
+    "locations/operationstatuses": null,
     "operations": [
       "2017-09-01",
       "2017-12-01",
@@ -2571,7 +2571,7 @@
       "2019-07-01",
       "2020-08-21-preview"
     ],
-    "vmwareapplications": []
+    "vmwareapplications": null
   },
   "baremetalinfrastructure": {
     "": [
@@ -5365,7 +5365,7 @@
       "2016-04-01",
       "2016-11-01"
     ],
-    "resourcetypes": [],
+    "resourcetypes": null,
     "validatesubscriptionmoveavailability": [
       "2015-10-01",
       "2015-12-01",
@@ -5559,7 +5559,7 @@
       "2016-04-01",
       "2016-11-01"
     ],
-    "publicimages": [],
+    "publicimages": null,
     "quotas": [
       "2014-01-01",
       "2014-06-01",
@@ -11216,7 +11216,7 @@
       "2017-12-01",
       "2017-12-01-preview"
     ],
-    "locations/azureasyncoperation": [],
+    "locations/azureasyncoperation": null,
     "locations/capabilities": [
       "2020-07-01-preview",
       "2020-07-01-privatepreview",
@@ -11257,7 +11257,7 @@
       "2022-09-30-preview",
       "2022-09-30-privatepreview"
     ],
-    "locations/operationresults": [],
+    "locations/operationresults": null,
     "locations/performancetiers": [
       "2017-12-01",
       "2017-12-01-preview"
@@ -11473,7 +11473,7 @@
     "flexibleservers/privatelinkresources": [
       "2023-01-01-privatepreview"
     ],
-    "getprivatednszonesuffix": [],
+    "getprivatednszonesuffix": null,
     "locations": [
       "2017-12-01",
       "2017-12-01-preview"
@@ -11486,7 +11486,7 @@
       "2017-12-01",
       "2017-12-01-preview"
     ],
-    "locations/azureasyncoperation": [],
+    "locations/azureasyncoperation": null,
     "locations/capabilities": [
       "2020-02-14-preview",
       "2020-02-14-privatepreview",
@@ -11530,7 +11530,7 @@
     "locations/getcachedservername": [
       "2022-03-08-privatepreview"
     ],
-    "locations/operationresults": [],
+    "locations/operationresults": null,
     "locations/performancetiers": [
       "2017-12-01",
       "2017-12-01-preview"
@@ -17986,7 +17986,7 @@
       "2022-11-01-preview",
       "2023-04-01"
     ],
-    "configurationassignments": [],
+    "configurationassignments": null,
     "maintenanceconfigurations": [
       "2016-01-01",
       "2017-01-01",
