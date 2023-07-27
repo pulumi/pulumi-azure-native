@@ -269,24 +269,24 @@ def get_express_route_cross_connection_peering(cross_connection_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getExpressRouteCrossConnectionPeering', __args__, opts=opts, typ=GetExpressRouteCrossConnectionPeeringResult).value
 
     return AwaitableGetExpressRouteCrossConnectionPeeringResult(
-        azure_asn=__ret__.azure_asn,
-        etag=__ret__.etag,
-        gateway_manager_etag=__ret__.gateway_manager_etag,
-        id=__ret__.id,
-        ipv6_peering_config=__ret__.ipv6_peering_config,
-        last_modified_by=__ret__.last_modified_by,
-        microsoft_peering_config=__ret__.microsoft_peering_config,
-        name=__ret__.name,
-        peer_asn=__ret__.peer_asn,
-        peering_type=__ret__.peering_type,
-        primary_azure_port=__ret__.primary_azure_port,
-        primary_peer_address_prefix=__ret__.primary_peer_address_prefix,
-        provisioning_state=__ret__.provisioning_state,
-        secondary_azure_port=__ret__.secondary_azure_port,
-        secondary_peer_address_prefix=__ret__.secondary_peer_address_prefix,
-        shared_key=__ret__.shared_key,
-        state=__ret__.state,
-        vlan_id=__ret__.vlan_id)
+        azure_asn=pulumi.get(__ret__, 'azure_asn'),
+        etag=pulumi.get(__ret__, 'etag'),
+        gateway_manager_etag=pulumi.get(__ret__, 'gateway_manager_etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ipv6_peering_config=pulumi.get(__ret__, 'ipv6_peering_config'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        microsoft_peering_config=pulumi.get(__ret__, 'microsoft_peering_config'),
+        name=pulumi.get(__ret__, 'name'),
+        peer_asn=pulumi.get(__ret__, 'peer_asn'),
+        peering_type=pulumi.get(__ret__, 'peering_type'),
+        primary_azure_port=pulumi.get(__ret__, 'primary_azure_port'),
+        primary_peer_address_prefix=pulumi.get(__ret__, 'primary_peer_address_prefix'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        secondary_azure_port=pulumi.get(__ret__, 'secondary_azure_port'),
+        secondary_peer_address_prefix=pulumi.get(__ret__, 'secondary_peer_address_prefix'),
+        shared_key=pulumi.get(__ret__, 'shared_key'),
+        state=pulumi.get(__ret__, 'state'),
+        vlan_id=pulumi.get(__ret__, 'vlan_id'))
 
 
 @_utilities.lift_output_func(get_express_route_cross_connection_peering)

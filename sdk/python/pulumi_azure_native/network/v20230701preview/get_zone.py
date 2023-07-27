@@ -230,21 +230,21 @@ def get_zone(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230701preview:getZone', __args__, opts=opts, typ=GetZoneResult).value
 
     return AwaitableGetZoneResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        max_number_of_record_sets=__ret__.max_number_of_record_sets,
-        max_number_of_records_per_record_set=__ret__.max_number_of_records_per_record_set,
-        name=__ret__.name,
-        name_servers=__ret__.name_servers,
-        number_of_record_sets=__ret__.number_of_record_sets,
-        registration_virtual_networks=__ret__.registration_virtual_networks,
-        resolution_virtual_networks=__ret__.resolution_virtual_networks,
-        signing_keys=__ret__.signing_keys,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zone_type=__ret__.zone_type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        max_number_of_record_sets=pulumi.get(__ret__, 'max_number_of_record_sets'),
+        max_number_of_records_per_record_set=pulumi.get(__ret__, 'max_number_of_records_per_record_set'),
+        name=pulumi.get(__ret__, 'name'),
+        name_servers=pulumi.get(__ret__, 'name_servers'),
+        number_of_record_sets=pulumi.get(__ret__, 'number_of_record_sets'),
+        registration_virtual_networks=pulumi.get(__ret__, 'registration_virtual_networks'),
+        resolution_virtual_networks=pulumi.get(__ret__, 'resolution_virtual_networks'),
+        signing_keys=pulumi.get(__ret__, 'signing_keys'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zone_type=pulumi.get(__ret__, 'zone_type'))
 
 
 @_utilities.lift_output_func(get_zone)

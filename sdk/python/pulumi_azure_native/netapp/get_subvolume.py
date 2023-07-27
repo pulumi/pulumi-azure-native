@@ -144,13 +144,13 @@ def get_subvolume(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp:getSubvolume', __args__, opts=opts, typ=GetSubvolumeResult).value
 
     return AwaitableGetSubvolumeResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        parent_path=__ret__.parent_path,
-        path=__ret__.path,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        parent_path=pulumi.get(__ret__, 'parent_path'),
+        path=pulumi.get(__ret__, 'path'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_subvolume)

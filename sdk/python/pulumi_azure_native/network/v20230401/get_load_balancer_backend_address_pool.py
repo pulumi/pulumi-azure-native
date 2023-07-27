@@ -245,22 +245,22 @@ def get_load_balancer_backend_address_pool(backend_address_pool_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getLoadBalancerBackendAddressPool', __args__, opts=opts, typ=GetLoadBalancerBackendAddressPoolResult).value
 
     return AwaitableGetLoadBalancerBackendAddressPoolResult(
-        backend_ip_configurations=__ret__.backend_ip_configurations,
-        drain_period_in_seconds=__ret__.drain_period_in_seconds,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        inbound_nat_rules=__ret__.inbound_nat_rules,
-        load_balancer_backend_addresses=__ret__.load_balancer_backend_addresses,
-        load_balancing_rules=__ret__.load_balancing_rules,
-        location=__ret__.location,
-        name=__ret__.name,
-        outbound_rule=__ret__.outbound_rule,
-        outbound_rules=__ret__.outbound_rules,
-        provisioning_state=__ret__.provisioning_state,
-        sync_mode=__ret__.sync_mode,
-        tunnel_interfaces=__ret__.tunnel_interfaces,
-        type=__ret__.type,
-        virtual_network=__ret__.virtual_network)
+        backend_ip_configurations=pulumi.get(__ret__, 'backend_ip_configurations'),
+        drain_period_in_seconds=pulumi.get(__ret__, 'drain_period_in_seconds'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        inbound_nat_rules=pulumi.get(__ret__, 'inbound_nat_rules'),
+        load_balancer_backend_addresses=pulumi.get(__ret__, 'load_balancer_backend_addresses'),
+        load_balancing_rules=pulumi.get(__ret__, 'load_balancing_rules'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_rule=pulumi.get(__ret__, 'outbound_rule'),
+        outbound_rules=pulumi.get(__ret__, 'outbound_rules'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sync_mode=pulumi.get(__ret__, 'sync_mode'),
+        tunnel_interfaces=pulumi.get(__ret__, 'tunnel_interfaces'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network=pulumi.get(__ret__, 'virtual_network'))
 
 
 @_utilities.lift_output_func(get_load_balancer_backend_address_pool)

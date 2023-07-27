@@ -150,14 +150,14 @@ def get_logger(loggerid: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20170301:getLogger', __args__, opts=opts, typ=GetLoggerResult).value
 
     return AwaitableGetLoggerResult(
-        credentials=__ret__.credentials,
-        description=__ret__.description,
-        id=__ret__.id,
-        is_buffered=__ret__.is_buffered,
-        logger_type=__ret__.logger_type,
-        name=__ret__.name,
-        sampling=__ret__.sampling,
-        type=__ret__.type)
+        credentials=pulumi.get(__ret__, 'credentials'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        is_buffered=pulumi.get(__ret__, 'is_buffered'),
+        logger_type=pulumi.get(__ret__, 'logger_type'),
+        name=pulumi.get(__ret__, 'name'),
+        sampling=pulumi.get(__ret__, 'sampling'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_logger)

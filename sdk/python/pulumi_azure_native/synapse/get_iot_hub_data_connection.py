@@ -229,20 +229,20 @@ def get_iot_hub_data_connection(data_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getIotHubDataConnection', __args__, opts=opts, typ=GetIotHubDataConnectionResult).value
 
     return AwaitableGetIotHubDataConnectionResult(
-        consumer_group=__ret__.consumer_group,
-        data_format=__ret__.data_format,
-        event_system_properties=__ret__.event_system_properties,
-        id=__ret__.id,
-        iot_hub_resource_id=__ret__.iot_hub_resource_id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        mapping_rule_name=__ret__.mapping_rule_name,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        shared_access_policy_name=__ret__.shared_access_policy_name,
-        system_data=__ret__.system_data,
-        table_name=__ret__.table_name,
-        type=__ret__.type)
+        consumer_group=pulumi.get(__ret__, 'consumer_group'),
+        data_format=pulumi.get(__ret__, 'data_format'),
+        event_system_properties=pulumi.get(__ret__, 'event_system_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        iot_hub_resource_id=pulumi.get(__ret__, 'iot_hub_resource_id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        mapping_rule_name=pulumi.get(__ret__, 'mapping_rule_name'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        shared_access_policy_name=pulumi.get(__ret__, 'shared_access_policy_name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        table_name=pulumi.get(__ret__, 'table_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_iot_hub_data_connection)

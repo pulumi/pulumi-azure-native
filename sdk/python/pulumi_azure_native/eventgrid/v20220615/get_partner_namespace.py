@@ -218,20 +218,20 @@ def get_partner_namespace(partner_namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20220615:getPartnerNamespace', __args__, opts=opts, typ=GetPartnerNamespaceResult).value
 
     return AwaitableGetPartnerNamespaceResult(
-        disable_local_auth=__ret__.disable_local_auth,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        inbound_ip_rules=__ret__.inbound_ip_rules,
-        location=__ret__.location,
-        name=__ret__.name,
-        partner_registration_fully_qualified_id=__ret__.partner_registration_fully_qualified_id,
-        partner_topic_routing_mode=__ret__.partner_topic_routing_mode,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_registration_fully_qualified_id=pulumi.get(__ret__, 'partner_registration_fully_qualified_id'),
+        partner_topic_routing_mode=pulumi.get(__ret__, 'partner_topic_routing_mode'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_partner_namespace)

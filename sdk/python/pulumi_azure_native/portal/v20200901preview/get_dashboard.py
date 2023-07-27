@@ -134,13 +134,13 @@ def get_dashboard(dashboard_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:portal/v20200901preview:getDashboard', __args__, opts=opts, typ=GetDashboardResult).value
 
     return AwaitableGetDashboardResult(
-        id=__ret__.id,
-        lenses=__ret__.lenses,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        lenses=pulumi.get(__ret__, 'lenses'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dashboard)

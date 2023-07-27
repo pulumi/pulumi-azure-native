@@ -257,25 +257,25 @@ def get_assessment_metadata_in_subscription(assessment_metadata_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20210601:getAssessmentMetadataInSubscription', __args__, opts=opts, typ=GetAssessmentMetadataInSubscriptionResult).value
 
     return AwaitableGetAssessmentMetadataInSubscriptionResult(
-        assessment_type=__ret__.assessment_type,
-        categories=__ret__.categories,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        implementation_effort=__ret__.implementation_effort,
-        name=__ret__.name,
-        partner_data=__ret__.partner_data,
-        planned_deprecation_date=__ret__.planned_deprecation_date,
-        policy_definition_id=__ret__.policy_definition_id,
-        preview=__ret__.preview,
-        publish_dates=__ret__.publish_dates,
-        remediation_description=__ret__.remediation_description,
-        severity=__ret__.severity,
-        tactics=__ret__.tactics,
-        techniques=__ret__.techniques,
-        threats=__ret__.threats,
-        type=__ret__.type,
-        user_impact=__ret__.user_impact)
+        assessment_type=pulumi.get(__ret__, 'assessment_type'),
+        categories=pulumi.get(__ret__, 'categories'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        implementation_effort=pulumi.get(__ret__, 'implementation_effort'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_data=pulumi.get(__ret__, 'partner_data'),
+        planned_deprecation_date=pulumi.get(__ret__, 'planned_deprecation_date'),
+        policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
+        preview=pulumi.get(__ret__, 'preview'),
+        publish_dates=pulumi.get(__ret__, 'publish_dates'),
+        remediation_description=pulumi.get(__ret__, 'remediation_description'),
+        severity=pulumi.get(__ret__, 'severity'),
+        tactics=pulumi.get(__ret__, 'tactics'),
+        techniques=pulumi.get(__ret__, 'techniques'),
+        threats=pulumi.get(__ret__, 'threats'),
+        type=pulumi.get(__ret__, 'type'),
+        user_impact=pulumi.get(__ret__, 'user_impact'))
 
 
 @_utilities.lift_output_func(get_assessment_metadata_in_subscription)

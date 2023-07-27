@@ -187,17 +187,17 @@ def get_event_channel(event_channel_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20211015preview:getEventChannel', __args__, opts=opts, typ=GetEventChannelResult).value
 
     return AwaitableGetEventChannelResult(
-        destination=__ret__.destination,
-        expiration_time_if_not_activated_utc=__ret__.expiration_time_if_not_activated_utc,
-        filter=__ret__.filter,
-        id=__ret__.id,
-        name=__ret__.name,
-        partner_topic_friendly_description=__ret__.partner_topic_friendly_description,
-        partner_topic_readiness_state=__ret__.partner_topic_readiness_state,
-        provisioning_state=__ret__.provisioning_state,
-        source=__ret__.source,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        destination=pulumi.get(__ret__, 'destination'),
+        expiration_time_if_not_activated_utc=pulumi.get(__ret__, 'expiration_time_if_not_activated_utc'),
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_topic_friendly_description=pulumi.get(__ret__, 'partner_topic_friendly_description'),
+        partner_topic_readiness_state=pulumi.get(__ret__, 'partner_topic_readiness_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source=pulumi.get(__ret__, 'source'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_event_channel)

@@ -167,15 +167,15 @@ def get_rule(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicebus/v20221001preview:getRule', __args__, opts=opts, typ=GetRuleResult).value
 
     return AwaitableGetRuleResult(
-        action=__ret__.action,
-        correlation_filter=__ret__.correlation_filter,
-        filter_type=__ret__.filter_type,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        sql_filter=__ret__.sql_filter,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        action=pulumi.get(__ret__, 'action'),
+        correlation_filter=pulumi.get(__ret__, 'correlation_filter'),
+        filter_type=pulumi.get(__ret__, 'filter_type'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        sql_filter=pulumi.get(__ret__, 'sql_filter'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_rule)

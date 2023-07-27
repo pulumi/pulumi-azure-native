@@ -151,14 +151,14 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage/v20220901:getBlobContainerImmutabilityPolicy', __args__, opts=opts, typ=GetBlobContainerImmutabilityPolicyResult).value
 
     return AwaitableGetBlobContainerImmutabilityPolicyResult(
-        allow_protected_append_writes=__ret__.allow_protected_append_writes,
-        allow_protected_append_writes_all=__ret__.allow_protected_append_writes_all,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        immutability_period_since_creation_in_days=__ret__.immutability_period_since_creation_in_days,
-        name=__ret__.name,
-        state=__ret__.state,
-        type=__ret__.type)
+        allow_protected_append_writes=pulumi.get(__ret__, 'allow_protected_append_writes'),
+        allow_protected_append_writes_all=pulumi.get(__ret__, 'allow_protected_append_writes_all'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        immutability_period_since_creation_in_days=pulumi.get(__ret__, 'immutability_period_since_creation_in_days'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_blob_container_immutability_policy)

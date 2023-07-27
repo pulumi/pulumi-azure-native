@@ -212,19 +212,19 @@ def get_api_diagnostic(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getApiDiagnostic', __args__, opts=opts, typ=GetApiDiagnosticResult).value
 
     return AwaitableGetApiDiagnosticResult(
-        always_log=__ret__.always_log,
-        backend=__ret__.backend,
-        frontend=__ret__.frontend,
-        http_correlation_protocol=__ret__.http_correlation_protocol,
-        id=__ret__.id,
-        log_client_ip=__ret__.log_client_ip,
-        logger_id=__ret__.logger_id,
-        metrics=__ret__.metrics,
-        name=__ret__.name,
-        operation_name_format=__ret__.operation_name_format,
-        sampling=__ret__.sampling,
-        type=__ret__.type,
-        verbosity=__ret__.verbosity)
+        always_log=pulumi.get(__ret__, 'always_log'),
+        backend=pulumi.get(__ret__, 'backend'),
+        frontend=pulumi.get(__ret__, 'frontend'),
+        http_correlation_protocol=pulumi.get(__ret__, 'http_correlation_protocol'),
+        id=pulumi.get(__ret__, 'id'),
+        log_client_ip=pulumi.get(__ret__, 'log_client_ip'),
+        logger_id=pulumi.get(__ret__, 'logger_id'),
+        metrics=pulumi.get(__ret__, 'metrics'),
+        name=pulumi.get(__ret__, 'name'),
+        operation_name_format=pulumi.get(__ret__, 'operation_name_format'),
+        sampling=pulumi.get(__ret__, 'sampling'),
+        type=pulumi.get(__ret__, 'type'),
+        verbosity=pulumi.get(__ret__, 'verbosity'))
 
 
 @_utilities.lift_output_func(get_api_diagnostic)

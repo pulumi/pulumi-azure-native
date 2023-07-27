@@ -63,7 +63,7 @@ def list_energy_service_partitions(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:openenergyplatform:listEnergyServicePartitions', __args__, opts=opts, typ=ListEnergyServicePartitionsResult).value
 
     return AwaitableListEnergyServicePartitionsResult(
-        data_partition_info=__ret__.data_partition_info)
+        data_partition_info=pulumi.get(__ret__, 'data_partition_info'))
 
 
 @_utilities.lift_output_func(list_energy_service_partitions)

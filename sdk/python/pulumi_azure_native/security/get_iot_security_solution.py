@@ -255,23 +255,23 @@ def get_iot_security_solution(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getIotSecuritySolution', __args__, opts=opts, typ=GetIotSecuritySolutionResult).value
 
     return AwaitableGetIotSecuritySolutionResult(
-        additional_workspaces=__ret__.additional_workspaces,
-        auto_discovered_resources=__ret__.auto_discovered_resources,
-        disabled_data_sources=__ret__.disabled_data_sources,
-        display_name=__ret__.display_name,
-        export=__ret__.export,
-        id=__ret__.id,
-        iot_hubs=__ret__.iot_hubs,
-        location=__ret__.location,
-        name=__ret__.name,
-        recommendations_configuration=__ret__.recommendations_configuration,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unmasked_ip_logging_status=__ret__.unmasked_ip_logging_status,
-        user_defined_resources=__ret__.user_defined_resources,
-        workspace=__ret__.workspace)
+        additional_workspaces=pulumi.get(__ret__, 'additional_workspaces'),
+        auto_discovered_resources=pulumi.get(__ret__, 'auto_discovered_resources'),
+        disabled_data_sources=pulumi.get(__ret__, 'disabled_data_sources'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        export=pulumi.get(__ret__, 'export'),
+        id=pulumi.get(__ret__, 'id'),
+        iot_hubs=pulumi.get(__ret__, 'iot_hubs'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        recommendations_configuration=pulumi.get(__ret__, 'recommendations_configuration'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unmasked_ip_logging_status=pulumi.get(__ret__, 'unmasked_ip_logging_status'),
+        user_defined_resources=pulumi.get(__ret__, 'user_defined_resources'),
+        workspace=pulumi.get(__ret__, 'workspace'))
 
 
 @_utilities.lift_output_func(get_iot_security_solution)

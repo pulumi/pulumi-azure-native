@@ -161,15 +161,15 @@ def get_virtual_hub_ip_configuration(ip_config_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getVirtualHubIpConfiguration', __args__, opts=opts, typ=GetVirtualHubIpConfigurationResult).value
 
     return AwaitableGetVirtualHubIpConfigurationResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        private_ip_address=__ret__.private_ip_address,
-        private_ip_allocation_method=__ret__.private_ip_allocation_method,
-        provisioning_state=__ret__.provisioning_state,
-        public_ip_address=__ret__.public_ip_address,
-        subnet=__ret__.subnet,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        private_ip_address=pulumi.get(__ret__, 'private_ip_address'),
+        private_ip_allocation_method=pulumi.get(__ret__, 'private_ip_allocation_method'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_ip_address=pulumi.get(__ret__, 'public_ip_address'),
+        subnet=pulumi.get(__ret__, 'subnet'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_virtual_hub_ip_configuration)

@@ -218,20 +218,20 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20200301:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult).value
 
     return AwaitableGetPolicyAssignmentResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        enforcement_mode=__ret__.enforcement_mode,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        not_scopes=__ret__.not_scopes,
-        parameters=__ret__.parameters,
-        policy_definition_id=__ret__.policy_definition_id,
-        scope=__ret__.scope,
-        sku=__ret__.sku,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        enforcement_mode=pulumi.get(__ret__, 'enforcement_mode'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        not_scopes=pulumi.get(__ret__, 'not_scopes'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
+        scope=pulumi.get(__ret__, 'scope'),
+        sku=pulumi.get(__ret__, 'sku'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_policy_assignment)

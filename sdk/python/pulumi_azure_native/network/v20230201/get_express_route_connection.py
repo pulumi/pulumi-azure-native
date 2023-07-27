@@ -173,16 +173,16 @@ def get_express_route_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getExpressRouteConnection', __args__, opts=opts, typ=GetExpressRouteConnectionResult).value
 
     return AwaitableGetExpressRouteConnectionResult(
-        authorization_key=__ret__.authorization_key,
-        enable_internet_security=__ret__.enable_internet_security,
-        enable_private_link_fast_path=__ret__.enable_private_link_fast_path,
-        express_route_circuit_peering=__ret__.express_route_circuit_peering,
-        express_route_gateway_bypass=__ret__.express_route_gateway_bypass,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        routing_configuration=__ret__.routing_configuration,
-        routing_weight=__ret__.routing_weight)
+        authorization_key=pulumi.get(__ret__, 'authorization_key'),
+        enable_internet_security=pulumi.get(__ret__, 'enable_internet_security'),
+        enable_private_link_fast_path=pulumi.get(__ret__, 'enable_private_link_fast_path'),
+        express_route_circuit_peering=pulumi.get(__ret__, 'express_route_circuit_peering'),
+        express_route_gateway_bypass=pulumi.get(__ret__, 'express_route_gateway_bypass'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
+        routing_weight=pulumi.get(__ret__, 'routing_weight'))
 
 
 @_utilities.lift_output_func(get_express_route_connection)

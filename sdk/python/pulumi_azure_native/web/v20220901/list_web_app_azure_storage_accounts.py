@@ -110,11 +110,11 @@ def list_web_app_azure_storage_accounts(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:listWebAppAzureStorageAccounts', __args__, opts=opts, typ=ListWebAppAzureStorageAccountsResult).value
 
     return AwaitableListWebAppAzureStorageAccountsResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_web_app_azure_storage_accounts)

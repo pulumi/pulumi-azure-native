@@ -206,19 +206,19 @@ def get_capacity_details(dedicated_capacity_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:powerbidedicated/v20210101:getCapacityDetails', __args__, opts=opts, typ=GetCapacityDetailsResult).value
 
     return AwaitableGetCapacityDetailsResult(
-        administration=__ret__.administration,
-        friendly_name=__ret__.friendly_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        mode=__ret__.mode,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        state=__ret__.state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        administration=pulumi.get(__ret__, 'administration'),
+        friendly_name=pulumi.get(__ret__, 'friendly_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mode=pulumi.get(__ret__, 'mode'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_capacity_details)

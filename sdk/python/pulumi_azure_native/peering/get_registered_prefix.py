@@ -149,14 +149,14 @@ def get_registered_prefix(peering_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:peering:getRegisteredPrefix', __args__, opts=opts, typ=GetRegisteredPrefixResult).value
 
     return AwaitableGetRegisteredPrefixResult(
-        error_message=__ret__.error_message,
-        id=__ret__.id,
-        name=__ret__.name,
-        peering_service_prefix_key=__ret__.peering_service_prefix_key,
-        prefix=__ret__.prefix,
-        prefix_validation_state=__ret__.prefix_validation_state,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        error_message=pulumi.get(__ret__, 'error_message'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        peering_service_prefix_key=pulumi.get(__ret__, 'peering_service_prefix_key'),
+        prefix=pulumi.get(__ret__, 'prefix'),
+        prefix_validation_state=pulumi.get(__ret__, 'prefix_validation_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_registered_prefix)

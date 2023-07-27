@@ -248,22 +248,22 @@ def get_schedule(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab/v20180915:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
-        created_date=__ret__.created_date,
-        daily_recurrence=__ret__.daily_recurrence,
-        hourly_recurrence=__ret__.hourly_recurrence,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        notification_settings=__ret__.notification_settings,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        target_resource_id=__ret__.target_resource_id,
-        task_type=__ret__.task_type,
-        time_zone_id=__ret__.time_zone_id,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        weekly_recurrence=__ret__.weekly_recurrence)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        daily_recurrence=pulumi.get(__ret__, 'daily_recurrence'),
+        hourly_recurrence=pulumi.get(__ret__, 'hourly_recurrence'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        notification_settings=pulumi.get(__ret__, 'notification_settings'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
+        task_type=pulumi.get(__ret__, 'task_type'),
+        time_zone_id=pulumi.get(__ret__, 'time_zone_id'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
+        weekly_recurrence=pulumi.get(__ret__, 'weekly_recurrence'))
 
 
 @_utilities.lift_output_func(get_schedule)

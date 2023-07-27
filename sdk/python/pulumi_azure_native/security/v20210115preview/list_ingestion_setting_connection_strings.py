@@ -59,7 +59,7 @@ def list_ingestion_setting_connection_strings(ingestion_setting_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20210115preview:listIngestionSettingConnectionStrings', __args__, opts=opts, typ=ListIngestionSettingConnectionStringsResult).value
 
     return AwaitableListIngestionSettingConnectionStringsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_ingestion_setting_connection_strings)

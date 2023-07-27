@@ -195,18 +195,18 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getLocalNetworkGateway', __args__, opts=opts, typ=GetLocalNetworkGatewayResult).value
 
     return AwaitableGetLocalNetworkGatewayResult(
-        bgp_settings=__ret__.bgp_settings,
-        etag=__ret__.etag,
-        fqdn=__ret__.fqdn,
-        gateway_ip_address=__ret__.gateway_ip_address,
-        id=__ret__.id,
-        local_network_address_space=__ret__.local_network_address_space,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
+        etag=pulumi.get(__ret__, 'etag'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        gateway_ip_address=pulumi.get(__ret__, 'gateway_ip_address'),
+        id=pulumi.get(__ret__, 'id'),
+        local_network_address_space=pulumi.get(__ret__, 'local_network_address_space'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_local_network_gateway)

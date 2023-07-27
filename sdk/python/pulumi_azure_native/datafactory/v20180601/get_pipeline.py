@@ -209,19 +209,19 @@ def get_pipeline(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory/v20180601:getPipeline', __args__, opts=opts, typ=GetPipelineResult).value
 
     return AwaitableGetPipelineResult(
-        activities=__ret__.activities,
-        annotations=__ret__.annotations,
-        concurrency=__ret__.concurrency,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        folder=__ret__.folder,
-        id=__ret__.id,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        policy=__ret__.policy,
-        run_dimensions=__ret__.run_dimensions,
-        type=__ret__.type,
-        variables=__ret__.variables)
+        activities=pulumi.get(__ret__, 'activities'),
+        annotations=pulumi.get(__ret__, 'annotations'),
+        concurrency=pulumi.get(__ret__, 'concurrency'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        folder=pulumi.get(__ret__, 'folder'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        policy=pulumi.get(__ret__, 'policy'),
+        run_dimensions=pulumi.get(__ret__, 'run_dimensions'),
+        type=pulumi.get(__ret__, 'type'),
+        variables=pulumi.get(__ret__, 'variables'))
 
 
 @_utilities.lift_output_func(get_pipeline)

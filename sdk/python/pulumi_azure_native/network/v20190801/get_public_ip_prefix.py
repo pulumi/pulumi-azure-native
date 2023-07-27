@@ -245,22 +245,22 @@ def get_public_ip_prefix(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20190801:getPublicIPPrefix', __args__, opts=opts, typ=GetPublicIPPrefixResult).value
 
     return AwaitableGetPublicIPPrefixResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        ip_prefix=__ret__.ip_prefix,
-        ip_tags=__ret__.ip_tags,
-        load_balancer_frontend_ip_configuration=__ret__.load_balancer_frontend_ip_configuration,
-        location=__ret__.location,
-        name=__ret__.name,
-        prefix_length=__ret__.prefix_length,
-        provisioning_state=__ret__.provisioning_state,
-        public_ip_address_version=__ret__.public_ip_address_version,
-        public_ip_addresses=__ret__.public_ip_addresses,
-        resource_guid=__ret__.resource_guid,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_prefix=pulumi.get(__ret__, 'ip_prefix'),
+        ip_tags=pulumi.get(__ret__, 'ip_tags'),
+        load_balancer_frontend_ip_configuration=pulumi.get(__ret__, 'load_balancer_frontend_ip_configuration'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        prefix_length=pulumi.get(__ret__, 'prefix_length'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_ip_address_version=pulumi.get(__ret__, 'public_ip_address_version'),
+        public_ip_addresses=pulumi.get(__ret__, 'public_ip_addresses'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_public_ip_prefix)

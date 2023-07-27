@@ -161,15 +161,15 @@ def get_volume_group(elastic_san_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elasticsan/v20221201preview:getVolumeGroup', __args__, opts=opts, typ=GetVolumeGroupResult).value
 
     return AwaitableGetVolumeGroupResult(
-        encryption=__ret__.encryption,
-        id=__ret__.id,
-        name=__ret__.name,
-        network_acls=__ret__.network_acls,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        protocol_type=__ret__.protocol_type,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        encryption=pulumi.get(__ret__, 'encryption'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        network_acls=pulumi.get(__ret__, 'network_acls'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        protocol_type=pulumi.get(__ret__, 'protocol_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_volume_group)

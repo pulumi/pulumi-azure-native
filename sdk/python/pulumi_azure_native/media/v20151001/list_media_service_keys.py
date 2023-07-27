@@ -109,11 +109,11 @@ def list_media_service_keys(media_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20151001:listMediaServiceKeys', __args__, opts=opts, typ=ListMediaServiceKeysResult).value
 
     return AwaitableListMediaServiceKeysResult(
-        primary_auth_endpoint=__ret__.primary_auth_endpoint,
-        primary_key=__ret__.primary_key,
-        scope=__ret__.scope,
-        secondary_auth_endpoint=__ret__.secondary_auth_endpoint,
-        secondary_key=__ret__.secondary_key)
+        primary_auth_endpoint=pulumi.get(__ret__, 'primary_auth_endpoint'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        scope=pulumi.get(__ret__, 'scope'),
+        secondary_auth_endpoint=pulumi.get(__ret__, 'secondary_auth_endpoint'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_media_service_keys)

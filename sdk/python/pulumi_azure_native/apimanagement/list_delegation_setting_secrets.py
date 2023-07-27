@@ -62,7 +62,7 @@ def list_delegation_setting_secrets(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:listDelegationSettingSecrets', __args__, opts=opts, typ=ListDelegationSettingSecretsResult).value
 
     return AwaitableListDelegationSettingSecretsResult(
-        validation_key=__ret__.validation_key)
+        validation_key=pulumi.get(__ret__, 'validation_key'))
 
 
 @_utilities.lift_output_func(list_delegation_setting_secrets)

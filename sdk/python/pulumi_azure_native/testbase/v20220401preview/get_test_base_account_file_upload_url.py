@@ -76,8 +76,8 @@ def get_test_base_account_file_upload_url(blob_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase/v20220401preview:getTestBaseAccountFileUploadUrl', __args__, opts=opts, typ=GetTestBaseAccountFileUploadUrlResult).value
 
     return AwaitableGetTestBaseAccountFileUploadUrlResult(
-        blob_path=__ret__.blob_path,
-        upload_url=__ret__.upload_url)
+        blob_path=pulumi.get(__ret__, 'blob_path'),
+        upload_url=pulumi.get(__ret__, 'upload_url'))
 
 
 @_utilities.lift_output_func(get_test_base_account_file_upload_url)

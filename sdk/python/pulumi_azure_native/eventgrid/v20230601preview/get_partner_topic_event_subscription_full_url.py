@@ -64,7 +64,7 @@ def get_partner_topic_event_subscription_full_url(event_subscription_name: Optio
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20230601preview:getPartnerTopicEventSubscriptionFullUrl', __args__, opts=opts, typ=GetPartnerTopicEventSubscriptionFullUrlResult).value
 
     return AwaitableGetPartnerTopicEventSubscriptionFullUrlResult(
-        endpoint_url=__ret__.endpoint_url)
+        endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
 
 
 @_utilities.lift_output_func(get_partner_topic_event_subscription_full_url)

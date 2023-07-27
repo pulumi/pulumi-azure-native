@@ -136,13 +136,13 @@ def get_data_source(data_source_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20200801:getDataSource', __args__, opts=opts, typ=GetDataSourceResult).value
 
     return AwaitableGetDataSourceResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_source)

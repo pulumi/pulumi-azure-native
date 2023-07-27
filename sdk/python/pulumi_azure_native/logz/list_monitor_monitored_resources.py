@@ -75,8 +75,8 @@ def list_monitor_monitored_resources(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logz:listMonitorMonitoredResources', __args__, opts=opts, typ=ListMonitorMonitoredResourcesResult).value
 
     return AwaitableListMonitorMonitoredResourcesResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_monitor_monitored_resources)

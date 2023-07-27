@@ -167,16 +167,16 @@ def get_alerts_suppression_rule(alerts_suppression_rule_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20190101preview:getAlertsSuppressionRule', __args__, opts=opts, typ=GetAlertsSuppressionRuleResult).value
 
     return AwaitableGetAlertsSuppressionRuleResult(
-        alert_type=__ret__.alert_type,
-        comment=__ret__.comment,
-        expiration_date_utc=__ret__.expiration_date_utc,
-        id=__ret__.id,
-        last_modified_utc=__ret__.last_modified_utc,
-        name=__ret__.name,
-        reason=__ret__.reason,
-        state=__ret__.state,
-        suppression_alerts_scope=__ret__.suppression_alerts_scope,
-        type=__ret__.type)
+        alert_type=pulumi.get(__ret__, 'alert_type'),
+        comment=pulumi.get(__ret__, 'comment'),
+        expiration_date_utc=pulumi.get(__ret__, 'expiration_date_utc'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_utc=pulumi.get(__ret__, 'last_modified_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        reason=pulumi.get(__ret__, 'reason'),
+        state=pulumi.get(__ret__, 'state'),
+        suppression_alerts_scope=pulumi.get(__ret__, 'suppression_alerts_scope'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_alerts_suppression_rule)

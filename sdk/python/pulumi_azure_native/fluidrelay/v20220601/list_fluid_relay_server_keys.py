@@ -73,8 +73,8 @@ def list_fluid_relay_server_keys(fluid_relay_server_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:fluidrelay/v20220601:listFluidRelayServerKeys', __args__, opts=opts, typ=ListFluidRelayServerKeysResult).value
 
     return AwaitableListFluidRelayServerKeysResult(
-        key1=__ret__.key1,
-        key2=__ret__.key2)
+        key1=pulumi.get(__ret__, 'key1'),
+        key2=pulumi.get(__ret__, 'key2'))
 
 
 @_utilities.lift_output_func(list_fluid_relay_server_keys)

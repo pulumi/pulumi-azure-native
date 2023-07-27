@@ -146,14 +146,14 @@ def get_integration_account(integration_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20190501:getIntegrationAccount', __args__, opts=opts, typ=GetIntegrationAccountResult).value
 
     return AwaitableGetIntegrationAccountResult(
-        id=__ret__.id,
-        integration_service_environment=__ret__.integration_service_environment,
-        location=__ret__.location,
-        name=__ret__.name,
-        sku=__ret__.sku,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        integration_service_environment=pulumi.get(__ret__, 'integration_service_environment'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_integration_account)

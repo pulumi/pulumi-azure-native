@@ -86,9 +86,9 @@ def list_manager_public_encryption_key(manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:listManagerPublicEncryptionKey', __args__, opts=opts, typ=ListManagerPublicEncryptionKeyResult).value
 
     return AwaitableListManagerPublicEncryptionKeyResult(
-        encryption_algorithm=__ret__.encryption_algorithm,
-        value=__ret__.value,
-        value_certificate_thumbprint=__ret__.value_certificate_thumbprint)
+        encryption_algorithm=pulumi.get(__ret__, 'encryption_algorithm'),
+        value=pulumi.get(__ret__, 'value'),
+        value_certificate_thumbprint=pulumi.get(__ret__, 'value_certificate_thumbprint'))
 
 
 @_utilities.lift_output_func(list_manager_public_encryption_key)

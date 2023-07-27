@@ -149,14 +149,14 @@ def get_fleet_member(fleet_member_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20230315preview:getFleetMember', __args__, opts=opts, typ=GetFleetMemberResult).value
 
     return AwaitableGetFleetMemberResult(
-        cluster_resource_id=__ret__.cluster_resource_id,
-        e_tag=__ret__.e_tag,
-        group=__ret__.group,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        cluster_resource_id=pulumi.get(__ret__, 'cluster_resource_id'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        group=pulumi.get(__ret__, 'group'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_fleet_member)

@@ -114,11 +114,11 @@ def get_registry_model_container(model_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getRegistryModelContainer', __args__, opts=opts, typ=GetRegistryModelContainerResult).value
 
     return AwaitableGetRegistryModelContainerResult(
-        id=__ret__.id,
-        model_container_properties=__ret__.model_container_properties,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        model_container_properties=pulumi.get(__ret__, 'model_container_properties'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_registry_model_container)

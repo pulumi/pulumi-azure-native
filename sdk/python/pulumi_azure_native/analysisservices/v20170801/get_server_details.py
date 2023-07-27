@@ -242,22 +242,22 @@ def get_server_details(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:analysisservices/v20170801:getServerDetails', __args__, opts=opts, typ=GetServerDetailsResult).value
 
     return AwaitableGetServerDetailsResult(
-        as_administrators=__ret__.as_administrators,
-        backup_blob_container_uri=__ret__.backup_blob_container_uri,
-        gateway_details=__ret__.gateway_details,
-        id=__ret__.id,
-        ip_v4_firewall_settings=__ret__.ip_v4_firewall_settings,
-        location=__ret__.location,
-        managed_mode=__ret__.managed_mode,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        querypool_connection_mode=__ret__.querypool_connection_mode,
-        server_full_name=__ret__.server_full_name,
-        server_monitor_mode=__ret__.server_monitor_mode,
-        sku=__ret__.sku,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        as_administrators=pulumi.get(__ret__, 'as_administrators'),
+        backup_blob_container_uri=pulumi.get(__ret__, 'backup_blob_container_uri'),
+        gateway_details=pulumi.get(__ret__, 'gateway_details'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_v4_firewall_settings=pulumi.get(__ret__, 'ip_v4_firewall_settings'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_mode=pulumi.get(__ret__, 'managed_mode'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        querypool_connection_mode=pulumi.get(__ret__, 'querypool_connection_mode'),
+        server_full_name=pulumi.get(__ret__, 'server_full_name'),
+        server_monitor_mode=pulumi.get(__ret__, 'server_monitor_mode'),
+        sku=pulumi.get(__ret__, 'sku'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_details)

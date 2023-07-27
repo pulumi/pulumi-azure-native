@@ -125,12 +125,12 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getNetworkInterfaceTapConfiguration', __args__, opts=opts, typ=GetNetworkInterfaceTapConfigurationResult).value
 
     return AwaitableGetNetworkInterfaceTapConfigurationResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type,
-        virtual_network_tap=__ret__.virtual_network_tap)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network_tap=pulumi.get(__ret__, 'virtual_network_tap'))
 
 
 @_utilities.lift_output_func(get_network_interface_tap_configuration)

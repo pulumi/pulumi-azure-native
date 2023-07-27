@@ -137,13 +137,13 @@ def get_maintenance_configuration(config_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20230502preview:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult).value
 
     return AwaitableGetMaintenanceConfigurationResult(
-        id=__ret__.id,
-        maintenance_window=__ret__.maintenance_window,
-        name=__ret__.name,
-        not_allowed_time=__ret__.not_allowed_time,
-        system_data=__ret__.system_data,
-        time_in_week=__ret__.time_in_week,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        maintenance_window=pulumi.get(__ret__, 'maintenance_window'),
+        name=pulumi.get(__ret__, 'name'),
+        not_allowed_time=pulumi.get(__ret__, 'not_allowed_time'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        time_in_week=pulumi.get(__ret__, 'time_in_week'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_maintenance_configuration)

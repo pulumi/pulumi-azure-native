@@ -152,14 +152,14 @@ def get_cloud_edge_management_role(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20230101preview:getCloudEdgeManagementRole', __args__, opts=opts, typ=GetCloudEdgeManagementRoleResult).value
 
     return AwaitableGetCloudEdgeManagementRoleResult(
-        edge_profile=__ret__.edge_profile,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        local_management_status=__ret__.local_management_status,
-        name=__ret__.name,
-        role_status=__ret__.role_status,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        edge_profile=pulumi.get(__ret__, 'edge_profile'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        local_management_status=pulumi.get(__ret__, 'local_management_status'),
+        name=pulumi.get(__ret__, 'name'),
+        role_status=pulumi.get(__ret__, 'role_status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cloud_edge_management_role)

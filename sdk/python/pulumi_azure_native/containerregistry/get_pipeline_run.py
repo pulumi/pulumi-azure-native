@@ -150,14 +150,14 @@ def get_pipeline_run(pipeline_run_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:getPipelineRun', __args__, opts=opts, typ=GetPipelineRunResult).value
 
     return AwaitableGetPipelineRunResult(
-        force_update_tag=__ret__.force_update_tag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        request=__ret__.request,
-        response=__ret__.response,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        force_update_tag=pulumi.get(__ret__, 'force_update_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        request=pulumi.get(__ret__, 'request'),
+        response=pulumi.get(__ret__, 'response'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_pipeline_run)

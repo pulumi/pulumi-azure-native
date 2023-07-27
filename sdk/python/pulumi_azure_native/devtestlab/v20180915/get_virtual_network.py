@@ -212,19 +212,19 @@ def get_virtual_network(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab/v20180915:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
-        allowed_subnets=__ret__.allowed_subnets,
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        external_provider_resource_id=__ret__.external_provider_resource_id,
-        external_subnets=__ret__.external_subnets,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        subnet_overrides=__ret__.subnet_overrides,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        allowed_subnets=pulumi.get(__ret__, 'allowed_subnets'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        external_provider_resource_id=pulumi.get(__ret__, 'external_provider_resource_id'),
+        external_subnets=pulumi.get(__ret__, 'external_subnets'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        subnet_overrides=pulumi.get(__ret__, 'subnet_overrides'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_virtual_network)

@@ -194,18 +194,18 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20230501:getAFDEndpoint', __args__, opts=opts, typ=GetAFDEndpointResult).value
 
     return AwaitableGetAFDEndpointResult(
-        auto_generated_domain_name_label_scope=__ret__.auto_generated_domain_name_label_scope,
-        deployment_status=__ret__.deployment_status,
-        enabled_state=__ret__.enabled_state,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        profile_name=__ret__.profile_name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        auto_generated_domain_name_label_scope=pulumi.get(__ret__, 'auto_generated_domain_name_label_scope'),
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        enabled_state=pulumi.get(__ret__, 'enabled_state'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_name=pulumi.get(__ret__, 'profile_name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_afd_endpoint)

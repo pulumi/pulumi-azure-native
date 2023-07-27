@@ -255,23 +255,23 @@ def get_configuration_store(config_store_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appconfiguration:getConfigurationStore', __args__, opts=opts, typ=GetConfigurationStoreResult).value
 
     return AwaitableGetConfigurationStoreResult(
-        creation_date=__ret__.creation_date,
-        disable_local_auth=__ret__.disable_local_auth,
-        enable_purge_protection=__ret__.enable_purge_protection,
-        encryption=__ret__.encryption,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        sku=__ret__.sku,
-        soft_delete_retention_in_days=__ret__.soft_delete_retention_in_days,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
+        enable_purge_protection=pulumi.get(__ret__, 'enable_purge_protection'),
+        encryption=pulumi.get(__ret__, 'encryption'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        sku=pulumi.get(__ret__, 'sku'),
+        soft_delete_retention_in_days=pulumi.get(__ret__, 'soft_delete_retention_in_days'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_configuration_store)

@@ -75,8 +75,8 @@ def list_sql_migration_service_monitoring_data(resource_group_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:datamigration:listSqlMigrationServiceMonitoringData', __args__, opts=opts, typ=ListSqlMigrationServiceMonitoringDataResult).value
 
     return AwaitableListSqlMigrationServiceMonitoringDataResult(
-        name=__ret__.name,
-        nodes=__ret__.nodes)
+        name=pulumi.get(__ret__, 'name'),
+        nodes=pulumi.get(__ret__, 'nodes'))
 
 
 @_utilities.lift_output_func(list_sql_migration_service_monitoring_data)

@@ -210,19 +210,19 @@ def get_sim_policy(mobile_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork:getSimPolicy', __args__, opts=opts, typ=GetSimPolicyResult).value
 
     return AwaitableGetSimPolicyResult(
-        default_slice=__ret__.default_slice,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        registration_timer=__ret__.registration_timer,
-        rfsp_index=__ret__.rfsp_index,
-        site_provisioning_state=__ret__.site_provisioning_state,
-        slice_configurations=__ret__.slice_configurations,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        ue_ambr=__ret__.ue_ambr)
+        default_slice=pulumi.get(__ret__, 'default_slice'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        registration_timer=pulumi.get(__ret__, 'registration_timer'),
+        rfsp_index=pulumi.get(__ret__, 'rfsp_index'),
+        site_provisioning_state=pulumi.get(__ret__, 'site_provisioning_state'),
+        slice_configurations=pulumi.get(__ret__, 'slice_configurations'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        ue_ambr=pulumi.get(__ret__, 'ue_ambr'))
 
 
 @_utilities.lift_output_func(get_sim_policy)

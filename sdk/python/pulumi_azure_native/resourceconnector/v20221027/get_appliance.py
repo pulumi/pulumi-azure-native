@@ -206,19 +206,19 @@ def get_appliance(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resourceconnector/v20221027:getAppliance', __args__, opts=opts, typ=GetApplianceResult).value
 
     return AwaitableGetApplianceResult(
-        distro=__ret__.distro,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        infrastructure_config=__ret__.infrastructure_config,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_key=__ret__.public_key,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        distro=pulumi.get(__ret__, 'distro'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        infrastructure_config=pulumi.get(__ret__, 'infrastructure_config'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_appliance)

@@ -146,14 +146,14 @@ def get_static_site_private_endpoint_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getStaticSitePrivateEndpointConnection', __args__, opts=opts, typ=GetStaticSitePrivateEndpointConnectionResult).value
 
     return AwaitableGetStaticSitePrivateEndpointConnectionResult(
-        id=__ret__.id,
-        ip_addresses=__ret__.ip_addresses,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        private_endpoint=__ret__.private_endpoint,
-        private_link_service_connection_state=__ret__.private_link_service_connection_state,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        ip_addresses=pulumi.get(__ret__, 'ip_addresses'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
+        private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_static_site_private_endpoint_connection)

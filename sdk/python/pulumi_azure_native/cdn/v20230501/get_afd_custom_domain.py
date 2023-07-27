@@ -218,20 +218,20 @@ def get_afd_custom_domain(custom_domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20230501:getAFDCustomDomain', __args__, opts=opts, typ=GetAFDCustomDomainResult).value
 
     return AwaitableGetAFDCustomDomainResult(
-        azure_dns_zone=__ret__.azure_dns_zone,
-        deployment_status=__ret__.deployment_status,
-        domain_validation_state=__ret__.domain_validation_state,
-        extended_properties=__ret__.extended_properties,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        pre_validated_custom_domain_resource_id=__ret__.pre_validated_custom_domain_resource_id,
-        profile_name=__ret__.profile_name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tls_settings=__ret__.tls_settings,
-        type=__ret__.type,
-        validation_properties=__ret__.validation_properties)
+        azure_dns_zone=pulumi.get(__ret__, 'azure_dns_zone'),
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        domain_validation_state=pulumi.get(__ret__, 'domain_validation_state'),
+        extended_properties=pulumi.get(__ret__, 'extended_properties'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        pre_validated_custom_domain_resource_id=pulumi.get(__ret__, 'pre_validated_custom_domain_resource_id'),
+        profile_name=pulumi.get(__ret__, 'profile_name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tls_settings=pulumi.get(__ret__, 'tls_settings'),
+        type=pulumi.get(__ret__, 'type'),
+        validation_properties=pulumi.get(__ret__, 'validation_properties'))
 
 
 @_utilities.lift_output_func(get_afd_custom_domain)

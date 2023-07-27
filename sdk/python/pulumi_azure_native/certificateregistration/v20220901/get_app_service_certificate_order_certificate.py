@@ -160,15 +160,15 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:certificateregistration/v20220901:getAppServiceCertificateOrderCertificate', __args__, opts=opts, typ=GetAppServiceCertificateOrderCertificateResult).value
 
     return AwaitableGetAppServiceCertificateOrderCertificateResult(
-        id=__ret__.id,
-        key_vault_id=__ret__.key_vault_id,
-        key_vault_secret_name=__ret__.key_vault_secret_name,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        key_vault_secret_name=pulumi.get(__ret__, 'key_vault_secret_name'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_app_service_certificate_order_certificate)

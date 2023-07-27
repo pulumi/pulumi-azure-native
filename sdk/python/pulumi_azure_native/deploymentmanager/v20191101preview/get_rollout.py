@@ -221,20 +221,20 @@ def get_rollout(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deploymentmanager/v20191101preview:getRollout', __args__, opts=opts, typ=GetRolloutResult).value
 
     return AwaitableGetRolloutResult(
-        artifact_source_id=__ret__.artifact_source_id,
-        build_version=__ret__.build_version,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        operation_info=__ret__.operation_info,
-        services=__ret__.services,
-        status=__ret__.status,
-        step_groups=__ret__.step_groups,
-        tags=__ret__.tags,
-        target_service_topology_id=__ret__.target_service_topology_id,
-        total_retry_attempts=__ret__.total_retry_attempts,
-        type=__ret__.type)
+        artifact_source_id=pulumi.get(__ret__, 'artifact_source_id'),
+        build_version=pulumi.get(__ret__, 'build_version'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        operation_info=pulumi.get(__ret__, 'operation_info'),
+        services=pulumi.get(__ret__, 'services'),
+        status=pulumi.get(__ret__, 'status'),
+        step_groups=pulumi.get(__ret__, 'step_groups'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_service_topology_id=pulumi.get(__ret__, 'target_service_topology_id'),
+        total_retry_attempts=pulumi.get(__ret__, 'total_retry_attempts'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_rollout)

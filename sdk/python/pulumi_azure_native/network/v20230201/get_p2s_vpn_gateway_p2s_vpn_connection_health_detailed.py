@@ -67,7 +67,7 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed(gateway_name: Optiona
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getP2sVpnGatewayP2sVpnConnectionHealthDetailed', __args__, opts=opts, typ=GetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult).value
 
     return AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthDetailedResult(
-        sas_url=__ret__.sas_url)
+        sas_url=pulumi.get(__ret__, 'sas_url'))
 
 
 @_utilities.lift_output_func(get_p2s_vpn_gateway_p2s_vpn_connection_health_detailed)

@@ -84,8 +84,8 @@ def list_network_manager_deployment_status(deployment_types: Optional[Sequence[U
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210501preview:listNetworkManagerDeploymentStatus', __args__, opts=opts, typ=ListNetworkManagerDeploymentStatusResult).value
 
     return AwaitableListNetworkManagerDeploymentStatusResult(
-        skip_token=__ret__.skip_token,
-        value=__ret__.value)
+        skip_token=pulumi.get(__ret__, 'skip_token'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_network_manager_deployment_status)

@@ -150,14 +150,14 @@ def get_application_group(application_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub:getApplicationGroup', __args__, opts=opts, typ=GetApplicationGroupResult).value
 
     return AwaitableGetApplicationGroupResult(
-        client_app_group_identifier=__ret__.client_app_group_identifier,
-        id=__ret__.id,
-        is_enabled=__ret__.is_enabled,
-        location=__ret__.location,
-        name=__ret__.name,
-        policies=__ret__.policies,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        client_app_group_identifier=pulumi.get(__ret__, 'client_app_group_identifier'),
+        id=pulumi.get(__ret__, 'id'),
+        is_enabled=pulumi.get(__ret__, 'is_enabled'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        policies=pulumi.get(__ret__, 'policies'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_application_group)

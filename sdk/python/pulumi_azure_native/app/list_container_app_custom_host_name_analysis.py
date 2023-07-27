@@ -198,18 +198,18 @@ def list_container_app_custom_host_name_analysis(container_app_name: Optional[st
     __ret__ = pulumi.runtime.invoke('azure-native:app:listContainerAppCustomHostNameAnalysis', __args__, opts=opts, typ=ListContainerAppCustomHostNameAnalysisResult).value
 
     return AwaitableListContainerAppCustomHostNameAnalysisResult(
-        a_records=__ret__.a_records,
-        alternate_c_name_records=__ret__.alternate_c_name_records,
-        alternate_txt_records=__ret__.alternate_txt_records,
-        c_name_records=__ret__.c_name_records,
-        conflict_with_environment_custom_domain=__ret__.conflict_with_environment_custom_domain,
-        conflicting_container_app_resource_id=__ret__.conflicting_container_app_resource_id,
-        custom_domain_verification_failure_info=__ret__.custom_domain_verification_failure_info,
-        custom_domain_verification_test=__ret__.custom_domain_verification_test,
-        has_conflict_on_managed_environment=__ret__.has_conflict_on_managed_environment,
-        host_name=__ret__.host_name,
-        is_hostname_already_verified=__ret__.is_hostname_already_verified,
-        txt_records=__ret__.txt_records)
+        a_records=pulumi.get(__ret__, 'a_records'),
+        alternate_c_name_records=pulumi.get(__ret__, 'alternate_c_name_records'),
+        alternate_txt_records=pulumi.get(__ret__, 'alternate_txt_records'),
+        c_name_records=pulumi.get(__ret__, 'c_name_records'),
+        conflict_with_environment_custom_domain=pulumi.get(__ret__, 'conflict_with_environment_custom_domain'),
+        conflicting_container_app_resource_id=pulumi.get(__ret__, 'conflicting_container_app_resource_id'),
+        custom_domain_verification_failure_info=pulumi.get(__ret__, 'custom_domain_verification_failure_info'),
+        custom_domain_verification_test=pulumi.get(__ret__, 'custom_domain_verification_test'),
+        has_conflict_on_managed_environment=pulumi.get(__ret__, 'has_conflict_on_managed_environment'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        is_hostname_already_verified=pulumi.get(__ret__, 'is_hostname_already_verified'),
+        txt_records=pulumi.get(__ret__, 'txt_records'))
 
 
 @_utilities.lift_output_func(list_container_app_custom_host_name_analysis)

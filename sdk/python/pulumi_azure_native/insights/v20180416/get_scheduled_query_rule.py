@@ -266,24 +266,24 @@ def get_scheduled_query_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20180416:getScheduledQueryRule', __args__, opts=opts, typ=GetScheduledQueryRuleResult).value
 
     return AwaitableGetScheduledQueryRuleResult(
-        action=__ret__.action,
-        auto_mitigate=__ret__.auto_mitigate,
-        created_with_api_version=__ret__.created_with_api_version,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        enabled=__ret__.enabled,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        is_legacy_log_analytics_rule=__ret__.is_legacy_log_analytics_rule,
-        kind=__ret__.kind,
-        last_updated_time=__ret__.last_updated_time,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        schedule=__ret__.schedule,
-        source=__ret__.source,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        action=pulumi.get(__ret__, 'action'),
+        auto_mitigate=pulumi.get(__ret__, 'auto_mitigate'),
+        created_with_api_version=pulumi.get(__ret__, 'created_with_api_version'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        is_legacy_log_analytics_rule=pulumi.get(__ret__, 'is_legacy_log_analytics_rule'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        source=pulumi.get(__ret__, 'source'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_scheduled_query_rule)

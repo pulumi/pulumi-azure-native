@@ -206,19 +206,19 @@ def get_diagnostic_setting(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20210501preview:getDiagnosticSetting', __args__, opts=opts, typ=GetDiagnosticSettingResult).value
 
     return AwaitableGetDiagnosticSettingResult(
-        event_hub_authorization_rule_id=__ret__.event_hub_authorization_rule_id,
-        event_hub_name=__ret__.event_hub_name,
-        id=__ret__.id,
-        log_analytics_destination_type=__ret__.log_analytics_destination_type,
-        logs=__ret__.logs,
-        marketplace_partner_id=__ret__.marketplace_partner_id,
-        metrics=__ret__.metrics,
-        name=__ret__.name,
-        service_bus_rule_id=__ret__.service_bus_rule_id,
-        storage_account_id=__ret__.storage_account_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        workspace_id=__ret__.workspace_id)
+        event_hub_authorization_rule_id=pulumi.get(__ret__, 'event_hub_authorization_rule_id'),
+        event_hub_name=pulumi.get(__ret__, 'event_hub_name'),
+        id=pulumi.get(__ret__, 'id'),
+        log_analytics_destination_type=pulumi.get(__ret__, 'log_analytics_destination_type'),
+        logs=pulumi.get(__ret__, 'logs'),
+        marketplace_partner_id=pulumi.get(__ret__, 'marketplace_partner_id'),
+        metrics=pulumi.get(__ret__, 'metrics'),
+        name=pulumi.get(__ret__, 'name'),
+        service_bus_rule_id=pulumi.get(__ret__, 'service_bus_rule_id'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_diagnostic_setting)

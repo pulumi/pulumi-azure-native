@@ -186,17 +186,17 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult).value
 
     return AwaitableGetTemplateSpecVersionResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        linked_templates=__ret__.linked_templates,
-        location=__ret__.location,
-        main_template=__ret__.main_template,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        ui_form_definition=__ret__.ui_form_definition)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        linked_templates=pulumi.get(__ret__, 'linked_templates'),
+        location=pulumi.get(__ret__, 'location'),
+        main_template=pulumi.get(__ret__, 'main_template'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        ui_form_definition=pulumi.get(__ret__, 'ui_form_definition'))
 
 
 @_utilities.lift_output_func(get_template_spec_version)

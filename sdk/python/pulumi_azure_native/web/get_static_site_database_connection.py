@@ -162,15 +162,15 @@ def get_static_site_database_connection(database_connection_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:web:getStaticSiteDatabaseConnection', __args__, opts=opts, typ=GetStaticSiteDatabaseConnectionResult).value
 
     return AwaitableGetStaticSiteDatabaseConnectionResult(
-        configuration_files=__ret__.configuration_files,
-        connection_identity=__ret__.connection_identity,
-        connection_string=__ret__.connection_string,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        region=__ret__.region,
-        resource_id=__ret__.resource_id,
-        type=__ret__.type)
+        configuration_files=pulumi.get(__ret__, 'configuration_files'),
+        connection_identity=pulumi.get(__ret__, 'connection_identity'),
+        connection_string=pulumi.get(__ret__, 'connection_string'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        region=pulumi.get(__ret__, 'region'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_static_site_database_connection)

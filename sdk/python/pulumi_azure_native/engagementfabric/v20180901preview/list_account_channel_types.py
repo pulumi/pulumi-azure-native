@@ -62,7 +62,7 @@ def list_account_channel_types(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:engagementfabric/v20180901preview:listAccountChannelTypes', __args__, opts=opts, typ=ListAccountChannelTypesResult).value
 
     return AwaitableListAccountChannelTypesResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_account_channel_types)

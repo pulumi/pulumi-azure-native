@@ -181,17 +181,17 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity/v20220501preview:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
 
     return AwaitableGetEndpointResult(
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
-        id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_id=__ret__.resource_id,
-        type=__ret__.type)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_by_type=pulumi.get(__ret__, 'created_by_type'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_at=pulumi.get(__ret__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__ret__, 'last_modified_by_type'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_endpoint)

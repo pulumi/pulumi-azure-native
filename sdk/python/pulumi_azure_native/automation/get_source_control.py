@@ -197,18 +197,18 @@ def get_source_control(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult).value
 
     return AwaitableGetSourceControlResult(
-        auto_sync=__ret__.auto_sync,
-        branch=__ret__.branch,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        folder_path=__ret__.folder_path,
-        id=__ret__.id,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        publish_runbook=__ret__.publish_runbook,
-        repo_url=__ret__.repo_url,
-        source_type=__ret__.source_type,
-        type=__ret__.type)
+        auto_sync=pulumi.get(__ret__, 'auto_sync'),
+        branch=pulumi.get(__ret__, 'branch'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        folder_path=pulumi.get(__ret__, 'folder_path'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        publish_runbook=pulumi.get(__ret__, 'publish_runbook'),
+        repo_url=pulumi.get(__ret__, 'repo_url'),
+        source_type=pulumi.get(__ret__, 'source_type'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_source_control)

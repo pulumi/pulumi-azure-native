@@ -73,8 +73,8 @@ def list_registry_build_source_upload_url(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20180901:listRegistryBuildSourceUploadUrl', __args__, opts=opts, typ=ListRegistryBuildSourceUploadUrlResult).value
 
     return AwaitableListRegistryBuildSourceUploadUrlResult(
-        relative_path=__ret__.relative_path,
-        upload_url=__ret__.upload_url)
+        relative_path=pulumi.get(__ret__, 'relative_path'),
+        upload_url=pulumi.get(__ret__, 'upload_url'))
 
 
 @_utilities.lift_output_func(list_registry_build_source_upload_url)

@@ -219,20 +219,20 @@ def get_cloud(cloud_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:scvmm:getCloud', __args__, opts=opts, typ=GetCloudResult).value
 
     return AwaitableGetCloudResult(
-        cloud_capacity=__ret__.cloud_capacity,
-        cloud_name=__ret__.cloud_name,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        inventory_item_id=__ret__.inventory_item_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        storage_qo_s_policies=__ret__.storage_qo_s_policies,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        uuid=__ret__.uuid,
-        vmm_server_id=__ret__.vmm_server_id)
+        cloud_capacity=pulumi.get(__ret__, 'cloud_capacity'),
+        cloud_name=pulumi.get(__ret__, 'cloud_name'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        inventory_item_id=pulumi.get(__ret__, 'inventory_item_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        storage_qo_s_policies=pulumi.get(__ret__, 'storage_qo_s_policies'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        uuid=pulumi.get(__ret__, 'uuid'),
+        vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
 
 
 @_utilities.lift_output_func(get_cloud)

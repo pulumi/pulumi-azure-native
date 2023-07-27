@@ -64,7 +64,7 @@ def list_open_id_connect_provider_secrets(opid: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220801:listOpenIdConnectProviderSecrets', __args__, opts=opts, typ=ListOpenIdConnectProviderSecretsResult).value
 
     return AwaitableListOpenIdConnectProviderSecretsResult(
-        client_secret=__ret__.client_secret)
+        client_secret=pulumi.get(__ret__, 'client_secret'))
 
 
 @_utilities.lift_output_func(list_open_id_connect_provider_secrets)

@@ -79,8 +79,8 @@ def get_deployment_remote_debugging_config(app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform/v20230501preview:getDeploymentRemoteDebuggingConfig', __args__, opts=opts, typ=GetDeploymentRemoteDebuggingConfigResult).value
 
     return AwaitableGetDeploymentRemoteDebuggingConfigResult(
-        enabled=__ret__.enabled,
-        port=__ret__.port)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        port=pulumi.get(__ret__, 'port'))
 
 
 @_utilities.lift_output_func(get_deployment_remote_debugging_config)

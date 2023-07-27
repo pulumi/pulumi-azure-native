@@ -162,15 +162,15 @@ def get_test_line(communications_gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:voiceservices:getTestLine', __args__, opts=opts, typ=GetTestLineResult).value
 
     return AwaitableGetTestLineResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        phone_number=__ret__.phone_number,
-        provisioning_state=__ret__.provisioning_state,
-        purpose=__ret__.purpose,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        phone_number=pulumi.get(__ret__, 'phone_number'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        purpose=pulumi.get(__ret__, 'purpose'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_test_line)

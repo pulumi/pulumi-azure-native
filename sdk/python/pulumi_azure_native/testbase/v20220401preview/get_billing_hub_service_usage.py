@@ -99,11 +99,11 @@ def get_billing_hub_service_usage(end_time_stamp: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase/v20220401preview:getBillingHubServiceUsage', __args__, opts=opts, typ=GetBillingHubServiceUsageResult).value
 
     return AwaitableGetBillingHubServiceUsageResult(
-        next_request=__ret__.next_request,
-        package_usage_entries=__ret__.package_usage_entries,
-        total_charges=__ret__.total_charges,
-        total_used_billable_hours=__ret__.total_used_billable_hours,
-        total_used_free_hours=__ret__.total_used_free_hours)
+        next_request=pulumi.get(__ret__, 'next_request'),
+        package_usage_entries=pulumi.get(__ret__, 'package_usage_entries'),
+        total_charges=pulumi.get(__ret__, 'total_charges'),
+        total_used_billable_hours=pulumi.get(__ret__, 'total_used_billable_hours'),
+        total_used_free_hours=pulumi.get(__ret__, 'total_used_free_hours'))
 
 
 @_utilities.lift_output_func(get_billing_hub_service_usage)

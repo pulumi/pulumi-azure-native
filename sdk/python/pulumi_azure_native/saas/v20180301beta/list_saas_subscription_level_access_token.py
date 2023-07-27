@@ -73,8 +73,8 @@ def list_saas_subscription_level_access_token(resource_group_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:saas/v20180301beta:listSaasSubscriptionLevelAccessToken', __args__, opts=opts, typ=ListSaasSubscriptionLevelAccessTokenResult).value
 
     return AwaitableListSaasSubscriptionLevelAccessTokenResult(
-        publisher_offer_base_uri=__ret__.publisher_offer_base_uri,
-        token=__ret__.token)
+        publisher_offer_base_uri=pulumi.get(__ret__, 'publisher_offer_base_uri'),
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(list_saas_subscription_level_access_token)

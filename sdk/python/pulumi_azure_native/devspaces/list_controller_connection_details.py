@@ -63,7 +63,7 @@ def list_controller_connection_details(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devspaces:listControllerConnectionDetails', __args__, opts=opts, typ=ListControllerConnectionDetailsResult).value
 
     return AwaitableListControllerConnectionDetailsResult(
-        connection_details_list=__ret__.connection_details_list)
+        connection_details_list=pulumi.get(__ret__, 'connection_details_list'))
 
 
 @_utilities.lift_output_func(list_controller_connection_details)

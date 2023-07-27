@@ -278,25 +278,25 @@ def get_data_collection_endpoint(data_collection_endpoint_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20220601:getDataCollectionEndpoint', __args__, opts=opts, typ=GetDataCollectionEndpointResult).value
 
     return AwaitableGetDataCollectionEndpointResult(
-        configuration_access=__ret__.configuration_access,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        failover_configuration=__ret__.failover_configuration,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        immutable_id=__ret__.immutable_id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        logs_ingestion=__ret__.logs_ingestion,
-        metadata=__ret__.metadata,
-        metrics_ingestion=__ret__.metrics_ingestion,
-        name=__ret__.name,
-        network_acls=__ret__.network_acls,
-        private_link_scoped_resources=__ret__.private_link_scoped_resources,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        configuration_access=pulumi.get(__ret__, 'configuration_access'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        failover_configuration=pulumi.get(__ret__, 'failover_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        immutable_id=pulumi.get(__ret__, 'immutable_id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        logs_ingestion=pulumi.get(__ret__, 'logs_ingestion'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        metrics_ingestion=pulumi.get(__ret__, 'metrics_ingestion'),
+        name=pulumi.get(__ret__, 'name'),
+        network_acls=pulumi.get(__ret__, 'network_acls'),
+        private_link_scoped_resources=pulumi.get(__ret__, 'private_link_scoped_resources'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_collection_endpoint)

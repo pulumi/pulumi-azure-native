@@ -74,8 +74,8 @@ def get_git_hub_o_auth(location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devhub:getGitHubOAuth', __args__, opts=opts, typ=GetGitHubOAuthResult).value
 
     return AwaitableGetGitHubOAuthResult(
-        auth_url=__ret__.auth_url,
-        token=__ret__.token)
+        auth_url=pulumi.get(__ret__, 'auth_url'),
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(get_git_hub_o_auth)

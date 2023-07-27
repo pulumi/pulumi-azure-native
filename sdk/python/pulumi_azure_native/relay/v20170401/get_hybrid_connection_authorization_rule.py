@@ -103,10 +103,10 @@ def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:relay/v20170401:getHybridConnectionAuthorizationRule', __args__, opts=opts, typ=GetHybridConnectionAuthorizationRuleResult).value
 
     return AwaitableGetHybridConnectionAuthorizationRuleResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        rights=__ret__.rights,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        rights=pulumi.get(__ret__, 'rights'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hybrid_connection_authorization_rule)

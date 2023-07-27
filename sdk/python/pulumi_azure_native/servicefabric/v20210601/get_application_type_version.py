@@ -176,16 +176,16 @@ def get_application_type_version(application_type_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabric/v20210601:getApplicationTypeVersion', __args__, opts=opts, typ=GetApplicationTypeVersionResult).value
 
     return AwaitableGetApplicationTypeVersionResult(
-        app_package_url=__ret__.app_package_url,
-        default_parameter_list=__ret__.default_parameter_list,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        app_package_url=pulumi.get(__ret__, 'app_package_url'),
+        default_parameter_list=pulumi.get(__ret__, 'default_parameter_list'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_application_type_version)

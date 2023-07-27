@@ -177,16 +177,16 @@ def get_kusto_table_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20210801:getKustoTableDataSet', __args__, opts=opts, typ=GetKustoTableDataSetResult).value
 
     return AwaitableGetKustoTableDataSetResult(
-        data_set_id=__ret__.data_set_id,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        kusto_database_resource_id=__ret__.kusto_database_resource_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        table_level_sharing_properties=__ret__.table_level_sharing_properties,
-        type=__ret__.type)
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        kusto_database_resource_id=pulumi.get(__ret__, 'kusto_database_resource_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        table_level_sharing_properties=pulumi.get(__ret__, 'table_level_sharing_properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_kusto_table_data_set)

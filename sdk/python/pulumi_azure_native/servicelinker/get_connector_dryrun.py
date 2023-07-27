@@ -153,14 +153,14 @@ def get_connector_dryrun(dryrun_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicelinker:getConnectorDryrun', __args__, opts=opts, typ=GetConnectorDryrunResult).value
 
     return AwaitableGetConnectorDryrunResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        operation_previews=__ret__.operation_previews,
-        parameters=__ret__.parameters,
-        prerequisite_results=__ret__.prerequisite_results,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        operation_previews=pulumi.get(__ret__, 'operation_previews'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        prerequisite_results=pulumi.get(__ret__, 'prerequisite_results'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connector_dryrun)

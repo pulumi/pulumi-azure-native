@@ -170,16 +170,16 @@ def get_security_partner_provider(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getSecurityPartnerProvider', __args__, opts=opts, typ=GetSecurityPartnerProviderResult).value
 
     return AwaitableGetSecurityPartnerProviderResult(
-        connection_status=__ret__.connection_status,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        security_provider_name=__ret__.security_provider_name,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_hub=__ret__.virtual_hub)
+        connection_status=pulumi.get(__ret__, 'connection_status'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        security_provider_name=pulumi.get(__ret__, 'security_provider_name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 
 
 @_utilities.lift_output_func(get_security_partner_provider)

@@ -273,24 +273,24 @@ def get_job_definition(job_definition_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagemover:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult).value
 
     return AwaitableGetJobDefinitionResult(
-        agent_name=__ret__.agent_name,
-        agent_resource_id=__ret__.agent_resource_id,
-        copy_mode=__ret__.copy_mode,
-        description=__ret__.description,
-        id=__ret__.id,
-        latest_job_run_name=__ret__.latest_job_run_name,
-        latest_job_run_resource_id=__ret__.latest_job_run_resource_id,
-        latest_job_run_status=__ret__.latest_job_run_status,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        source_name=__ret__.source_name,
-        source_resource_id=__ret__.source_resource_id,
-        source_subpath=__ret__.source_subpath,
-        system_data=__ret__.system_data,
-        target_name=__ret__.target_name,
-        target_resource_id=__ret__.target_resource_id,
-        target_subpath=__ret__.target_subpath,
-        type=__ret__.type)
+        agent_name=pulumi.get(__ret__, 'agent_name'),
+        agent_resource_id=pulumi.get(__ret__, 'agent_resource_id'),
+        copy_mode=pulumi.get(__ret__, 'copy_mode'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        latest_job_run_name=pulumi.get(__ret__, 'latest_job_run_name'),
+        latest_job_run_resource_id=pulumi.get(__ret__, 'latest_job_run_resource_id'),
+        latest_job_run_status=pulumi.get(__ret__, 'latest_job_run_status'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_name=pulumi.get(__ret__, 'source_name'),
+        source_resource_id=pulumi.get(__ret__, 'source_resource_id'),
+        source_subpath=pulumi.get(__ret__, 'source_subpath'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_name=pulumi.get(__ret__, 'target_name'),
+        target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
+        target_subpath=pulumi.get(__ret__, 'target_subpath'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_job_definition)

@@ -166,16 +166,16 @@ def get_policy_definition(policy_definition_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20180501:getPolicyDefinition', __args__, opts=opts, typ=GetPolicyDefinitionResult).value
 
     return AwaitableGetPolicyDefinitionResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        mode=__ret__.mode,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        policy_rule=__ret__.policy_rule,
-        policy_type=__ret__.policy_type,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        mode=pulumi.get(__ret__, 'mode'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        policy_rule=pulumi.get(__ret__, 'policy_rule'),
+        policy_type=pulumi.get(__ret__, 'policy_type'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_policy_definition)

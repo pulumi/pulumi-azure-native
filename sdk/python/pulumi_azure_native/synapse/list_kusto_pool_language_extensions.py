@@ -66,7 +66,7 @@ def list_kusto_pool_language_extensions(kusto_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:listKustoPoolLanguageExtensions', __args__, opts=opts, typ=ListKustoPoolLanguageExtensionsResult).value
 
     return AwaitableListKustoPoolLanguageExtensionsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_kusto_pool_language_extensions)

@@ -124,12 +124,12 @@ def get_provider_instance(provider_instance_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hanaonazure/v20200207preview:getProviderInstance', __args__, opts=opts, typ=GetProviderInstanceResult).value
 
     return AwaitableGetProviderInstanceResult(
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_provider_instance)

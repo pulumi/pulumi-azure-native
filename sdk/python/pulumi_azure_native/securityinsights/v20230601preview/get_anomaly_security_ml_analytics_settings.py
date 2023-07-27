@@ -294,26 +294,26 @@ def get_anomaly_security_ml_analytics_settings(resource_group_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230601preview:getAnomalySecurityMLAnalyticsSettings', __args__, opts=opts, typ=GetAnomalySecurityMLAnalyticsSettingsResult).value
 
     return AwaitableGetAnomalySecurityMLAnalyticsSettingsResult(
-        anomaly_settings_version=__ret__.anomaly_settings_version,
-        anomaly_version=__ret__.anomaly_version,
-        customizable_observations=__ret__.customizable_observations,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        enabled=__ret__.enabled,
-        etag=__ret__.etag,
-        frequency=__ret__.frequency,
-        id=__ret__.id,
-        is_default_settings=__ret__.is_default_settings,
-        kind=__ret__.kind,
-        last_modified_utc=__ret__.last_modified_utc,
-        name=__ret__.name,
-        required_data_connectors=__ret__.required_data_connectors,
-        settings_definition_id=__ret__.settings_definition_id,
-        settings_status=__ret__.settings_status,
-        system_data=__ret__.system_data,
-        tactics=__ret__.tactics,
-        techniques=__ret__.techniques,
-        type=__ret__.type)
+        anomaly_settings_version=pulumi.get(__ret__, 'anomaly_settings_version'),
+        anomaly_version=pulumi.get(__ret__, 'anomaly_version'),
+        customizable_observations=pulumi.get(__ret__, 'customizable_observations'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        etag=pulumi.get(__ret__, 'etag'),
+        frequency=pulumi.get(__ret__, 'frequency'),
+        id=pulumi.get(__ret__, 'id'),
+        is_default_settings=pulumi.get(__ret__, 'is_default_settings'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_modified_utc=pulumi.get(__ret__, 'last_modified_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        required_data_connectors=pulumi.get(__ret__, 'required_data_connectors'),
+        settings_definition_id=pulumi.get(__ret__, 'settings_definition_id'),
+        settings_status=pulumi.get(__ret__, 'settings_status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tactics=pulumi.get(__ret__, 'tactics'),
+        techniques=pulumi.get(__ret__, 'techniques'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_anomaly_security_ml_analytics_settings)

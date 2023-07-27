@@ -53,4 +53,4 @@ def get_organization_elastic_to_azure_subscription_mapping(opts: Optional[pulumi
     __ret__ = pulumi.runtime.invoke('azure-native:elastic/v20230701preview:getOrganizationElasticToAzureSubscriptionMapping', __args__, opts=opts, typ=GetOrganizationElasticToAzureSubscriptionMappingResult).value
 
     return AwaitableGetOrganizationElasticToAzureSubscriptionMappingResult(
-        properties=__ret__.properties)
+        properties=pulumi.get(__ret__, 'properties'))

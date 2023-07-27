@@ -137,13 +137,13 @@ def get_user(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20210201preview:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        encrypted_password=__ret__.encrypted_password,
-        id=__ret__.id,
-        name=__ret__.name,
-        share_access_rights=__ret__.share_access_rights,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        user_type=__ret__.user_type)
+        encrypted_password=pulumi.get(__ret__, 'encrypted_password'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        share_access_rights=pulumi.get(__ret__, 'share_access_rights'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        user_type=pulumi.get(__ret__, 'user_type'))
 
 
 @_utilities.lift_output_func(get_user)

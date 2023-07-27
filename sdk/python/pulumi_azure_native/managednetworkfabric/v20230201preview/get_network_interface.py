@@ -197,18 +197,18 @@ def get_network_interface(network_device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230201preview:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult).value
 
     return AwaitableGetNetworkInterfaceResult(
-        administrative_state=__ret__.administrative_state,
-        annotation=__ret__.annotation,
-        connected_to=__ret__.connected_to,
-        id=__ret__.id,
-        interface_type=__ret__.interface_type,
-        ipv4_address=__ret__.ipv4_address,
-        ipv6_address=__ret__.ipv6_address,
-        name=__ret__.name,
-        physical_identifier=__ret__.physical_identifier,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        connected_to=pulumi.get(__ret__, 'connected_to'),
+        id=pulumi.get(__ret__, 'id'),
+        interface_type=pulumi.get(__ret__, 'interface_type'),
+        ipv4_address=pulumi.get(__ret__, 'ipv4_address'),
+        ipv6_address=pulumi.get(__ret__, 'ipv6_address'),
+        name=pulumi.get(__ret__, 'name'),
+        physical_identifier=pulumi.get(__ret__, 'physical_identifier'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_interface)

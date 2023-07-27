@@ -251,22 +251,22 @@ def get_disk(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getDisk', __args__, opts=opts, typ=GetDiskResult).value
 
     return AwaitableGetDiskResult(
-        created_date=__ret__.created_date,
-        disk_blob_name=__ret__.disk_blob_name,
-        disk_size_gi_b=__ret__.disk_size_gi_b,
-        disk_type=__ret__.disk_type,
-        disk_uri=__ret__.disk_uri,
-        host_caching=__ret__.host_caching,
-        id=__ret__.id,
-        leased_by_lab_vm_id=__ret__.leased_by_lab_vm_id,
-        location=__ret__.location,
-        managed_disk_id=__ret__.managed_disk_id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        storage_account_id=__ret__.storage_account_id,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        disk_blob_name=pulumi.get(__ret__, 'disk_blob_name'),
+        disk_size_gi_b=pulumi.get(__ret__, 'disk_size_gi_b'),
+        disk_type=pulumi.get(__ret__, 'disk_type'),
+        disk_uri=pulumi.get(__ret__, 'disk_uri'),
+        host_caching=pulumi.get(__ret__, 'host_caching'),
+        id=pulumi.get(__ret__, 'id'),
+        leased_by_lab_vm_id=pulumi.get(__ret__, 'leased_by_lab_vm_id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_disk_id=pulumi.get(__ret__, 'managed_disk_id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_disk)

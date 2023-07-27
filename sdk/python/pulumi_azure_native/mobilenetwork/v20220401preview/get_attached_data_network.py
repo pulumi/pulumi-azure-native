@@ -277,24 +277,24 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork/v20220401preview:getAttachedDataNetwork', __args__, opts=opts, typ=GetAttachedDataNetworkResult).value
 
     return AwaitableGetAttachedDataNetworkResult(
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
-        dns_addresses=__ret__.dns_addresses,
-        id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
-        location=__ret__.location,
-        name=__ret__.name,
-        napt_configuration=__ret__.napt_configuration,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        user_equipment_address_pool_prefix=__ret__.user_equipment_address_pool_prefix,
-        user_equipment_static_address_pool_prefix=__ret__.user_equipment_static_address_pool_prefix,
-        user_plane_data_interface=__ret__.user_plane_data_interface)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_by_type=pulumi.get(__ret__, 'created_by_type'),
+        dns_addresses=pulumi.get(__ret__, 'dns_addresses'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_at=pulumi.get(__ret__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__ret__, 'last_modified_by_type'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        napt_configuration=pulumi.get(__ret__, 'napt_configuration'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        user_equipment_address_pool_prefix=pulumi.get(__ret__, 'user_equipment_address_pool_prefix'),
+        user_equipment_static_address_pool_prefix=pulumi.get(__ret__, 'user_equipment_static_address_pool_prefix'),
+        user_plane_data_interface=pulumi.get(__ret__, 'user_plane_data_interface'))
 
 
 @_utilities.lift_output_func(get_attached_data_network)

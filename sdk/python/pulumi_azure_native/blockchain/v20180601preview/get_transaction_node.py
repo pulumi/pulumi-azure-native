@@ -173,16 +173,16 @@ def get_transaction_node(blockchain_member_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blockchain/v20180601preview:getTransactionNode', __args__, opts=opts, typ=GetTransactionNodeResult).value
 
     return AwaitableGetTransactionNodeResult(
-        dns=__ret__.dns,
-        firewall_rules=__ret__.firewall_rules,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        password=__ret__.password,
-        provisioning_state=__ret__.provisioning_state,
-        public_key=__ret__.public_key,
-        type=__ret__.type,
-        user_name=__ret__.user_name)
+        dns=pulumi.get(__ret__, 'dns'),
+        firewall_rules=pulumi.get(__ret__, 'firewall_rules'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        password=pulumi.get(__ret__, 'password'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        type=pulumi.get(__ret__, 'type'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_transaction_node)

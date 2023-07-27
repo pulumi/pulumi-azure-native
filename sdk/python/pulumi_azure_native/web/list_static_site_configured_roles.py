@@ -110,11 +110,11 @@ def list_static_site_configured_roles(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:listStaticSiteConfiguredRoles', __args__, opts=opts, typ=ListStaticSiteConfiguredRolesResult).value
 
     return AwaitableListStaticSiteConfiguredRolesResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_static_site_configured_roles)

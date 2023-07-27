@@ -76,7 +76,7 @@ def list_custom_api_wsdl_interfaces(content: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20160601:listCustomApiWsdlInterfaces', __args__, opts=opts, typ=ListCustomApiWsdlInterfacesResult).value
 
     return AwaitableListCustomApiWsdlInterfacesResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_custom_api_wsdl_interfaces)

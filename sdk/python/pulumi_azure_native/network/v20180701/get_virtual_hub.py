@@ -170,16 +170,16 @@ def get_virtual_hub(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20180701:getVirtualHub', __args__, opts=opts, typ=GetVirtualHubResult).value
 
     return AwaitableGetVirtualHubResult(
-        address_prefix=__ret__.address_prefix,
-        etag=__ret__.etag,
-        hub_virtual_network_connections=__ret__.hub_virtual_network_connections,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_wan=__ret__.virtual_wan)
+        address_prefix=pulumi.get(__ret__, 'address_prefix'),
+        etag=pulumi.get(__ret__, 'etag'),
+        hub_virtual_network_connections=pulumi.get(__ret__, 'hub_virtual_network_connections'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_wan=pulumi.get(__ret__, 'virtual_wan'))
 
 
 @_utilities.lift_output_func(get_virtual_hub)
