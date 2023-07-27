@@ -5208,6 +5208,22 @@
       "getDeviceExtendedInformation",
       "getMarketplaceImageSasTokenSASToken",
       "listOrderDCAccessCode"
+    ],
+    "2023-07-01": [
+      "Addon",
+      "BandwidthSchedule",
+      "Container",
+      "Device",
+      "MonitoringConfig",
+      "Order",
+      "Role",
+      "Share",
+      "StorageAccount",
+      "StorageAccountCredential",
+      "Trigger",
+      "User",
+      "getDeviceExtendedInformation",
+      "listOrderDCAccessCode"
     ]
   },
   "DataCatalog": {
@@ -13659,6 +13675,25 @@
       "TrunkedNetwork",
       "VirtualMachine",
       "Volume"
+    ],
+    "2023-07-01": [
+      "AgentPool",
+      "BareMetalMachine",
+      "BareMetalMachineKeySet",
+      "BmcKeySet",
+      "CloudServicesNetwork",
+      "Cluster",
+      "ClusterManager",
+      "Console",
+      "KubernetesCluster",
+      "L2Network",
+      "L3Network",
+      "MetricsConfiguration",
+      "Rack",
+      "StorageAppliance",
+      "TrunkedNetwork",
+      "VirtualMachine",
+      "Volume"
     ]
   },
   "NetworkFunction": {
@@ -14597,6 +14632,15 @@
       "listOpenShiftClusterCredentials"
     ],
     "2022-09-04": [
+      "MachinePool",
+      "OpenShiftCluster",
+      "Secret",
+      "SyncIdentityProvider",
+      "SyncSet",
+      "listOpenShiftClusterAdminCredentials",
+      "listOpenShiftClusterCredentials"
+    ],
+    "2023-04-01": [
       "MachinePool",
       "OpenShiftCluster",
       "Secret",
