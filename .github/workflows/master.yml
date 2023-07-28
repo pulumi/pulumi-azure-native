@@ -37,6 +37,7 @@ jobs:
       # configured. See
       # https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp#github-actions
       oidc_arm_client_id: ""
+      retention-days: 30
 
   publish:
     uses: ./.github/workflows/publish.yml
