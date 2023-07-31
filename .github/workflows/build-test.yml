@@ -169,7 +169,7 @@ jobs:
         with:
           name: ${{ matrix.language  }}-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
-          retention-days: inputs.retention_days
+          retention-days: ${{ inputs.retention_days }}
 
       - name: Tar split Go SDK folder
         if: ${{ matrix.language == 'go' }}
@@ -181,7 +181,7 @@ jobs:
         with:
           name: pulumi-azure-native-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
-          retention-days: inputs.retention_days
+          retention-days: ${{ inputs.retention_days }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -254,4 +254,4 @@ jobs:
         with:
           name: dist
           path: dist
-          retention-days: inputs.retention_days
+          retention-days: ${{ inputs.retention_days }}
