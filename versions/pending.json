@@ -35,7 +35,8 @@
   ],
   "App": [
     "2022-11-01-preview",
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-05-01"
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [],
@@ -146,7 +147,8 @@
     "2021-12-01-preview",
     "2022-02-01-preview",
     "2022-12-01",
-    "2023-01-01-preview"
+    "2023-01-01-preview",
+    "2023-06-01-preview"
   ],
   "ContainerService": [
     "2019-11-01",
@@ -198,7 +200,8 @@
     "2023-04-02-preview",
     "2023-05-01",
     "2023-05-02-preview",
-    "2023-06-01"
+    "2023-06-01",
+    "2023-06-02-preview"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -243,7 +246,8 @@
   "DataBoxEdge": [
     "2022-04-01-preview",
     "2022-12-01-preview",
-    "2023-01-01-preview"
+    "2023-01-01-preview",
+    "2023-07-01"
   ],
   "DataCatalog": [],
   "DataFactory": [],
@@ -585,7 +589,8 @@
     "2023-07-01-preview"
   ],
   "NetworkCloud": [
-    "2023-05-01-preview"
+    "2023-05-01-preview",
+    "2023-07-01"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [],
@@ -631,7 +636,9 @@
     "2023-02-01",
     "2023-04-01"
   ],
-  "RedHatOpenShift": [],
+  "RedHatOpenShift": [
+    "2023-04-01"
+  ],
   "Relay": [],
   "ResourceConnector": [
     "2022-10-27"
@@ -682,7 +689,8 @@
     "2023-03-01-preview",
     "2023-04-01-preview",
     "2023-05-01-preview",
-    "2023-06-01-preview"
+    "2023-06-01-preview",
+    "2023-07-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [

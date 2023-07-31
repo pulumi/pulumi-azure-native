@@ -523,6 +523,8 @@
   },
   "ContainerRegistry": {
     "AgentPool": "2019-06-01-preview",
+    "Archife": "2023-06-01-preview",
+    "ArchiveVersion": "2023-06-01-preview",
     "BuildStep": "2018-02-01-preview",
     "CacheRule": "2023-01-01-preview",
     "ConnectedRegistry": "2023-01-01-preview",
@@ -1980,6 +1982,7 @@
     "ContentPackage": "2023-06-01-preview",
     "ContentTemplate": "2023-06-01-preview",
     "DataConnector": "2023-02-01",
+    "DataConnectorDefinition": "2023-07-01-preview",
     "EntityQuery": "2023-06-01-preview",
     "FileImport": "2023-06-01-preview",
     "Hunt": "2023-06-01-preview",
