@@ -162,15 +162,15 @@ def get_governance_assignment(assessment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getGovernanceAssignment', __args__, opts=opts, typ=GetGovernanceAssignmentResult).value
 
     return AwaitableGetGovernanceAssignmentResult(
-        additional_data=__ret__.additional_data,
-        governance_email_notification=__ret__.governance_email_notification,
-        id=__ret__.id,
-        is_grace_period=__ret__.is_grace_period,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        remediation_due_date=__ret__.remediation_due_date,
-        remediation_eta=__ret__.remediation_eta,
-        type=__ret__.type)
+        additional_data=pulumi.get(__ret__, 'additional_data'),
+        governance_email_notification=pulumi.get(__ret__, 'governance_email_notification'),
+        id=pulumi.get(__ret__, 'id'),
+        is_grace_period=pulumi.get(__ret__, 'is_grace_period'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        remediation_due_date=pulumi.get(__ret__, 'remediation_due_date'),
+        remediation_eta=pulumi.get(__ret__, 'remediation_eta'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_governance_assignment)

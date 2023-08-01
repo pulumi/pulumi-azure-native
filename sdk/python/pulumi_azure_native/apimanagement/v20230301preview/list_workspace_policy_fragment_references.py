@@ -98,9 +98,9 @@ def list_workspace_policy_fragment_references(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:listWorkspacePolicyFragmentReferences', __args__, opts=opts, typ=ListWorkspacePolicyFragmentReferencesResult).value
 
     return AwaitableListWorkspacePolicyFragmentReferencesResult(
-        count=__ret__.count,
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        count=pulumi.get(__ret__, 'count'),
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_workspace_policy_fragment_references)

@@ -61,7 +61,7 @@ def list_feature_subscription(features: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:purview/v20211201:listFeatureSubscription', __args__, opts=opts, typ=ListFeatureSubscriptionResult).value
 
     return AwaitableListFeatureSubscriptionResult(
-        features=__ret__.features)
+        features=pulumi.get(__ret__, 'features'))
 
 
 @_utilities.lift_output_func(list_feature_subscription)

@@ -234,21 +234,21 @@ def get_task(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20190401:getTask', __args__, opts=opts, typ=GetTaskResult).value
 
     return AwaitableGetTaskResult(
-        agent_configuration=__ret__.agent_configuration,
-        creation_date=__ret__.creation_date,
-        credentials=__ret__.credentials,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        platform=__ret__.platform,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        step=__ret__.step,
-        tags=__ret__.tags,
-        timeout=__ret__.timeout,
-        trigger=__ret__.trigger,
-        type=__ret__.type)
+        agent_configuration=pulumi.get(__ret__, 'agent_configuration'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        platform=pulumi.get(__ret__, 'platform'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        step=pulumi.get(__ret__, 'step'),
+        tags=pulumi.get(__ret__, 'tags'),
+        timeout=pulumi.get(__ret__, 'timeout'),
+        trigger=pulumi.get(__ret__, 'trigger'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_task)

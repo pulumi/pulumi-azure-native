@@ -149,14 +149,14 @@ def get_storage_account_credential(manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20170601:getStorageAccountCredential', __args__, opts=opts, typ=GetStorageAccountCredentialResult).value
 
     return AwaitableGetStorageAccountCredentialResult(
-        access_key=__ret__.access_key,
-        end_point=__ret__.end_point,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        ssl_status=__ret__.ssl_status,
-        type=__ret__.type,
-        volumes_count=__ret__.volumes_count)
+        access_key=pulumi.get(__ret__, 'access_key'),
+        end_point=pulumi.get(__ret__, 'end_point'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        ssl_status=pulumi.get(__ret__, 'ssl_status'),
+        type=pulumi.get(__ret__, 'type'),
+        volumes_count=pulumi.get(__ret__, 'volumes_count'))
 
 
 @_utilities.lift_output_func(get_storage_account_credential)

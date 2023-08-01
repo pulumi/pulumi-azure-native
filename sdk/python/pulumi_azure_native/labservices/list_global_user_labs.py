@@ -60,7 +60,7 @@ def list_global_user_labs(user_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices:listGlobalUserLabs', __args__, opts=opts, typ=ListGlobalUserLabsResult).value
 
     return AwaitableListGlobalUserLabsResult(
-        labs=__ret__.labs)
+        labs=pulumi.get(__ret__, 'labs'))
 
 
 @_utilities.lift_output_func(list_global_user_labs)

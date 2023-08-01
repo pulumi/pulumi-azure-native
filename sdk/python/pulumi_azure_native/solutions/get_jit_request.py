@@ -219,20 +219,20 @@ def get_jit_request(jit_request_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:solutions:getJitRequest', __args__, opts=opts, typ=GetJitRequestResult).value
 
     return AwaitableGetJitRequestResult(
-        application_resource_id=__ret__.application_resource_id,
-        created_by=__ret__.created_by,
-        id=__ret__.id,
-        jit_authorization_policies=__ret__.jit_authorization_policies,
-        jit_request_state=__ret__.jit_request_state,
-        jit_scheduling_policy=__ret__.jit_scheduling_policy,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        publisher_tenant_id=__ret__.publisher_tenant_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        updated_by=__ret__.updated_by)
+        application_resource_id=pulumi.get(__ret__, 'application_resource_id'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        id=pulumi.get(__ret__, 'id'),
+        jit_authorization_policies=pulumi.get(__ret__, 'jit_authorization_policies'),
+        jit_request_state=pulumi.get(__ret__, 'jit_request_state'),
+        jit_scheduling_policy=pulumi.get(__ret__, 'jit_scheduling_policy'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        publisher_tenant_id=pulumi.get(__ret__, 'publisher_tenant_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_by=pulumi.get(__ret__, 'updated_by'))
 
 
 @_utilities.lift_output_func(get_jit_request)

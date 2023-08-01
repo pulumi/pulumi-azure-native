@@ -77,8 +77,8 @@ def list_network_manager_effective_connectivity_configurations(resource_group_na
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220401preview:listNetworkManagerEffectiveConnectivityConfigurations', __args__, opts=opts, typ=ListNetworkManagerEffectiveConnectivityConfigurationsResult).value
 
     return AwaitableListNetworkManagerEffectiveConnectivityConfigurationsResult(
-        skip_token=__ret__.skip_token,
-        value=__ret__.value)
+        skip_token=pulumi.get(__ret__, 'skip_token'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_network_manager_effective_connectivity_configurations)

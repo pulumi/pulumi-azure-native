@@ -162,15 +162,15 @@ def get_proactive_detection_configuration(configuration_id: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getProactiveDetectionConfiguration', __args__, opts=opts, typ=GetProactiveDetectionConfigurationResult).value
 
     return AwaitableGetProactiveDetectionConfigurationResult(
-        custom_emails=__ret__.custom_emails,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        last_updated_time=__ret__.last_updated_time,
-        location=__ret__.location,
-        name=__ret__.name,
-        rule_definitions=__ret__.rule_definitions,
-        send_emails_to_subscription_owners=__ret__.send_emails_to_subscription_owners,
-        type=__ret__.type)
+        custom_emails=pulumi.get(__ret__, 'custom_emails'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        rule_definitions=pulumi.get(__ret__, 'rule_definitions'),
+        send_emails_to_subscription_owners=pulumi.get(__ret__, 'send_emails_to_subscription_owners'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_proactive_detection_configuration)

@@ -200,18 +200,18 @@ def get_job_definition(data_manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybriddata/v20190601:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult).value
 
     return AwaitableGetJobDefinitionResult(
-        customer_secrets=__ret__.customer_secrets,
-        data_service_input=__ret__.data_service_input,
-        data_sink_id=__ret__.data_sink_id,
-        data_source_id=__ret__.data_source_id,
-        id=__ret__.id,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        run_location=__ret__.run_location,
-        schedules=__ret__.schedules,
-        state=__ret__.state,
-        type=__ret__.type,
-        user_confirmation=__ret__.user_confirmation)
+        customer_secrets=pulumi.get(__ret__, 'customer_secrets'),
+        data_service_input=pulumi.get(__ret__, 'data_service_input'),
+        data_sink_id=pulumi.get(__ret__, 'data_sink_id'),
+        data_source_id=pulumi.get(__ret__, 'data_source_id'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        run_location=pulumi.get(__ret__, 'run_location'),
+        schedules=pulumi.get(__ret__, 'schedules'),
+        state=pulumi.get(__ret__, 'state'),
+        type=pulumi.get(__ret__, 'type'),
+        user_confirmation=pulumi.get(__ret__, 'user_confirmation'))
 
 
 @_utilities.lift_output_func(get_job_definition)

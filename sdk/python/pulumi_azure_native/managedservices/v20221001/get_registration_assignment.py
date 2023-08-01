@@ -113,11 +113,11 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
     __ret__ = pulumi.runtime.invoke('azure-native:managedservices/v20221001:getRegistrationAssignment', __args__, opts=opts, typ=GetRegistrationAssignmentResult).value
 
     return AwaitableGetRegistrationAssignmentResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_registration_assignment)

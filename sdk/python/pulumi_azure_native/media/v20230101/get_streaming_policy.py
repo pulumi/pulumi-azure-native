@@ -173,16 +173,16 @@ def get_streaming_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20230101:getStreamingPolicy', __args__, opts=opts, typ=GetStreamingPolicyResult).value
 
     return AwaitableGetStreamingPolicyResult(
-        common_encryption_cbcs=__ret__.common_encryption_cbcs,
-        common_encryption_cenc=__ret__.common_encryption_cenc,
-        created=__ret__.created,
-        default_content_key_policy_name=__ret__.default_content_key_policy_name,
-        envelope_encryption=__ret__.envelope_encryption,
-        id=__ret__.id,
-        name=__ret__.name,
-        no_encryption=__ret__.no_encryption,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        common_encryption_cbcs=pulumi.get(__ret__, 'common_encryption_cbcs'),
+        common_encryption_cenc=pulumi.get(__ret__, 'common_encryption_cenc'),
+        created=pulumi.get(__ret__, 'created'),
+        default_content_key_policy_name=pulumi.get(__ret__, 'default_content_key_policy_name'),
+        envelope_encryption=pulumi.get(__ret__, 'envelope_encryption'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        no_encryption=pulumi.get(__ret__, 'no_encryption'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_streaming_policy)

@@ -206,19 +206,19 @@ def get_route_policy(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230615:getRoutePolicy', __args__, opts=opts, typ=GetRoutePolicyResult).value
 
     return AwaitableGetRoutePolicyResult(
-        address_family_type=__ret__.address_family_type,
-        administrative_state=__ret__.administrative_state,
-        annotation=__ret__.annotation,
-        configuration_state=__ret__.configuration_state,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_fabric_id=__ret__.network_fabric_id,
-        provisioning_state=__ret__.provisioning_state,
-        statements=__ret__.statements,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        address_family_type=pulumi.get(__ret__, 'address_family_type'),
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_fabric_id=pulumi.get(__ret__, 'network_fabric_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        statements=pulumi.get(__ret__, 'statements'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_route_policy)

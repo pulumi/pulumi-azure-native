@@ -224,20 +224,20 @@ def get_cosmos_db_data_connection(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto/v20230502:getCosmosDbDataConnection', __args__, opts=opts, typ=GetCosmosDbDataConnectionResult).value
 
     return AwaitableGetCosmosDbDataConnectionResult(
-        cosmos_db_account_resource_id=__ret__.cosmos_db_account_resource_id,
-        cosmos_db_container=__ret__.cosmos_db_container,
-        cosmos_db_database=__ret__.cosmos_db_database,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        managed_identity_object_id=__ret__.managed_identity_object_id,
-        managed_identity_resource_id=__ret__.managed_identity_resource_id,
-        mapping_rule_name=__ret__.mapping_rule_name,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        retrieval_start_date=__ret__.retrieval_start_date,
-        table_name=__ret__.table_name,
-        type=__ret__.type)
+        cosmos_db_account_resource_id=pulumi.get(__ret__, 'cosmos_db_account_resource_id'),
+        cosmos_db_container=pulumi.get(__ret__, 'cosmos_db_container'),
+        cosmos_db_database=pulumi.get(__ret__, 'cosmos_db_database'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_identity_object_id=pulumi.get(__ret__, 'managed_identity_object_id'),
+        managed_identity_resource_id=pulumi.get(__ret__, 'managed_identity_resource_id'),
+        mapping_rule_name=pulumi.get(__ret__, 'mapping_rule_name'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        retrieval_start_date=pulumi.get(__ret__, 'retrieval_start_date'),
+        table_name=pulumi.get(__ret__, 'table_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cosmos_db_data_connection)

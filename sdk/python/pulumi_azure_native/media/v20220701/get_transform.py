@@ -149,14 +149,14 @@ def get_transform(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20220701:getTransform', __args__, opts=opts, typ=GetTransformResult).value
 
     return AwaitableGetTransformResult(
-        created=__ret__.created,
-        description=__ret__.description,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        name=__ret__.name,
-        outputs=__ret__.outputs,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        created=pulumi.get(__ret__, 'created'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        name=pulumi.get(__ret__, 'name'),
+        outputs=pulumi.get(__ret__, 'outputs'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_transform)

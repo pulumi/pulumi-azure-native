@@ -74,8 +74,8 @@ def list_workflow_access_key_secret_keys(access_key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic:listWorkflowAccessKeySecretKeys', __args__, opts=opts, typ=ListWorkflowAccessKeySecretKeysResult).value
 
     return AwaitableListWorkflowAccessKeySecretKeysResult(
-        primary_secret_key=__ret__.primary_secret_key,
-        secondary_secret_key=__ret__.secondary_secret_key)
+        primary_secret_key=pulumi.get(__ret__, 'primary_secret_key'),
+        secondary_secret_key=pulumi.get(__ret__, 'secondary_secret_key'))
 
 
 @_utilities.lift_output_func(list_workflow_access_key_secret_keys)

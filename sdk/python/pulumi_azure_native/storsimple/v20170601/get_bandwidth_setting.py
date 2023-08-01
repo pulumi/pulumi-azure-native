@@ -125,12 +125,12 @@ def get_bandwidth_setting(bandwidth_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20170601:getBandwidthSetting', __args__, opts=opts, typ=GetBandwidthSettingResult).value
 
     return AwaitableGetBandwidthSettingResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        schedules=__ret__.schedules,
-        type=__ret__.type,
-        volume_count=__ret__.volume_count)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        schedules=pulumi.get(__ret__, 'schedules'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_count=pulumi.get(__ret__, 'volume_count'))
 
 
 @_utilities.lift_output_func(get_bandwidth_setting)

@@ -124,12 +124,12 @@ def get_tag_inheritance_setting(scope: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement:getTagInheritanceSetting', __args__, opts=opts, typ=GetTagInheritanceSettingResult).value
 
     return AwaitableGetTagInheritanceSettingResult(
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_tag_inheritance_setting)

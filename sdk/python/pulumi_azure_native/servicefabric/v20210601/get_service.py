@@ -272,24 +272,24 @@ def get_service(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabric/v20210601:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        correlation_scheme=__ret__.correlation_scheme,
-        default_move_cost=__ret__.default_move_cost,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        partition_description=__ret__.partition_description,
-        placement_constraints=__ret__.placement_constraints,
-        provisioning_state=__ret__.provisioning_state,
-        service_dns_name=__ret__.service_dns_name,
-        service_kind=__ret__.service_kind,
-        service_load_metrics=__ret__.service_load_metrics,
-        service_package_activation_mode=__ret__.service_package_activation_mode,
-        service_placement_policies=__ret__.service_placement_policies,
-        service_type_name=__ret__.service_type_name,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        correlation_scheme=pulumi.get(__ret__, 'correlation_scheme'),
+        default_move_cost=pulumi.get(__ret__, 'default_move_cost'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        partition_description=pulumi.get(__ret__, 'partition_description'),
+        placement_constraints=pulumi.get(__ret__, 'placement_constraints'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service_dns_name=pulumi.get(__ret__, 'service_dns_name'),
+        service_kind=pulumi.get(__ret__, 'service_kind'),
+        service_load_metrics=pulumi.get(__ret__, 'service_load_metrics'),
+        service_package_activation_mode=pulumi.get(__ret__, 'service_package_activation_mode'),
+        service_placement_policies=pulumi.get(__ret__, 'service_placement_policies'),
+        service_type_name=pulumi.get(__ret__, 'service_type_name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_service)

@@ -206,19 +206,19 @@ def get_update_summary(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20230301:getUpdateSummary', __args__, opts=opts, typ=GetUpdateSummaryResult).value
 
     return AwaitableGetUpdateSummaryResult(
-        current_version=__ret__.current_version,
-        hardware_model=__ret__.hardware_model,
-        health_check_date=__ret__.health_check_date,
-        id=__ret__.id,
-        last_checked=__ret__.last_checked,
-        last_updated=__ret__.last_updated,
-        location=__ret__.location,
-        name=__ret__.name,
-        oem_family=__ret__.oem_family,
-        provisioning_state=__ret__.provisioning_state,
-        state=__ret__.state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        current_version=pulumi.get(__ret__, 'current_version'),
+        hardware_model=pulumi.get(__ret__, 'hardware_model'),
+        health_check_date=pulumi.get(__ret__, 'health_check_date'),
+        id=pulumi.get(__ret__, 'id'),
+        last_checked=pulumi.get(__ret__, 'last_checked'),
+        last_updated=pulumi.get(__ret__, 'last_updated'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        oem_family=pulumi.get(__ret__, 'oem_family'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_update_summary)

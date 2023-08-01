@@ -206,19 +206,19 @@ def get_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220401:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
-        allowed_endpoint_record_types=__ret__.allowed_endpoint_record_types,
-        dns_config=__ret__.dns_config,
-        endpoints=__ret__.endpoints,
-        id=__ret__.id,
-        location=__ret__.location,
-        max_return=__ret__.max_return,
-        monitor_config=__ret__.monitor_config,
-        name=__ret__.name,
-        profile_status=__ret__.profile_status,
-        tags=__ret__.tags,
-        traffic_routing_method=__ret__.traffic_routing_method,
-        traffic_view_enrollment_status=__ret__.traffic_view_enrollment_status,
-        type=__ret__.type)
+        allowed_endpoint_record_types=pulumi.get(__ret__, 'allowed_endpoint_record_types'),
+        dns_config=pulumi.get(__ret__, 'dns_config'),
+        endpoints=pulumi.get(__ret__, 'endpoints'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        max_return=pulumi.get(__ret__, 'max_return'),
+        monitor_config=pulumi.get(__ret__, 'monitor_config'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_status=pulumi.get(__ret__, 'profile_status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        traffic_routing_method=pulumi.get(__ret__, 'traffic_routing_method'),
+        traffic_view_enrollment_status=pulumi.get(__ret__, 'traffic_view_enrollment_status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_profile)

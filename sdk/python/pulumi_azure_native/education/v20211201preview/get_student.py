@@ -236,21 +236,21 @@ def get_student(billing_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:education/v20211201preview:getStudent', __args__, opts=opts, typ=GetStudentResult).value
 
     return AwaitableGetStudentResult(
-        budget=__ret__.budget,
-        effective_date=__ret__.effective_date,
-        email=__ret__.email,
-        expiration_date=__ret__.expiration_date,
-        first_name=__ret__.first_name,
-        id=__ret__.id,
-        last_name=__ret__.last_name,
-        name=__ret__.name,
-        role=__ret__.role,
-        status=__ret__.status,
-        subscription_alias=__ret__.subscription_alias,
-        subscription_id=__ret__.subscription_id,
-        subscription_invite_last_sent_date=__ret__.subscription_invite_last_sent_date,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        budget=pulumi.get(__ret__, 'budget'),
+        effective_date=pulumi.get(__ret__, 'effective_date'),
+        email=pulumi.get(__ret__, 'email'),
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        first_name=pulumi.get(__ret__, 'first_name'),
+        id=pulumi.get(__ret__, 'id'),
+        last_name=pulumi.get(__ret__, 'last_name'),
+        name=pulumi.get(__ret__, 'name'),
+        role=pulumi.get(__ret__, 'role'),
+        status=pulumi.get(__ret__, 'status'),
+        subscription_alias=pulumi.get(__ret__, 'subscription_alias'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        subscription_invite_last_sent_date=pulumi.get(__ret__, 'subscription_invite_last_sent_date'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_student)

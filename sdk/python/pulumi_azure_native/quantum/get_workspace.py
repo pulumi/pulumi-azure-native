@@ -195,18 +195,18 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:quantum:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        endpoint_uri=__ret__.endpoint_uri,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        providers=__ret__.providers,
-        provisioning_state=__ret__.provisioning_state,
-        storage_account=__ret__.storage_account,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        usable=__ret__.usable)
+        endpoint_uri=pulumi.get(__ret__, 'endpoint_uri'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        providers=pulumi.get(__ret__, 'providers'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        storage_account=pulumi.get(__ret__, 'storage_account'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        usable=pulumi.get(__ret__, 'usable'))
 
 
 @_utilities.lift_output_func(get_workspace)

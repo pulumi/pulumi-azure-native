@@ -160,15 +160,15 @@ def get_certificate(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation/v20220808:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        expiry_time=__ret__.expiry_time,
-        id=__ret__.id,
-        is_exportable=__ret__.is_exportable,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        thumbprint=__ret__.thumbprint,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        expiry_time=pulumi.get(__ret__, 'expiry_time'),
+        id=pulumi.get(__ret__, 'id'),
+        is_exportable=pulumi.get(__ret__, 'is_exportable'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_certificate)

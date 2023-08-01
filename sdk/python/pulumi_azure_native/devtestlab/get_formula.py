@@ -213,19 +213,19 @@ def get_formula(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getFormula', __args__, opts=opts, typ=GetFormulaResult).value
 
     return AwaitableGetFormulaResult(
-        author=__ret__.author,
-        creation_date=__ret__.creation_date,
-        description=__ret__.description,
-        formula_content=__ret__.formula_content,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        os_type=__ret__.os_type,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        vm=__ret__.vm)
+        author=pulumi.get(__ret__, 'author'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        description=pulumi.get(__ret__, 'description'),
+        formula_content=pulumi.get(__ret__, 'formula_content'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        os_type=pulumi.get(__ret__, 'os_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
+        vm=pulumi.get(__ret__, 'vm'))
 
 
 @_utilities.lift_output_func(get_formula)

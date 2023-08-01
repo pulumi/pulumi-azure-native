@@ -142,13 +142,13 @@ def get_workspace_api_schema(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getWorkspaceApiSchema', __args__, opts=opts, typ=GetWorkspaceApiSchemaResult).value
 
     return AwaitableGetWorkspaceApiSchemaResult(
-        components=__ret__.components,
-        content_type=__ret__.content_type,
-        definitions=__ret__.definitions,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type,
-        value=__ret__.value)
+        components=pulumi.get(__ret__, 'components'),
+        content_type=pulumi.get(__ret__, 'content_type'),
+        definitions=pulumi.get(__ret__, 'definitions'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_workspace_api_schema)

@@ -170,16 +170,16 @@ def get_test_base_account(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase/v20220401preview:getTestBaseAccount', __args__, opts=opts, typ=GetTestBaseAccountResult).value
 
     return AwaitableGetTestBaseAccountResult(
-        access_level=__ret__.access_level,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        access_level=pulumi.get(__ret__, 'access_level'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_test_base_account)

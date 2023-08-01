@@ -163,15 +163,15 @@ def get_gateway_hostname_configuration(gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getGatewayHostnameConfiguration', __args__, opts=opts, typ=GetGatewayHostnameConfigurationResult).value
 
     return AwaitableGetGatewayHostnameConfigurationResult(
-        certificate_id=__ret__.certificate_id,
-        hostname=__ret__.hostname,
-        http2_enabled=__ret__.http2_enabled,
-        id=__ret__.id,
-        name=__ret__.name,
-        negotiate_client_certificate=__ret__.negotiate_client_certificate,
-        tls10_enabled=__ret__.tls10_enabled,
-        tls11_enabled=__ret__.tls11_enabled,
-        type=__ret__.type)
+        certificate_id=pulumi.get(__ret__, 'certificate_id'),
+        hostname=pulumi.get(__ret__, 'hostname'),
+        http2_enabled=pulumi.get(__ret__, 'http2_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        negotiate_client_certificate=pulumi.get(__ret__, 'negotiate_client_certificate'),
+        tls10_enabled=pulumi.get(__ret__, 'tls10_enabled'),
+        tls11_enabled=pulumi.get(__ret__, 'tls11_enabled'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_gateway_hostname_configuration)

@@ -162,15 +162,15 @@ def get_storage_insight_config(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getStorageInsightConfig', __args__, opts=opts, typ=GetStorageInsightConfigResult).value
 
     return AwaitableGetStorageInsightConfigResult(
-        containers=__ret__.containers,
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        name=__ret__.name,
-        status=__ret__.status,
-        storage_account=__ret__.storage_account,
-        tables=__ret__.tables,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        containers=pulumi.get(__ret__, 'containers'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        storage_account=pulumi.get(__ret__, 'storage_account'),
+        tables=pulumi.get(__ret__, 'tables'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_storage_insight_config)

@@ -76,8 +76,8 @@ def list_web_app_sync_function_triggers_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:listWebAppSyncFunctionTriggersSlot', __args__, opts=opts, typ=ListWebAppSyncFunctionTriggersSlotResult).value
 
     return AwaitableListWebAppSyncFunctionTriggersSlotResult(
-        key=__ret__.key,
-        trigger_url=__ret__.trigger_url)
+        key=pulumi.get(__ret__, 'key'),
+        trigger_url=pulumi.get(__ret__, 'trigger_url'))
 
 
 @_utilities.lift_output_func(list_web_app_sync_function_triggers_slot)

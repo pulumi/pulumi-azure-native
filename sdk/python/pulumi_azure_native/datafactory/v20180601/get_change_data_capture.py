@@ -185,17 +185,17 @@ def get_change_data_capture(change_data_capture_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory/v20180601:getChangeDataCapture', __args__, opts=opts, typ=GetChangeDataCaptureResult).value
 
     return AwaitableGetChangeDataCaptureResult(
-        allow_v_net_override=__ret__.allow_v_net_override,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        folder=__ret__.folder,
-        id=__ret__.id,
-        name=__ret__.name,
-        policy=__ret__.policy,
-        source_connections_info=__ret__.source_connections_info,
-        status=__ret__.status,
-        target_connections_info=__ret__.target_connections_info,
-        type=__ret__.type)
+        allow_v_net_override=pulumi.get(__ret__, 'allow_v_net_override'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        folder=pulumi.get(__ret__, 'folder'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        policy=pulumi.get(__ret__, 'policy'),
+        source_connections_info=pulumi.get(__ret__, 'source_connections_info'),
+        status=pulumi.get(__ret__, 'status'),
+        target_connections_info=pulumi.get(__ret__, 'target_connections_info'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_change_data_capture)

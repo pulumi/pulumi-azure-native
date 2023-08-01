@@ -149,14 +149,14 @@ def get_private_endpoint_connection_proxy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deviceupdate/v20230701:getPrivateEndpointConnectionProxy', __args__, opts=opts, typ=GetPrivateEndpointConnectionProxyResult).value
 
     return AwaitableGetPrivateEndpointConnectionProxyResult(
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        remote_private_endpoint=__ret__.remote_private_endpoint,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        remote_private_endpoint=pulumi.get(__ret__, 'remote_private_endpoint'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_endpoint_connection_proxy)

@@ -208,19 +208,19 @@ def get_web_app_host_name_binding(host_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getWebAppHostNameBinding', __args__, opts=opts, typ=GetWebAppHostNameBindingResult).value
 
     return AwaitableGetWebAppHostNameBindingResult(
-        azure_resource_name=__ret__.azure_resource_name,
-        azure_resource_type=__ret__.azure_resource_type,
-        custom_host_name_dns_record_type=__ret__.custom_host_name_dns_record_type,
-        domain_id=__ret__.domain_id,
-        host_name_type=__ret__.host_name_type,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        site_name=__ret__.site_name,
-        ssl_state=__ret__.ssl_state,
-        thumbprint=__ret__.thumbprint,
-        type=__ret__.type,
-        virtual_ip=__ret__.virtual_ip)
+        azure_resource_name=pulumi.get(__ret__, 'azure_resource_name'),
+        azure_resource_type=pulumi.get(__ret__, 'azure_resource_type'),
+        custom_host_name_dns_record_type=pulumi.get(__ret__, 'custom_host_name_dns_record_type'),
+        domain_id=pulumi.get(__ret__, 'domain_id'),
+        host_name_type=pulumi.get(__ret__, 'host_name_type'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        site_name=pulumi.get(__ret__, 'site_name'),
+        ssl_state=pulumi.get(__ret__, 'ssl_state'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_ip=pulumi.get(__ret__, 'virtual_ip'))
 
 
 @_utilities.lift_output_func(get_web_app_host_name_binding)

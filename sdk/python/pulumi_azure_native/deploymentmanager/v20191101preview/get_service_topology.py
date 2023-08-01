@@ -121,12 +121,12 @@ def get_service_topology(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deploymentmanager/v20191101preview:getServiceTopology', __args__, opts=opts, typ=GetServiceTopologyResult).value
 
     return AwaitableGetServiceTopologyResult(
-        artifact_source_id=__ret__.artifact_source_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        artifact_source_id=pulumi.get(__ret__, 'artifact_source_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_service_topology)

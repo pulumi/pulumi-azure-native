@@ -230,21 +230,21 @@ def get_hana_instance(hana_instance_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hanaonazure/v20171103preview:getHanaInstance', __args__, opts=opts, typ=GetHanaInstanceResult).value
 
     return AwaitableGetHanaInstanceResult(
-        hana_instance_id=__ret__.hana_instance_id,
-        hardware_profile=__ret__.hardware_profile,
-        hw_revision=__ret__.hw_revision,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_profile=__ret__.network_profile,
-        os_profile=__ret__.os_profile,
-        partner_node_id=__ret__.partner_node_id,
-        power_state=__ret__.power_state,
-        provisioning_state=__ret__.provisioning_state,
-        proximity_placement_group=__ret__.proximity_placement_group,
-        storage_profile=__ret__.storage_profile,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        hana_instance_id=pulumi.get(__ret__, 'hana_instance_id'),
+        hardware_profile=pulumi.get(__ret__, 'hardware_profile'),
+        hw_revision=pulumi.get(__ret__, 'hw_revision'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
+        os_profile=pulumi.get(__ret__, 'os_profile'),
+        partner_node_id=pulumi.get(__ret__, 'partner_node_id'),
+        power_state=pulumi.get(__ret__, 'power_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        proximity_placement_group=pulumi.get(__ret__, 'proximity_placement_group'),
+        storage_profile=pulumi.get(__ret__, 'storage_profile'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hana_instance)

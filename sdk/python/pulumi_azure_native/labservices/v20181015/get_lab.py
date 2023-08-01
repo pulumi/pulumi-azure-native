@@ -248,22 +248,22 @@ def get_lab(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20181015:getLab', __args__, opts=opts, typ=GetLabResult).value
 
     return AwaitableGetLabResult(
-        created_by_object_id=__ret__.created_by_object_id,
-        created_by_user_principal_name=__ret__.created_by_user_principal_name,
-        created_date=__ret__.created_date,
-        id=__ret__.id,
-        invitation_code=__ret__.invitation_code,
-        latest_operation_result=__ret__.latest_operation_result,
-        location=__ret__.location,
-        max_users_in_lab=__ret__.max_users_in_lab,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        usage_quota=__ret__.usage_quota,
-        user_access_mode=__ret__.user_access_mode,
-        user_quota=__ret__.user_quota)
+        created_by_object_id=pulumi.get(__ret__, 'created_by_object_id'),
+        created_by_user_principal_name=pulumi.get(__ret__, 'created_by_user_principal_name'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        id=pulumi.get(__ret__, 'id'),
+        invitation_code=pulumi.get(__ret__, 'invitation_code'),
+        latest_operation_result=pulumi.get(__ret__, 'latest_operation_result'),
+        location=pulumi.get(__ret__, 'location'),
+        max_users_in_lab=pulumi.get(__ret__, 'max_users_in_lab'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
+        usage_quota=pulumi.get(__ret__, 'usage_quota'),
+        user_access_mode=pulumi.get(__ret__, 'user_access_mode'),
+        user_quota=pulumi.get(__ret__, 'user_quota'))
 
 
 @_utilities.lift_output_func(get_lab)

@@ -113,11 +113,11 @@ def get_sync_set(child_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:redhatopenshift/v20230401:getSyncSet', __args__, opts=opts, typ=GetSyncSetResult).value
 
     return AwaitableGetSyncSetResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        resources=__ret__.resources,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resources=pulumi.get(__ret__, 'resources'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sync_set)

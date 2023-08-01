@@ -275,24 +275,24 @@ def get_extension(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kubernetesconfiguration/v20200701preview:getExtension', __args__, opts=opts, typ=GetExtensionResult).value
 
     return AwaitableGetExtensionResult(
-        auto_upgrade_minor_version=__ret__.auto_upgrade_minor_version,
-        configuration_protected_settings=__ret__.configuration_protected_settings,
-        configuration_settings=__ret__.configuration_settings,
-        creation_time=__ret__.creation_time,
-        error_info=__ret__.error_info,
-        extension_type=__ret__.extension_type,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        install_state=__ret__.install_state,
-        last_modified_time=__ret__.last_modified_time,
-        last_status_time=__ret__.last_status_time,
-        name=__ret__.name,
-        release_train=__ret__.release_train,
-        scope=__ret__.scope,
-        statuses=__ret__.statuses,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        auto_upgrade_minor_version=pulumi.get(__ret__, 'auto_upgrade_minor_version'),
+        configuration_protected_settings=pulumi.get(__ret__, 'configuration_protected_settings'),
+        configuration_settings=pulumi.get(__ret__, 'configuration_settings'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        error_info=pulumi.get(__ret__, 'error_info'),
+        extension_type=pulumi.get(__ret__, 'extension_type'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        install_state=pulumi.get(__ret__, 'install_state'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        last_status_time=pulumi.get(__ret__, 'last_status_time'),
+        name=pulumi.get(__ret__, 'name'),
+        release_train=pulumi.get(__ret__, 'release_train'),
+        scope=pulumi.get(__ret__, 'scope'),
+        statuses=pulumi.get(__ret__, 'statuses'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_extension)

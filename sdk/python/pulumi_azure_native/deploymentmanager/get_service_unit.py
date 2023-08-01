@@ -153,14 +153,14 @@ def get_service_unit(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deploymentmanager:getServiceUnit', __args__, opts=opts, typ=GetServiceUnitResult).value
 
     return AwaitableGetServiceUnitResult(
-        artifacts=__ret__.artifacts,
-        deployment_mode=__ret__.deployment_mode,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        target_resource_group=__ret__.target_resource_group,
-        type=__ret__.type)
+        artifacts=pulumi.get(__ret__, 'artifacts'),
+        deployment_mode=pulumi.get(__ret__, 'deployment_mode'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_resource_group=pulumi.get(__ret__, 'target_resource_group'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_service_unit)

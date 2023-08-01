@@ -206,19 +206,19 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagesync/v20220601:getStorageSyncService', __args__, opts=opts, typ=GetStorageSyncServiceResult).value
 
     return AwaitableGetStorageSyncServiceResult(
-        id=__ret__.id,
-        incoming_traffic_policy=__ret__.incoming_traffic_policy,
-        last_operation_name=__ret__.last_operation_name,
-        last_workflow_id=__ret__.last_workflow_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        storage_sync_service_status=__ret__.storage_sync_service_status,
-        storage_sync_service_uid=__ret__.storage_sync_service_uid,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        incoming_traffic_policy=pulumi.get(__ret__, 'incoming_traffic_policy'),
+        last_operation_name=pulumi.get(__ret__, 'last_operation_name'),
+        last_workflow_id=pulumi.get(__ret__, 'last_workflow_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        storage_sync_service_status=pulumi.get(__ret__, 'storage_sync_service_status'),
+        storage_sync_service_uid=pulumi.get(__ret__, 'storage_sync_service_uid'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_storage_sync_service)

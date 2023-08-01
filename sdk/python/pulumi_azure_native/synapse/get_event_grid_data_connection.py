@@ -241,21 +241,21 @@ def get_event_grid_data_connection(data_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getEventGridDataConnection', __args__, opts=opts, typ=GetEventGridDataConnectionResult).value
 
     return AwaitableGetEventGridDataConnectionResult(
-        blob_storage_event_type=__ret__.blob_storage_event_type,
-        consumer_group=__ret__.consumer_group,
-        data_format=__ret__.data_format,
-        event_hub_resource_id=__ret__.event_hub_resource_id,
-        id=__ret__.id,
-        ignore_first_record=__ret__.ignore_first_record,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        mapping_rule_name=__ret__.mapping_rule_name,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        storage_account_resource_id=__ret__.storage_account_resource_id,
-        system_data=__ret__.system_data,
-        table_name=__ret__.table_name,
-        type=__ret__.type)
+        blob_storage_event_type=pulumi.get(__ret__, 'blob_storage_event_type'),
+        consumer_group=pulumi.get(__ret__, 'consumer_group'),
+        data_format=pulumi.get(__ret__, 'data_format'),
+        event_hub_resource_id=pulumi.get(__ret__, 'event_hub_resource_id'),
+        id=pulumi.get(__ret__, 'id'),
+        ignore_first_record=pulumi.get(__ret__, 'ignore_first_record'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        mapping_rule_name=pulumi.get(__ret__, 'mapping_rule_name'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        storage_account_resource_id=pulumi.get(__ret__, 'storage_account_resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        table_name=pulumi.get(__ret__, 'table_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_event_grid_data_connection)

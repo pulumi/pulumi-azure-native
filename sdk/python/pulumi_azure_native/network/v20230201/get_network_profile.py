@@ -173,16 +173,16 @@ def get_network_profile(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getNetworkProfile', __args__, opts=opts, typ=GetNetworkProfileResult).value
 
     return AwaitableGetNetworkProfileResult(
-        container_network_interface_configurations=__ret__.container_network_interface_configurations,
-        container_network_interfaces=__ret__.container_network_interfaces,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        container_network_interface_configurations=pulumi.get(__ret__, 'container_network_interface_configurations'),
+        container_network_interfaces=pulumi.get(__ret__, 'container_network_interfaces'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_profile)

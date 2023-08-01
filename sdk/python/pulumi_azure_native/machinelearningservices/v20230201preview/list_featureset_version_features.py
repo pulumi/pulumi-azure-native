@@ -86,8 +86,8 @@ def list_featureset_version_features(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230201preview:listFeaturesetVersionFeatures', __args__, opts=opts, typ=ListFeaturesetVersionFeaturesResult).value
 
     return AwaitableListFeaturesetVersionFeaturesResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_featureset_version_features)

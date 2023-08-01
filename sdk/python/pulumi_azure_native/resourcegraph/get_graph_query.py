@@ -183,17 +183,17 @@ def get_graph_query(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resourcegraph:getGraphQuery', __args__, opts=opts, typ=GetGraphQueryResult).value
 
     return AwaitableGetGraphQueryResult(
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        query=__ret__.query,
-        result_kind=__ret__.result_kind,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        time_modified=__ret__.time_modified,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        query=pulumi.get(__ret__, 'query'),
+        result_kind=pulumi.get(__ret__, 'result_kind'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_modified=pulumi.get(__ret__, 'time_modified'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_graph_query)

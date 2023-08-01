@@ -159,15 +159,15 @@ def get_archife(archive_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:getArchife', __args__, opts=opts, typ=GetArchifeResult).value
 
     return AwaitableGetArchifeResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        package_source=__ret__.package_source,
-        provisioning_state=__ret__.provisioning_state,
-        published_version=__ret__.published_version,
-        repository_endpoint=__ret__.repository_endpoint,
-        repository_endpoint_prefix=__ret__.repository_endpoint_prefix,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        package_source=pulumi.get(__ret__, 'package_source'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        published_version=pulumi.get(__ret__, 'published_version'),
+        repository_endpoint=pulumi.get(__ret__, 'repository_endpoint'),
+        repository_endpoint_prefix=pulumi.get(__ret__, 'repository_endpoint_prefix'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_archife)

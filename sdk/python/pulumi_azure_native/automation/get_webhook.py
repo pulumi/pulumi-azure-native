@@ -222,20 +222,20 @@ def get_webhook(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getWebhook', __args__, opts=opts, typ=GetWebhookResult).value
 
     return AwaitableGetWebhookResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        expiry_time=__ret__.expiry_time,
-        id=__ret__.id,
-        is_enabled=__ret__.is_enabled,
-        last_invoked_time=__ret__.last_invoked_time,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        run_on=__ret__.run_on,
-        runbook=__ret__.runbook,
-        type=__ret__.type,
-        uri=__ret__.uri)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        expiry_time=pulumi.get(__ret__, 'expiry_time'),
+        id=pulumi.get(__ret__, 'id'),
+        is_enabled=pulumi.get(__ret__, 'is_enabled'),
+        last_invoked_time=pulumi.get(__ret__, 'last_invoked_time'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        run_on=pulumi.get(__ret__, 'run_on'),
+        runbook=pulumi.get(__ret__, 'runbook'),
+        type=pulumi.get(__ret__, 'type'),
+        uri=pulumi.get(__ret__, 'uri'))
 
 
 @_utilities.lift_output_func(get_webhook)

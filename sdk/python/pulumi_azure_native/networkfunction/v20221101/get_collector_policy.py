@@ -173,16 +173,16 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkfunction/v20221101:getCollectorPolicy', __args__, opts=opts, typ=GetCollectorPolicyResult).value
 
     return AwaitableGetCollectorPolicyResult(
-        emission_policies=__ret__.emission_policies,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        ingestion_policy=__ret__.ingestion_policy,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        emission_policies=pulumi.get(__ret__, 'emission_policies'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ingestion_policy=pulumi.get(__ret__, 'ingestion_policy'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_collector_policy)

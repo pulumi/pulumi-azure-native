@@ -124,12 +124,12 @@ def get_channel(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:engagementfabric/v20180901preview:getChannel', __args__, opts=opts, typ=GetChannelResult).value
 
     return AwaitableGetChannelResult(
-        channel_functions=__ret__.channel_functions,
-        channel_type=__ret__.channel_type,
-        credentials=__ret__.credentials,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        channel_functions=pulumi.get(__ret__, 'channel_functions'),
+        channel_type=pulumi.get(__ret__, 'channel_type'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_channel)

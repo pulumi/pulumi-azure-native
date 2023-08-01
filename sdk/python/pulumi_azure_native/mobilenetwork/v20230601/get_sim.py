@@ -221,20 +221,20 @@ def get_sim(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork/v20230601:getSim', __args__, opts=opts, typ=GetSimResult).value
 
     return AwaitableGetSimResult(
-        device_type=__ret__.device_type,
-        id=__ret__.id,
-        integrated_circuit_card_identifier=__ret__.integrated_circuit_card_identifier,
-        international_mobile_subscriber_identity=__ret__.international_mobile_subscriber_identity,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sim_policy=__ret__.sim_policy,
-        sim_state=__ret__.sim_state,
-        site_provisioning_state=__ret__.site_provisioning_state,
-        static_ip_configuration=__ret__.static_ip_configuration,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        vendor_key_fingerprint=__ret__.vendor_key_fingerprint,
-        vendor_name=__ret__.vendor_name)
+        device_type=pulumi.get(__ret__, 'device_type'),
+        id=pulumi.get(__ret__, 'id'),
+        integrated_circuit_card_identifier=pulumi.get(__ret__, 'integrated_circuit_card_identifier'),
+        international_mobile_subscriber_identity=pulumi.get(__ret__, 'international_mobile_subscriber_identity'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sim_policy=pulumi.get(__ret__, 'sim_policy'),
+        sim_state=pulumi.get(__ret__, 'sim_state'),
+        site_provisioning_state=pulumi.get(__ret__, 'site_provisioning_state'),
+        static_ip_configuration=pulumi.get(__ret__, 'static_ip_configuration'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        vendor_key_fingerprint=pulumi.get(__ret__, 'vendor_key_fingerprint'),
+        vendor_name=pulumi.get(__ret__, 'vendor_name'))
 
 
 @_utilities.lift_output_func(get_sim)

@@ -78,8 +78,8 @@ def get_asset_encryption_key(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media:getAssetEncryptionKey', __args__, opts=opts, typ=GetAssetEncryptionKeyResult).value
 
     return AwaitableGetAssetEncryptionKeyResult(
-        asset_file_encryption_metadata=__ret__.asset_file_encryption_metadata,
-        key=__ret__.key)
+        asset_file_encryption_metadata=pulumi.get(__ret__, 'asset_file_encryption_metadata'),
+        key=pulumi.get(__ret__, 'key'))
 
 
 @_utilities.lift_output_func(get_asset_encryption_key)

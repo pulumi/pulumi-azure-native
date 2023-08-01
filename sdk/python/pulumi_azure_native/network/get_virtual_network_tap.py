@@ -195,18 +195,18 @@ def get_virtual_network_tap(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getVirtualNetworkTap', __args__, opts=opts, typ=GetVirtualNetworkTapResult).value
 
     return AwaitableGetVirtualNetworkTapResult(
-        destination_load_balancer_front_end_ip_configuration=__ret__.destination_load_balancer_front_end_ip_configuration,
-        destination_network_interface_ip_configuration=__ret__.destination_network_interface_ip_configuration,
-        destination_port=__ret__.destination_port,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_interface_tap_configurations=__ret__.network_interface_tap_configurations,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        destination_load_balancer_front_end_ip_configuration=pulumi.get(__ret__, 'destination_load_balancer_front_end_ip_configuration'),
+        destination_network_interface_ip_configuration=pulumi.get(__ret__, 'destination_network_interface_ip_configuration'),
+        destination_port=pulumi.get(__ret__, 'destination_port'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interface_tap_configurations=pulumi.get(__ret__, 'network_interface_tap_configurations'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_virtual_network_tap)

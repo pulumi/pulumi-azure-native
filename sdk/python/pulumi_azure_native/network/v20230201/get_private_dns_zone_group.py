@@ -113,11 +113,11 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getPrivateDnsZoneGroup', __args__, opts=opts, typ=GetPrivateDnsZoneGroupResult).value
 
     return AwaitableGetPrivateDnsZoneGroupResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        private_dns_zone_configs=__ret__.private_dns_zone_configs,
-        provisioning_state=__ret__.provisioning_state)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        private_dns_zone_configs=pulumi.get(__ret__, 'private_dns_zone_configs'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'))
 
 
 @_utilities.lift_output_func(get_private_dns_zone_group)

@@ -206,19 +206,19 @@ def get_policy_exemption(policy_exemption_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20220701preview:getPolicyExemption', __args__, opts=opts, typ=GetPolicyExemptionResult).value
 
     return AwaitableGetPolicyExemptionResult(
-        assignment_scope_validation=__ret__.assignment_scope_validation,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        exemption_category=__ret__.exemption_category,
-        expires_on=__ret__.expires_on,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        policy_assignment_id=__ret__.policy_assignment_id,
-        policy_definition_reference_ids=__ret__.policy_definition_reference_ids,
-        resource_selectors=__ret__.resource_selectors,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        assignment_scope_validation=pulumi.get(__ret__, 'assignment_scope_validation'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        exemption_category=pulumi.get(__ret__, 'exemption_category'),
+        expires_on=pulumi.get(__ret__, 'expires_on'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_assignment_id=pulumi.get(__ret__, 'policy_assignment_id'),
+        policy_definition_reference_ids=pulumi.get(__ret__, 'policy_definition_reference_ids'),
+        resource_selectors=pulumi.get(__ret__, 'resource_selectors'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_policy_exemption)

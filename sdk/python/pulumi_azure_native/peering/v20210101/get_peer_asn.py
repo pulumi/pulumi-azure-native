@@ -143,14 +143,14 @@ def get_peer_asn(peer_asn_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:peering/v20210101:getPeerAsn', __args__, opts=opts, typ=GetPeerAsnResult).value
 
     return AwaitableGetPeerAsnResult(
-        error_message=__ret__.error_message,
-        id=__ret__.id,
-        name=__ret__.name,
-        peer_asn=__ret__.peer_asn,
-        peer_contact_detail=__ret__.peer_contact_detail,
-        peer_name=__ret__.peer_name,
-        type=__ret__.type,
-        validation_state=__ret__.validation_state)
+        error_message=pulumi.get(__ret__, 'error_message'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        peer_asn=pulumi.get(__ret__, 'peer_asn'),
+        peer_contact_detail=pulumi.get(__ret__, 'peer_contact_detail'),
+        peer_name=pulumi.get(__ret__, 'peer_name'),
+        type=pulumi.get(__ret__, 'type'),
+        validation_state=pulumi.get(__ret__, 'validation_state'))
 
 
 @_utilities.lift_output_func(get_peer_asn)

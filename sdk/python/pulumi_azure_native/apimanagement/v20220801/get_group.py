@@ -136,13 +136,13 @@ def get_group(group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220801:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        built_in=__ret__.built_in,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        external_id=__ret__.external_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        built_in=pulumi.get(__ret__, 'built_in'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        external_id=pulumi.get(__ret__, 'external_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_group)

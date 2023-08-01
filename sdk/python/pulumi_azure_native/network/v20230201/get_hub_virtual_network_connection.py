@@ -161,15 +161,15 @@ def get_hub_virtual_network_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getHubVirtualNetworkConnection', __args__, opts=opts, typ=GetHubVirtualNetworkConnectionResult).value
 
     return AwaitableGetHubVirtualNetworkConnectionResult(
-        allow_hub_to_remote_vnet_transit=__ret__.allow_hub_to_remote_vnet_transit,
-        allow_remote_vnet_to_use_hub_vnet_gateways=__ret__.allow_remote_vnet_to_use_hub_vnet_gateways,
-        enable_internet_security=__ret__.enable_internet_security,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        remote_virtual_network=__ret__.remote_virtual_network,
-        routing_configuration=__ret__.routing_configuration)
+        allow_hub_to_remote_vnet_transit=pulumi.get(__ret__, 'allow_hub_to_remote_vnet_transit'),
+        allow_remote_vnet_to_use_hub_vnet_gateways=pulumi.get(__ret__, 'allow_remote_vnet_to_use_hub_vnet_gateways'),
+        enable_internet_security=pulumi.get(__ret__, 'enable_internet_security'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        remote_virtual_network=pulumi.get(__ret__, 'remote_virtual_network'),
+        routing_configuration=pulumi.get(__ret__, 'routing_configuration'))
 
 
 @_utilities.lift_output_func(get_hub_virtual_network_connection)

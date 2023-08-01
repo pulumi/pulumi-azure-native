@@ -183,17 +183,17 @@ def get_dns_resolver(dns_resolver_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getDnsResolver', __args__, opts=opts, typ=GetDnsResolverResult).value
 
     return AwaitableGetDnsResolverResult(
-        dns_resolver_state=__ret__.dns_resolver_state,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_network=__ret__.virtual_network)
+        dns_resolver_state=pulumi.get(__ret__, 'dns_resolver_state'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network=pulumi.get(__ret__, 'virtual_network'))
 
 
 @_utilities.lift_output_func(get_dns_resolver)

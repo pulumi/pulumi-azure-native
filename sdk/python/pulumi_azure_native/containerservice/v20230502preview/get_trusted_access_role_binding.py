@@ -137,13 +137,13 @@ def get_trusted_access_role_binding(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20230502preview:getTrustedAccessRoleBinding', __args__, opts=opts, typ=GetTrustedAccessRoleBindingResult).value
 
     return AwaitableGetTrustedAccessRoleBindingResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        roles=__ret__.roles,
-        source_resource_id=__ret__.source_resource_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        roles=pulumi.get(__ret__, 'roles'),
+        source_resource_id=pulumi.get(__ret__, 'source_resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_trusted_access_role_binding)

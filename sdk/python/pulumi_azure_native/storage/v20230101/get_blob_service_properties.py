@@ -209,19 +209,19 @@ def get_blob_service_properties(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage/v20230101:getBlobServiceProperties', __args__, opts=opts, typ=GetBlobServicePropertiesResult).value
 
     return AwaitableGetBlobServicePropertiesResult(
-        automatic_snapshot_policy_enabled=__ret__.automatic_snapshot_policy_enabled,
-        change_feed=__ret__.change_feed,
-        container_delete_retention_policy=__ret__.container_delete_retention_policy,
-        cors=__ret__.cors,
-        default_service_version=__ret__.default_service_version,
-        delete_retention_policy=__ret__.delete_retention_policy,
-        id=__ret__.id,
-        is_versioning_enabled=__ret__.is_versioning_enabled,
-        last_access_time_tracking_policy=__ret__.last_access_time_tracking_policy,
-        name=__ret__.name,
-        restore_policy=__ret__.restore_policy,
-        sku=__ret__.sku,
-        type=__ret__.type)
+        automatic_snapshot_policy_enabled=pulumi.get(__ret__, 'automatic_snapshot_policy_enabled'),
+        change_feed=pulumi.get(__ret__, 'change_feed'),
+        container_delete_retention_policy=pulumi.get(__ret__, 'container_delete_retention_policy'),
+        cors=pulumi.get(__ret__, 'cors'),
+        default_service_version=pulumi.get(__ret__, 'default_service_version'),
+        delete_retention_policy=pulumi.get(__ret__, 'delete_retention_policy'),
+        id=pulumi.get(__ret__, 'id'),
+        is_versioning_enabled=pulumi.get(__ret__, 'is_versioning_enabled'),
+        last_access_time_tracking_policy=pulumi.get(__ret__, 'last_access_time_tracking_policy'),
+        name=pulumi.get(__ret__, 'name'),
+        restore_policy=pulumi.get(__ret__, 'restore_policy'),
+        sku=pulumi.get(__ret__, 'sku'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_blob_service_properties)

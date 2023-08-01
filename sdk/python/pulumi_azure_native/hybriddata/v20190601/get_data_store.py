@@ -149,14 +149,14 @@ def get_data_store(data_manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybriddata/v20190601:getDataStore', __args__, opts=opts, typ=GetDataStoreResult).value
 
     return AwaitableGetDataStoreResult(
-        customer_secrets=__ret__.customer_secrets,
-        data_store_type_id=__ret__.data_store_type_id,
-        extended_properties=__ret__.extended_properties,
-        id=__ret__.id,
-        name=__ret__.name,
-        repository_id=__ret__.repository_id,
-        state=__ret__.state,
-        type=__ret__.type)
+        customer_secrets=pulumi.get(__ret__, 'customer_secrets'),
+        data_store_type_id=pulumi.get(__ret__, 'data_store_type_id'),
+        extended_properties=pulumi.get(__ret__, 'extended_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        repository_id=pulumi.get(__ret__, 'repository_id'),
+        state=pulumi.get(__ret__, 'state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_store)

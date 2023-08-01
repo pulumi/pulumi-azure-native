@@ -102,10 +102,10 @@ def get_service(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_service)

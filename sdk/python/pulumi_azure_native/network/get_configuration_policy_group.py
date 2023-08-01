@@ -162,15 +162,15 @@ def get_configuration_policy_group(configuration_policy_group_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:network:getConfigurationPolicyGroup', __args__, opts=opts, typ=GetConfigurationPolicyGroupResult).value
 
     return AwaitableGetConfigurationPolicyGroupResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        is_default=__ret__.is_default,
-        name=__ret__.name,
-        p2_s_connection_configurations=__ret__.p2_s_connection_configurations,
-        policy_members=__ret__.policy_members,
-        priority=__ret__.priority,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        is_default=pulumi.get(__ret__, 'is_default'),
+        name=pulumi.get(__ret__, 'name'),
+        p2_s_connection_configurations=pulumi.get(__ret__, 'p2_s_connection_configurations'),
+        policy_members=pulumi.get(__ret__, 'policy_members'),
+        priority=pulumi.get(__ret__, 'priority'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_configuration_policy_group)

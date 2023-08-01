@@ -240,21 +240,21 @@ def get_user_rule(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210501preview:getUserRule', __args__, opts=opts, typ=GetUserRuleResult).value
 
     return AwaitableGetUserRuleResult(
-        description=__ret__.description,
-        destination_port_ranges=__ret__.destination_port_ranges,
-        destinations=__ret__.destinations,
-        direction=__ret__.direction,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        protocol=__ret__.protocol,
-        provisioning_state=__ret__.provisioning_state,
-        source_port_ranges=__ret__.source_port_ranges,
-        sources=__ret__.sources,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        destination_port_ranges=pulumi.get(__ret__, 'destination_port_ranges'),
+        destinations=pulumi.get(__ret__, 'destinations'),
+        direction=pulumi.get(__ret__, 'direction'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_port_ranges=pulumi.get(__ret__, 'source_port_ranges'),
+        sources=pulumi.get(__ret__, 'sources'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_user_rule)

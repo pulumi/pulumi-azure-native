@@ -137,13 +137,13 @@ def get_configuration_profiles_version(configuration_profile_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:automanage/v20220504:getConfigurationProfilesVersion', __args__, opts=opts, typ=GetConfigurationProfilesVersionResult).value
 
     return AwaitableGetConfigurationProfilesVersionResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_configuration_profiles_version)

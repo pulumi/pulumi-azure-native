@@ -144,14 +144,14 @@ def get_guest_diagnostics_setting(diagnostic_settings_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getGuestDiagnosticsSetting', __args__, opts=opts, typ=GetGuestDiagnosticsSettingResult).value
 
     return AwaitableGetGuestDiagnosticsSettingResult(
-        data_sources=__ret__.data_sources,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        os_type=__ret__.os_type,
-        proxy_setting=__ret__.proxy_setting,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        data_sources=pulumi.get(__ret__, 'data_sources'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        os_type=pulumi.get(__ret__, 'os_type'),
+        proxy_setting=pulumi.get(__ret__, 'proxy_setting'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_guest_diagnostics_setting)

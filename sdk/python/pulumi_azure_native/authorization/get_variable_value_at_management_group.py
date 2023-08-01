@@ -114,11 +114,11 @@ def get_variable_value_at_management_group(management_group_id: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getVariableValueAtManagementGroup', __args__, opts=opts, typ=GetVariableValueAtManagementGroupResult).value
 
     return AwaitableGetVariableValueAtManagementGroupResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        values=__ret__.values)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        values=pulumi.get(__ret__, 'values'))
 
 
 @_utilities.lift_output_func(get_variable_value_at_management_group)

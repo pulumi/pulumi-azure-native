@@ -131,13 +131,13 @@ def get_setting(setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement/v20191101:getSetting', __args__, opts=opts, typ=GetSettingResult).value
 
     return AwaitableGetSettingResult(
-        cache=__ret__.cache,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        scope=__ret__.scope,
-        start_on=__ret__.start_on,
-        type=__ret__.type)
+        cache=pulumi.get(__ret__, 'cache'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        scope=pulumi.get(__ret__, 'scope'),
+        start_on=pulumi.get(__ret__, 'start_on'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_setting)

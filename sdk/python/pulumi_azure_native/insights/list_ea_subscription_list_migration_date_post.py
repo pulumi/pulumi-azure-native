@@ -65,5 +65,5 @@ def list_ea_subscription_list_migration_date_post(opts: Optional[pulumi.InvokeOp
     __ret__ = pulumi.runtime.invoke('azure-native:insights:listEASubscriptionListMigrationDatePost', __args__, opts=opts, typ=ListEASubscriptionListMigrationDatePostResult).value
 
     return AwaitableListEASubscriptionListMigrationDatePostResult(
-        is_grand_fatherable_subscription=__ret__.is_grand_fatherable_subscription,
-        opted_in_date=__ret__.opted_in_date)
+        is_grand_fatherable_subscription=pulumi.get(__ret__, 'is_grand_fatherable_subscription'),
+        opted_in_date=pulumi.get(__ret__, 'opted_in_date'))

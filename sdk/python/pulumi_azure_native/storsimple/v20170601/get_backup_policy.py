@@ -187,17 +187,17 @@ def get_backup_policy(backup_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20170601:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult).value
 
     return AwaitableGetBackupPolicyResult(
-        backup_policy_creation_type=__ret__.backup_policy_creation_type,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_backup_time=__ret__.last_backup_time,
-        name=__ret__.name,
-        next_backup_time=__ret__.next_backup_time,
-        scheduled_backup_status=__ret__.scheduled_backup_status,
-        schedules_count=__ret__.schedules_count,
-        ssm_host_name=__ret__.ssm_host_name,
-        type=__ret__.type,
-        volume_ids=__ret__.volume_ids)
+        backup_policy_creation_type=pulumi.get(__ret__, 'backup_policy_creation_type'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_backup_time=pulumi.get(__ret__, 'last_backup_time'),
+        name=pulumi.get(__ret__, 'name'),
+        next_backup_time=pulumi.get(__ret__, 'next_backup_time'),
+        scheduled_backup_status=pulumi.get(__ret__, 'scheduled_backup_status'),
+        schedules_count=pulumi.get(__ret__, 'schedules_count'),
+        ssm_host_name=pulumi.get(__ret__, 'ssm_host_name'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_ids=pulumi.get(__ret__, 'volume_ids'))
 
 
 @_utilities.lift_output_func(get_backup_policy)

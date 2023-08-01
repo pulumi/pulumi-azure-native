@@ -177,16 +177,16 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getHybridRunbookWorker', __args__, opts=opts, typ=GetHybridRunbookWorkerResult).value
 
     return AwaitableGetHybridRunbookWorkerResult(
-        id=__ret__.id,
-        ip=__ret__.ip,
-        last_seen_date_time=__ret__.last_seen_date_time,
-        name=__ret__.name,
-        registered_date_time=__ret__.registered_date_time,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        vm_resource_id=__ret__.vm_resource_id,
-        worker_name=__ret__.worker_name,
-        worker_type=__ret__.worker_type)
+        id=pulumi.get(__ret__, 'id'),
+        ip=pulumi.get(__ret__, 'ip'),
+        last_seen_date_time=pulumi.get(__ret__, 'last_seen_date_time'),
+        name=pulumi.get(__ret__, 'name'),
+        registered_date_time=pulumi.get(__ret__, 'registered_date_time'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        vm_resource_id=pulumi.get(__ret__, 'vm_resource_id'),
+        worker_name=pulumi.get(__ret__, 'worker_name'),
+        worker_type=pulumi.get(__ret__, 'worker_type'))
 
 
 @_utilities.lift_output_func(get_hybrid_runbook_worker)

@@ -255,23 +255,23 @@ def get_lab(lab_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices:getLab', __args__, opts=opts, typ=GetLabResult).value
 
     return AwaitableGetLabResult(
-        auto_shutdown_profile=__ret__.auto_shutdown_profile,
-        connection_profile=__ret__.connection_profile,
-        description=__ret__.description,
-        id=__ret__.id,
-        lab_plan_id=__ret__.lab_plan_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_profile=__ret__.network_profile,
-        provisioning_state=__ret__.provisioning_state,
-        roster_profile=__ret__.roster_profile,
-        security_profile=__ret__.security_profile,
-        state=__ret__.state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        title=__ret__.title,
-        type=__ret__.type,
-        virtual_machine_profile=__ret__.virtual_machine_profile)
+        auto_shutdown_profile=pulumi.get(__ret__, 'auto_shutdown_profile'),
+        connection_profile=pulumi.get(__ret__, 'connection_profile'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        lab_plan_id=pulumi.get(__ret__, 'lab_plan_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        roster_profile=pulumi.get(__ret__, 'roster_profile'),
+        security_profile=pulumi.get(__ret__, 'security_profile'),
+        state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        title=pulumi.get(__ret__, 'title'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machine_profile=pulumi.get(__ret__, 'virtual_machine_profile'))
 
 
 @_utilities.lift_output_func(get_lab)

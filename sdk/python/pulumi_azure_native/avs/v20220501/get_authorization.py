@@ -136,13 +136,13 @@ def get_authorization(authorization_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20220501:getAuthorization', __args__, opts=opts, typ=GetAuthorizationResult).value
 
     return AwaitableGetAuthorizationResult(
-        express_route_authorization_id=__ret__.express_route_authorization_id,
-        express_route_authorization_key=__ret__.express_route_authorization_key,
-        express_route_id=__ret__.express_route_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        express_route_authorization_id=pulumi.get(__ret__, 'express_route_authorization_id'),
+        express_route_authorization_key=pulumi.get(__ret__, 'express_route_authorization_key'),
+        express_route_id=pulumi.get(__ret__, 'express_route_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_authorization)

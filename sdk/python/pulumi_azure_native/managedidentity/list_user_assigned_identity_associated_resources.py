@@ -102,9 +102,9 @@ def list_user_assigned_identity_associated_resources(filter: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:managedidentity:listUserAssignedIdentityAssociatedResources', __args__, opts=opts, typ=ListUserAssignedIdentityAssociatedResourcesResult).value
 
     return AwaitableListUserAssignedIdentityAssociatedResourcesResult(
-        next_link=__ret__.next_link,
-        total_count=__ret__.total_count,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        total_count=pulumi.get(__ret__, 'total_count'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_user_assigned_identity_associated_resources)

@@ -103,10 +103,10 @@ def get_wcf_relay_authorization_rule(authorization_rule_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:relay/v20170401:getWCFRelayAuthorizationRule', __args__, opts=opts, typ=GetWCFRelayAuthorizationRuleResult).value
 
     return AwaitableGetWCFRelayAuthorizationRuleResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        rights=__ret__.rights,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        rights=pulumi.get(__ret__, 'rights'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_wcf_relay_authorization_rule)

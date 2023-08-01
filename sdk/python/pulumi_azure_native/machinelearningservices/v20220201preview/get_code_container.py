@@ -113,11 +113,11 @@ def get_code_container(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20220201preview:getCodeContainer', __args__, opts=opts, typ=GetCodeContainerResult).value
 
     return AwaitableGetCodeContainerResult(
-        code_container_details=__ret__.code_container_details,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        code_container_details=pulumi.get(__ret__, 'code_container_details'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_code_container)

@@ -78,8 +78,8 @@ def list_network_manager_effective_security_admin_rule(resource_group_name: Opti
     __ret__ = pulumi.runtime.invoke('azure-native:network:listNetworkManagerEffectiveSecurityAdminRule', __args__, opts=opts, typ=ListNetworkManagerEffectiveSecurityAdminRuleResult).value
 
     return AwaitableListNetworkManagerEffectiveSecurityAdminRuleResult(
-        skip_token=__ret__.skip_token,
-        value=__ret__.value)
+        skip_token=pulumi.get(__ret__, 'skip_token'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_network_manager_effective_security_admin_rule)

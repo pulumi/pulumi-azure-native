@@ -76,8 +76,8 @@ def get_package_download_url(package_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase/v20220401preview:getPackageDownloadURL', __args__, opts=opts, typ=GetPackageDownloadURLResult).value
 
     return AwaitableGetPackageDownloadURLResult(
-        download_url=__ret__.download_url,
-        expiration_time=__ret__.expiration_time)
+        download_url=pulumi.get(__ret__, 'download_url'),
+        expiration_time=pulumi.get(__ret__, 'expiration_time'))
 
 
 @_utilities.lift_output_func(get_package_download_url)

@@ -221,20 +221,20 @@ def get_site(mobile_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork/v20220401preview:getSite', __args__, opts=opts, typ=GetSiteResult).value
 
     return AwaitableGetSiteResult(
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
-        id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_functions=__ret__.network_functions,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_by_type=pulumi.get(__ret__, 'created_by_type'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_at=pulumi.get(__ret__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__ret__, 'last_modified_by_type'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_functions=pulumi.get(__ret__, 'network_functions'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_site)

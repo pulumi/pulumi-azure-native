@@ -161,15 +161,15 @@ def get_markup_rule(billing_account_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement/v20221005preview:getMarkupRule', __args__, opts=opts, typ=GetMarkupRuleResult).value
 
     return AwaitableGetMarkupRuleResult(
-        customer_details=__ret__.customer_details,
-        description=__ret__.description,
-        e_tag=__ret__.e_tag,
-        end_date=__ret__.end_date,
-        id=__ret__.id,
-        name=__ret__.name,
-        percentage=__ret__.percentage,
-        start_date=__ret__.start_date,
-        type=__ret__.type)
+        customer_details=pulumi.get(__ret__, 'customer_details'),
+        description=pulumi.get(__ret__, 'description'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        end_date=pulumi.get(__ret__, 'end_date'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        percentage=pulumi.get(__ret__, 'percentage'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_markup_rule)

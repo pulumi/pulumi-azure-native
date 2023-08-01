@@ -79,8 +79,8 @@ def list_edge_module_provisioning_token(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer/v20211101preview:listEdgeModuleProvisioningToken', __args__, opts=opts, typ=ListEdgeModuleProvisioningTokenResult).value
 
     return AwaitableListEdgeModuleProvisioningTokenResult(
-        expiration_date=__ret__.expiration_date,
-        token=__ret__.token)
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(list_edge_module_provisioning_token)

@@ -173,16 +173,16 @@ def get_pipeline_job(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer/v20211101preview:getPipelineJob', __args__, opts=opts, typ=GetPipelineJobResult).value
 
     return AwaitableGetPipelineJobResult(
-        description=__ret__.description,
-        error=__ret__.error,
-        expiration=__ret__.expiration,
-        id=__ret__.id,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        state=__ret__.state,
-        system_data=__ret__.system_data,
-        topology_name=__ret__.topology_name,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        error=pulumi.get(__ret__, 'error'),
+        expiration=pulumi.get(__ret__, 'expiration'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        topology_name=pulumi.get(__ret__, 'topology_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_pipeline_job)

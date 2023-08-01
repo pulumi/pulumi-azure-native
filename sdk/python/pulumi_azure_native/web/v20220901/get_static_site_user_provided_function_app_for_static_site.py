@@ -136,13 +136,13 @@ def get_static_site_user_provided_function_app_for_static_site(function_app_name
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getStaticSiteUserProvidedFunctionAppForStaticSite', __args__, opts=opts, typ=GetStaticSiteUserProvidedFunctionAppForStaticSiteResult).value
 
     return AwaitableGetStaticSiteUserProvidedFunctionAppForStaticSiteResult(
-        created_on=__ret__.created_on,
-        function_app_region=__ret__.function_app_region,
-        function_app_resource_id=__ret__.function_app_resource_id,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        type=__ret__.type)
+        created_on=pulumi.get(__ret__, 'created_on'),
+        function_app_region=pulumi.get(__ret__, 'function_app_region'),
+        function_app_resource_id=pulumi.get(__ret__, 'function_app_resource_id'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_static_site_user_provided_function_app_for_static_site)

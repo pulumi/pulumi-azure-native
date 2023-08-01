@@ -114,11 +114,11 @@ def get_active_directory_connector(active_directory_connector_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:azurearcdata:getActiveDirectoryConnector', __args__, opts=opts, typ=GetActiveDirectoryConnectorResult).value
 
     return AwaitableGetActiveDirectoryConnectorResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_active_directory_connector)

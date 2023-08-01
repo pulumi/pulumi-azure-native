@@ -156,14 +156,14 @@ def get_deployment(catalog_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuresphere:getDeployment', __args__, opts=opts, typ=GetDeploymentResult).value
 
     return AwaitableGetDeploymentResult(
-        deployed_images=__ret__.deployed_images,
-        deployment_date_utc=__ret__.deployment_date_utc,
-        deployment_id=__ret__.deployment_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        deployed_images=pulumi.get(__ret__, 'deployed_images'),
+        deployment_date_utc=pulumi.get(__ret__, 'deployment_date_utc'),
+        deployment_id=pulumi.get(__ret__, 'deployment_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_deployment)

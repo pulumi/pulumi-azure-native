@@ -142,13 +142,13 @@ def get_management_group(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:management:getManagementGroup', __args__, opts=opts, typ=GetManagementGroupResult).value
 
     return AwaitableGetManagementGroupResult(
-        children=__ret__.children,
-        details=__ret__.details,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        children=pulumi.get(__ret__, 'children'),
+        details=pulumi.get(__ret__, 'details'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_management_group)

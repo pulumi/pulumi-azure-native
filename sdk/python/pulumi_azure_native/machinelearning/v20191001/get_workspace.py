@@ -218,20 +218,20 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearning/v20191001:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        creation_time=__ret__.creation_time,
-        id=__ret__.id,
-        key_vault_identifier_id=__ret__.key_vault_identifier_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        owner_email=__ret__.owner_email,
-        sku=__ret__.sku,
-        studio_endpoint=__ret__.studio_endpoint,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        user_storage_account_id=__ret__.user_storage_account_id,
-        workspace_id=__ret__.workspace_id,
-        workspace_state=__ret__.workspace_state,
-        workspace_type=__ret__.workspace_type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_identifier_id=pulumi.get(__ret__, 'key_vault_identifier_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_email=pulumi.get(__ret__, 'owner_email'),
+        sku=pulumi.get(__ret__, 'sku'),
+        studio_endpoint=pulumi.get(__ret__, 'studio_endpoint'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        user_storage_account_id=pulumi.get(__ret__, 'user_storage_account_id'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'),
+        workspace_state=pulumi.get(__ret__, 'workspace_state'),
+        workspace_type=pulumi.get(__ret__, 'workspace_type'))
 
 
 @_utilities.lift_output_func(get_workspace)

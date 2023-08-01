@@ -219,20 +219,20 @@ def get_network_tap(network_tap_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getNetworkTap', __args__, opts=opts, typ=GetNetworkTapResult).value
 
     return AwaitableGetNetworkTapResult(
-        administrative_state=__ret__.administrative_state,
-        annotation=__ret__.annotation,
-        configuration_state=__ret__.configuration_state,
-        destinations=__ret__.destinations,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_packet_broker_id=__ret__.network_packet_broker_id,
-        polling_type=__ret__.polling_type,
-        provisioning_state=__ret__.provisioning_state,
-        source_tap_rule_id=__ret__.source_tap_rule_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        destinations=pulumi.get(__ret__, 'destinations'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_packet_broker_id=pulumi.get(__ret__, 'network_packet_broker_id'),
+        polling_type=pulumi.get(__ret__, 'polling_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_tap_rule_id=pulumi.get(__ret__, 'source_tap_rule_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_tap)

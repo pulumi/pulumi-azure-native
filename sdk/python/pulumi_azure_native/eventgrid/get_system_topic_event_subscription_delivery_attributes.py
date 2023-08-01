@@ -66,7 +66,7 @@ def get_system_topic_event_subscription_delivery_attributes(event_subscription_n
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getSystemTopicEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetSystemTopicEventSubscriptionDeliveryAttributesResult).value
 
     return AwaitableGetSystemTopicEventSubscriptionDeliveryAttributesResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_system_topic_event_subscription_delivery_attributes)

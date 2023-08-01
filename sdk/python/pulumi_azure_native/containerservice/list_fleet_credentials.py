@@ -63,7 +63,7 @@ def list_fleet_credentials(fleet_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice:listFleetCredentials', __args__, opts=opts, typ=ListFleetCredentialsResult).value
 
     return AwaitableListFleetCredentialsResult(
-        kubeconfigs=__ret__.kubeconfigs)
+        kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
 
 
 @_utilities.lift_output_func(list_fleet_credentials)

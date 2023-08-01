@@ -218,20 +218,20 @@ def get_snapshot(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20230401:getSnapshot', __args__, opts=opts, typ=GetSnapshotResult).value
 
     return AwaitableGetSnapshotResult(
-        creation_data=__ret__.creation_data,
-        enable_fips=__ret__.enable_fips,
-        id=__ret__.id,
-        kubernetes_version=__ret__.kubernetes_version,
-        location=__ret__.location,
-        name=__ret__.name,
-        node_image_version=__ret__.node_image_version,
-        os_sku=__ret__.os_sku,
-        os_type=__ret__.os_type,
-        snapshot_type=__ret__.snapshot_type,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vm_size=__ret__.vm_size)
+        creation_data=pulumi.get(__ret__, 'creation_data'),
+        enable_fips=pulumi.get(__ret__, 'enable_fips'),
+        id=pulumi.get(__ret__, 'id'),
+        kubernetes_version=pulumi.get(__ret__, 'kubernetes_version'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        node_image_version=pulumi.get(__ret__, 'node_image_version'),
+        os_sku=pulumi.get(__ret__, 'os_sku'),
+        os_type=pulumi.get(__ret__, 'os_type'),
+        snapshot_type=pulumi.get(__ret__, 'snapshot_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vm_size=pulumi.get(__ret__, 'vm_size'))
 
 
 @_utilities.lift_output_func(get_snapshot)

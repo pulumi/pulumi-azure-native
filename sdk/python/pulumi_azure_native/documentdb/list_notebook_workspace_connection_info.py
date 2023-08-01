@@ -77,8 +77,8 @@ def list_notebook_workspace_connection_info(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb:listNotebookWorkspaceConnectionInfo', __args__, opts=opts, typ=ListNotebookWorkspaceConnectionInfoResult).value
 
     return AwaitableListNotebookWorkspaceConnectionInfoResult(
-        auth_token=__ret__.auth_token,
-        notebook_server_endpoint=__ret__.notebook_server_endpoint)
+        auth_token=pulumi.get(__ret__, 'auth_token'),
+        notebook_server_endpoint=pulumi.get(__ret__, 'notebook_server_endpoint'))
 
 
 @_utilities.lift_output_func(list_notebook_workspace_connection_info)

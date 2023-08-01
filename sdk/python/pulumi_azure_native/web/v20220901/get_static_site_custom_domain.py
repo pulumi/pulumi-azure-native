@@ -157,15 +157,15 @@ def get_static_site_custom_domain(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getStaticSiteCustomDomain', __args__, opts=opts, typ=GetStaticSiteCustomDomainResult).value
 
     return AwaitableGetStaticSiteCustomDomainResult(
-        created_on=__ret__.created_on,
-        domain_name=__ret__.domain_name,
-        error_message=__ret__.error_message,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        status=__ret__.status,
-        type=__ret__.type,
-        validation_token=__ret__.validation_token)
+        created_on=pulumi.get(__ret__, 'created_on'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'),
+        validation_token=pulumi.get(__ret__, 'validation_token'))
 
 
 @_utilities.lift_output_func(get_static_site_custom_domain)

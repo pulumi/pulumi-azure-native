@@ -95,9 +95,9 @@ def get_image_upload_url_for_entity_type(entity_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights:getImageUploadUrlForEntityType', __args__, opts=opts, typ=GetImageUploadUrlForEntityTypeResult).value
 
     return AwaitableGetImageUploadUrlForEntityTypeResult(
-        content_url=__ret__.content_url,
-        image_exists=__ret__.image_exists,
-        relative_path=__ret__.relative_path)
+        content_url=pulumi.get(__ret__, 'content_url'),
+        image_exists=pulumi.get(__ret__, 'image_exists'),
+        relative_path=pulumi.get(__ret__, 'relative_path'))
 
 
 @_utilities.lift_output_func(get_image_upload_url_for_entity_type)

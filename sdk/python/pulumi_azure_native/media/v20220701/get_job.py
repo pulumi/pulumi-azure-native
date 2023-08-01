@@ -224,20 +224,20 @@ def get_job(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20220701:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
-        correlation_data=__ret__.correlation_data,
-        created=__ret__.created,
-        description=__ret__.description,
-        end_time=__ret__.end_time,
-        id=__ret__.id,
-        input=__ret__.input,
-        last_modified=__ret__.last_modified,
-        name=__ret__.name,
-        outputs=__ret__.outputs,
-        priority=__ret__.priority,
-        start_time=__ret__.start_time,
-        state=__ret__.state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        correlation_data=pulumi.get(__ret__, 'correlation_data'),
+        created=pulumi.get(__ret__, 'created'),
+        description=pulumi.get(__ret__, 'description'),
+        end_time=pulumi.get(__ret__, 'end_time'),
+        id=pulumi.get(__ret__, 'id'),
+        input=pulumi.get(__ret__, 'input'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        name=pulumi.get(__ret__, 'name'),
+        outputs=pulumi.get(__ret__, 'outputs'),
+        priority=pulumi.get(__ret__, 'priority'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_job)

@@ -118,12 +118,12 @@ def get_application(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20220701preview:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        source_resource_type=__ret__.source_resource_type,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_application)

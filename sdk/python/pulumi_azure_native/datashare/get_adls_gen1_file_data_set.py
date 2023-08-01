@@ -190,17 +190,17 @@ def get_adls_gen1_file_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getADLSGen1FileDataSet', __args__, opts=opts, typ=GetADLSGen1FileDataSetResult).value
 
     return AwaitableGetADLSGen1FileDataSetResult(
-        account_name=__ret__.account_name,
-        data_set_id=__ret__.data_set_id,
-        file_name=__ret__.file_name,
-        folder_path=__ret__.folder_path,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        resource_group=__ret__.resource_group,
-        subscription_id=__ret__.subscription_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        file_name=pulumi.get(__ret__, 'file_name'),
+        folder_path=pulumi.get(__ret__, 'folder_path'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group=pulumi.get(__ret__, 'resource_group'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_adls_gen1_file_data_set)

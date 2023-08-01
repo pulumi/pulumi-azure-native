@@ -101,10 +101,10 @@ def get_table_service_properties(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage/v20220901:getTableServiceProperties', __args__, opts=opts, typ=GetTableServicePropertiesResult).value
 
     return AwaitableGetTableServicePropertiesResult(
-        cors=__ret__.cors,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        cors=pulumi.get(__ret__, 'cors'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_table_service_properties)

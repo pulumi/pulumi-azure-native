@@ -194,18 +194,18 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub/v20221001preview:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        location=__ret__.location,
-        metric_id=__ret__.metric_id,
-        name=__ret__.name,
-        sku=__ret__.sku,
-        status=__ret__.status,
-        supports_scaling=__ret__.supports_scaling,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        updated_at=__ret__.updated_at)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        metric_id=pulumi.get(__ret__, 'metric_id'),
+        name=pulumi.get(__ret__, 'name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        status=pulumi.get(__ret__, 'status'),
+        supports_scaling=pulumi.get(__ret__, 'supports_scaling'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_cluster)

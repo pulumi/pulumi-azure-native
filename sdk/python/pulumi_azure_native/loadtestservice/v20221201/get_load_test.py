@@ -182,17 +182,17 @@ def get_load_test(load_test_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:loadtestservice/v20221201:getLoadTest', __args__, opts=opts, typ=GetLoadTestResult).value
 
     return AwaitableGetLoadTestResult(
-        data_plane_uri=__ret__.data_plane_uri,
-        description=__ret__.description,
-        encryption=__ret__.encryption,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        data_plane_uri=pulumi.get(__ret__, 'data_plane_uri'),
+        description=pulumi.get(__ret__, 'description'),
+        encryption=pulumi.get(__ret__, 'encryption'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_load_test)

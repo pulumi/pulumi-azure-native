@@ -162,15 +162,15 @@ def get_instance_failover_group(failover_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getInstanceFailoverGroup', __args__, opts=opts, typ=GetInstanceFailoverGroupResult).value
 
     return AwaitableGetInstanceFailoverGroupResult(
-        id=__ret__.id,
-        managed_instance_pairs=__ret__.managed_instance_pairs,
-        name=__ret__.name,
-        partner_regions=__ret__.partner_regions,
-        read_only_endpoint=__ret__.read_only_endpoint,
-        read_write_endpoint=__ret__.read_write_endpoint,
-        replication_role=__ret__.replication_role,
-        replication_state=__ret__.replication_state,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        managed_instance_pairs=pulumi.get(__ret__, 'managed_instance_pairs'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_regions=pulumi.get(__ret__, 'partner_regions'),
+        read_only_endpoint=pulumi.get(__ret__, 'read_only_endpoint'),
+        read_write_endpoint=pulumi.get(__ret__, 'read_write_endpoint'),
+        replication_role=pulumi.get(__ret__, 'replication_role'),
+        replication_state=pulumi.get(__ret__, 'replication_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_instance_failover_group)

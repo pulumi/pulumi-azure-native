@@ -181,17 +181,17 @@ def get_manager_extended_info(manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20170601:getManagerExtendedInfo', __args__, opts=opts, typ=GetManagerExtendedInfoResult).value
 
     return AwaitableGetManagerExtendedInfoResult(
-        algorithm=__ret__.algorithm,
-        encryption_key=__ret__.encryption_key,
-        encryption_key_thumbprint=__ret__.encryption_key_thumbprint,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        integrity_key=__ret__.integrity_key,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        portal_certificate_thumbprint=__ret__.portal_certificate_thumbprint,
-        type=__ret__.type,
-        version=__ret__.version)
+        algorithm=pulumi.get(__ret__, 'algorithm'),
+        encryption_key=pulumi.get(__ret__, 'encryption_key'),
+        encryption_key_thumbprint=pulumi.get(__ret__, 'encryption_key_thumbprint'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        integrity_key=pulumi.get(__ret__, 'integrity_key'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        portal_certificate_thumbprint=pulumi.get(__ret__, 'portal_certificate_thumbprint'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_manager_extended_info)

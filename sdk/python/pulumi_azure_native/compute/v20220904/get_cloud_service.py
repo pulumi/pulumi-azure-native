@@ -146,14 +146,14 @@ def get_cloud_service(cloud_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20220904:getCloudService', __args__, opts=opts, typ=GetCloudServiceResult).value
 
     return AwaitableGetCloudServiceResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_cloud_service)

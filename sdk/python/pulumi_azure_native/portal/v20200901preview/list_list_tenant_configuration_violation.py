@@ -65,5 +65,5 @@ def list_list_tenant_configuration_violation(opts: Optional[pulumi.InvokeOptions
     __ret__ = pulumi.runtime.invoke('azure-native:portal/v20200901preview:listListTenantConfigurationViolation', __args__, opts=opts, typ=ListListTenantConfigurationViolationResult).value
 
     return AwaitableListListTenantConfigurationViolationResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))

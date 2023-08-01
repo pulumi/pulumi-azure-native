@@ -212,21 +212,21 @@ def get_service(group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datamigration/v20220330preview:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        auto_stop_delay=__ret__.auto_stop_delay,
-        delete_resources_on_stop=__ret__.delete_resources_on_stop,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_key=__ret__.public_key,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_nic_id=__ret__.virtual_nic_id,
-        virtual_subnet_id=__ret__.virtual_subnet_id)
+        auto_stop_delay=pulumi.get(__ret__, 'auto_stop_delay'),
+        delete_resources_on_stop=pulumi.get(__ret__, 'delete_resources_on_stop'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_nic_id=pulumi.get(__ret__, 'virtual_nic_id'),
+        virtual_subnet_id=pulumi.get(__ret__, 'virtual_subnet_id'))
 
 
 @_utilities.lift_output_func(get_service)

@@ -146,14 +146,14 @@ def get_network_experiment_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkExperimentProfile', __args__, opts=opts, typ=GetNetworkExperimentProfileResult).value
 
     return AwaitableGetNetworkExperimentProfileResult(
-        enabled_state=__ret__.enabled_state,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_state=__ret__.resource_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        enabled_state=pulumi.get(__ret__, 'enabled_state'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_experiment_profile)

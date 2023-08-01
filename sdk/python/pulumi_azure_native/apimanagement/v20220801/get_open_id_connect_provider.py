@@ -172,16 +172,16 @@ def get_open_id_connect_provider(opid: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220801:getOpenIdConnectProvider', __args__, opts=opts, typ=GetOpenIdConnectProviderResult).value
 
     return AwaitableGetOpenIdConnectProviderResult(
-        client_id=__ret__.client_id,
-        client_secret=__ret__.client_secret,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        metadata_endpoint=__ret__.metadata_endpoint,
-        name=__ret__.name,
-        type=__ret__.type,
-        use_in_api_documentation=__ret__.use_in_api_documentation,
-        use_in_test_console=__ret__.use_in_test_console)
+        client_id=pulumi.get(__ret__, 'client_id'),
+        client_secret=pulumi.get(__ret__, 'client_secret'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata_endpoint=pulumi.get(__ret__, 'metadata_endpoint'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        use_in_api_documentation=pulumi.get(__ret__, 'use_in_api_documentation'),
+        use_in_test_console=pulumi.get(__ret__, 'use_in_test_console'))
 
 
 @_utilities.lift_output_func(get_open_id_connect_provider)

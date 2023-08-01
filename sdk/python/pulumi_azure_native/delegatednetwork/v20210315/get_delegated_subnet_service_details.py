@@ -158,15 +158,15 @@ def get_delegated_subnet_service_details(resource_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:delegatednetwork/v20210315:getDelegatedSubnetServiceDetails', __args__, opts=opts, typ=GetDelegatedSubnetServiceDetailsResult).value
 
     return AwaitableGetDelegatedSubnetServiceDetailsResult(
-        controller_details=__ret__.controller_details,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        subnet_details=__ret__.subnet_details,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        controller_details=pulumi.get(__ret__, 'controller_details'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        subnet_details=pulumi.get(__ret__, 'subnet_details'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_delegated_subnet_service_details)

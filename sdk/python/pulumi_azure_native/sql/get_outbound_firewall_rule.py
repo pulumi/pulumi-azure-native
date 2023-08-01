@@ -100,10 +100,10 @@ def get_outbound_firewall_rule(outbound_rule_fqdn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getOutboundFirewallRule', __args__, opts=opts, typ=GetOutboundFirewallRuleResult).value
 
     return AwaitableGetOutboundFirewallRuleResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_outbound_firewall_rule)

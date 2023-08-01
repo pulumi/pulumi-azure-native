@@ -257,23 +257,23 @@ def get_web_app_function(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppFunction', __args__, opts=opts, typ=GetWebAppFunctionResult).value
 
     return AwaitableGetWebAppFunctionResult(
-        config=__ret__.config,
-        config_href=__ret__.config_href,
-        files=__ret__.files,
-        function_app_id=__ret__.function_app_id,
-        href=__ret__.href,
-        id=__ret__.id,
-        invoke_url_template=__ret__.invoke_url_template,
-        is_disabled=__ret__.is_disabled,
-        kind=__ret__.kind,
-        language=__ret__.language,
-        name=__ret__.name,
-        script_href=__ret__.script_href,
-        script_root_path_href=__ret__.script_root_path_href,
-        secrets_file_href=__ret__.secrets_file_href,
-        test_data=__ret__.test_data,
-        test_data_href=__ret__.test_data_href,
-        type=__ret__.type)
+        config=pulumi.get(__ret__, 'config'),
+        config_href=pulumi.get(__ret__, 'config_href'),
+        files=pulumi.get(__ret__, 'files'),
+        function_app_id=pulumi.get(__ret__, 'function_app_id'),
+        href=pulumi.get(__ret__, 'href'),
+        id=pulumi.get(__ret__, 'id'),
+        invoke_url_template=pulumi.get(__ret__, 'invoke_url_template'),
+        is_disabled=pulumi.get(__ret__, 'is_disabled'),
+        kind=pulumi.get(__ret__, 'kind'),
+        language=pulumi.get(__ret__, 'language'),
+        name=pulumi.get(__ret__, 'name'),
+        script_href=pulumi.get(__ret__, 'script_href'),
+        script_root_path_href=pulumi.get(__ret__, 'script_root_path_href'),
+        secrets_file_href=pulumi.get(__ret__, 'secrets_file_href'),
+        test_data=pulumi.get(__ret__, 'test_data'),
+        test_data_href=pulumi.get(__ret__, 'test_data_href'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_function)

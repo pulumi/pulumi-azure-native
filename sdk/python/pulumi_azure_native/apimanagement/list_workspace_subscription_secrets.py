@@ -80,8 +80,8 @@ def list_workspace_subscription_secrets(resource_group_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:listWorkspaceSubscriptionSecrets', __args__, opts=opts, typ=ListWorkspaceSubscriptionSecretsResult).value
 
     return AwaitableListWorkspaceSubscriptionSecretsResult(
-        primary_key=__ret__.primary_key,
-        secondary_key=__ret__.secondary_key)
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_workspace_subscription_secrets)

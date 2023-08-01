@@ -73,8 +73,8 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearning/v20191001:listWorkspaceKeys', __args__, opts=opts, typ=ListWorkspaceKeysResult).value
 
     return AwaitableListWorkspaceKeysResult(
-        primary_token=__ret__.primary_token,
-        secondary_token=__ret__.secondary_token)
+        primary_token=pulumi.get(__ret__, 'primary_token'),
+        secondary_token=pulumi.get(__ret__, 'secondary_token'))
 
 
 @_utilities.lift_output_func(list_workspace_keys)

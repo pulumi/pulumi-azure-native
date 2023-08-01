@@ -237,21 +237,21 @@ def get_dedicated_host(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getDedicatedHost', __args__, opts=opts, typ=GetDedicatedHostResult).value
 
     return AwaitableGetDedicatedHostResult(
-        auto_replace_on_failure=__ret__.auto_replace_on_failure,
-        host_id=__ret__.host_id,
-        id=__ret__.id,
-        instance_view=__ret__.instance_view,
-        license_type=__ret__.license_type,
-        location=__ret__.location,
-        name=__ret__.name,
-        platform_fault_domain=__ret__.platform_fault_domain,
-        provisioning_state=__ret__.provisioning_state,
-        provisioning_time=__ret__.provisioning_time,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        time_created=__ret__.time_created,
-        type=__ret__.type,
-        virtual_machines=__ret__.virtual_machines)
+        auto_replace_on_failure=pulumi.get(__ret__, 'auto_replace_on_failure'),
+        host_id=pulumi.get(__ret__, 'host_id'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_view=pulumi.get(__ret__, 'instance_view'),
+        license_type=pulumi.get(__ret__, 'license_type'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        platform_fault_domain=pulumi.get(__ret__, 'platform_fault_domain'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        provisioning_time=pulumi.get(__ret__, 'provisioning_time'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
 
 
 @_utilities.lift_output_func(get_dedicated_host)

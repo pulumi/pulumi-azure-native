@@ -198,18 +198,18 @@ def get_gallery_application(gallery_application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getGalleryApplication', __args__, opts=opts, typ=GetGalleryApplicationResult).value
 
     return AwaitableGetGalleryApplicationResult(
-        custom_actions=__ret__.custom_actions,
-        description=__ret__.description,
-        end_of_life_date=__ret__.end_of_life_date,
-        eula=__ret__.eula,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        privacy_statement_uri=__ret__.privacy_statement_uri,
-        release_note_uri=__ret__.release_note_uri,
-        supported_os_type=__ret__.supported_os_type,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        custom_actions=pulumi.get(__ret__, 'custom_actions'),
+        description=pulumi.get(__ret__, 'description'),
+        end_of_life_date=pulumi.get(__ret__, 'end_of_life_date'),
+        eula=pulumi.get(__ret__, 'eula'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        privacy_statement_uri=pulumi.get(__ret__, 'privacy_statement_uri'),
+        release_note_uri=pulumi.get(__ret__, 'release_note_uri'),
+        supported_os_type=pulumi.get(__ret__, 'supported_os_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_gallery_application)

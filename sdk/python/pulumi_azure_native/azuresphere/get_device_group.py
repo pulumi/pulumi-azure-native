@@ -189,17 +189,17 @@ def get_device_group(catalog_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuresphere:getDeviceGroup', __args__, opts=opts, typ=GetDeviceGroupResult).value
 
     return AwaitableGetDeviceGroupResult(
-        allow_crash_dumps_collection=__ret__.allow_crash_dumps_collection,
-        description=__ret__.description,
-        has_deployment=__ret__.has_deployment,
-        id=__ret__.id,
-        name=__ret__.name,
-        os_feed_type=__ret__.os_feed_type,
-        provisioning_state=__ret__.provisioning_state,
-        regional_data_boundary=__ret__.regional_data_boundary,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        update_policy=__ret__.update_policy)
+        allow_crash_dumps_collection=pulumi.get(__ret__, 'allow_crash_dumps_collection'),
+        description=pulumi.get(__ret__, 'description'),
+        has_deployment=pulumi.get(__ret__, 'has_deployment'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        os_feed_type=pulumi.get(__ret__, 'os_feed_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        regional_data_boundary=pulumi.get(__ret__, 'regional_data_boundary'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        update_policy=pulumi.get(__ret__, 'update_policy'))
 
 
 @_utilities.lift_output_func(get_device_group)

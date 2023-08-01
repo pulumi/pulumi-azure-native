@@ -218,20 +218,20 @@ def get_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deviceupdate/v20230701:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        encryption=__ret__.encryption,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        locations=__ret__.locations,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        encryption=pulumi.get(__ret__, 'encryption'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        locations=pulumi.get(__ret__, 'locations'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_account)

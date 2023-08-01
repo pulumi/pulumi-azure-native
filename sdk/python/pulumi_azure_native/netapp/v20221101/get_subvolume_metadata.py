@@ -214,19 +214,19 @@ def get_subvolume_metadata(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20221101:getSubvolumeMetadata', __args__, opts=opts, typ=GetSubvolumeMetadataResult).value
 
     return AwaitableGetSubvolumeMetadataResult(
-        accessed_time_stamp=__ret__.accessed_time_stamp,
-        bytes_used=__ret__.bytes_used,
-        changed_time_stamp=__ret__.changed_time_stamp,
-        creation_time_stamp=__ret__.creation_time_stamp,
-        id=__ret__.id,
-        modified_time_stamp=__ret__.modified_time_stamp,
-        name=__ret__.name,
-        parent_path=__ret__.parent_path,
-        path=__ret__.path,
-        permissions=__ret__.permissions,
-        provisioning_state=__ret__.provisioning_state,
-        size=__ret__.size,
-        type=__ret__.type)
+        accessed_time_stamp=pulumi.get(__ret__, 'accessed_time_stamp'),
+        bytes_used=pulumi.get(__ret__, 'bytes_used'),
+        changed_time_stamp=pulumi.get(__ret__, 'changed_time_stamp'),
+        creation_time_stamp=pulumi.get(__ret__, 'creation_time_stamp'),
+        id=pulumi.get(__ret__, 'id'),
+        modified_time_stamp=pulumi.get(__ret__, 'modified_time_stamp'),
+        name=pulumi.get(__ret__, 'name'),
+        parent_path=pulumi.get(__ret__, 'parent_path'),
+        path=pulumi.get(__ret__, 'path'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        size=pulumi.get(__ret__, 'size'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_subvolume_metadata)

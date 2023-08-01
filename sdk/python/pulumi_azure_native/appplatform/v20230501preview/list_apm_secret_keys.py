@@ -64,7 +64,7 @@ def list_apm_secret_keys(apm_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform/v20230501preview:listApmSecretKeys', __args__, opts=opts, typ=ListApmSecretKeysResult).value
 
     return AwaitableListApmSecretKeysResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_apm_secret_keys)

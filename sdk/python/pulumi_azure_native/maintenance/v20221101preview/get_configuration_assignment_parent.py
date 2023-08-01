@@ -149,13 +149,13 @@ def get_configuration_assignment_parent(configuration_assignment_name: Optional[
     __ret__ = pulumi.runtime.invoke('azure-native:maintenance/v20221101preview:getConfigurationAssignmentParent', __args__, opts=opts, typ=GetConfigurationAssignmentParentResult).value
 
     return AwaitableGetConfigurationAssignmentParentResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        maintenance_configuration_id=__ret__.maintenance_configuration_id,
-        name=__ret__.name,
-        resource_id=__ret__.resource_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        maintenance_configuration_id=pulumi.get(__ret__, 'maintenance_configuration_id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_configuration_assignment_parent)

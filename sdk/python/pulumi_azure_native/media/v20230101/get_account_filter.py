@@ -137,13 +137,13 @@ def get_account_filter(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20230101:getAccountFilter', __args__, opts=opts, typ=GetAccountFilterResult).value
 
     return AwaitableGetAccountFilterResult(
-        first_quality=__ret__.first_quality,
-        id=__ret__.id,
-        name=__ret__.name,
-        presentation_time_range=__ret__.presentation_time_range,
-        system_data=__ret__.system_data,
-        tracks=__ret__.tracks,
-        type=__ret__.type)
+        first_quality=pulumi.get(__ret__, 'first_quality'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        presentation_time_range=pulumi.get(__ret__, 'presentation_time_range'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tracks=pulumi.get(__ret__, 'tracks'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_account_filter)

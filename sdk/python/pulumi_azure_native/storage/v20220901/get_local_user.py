@@ -185,17 +185,17 @@ def get_local_user(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage/v20220901:getLocalUser', __args__, opts=opts, typ=GetLocalUserResult).value
 
     return AwaitableGetLocalUserResult(
-        has_shared_key=__ret__.has_shared_key,
-        has_ssh_key=__ret__.has_ssh_key,
-        has_ssh_password=__ret__.has_ssh_password,
-        home_directory=__ret__.home_directory,
-        id=__ret__.id,
-        name=__ret__.name,
-        permission_scopes=__ret__.permission_scopes,
-        sid=__ret__.sid,
-        ssh_authorized_keys=__ret__.ssh_authorized_keys,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        has_shared_key=pulumi.get(__ret__, 'has_shared_key'),
+        has_ssh_key=pulumi.get(__ret__, 'has_ssh_key'),
+        has_ssh_password=pulumi.get(__ret__, 'has_ssh_password'),
+        home_directory=pulumi.get(__ret__, 'home_directory'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        permission_scopes=pulumi.get(__ret__, 'permission_scopes'),
+        sid=pulumi.get(__ret__, 'sid'),
+        ssh_authorized_keys=pulumi.get(__ret__, 'ssh_authorized_keys'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_local_user)
