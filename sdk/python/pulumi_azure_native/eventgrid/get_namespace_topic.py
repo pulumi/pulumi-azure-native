@@ -151,14 +151,14 @@ def get_namespace_topic(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getNamespaceTopic', __args__, opts=opts, typ=GetNamespaceTopicResult).value
 
     return AwaitableGetNamespaceTopicResult(
-        event_retention_in_days=__ret__.event_retention_in_days,
-        id=__ret__.id,
-        input_schema=__ret__.input_schema,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        publisher_type=__ret__.publisher_type,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        event_retention_in_days=pulumi.get(__ret__, 'event_retention_in_days'),
+        id=pulumi.get(__ret__, 'id'),
+        input_schema=pulumi.get(__ret__, 'input_schema'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        publisher_type=pulumi.get(__ret__, 'publisher_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_namespace_topic)

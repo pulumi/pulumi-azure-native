@@ -66,7 +66,7 @@ def list_cluster_zones(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:listClusterZones', __args__, opts=opts, typ=ListClusterZonesResult).value
 
     return AwaitableListClusterZonesResult(
-        zones=__ret__.zones)
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(list_cluster_zones)

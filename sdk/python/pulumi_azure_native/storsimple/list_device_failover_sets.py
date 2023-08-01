@@ -66,7 +66,7 @@ def list_device_failover_sets(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:listDeviceFailoverSets', __args__, opts=opts, typ=ListDeviceFailoverSetsResult).value
 
     return AwaitableListDeviceFailoverSetsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_device_failover_sets)

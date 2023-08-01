@@ -116,11 +116,11 @@ def get_component_version(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230401preview:getComponentVersion', __args__, opts=opts, typ=GetComponentVersionResult).value
 
     return AwaitableGetComponentVersionResult(
-        component_version_properties=__ret__.component_version_properties,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        component_version_properties=pulumi.get(__ret__, 'component_version_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_component_version)

@@ -207,19 +207,19 @@ def get_cloud_hsm_cluster(cloud_hsm_cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hardwaresecuritymodules:getCloudHsmCluster', __args__, opts=opts, typ=GetCloudHsmClusterResult).value
 
     return AwaitableGetCloudHsmClusterResult(
-        auto_generated_domain_name_label_scope=__ret__.auto_generated_domain_name_label_scope,
-        hsms=__ret__.hsms,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        security_domain=__ret__.security_domain,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        auto_generated_domain_name_label_scope=pulumi.get(__ret__, 'auto_generated_domain_name_label_scope'),
+        hsms=pulumi.get(__ret__, 'hsms'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        security_domain=pulumi.get(__ret__, 'security_domain'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cloud_hsm_cluster)

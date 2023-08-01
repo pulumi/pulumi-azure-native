@@ -158,15 +158,15 @@ def get_ip_prefix(ip_prefix_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230201preview:getIpPrefix', __args__, opts=opts, typ=GetIpPrefixResult).value
 
     return AwaitableGetIpPrefixResult(
-        annotation=__ret__.annotation,
-        id=__ret__.id,
-        ip_prefix_rules=__ret__.ip_prefix_rules,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        annotation=pulumi.get(__ret__, 'annotation'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_prefix_rules=pulumi.get(__ret__, 'ip_prefix_rules'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_ip_prefix)

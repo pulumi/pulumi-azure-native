@@ -181,17 +181,17 @@ def get_controller_details(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:delegatednetwork/v20230518preview:getControllerDetails', __args__, opts=opts, typ=GetControllerDetailsResult).value
 
     return AwaitableGetControllerDetailsResult(
-        dnc_app_id=__ret__.dnc_app_id,
-        dnc_endpoint=__ret__.dnc_endpoint,
-        dnc_tenant_id=__ret__.dnc_tenant_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        purpose=__ret__.purpose,
-        resource_guid=__ret__.resource_guid,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        dnc_app_id=pulumi.get(__ret__, 'dnc_app_id'),
+        dnc_endpoint=pulumi.get(__ret__, 'dnc_endpoint'),
+        dnc_tenant_id=pulumi.get(__ret__, 'dnc_tenant_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        purpose=pulumi.get(__ret__, 'purpose'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_controller_details)

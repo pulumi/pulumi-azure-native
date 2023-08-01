@@ -215,19 +215,19 @@ def get_user(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20181015:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        email=__ret__.email,
-        family_name=__ret__.family_name,
-        given_name=__ret__.given_name,
-        id=__ret__.id,
-        latest_operation_result=__ret__.latest_operation_result,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
-        total_usage=__ret__.total_usage,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        email=pulumi.get(__ret__, 'email'),
+        family_name=pulumi.get(__ret__, 'family_name'),
+        given_name=pulumi.get(__ret__, 'given_name'),
+        id=pulumi.get(__ret__, 'id'),
+        latest_operation_result=pulumi.get(__ret__, 'latest_operation_result'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        total_usage=pulumi.get(__ret__, 'total_usage'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_user)

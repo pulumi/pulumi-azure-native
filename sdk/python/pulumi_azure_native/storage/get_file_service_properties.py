@@ -138,13 +138,13 @@ def get_file_service_properties(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage:getFileServiceProperties', __args__, opts=opts, typ=GetFileServicePropertiesResult).value
 
     return AwaitableGetFileServicePropertiesResult(
-        cors=__ret__.cors,
-        id=__ret__.id,
-        name=__ret__.name,
-        protocol_settings=__ret__.protocol_settings,
-        share_delete_retention_policy=__ret__.share_delete_retention_policy,
-        sku=__ret__.sku,
-        type=__ret__.type)
+        cors=pulumi.get(__ret__, 'cors'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        protocol_settings=pulumi.get(__ret__, 'protocol_settings'),
+        share_delete_retention_policy=pulumi.get(__ret__, 'share_delete_retention_policy'),
+        sku=pulumi.get(__ret__, 'sku'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_file_service_properties)

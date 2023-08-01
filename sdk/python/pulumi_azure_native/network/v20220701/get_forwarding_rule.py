@@ -173,16 +173,16 @@ def get_forwarding_rule(dns_forwarding_ruleset_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220701:getForwardingRule', __args__, opts=opts, typ=GetForwardingRuleResult).value
 
     return AwaitableGetForwardingRuleResult(
-        domain_name=__ret__.domain_name,
-        etag=__ret__.etag,
-        forwarding_rule_state=__ret__.forwarding_rule_state,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        target_dns_servers=__ret__.target_dns_servers,
-        type=__ret__.type)
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        forwarding_rule_state=pulumi.get(__ret__, 'forwarding_rule_state'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_dns_servers=pulumi.get(__ret__, 'target_dns_servers'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_forwarding_rule)

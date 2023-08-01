@@ -174,16 +174,16 @@ def get_migration_config(config_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicebus:getMigrationConfig', __args__, opts=opts, typ=GetMigrationConfigResult).value
 
     return AwaitableGetMigrationConfigResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        migration_state=__ret__.migration_state,
-        name=__ret__.name,
-        pending_replication_operations_count=__ret__.pending_replication_operations_count,
-        post_migration_name=__ret__.post_migration_name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        target_namespace=__ret__.target_namespace,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        migration_state=pulumi.get(__ret__, 'migration_state'),
+        name=pulumi.get(__ret__, 'name'),
+        pending_replication_operations_count=pulumi.get(__ret__, 'pending_replication_operations_count'),
+        post_migration_name=pulumi.get(__ret__, 'post_migration_name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_namespace=pulumi.get(__ret__, 'target_namespace'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_migration_config)

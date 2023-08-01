@@ -100,10 +100,10 @@ def get_linked_service(linked_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20151101preview:getLinkedService', __args__, opts=opts, typ=GetLinkedServiceResult).value
 
     return AwaitableGetLinkedServiceResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_id=__ret__.resource_id,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_linked_service)

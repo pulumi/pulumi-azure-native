@@ -204,18 +204,18 @@ def get_resource(parent_resource_path: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources:getResource', __args__, opts=opts, typ=GetResourceResult).value
 
     return AwaitableGetResourceResult(
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        managed_by=__ret__.managed_by,
-        name=__ret__.name,
-        plan=__ret__.plan,
-        properties=__ret__.properties,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
+        name=pulumi.get(__ret__, 'name'),
+        plan=pulumi.get(__ret__, 'plan'),
+        properties=pulumi.get(__ret__, 'properties'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_resource)

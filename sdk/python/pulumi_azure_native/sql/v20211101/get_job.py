@@ -128,12 +128,12 @@ def get_job(job_agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20211101:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        schedule=__ret__.schedule,
-        type=__ret__.type,
-        version=__ret__.version)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_job)

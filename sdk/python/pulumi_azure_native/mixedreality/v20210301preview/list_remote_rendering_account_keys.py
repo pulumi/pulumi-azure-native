@@ -73,8 +73,8 @@ def list_remote_rendering_account_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mixedreality/v20210301preview:listRemoteRenderingAccountKeys', __args__, opts=opts, typ=ListRemoteRenderingAccountKeysResult).value
 
     return AwaitableListRemoteRenderingAccountKeysResult(
-        primary_key=__ret__.primary_key,
-        secondary_key=__ret__.secondary_key)
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_remote_rendering_account_keys)

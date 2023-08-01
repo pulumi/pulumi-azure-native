@@ -182,17 +182,17 @@ def get_tenant_activity_log_alert(alert_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:alertsmanagement/v20230401preview:getTenantActivityLogAlert', __args__, opts=opts, typ=GetTenantActivityLogAlertResult).value
 
     return AwaitableGetTenantActivityLogAlertResult(
-        actions=__ret__.actions,
-        condition=__ret__.condition,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        scopes=__ret__.scopes,
-        tags=__ret__.tags,
-        tenant_scope=__ret__.tenant_scope,
-        type=__ret__.type)
+        actions=pulumi.get(__ret__, 'actions'),
+        condition=pulumi.get(__ret__, 'condition'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        scopes=pulumi.get(__ret__, 'scopes'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_scope=pulumi.get(__ret__, 'tenant_scope'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_tenant_activity_log_alert)

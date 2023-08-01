@@ -96,9 +96,9 @@ def list_policy_fragment_references(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:listPolicyFragmentReferences', __args__, opts=opts, typ=ListPolicyFragmentReferencesResult).value
 
     return AwaitableListPolicyFragmentReferencesResult(
-        count=__ret__.count,
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        count=pulumi.get(__ret__, 'count'),
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_policy_fragment_references)

@@ -181,17 +181,17 @@ def get_service(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:windowsiot/v20190601:getService', __args__, opts=opts, typ=GetServiceResult).value
 
     return AwaitableGetServiceResult(
-        admin_domain_name=__ret__.admin_domain_name,
-        billing_domain_name=__ret__.billing_domain_name,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        notes=__ret__.notes,
-        quantity=__ret__.quantity,
-        start_date=__ret__.start_date,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        admin_domain_name=pulumi.get(__ret__, 'admin_domain_name'),
+        billing_domain_name=pulumi.get(__ret__, 'billing_domain_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        notes=pulumi.get(__ret__, 'notes'),
+        quantity=pulumi.get(__ret__, 'quantity'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_service)

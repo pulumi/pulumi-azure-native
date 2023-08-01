@@ -77,8 +77,8 @@ def get_trigger_event_subscription_status(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory:getTriggerEventSubscriptionStatus', __args__, opts=opts, typ=GetTriggerEventSubscriptionStatusResult).value
 
     return AwaitableGetTriggerEventSubscriptionStatusResult(
-        status=__ret__.status,
-        trigger_name=__ret__.trigger_name)
+        status=pulumi.get(__ret__, 'status'),
+        trigger_name=pulumi.get(__ret__, 'trigger_name'))
 
 
 @_utilities.lift_output_func(get_trigger_event_subscription_status)

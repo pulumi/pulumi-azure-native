@@ -173,16 +173,16 @@ def get_storage_account(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20220301:getStorageAccount', __args__, opts=opts, typ=GetStorageAccountResult).value
 
     return AwaitableGetStorageAccountResult(
-        blob_endpoint=__ret__.blob_endpoint,
-        container_count=__ret__.container_count,
-        data_policy=__ret__.data_policy,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        storage_account_credential_id=__ret__.storage_account_credential_id,
-        storage_account_status=__ret__.storage_account_status,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        blob_endpoint=pulumi.get(__ret__, 'blob_endpoint'),
+        container_count=pulumi.get(__ret__, 'container_count'),
+        data_policy=pulumi.get(__ret__, 'data_policy'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_account_credential_id=pulumi.get(__ret__, 'storage_account_credential_id'),
+        storage_account_status=pulumi.get(__ret__, 'storage_account_status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_storage_account)

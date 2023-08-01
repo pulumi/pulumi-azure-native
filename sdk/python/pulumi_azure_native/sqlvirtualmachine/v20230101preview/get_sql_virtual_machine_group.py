@@ -206,19 +206,19 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sqlvirtualmachine/v20230101preview:getSqlVirtualMachineGroup', __args__, opts=opts, typ=GetSqlVirtualMachineGroupResult).value
 
     return AwaitableGetSqlVirtualMachineGroupResult(
-        cluster_configuration=__ret__.cluster_configuration,
-        cluster_manager_type=__ret__.cluster_manager_type,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        scale_type=__ret__.scale_type,
-        sql_image_offer=__ret__.sql_image_offer,
-        sql_image_sku=__ret__.sql_image_sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        wsfc_domain_profile=__ret__.wsfc_domain_profile)
+        cluster_configuration=pulumi.get(__ret__, 'cluster_configuration'),
+        cluster_manager_type=pulumi.get(__ret__, 'cluster_manager_type'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        scale_type=pulumi.get(__ret__, 'scale_type'),
+        sql_image_offer=pulumi.get(__ret__, 'sql_image_offer'),
+        sql_image_sku=pulumi.get(__ret__, 'sql_image_sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        wsfc_domain_profile=pulumi.get(__ret__, 'wsfc_domain_profile'))
 
 
 @_utilities.lift_output_func(get_sql_virtual_machine_group)

@@ -66,7 +66,7 @@ def list_dapr_component_secrets(component_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:listDaprComponentSecrets', __args__, opts=opts, typ=ListDaprComponentSecretsResult).value
 
     return AwaitableListDaprComponentSecretsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_dapr_component_secrets)

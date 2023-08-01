@@ -170,16 +170,16 @@ def get_internet_gateway_rule(internet_gateway_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230615:getInternetGatewayRule', __args__, opts=opts, typ=GetInternetGatewayRuleResult).value
 
     return AwaitableGetInternetGatewayRuleResult(
-        annotation=__ret__.annotation,
-        id=__ret__.id,
-        internet_gateway_ids=__ret__.internet_gateway_ids,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        rule_properties=__ret__.rule_properties,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        annotation=pulumi.get(__ret__, 'annotation'),
+        id=pulumi.get(__ret__, 'id'),
+        internet_gateway_ids=pulumi.get(__ret__, 'internet_gateway_ids'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        rule_properties=pulumi.get(__ret__, 'rule_properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_internet_gateway_rule)

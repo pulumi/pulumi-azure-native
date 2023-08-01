@@ -232,21 +232,21 @@ def get_partner_topic(partner_topic_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20220615:getPartnerTopic', __args__, opts=opts, typ=GetPartnerTopicResult).value
 
     return AwaitableGetPartnerTopicResult(
-        activation_state=__ret__.activation_state,
-        event_type_info=__ret__.event_type_info,
-        expiration_time_if_not_activated_utc=__ret__.expiration_time_if_not_activated_utc,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        message_for_activation=__ret__.message_for_activation,
-        name=__ret__.name,
-        partner_registration_immutable_id=__ret__.partner_registration_immutable_id,
-        partner_topic_friendly_description=__ret__.partner_topic_friendly_description,
-        provisioning_state=__ret__.provisioning_state,
-        source=__ret__.source,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        activation_state=pulumi.get(__ret__, 'activation_state'),
+        event_type_info=pulumi.get(__ret__, 'event_type_info'),
+        expiration_time_if_not_activated_utc=pulumi.get(__ret__, 'expiration_time_if_not_activated_utc'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        message_for_activation=pulumi.get(__ret__, 'message_for_activation'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_registration_immutable_id=pulumi.get(__ret__, 'partner_registration_immutable_id'),
+        partner_topic_friendly_description=pulumi.get(__ret__, 'partner_topic_friendly_description'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source=pulumi.get(__ret__, 'source'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_partner_topic)

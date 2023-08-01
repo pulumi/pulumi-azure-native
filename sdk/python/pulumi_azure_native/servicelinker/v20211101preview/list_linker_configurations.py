@@ -62,7 +62,7 @@ def list_linker_configurations(linker_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicelinker/v20211101preview:listLinkerConfigurations', __args__, opts=opts, typ=ListLinkerConfigurationsResult).value
 
     return AwaitableListLinkerConfigurationsResult(
-        configurations=__ret__.configurations)
+        configurations=pulumi.get(__ret__, 'configurations'))
 
 
 @_utilities.lift_output_func(list_linker_configurations)

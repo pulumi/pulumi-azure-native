@@ -266,24 +266,24 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20200801:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        created_date=__ret__.created_date,
-        customer_id=__ret__.customer_id,
-        e_tag=__ret__.e_tag,
-        features=__ret__.features,
-        force_cmk_for_query=__ret__.force_cmk_for_query,
-        id=__ret__.id,
-        location=__ret__.location,
-        modified_date=__ret__.modified_date,
-        name=__ret__.name,
-        private_link_scoped_resources=__ret__.private_link_scoped_resources,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access_for_ingestion=__ret__.public_network_access_for_ingestion,
-        public_network_access_for_query=__ret__.public_network_access_for_query,
-        retention_in_days=__ret__.retention_in_days,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        workspace_capping=__ret__.workspace_capping)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        customer_id=pulumi.get(__ret__, 'customer_id'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        features=pulumi.get(__ret__, 'features'),
+        force_cmk_for_query=pulumi.get(__ret__, 'force_cmk_for_query'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        modified_date=pulumi.get(__ret__, 'modified_date'),
+        name=pulumi.get(__ret__, 'name'),
+        private_link_scoped_resources=pulumi.get(__ret__, 'private_link_scoped_resources'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access_for_ingestion=pulumi.get(__ret__, 'public_network_access_for_ingestion'),
+        public_network_access_for_query=pulumi.get(__ret__, 'public_network_access_for_query'),
+        retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        workspace_capping=pulumi.get(__ret__, 'workspace_capping'))
 
 
 @_utilities.lift_output_func(get_workspace)

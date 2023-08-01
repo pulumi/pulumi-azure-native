@@ -65,7 +65,7 @@ def list_asset_streaming_locators(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20230101:listAssetStreamingLocators', __args__, opts=opts, typ=ListAssetStreamingLocatorsResult).value
 
     return AwaitableListAssetStreamingLocatorsResult(
-        streaming_locators=__ret__.streaming_locators)
+        streaming_locators=pulumi.get(__ret__, 'streaming_locators'))
 
 
 @_utilities.lift_output_func(list_asset_streaming_locators)

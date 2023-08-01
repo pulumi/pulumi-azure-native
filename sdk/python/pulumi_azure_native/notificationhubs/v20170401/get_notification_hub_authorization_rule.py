@@ -236,21 +236,21 @@ def get_notification_hub_authorization_rule(authorization_rule_name: Optional[st
     __ret__ = pulumi.runtime.invoke('azure-native:notificationhubs/v20170401:getNotificationHubAuthorizationRule', __args__, opts=opts, typ=GetNotificationHubAuthorizationRuleResult).value
 
     return AwaitableGetNotificationHubAuthorizationRuleResult(
-        claim_type=__ret__.claim_type,
-        claim_value=__ret__.claim_value,
-        created_time=__ret__.created_time,
-        id=__ret__.id,
-        key_name=__ret__.key_name,
-        location=__ret__.location,
-        modified_time=__ret__.modified_time,
-        name=__ret__.name,
-        primary_key=__ret__.primary_key,
-        revision=__ret__.revision,
-        rights=__ret__.rights,
-        secondary_key=__ret__.secondary_key,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        claim_type=pulumi.get(__ret__, 'claim_type'),
+        claim_value=pulumi.get(__ret__, 'claim_value'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        id=pulumi.get(__ret__, 'id'),
+        key_name=pulumi.get(__ret__, 'key_name'),
+        location=pulumi.get(__ret__, 'location'),
+        modified_time=pulumi.get(__ret__, 'modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        revision=pulumi.get(__ret__, 'revision'),
+        rights=pulumi.get(__ret__, 'rights'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_notification_hub_authorization_rule)

@@ -267,24 +267,24 @@ def get_v_center(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getVCenter', __args__, opts=opts, typ=GetVCenterResult).value
 
     return AwaitableGetVCenterResult(
-        connection_status=__ret__.connection_status,
-        credentials=__ret__.credentials,
-        custom_resource_name=__ret__.custom_resource_name,
-        extended_location=__ret__.extended_location,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        instance_uuid=__ret__.instance_uuid,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        port=__ret__.port,
-        provisioning_state=__ret__.provisioning_state,
-        statuses=__ret__.statuses,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        uuid=__ret__.uuid,
-        version=__ret__.version)
+        connection_status=pulumi.get(__ret__, 'connection_status'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_uuid=pulumi.get(__ret__, 'instance_uuid'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        port=pulumi.get(__ret__, 'port'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        statuses=pulumi.get(__ret__, 'statuses'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        uuid=pulumi.get(__ret__, 'uuid'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_v_center)

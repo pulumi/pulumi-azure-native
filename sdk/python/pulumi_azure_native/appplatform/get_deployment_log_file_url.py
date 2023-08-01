@@ -68,7 +68,7 @@ def get_deployment_log_file_url(app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform:getDeploymentLogFileUrl', __args__, opts=opts, typ=GetDeploymentLogFileUrlResult).value
 
     return AwaitableGetDeploymentLogFileUrlResult(
-        url=__ret__.url)
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_deployment_log_file_url)

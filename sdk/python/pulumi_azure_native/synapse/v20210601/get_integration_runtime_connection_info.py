@@ -124,12 +124,12 @@ def get_integration_runtime_connection_info(integration_runtime_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601:getIntegrationRuntimeConnectionInfo', __args__, opts=opts, typ=GetIntegrationRuntimeConnectionInfoResult).value
 
     return AwaitableGetIntegrationRuntimeConnectionInfoResult(
-        host_service_uri=__ret__.host_service_uri,
-        identity_cert_thumbprint=__ret__.identity_cert_thumbprint,
-        is_identity_cert_exprired=__ret__.is_identity_cert_exprired,
-        public_key=__ret__.public_key,
-        service_token=__ret__.service_token,
-        version=__ret__.version)
+        host_service_uri=pulumi.get(__ret__, 'host_service_uri'),
+        identity_cert_thumbprint=pulumi.get(__ret__, 'identity_cert_thumbprint'),
+        is_identity_cert_exprired=pulumi.get(__ret__, 'is_identity_cert_exprired'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        service_token=pulumi.get(__ret__, 'service_token'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_integration_runtime_connection_info)

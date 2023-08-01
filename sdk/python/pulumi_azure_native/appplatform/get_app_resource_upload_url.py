@@ -77,8 +77,8 @@ def get_app_resource_upload_url(app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform:getAppResourceUploadUrl', __args__, opts=opts, typ=GetAppResourceUploadUrlResult).value
 
     return AwaitableGetAppResourceUploadUrlResult(
-        relative_path=__ret__.relative_path,
-        upload_url=__ret__.upload_url)
+        relative_path=pulumi.get(__ret__, 'relative_path'),
+        upload_url=pulumi.get(__ret__, 'upload_url'))
 
 
 @_utilities.lift_output_func(get_app_resource_upload_url)

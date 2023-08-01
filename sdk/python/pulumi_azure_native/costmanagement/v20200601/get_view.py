@@ -239,22 +239,22 @@ def get_view(view_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement/v20200601:getView', __args__, opts=opts, typ=GetViewResult).value
 
     return AwaitableGetViewResult(
-        accumulated=__ret__.accumulated,
-        chart=__ret__.chart,
-        created_on=__ret__.created_on,
-        dataset=__ret__.dataset,
-        display_name=__ret__.display_name,
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        kpis=__ret__.kpis,
-        metric=__ret__.metric,
-        modified_on=__ret__.modified_on,
-        name=__ret__.name,
-        pivots=__ret__.pivots,
-        scope=__ret__.scope,
-        time_period=__ret__.time_period,
-        timeframe=__ret__.timeframe,
-        type=__ret__.type)
+        accumulated=pulumi.get(__ret__, 'accumulated'),
+        chart=pulumi.get(__ret__, 'chart'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        dataset=pulumi.get(__ret__, 'dataset'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        kpis=pulumi.get(__ret__, 'kpis'),
+        metric=pulumi.get(__ret__, 'metric'),
+        modified_on=pulumi.get(__ret__, 'modified_on'),
+        name=pulumi.get(__ret__, 'name'),
+        pivots=pulumi.get(__ret__, 'pivots'),
+        scope=pulumi.get(__ret__, 'scope'),
+        time_period=pulumi.get(__ret__, 'time_period'),
+        timeframe=pulumi.get(__ret__, 'timeframe'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_view)

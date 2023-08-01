@@ -124,12 +124,12 @@ def get_global_schema(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getGlobalSchema', __args__, opts=opts, typ=GetGlobalSchemaResult).value
 
     return AwaitableGetGlobalSchemaResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        schema_type=__ret__.schema_type,
-        type=__ret__.type,
-        value=__ret__.value)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        schema_type=pulumi.get(__ret__, 'schema_type'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_global_schema)

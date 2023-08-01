@@ -143,14 +143,14 @@ def get_hyper_v_site(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:offazure/v20200707:getHyperVSite', __args__, opts=opts, typ=GetHyperVSiteResult).value
 
     return AwaitableGetHyperVSiteResult(
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hyper_v_site)

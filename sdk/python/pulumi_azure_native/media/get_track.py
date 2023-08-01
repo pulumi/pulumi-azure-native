@@ -117,11 +117,11 @@ def get_track(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media:getTrack', __args__, opts=opts, typ=GetTrackResult).value
 
     return AwaitableGetTrackResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        track=__ret__.track,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        track=pulumi.get(__ret__, 'track'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_track)

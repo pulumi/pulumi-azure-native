@@ -133,13 +133,13 @@ def get_scope_assignment(scope: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetwork/v20190601preview:getScopeAssignment', __args__, opts=opts, typ=GetScopeAssignmentResult).value
 
     return AwaitableGetScopeAssignmentResult(
-        assigned_managed_network=__ret__.assigned_managed_network,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        assigned_managed_network=pulumi.get(__ret__, 'assigned_managed_network'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_scope_assignment)

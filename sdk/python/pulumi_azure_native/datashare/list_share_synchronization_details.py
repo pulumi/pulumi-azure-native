@@ -114,8 +114,8 @@ def list_share_synchronization_details(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:listShareSynchronizationDetails', __args__, opts=opts, typ=ListShareSynchronizationDetailsResult).value
 
     return AwaitableListShareSynchronizationDetailsResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_share_synchronization_details)

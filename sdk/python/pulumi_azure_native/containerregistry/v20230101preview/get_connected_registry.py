@@ -245,22 +245,22 @@ def get_connected_registry(connected_registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20230101preview:getConnectedRegistry', __args__, opts=opts, typ=GetConnectedRegistryResult).value
 
     return AwaitableGetConnectedRegistryResult(
-        activation=__ret__.activation,
-        client_token_ids=__ret__.client_token_ids,
-        connection_state=__ret__.connection_state,
-        id=__ret__.id,
-        last_activity_time=__ret__.last_activity_time,
-        logging=__ret__.logging,
-        login_server=__ret__.login_server,
-        mode=__ret__.mode,
-        name=__ret__.name,
-        notifications_list=__ret__.notifications_list,
-        parent=__ret__.parent,
-        provisioning_state=__ret__.provisioning_state,
-        status_details=__ret__.status_details,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        activation=pulumi.get(__ret__, 'activation'),
+        client_token_ids=pulumi.get(__ret__, 'client_token_ids'),
+        connection_state=pulumi.get(__ret__, 'connection_state'),
+        id=pulumi.get(__ret__, 'id'),
+        last_activity_time=pulumi.get(__ret__, 'last_activity_time'),
+        logging=pulumi.get(__ret__, 'logging'),
+        login_server=pulumi.get(__ret__, 'login_server'),
+        mode=pulumi.get(__ret__, 'mode'),
+        name=pulumi.get(__ret__, 'name'),
+        notifications_list=pulumi.get(__ret__, 'notifications_list'),
+        parent=pulumi.get(__ret__, 'parent'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status_details=pulumi.get(__ret__, 'status_details'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_connected_registry)

@@ -76,8 +76,8 @@ def list_integration_runtime_auth_keys(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory/v20180601:listIntegrationRuntimeAuthKeys', __args__, opts=opts, typ=ListIntegrationRuntimeAuthKeysResult).value
 
     return AwaitableListIntegrationRuntimeAuthKeysResult(
-        auth_key1=__ret__.auth_key1,
-        auth_key2=__ret__.auth_key2)
+        auth_key1=pulumi.get(__ret__, 'auth_key1'),
+        auth_key2=pulumi.get(__ret__, 'auth_key2'))
 
 
 @_utilities.lift_output_func(list_integration_runtime_auth_keys)

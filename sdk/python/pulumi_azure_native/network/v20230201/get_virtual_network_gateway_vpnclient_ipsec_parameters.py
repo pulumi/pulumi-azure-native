@@ -145,14 +145,14 @@ def get_virtual_network_gateway_vpnclient_ipsec_parameters(resource_group_name: 
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getVirtualNetworkGatewayVpnclientIpsecParameters', __args__, opts=opts, typ=GetVirtualNetworkGatewayVpnclientIpsecParametersResult).value
 
     return AwaitableGetVirtualNetworkGatewayVpnclientIpsecParametersResult(
-        dh_group=__ret__.dh_group,
-        ike_encryption=__ret__.ike_encryption,
-        ike_integrity=__ret__.ike_integrity,
-        ipsec_encryption=__ret__.ipsec_encryption,
-        ipsec_integrity=__ret__.ipsec_integrity,
-        pfs_group=__ret__.pfs_group,
-        sa_data_size_kilobytes=__ret__.sa_data_size_kilobytes,
-        sa_life_time_seconds=__ret__.sa_life_time_seconds)
+        dh_group=pulumi.get(__ret__, 'dh_group'),
+        ike_encryption=pulumi.get(__ret__, 'ike_encryption'),
+        ike_integrity=pulumi.get(__ret__, 'ike_integrity'),
+        ipsec_encryption=pulumi.get(__ret__, 'ipsec_encryption'),
+        ipsec_integrity=pulumi.get(__ret__, 'ipsec_integrity'),
+        pfs_group=pulumi.get(__ret__, 'pfs_group'),
+        sa_data_size_kilobytes=pulumi.get(__ret__, 'sa_data_size_kilobytes'),
+        sa_life_time_seconds=pulumi.get(__ret__, 'sa_life_time_seconds'))
 
 
 @_utilities.lift_output_func(get_virtual_network_gateway_vpnclient_ipsec_parameters)

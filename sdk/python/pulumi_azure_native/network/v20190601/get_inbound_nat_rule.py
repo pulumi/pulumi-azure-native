@@ -212,19 +212,19 @@ def get_inbound_nat_rule(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20190601:getInboundNatRule', __args__, opts=opts, typ=GetInboundNatRuleResult).value
 
     return AwaitableGetInboundNatRuleResult(
-        backend_ip_configuration=__ret__.backend_ip_configuration,
-        backend_port=__ret__.backend_port,
-        enable_floating_ip=__ret__.enable_floating_ip,
-        enable_tcp_reset=__ret__.enable_tcp_reset,
-        etag=__ret__.etag,
-        frontend_ip_configuration=__ret__.frontend_ip_configuration,
-        frontend_port=__ret__.frontend_port,
-        id=__ret__.id,
-        idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
-        name=__ret__.name,
-        protocol=__ret__.protocol,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        backend_ip_configuration=pulumi.get(__ret__, 'backend_ip_configuration'),
+        backend_port=pulumi.get(__ret__, 'backend_port'),
+        enable_floating_ip=pulumi.get(__ret__, 'enable_floating_ip'),
+        enable_tcp_reset=pulumi.get(__ret__, 'enable_tcp_reset'),
+        etag=pulumi.get(__ret__, 'etag'),
+        frontend_ip_configuration=pulumi.get(__ret__, 'frontend_ip_configuration'),
+        frontend_port=pulumi.get(__ret__, 'frontend_port'),
+        id=pulumi.get(__ret__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__ret__, 'idle_timeout_in_minutes'),
+        name=pulumi.get(__ret__, 'name'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_inbound_nat_rule)

@@ -161,15 +161,15 @@ def get_ca_certificate(ca_certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20230601preview:getCaCertificate', __args__, opts=opts, typ=GetCaCertificateResult).value
 
     return AwaitableGetCaCertificateResult(
-        description=__ret__.description,
-        encoded_certificate=__ret__.encoded_certificate,
-        expiry_time_in_utc=__ret__.expiry_time_in_utc,
-        id=__ret__.id,
-        issue_time_in_utc=__ret__.issue_time_in_utc,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        encoded_certificate=pulumi.get(__ret__, 'encoded_certificate'),
+        expiry_time_in_utc=pulumi.get(__ret__, 'expiry_time_in_utc'),
+        id=pulumi.get(__ret__, 'id'),
+        issue_time_in_utc=pulumi.get(__ret__, 'issue_time_in_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_ca_certificate)

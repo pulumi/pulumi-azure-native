@@ -221,20 +221,20 @@ def get_external_network(external_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230201preview:getExternalNetwork', __args__, opts=opts, typ=GetExternalNetworkResult).value
 
     return AwaitableGetExternalNetworkResult(
-        administrative_state=__ret__.administrative_state,
-        annotation=__ret__.annotation,
-        disabled_on_resources=__ret__.disabled_on_resources,
-        export_route_policy_id=__ret__.export_route_policy_id,
-        id=__ret__.id,
-        import_route_policy_id=__ret__.import_route_policy_id,
-        name=__ret__.name,
-        network_to_network_interconnect_id=__ret__.network_to_network_interconnect_id,
-        option_a_properties=__ret__.option_a_properties,
-        option_b_properties=__ret__.option_b_properties,
-        peering_option=__ret__.peering_option,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        disabled_on_resources=pulumi.get(__ret__, 'disabled_on_resources'),
+        export_route_policy_id=pulumi.get(__ret__, 'export_route_policy_id'),
+        id=pulumi.get(__ret__, 'id'),
+        import_route_policy_id=pulumi.get(__ret__, 'import_route_policy_id'),
+        name=pulumi.get(__ret__, 'name'),
+        network_to_network_interconnect_id=pulumi.get(__ret__, 'network_to_network_interconnect_id'),
+        option_a_properties=pulumi.get(__ret__, 'option_a_properties'),
+        option_b_properties=pulumi.get(__ret__, 'option_b_properties'),
+        peering_option=pulumi.get(__ret__, 'peering_option'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_external_network)

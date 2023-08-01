@@ -170,16 +170,16 @@ def get_linker(linker_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicelinker/v20211101preview:getLinker', __args__, opts=opts, typ=GetLinkerResult).value
 
     return AwaitableGetLinkerResult(
-        auth_info=__ret__.auth_info,
-        client_type=__ret__.client_type,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        secret_store=__ret__.secret_store,
-        system_data=__ret__.system_data,
-        target_id=__ret__.target_id,
-        type=__ret__.type,
-        v_net_solution=__ret__.v_net_solution)
+        auth_info=pulumi.get(__ret__, 'auth_info'),
+        client_type=pulumi.get(__ret__, 'client_type'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        secret_store=pulumi.get(__ret__, 'secret_store'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_id=pulumi.get(__ret__, 'target_id'),
+        type=pulumi.get(__ret__, 'type'),
+        v_net_solution=pulumi.get(__ret__, 'v_net_solution'))
 
 
 @_utilities.lift_output_func(get_linker)

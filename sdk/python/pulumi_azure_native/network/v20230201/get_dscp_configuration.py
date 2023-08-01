@@ -254,23 +254,23 @@ def get_dscp_configuration(dscp_configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getDscpConfiguration', __args__, opts=opts, typ=GetDscpConfigurationResult).value
 
     return AwaitableGetDscpConfigurationResult(
-        associated_network_interfaces=__ret__.associated_network_interfaces,
-        destination_ip_ranges=__ret__.destination_ip_ranges,
-        destination_port_ranges=__ret__.destination_port_ranges,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        markings=__ret__.markings,
-        name=__ret__.name,
-        protocol=__ret__.protocol,
-        provisioning_state=__ret__.provisioning_state,
-        qos_collection_id=__ret__.qos_collection_id,
-        qos_definition_collection=__ret__.qos_definition_collection,
-        resource_guid=__ret__.resource_guid,
-        source_ip_ranges=__ret__.source_ip_ranges,
-        source_port_ranges=__ret__.source_port_ranges,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        associated_network_interfaces=pulumi.get(__ret__, 'associated_network_interfaces'),
+        destination_ip_ranges=pulumi.get(__ret__, 'destination_ip_ranges'),
+        destination_port_ranges=pulumi.get(__ret__, 'destination_port_ranges'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        markings=pulumi.get(__ret__, 'markings'),
+        name=pulumi.get(__ret__, 'name'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        qos_collection_id=pulumi.get(__ret__, 'qos_collection_id'),
+        qos_definition_collection=pulumi.get(__ret__, 'qos_definition_collection'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        source_ip_ranges=pulumi.get(__ret__, 'source_ip_ranges'),
+        source_port_ranges=pulumi.get(__ret__, 'source_port_ranges'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dscp_configuration)

@@ -204,19 +204,19 @@ def get_object_anchors_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mixedreality:getObjectAnchorsAccount', __args__, opts=opts, typ=GetObjectAnchorsAccountResult).value
 
     return AwaitableGetObjectAnchorsAccountResult(
-        account_domain=__ret__.account_domain,
-        account_id=__ret__.account_id,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        plan=__ret__.plan,
-        sku=__ret__.sku,
-        storage_account_name=__ret__.storage_account_name,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        account_domain=pulumi.get(__ret__, 'account_domain'),
+        account_id=pulumi.get(__ret__, 'account_id'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        plan=pulumi.get(__ret__, 'plan'),
+        sku=pulumi.get(__ret__, 'sku'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_object_anchors_account)

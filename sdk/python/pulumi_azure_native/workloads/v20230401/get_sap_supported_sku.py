@@ -78,7 +78,7 @@ def get_sap_supported_sku(app_location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads/v20230401:getSAPSupportedSku', __args__, opts=opts, typ=GetSAPSupportedSkuResult).value
 
     return AwaitableGetSAPSupportedSkuResult(
-        supported_skus=__ret__.supported_skus)
+        supported_skus=pulumi.get(__ret__, 'supported_skus'))
 
 
 @_utilities.lift_output_func(get_sap_supported_sku)

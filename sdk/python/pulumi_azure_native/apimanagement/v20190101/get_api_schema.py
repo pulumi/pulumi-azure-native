@@ -115,11 +115,11 @@ def get_api_schema(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20190101:getApiSchema', __args__, opts=opts, typ=GetApiSchemaResult).value
 
     return AwaitableGetApiSchemaResult(
-        content_type=__ret__.content_type,
-        document=__ret__.document,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        content_type=pulumi.get(__ret__, 'content_type'),
+        document=pulumi.get(__ret__, 'document'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_api_schema)

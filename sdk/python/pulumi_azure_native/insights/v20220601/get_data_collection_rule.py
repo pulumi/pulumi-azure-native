@@ -267,24 +267,24 @@ def get_data_collection_rule(data_collection_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20220601:getDataCollectionRule', __args__, opts=opts, typ=GetDataCollectionRuleResult).value
 
     return AwaitableGetDataCollectionRuleResult(
-        data_collection_endpoint_id=__ret__.data_collection_endpoint_id,
-        data_flows=__ret__.data_flows,
-        data_sources=__ret__.data_sources,
-        description=__ret__.description,
-        destinations=__ret__.destinations,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        immutable_id=__ret__.immutable_id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        stream_declarations=__ret__.stream_declarations,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        data_collection_endpoint_id=pulumi.get(__ret__, 'data_collection_endpoint_id'),
+        data_flows=pulumi.get(__ret__, 'data_flows'),
+        data_sources=pulumi.get(__ret__, 'data_sources'),
+        description=pulumi.get(__ret__, 'description'),
+        destinations=pulumi.get(__ret__, 'destinations'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        immutable_id=pulumi.get(__ret__, 'immutable_id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        stream_declarations=pulumi.get(__ret__, 'stream_declarations'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_collection_rule)

@@ -259,23 +259,23 @@ def get_activity_custom_entity_query(entity_query_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getActivityCustomEntityQuery', __args__, opts=opts, typ=GetActivityCustomEntityQueryResult).value
 
     return AwaitableGetActivityCustomEntityQueryResult(
-        content=__ret__.content,
-        created_time_utc=__ret__.created_time_utc,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        entities_filter=__ret__.entities_filter,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        input_entity_type=__ret__.input_entity_type,
-        kind=__ret__.kind,
-        last_modified_time_utc=__ret__.last_modified_time_utc,
-        name=__ret__.name,
-        query_definitions=__ret__.query_definitions,
-        required_input_fields_sets=__ret__.required_input_fields_sets,
-        system_data=__ret__.system_data,
-        template_name=__ret__.template_name,
-        title=__ret__.title,
-        type=__ret__.type)
+        content=pulumi.get(__ret__, 'content'),
+        created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        entities_filter=pulumi.get(__ret__, 'entities_filter'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        input_entity_type=pulumi.get(__ret__, 'input_entity_type'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_modified_time_utc=pulumi.get(__ret__, 'last_modified_time_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        query_definitions=pulumi.get(__ret__, 'query_definitions'),
+        required_input_fields_sets=pulumi.get(__ret__, 'required_input_fields_sets'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        template_name=pulumi.get(__ret__, 'template_name'),
+        title=pulumi.get(__ret__, 'title'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_activity_custom_entity_query)

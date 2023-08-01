@@ -112,11 +112,11 @@ def get_notebook_workspace(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20230415:getNotebookWorkspace', __args__, opts=opts, typ=GetNotebookWorkspaceResult).value
 
     return AwaitableGetNotebookWorkspaceResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        notebook_server_endpoint=__ret__.notebook_server_endpoint,
-        status=__ret__.status,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        notebook_server_endpoint=pulumi.get(__ret__, 'notebook_server_endpoint'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_notebook_workspace)

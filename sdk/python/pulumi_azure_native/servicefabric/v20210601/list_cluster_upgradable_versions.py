@@ -61,7 +61,7 @@ def list_cluster_upgradable_versions(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabric/v20210601:listClusterUpgradableVersions', __args__, opts=opts, typ=ListClusterUpgradableVersionsResult).value
 
     return AwaitableListClusterUpgradableVersionsResult(
-        supported_path=__ret__.supported_path)
+        supported_path=pulumi.get(__ret__, 'supported_path'))
 
 
 @_utilities.lift_output_func(list_cluster_upgradable_versions)

@@ -114,11 +114,11 @@ def get_content_key_policy_properties_with_secrets(account_name: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:media:getContentKeyPolicyPropertiesWithSecrets', __args__, opts=opts, typ=GetContentKeyPolicyPropertiesWithSecretsResult).value
 
     return AwaitableGetContentKeyPolicyPropertiesWithSecretsResult(
-        created=__ret__.created,
-        description=__ret__.description,
-        last_modified=__ret__.last_modified,
-        options=__ret__.options,
-        policy_id=__ret__.policy_id)
+        created=pulumi.get(__ret__, 'created'),
+        description=pulumi.get(__ret__, 'description'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        options=pulumi.get(__ret__, 'options'),
+        policy_id=pulumi.get(__ret__, 'policy_id'))
 
 
 @_utilities.lift_output_func(get_content_key_policy_properties_with_secrets)

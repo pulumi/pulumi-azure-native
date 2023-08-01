@@ -77,8 +77,8 @@ def list_compute_nodes(compute_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230401:listComputeNodes', __args__, opts=opts, typ=ListComputeNodesResult).value
 
     return AwaitableListComputeNodesResult(
-        next_link=__ret__.next_link,
-        nodes=__ret__.nodes)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        nodes=pulumi.get(__ret__, 'nodes'))
 
 
 @_utilities.lift_output_func(list_compute_nodes)

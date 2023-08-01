@@ -210,19 +210,19 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp:getSnapshotPolicy', __args__, opts=opts, typ=GetSnapshotPolicyResult).value
 
     return AwaitableGetSnapshotPolicyResult(
-        daily_schedule=__ret__.daily_schedule,
-        enabled=__ret__.enabled,
-        etag=__ret__.etag,
-        hourly_schedule=__ret__.hourly_schedule,
-        id=__ret__.id,
-        location=__ret__.location,
-        monthly_schedule=__ret__.monthly_schedule,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        weekly_schedule=__ret__.weekly_schedule)
+        daily_schedule=pulumi.get(__ret__, 'daily_schedule'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        etag=pulumi.get(__ret__, 'etag'),
+        hourly_schedule=pulumi.get(__ret__, 'hourly_schedule'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        monthly_schedule=pulumi.get(__ret__, 'monthly_schedule'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        weekly_schedule=pulumi.get(__ret__, 'weekly_schedule'))
 
 
 @_utilities.lift_output_func(get_snapshot_policy)

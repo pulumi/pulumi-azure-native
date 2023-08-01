@@ -61,7 +61,7 @@ def list_order_dc_access_code(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20220401preview:listOrderDCAccessCode', __args__, opts=opts, typ=ListOrderDCAccessCodeResult).value
 
     return AwaitableListOrderDCAccessCodeResult(
-        auth_code=__ret__.auth_code)
+        auth_code=pulumi.get(__ret__, 'auth_code'))
 
 
 @_utilities.lift_output_func(list_order_dc_access_code)

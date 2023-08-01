@@ -112,11 +112,11 @@ def get_key(key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
-        id=__ret__.id,
-        is_active_cmk=__ret__.is_active_cmk,
-        key_vault_url=__ret__.key_vault_url,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        is_active_cmk=pulumi.get(__ret__, 'is_active_cmk'),
+        key_vault_url=pulumi.get(__ret__, 'key_vault_url'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_key)

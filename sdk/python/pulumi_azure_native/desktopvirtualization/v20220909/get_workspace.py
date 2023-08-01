@@ -245,23 +245,23 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization/v20220909:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        application_group_references=__ret__.application_group_references,
-        cloud_pc_resource=__ret__.cloud_pc_resource,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        friendly_name=__ret__.friendly_name,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        managed_by=__ret__.managed_by,
-        name=__ret__.name,
-        object_id=__ret__.object_id,
-        plan=__ret__.plan,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        application_group_references=pulumi.get(__ret__, 'application_group_references'),
+        cloud_pc_resource=pulumi.get(__ret__, 'cloud_pc_resource'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        friendly_name=pulumi.get(__ret__, 'friendly_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
+        name=pulumi.get(__ret__, 'name'),
+        object_id=pulumi.get(__ret__, 'object_id'),
+        plan=pulumi.get(__ret__, 'plan'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace)

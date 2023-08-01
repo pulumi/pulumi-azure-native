@@ -66,7 +66,7 @@ def get_domain_event_subscription_delivery_attributes(domain_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getDomainEventSubscriptionDeliveryAttributes', __args__, opts=opts, typ=GetDomainEventSubscriptionDeliveryAttributesResult).value
 
     return AwaitableGetDomainEventSubscriptionDeliveryAttributesResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_domain_event_subscription_delivery_attributes)

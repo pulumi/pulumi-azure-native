@@ -149,14 +149,14 @@ def get_route_map(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getRouteMap', __args__, opts=opts, typ=GetRouteMapResult).value
 
     return AwaitableGetRouteMapResult(
-        associated_inbound_connections=__ret__.associated_inbound_connections,
-        associated_outbound_connections=__ret__.associated_outbound_connections,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        rules=__ret__.rules,
-        type=__ret__.type)
+        associated_inbound_connections=pulumi.get(__ret__, 'associated_inbound_connections'),
+        associated_outbound_connections=pulumi.get(__ret__, 'associated_outbound_connections'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        rules=pulumi.get(__ret__, 'rules'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_route_map)

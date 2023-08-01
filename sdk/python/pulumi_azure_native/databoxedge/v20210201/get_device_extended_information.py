@@ -194,18 +194,18 @@ def get_device_extended_information(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20210201:getDeviceExtendedInformation', __args__, opts=opts, typ=GetDeviceExtendedInformationResult).value
 
     return AwaitableGetDeviceExtendedInformationResult(
-        channel_integrity_key_name=__ret__.channel_integrity_key_name,
-        channel_integrity_key_version=__ret__.channel_integrity_key_version,
-        client_secret_store_id=__ret__.client_secret_store_id,
-        client_secret_store_url=__ret__.client_secret_store_url,
-        device_secrets=__ret__.device_secrets,
-        encryption_key=__ret__.encryption_key,
-        encryption_key_thumbprint=__ret__.encryption_key_thumbprint,
-        id=__ret__.id,
-        key_vault_sync_status=__ret__.key_vault_sync_status,
-        name=__ret__.name,
-        resource_key=__ret__.resource_key,
-        type=__ret__.type)
+        channel_integrity_key_name=pulumi.get(__ret__, 'channel_integrity_key_name'),
+        channel_integrity_key_version=pulumi.get(__ret__, 'channel_integrity_key_version'),
+        client_secret_store_id=pulumi.get(__ret__, 'client_secret_store_id'),
+        client_secret_store_url=pulumi.get(__ret__, 'client_secret_store_url'),
+        device_secrets=pulumi.get(__ret__, 'device_secrets'),
+        encryption_key=pulumi.get(__ret__, 'encryption_key'),
+        encryption_key_thumbprint=pulumi.get(__ret__, 'encryption_key_thumbprint'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_sync_status=pulumi.get(__ret__, 'key_vault_sync_status'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_key=pulumi.get(__ret__, 'resource_key'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_device_extended_information)

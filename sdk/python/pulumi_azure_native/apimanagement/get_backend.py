@@ -198,18 +198,18 @@ def get_backend(backend_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getBackend', __args__, opts=opts, typ=GetBackendResult).value
 
     return AwaitableGetBackendResult(
-        credentials=__ret__.credentials,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        protocol=__ret__.protocol,
-        proxy=__ret__.proxy,
-        resource_id=__ret__.resource_id,
-        title=__ret__.title,
-        tls=__ret__.tls,
-        type=__ret__.type,
-        url=__ret__.url)
+        credentials=pulumi.get(__ret__, 'credentials'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        proxy=pulumi.get(__ret__, 'proxy'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        title=pulumi.get(__ret__, 'title'),
+        tls=pulumi.get(__ret__, 'tls'),
+        type=pulumi.get(__ret__, 'type'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_backend)

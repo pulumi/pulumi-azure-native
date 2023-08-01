@@ -275,25 +275,25 @@ def get_access_review_history_definition_by_id(history_definition_id: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20211201preview:getAccessReviewHistoryDefinitionById', __args__, opts=opts, typ=GetAccessReviewHistoryDefinitionByIdResult).value
 
     return AwaitableGetAccessReviewHistoryDefinitionByIdResult(
-        created_date_time=__ret__.created_date_time,
-        decisions=__ret__.decisions,
-        display_name=__ret__.display_name,
-        end_date=__ret__.end_date,
-        id=__ret__.id,
-        instances=__ret__.instances,
-        interval=__ret__.interval,
-        name=__ret__.name,
-        number_of_occurrences=__ret__.number_of_occurrences,
-        principal_id=__ret__.principal_id,
-        principal_name=__ret__.principal_name,
-        principal_type=__ret__.principal_type,
-        review_history_period_end_date_time=__ret__.review_history_period_end_date_time,
-        review_history_period_start_date_time=__ret__.review_history_period_start_date_time,
-        scopes=__ret__.scopes,
-        start_date=__ret__.start_date,
-        status=__ret__.status,
-        type=__ret__.type,
-        user_principal_name=__ret__.user_principal_name)
+        created_date_time=pulumi.get(__ret__, 'created_date_time'),
+        decisions=pulumi.get(__ret__, 'decisions'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        end_date=pulumi.get(__ret__, 'end_date'),
+        id=pulumi.get(__ret__, 'id'),
+        instances=pulumi.get(__ret__, 'instances'),
+        interval=pulumi.get(__ret__, 'interval'),
+        name=pulumi.get(__ret__, 'name'),
+        number_of_occurrences=pulumi.get(__ret__, 'number_of_occurrences'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        principal_name=pulumi.get(__ret__, 'principal_name'),
+        principal_type=pulumi.get(__ret__, 'principal_type'),
+        review_history_period_end_date_time=pulumi.get(__ret__, 'review_history_period_end_date_time'),
+        review_history_period_start_date_time=pulumi.get(__ret__, 'review_history_period_start_date_time'),
+        scopes=pulumi.get(__ret__, 'scopes'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'),
+        user_principal_name=pulumi.get(__ret__, 'user_principal_name'))
 
 
 @_utilities.lift_output_func(get_access_review_history_definition_by_id)

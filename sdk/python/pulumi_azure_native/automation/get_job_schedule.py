@@ -150,14 +150,14 @@ def get_job_schedule(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation:getJobSchedule', __args__, opts=opts, typ=GetJobScheduleResult).value
 
     return AwaitableGetJobScheduleResult(
-        id=__ret__.id,
-        job_schedule_id=__ret__.job_schedule_id,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        run_on=__ret__.run_on,
-        runbook=__ret__.runbook,
-        schedule=__ret__.schedule,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        job_schedule_id=pulumi.get(__ret__, 'job_schedule_id'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        run_on=pulumi.get(__ret__, 'run_on'),
+        runbook=pulumi.get(__ret__, 'runbook'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_job_schedule)

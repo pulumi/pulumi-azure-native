@@ -167,16 +167,16 @@ def get_b2_c_tenant(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azureactivedirectory/v20230118preview:getB2CTenant', __args__, opts=opts, typ=GetB2CTenantResult).value
 
     return AwaitableGetB2CTenantResult(
-        billing_config=__ret__.billing_config,
-        id=__ret__.id,
-        is_go_local_tenant=__ret__.is_go_local_tenant,
-        location=__ret__.location,
-        name=__ret__.name,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        billing_config=pulumi.get(__ret__, 'billing_config'),
+        id=pulumi.get(__ret__, 'id'),
+        is_go_local_tenant=pulumi.get(__ret__, 'is_go_local_tenant'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_b2_c_tenant)

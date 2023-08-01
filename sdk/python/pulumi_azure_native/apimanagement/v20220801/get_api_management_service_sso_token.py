@@ -61,7 +61,7 @@ def get_api_management_service_sso_token(resource_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220801:getApiManagementServiceSsoToken', __args__, opts=opts, typ=GetApiManagementServiceSsoTokenResult).value
 
     return AwaitableGetApiManagementServiceSsoTokenResult(
-        redirect_uri=__ret__.redirect_uri)
+        redirect_uri=pulumi.get(__ret__, 'redirect_uri'))
 
 
 @_utilities.lift_output_func(get_api_management_service_sso_token)

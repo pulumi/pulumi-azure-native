@@ -158,15 +158,15 @@ def get_registry(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20160627preview:getRegistry', __args__, opts=opts, typ=GetRegistryResult).value
 
     return AwaitableGetRegistryResult(
-        admin_user_enabled=__ret__.admin_user_enabled,
-        creation_date=__ret__.creation_date,
-        id=__ret__.id,
-        location=__ret__.location,
-        login_server=__ret__.login_server,
-        name=__ret__.name,
-        storage_account=__ret__.storage_account,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        admin_user_enabled=pulumi.get(__ret__, 'admin_user_enabled'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        login_server=pulumi.get(__ret__, 'login_server'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_account=pulumi.get(__ret__, 'storage_account'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_registry)

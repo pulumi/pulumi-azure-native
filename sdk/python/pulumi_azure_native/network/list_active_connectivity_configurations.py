@@ -84,8 +84,8 @@ def list_active_connectivity_configurations(network_manager_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:network:listActiveConnectivityConfigurations', __args__, opts=opts, typ=ListActiveConnectivityConfigurationsResult).value
 
     return AwaitableListActiveConnectivityConfigurationsResult(
-        skip_token=__ret__.skip_token,
-        value=__ret__.value)
+        skip_token=pulumi.get(__ret__, 'skip_token'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_active_connectivity_configurations)

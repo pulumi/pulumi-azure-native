@@ -195,18 +195,18 @@ def get_vendor_skus(sku_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridnetwork:getVendorSkus', __args__, opts=opts, typ=GetVendorSkusResult).value
 
     return AwaitableGetVendorSkusResult(
-        deployment_mode=__ret__.deployment_mode,
-        id=__ret__.id,
-        managed_application_parameters=__ret__.managed_application_parameters,
-        managed_application_template=__ret__.managed_application_template,
-        name=__ret__.name,
-        network_function_template=__ret__.network_function_template,
-        network_function_type=__ret__.network_function_type,
-        preview=__ret__.preview,
-        provisioning_state=__ret__.provisioning_state,
-        sku_type=__ret__.sku_type,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        deployment_mode=pulumi.get(__ret__, 'deployment_mode'),
+        id=pulumi.get(__ret__, 'id'),
+        managed_application_parameters=pulumi.get(__ret__, 'managed_application_parameters'),
+        managed_application_template=pulumi.get(__ret__, 'managed_application_template'),
+        name=pulumi.get(__ret__, 'name'),
+        network_function_template=pulumi.get(__ret__, 'network_function_template'),
+        network_function_type=pulumi.get(__ret__, 'network_function_type'),
+        preview=pulumi.get(__ret__, 'preview'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku_type=pulumi.get(__ret__, 'sku_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_vendor_skus)

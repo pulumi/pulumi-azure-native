@@ -183,17 +183,17 @@ def get_custom_assessment_automation(custom_assessment_automation_name: Optional
     __ret__ = pulumi.runtime.invoke('azure-native:security:getCustomAssessmentAutomation', __args__, opts=opts, typ=GetCustomAssessmentAutomationResult).value
 
     return AwaitableGetCustomAssessmentAutomationResult(
-        assessment_key=__ret__.assessment_key,
-        compressed_query=__ret__.compressed_query,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        remediation_description=__ret__.remediation_description,
-        severity=__ret__.severity,
-        supported_cloud=__ret__.supported_cloud,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        assessment_key=pulumi.get(__ret__, 'assessment_key'),
+        compressed_query=pulumi.get(__ret__, 'compressed_query'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        remediation_description=pulumi.get(__ret__, 'remediation_description'),
+        severity=pulumi.get(__ret__, 'severity'),
+        supported_cloud=pulumi.get(__ret__, 'supported_cloud'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_custom_assessment_automation)

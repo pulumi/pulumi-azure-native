@@ -112,11 +112,11 @@ def get_network_interface_status(network_device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230201preview:getNetworkInterfaceStatus', __args__, opts=opts, typ=GetNetworkInterfaceStatusResult).value
 
     return AwaitableGetNetworkInterfaceStatusResult(
-        administrative_state=__ret__.administrative_state,
-        connected_to=__ret__.connected_to,
-        operational_status=__ret__.operational_status,
-        phy_status=__ret__.phy_status,
-        transceiver_status=__ret__.transceiver_status)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        connected_to=pulumi.get(__ret__, 'connected_to'),
+        operational_status=pulumi.get(__ret__, 'operational_status'),
+        phy_status=pulumi.get(__ret__, 'phy_status'),
+        transceiver_status=pulumi.get(__ret__, 'transceiver_status'))
 
 
 @_utilities.lift_output_func(get_network_interface_status)

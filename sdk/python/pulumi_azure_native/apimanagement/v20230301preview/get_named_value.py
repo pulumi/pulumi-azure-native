@@ -149,14 +149,14 @@ def get_named_value(named_value_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getNamedValue', __args__, opts=opts, typ=GetNamedValueResult).value
 
     return AwaitableGetNamedValueResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        key_vault=__ret__.key_vault,
-        name=__ret__.name,
-        secret=__ret__.secret,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        value=__ret__.value)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault=pulumi.get(__ret__, 'key_vault'),
+        name=pulumi.get(__ret__, 'name'),
+        secret=pulumi.get(__ret__, 'secret'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_named_value)

@@ -112,11 +112,11 @@ def list_tenant_access_secrets(access_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220801:listTenantAccessSecrets', __args__, opts=opts, typ=ListTenantAccessSecretsResult).value
 
     return AwaitableListTenantAccessSecretsResult(
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        primary_key=__ret__.primary_key,
-        principal_id=__ret__.principal_id,
-        secondary_key=__ret__.secondary_key)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_tenant_access_secrets)

@@ -185,17 +185,17 @@ def get_dedicated_host_group(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230301:getDedicatedHostGroup', __args__, opts=opts, typ=GetDedicatedHostGroupResult).value
 
     return AwaitableGetDedicatedHostGroupResult(
-        additional_capabilities=__ret__.additional_capabilities,
-        hosts=__ret__.hosts,
-        id=__ret__.id,
-        instance_view=__ret__.instance_view,
-        location=__ret__.location,
-        name=__ret__.name,
-        platform_fault_domain_count=__ret__.platform_fault_domain_count,
-        support_automatic_placement=__ret__.support_automatic_placement,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        additional_capabilities=pulumi.get(__ret__, 'additional_capabilities'),
+        hosts=pulumi.get(__ret__, 'hosts'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_view=pulumi.get(__ret__, 'instance_view'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        platform_fault_domain_count=pulumi.get(__ret__, 'platform_fault_domain_count'),
+        support_automatic_placement=pulumi.get(__ret__, 'support_automatic_placement'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_dedicated_host_group)

@@ -61,7 +61,7 @@ def list_list_upgradable_version_post(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabric/v20201201preview:listListUpgradableVersionPost', __args__, opts=opts, typ=ListListUpgradableVersionPostResult).value
 
     return AwaitableListListUpgradableVersionPostResult(
-        supported_path=__ret__.supported_path)
+        supported_path=pulumi.get(__ret__, 'supported_path'))
 
 
 @_utilities.lift_output_func(list_list_upgradable_version_post)

@@ -195,18 +195,18 @@ def get_network_packet_broker(network_packet_broker_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getNetworkPacketBroker', __args__, opts=opts, typ=GetNetworkPacketBrokerResult).value
 
     return AwaitableGetNetworkPacketBrokerResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        neighbor_group_ids=__ret__.neighbor_group_ids,
-        network_device_ids=__ret__.network_device_ids,
-        network_fabric_id=__ret__.network_fabric_id,
-        network_tap_ids=__ret__.network_tap_ids,
-        provisioning_state=__ret__.provisioning_state,
-        source_interface_ids=__ret__.source_interface_ids,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        neighbor_group_ids=pulumi.get(__ret__, 'neighbor_group_ids'),
+        network_device_ids=pulumi.get(__ret__, 'network_device_ids'),
+        network_fabric_id=pulumi.get(__ret__, 'network_fabric_id'),
+        network_tap_ids=pulumi.get(__ret__, 'network_tap_ids'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_interface_ids=pulumi.get(__ret__, 'source_interface_ids'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_packet_broker)

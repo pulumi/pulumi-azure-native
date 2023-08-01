@@ -246,22 +246,22 @@ def get_gen1_environment(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights/v20210630preview:getGen1Environment', __args__, opts=opts, typ=GetGen1EnvironmentResult).value
 
     return AwaitableGetGen1EnvironmentResult(
-        creation_time=__ret__.creation_time,
-        data_access_fqdn=__ret__.data_access_fqdn,
-        data_access_id=__ret__.data_access_id,
-        data_retention_time=__ret__.data_retention_time,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        partition_key_properties=__ret__.partition_key_properties,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        status=__ret__.status,
-        storage_limit_exceeded_behavior=__ret__.storage_limit_exceeded_behavior,
-        supports_customer_managed_key=__ret__.supports_customer_managed_key,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        data_access_fqdn=pulumi.get(__ret__, 'data_access_fqdn'),
+        data_access_id=pulumi.get(__ret__, 'data_access_id'),
+        data_retention_time=pulumi.get(__ret__, 'data_retention_time'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        partition_key_properties=pulumi.get(__ret__, 'partition_key_properties'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        status=pulumi.get(__ret__, 'status'),
+        storage_limit_exceeded_behavior=pulumi.get(__ret__, 'storage_limit_exceeded_behavior'),
+        supports_customer_managed_key=pulumi.get(__ret__, 'supports_customer_managed_key'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_gen1_environment)

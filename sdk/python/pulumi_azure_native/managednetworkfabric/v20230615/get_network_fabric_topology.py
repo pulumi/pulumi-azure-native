@@ -86,9 +86,9 @@ def get_network_fabric_topology(network_fabric_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230615:getNetworkFabricTopology', __args__, opts=opts, typ=GetNetworkFabricTopologyResult).value
 
     return AwaitableGetNetworkFabricTopologyResult(
-        configuration_state=__ret__.configuration_state,
-        error=__ret__.error,
-        url=__ret__.url)
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        error=pulumi.get(__ret__, 'error'),
+        url=pulumi.get(__ret__, 'url'))
 
 
 @_utilities.lift_output_func(get_network_fabric_topology)

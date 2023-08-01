@@ -133,13 +133,13 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20171001preview:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult).value
 
     return AwaitableGetRoleAssignmentResult(
-        can_delegate=__ret__.can_delegate,
-        id=__ret__.id,
-        name=__ret__.name,
-        principal_id=__ret__.principal_id,
-        role_definition_id=__ret__.role_definition_id,
-        scope=__ret__.scope,
-        type=__ret__.type)
+        can_delegate=pulumi.get(__ret__, 'can_delegate'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
+        scope=pulumi.get(__ret__, 'scope'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_role_assignment)

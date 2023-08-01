@@ -174,16 +174,16 @@ def list_task_run_details(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20190601preview:listTaskRunDetails', __args__, opts=opts, typ=ListTaskRunDetailsResult).value
 
     return AwaitableListTaskRunDetailsResult(
-        force_update_tag=__ret__.force_update_tag,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        run_request=__ret__.run_request,
-        run_result=__ret__.run_result,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        force_update_tag=pulumi.get(__ret__, 'force_update_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        run_request=pulumi.get(__ret__, 'run_request'),
+        run_result=pulumi.get(__ret__, 'run_result'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_task_run_details)

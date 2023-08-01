@@ -186,17 +186,17 @@ def get_rule(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getRule', __args__, opts=opts, typ=GetRuleResult).value
 
     return AwaitableGetRuleResult(
-        actions=__ret__.actions,
-        conditions=__ret__.conditions,
-        deployment_status=__ret__.deployment_status,
-        id=__ret__.id,
-        match_processing_behavior=__ret__.match_processing_behavior,
-        name=__ret__.name,
-        order=__ret__.order,
-        provisioning_state=__ret__.provisioning_state,
-        rule_set_name=__ret__.rule_set_name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        actions=pulumi.get(__ret__, 'actions'),
+        conditions=pulumi.get(__ret__, 'conditions'),
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        id=pulumi.get(__ret__, 'id'),
+        match_processing_behavior=pulumi.get(__ret__, 'match_processing_behavior'),
+        name=pulumi.get(__ret__, 'name'),
+        order=pulumi.get(__ret__, 'order'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        rule_set_name=pulumi.get(__ret__, 'rule_set_name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_rule)

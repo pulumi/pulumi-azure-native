@@ -148,14 +148,14 @@ def get_route_filter_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getRouteFilterRule', __args__, opts=opts, typ=GetRouteFilterRuleResult).value
 
     return AwaitableGetRouteFilterRuleResult(
-        access=__ret__.access,
-        communities=__ret__.communities,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        route_filter_rule_type=__ret__.route_filter_rule_type)
+        access=pulumi.get(__ret__, 'access'),
+        communities=pulumi.get(__ret__, 'communities'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        route_filter_rule_type=pulumi.get(__ret__, 'route_filter_rule_type'))
 
 
 @_utilities.lift_output_func(get_route_filter_rule)

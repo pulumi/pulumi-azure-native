@@ -174,16 +174,16 @@ def get_gcp_data_connector(data_connector_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230601preview:getGCPDataConnector', __args__, opts=opts, typ=GetGCPDataConnectorResult).value
 
     return AwaitableGetGCPDataConnectorResult(
-        auth=__ret__.auth,
-        connector_definition_name=__ret__.connector_definition_name,
-        dcr_config=__ret__.dcr_config,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        request=__ret__.request,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        auth=pulumi.get(__ret__, 'auth'),
+        connector_definition_name=pulumi.get(__ret__, 'connector_definition_name'),
+        dcr_config=pulumi.get(__ret__, 'dcr_config'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        request=pulumi.get(__ret__, 'request'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_gcp_data_connector)

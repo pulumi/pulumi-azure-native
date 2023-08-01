@@ -73,8 +73,8 @@ def get_registry_credentials(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20160627preview:getRegistryCredentials', __args__, opts=opts, typ=GetRegistryCredentialsResult).value
 
     return AwaitableGetRegistryCredentialsResult(
-        password=__ret__.password,
-        username=__ret__.username)
+        password=pulumi.get(__ret__, 'password'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(get_registry_credentials)

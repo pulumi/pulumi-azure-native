@@ -147,14 +147,14 @@ def get_azure_bare_metal_storage_instance(azure_bare_metal_storage_instance_name
     __ret__ = pulumi.runtime.invoke('azure-native:baremetalinfrastructure:getAzureBareMetalStorageInstance', __args__, opts=opts, typ=GetAzureBareMetalStorageInstanceResult).value
 
     return AwaitableGetAzureBareMetalStorageInstanceResult(
-        azure_bare_metal_storage_instance_unique_identifier=__ret__.azure_bare_metal_storage_instance_unique_identifier,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        storage_properties=__ret__.storage_properties,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        azure_bare_metal_storage_instance_unique_identifier=pulumi.get(__ret__, 'azure_bare_metal_storage_instance_unique_identifier'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_properties=pulumi.get(__ret__, 'storage_properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_azure_bare_metal_storage_instance)

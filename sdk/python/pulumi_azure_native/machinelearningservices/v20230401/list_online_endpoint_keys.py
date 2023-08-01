@@ -76,8 +76,8 @@ def list_online_endpoint_keys(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230401:listOnlineEndpointKeys', __args__, opts=opts, typ=ListOnlineEndpointKeysResult).value
 
     return AwaitableListOnlineEndpointKeysResult(
-        primary_key=__ret__.primary_key,
-        secondary_key=__ret__.secondary_key)
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_online_endpoint_keys)

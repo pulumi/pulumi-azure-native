@@ -219,20 +219,20 @@ def get_assignment(assignment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blueprint:getAssignment', __args__, opts=opts, typ=GetAssignmentResult).value
 
     return AwaitableGetAssignmentResult(
-        blueprint_id=__ret__.blueprint_id,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        locks=__ret__.locks,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        provisioning_state=__ret__.provisioning_state,
-        resource_groups=__ret__.resource_groups,
-        scope=__ret__.scope,
-        status=__ret__.status,
-        type=__ret__.type)
+        blueprint_id=pulumi.get(__ret__, 'blueprint_id'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        locks=pulumi.get(__ret__, 'locks'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_groups=pulumi.get(__ret__, 'resource_groups'),
+        scope=pulumi.get(__ret__, 'scope'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_assignment)

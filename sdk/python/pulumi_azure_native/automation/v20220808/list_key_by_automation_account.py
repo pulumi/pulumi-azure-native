@@ -59,7 +59,7 @@ def list_key_by_automation_account(automation_account_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:automation/v20220808:listKeyByAutomationAccount', __args__, opts=opts, typ=ListKeyByAutomationAccountResult).value
 
     return AwaitableListKeyByAutomationAccountResult(
-        keys=__ret__.keys)
+        keys=pulumi.get(__ret__, 'keys'))
 
 
 @_utilities.lift_output_func(list_key_by_automation_account)

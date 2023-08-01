@@ -62,7 +62,7 @@ def list_mongo_cluster_connection_strings(mongo_cluster_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20230315preview:listMongoClusterConnectionStrings', __args__, opts=opts, typ=ListMongoClusterConnectionStringsResult).value
 
     return AwaitableListMongoClusterConnectionStringsResult(
-        connection_strings=__ret__.connection_strings)
+        connection_strings=pulumi.get(__ret__, 'connection_strings'))
 
 
 @_utilities.lift_output_func(list_mongo_cluster_connection_strings)

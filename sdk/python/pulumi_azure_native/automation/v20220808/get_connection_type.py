@@ -149,14 +149,14 @@ def get_connection_type(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation/v20220808:getConnectionType', __args__, opts=opts, typ=GetConnectionTypeResult).value
 
     return AwaitableGetConnectionTypeResult(
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        field_definitions=__ret__.field_definitions,
-        id=__ret__.id,
-        is_global=__ret__.is_global,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        field_definitions=pulumi.get(__ret__, 'field_definitions'),
+        id=pulumi.get(__ret__, 'id'),
+        is_global=pulumi.get(__ret__, 'is_global'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connection_type)

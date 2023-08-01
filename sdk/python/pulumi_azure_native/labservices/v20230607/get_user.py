@@ -209,19 +209,19 @@ def get_user(lab_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20230607:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        additional_usage_quota=__ret__.additional_usage_quota,
-        display_name=__ret__.display_name,
-        email=__ret__.email,
-        id=__ret__.id,
-        invitation_sent=__ret__.invitation_sent,
-        invitation_state=__ret__.invitation_state,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        registration_state=__ret__.registration_state,
-        resource_operation_error=__ret__.resource_operation_error,
-        system_data=__ret__.system_data,
-        total_usage=__ret__.total_usage,
-        type=__ret__.type)
+        additional_usage_quota=pulumi.get(__ret__, 'additional_usage_quota'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        email=pulumi.get(__ret__, 'email'),
+        id=pulumi.get(__ret__, 'id'),
+        invitation_sent=pulumi.get(__ret__, 'invitation_sent'),
+        invitation_state=pulumi.get(__ret__, 'invitation_state'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        registration_state=pulumi.get(__ret__, 'registration_state'),
+        resource_operation_error=pulumi.get(__ret__, 'resource_operation_error'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        total_usage=pulumi.get(__ret__, 'total_usage'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_user)

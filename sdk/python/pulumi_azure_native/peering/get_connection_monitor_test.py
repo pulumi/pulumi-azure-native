@@ -173,16 +173,16 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:peering:getConnectionMonitorTest', __args__, opts=opts, typ=GetConnectionMonitorTestResult).value
 
     return AwaitableGetConnectionMonitorTestResult(
-        destination=__ret__.destination,
-        destination_port=__ret__.destination_port,
-        id=__ret__.id,
-        is_test_successful=__ret__.is_test_successful,
-        name=__ret__.name,
-        path=__ret__.path,
-        provisioning_state=__ret__.provisioning_state,
-        source_agent=__ret__.source_agent,
-        test_frequency_in_sec=__ret__.test_frequency_in_sec,
-        type=__ret__.type)
+        destination=pulumi.get(__ret__, 'destination'),
+        destination_port=pulumi.get(__ret__, 'destination_port'),
+        id=pulumi.get(__ret__, 'id'),
+        is_test_successful=pulumi.get(__ret__, 'is_test_successful'),
+        name=pulumi.get(__ret__, 'name'),
+        path=pulumi.get(__ret__, 'path'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_agent=pulumi.get(__ret__, 'source_agent'),
+        test_frequency_in_sec=pulumi.get(__ret__, 'test_frequency_in_sec'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connection_monitor_test)

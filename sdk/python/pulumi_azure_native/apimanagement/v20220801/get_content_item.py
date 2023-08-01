@@ -103,10 +103,10 @@ def get_content_item(content_item_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220801:getContentItem', __args__, opts=opts, typ=GetContentItemResult).value
 
     return AwaitableGetContentItemResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_content_item)

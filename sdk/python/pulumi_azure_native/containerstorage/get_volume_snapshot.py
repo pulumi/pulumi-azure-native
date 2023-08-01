@@ -162,15 +162,15 @@ def get_volume_snapshot(pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerstorage:getVolumeSnapshot', __args__, opts=opts, typ=GetVolumeSnapshotResult).value
 
     return AwaitableGetVolumeSnapshotResult(
-        id=__ret__.id,
-        mount_options=__ret__.mount_options,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        reclaim_policy=__ret__.reclaim_policy,
-        source=__ret__.source,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        volume_mode=__ret__.volume_mode)
+        id=pulumi.get(__ret__, 'id'),
+        mount_options=pulumi.get(__ret__, 'mount_options'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        reclaim_policy=pulumi.get(__ret__, 'reclaim_policy'),
+        source=pulumi.get(__ret__, 'source'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_mode=pulumi.get(__ret__, 'volume_mode'))
 
 
 @_utilities.lift_output_func(get_volume_snapshot)

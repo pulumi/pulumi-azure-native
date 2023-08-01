@@ -217,19 +217,19 @@ def get_managed_database_sensitivity_label(column_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20221101preview:getManagedDatabaseSensitivityLabel', __args__, opts=opts, typ=GetManagedDatabaseSensitivityLabelResult).value
 
     return AwaitableGetManagedDatabaseSensitivityLabelResult(
-        column_name=__ret__.column_name,
-        id=__ret__.id,
-        information_type=__ret__.information_type,
-        information_type_id=__ret__.information_type_id,
-        is_disabled=__ret__.is_disabled,
-        label_id=__ret__.label_id,
-        label_name=__ret__.label_name,
-        managed_by=__ret__.managed_by,
-        name=__ret__.name,
-        rank=__ret__.rank,
-        schema_name=__ret__.schema_name,
-        table_name=__ret__.table_name,
-        type=__ret__.type)
+        column_name=pulumi.get(__ret__, 'column_name'),
+        id=pulumi.get(__ret__, 'id'),
+        information_type=pulumi.get(__ret__, 'information_type'),
+        information_type_id=pulumi.get(__ret__, 'information_type_id'),
+        is_disabled=pulumi.get(__ret__, 'is_disabled'),
+        label_id=pulumi.get(__ret__, 'label_id'),
+        label_name=pulumi.get(__ret__, 'label_name'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
+        name=pulumi.get(__ret__, 'name'),
+        rank=pulumi.get(__ret__, 'rank'),
+        schema_name=pulumi.get(__ret__, 'schema_name'),
+        table_name=pulumi.get(__ret__, 'table_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_managed_database_sensitivity_label)

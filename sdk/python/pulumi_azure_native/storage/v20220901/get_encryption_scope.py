@@ -161,15 +161,15 @@ def get_encryption_scope(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage/v20220901:getEncryptionScope', __args__, opts=opts, typ=GetEncryptionScopeResult).value
 
     return AwaitableGetEncryptionScopeResult(
-        creation_time=__ret__.creation_time,
-        id=__ret__.id,
-        key_vault_properties=__ret__.key_vault_properties,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        require_infrastructure_encryption=__ret__.require_infrastructure_encryption,
-        source=__ret__.source,
-        state=__ret__.state,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_properties=pulumi.get(__ret__, 'key_vault_properties'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        require_infrastructure_encryption=pulumi.get(__ret__, 'require_infrastructure_encryption'),
+        source=pulumi.get(__ret__, 'source'),
+        state=pulumi.get(__ret__, 'state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_encryption_scope)

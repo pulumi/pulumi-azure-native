@@ -195,18 +195,18 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:scvmm:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        inventory_item_id=__ret__.inventory_item_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_name=__ret__.network_name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        uuid=__ret__.uuid,
-        vmm_server_id=__ret__.vmm_server_id)
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        inventory_item_id=pulumi.get(__ret__, 'inventory_item_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_name=pulumi.get(__ret__, 'network_name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        uuid=pulumi.get(__ret__, 'uuid'),
+        vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
 
 
 @_utilities.lift_output_func(get_virtual_network)

@@ -237,21 +237,21 @@ def get_partner_topic_event_subscription(event_subscription_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20230601preview:getPartnerTopicEventSubscription', __args__, opts=opts, typ=GetPartnerTopicEventSubscriptionResult).value
 
     return AwaitableGetPartnerTopicEventSubscriptionResult(
-        dead_letter_destination=__ret__.dead_letter_destination,
-        dead_letter_with_resource_identity=__ret__.dead_letter_with_resource_identity,
-        delivery_with_resource_identity=__ret__.delivery_with_resource_identity,
-        destination=__ret__.destination,
-        event_delivery_schema=__ret__.event_delivery_schema,
-        expiration_time_utc=__ret__.expiration_time_utc,
-        filter=__ret__.filter,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        retry_policy=__ret__.retry_policy,
-        system_data=__ret__.system_data,
-        topic=__ret__.topic,
-        type=__ret__.type)
+        dead_letter_destination=pulumi.get(__ret__, 'dead_letter_destination'),
+        dead_letter_with_resource_identity=pulumi.get(__ret__, 'dead_letter_with_resource_identity'),
+        delivery_with_resource_identity=pulumi.get(__ret__, 'delivery_with_resource_identity'),
+        destination=pulumi.get(__ret__, 'destination'),
+        event_delivery_schema=pulumi.get(__ret__, 'event_delivery_schema'),
+        expiration_time_utc=pulumi.get(__ret__, 'expiration_time_utc'),
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        retry_policy=pulumi.get(__ret__, 'retry_policy'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        topic=pulumi.get(__ret__, 'topic'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_partner_topic_event_subscription)

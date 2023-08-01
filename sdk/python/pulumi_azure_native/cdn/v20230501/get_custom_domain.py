@@ -188,17 +188,17 @@ def get_custom_domain(custom_domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20230501:getCustomDomain', __args__, opts=opts, typ=GetCustomDomainResult).value
 
     return AwaitableGetCustomDomainResult(
-        custom_https_parameters=__ret__.custom_https_parameters,
-        custom_https_provisioning_state=__ret__.custom_https_provisioning_state,
-        custom_https_provisioning_substate=__ret__.custom_https_provisioning_substate,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        validation_data=__ret__.validation_data)
+        custom_https_parameters=pulumi.get(__ret__, 'custom_https_parameters'),
+        custom_https_provisioning_state=pulumi.get(__ret__, 'custom_https_provisioning_state'),
+        custom_https_provisioning_substate=pulumi.get(__ret__, 'custom_https_provisioning_substate'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        validation_data=pulumi.get(__ret__, 'validation_data'))
 
 
 @_utilities.lift_output_func(get_custom_domain)

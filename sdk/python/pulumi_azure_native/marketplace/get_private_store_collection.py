@@ -219,20 +219,20 @@ def get_private_store_collection(collection_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:marketplace:getPrivateStoreCollection', __args__, opts=opts, typ=GetPrivateStoreCollectionResult).value
 
     return AwaitableGetPrivateStoreCollectionResult(
-        all_subscriptions=__ret__.all_subscriptions,
-        applied_rules=__ret__.applied_rules,
-        approve_all_items=__ret__.approve_all_items,
-        approve_all_items_modified_at=__ret__.approve_all_items_modified_at,
-        claim=__ret__.claim,
-        collection_id=__ret__.collection_id,
-        collection_name=__ret__.collection_name,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        name=__ret__.name,
-        number_of_offers=__ret__.number_of_offers,
-        subscriptions_list=__ret__.subscriptions_list,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        all_subscriptions=pulumi.get(__ret__, 'all_subscriptions'),
+        applied_rules=pulumi.get(__ret__, 'applied_rules'),
+        approve_all_items=pulumi.get(__ret__, 'approve_all_items'),
+        approve_all_items_modified_at=pulumi.get(__ret__, 'approve_all_items_modified_at'),
+        claim=pulumi.get(__ret__, 'claim'),
+        collection_id=pulumi.get(__ret__, 'collection_id'),
+        collection_name=pulumi.get(__ret__, 'collection_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        number_of_offers=pulumi.get(__ret__, 'number_of_offers'),
+        subscriptions_list=pulumi.get(__ret__, 'subscriptions_list'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_store_collection)

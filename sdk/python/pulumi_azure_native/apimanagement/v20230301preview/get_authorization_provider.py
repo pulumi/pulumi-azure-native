@@ -125,12 +125,12 @@ def get_authorization_provider(authorization_provider_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getAuthorizationProvider', __args__, opts=opts, typ=GetAuthorizationProviderResult).value
 
     return AwaitableGetAuthorizationProviderResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        identity_provider=__ret__.identity_provider,
-        name=__ret__.name,
-        oauth2=__ret__.oauth2,
-        type=__ret__.type)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_provider=pulumi.get(__ret__, 'identity_provider'),
+        name=pulumi.get(__ret__, 'name'),
+        oauth2=pulumi.get(__ret__, 'oauth2'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_authorization_provider)

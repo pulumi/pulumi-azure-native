@@ -234,21 +234,21 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:healthcareapis:getDicomService', __args__, opts=opts, typ=GetDicomServiceResult).value
 
     return AwaitableGetDicomServiceResult(
-        authentication_configuration=__ret__.authentication_configuration,
-        cors_configuration=__ret__.cors_configuration,
-        etag=__ret__.etag,
-        event_state=__ret__.event_state,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        service_url=__ret__.service_url,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        authentication_configuration=pulumi.get(__ret__, 'authentication_configuration'),
+        cors_configuration=pulumi.get(__ret__, 'cors_configuration'),
+        etag=pulumi.get(__ret__, 'etag'),
+        event_state=pulumi.get(__ret__, 'event_state'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        service_url=pulumi.get(__ret__, 'service_url'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dicom_service)

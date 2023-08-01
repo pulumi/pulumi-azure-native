@@ -106,11 +106,11 @@ def list_workspace_connection_secrets(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230601preview:listWorkspaceConnectionSecrets', __args__, opts=opts, typ=ListWorkspaceConnectionSecretsResult).value
 
     return AwaitableListWorkspaceConnectionSecretsResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_workspace_connection_secrets)

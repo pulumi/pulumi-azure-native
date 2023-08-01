@@ -103,10 +103,10 @@ def get_job_credential(credential_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20221101preview:getJobCredential', __args__, opts=opts, typ=GetJobCredentialResult).value
 
     return AwaitableGetJobCredentialResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type,
-        username=__ret__.username)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(get_job_credential)

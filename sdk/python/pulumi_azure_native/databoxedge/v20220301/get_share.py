@@ -221,20 +221,20 @@ def get_share(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20220301:getShare', __args__, opts=opts, typ=GetShareResult).value
 
     return AwaitableGetShareResult(
-        access_protocol=__ret__.access_protocol,
-        azure_container_info=__ret__.azure_container_info,
-        client_access_rights=__ret__.client_access_rights,
-        data_policy=__ret__.data_policy,
-        description=__ret__.description,
-        id=__ret__.id,
-        monitoring_status=__ret__.monitoring_status,
-        name=__ret__.name,
-        refresh_details=__ret__.refresh_details,
-        share_mappings=__ret__.share_mappings,
-        share_status=__ret__.share_status,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        user_access_rights=__ret__.user_access_rights)
+        access_protocol=pulumi.get(__ret__, 'access_protocol'),
+        azure_container_info=pulumi.get(__ret__, 'azure_container_info'),
+        client_access_rights=pulumi.get(__ret__, 'client_access_rights'),
+        data_policy=pulumi.get(__ret__, 'data_policy'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        monitoring_status=pulumi.get(__ret__, 'monitoring_status'),
+        name=pulumi.get(__ret__, 'name'),
+        refresh_details=pulumi.get(__ret__, 'refresh_details'),
+        share_mappings=pulumi.get(__ret__, 'share_mappings'),
+        share_status=pulumi.get(__ret__, 'share_status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        user_access_rights=pulumi.get(__ret__, 'user_access_rights'))
 
 
 @_utilities.lift_output_func(get_share)

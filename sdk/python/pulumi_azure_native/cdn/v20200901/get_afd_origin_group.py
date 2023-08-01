@@ -182,17 +182,17 @@ def get_afd_origin_group(origin_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20200901:getAFDOriginGroup', __args__, opts=opts, typ=GetAFDOriginGroupResult).value
 
     return AwaitableGetAFDOriginGroupResult(
-        deployment_status=__ret__.deployment_status,
-        health_probe_settings=__ret__.health_probe_settings,
-        id=__ret__.id,
-        load_balancing_settings=__ret__.load_balancing_settings,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        response_based_afd_origin_error_detection_settings=__ret__.response_based_afd_origin_error_detection_settings,
-        session_affinity_state=__ret__.session_affinity_state,
-        system_data=__ret__.system_data,
-        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=__ret__.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
-        type=__ret__.type)
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        health_probe_settings=pulumi.get(__ret__, 'health_probe_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        load_balancing_settings=pulumi.get(__ret__, 'load_balancing_settings'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        response_based_afd_origin_error_detection_settings=pulumi.get(__ret__, 'response_based_afd_origin_error_detection_settings'),
+        session_affinity_state=pulumi.get(__ret__, 'session_affinity_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=pulumi.get(__ret__, 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_afd_origin_group)

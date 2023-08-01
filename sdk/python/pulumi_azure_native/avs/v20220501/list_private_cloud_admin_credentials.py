@@ -97,10 +97,10 @@ def list_private_cloud_admin_credentials(private_cloud_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20220501:listPrivateCloudAdminCredentials', __args__, opts=opts, typ=ListPrivateCloudAdminCredentialsResult).value
 
     return AwaitableListPrivateCloudAdminCredentialsResult(
-        nsxt_password=__ret__.nsxt_password,
-        nsxt_username=__ret__.nsxt_username,
-        vcenter_password=__ret__.vcenter_password,
-        vcenter_username=__ret__.vcenter_username)
+        nsxt_password=pulumi.get(__ret__, 'nsxt_password'),
+        nsxt_username=pulumi.get(__ret__, 'nsxt_username'),
+        vcenter_password=pulumi.get(__ret__, 'vcenter_password'),
+        vcenter_username=pulumi.get(__ret__, 'vcenter_username'))
 
 
 @_utilities.lift_output_func(list_private_cloud_admin_credentials)

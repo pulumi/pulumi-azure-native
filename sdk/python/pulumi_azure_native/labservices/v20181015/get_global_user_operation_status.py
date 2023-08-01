@@ -61,7 +61,7 @@ def get_global_user_operation_status(operation_url: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20181015:getGlobalUserOperationStatus', __args__, opts=opts, typ=GetGlobalUserOperationStatusResult).value
 
     return AwaitableGetGlobalUserOperationStatusResult(
-        status=__ret__.status)
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_global_user_operation_status)

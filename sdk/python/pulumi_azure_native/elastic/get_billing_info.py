@@ -75,8 +75,8 @@ def get_billing_info(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elastic:getBillingInfo', __args__, opts=opts, typ=GetBillingInfoResult).value
 
     return AwaitableGetBillingInfoResult(
-        marketplace_saas_info=__ret__.marketplace_saas_info,
-        partner_billing_entity=__ret__.partner_billing_entity)
+        marketplace_saas_info=pulumi.get(__ret__, 'marketplace_saas_info'),
+        partner_billing_entity=pulumi.get(__ret__, 'partner_billing_entity'))
 
 
 @_utilities.lift_output_func(get_billing_info)

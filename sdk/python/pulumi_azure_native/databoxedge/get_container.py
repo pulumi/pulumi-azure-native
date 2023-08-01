@@ -153,14 +153,14 @@ def get_container(container_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getContainer', __args__, opts=opts, typ=GetContainerResult).value
 
     return AwaitableGetContainerResult(
-        container_status=__ret__.container_status,
-        created_date_time=__ret__.created_date_time,
-        data_format=__ret__.data_format,
-        id=__ret__.id,
-        name=__ret__.name,
-        refresh_details=__ret__.refresh_details,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        container_status=pulumi.get(__ret__, 'container_status'),
+        created_date_time=pulumi.get(__ret__, 'created_date_time'),
+        data_format=pulumi.get(__ret__, 'data_format'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        refresh_details=pulumi.get(__ret__, 'refresh_details'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_container)

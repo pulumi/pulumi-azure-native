@@ -65,7 +65,7 @@ def list_database_principals(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto/v20220707:listDatabasePrincipals', __args__, opts=opts, typ=ListDatabasePrincipalsResult).value
 
     return AwaitableListDatabasePrincipalsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_database_principals)

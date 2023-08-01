@@ -233,21 +233,21 @@ def get_relationship(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights/v20170426:getRelationship', __args__, opts=opts, typ=GetRelationshipResult).value
 
     return AwaitableGetRelationshipResult(
-        cardinality=__ret__.cardinality,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        expiry_date_time_utc=__ret__.expiry_date_time_utc,
-        fields=__ret__.fields,
-        id=__ret__.id,
-        lookup_mappings=__ret__.lookup_mappings,
-        name=__ret__.name,
-        profile_type=__ret__.profile_type,
-        provisioning_state=__ret__.provisioning_state,
-        related_profile_type=__ret__.related_profile_type,
-        relationship_guid_id=__ret__.relationship_guid_id,
-        relationship_name=__ret__.relationship_name,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        cardinality=pulumi.get(__ret__, 'cardinality'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        expiry_date_time_utc=pulumi.get(__ret__, 'expiry_date_time_utc'),
+        fields=pulumi.get(__ret__, 'fields'),
+        id=pulumi.get(__ret__, 'id'),
+        lookup_mappings=pulumi.get(__ret__, 'lookup_mappings'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_type=pulumi.get(__ret__, 'profile_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        related_profile_type=pulumi.get(__ret__, 'related_profile_type'),
+        relationship_guid_id=pulumi.get(__ret__, 'relationship_guid_id'),
+        relationship_name=pulumi.get(__ret__, 'relationship_name'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_relationship)

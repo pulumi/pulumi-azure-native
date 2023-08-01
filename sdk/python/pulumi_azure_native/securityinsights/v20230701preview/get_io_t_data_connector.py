@@ -150,14 +150,14 @@ def get_io_t_data_connector(data_connector_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230701preview:getIoTDataConnector', __args__, opts=opts, typ=GetIoTDataConnectorResult).value
 
     return AwaitableGetIoTDataConnectorResult(
-        data_types=__ret__.data_types,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        subscription_id=__ret__.subscription_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        data_types=pulumi.get(__ret__, 'data_types'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_io_t_data_connector)

@@ -162,15 +162,15 @@ def get_output(job_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:streamanalytics:getOutput', __args__, opts=opts, typ=GetOutputResult).value
 
     return AwaitableGetOutputResult(
-        datasource=__ret__.datasource,
-        diagnostics=__ret__.diagnostics,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        serialization=__ret__.serialization,
-        size_window=__ret__.size_window,
-        time_window=__ret__.time_window,
-        type=__ret__.type)
+        datasource=pulumi.get(__ret__, 'datasource'),
+        diagnostics=pulumi.get(__ret__, 'diagnostics'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        serialization=pulumi.get(__ret__, 'serialization'),
+        size_window=pulumi.get(__ret__, 'size_window'),
+        time_window=pulumi.get(__ret__, 'time_window'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_output)

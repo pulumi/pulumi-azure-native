@@ -186,17 +186,17 @@ def get_extension(data_manager_for_agriculture_resource_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:agfoodplatform:getExtension', __args__, opts=opts, typ=GetExtensionResult).value
 
     return AwaitableGetExtensionResult(
-        additional_api_properties=__ret__.additional_api_properties,
-        e_tag=__ret__.e_tag,
-        extension_api_docs_link=__ret__.extension_api_docs_link,
-        extension_auth_link=__ret__.extension_auth_link,
-        extension_category=__ret__.extension_category,
-        extension_id=__ret__.extension_id,
-        id=__ret__.id,
-        installed_extension_version=__ret__.installed_extension_version,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        additional_api_properties=pulumi.get(__ret__, 'additional_api_properties'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        extension_api_docs_link=pulumi.get(__ret__, 'extension_api_docs_link'),
+        extension_auth_link=pulumi.get(__ret__, 'extension_auth_link'),
+        extension_category=pulumi.get(__ret__, 'extension_category'),
+        extension_id=pulumi.get(__ret__, 'extension_id'),
+        id=pulumi.get(__ret__, 'id'),
+        installed_extension_version=pulumi.get(__ret__, 'installed_extension_version'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_extension)

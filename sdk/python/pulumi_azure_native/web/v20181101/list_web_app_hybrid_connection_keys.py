@@ -127,12 +127,12 @@ def list_web_app_hybrid_connection_keys(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20181101:listWebAppHybridConnectionKeys', __args__, opts=opts, typ=ListWebAppHybridConnectionKeysResult).value
 
     return AwaitableListWebAppHybridConnectionKeysResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        send_key_name=__ret__.send_key_name,
-        send_key_value=__ret__.send_key_value,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        send_key_name=pulumi.get(__ret__, 'send_key_name'),
+        send_key_value=pulumi.get(__ret__, 'send_key_value'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_web_app_hybrid_connection_keys)

@@ -112,11 +112,11 @@ def get_api_collection(api_collection_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20221120preview:getAPICollection', __args__, opts=opts, typ=GetAPICollectionResult).value
 
     return AwaitableGetAPICollectionResult(
-        additional_data=__ret__.additional_data,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        additional_data=pulumi.get(__ret__, 'additional_data'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_api_collection)

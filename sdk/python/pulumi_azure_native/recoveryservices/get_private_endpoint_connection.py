@@ -138,13 +138,13 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:recoveryservices:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_endpoint_connection)

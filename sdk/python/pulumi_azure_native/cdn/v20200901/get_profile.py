@@ -170,16 +170,16 @@ def get_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20200901:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
-        frontdoor_id=__ret__.frontdoor_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        frontdoor_id=pulumi.get(__ret__, 'frontdoor_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_profile)
