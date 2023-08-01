@@ -1375,6 +1375,28 @@
       "listContainerAppSecrets",
       "listDaprComponentSecrets",
       "listJobSecrets"
+    ],
+    "2023-05-01": [
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "Job",
+      "ManagedCertificate",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getManagedEnvironmentAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets",
+      "listJobSecrets"
     ]
   },
   "AppComplianceAutomation": {
@@ -3942,6 +3964,25 @@
       "getWebhookCallbackConfig",
       "listRegistryCredentials",
       "listWebhookEvents"
+    ],
+    "2023-06-01-preview": [
+      "Archife",
+      "ArchiveVersion",
+      "CacheRule",
+      "ConnectedRegistry",
+      "CredentialSet",
+      "ExportPipeline",
+      "ImportPipeline",
+      "PipelineRun",
+      "PrivateEndpointConnection",
+      "Registry",
+      "Replication",
+      "ScopeMap",
+      "Token",
+      "Webhook",
+      "getWebhookCallbackConfig",
+      "listRegistryCredentials",
+      "listWebhookEvents"
     ]
   },
   "ContainerService": {
@@ -4529,6 +4570,18 @@
       "ManagedCluster",
       "PrivateEndpointConnection",
       "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
+    ],
+    "2023-06-02-preview": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "ManagedClusterSnapshot",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "TrustedAccessRoleBinding",
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
@@ -5207,6 +5260,22 @@
       "User",
       "getDeviceExtendedInformation",
       "getMarketplaceImageSasTokenSASToken",
+      "listOrderDCAccessCode"
+    ],
+    "2023-07-01": [
+      "Addon",
+      "BandwidthSchedule",
+      "Container",
+      "Device",
+      "MonitoringConfig",
+      "Order",
+      "Role",
+      "Share",
+      "StorageAccount",
+      "StorageAccountCredential",
+      "Trigger",
+      "User",
+      "getDeviceExtendedInformation",
       "listOrderDCAccessCode"
     ]
   },
@@ -8801,6 +8870,12 @@
       "LabPlan",
       "Schedule",
       "User"
+    ],
+    "2023-06-07": [
+      "Lab",
+      "LabPlan",
+      "Schedule",
+      "User"
     ]
   },
   "LoadTestService": {
@@ -9808,6 +9883,12 @@
       "getEntity"
     ],
     "2021-04-01": [
+      "HierarchySetting",
+      "ManagementGroup",
+      "ManagementGroupSubscription",
+      "getEntity"
+    ],
+    "2023-04-01": [
       "HierarchySetting",
       "ManagementGroup",
       "ManagementGroupSubscription",
@@ -13659,6 +13740,25 @@
       "TrunkedNetwork",
       "VirtualMachine",
       "Volume"
+    ],
+    "2023-07-01": [
+      "AgentPool",
+      "BareMetalMachine",
+      "BareMetalMachineKeySet",
+      "BmcKeySet",
+      "CloudServicesNetwork",
+      "Cluster",
+      "ClusterManager",
+      "Console",
+      "KubernetesCluster",
+      "L2Network",
+      "L3Network",
+      "MetricsConfiguration",
+      "Rack",
+      "StorageAppliance",
+      "TrunkedNetwork",
+      "VirtualMachine",
+      "Volume"
     ]
   },
   "NetworkFunction": {
@@ -14597,6 +14697,15 @@
       "listOpenShiftClusterCredentials"
     ],
     "2022-09-04": [
+      "MachinePool",
+      "OpenShiftCluster",
+      "Secret",
+      "SyncIdentityProvider",
+      "SyncSet",
+      "listOpenShiftClusterAdminCredentials",
+      "listOpenShiftClusterCredentials"
+    ],
+    "2023-04-01": [
       "MachinePool",
       "OpenShiftCluster",
       "Secret",
@@ -15586,6 +15695,40 @@
       "ContentPackage",
       "ContentTemplate",
       "DataConnector",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2023-07-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "DataConnectorDefinition",
       "EntityQuery",
       "FileImport",
       "Hunt",

@@ -233,6 +233,8 @@ ContainerRegistry:
     tracking: "2022-12-01"
     additions:
         AgentPool: 2019-06-01-preview
+        Archife: 2023-06-01-preview
+        ArchiveVersion: 2023-06-01-preview
         BuildStep: 2018-02-01-preview
         CacheRule: 2023-01-01-preview
         ConnectedRegistry: 2023-01-01-preview
@@ -992,6 +994,7 @@ SecurityInsights:
         BookmarkRelation: 2023-06-01-preview
         ContentPackage: 2023-06-01-preview
         ContentTemplate: 2023-06-01-preview
+        DataConnectorDefinition: 2023-07-01-preview
         EntityQuery: 2023-06-01-preview
         FileImport: 2023-06-01-preview
         Hunt: 2023-06-01-preview
