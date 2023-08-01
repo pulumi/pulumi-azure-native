@@ -18,6 +18,10 @@ on:
         type: string
         description: The Azure Active Directory application to authenticate the OIDC tests. Empty skips the OIDC tests.
         default: "89380e12-5be6-486a-89ef-eea107af2f47" # AD app 'oidc-test'
+      retention_days:
+        type: number
+        description: The number of days for which we retain assets
+        default: 90
 
 env:
   GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
@@ -165,6 +169,7 @@ jobs:
         with:
           name: ${{ matrix.language  }}-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+          retention-days: ${{ inputs.retention_days }}
 
       - name: Tar split Go SDK folder
         if: ${{ matrix.language == 'go' }}
@@ -176,6 +181,7 @@ jobs:
         with:
           name: pulumi-azure-native-sdk.tar.gz
           path: ${{ github.workspace}}/sdk/pulumi-azure-native-sdk.tar.gz
+          retention-days: ${{ inputs.retention_days }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -248,3 +254,4 @@ jobs:
         with:
           name: dist
           path: dist
+          retention-days: ${{ inputs.retention_days }}
