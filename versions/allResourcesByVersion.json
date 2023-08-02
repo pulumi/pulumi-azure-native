@@ -17619,6 +17619,11 @@
       "SyncGroup"
     ]
   },
+  "StorageTasks": {
+    "2023-01-01": [
+      "StorageTask"
+    ]
+  },
   "StreamAnalytics": {
     "2016-03-01": [
       "Function",

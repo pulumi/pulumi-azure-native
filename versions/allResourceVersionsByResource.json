@@ -18308,6 +18308,11 @@
       "2022-06-01"
     ]
   },
+  "StorageTasks": {
+    "StorageTask": [
+      "2023-01-01"
+    ]
+  },
   "StreamAnalytics": {
     "Cluster": [
       "2020-03-01",

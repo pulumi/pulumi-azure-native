@@ -748,6 +748,7 @@
   ],
   "StoragePool": [],
   "StorageSync": [],
+  "StorageTasks": [],
   "StreamAnalytics": [
     "2020-03-01-preview",
     "2021-10-01-preview"

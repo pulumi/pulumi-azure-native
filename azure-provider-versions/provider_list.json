@@ -13606,6 +13606,7 @@
       {
         "resourceType": "DataBoxEdgeDevices",
         "apiVersions": [
+          "2023-07-01",
           "2023-02-01",
           "2023-01-01-preview",
           "2022-12-01-preview",
@@ -13633,6 +13634,7 @@
       {
         "resourceType": "DataBoxEdgeDevices/checkNameAvailability",
         "apiVersions": [
+          "2023-07-01",
           "2023-02-01",
           "2023-01-01-preview",
           "2022-12-01-preview",
@@ -13670,6 +13672,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-07-01",
           "2023-02-01",
           "2023-01-01-preview",
           "2022-12-01-preview",
@@ -17186,6 +17189,8 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17201,6 +17206,8 @@
       {
         "resourceType": "elasticVersions",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview"
@@ -17215,6 +17222,8 @@
       {
         "resourceType": "getOrganizationApiKey",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview"
@@ -17223,6 +17232,8 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17238,6 +17249,8 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17253,6 +17266,8 @@
       {
         "resourceType": "monitors",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17268,6 +17283,8 @@
       {
         "resourceType": "monitors/tagRules",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17283,6 +17300,8 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
