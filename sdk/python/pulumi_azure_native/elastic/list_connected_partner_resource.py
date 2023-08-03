@@ -75,8 +75,8 @@ def list_connected_partner_resource(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elastic:listConnectedPartnerResource', __args__, opts=opts, typ=ListConnectedPartnerResourceResult).value
 
     return AwaitableListConnectedPartnerResourceResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_connected_partner_resource)

@@ -103,10 +103,10 @@ def get_api_diagnostic(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20180101:getApiDiagnostic', __args__, opts=opts, typ=GetApiDiagnosticResult).value
 
     return AwaitableGetApiDiagnosticResult(
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_api_diagnostic)

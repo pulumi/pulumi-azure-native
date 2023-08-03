@@ -110,11 +110,11 @@ def get_queue(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage:getQueue', __args__, opts=opts, typ=GetQueueResult).value
 
     return AwaitableGetQueueResult(
-        approximate_message_count=__ret__.approximate_message_count,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        type=__ret__.type)
+        approximate_message_count=pulumi.get(__ret__, 'approximate_message_count'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_queue)

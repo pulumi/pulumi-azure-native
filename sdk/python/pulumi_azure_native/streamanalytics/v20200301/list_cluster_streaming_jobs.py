@@ -74,8 +74,8 @@ def list_cluster_streaming_jobs(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:streamanalytics/v20200301:listClusterStreamingJobs', __args__, opts=opts, typ=ListClusterStreamingJobsResult).value
 
     return AwaitableListClusterStreamingJobsResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_cluster_streaming_jobs)

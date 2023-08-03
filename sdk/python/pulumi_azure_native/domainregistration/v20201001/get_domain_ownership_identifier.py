@@ -125,12 +125,12 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:domainregistration/v20201001:getDomainOwnershipIdentifier', __args__, opts=opts, typ=GetDomainOwnershipIdentifierResult).value
 
     return AwaitableGetDomainOwnershipIdentifierResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        ownership_id=__ret__.ownership_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        ownership_id=pulumi.get(__ret__, 'ownership_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_domain_ownership_identifier)

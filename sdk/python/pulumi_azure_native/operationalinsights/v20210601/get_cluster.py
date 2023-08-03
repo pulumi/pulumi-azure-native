@@ -242,22 +242,22 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20210601:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        associated_workspaces=__ret__.associated_workspaces,
-        billing_type=__ret__.billing_type,
-        capacity_reservation_properties=__ret__.capacity_reservation_properties,
-        cluster_id=__ret__.cluster_id,
-        created_date=__ret__.created_date,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        is_availability_zones_enabled=__ret__.is_availability_zones_enabled,
-        key_vault_properties=__ret__.key_vault_properties,
-        last_modified_date=__ret__.last_modified_date,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        associated_workspaces=pulumi.get(__ret__, 'associated_workspaces'),
+        billing_type=pulumi.get(__ret__, 'billing_type'),
+        capacity_reservation_properties=pulumi.get(__ret__, 'capacity_reservation_properties'),
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        is_availability_zones_enabled=pulumi.get(__ret__, 'is_availability_zones_enabled'),
+        key_vault_properties=pulumi.get(__ret__, 'key_vault_properties'),
+        last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cluster)

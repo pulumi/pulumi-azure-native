@@ -63,7 +63,7 @@ def get_console_with_location(console_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:portal:getConsoleWithLocation', __args__, opts=opts, typ=GetConsoleWithLocationResult).value
 
     return AwaitableGetConsoleWithLocationResult(
-        properties=__ret__.properties)
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_console_with_location)

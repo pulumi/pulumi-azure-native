@@ -194,18 +194,18 @@ def get_internet_gateway(internet_gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230615:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult).value
 
     return AwaitableGetInternetGatewayResult(
-        annotation=__ret__.annotation,
-        id=__ret__.id,
-        internet_gateway_rule_id=__ret__.internet_gateway_rule_id,
-        ipv4_address=__ret__.ipv4_address,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_fabric_controller_id=__ret__.network_fabric_controller_id,
-        port=__ret__.port,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        annotation=pulumi.get(__ret__, 'annotation'),
+        id=pulumi.get(__ret__, 'id'),
+        internet_gateway_rule_id=pulumi.get(__ret__, 'internet_gateway_rule_id'),
+        ipv4_address=pulumi.get(__ret__, 'ipv4_address'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_fabric_controller_id=pulumi.get(__ret__, 'network_fabric_controller_id'),
+        port=pulumi.get(__ret__, 'port'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_internet_gateway)

@@ -218,20 +218,20 @@ def get_connector(connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement/v20180801preview:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
-        collection=__ret__.collection,
-        created_on=__ret__.created_on,
-        credentials_key=__ret__.credentials_key,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        modified_on=__ret__.modified_on,
-        name=__ret__.name,
-        provider_account_id=__ret__.provider_account_id,
-        report_id=__ret__.report_id,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        collection=pulumi.get(__ret__, 'collection'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        credentials_key=pulumi.get(__ret__, 'credentials_key'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        modified_on=pulumi.get(__ret__, 'modified_on'),
+        name=pulumi.get(__ret__, 'name'),
+        provider_account_id=pulumi.get(__ret__, 'provider_account_id'),
+        report_id=pulumi.get(__ret__, 'report_id'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connector)

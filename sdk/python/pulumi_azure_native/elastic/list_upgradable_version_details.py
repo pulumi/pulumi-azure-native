@@ -74,8 +74,8 @@ def list_upgradable_version_details(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elastic:listUpgradableVersionDetails', __args__, opts=opts, typ=ListUpgradableVersionDetailsResult).value
 
     return AwaitableListUpgradableVersionDetailsResult(
-        current_version=__ret__.current_version,
-        upgradable_versions=__ret__.upgradable_versions)
+        current_version=pulumi.get(__ret__, 'current_version'),
+        upgradable_versions=pulumi.get(__ret__, 'upgradable_versions'))
 
 
 @_utilities.lift_output_func(list_upgradable_version_details)

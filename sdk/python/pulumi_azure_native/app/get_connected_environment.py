@@ -207,19 +207,19 @@ def get_connected_environment(connected_environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getConnectedEnvironment', __args__, opts=opts, typ=GetConnectedEnvironmentResult).value
 
     return AwaitableGetConnectedEnvironmentResult(
-        custom_domain_configuration=__ret__.custom_domain_configuration,
-        dapr_ai_connection_string=__ret__.dapr_ai_connection_string,
-        default_domain=__ret__.default_domain,
-        deployment_errors=__ret__.deployment_errors,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        static_ip=__ret__.static_ip,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        custom_domain_configuration=pulumi.get(__ret__, 'custom_domain_configuration'),
+        dapr_ai_connection_string=pulumi.get(__ret__, 'dapr_ai_connection_string'),
+        default_domain=pulumi.get(__ret__, 'default_domain'),
+        deployment_errors=pulumi.get(__ret__, 'deployment_errors'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        static_ip=pulumi.get(__ret__, 'static_ip'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connected_environment)

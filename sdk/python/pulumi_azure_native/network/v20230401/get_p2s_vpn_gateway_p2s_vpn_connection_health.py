@@ -218,20 +218,20 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health(gateway_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getP2sVpnGatewayP2sVpnConnectionHealth', __args__, opts=opts, typ=GetP2sVpnGatewayP2sVpnConnectionHealthResult).value
 
     return AwaitableGetP2sVpnGatewayP2sVpnConnectionHealthResult(
-        custom_dns_servers=__ret__.custom_dns_servers,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        is_routing_preference_internet=__ret__.is_routing_preference_internet,
-        location=__ret__.location,
-        name=__ret__.name,
-        p2_s_connection_configurations=__ret__.p2_s_connection_configurations,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_hub=__ret__.virtual_hub,
-        vpn_client_connection_health=__ret__.vpn_client_connection_health,
-        vpn_gateway_scale_unit=__ret__.vpn_gateway_scale_unit,
-        vpn_server_configuration=__ret__.vpn_server_configuration)
+        custom_dns_servers=pulumi.get(__ret__, 'custom_dns_servers'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        is_routing_preference_internet=pulumi.get(__ret__, 'is_routing_preference_internet'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        p2_s_connection_configurations=pulumi.get(__ret__, 'p2_s_connection_configurations'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_hub=pulumi.get(__ret__, 'virtual_hub'),
+        vpn_client_connection_health=pulumi.get(__ret__, 'vpn_client_connection_health'),
+        vpn_gateway_scale_unit=pulumi.get(__ret__, 'vpn_gateway_scale_unit'),
+        vpn_server_configuration=pulumi.get(__ret__, 'vpn_server_configuration'))
 
 
 @_utilities.lift_output_func(get_p2s_vpn_gateway_p2s_vpn_connection_health)

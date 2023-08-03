@@ -141,13 +141,13 @@ def get_topic_space(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20230601preview:getTopicSpace', __args__, opts=opts, typ=GetTopicSpaceResult).value
 
     return AwaitableGetTopicSpaceResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        topic_templates=__ret__.topic_templates,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        topic_templates=pulumi.get(__ret__, 'topic_templates'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_topic_space)

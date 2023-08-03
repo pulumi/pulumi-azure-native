@@ -207,19 +207,19 @@ def get_automation_rule(automation_rule_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getAutomationRule', __args__, opts=opts, typ=GetAutomationRuleResult).value
 
     return AwaitableGetAutomationRuleResult(
-        actions=__ret__.actions,
-        created_by=__ret__.created_by,
-        created_time_utc=__ret__.created_time_utc,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_time_utc=__ret__.last_modified_time_utc,
-        name=__ret__.name,
-        order=__ret__.order,
-        system_data=__ret__.system_data,
-        triggering_logic=__ret__.triggering_logic,
-        type=__ret__.type)
+        actions=pulumi.get(__ret__, 'actions'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_time_utc=pulumi.get(__ret__, 'last_modified_time_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        order=pulumi.get(__ret__, 'order'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        triggering_logic=pulumi.get(__ret__, 'triggering_logic'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_automation_rule)

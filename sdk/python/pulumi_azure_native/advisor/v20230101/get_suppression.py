@@ -137,13 +137,13 @@ def get_suppression(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:advisor/v20230101:getSuppression', __args__, opts=opts, typ=GetSuppressionResult).value
 
     return AwaitableGetSuppressionResult(
-        expiration_time_stamp=__ret__.expiration_time_stamp,
-        id=__ret__.id,
-        name=__ret__.name,
-        suppression_id=__ret__.suppression_id,
-        system_data=__ret__.system_data,
-        ttl=__ret__.ttl,
-        type=__ret__.type)
+        expiration_time_stamp=pulumi.get(__ret__, 'expiration_time_stamp'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        suppression_id=pulumi.get(__ret__, 'suppression_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        ttl=pulumi.get(__ret__, 'ttl'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_suppression)

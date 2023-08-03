@@ -113,11 +113,11 @@ def get_container_registry(container_registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform/v20230501preview:getContainerRegistry', __args__, opts=opts, typ=GetContainerRegistryResult).value
 
     return AwaitableGetContainerRegistryResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_container_registry)

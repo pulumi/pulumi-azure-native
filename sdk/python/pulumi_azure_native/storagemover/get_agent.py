@@ -243,22 +243,22 @@ def get_agent(agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagemover:getAgent', __args__, opts=opts, typ=GetAgentResult).value
 
     return AwaitableGetAgentResult(
-        agent_status=__ret__.agent_status,
-        agent_version=__ret__.agent_version,
-        arc_resource_id=__ret__.arc_resource_id,
-        arc_vm_uuid=__ret__.arc_vm_uuid,
-        description=__ret__.description,
-        error_details=__ret__.error_details,
-        id=__ret__.id,
-        last_status_update=__ret__.last_status_update,
-        local_ip_address=__ret__.local_ip_address,
-        memory_in_mb=__ret__.memory_in_mb,
-        name=__ret__.name,
-        number_of_cores=__ret__.number_of_cores,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        uptime_in_seconds=__ret__.uptime_in_seconds)
+        agent_status=pulumi.get(__ret__, 'agent_status'),
+        agent_version=pulumi.get(__ret__, 'agent_version'),
+        arc_resource_id=pulumi.get(__ret__, 'arc_resource_id'),
+        arc_vm_uuid=pulumi.get(__ret__, 'arc_vm_uuid'),
+        description=pulumi.get(__ret__, 'description'),
+        error_details=pulumi.get(__ret__, 'error_details'),
+        id=pulumi.get(__ret__, 'id'),
+        last_status_update=pulumi.get(__ret__, 'last_status_update'),
+        local_ip_address=pulumi.get(__ret__, 'local_ip_address'),
+        memory_in_mb=pulumi.get(__ret__, 'memory_in_mb'),
+        name=pulumi.get(__ret__, 'name'),
+        number_of_cores=pulumi.get(__ret__, 'number_of_cores'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        uptime_in_seconds=pulumi.get(__ret__, 'uptime_in_seconds'))
 
 
 @_utilities.lift_output_func(get_agent)

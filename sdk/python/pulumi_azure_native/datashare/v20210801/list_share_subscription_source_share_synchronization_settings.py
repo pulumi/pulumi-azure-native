@@ -80,8 +80,8 @@ def list_share_subscription_source_share_synchronization_settings(account_name: 
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20210801:listShareSubscriptionSourceShareSynchronizationSettings', __args__, opts=opts, typ=ListShareSubscriptionSourceShareSynchronizationSettingsResult).value
 
     return AwaitableListShareSubscriptionSourceShareSynchronizationSettingsResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_share_subscription_source_share_synchronization_settings)

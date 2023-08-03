@@ -85,9 +85,9 @@ def get_network_device_status(network_device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230201preview:getNetworkDeviceStatus', __args__, opts=opts, typ=GetNetworkDeviceStatusResult).value
 
     return AwaitableGetNetworkDeviceStatusResult(
-        operational_status=__ret__.operational_status,
-        power_cycle_state=__ret__.power_cycle_state,
-        serial_number=__ret__.serial_number)
+        operational_status=pulumi.get(__ret__, 'operational_status'),
+        power_cycle_state=pulumi.get(__ret__, 'power_cycle_state'),
+        serial_number=pulumi.get(__ret__, 'serial_number'))
 
 
 @_utilities.lift_output_func(get_network_device_status)

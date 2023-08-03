@@ -63,7 +63,7 @@ def list_bot_secrets(bot_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:healthbot:listBotSecrets', __args__, opts=opts, typ=ListBotSecretsResult).value
 
     return AwaitableListBotSecretsResult(
-        secrets=__ret__.secrets)
+        secrets=pulumi.get(__ret__, 'secrets'))
 
 
 @_utilities.lift_output_func(list_bot_secrets)

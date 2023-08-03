@@ -62,7 +62,7 @@ def list_device_registration_key(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridnetwork:listDeviceRegistrationKey', __args__, opts=opts, typ=ListDeviceRegistrationKeyResult).value
 
     return AwaitableListDeviceRegistrationKeyResult(
-        registration_key=__ret__.registration_key)
+        registration_key=pulumi.get(__ret__, 'registration_key'))
 
 
 @_utilities.lift_output_func(list_device_registration_key)

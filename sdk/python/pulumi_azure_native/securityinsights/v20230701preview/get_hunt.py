@@ -209,19 +209,19 @@ def get_hunt(hunt_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230701preview:getHunt', __args__, opts=opts, typ=GetHuntResult).value
 
     return AwaitableGetHuntResult(
-        attack_tactics=__ret__.attack_tactics,
-        attack_techniques=__ret__.attack_techniques,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        hypothesis_status=__ret__.hypothesis_status,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        attack_tactics=pulumi.get(__ret__, 'attack_tactics'),
+        attack_techniques=pulumi.get(__ret__, 'attack_techniques'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        hypothesis_status=pulumi.get(__ret__, 'hypothesis_status'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hunt)

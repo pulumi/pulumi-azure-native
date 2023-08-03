@@ -74,8 +74,8 @@ def get_shared_keys(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getSharedKeys', __args__, opts=opts, typ=GetSharedKeysResult).value
 
     return AwaitableGetSharedKeysResult(
-        primary_shared_key=__ret__.primary_shared_key,
-        secondary_shared_key=__ret__.secondary_shared_key)
+        primary_shared_key=pulumi.get(__ret__, 'primary_shared_key'),
+        secondary_shared_key=pulumi.get(__ret__, 'secondary_shared_key'))
 
 
 @_utilities.lift_output_func(get_shared_keys)

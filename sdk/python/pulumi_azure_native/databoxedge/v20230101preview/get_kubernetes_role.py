@@ -193,17 +193,17 @@ def get_kubernetes_role(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20230101preview:getKubernetesRole', __args__, opts=opts, typ=GetKubernetesRoleResult).value
 
     return AwaitableGetKubernetesRoleResult(
-        host_platform=__ret__.host_platform,
-        host_platform_type=__ret__.host_platform_type,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        kubernetes_cluster_info=__ret__.kubernetes_cluster_info,
-        kubernetes_role_resources=__ret__.kubernetes_role_resources,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        role_status=__ret__.role_status,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        host_platform=pulumi.get(__ret__, 'host_platform'),
+        host_platform_type=pulumi.get(__ret__, 'host_platform_type'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        kubernetes_cluster_info=pulumi.get(__ret__, 'kubernetes_cluster_info'),
+        kubernetes_role_resources=pulumi.get(__ret__, 'kubernetes_role_resources'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        role_status=pulumi.get(__ret__, 'role_status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_kubernetes_role)

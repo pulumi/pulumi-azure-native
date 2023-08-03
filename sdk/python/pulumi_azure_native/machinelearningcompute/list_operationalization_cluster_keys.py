@@ -123,12 +123,12 @@ def list_operationalization_cluster_keys(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningcompute:listOperationalizationClusterKeys', __args__, opts=opts, typ=ListOperationalizationClusterKeysResult).value
 
     return AwaitableListOperationalizationClusterKeysResult(
-        app_insights=__ret__.app_insights,
-        container_registry=__ret__.container_registry,
-        container_service=__ret__.container_service,
-        service_auth_configuration=__ret__.service_auth_configuration,
-        ssl_configuration=__ret__.ssl_configuration,
-        storage_account=__ret__.storage_account)
+        app_insights=pulumi.get(__ret__, 'app_insights'),
+        container_registry=pulumi.get(__ret__, 'container_registry'),
+        container_service=pulumi.get(__ret__, 'container_service'),
+        service_auth_configuration=pulumi.get(__ret__, 'service_auth_configuration'),
+        ssl_configuration=pulumi.get(__ret__, 'ssl_configuration'),
+        storage_account=pulumi.get(__ret__, 'storage_account'))
 
 
 @_utilities.lift_output_func(list_operationalization_cluster_keys)

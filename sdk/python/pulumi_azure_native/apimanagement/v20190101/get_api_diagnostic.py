@@ -188,17 +188,17 @@ def get_api_diagnostic(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20190101:getApiDiagnostic', __args__, opts=opts, typ=GetApiDiagnosticResult).value
 
     return AwaitableGetApiDiagnosticResult(
-        always_log=__ret__.always_log,
-        backend=__ret__.backend,
-        enable_http_correlation_headers=__ret__.enable_http_correlation_headers,
-        frontend=__ret__.frontend,
-        http_correlation_protocol=__ret__.http_correlation_protocol,
-        id=__ret__.id,
-        logger_id=__ret__.logger_id,
-        name=__ret__.name,
-        sampling=__ret__.sampling,
-        type=__ret__.type,
-        verbosity=__ret__.verbosity)
+        always_log=pulumi.get(__ret__, 'always_log'),
+        backend=pulumi.get(__ret__, 'backend'),
+        enable_http_correlation_headers=pulumi.get(__ret__, 'enable_http_correlation_headers'),
+        frontend=pulumi.get(__ret__, 'frontend'),
+        http_correlation_protocol=pulumi.get(__ret__, 'http_correlation_protocol'),
+        id=pulumi.get(__ret__, 'id'),
+        logger_id=pulumi.get(__ret__, 'logger_id'),
+        name=pulumi.get(__ret__, 'name'),
+        sampling=pulumi.get(__ret__, 'sampling'),
+        type=pulumi.get(__ret__, 'type'),
+        verbosity=pulumi.get(__ret__, 'verbosity'))
 
 
 @_utilities.lift_output_func(get_api_diagnostic)

@@ -61,7 +61,7 @@ def get_registration_activation_key(registration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestack/v20220601:getRegistrationActivationKey', __args__, opts=opts, typ=GetRegistrationActivationKeyResult).value
 
     return AwaitableGetRegistrationActivationKeyResult(
-        activation_key=__ret__.activation_key)
+        activation_key=pulumi.get(__ret__, 'activation_key'))
 
 
 @_utilities.lift_output_func(get_registration_activation_key)

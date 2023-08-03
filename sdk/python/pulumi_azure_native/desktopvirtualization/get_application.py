@@ -270,24 +270,24 @@ def get_application(application_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        application_type=__ret__.application_type,
-        command_line_arguments=__ret__.command_line_arguments,
-        command_line_setting=__ret__.command_line_setting,
-        description=__ret__.description,
-        file_path=__ret__.file_path,
-        friendly_name=__ret__.friendly_name,
-        icon_content=__ret__.icon_content,
-        icon_hash=__ret__.icon_hash,
-        icon_index=__ret__.icon_index,
-        icon_path=__ret__.icon_path,
-        id=__ret__.id,
-        msix_package_application_id=__ret__.msix_package_application_id,
-        msix_package_family_name=__ret__.msix_package_family_name,
-        name=__ret__.name,
-        object_id=__ret__.object_id,
-        show_in_portal=__ret__.show_in_portal,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        application_type=pulumi.get(__ret__, 'application_type'),
+        command_line_arguments=pulumi.get(__ret__, 'command_line_arguments'),
+        command_line_setting=pulumi.get(__ret__, 'command_line_setting'),
+        description=pulumi.get(__ret__, 'description'),
+        file_path=pulumi.get(__ret__, 'file_path'),
+        friendly_name=pulumi.get(__ret__, 'friendly_name'),
+        icon_content=pulumi.get(__ret__, 'icon_content'),
+        icon_hash=pulumi.get(__ret__, 'icon_hash'),
+        icon_index=pulumi.get(__ret__, 'icon_index'),
+        icon_path=pulumi.get(__ret__, 'icon_path'),
+        id=pulumi.get(__ret__, 'id'),
+        msix_package_application_id=pulumi.get(__ret__, 'msix_package_application_id'),
+        msix_package_family_name=pulumi.get(__ret__, 'msix_package_family_name'),
+        name=pulumi.get(__ret__, 'name'),
+        object_id=pulumi.get(__ret__, 'object_id'),
+        show_in_portal=pulumi.get(__ret__, 'show_in_portal'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_application)

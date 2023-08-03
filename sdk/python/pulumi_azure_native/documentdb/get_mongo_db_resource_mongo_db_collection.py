@@ -135,13 +135,13 @@ def get_mongo_db_resource_mongo_db_collection(account_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb:getMongoDBResourceMongoDBCollection', __args__, opts=opts, typ=GetMongoDBResourceMongoDBCollectionResult).value
 
     return AwaitableGetMongoDBResourceMongoDBCollectionResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        options=__ret__.options,
-        resource=__ret__.resource,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        options=pulumi.get(__ret__, 'options'),
+        resource=pulumi.get(__ret__, 'resource'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_mongo_db_resource_mongo_db_collection)

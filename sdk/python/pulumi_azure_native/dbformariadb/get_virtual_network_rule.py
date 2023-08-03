@@ -125,12 +125,12 @@ def get_virtual_network_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbformariadb:getVirtualNetworkRule', __args__, opts=opts, typ=GetVirtualNetworkRuleResult).value
 
     return AwaitableGetVirtualNetworkRuleResult(
-        id=__ret__.id,
-        ignore_missing_vnet_service_endpoint=__ret__.ignore_missing_vnet_service_endpoint,
-        name=__ret__.name,
-        state=__ret__.state,
-        type=__ret__.type,
-        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
+        id=pulumi.get(__ret__, 'id'),
+        ignore_missing_vnet_service_endpoint=pulumi.get(__ret__, 'ignore_missing_vnet_service_endpoint'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
 
 
 @_utilities.lift_output_func(get_virtual_network_rule)

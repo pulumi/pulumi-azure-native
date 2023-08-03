@@ -157,15 +157,15 @@ def get_query_pack(query_pack_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20190901:getQueryPack', __args__, opts=opts, typ=GetQueryPackResult).value
 
     return AwaitableGetQueryPackResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        query_pack_id=__ret__.query_pack_id,
-        tags=__ret__.tags,
-        time_created=__ret__.time_created,
-        time_modified=__ret__.time_modified,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        query_pack_id=pulumi.get(__ret__, 'query_pack_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        time_modified=pulumi.get(__ret__, 'time_modified'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_query_pack)

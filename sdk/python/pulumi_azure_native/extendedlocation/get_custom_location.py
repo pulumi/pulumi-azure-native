@@ -219,20 +219,20 @@ def get_custom_location(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:extendedlocation:getCustomLocation', __args__, opts=opts, typ=GetCustomLocationResult).value
 
     return AwaitableGetCustomLocationResult(
-        authentication=__ret__.authentication,
-        cluster_extension_ids=__ret__.cluster_extension_ids,
-        display_name=__ret__.display_name,
-        host_resource_id=__ret__.host_resource_id,
-        host_type=__ret__.host_type,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        namespace=__ret__.namespace,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        authentication=pulumi.get(__ret__, 'authentication'),
+        cluster_extension_ids=pulumi.get(__ret__, 'cluster_extension_ids'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        host_resource_id=pulumi.get(__ret__, 'host_resource_id'),
+        host_type=pulumi.get(__ret__, 'host_type'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace=pulumi.get(__ret__, 'namespace'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_custom_location)

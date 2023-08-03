@@ -121,12 +121,12 @@ def get_guest_diagnostics_settings_association(association_name: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20180601preview:getGuestDiagnosticsSettingsAssociation', __args__, opts=opts, typ=GetGuestDiagnosticsSettingsAssociationResult).value
 
     return AwaitableGetGuestDiagnosticsSettingsAssociationResult(
-        guest_diagnostic_settings_name=__ret__.guest_diagnostic_settings_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        guest_diagnostic_settings_name=pulumi.get(__ret__, 'guest_diagnostic_settings_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_guest_diagnostics_settings_association)

@@ -227,21 +227,21 @@ def get_attestation_at_subscription(attestation_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:policyinsights/v20220901:getAttestationAtSubscription', __args__, opts=opts, typ=GetAttestationAtSubscriptionResult).value
 
     return AwaitableGetAttestationAtSubscriptionResult(
-        assessment_date=__ret__.assessment_date,
-        comments=__ret__.comments,
-        compliance_state=__ret__.compliance_state,
-        evidence=__ret__.evidence,
-        expires_on=__ret__.expires_on,
-        id=__ret__.id,
-        last_compliance_state_change_at=__ret__.last_compliance_state_change_at,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        owner=__ret__.owner,
-        policy_assignment_id=__ret__.policy_assignment_id,
-        policy_definition_reference_id=__ret__.policy_definition_reference_id,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        assessment_date=pulumi.get(__ret__, 'assessment_date'),
+        comments=pulumi.get(__ret__, 'comments'),
+        compliance_state=pulumi.get(__ret__, 'compliance_state'),
+        evidence=pulumi.get(__ret__, 'evidence'),
+        expires_on=pulumi.get(__ret__, 'expires_on'),
+        id=pulumi.get(__ret__, 'id'),
+        last_compliance_state_change_at=pulumi.get(__ret__, 'last_compliance_state_change_at'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        owner=pulumi.get(__ret__, 'owner'),
+        policy_assignment_id=pulumi.get(__ret__, 'policy_assignment_id'),
+        policy_definition_reference_id=pulumi.get(__ret__, 'policy_definition_reference_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_attestation_at_subscription)

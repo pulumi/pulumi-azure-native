@@ -123,12 +123,12 @@ def get_configuration_profile_preference(configuration_profile_preference_name: 
     __ret__ = pulumi.runtime.invoke('azure-native:automanage:getConfigurationProfilePreference', __args__, opts=opts, typ=GetConfigurationProfilePreferenceResult).value
 
     return AwaitableGetConfigurationProfilePreferenceResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_configuration_profile_preference)

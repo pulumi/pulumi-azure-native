@@ -243,22 +243,22 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elasticsan:getElasticSan', __args__, opts=opts, typ=GetElasticSanResult).value
 
     return AwaitableGetElasticSanResult(
-        availability_zones=__ret__.availability_zones,
-        base_size_ti_b=__ret__.base_size_ti_b,
-        extended_capacity_size_ti_b=__ret__.extended_capacity_size_ti_b,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        total_iops=__ret__.total_iops,
-        total_m_bps=__ret__.total_m_bps,
-        total_size_ti_b=__ret__.total_size_ti_b,
-        total_volume_size_gi_b=__ret__.total_volume_size_gi_b,
-        type=__ret__.type,
-        volume_group_count=__ret__.volume_group_count)
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        base_size_ti_b=pulumi.get(__ret__, 'base_size_ti_b'),
+        extended_capacity_size_ti_b=pulumi.get(__ret__, 'extended_capacity_size_ti_b'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        total_iops=pulumi.get(__ret__, 'total_iops'),
+        total_m_bps=pulumi.get(__ret__, 'total_m_bps'),
+        total_size_ti_b=pulumi.get(__ret__, 'total_size_ti_b'),
+        total_volume_size_gi_b=pulumi.get(__ret__, 'total_volume_size_gi_b'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_group_count=pulumi.get(__ret__, 'volume_group_count'))
 
 
 @_utilities.lift_output_func(get_elastic_san)

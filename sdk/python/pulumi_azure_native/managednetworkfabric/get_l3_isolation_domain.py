@@ -255,23 +255,23 @@ def get_l3_isolation_domain(l3_isolation_domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getL3IsolationDomain', __args__, opts=opts, typ=GetL3IsolationDomainResult).value
 
     return AwaitableGetL3IsolationDomainResult(
-        administrative_state=__ret__.administrative_state,
-        aggregate_route_configuration=__ret__.aggregate_route_configuration,
-        annotation=__ret__.annotation,
-        connected_subnet_route_policy=__ret__.connected_subnet_route_policy,
-        description=__ret__.description,
-        disabled_on_resources=__ret__.disabled_on_resources,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_fabric_id=__ret__.network_fabric_id,
-        option_b_disabled_on_resources=__ret__.option_b_disabled_on_resources,
-        provisioning_state=__ret__.provisioning_state,
-        redistribute_connected_subnets=__ret__.redistribute_connected_subnets,
-        redistribute_static_routes=__ret__.redistribute_static_routes,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        aggregate_route_configuration=pulumi.get(__ret__, 'aggregate_route_configuration'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        connected_subnet_route_policy=pulumi.get(__ret__, 'connected_subnet_route_policy'),
+        description=pulumi.get(__ret__, 'description'),
+        disabled_on_resources=pulumi.get(__ret__, 'disabled_on_resources'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_fabric_id=pulumi.get(__ret__, 'network_fabric_id'),
+        option_b_disabled_on_resources=pulumi.get(__ret__, 'option_b_disabled_on_resources'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        redistribute_connected_subnets=pulumi.get(__ret__, 'redistribute_connected_subnets'),
+        redistribute_static_routes=pulumi.get(__ret__, 'redistribute_static_routes'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_l3_isolation_domain)

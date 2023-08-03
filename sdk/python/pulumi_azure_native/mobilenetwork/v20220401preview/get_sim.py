@@ -257,23 +257,23 @@ def get_sim(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork/v20220401preview:getSim', __args__, opts=opts, typ=GetSimResult).value
 
     return AwaitableGetSimResult(
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
-        device_type=__ret__.device_type,
-        id=__ret__.id,
-        integrated_circuit_card_identifier=__ret__.integrated_circuit_card_identifier,
-        international_mobile_subscriber_identity=__ret__.international_mobile_subscriber_identity,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sim_policy=__ret__.sim_policy,
-        sim_state=__ret__.sim_state,
-        static_ip_configuration=__ret__.static_ip_configuration,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_by_type=pulumi.get(__ret__, 'created_by_type'),
+        device_type=pulumi.get(__ret__, 'device_type'),
+        id=pulumi.get(__ret__, 'id'),
+        integrated_circuit_card_identifier=pulumi.get(__ret__, 'integrated_circuit_card_identifier'),
+        international_mobile_subscriber_identity=pulumi.get(__ret__, 'international_mobile_subscriber_identity'),
+        last_modified_at=pulumi.get(__ret__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__ret__, 'last_modified_by_type'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sim_policy=pulumi.get(__ret__, 'sim_policy'),
+        sim_state=pulumi.get(__ret__, 'sim_state'),
+        static_ip_configuration=pulumi.get(__ret__, 'static_ip_configuration'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sim)

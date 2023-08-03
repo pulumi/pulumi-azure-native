@@ -186,17 +186,17 @@ def get_published_blueprint(blueprint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blueprint:getPublishedBlueprint', __args__, opts=opts, typ=GetPublishedBlueprintResult).value
 
     return AwaitableGetPublishedBlueprintResult(
-        blueprint_name=__ret__.blueprint_name,
-        change_notes=__ret__.change_notes,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        resource_groups=__ret__.resource_groups,
-        status=__ret__.status,
-        target_scope=__ret__.target_scope,
-        type=__ret__.type)
+        blueprint_name=pulumi.get(__ret__, 'blueprint_name'),
+        change_notes=pulumi.get(__ret__, 'change_notes'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        resource_groups=pulumi.get(__ret__, 'resource_groups'),
+        status=pulumi.get(__ret__, 'status'),
+        target_scope=pulumi.get(__ret__, 'target_scope'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_published_blueprint)

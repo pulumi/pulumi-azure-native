@@ -162,15 +162,15 @@ def get_start_stop_managed_instance_schedule(managed_instance_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getStartStopManagedInstanceSchedule', __args__, opts=opts, typ=GetStartStopManagedInstanceScheduleResult).value
 
     return AwaitableGetStartStopManagedInstanceScheduleResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        next_execution_time=__ret__.next_execution_time,
-        next_run_action=__ret__.next_run_action,
-        schedule_list=__ret__.schedule_list,
-        system_data=__ret__.system_data,
-        time_zone_id=__ret__.time_zone_id,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        next_execution_time=pulumi.get(__ret__, 'next_execution_time'),
+        next_run_action=pulumi.get(__ret__, 'next_run_action'),
+        schedule_list=pulumi.get(__ret__, 'schedule_list'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        time_zone_id=pulumi.get(__ret__, 'time_zone_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_start_stop_managed_instance_schedule)

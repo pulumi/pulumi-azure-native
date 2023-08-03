@@ -147,14 +147,14 @@ def get_configuration_assignments_for_resource_group(configuration_assignment_na
     __ret__ = pulumi.runtime.invoke('azure-native:maintenance:getConfigurationAssignmentsForResourceGroup', __args__, opts=opts, typ=GetConfigurationAssignmentsForResourceGroupResult).value
 
     return AwaitableGetConfigurationAssignmentsForResourceGroupResult(
-        filter=__ret__.filter,
-        id=__ret__.id,
-        location=__ret__.location,
-        maintenance_configuration_id=__ret__.maintenance_configuration_id,
-        name=__ret__.name,
-        resource_id=__ret__.resource_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        filter=pulumi.get(__ret__, 'filter'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        maintenance_configuration_id=pulumi.get(__ret__, 'maintenance_configuration_id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_configuration_assignments_for_resource_group)

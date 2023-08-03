@@ -175,16 +175,16 @@ def get_workspace_product(product_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getWorkspaceProduct', __args__, opts=opts, typ=GetWorkspaceProductResult).value
 
     return AwaitableGetWorkspaceProductResult(
-        approval_required=__ret__.approval_required,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        state=__ret__.state,
-        subscription_required=__ret__.subscription_required,
-        subscriptions_limit=__ret__.subscriptions_limit,
-        terms=__ret__.terms,
-        type=__ret__.type)
+        approval_required=pulumi.get(__ret__, 'approval_required'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        subscription_required=pulumi.get(__ret__, 'subscription_required'),
+        subscriptions_limit=pulumi.get(__ret__, 'subscriptions_limit'),
+        terms=pulumi.get(__ret__, 'terms'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace_product)

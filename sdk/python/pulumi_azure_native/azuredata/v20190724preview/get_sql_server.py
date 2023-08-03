@@ -151,14 +151,14 @@ def get_sql_server(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuredata/v20190724preview:getSqlServer', __args__, opts=opts, typ=GetSqlServerResult).value
 
     return AwaitableGetSqlServerResult(
-        cores=__ret__.cores,
-        edition=__ret__.edition,
-        id=__ret__.id,
-        name=__ret__.name,
-        property_bag=__ret__.property_bag,
-        registration_id=__ret__.registration_id,
-        type=__ret__.type,
-        version=__ret__.version)
+        cores=pulumi.get(__ret__, 'cores'),
+        edition=pulumi.get(__ret__, 'edition'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        property_bag=pulumi.get(__ret__, 'property_bag'),
+        registration_id=pulumi.get(__ret__, 'registration_id'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_sql_server)

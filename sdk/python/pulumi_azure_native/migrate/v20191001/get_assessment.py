@@ -116,11 +116,11 @@ def get_assessment(assessment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:migrate/v20191001:getAssessment', __args__, opts=opts, typ=GetAssessmentResult).value
 
     return AwaitableGetAssessmentResult(
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_assessment)

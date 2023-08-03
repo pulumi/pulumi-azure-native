@@ -218,20 +218,20 @@ def get_static_site(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20201001:getStaticSite', __args__, opts=opts, typ=GetStaticSiteResult).value
 
     return AwaitableGetStaticSiteResult(
-        branch=__ret__.branch,
-        build_properties=__ret__.build_properties,
-        custom_domains=__ret__.custom_domains,
-        default_hostname=__ret__.default_hostname,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        repository_token=__ret__.repository_token,
-        repository_url=__ret__.repository_url,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        branch=pulumi.get(__ret__, 'branch'),
+        build_properties=pulumi.get(__ret__, 'build_properties'),
+        custom_domains=pulumi.get(__ret__, 'custom_domains'),
+        default_hostname=pulumi.get(__ret__, 'default_hostname'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        repository_token=pulumi.get(__ret__, 'repository_token'),
+        repository_url=pulumi.get(__ret__, 'repository_url'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_static_site)

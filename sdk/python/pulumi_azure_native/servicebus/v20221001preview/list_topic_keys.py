@@ -139,13 +139,13 @@ def list_topic_keys(authorization_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicebus/v20221001preview:listTopicKeys', __args__, opts=opts, typ=ListTopicKeysResult).value
 
     return AwaitableListTopicKeysResult(
-        alias_primary_connection_string=__ret__.alias_primary_connection_string,
-        alias_secondary_connection_string=__ret__.alias_secondary_connection_string,
-        key_name=__ret__.key_name,
-        primary_connection_string=__ret__.primary_connection_string,
-        primary_key=__ret__.primary_key,
-        secondary_connection_string=__ret__.secondary_connection_string,
-        secondary_key=__ret__.secondary_key)
+        alias_primary_connection_string=pulumi.get(__ret__, 'alias_primary_connection_string'),
+        alias_secondary_connection_string=pulumi.get(__ret__, 'alias_secondary_connection_string'),
+        key_name=pulumi.get(__ret__, 'key_name'),
+        primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_topic_keys)

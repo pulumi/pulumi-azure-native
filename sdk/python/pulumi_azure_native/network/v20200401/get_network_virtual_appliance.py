@@ -221,20 +221,20 @@ def get_network_virtual_appliance(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20200401:getNetworkVirtualAppliance', __args__, opts=opts, typ=GetNetworkVirtualApplianceResult).value
 
     return AwaitableGetNetworkVirtualApplianceResult(
-        boot_strap_configuration_blob=__ret__.boot_strap_configuration_blob,
-        cloud_init_configuration_blob=__ret__.cloud_init_configuration_blob,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_appliance_asn=__ret__.virtual_appliance_asn,
-        virtual_appliance_nics=__ret__.virtual_appliance_nics,
-        virtual_hub=__ret__.virtual_hub)
+        boot_strap_configuration_blob=pulumi.get(__ret__, 'boot_strap_configuration_blob'),
+        cloud_init_configuration_blob=pulumi.get(__ret__, 'cloud_init_configuration_blob'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_appliance_asn=pulumi.get(__ret__, 'virtual_appliance_asn'),
+        virtual_appliance_nics=pulumi.get(__ret__, 'virtual_appliance_nics'),
+        virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 
 
 @_utilities.lift_output_func(get_network_virtual_appliance)

@@ -213,19 +213,19 @@ def get_read_only_following_database(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getReadOnlyFollowingDatabase', __args__, opts=opts, typ=GetReadOnlyFollowingDatabaseResult).value
 
     return AwaitableGetReadOnlyFollowingDatabaseResult(
-        attached_database_configuration_name=__ret__.attached_database_configuration_name,
-        hot_cache_period=__ret__.hot_cache_period,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        leader_cluster_resource_id=__ret__.leader_cluster_resource_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        principals_modification_kind=__ret__.principals_modification_kind,
-        provisioning_state=__ret__.provisioning_state,
-        soft_delete_period=__ret__.soft_delete_period,
-        statistics=__ret__.statistics,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        attached_database_configuration_name=pulumi.get(__ret__, 'attached_database_configuration_name'),
+        hot_cache_period=pulumi.get(__ret__, 'hot_cache_period'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        leader_cluster_resource_id=pulumi.get(__ret__, 'leader_cluster_resource_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        principals_modification_kind=pulumi.get(__ret__, 'principals_modification_kind'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        soft_delete_period=pulumi.get(__ret__, 'soft_delete_period'),
+        statistics=pulumi.get(__ret__, 'statistics'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_read_only_following_database)

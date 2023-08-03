@@ -162,15 +162,15 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:keyvault:getPrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateEndpointConnectionResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint=__ret__.private_endpoint,
-        private_link_service_connection_state=__ret__.private_link_service_connection_state,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
+        private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_endpoint_connection)

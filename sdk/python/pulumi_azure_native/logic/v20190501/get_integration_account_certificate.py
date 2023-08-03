@@ -173,16 +173,16 @@ def get_integration_account_certificate(certificate_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20190501:getIntegrationAccountCertificate', __args__, opts=opts, typ=GetIntegrationAccountCertificateResult).value
 
     return AwaitableGetIntegrationAccountCertificateResult(
-        changed_time=__ret__.changed_time,
-        created_time=__ret__.created_time,
-        id=__ret__.id,
-        key=__ret__.key,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        public_certificate=__ret__.public_certificate,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        changed_time=pulumi.get(__ret__, 'changed_time'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        public_certificate=pulumi.get(__ret__, 'public_certificate'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_integration_account_certificate)

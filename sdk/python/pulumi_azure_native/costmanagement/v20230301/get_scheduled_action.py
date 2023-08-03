@@ -215,20 +215,20 @@ def get_scheduled_action(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement/v20230301:getScheduledAction', __args__, opts=opts, typ=GetScheduledActionResult).value
 
     return AwaitableGetScheduledActionResult(
-        display_name=__ret__.display_name,
-        e_tag=__ret__.e_tag,
-        file_destination=__ret__.file_destination,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        notification=__ret__.notification,
-        notification_email=__ret__.notification_email,
-        schedule=__ret__.schedule,
-        scope=__ret__.scope,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        view_id=__ret__.view_id)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        file_destination=pulumi.get(__ret__, 'file_destination'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        notification=pulumi.get(__ret__, 'notification'),
+        notification_email=pulumi.get(__ret__, 'notification_email'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        scope=pulumi.get(__ret__, 'scope'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        view_id=pulumi.get(__ret__, 'view_id'))
 
 
 @_utilities.lift_output_func(get_scheduled_action)

@@ -134,13 +134,13 @@ def get_role_management_policy_assignment(role_management_policy_assignment_name
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20201001preview:getRoleManagementPolicyAssignment', __args__, opts=opts, typ=GetRoleManagementPolicyAssignmentResult).value
 
     return AwaitableGetRoleManagementPolicyAssignmentResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        policy_assignment_properties=__ret__.policy_assignment_properties,
-        policy_id=__ret__.policy_id,
-        role_definition_id=__ret__.role_definition_id,
-        scope=__ret__.scope,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_assignment_properties=pulumi.get(__ret__, 'policy_assignment_properties'),
+        policy_id=pulumi.get(__ret__, 'policy_id'),
+        role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
+        scope=pulumi.get(__ret__, 'scope'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_role_management_policy_assignment)

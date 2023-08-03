@@ -173,16 +173,16 @@ def get_frontends_interface(frontend_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicenetworking/v20221001preview:getFrontendsInterface', __args__, opts=opts, typ=GetFrontendsInterfaceResult).value
 
     return AwaitableGetFrontendsInterfaceResult(
-        id=__ret__.id,
-        ip_address_version=__ret__.ip_address_version,
-        location=__ret__.location,
-        mode=__ret__.mode,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_ip_address=__ret__.public_ip_address,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        ip_address_version=pulumi.get(__ret__, 'ip_address_version'),
+        location=pulumi.get(__ret__, 'location'),
+        mode=pulumi.get(__ret__, 'mode'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_ip_address=pulumi.get(__ret__, 'public_ip_address'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_frontends_interface)

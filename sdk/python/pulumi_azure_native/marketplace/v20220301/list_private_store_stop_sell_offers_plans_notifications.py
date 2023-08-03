@@ -58,7 +58,7 @@ def list_private_store_stop_sell_offers_plans_notifications(private_store_id: Op
     __ret__ = pulumi.runtime.invoke('azure-native:marketplace/v20220301:listPrivateStoreStopSellOffersPlansNotifications', __args__, opts=opts, typ=ListPrivateStoreStopSellOffersPlansNotificationsResult).value
 
     return AwaitableListPrivateStoreStopSellOffersPlansNotificationsResult(
-        stop_sell_notifications=__ret__.stop_sell_notifications)
+        stop_sell_notifications=pulumi.get(__ret__, 'stop_sell_notifications'))
 
 
 @_utilities.lift_output_func(list_private_store_stop_sell_offers_plans_notifications)

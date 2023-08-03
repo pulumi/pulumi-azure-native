@@ -179,16 +179,16 @@ def get_backup_schedule(backup_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20170601:getBackupSchedule', __args__, opts=opts, typ=GetBackupScheduleResult).value
 
     return AwaitableGetBackupScheduleResult(
-        backup_type=__ret__.backup_type,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_successful_run=__ret__.last_successful_run,
-        name=__ret__.name,
-        retention_count=__ret__.retention_count,
-        schedule_recurrence=__ret__.schedule_recurrence,
-        schedule_status=__ret__.schedule_status,
-        start_time=__ret__.start_time,
-        type=__ret__.type)
+        backup_type=pulumi.get(__ret__, 'backup_type'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_successful_run=pulumi.get(__ret__, 'last_successful_run'),
+        name=pulumi.get(__ret__, 'name'),
+        retention_count=pulumi.get(__ret__, 'retention_count'),
+        schedule_recurrence=pulumi.get(__ret__, 'schedule_recurrence'),
+        schedule_status=pulumi.get(__ret__, 'schedule_status'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_backup_schedule)

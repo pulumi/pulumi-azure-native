@@ -164,15 +164,15 @@ def get_data_masking_policy(data_masking_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getDataMaskingPolicy', __args__, opts=opts, typ=GetDataMaskingPolicyResult).value
 
     return AwaitableGetDataMaskingPolicyResult(
-        application_principals=__ret__.application_principals,
-        data_masking_state=__ret__.data_masking_state,
-        exempt_principals=__ret__.exempt_principals,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        masking_level=__ret__.masking_level,
-        name=__ret__.name,
-        type=__ret__.type)
+        application_principals=pulumi.get(__ret__, 'application_principals'),
+        data_masking_state=pulumi.get(__ret__, 'data_masking_state'),
+        exempt_principals=pulumi.get(__ret__, 'exempt_principals'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        masking_level=pulumi.get(__ret__, 'masking_level'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_masking_policy)

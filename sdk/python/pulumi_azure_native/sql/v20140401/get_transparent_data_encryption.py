@@ -115,11 +115,11 @@ def get_transparent_data_encryption(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20140401:getTransparentDataEncryption', __args__, opts=opts, typ=GetTransparentDataEncryptionResult).value
 
     return AwaitableGetTransparentDataEncryptionResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        status=__ret__.status,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_transparent_data_encryption)

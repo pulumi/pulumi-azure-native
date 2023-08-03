@@ -180,16 +180,16 @@ def get_service_fabric(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getServiceFabric', __args__, opts=opts, typ=GetServiceFabricResult).value
 
     return AwaitableGetServiceFabricResult(
-        applicable_schedule=__ret__.applicable_schedule,
-        environment_id=__ret__.environment_id,
-        external_service_fabric_id=__ret__.external_service_fabric_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        applicable_schedule=pulumi.get(__ret__, 'applicable_schedule'),
+        environment_id=pulumi.get(__ret__, 'environment_id'),
+        external_service_fabric_id=pulumi.get(__ret__, 'external_service_fabric_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_service_fabric)

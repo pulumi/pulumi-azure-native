@@ -65,7 +65,7 @@ def list_identity_provider_secrets(identity_provider_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:listIdentityProviderSecrets', __args__, opts=opts, typ=ListIdentityProviderSecretsResult).value
 
     return AwaitableListIdentityProviderSecretsResult(
-        client_secret=__ret__.client_secret)
+        client_secret=pulumi.get(__ret__, 'client_secret'))
 
 
 @_utilities.lift_output_func(list_identity_provider_secrets)

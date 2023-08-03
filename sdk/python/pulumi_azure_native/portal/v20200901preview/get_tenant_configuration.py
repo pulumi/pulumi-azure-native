@@ -94,10 +94,10 @@ def get_tenant_configuration(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:portal/v20200901preview:getTenantConfiguration', __args__, opts=opts, typ=GetTenantConfigurationResult).value
 
     return AwaitableGetTenantConfigurationResult(
-        enforce_private_markdown_storage=__ret__.enforce_private_markdown_storage,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        enforce_private_markdown_storage=pulumi.get(__ret__, 'enforce_private_markdown_storage'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_tenant_configuration)

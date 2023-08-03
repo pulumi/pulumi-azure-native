@@ -221,20 +221,20 @@ def get_pool(pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter/v20230401:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
-        dev_box_definition_name=__ret__.dev_box_definition_name,
-        health_status=__ret__.health_status,
-        health_status_details=__ret__.health_status_details,
-        id=__ret__.id,
-        license_type=__ret__.license_type,
-        local_administrator=__ret__.local_administrator,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_connection_name=__ret__.network_connection_name,
-        provisioning_state=__ret__.provisioning_state,
-        stop_on_disconnect=__ret__.stop_on_disconnect,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        dev_box_definition_name=pulumi.get(__ret__, 'dev_box_definition_name'),
+        health_status=pulumi.get(__ret__, 'health_status'),
+        health_status_details=pulumi.get(__ret__, 'health_status_details'),
+        id=pulumi.get(__ret__, 'id'),
+        license_type=pulumi.get(__ret__, 'license_type'),
+        local_administrator=pulumi.get(__ret__, 'local_administrator'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_connection_name=pulumi.get(__ret__, 'network_connection_name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        stop_on_disconnect=pulumi.get(__ret__, 'stop_on_disconnect'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_pool)

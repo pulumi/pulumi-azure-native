@@ -90,8 +90,8 @@ def get_entities_get_timeline(end_time: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20220901preview:getEntitiesGetTimeline', __args__, opts=opts, typ=GetEntitiesGetTimelineResult).value
 
     return AwaitableGetEntitiesGetTimelineResult(
-        meta_data=__ret__.meta_data,
-        value=__ret__.value)
+        meta_data=pulumi.get(__ret__, 'meta_data'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_entities_get_timeline)

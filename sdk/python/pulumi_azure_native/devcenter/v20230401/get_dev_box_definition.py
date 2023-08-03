@@ -221,20 +221,20 @@ def get_dev_box_definition(dev_box_definition_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter/v20230401:getDevBoxDefinition', __args__, opts=opts, typ=GetDevBoxDefinitionResult).value
 
     return AwaitableGetDevBoxDefinitionResult(
-        active_image_reference=__ret__.active_image_reference,
-        hibernate_support=__ret__.hibernate_support,
-        id=__ret__.id,
-        image_reference=__ret__.image_reference,
-        image_validation_error_details=__ret__.image_validation_error_details,
-        image_validation_status=__ret__.image_validation_status,
-        location=__ret__.location,
-        name=__ret__.name,
-        os_storage_type=__ret__.os_storage_type,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        active_image_reference=pulumi.get(__ret__, 'active_image_reference'),
+        hibernate_support=pulumi.get(__ret__, 'hibernate_support'),
+        id=pulumi.get(__ret__, 'id'),
+        image_reference=pulumi.get(__ret__, 'image_reference'),
+        image_validation_error_details=pulumi.get(__ret__, 'image_validation_error_details'),
+        image_validation_status=pulumi.get(__ret__, 'image_validation_status'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        os_storage_type=pulumi.get(__ret__, 'os_storage_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dev_box_definition)

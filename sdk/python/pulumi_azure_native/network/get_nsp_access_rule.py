@@ -213,19 +213,19 @@ def get_nsp_access_rule(access_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNspAccessRule', __args__, opts=opts, typ=GetNspAccessRuleResult).value
 
     return AwaitableGetNspAccessRuleResult(
-        address_prefixes=__ret__.address_prefixes,
-        direction=__ret__.direction,
-        email_addresses=__ret__.email_addresses,
-        fully_qualified_domain_names=__ret__.fully_qualified_domain_names,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_security_perimeters=__ret__.network_security_perimeters,
-        phone_numbers=__ret__.phone_numbers,
-        provisioning_state=__ret__.provisioning_state,
-        subscriptions=__ret__.subscriptions,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        address_prefixes=pulumi.get(__ret__, 'address_prefixes'),
+        direction=pulumi.get(__ret__, 'direction'),
+        email_addresses=pulumi.get(__ret__, 'email_addresses'),
+        fully_qualified_domain_names=pulumi.get(__ret__, 'fully_qualified_domain_names'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_security_perimeters=pulumi.get(__ret__, 'network_security_perimeters'),
+        phone_numbers=pulumi.get(__ret__, 'phone_numbers'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        subscriptions=pulumi.get(__ret__, 'subscriptions'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_nsp_access_rule)

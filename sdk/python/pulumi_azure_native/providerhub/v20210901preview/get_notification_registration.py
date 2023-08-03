@@ -107,11 +107,11 @@ def get_notification_registration(notification_registration_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:providerhub/v20210901preview:getNotificationRegistration', __args__, opts=opts, typ=GetNotificationRegistrationResult).value
 
     return AwaitableGetNotificationRegistrationResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_notification_registration)

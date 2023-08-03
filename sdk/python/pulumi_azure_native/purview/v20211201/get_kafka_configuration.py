@@ -182,17 +182,17 @@ def get_kafka_configuration(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:purview/v20211201:getKafkaConfiguration', __args__, opts=opts, typ=GetKafkaConfigurationResult).value
 
     return AwaitableGetKafkaConfigurationResult(
-        consumer_group=__ret__.consumer_group,
-        credentials=__ret__.credentials,
-        event_hub_partition_id=__ret__.event_hub_partition_id,
-        event_hub_resource_id=__ret__.event_hub_resource_id,
-        event_hub_type=__ret__.event_hub_type,
-        event_streaming_state=__ret__.event_streaming_state,
-        event_streaming_type=__ret__.event_streaming_type,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        consumer_group=pulumi.get(__ret__, 'consumer_group'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        event_hub_partition_id=pulumi.get(__ret__, 'event_hub_partition_id'),
+        event_hub_resource_id=pulumi.get(__ret__, 'event_hub_resource_id'),
+        event_hub_type=pulumi.get(__ret__, 'event_hub_type'),
+        event_streaming_state=pulumi.get(__ret__, 'event_streaming_state'),
+        event_streaming_type=pulumi.get(__ret__, 'event_streaming_type'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_kafka_configuration)

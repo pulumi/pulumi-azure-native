@@ -213,19 +213,19 @@ def get_connector(connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicelinker:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
-        auth_info=__ret__.auth_info,
-        client_type=__ret__.client_type,
-        configuration_info=__ret__.configuration_info,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_solution=__ret__.public_network_solution,
-        scope=__ret__.scope,
-        secret_store=__ret__.secret_store,
-        system_data=__ret__.system_data,
-        target_service=__ret__.target_service,
-        type=__ret__.type,
-        v_net_solution=__ret__.v_net_solution)
+        auth_info=pulumi.get(__ret__, 'auth_info'),
+        client_type=pulumi.get(__ret__, 'client_type'),
+        configuration_info=pulumi.get(__ret__, 'configuration_info'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_solution=pulumi.get(__ret__, 'public_network_solution'),
+        scope=pulumi.get(__ret__, 'scope'),
+        secret_store=pulumi.get(__ret__, 'secret_store'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_service=pulumi.get(__ret__, 'target_service'),
+        type=pulumi.get(__ret__, 'type'),
+        v_net_solution=pulumi.get(__ret__, 'v_net_solution'))
 
 
 @_utilities.lift_output_func(get_connector)

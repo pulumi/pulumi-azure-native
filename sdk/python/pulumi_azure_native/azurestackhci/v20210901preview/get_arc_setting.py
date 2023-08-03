@@ -209,19 +209,19 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20210901preview:getArcSetting', __args__, opts=opts, typ=GetArcSettingResult).value
 
     return AwaitableGetArcSettingResult(
-        aggregate_state=__ret__.aggregate_state,
-        arc_instance_resource_group=__ret__.arc_instance_resource_group,
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
-        id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
-        name=__ret__.name,
-        per_node_details=__ret__.per_node_details,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        aggregate_state=pulumi.get(__ret__, 'aggregate_state'),
+        arc_instance_resource_group=pulumi.get(__ret__, 'arc_instance_resource_group'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_by_type=pulumi.get(__ret__, 'created_by_type'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_at=pulumi.get(__ret__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__ret__, 'last_modified_by_type'),
+        name=pulumi.get(__ret__, 'name'),
+        per_node_details=pulumi.get(__ret__, 'per_node_details'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_arc_setting)

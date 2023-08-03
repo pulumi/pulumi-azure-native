@@ -97,10 +97,10 @@ def list_qn_a_maker_endpoint_key(authkey: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:botservice/v20220915:listQnAMakerEndpointKey', __args__, opts=opts, typ=ListQnAMakerEndpointKeyResult).value
 
     return AwaitableListQnAMakerEndpointKeyResult(
-        installed_version=__ret__.installed_version,
-        last_stable_version=__ret__.last_stable_version,
-        primary_endpoint_key=__ret__.primary_endpoint_key,
-        secondary_endpoint_key=__ret__.secondary_endpoint_key)
+        installed_version=pulumi.get(__ret__, 'installed_version'),
+        last_stable_version=pulumi.get(__ret__, 'last_stable_version'),
+        primary_endpoint_key=pulumi.get(__ret__, 'primary_endpoint_key'),
+        secondary_endpoint_key=pulumi.get(__ret__, 'secondary_endpoint_key'))
 
 
 @_utilities.lift_output_func(list_qn_a_maker_endpoint_key)

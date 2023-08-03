@@ -137,13 +137,13 @@ def get_hybrid_runbook_worker_group(automation_account_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:automation/v20210622:getHybridRunbookWorkerGroup', __args__, opts=opts, typ=GetHybridRunbookWorkerGroupResult).value
 
     return AwaitableGetHybridRunbookWorkerGroupResult(
-        credential=__ret__.credential,
-        group_type=__ret__.group_type,
-        hybrid_runbook_workers=__ret__.hybrid_runbook_workers,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        credential=pulumi.get(__ret__, 'credential'),
+        group_type=pulumi.get(__ret__, 'group_type'),
+        hybrid_runbook_workers=pulumi.get(__ret__, 'hybrid_runbook_workers'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hybrid_runbook_worker_group)

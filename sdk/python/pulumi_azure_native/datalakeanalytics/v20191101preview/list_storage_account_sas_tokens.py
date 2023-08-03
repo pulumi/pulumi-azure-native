@@ -80,8 +80,8 @@ def list_storage_account_sas_tokens(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datalakeanalytics/v20191101preview:listStorageAccountSasTokens', __args__, opts=opts, typ=ListStorageAccountSasTokensResult).value
 
     return AwaitableListStorageAccountSasTokensResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_storage_account_sas_tokens)

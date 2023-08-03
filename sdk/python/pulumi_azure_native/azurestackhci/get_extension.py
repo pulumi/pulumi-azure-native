@@ -237,21 +237,21 @@ def get_extension(arc_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getExtension', __args__, opts=opts, typ=GetExtensionResult).value
 
     return AwaitableGetExtensionResult(
-        aggregate_state=__ret__.aggregate_state,
-        auto_upgrade_minor_version=__ret__.auto_upgrade_minor_version,
-        enable_automatic_upgrade=__ret__.enable_automatic_upgrade,
-        force_update_tag=__ret__.force_update_tag,
-        id=__ret__.id,
-        managed_by=__ret__.managed_by,
-        name=__ret__.name,
-        per_node_extension_details=__ret__.per_node_extension_details,
-        protected_settings=__ret__.protected_settings,
-        provisioning_state=__ret__.provisioning_state,
-        publisher=__ret__.publisher,
-        settings=__ret__.settings,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        type_handler_version=__ret__.type_handler_version)
+        aggregate_state=pulumi.get(__ret__, 'aggregate_state'),
+        auto_upgrade_minor_version=pulumi.get(__ret__, 'auto_upgrade_minor_version'),
+        enable_automatic_upgrade=pulumi.get(__ret__, 'enable_automatic_upgrade'),
+        force_update_tag=pulumi.get(__ret__, 'force_update_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
+        name=pulumi.get(__ret__, 'name'),
+        per_node_extension_details=pulumi.get(__ret__, 'per_node_extension_details'),
+        protected_settings=pulumi.get(__ret__, 'protected_settings'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        publisher=pulumi.get(__ret__, 'publisher'),
+        settings=pulumi.get(__ret__, 'settings'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
 
 
 @_utilities.lift_output_func(get_extension)

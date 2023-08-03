@@ -230,21 +230,21 @@ def get_access_control_list(access_control_list_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230615:getAccessControlList', __args__, opts=opts, typ=GetAccessControlListResult).value
 
     return AwaitableGetAccessControlListResult(
-        acls_url=__ret__.acls_url,
-        administrative_state=__ret__.administrative_state,
-        annotation=__ret__.annotation,
-        configuration_state=__ret__.configuration_state,
-        configuration_type=__ret__.configuration_type,
-        dynamic_match_configurations=__ret__.dynamic_match_configurations,
-        id=__ret__.id,
-        last_synced_time=__ret__.last_synced_time,
-        location=__ret__.location,
-        match_configurations=__ret__.match_configurations,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        acls_url=pulumi.get(__ret__, 'acls_url'),
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        configuration_type=pulumi.get(__ret__, 'configuration_type'),
+        dynamic_match_configurations=pulumi.get(__ret__, 'dynamic_match_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        last_synced_time=pulumi.get(__ret__, 'last_synced_time'),
+        location=pulumi.get(__ret__, 'location'),
+        match_configurations=pulumi.get(__ret__, 'match_configurations'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_access_control_list)

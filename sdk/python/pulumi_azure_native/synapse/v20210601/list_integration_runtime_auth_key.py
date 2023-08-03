@@ -76,8 +76,8 @@ def list_integration_runtime_auth_key(integration_runtime_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601:listIntegrationRuntimeAuthKey', __args__, opts=opts, typ=ListIntegrationRuntimeAuthKeyResult).value
 
     return AwaitableListIntegrationRuntimeAuthKeyResult(
-        auth_key1=__ret__.auth_key1,
-        auth_key2=__ret__.auth_key2)
+        auth_key1=pulumi.get(__ret__, 'auth_key1'),
+        auth_key2=pulumi.get(__ret__, 'auth_key2'))
 
 
 @_utilities.lift_output_func(list_integration_runtime_auth_key)

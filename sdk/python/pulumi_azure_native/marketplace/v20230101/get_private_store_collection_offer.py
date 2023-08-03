@@ -233,21 +233,21 @@ def get_private_store_collection_offer(collection_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:marketplace/v20230101:getPrivateStoreCollectionOffer', __args__, opts=opts, typ=GetPrivateStoreCollectionOfferResult).value
 
     return AwaitableGetPrivateStoreCollectionOfferResult(
-        created_at=__ret__.created_at,
-        e_tag=__ret__.e_tag,
-        icon_file_uris=__ret__.icon_file_uris,
-        id=__ret__.id,
-        modified_at=__ret__.modified_at,
-        name=__ret__.name,
-        offer_display_name=__ret__.offer_display_name,
-        plans=__ret__.plans,
-        private_store_id=__ret__.private_store_id,
-        publisher_display_name=__ret__.publisher_display_name,
-        specific_plan_ids_limitation=__ret__.specific_plan_ids_limitation,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        unique_offer_id=__ret__.unique_offer_id,
-        update_suppressed_due_idempotence=__ret__.update_suppressed_due_idempotence)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        icon_file_uris=pulumi.get(__ret__, 'icon_file_uris'),
+        id=pulumi.get(__ret__, 'id'),
+        modified_at=pulumi.get(__ret__, 'modified_at'),
+        name=pulumi.get(__ret__, 'name'),
+        offer_display_name=pulumi.get(__ret__, 'offer_display_name'),
+        plans=pulumi.get(__ret__, 'plans'),
+        private_store_id=pulumi.get(__ret__, 'private_store_id'),
+        publisher_display_name=pulumi.get(__ret__, 'publisher_display_name'),
+        specific_plan_ids_limitation=pulumi.get(__ret__, 'specific_plan_ids_limitation'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_offer_id=pulumi.get(__ret__, 'unique_offer_id'),
+        update_suppressed_due_idempotence=pulumi.get(__ret__, 'update_suppressed_due_idempotence'))
 
 
 @_utilities.lift_output_func(get_private_store_collection_offer)

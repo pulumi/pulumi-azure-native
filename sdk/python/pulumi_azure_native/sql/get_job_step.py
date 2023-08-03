@@ -168,15 +168,15 @@ def get_job_step(job_agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getJobStep', __args__, opts=opts, typ=GetJobStepResult).value
 
     return AwaitableGetJobStepResult(
-        action=__ret__.action,
-        credential=__ret__.credential,
-        execution_options=__ret__.execution_options,
-        id=__ret__.id,
-        name=__ret__.name,
-        output=__ret__.output,
-        step_id=__ret__.step_id,
-        target_group=__ret__.target_group,
-        type=__ret__.type)
+        action=pulumi.get(__ret__, 'action'),
+        credential=pulumi.get(__ret__, 'credential'),
+        execution_options=pulumi.get(__ret__, 'execution_options'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        output=pulumi.get(__ret__, 'output'),
+        step_id=pulumi.get(__ret__, 'step_id'),
+        target_group=pulumi.get(__ret__, 'target_group'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_job_step)

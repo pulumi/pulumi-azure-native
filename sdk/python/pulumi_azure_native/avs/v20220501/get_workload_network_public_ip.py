@@ -136,13 +136,13 @@ def get_workload_network_public_ip(private_cloud_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20220501:getWorkloadNetworkPublicIP', __args__, opts=opts, typ=GetWorkloadNetworkPublicIPResult).value
 
     return AwaitableGetWorkloadNetworkPublicIPResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        number_of_public_ips=__ret__.number_of_public_ips,
-        provisioning_state=__ret__.provisioning_state,
-        public_ip_block=__ret__.public_ip_block,
-        type=__ret__.type)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        number_of_public_ips=pulumi.get(__ret__, 'number_of_public_ips'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_ip_block=pulumi.get(__ret__, 'public_ip_block'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workload_network_public_ip)

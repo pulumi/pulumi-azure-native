@@ -245,22 +245,22 @@ def get_network_interface(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20180701:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult).value
 
     return AwaitableGetNetworkInterfaceResult(
-        dns_settings=__ret__.dns_settings,
-        enable_accelerated_networking=__ret__.enable_accelerated_networking,
-        enable_ip_forwarding=__ret__.enable_ip_forwarding,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        ip_configurations=__ret__.ip_configurations,
-        location=__ret__.location,
-        mac_address=__ret__.mac_address,
-        name=__ret__.name,
-        network_security_group=__ret__.network_security_group,
-        primary=__ret__.primary,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_machine=__ret__.virtual_machine)
+        dns_settings=pulumi.get(__ret__, 'dns_settings'),
+        enable_accelerated_networking=pulumi.get(__ret__, 'enable_accelerated_networking'),
+        enable_ip_forwarding=pulumi.get(__ret__, 'enable_ip_forwarding'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        location=pulumi.get(__ret__, 'location'),
+        mac_address=pulumi.get(__ret__, 'mac_address'),
+        name=pulumi.get(__ret__, 'name'),
+        network_security_group=pulumi.get(__ret__, 'network_security_group'),
+        primary=pulumi.get(__ret__, 'primary'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machine=pulumi.get(__ret__, 'virtual_machine'))
 
 
 @_utilities.lift_output_func(get_network_interface)

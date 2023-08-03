@@ -151,15 +151,15 @@ def get_app_service_environment_ase_custom_dns_suffix_configuration(name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration', __args__, opts=opts, typ=GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult).value
 
     return AwaitableGetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult(
-        certificate_url=__ret__.certificate_url,
-        dns_suffix=__ret__.dns_suffix,
-        id=__ret__.id,
-        key_vault_reference_identity=__ret__.key_vault_reference_identity,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        provisioning_details=__ret__.provisioning_details,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        certificate_url=pulumi.get(__ret__, 'certificate_url'),
+        dns_suffix=pulumi.get(__ret__, 'dns_suffix'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_reference_identity=pulumi.get(__ret__, 'key_vault_reference_identity'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_details=pulumi.get(__ret__, 'provisioning_details'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_app_service_environment_ase_custom_dns_suffix_configuration)

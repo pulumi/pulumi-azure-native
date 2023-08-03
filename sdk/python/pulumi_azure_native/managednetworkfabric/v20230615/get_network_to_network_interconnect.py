@@ -257,23 +257,23 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230615:getNetworkToNetworkInterconnect', __args__, opts=opts, typ=GetNetworkToNetworkInterconnectResult).value
 
     return AwaitableGetNetworkToNetworkInterconnectResult(
-        administrative_state=__ret__.administrative_state,
-        configuration_state=__ret__.configuration_state,
-        egress_acl_id=__ret__.egress_acl_id,
-        export_route_policy=__ret__.export_route_policy,
-        id=__ret__.id,
-        import_route_policy=__ret__.import_route_policy,
-        ingress_acl_id=__ret__.ingress_acl_id,
-        is_management_type=__ret__.is_management_type,
-        layer2_configuration=__ret__.layer2_configuration,
-        name=__ret__.name,
-        nni_type=__ret__.nni_type,
-        npb_static_route_configuration=__ret__.npb_static_route_configuration,
-        option_b_layer3_configuration=__ret__.option_b_layer3_configuration,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        use_option_b=__ret__.use_option_b)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        egress_acl_id=pulumi.get(__ret__, 'egress_acl_id'),
+        export_route_policy=pulumi.get(__ret__, 'export_route_policy'),
+        id=pulumi.get(__ret__, 'id'),
+        import_route_policy=pulumi.get(__ret__, 'import_route_policy'),
+        ingress_acl_id=pulumi.get(__ret__, 'ingress_acl_id'),
+        is_management_type=pulumi.get(__ret__, 'is_management_type'),
+        layer2_configuration=pulumi.get(__ret__, 'layer2_configuration'),
+        name=pulumi.get(__ret__, 'name'),
+        nni_type=pulumi.get(__ret__, 'nni_type'),
+        npb_static_route_configuration=pulumi.get(__ret__, 'npb_static_route_configuration'),
+        option_b_layer3_configuration=pulumi.get(__ret__, 'option_b_layer3_configuration'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        use_option_b=pulumi.get(__ret__, 'use_option_b'))
 
 
 @_utilities.lift_output_func(get_network_to_network_interconnect)

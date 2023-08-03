@@ -69,7 +69,7 @@ def list_volume_replications(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp:listVolumeReplications', __args__, opts=opts, typ=ListVolumeReplicationsResult).value
 
     return AwaitableListVolumeReplicationsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_volume_replications)

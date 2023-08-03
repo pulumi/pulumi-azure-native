@@ -99,10 +99,10 @@ def get_security_operator(pricing_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getSecurityOperator', __args__, opts=opts, typ=GetSecurityOperatorResult).value
 
     return AwaitableGetSecurityOperatorResult(
-        id=__ret__.id,
-        identity=__ret__.identity,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_security_operator)

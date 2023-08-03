@@ -77,8 +77,8 @@ def list_local_user_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage/v20220901:listLocalUserKeys', __args__, opts=opts, typ=ListLocalUserKeysResult).value
 
     return AwaitableListLocalUserKeysResult(
-        shared_key=__ret__.shared_key,
-        ssh_authorized_keys=__ret__.ssh_authorized_keys)
+        shared_key=pulumi.get(__ret__, 'shared_key'),
+        ssh_authorized_keys=pulumi.get(__ret__, 'ssh_authorized_keys'))
 
 
 @_utilities.lift_output_func(list_local_user_keys)

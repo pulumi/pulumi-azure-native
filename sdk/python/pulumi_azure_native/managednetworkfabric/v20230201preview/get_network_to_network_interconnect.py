@@ -185,17 +185,17 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230201preview:getNetworkToNetworkInterconnect', __args__, opts=opts, typ=GetNetworkToNetworkInterconnectResult).value
 
     return AwaitableGetNetworkToNetworkInterconnectResult(
-        administrative_state=__ret__.administrative_state,
-        id=__ret__.id,
-        is_management_type=__ret__.is_management_type,
-        layer2_configuration=__ret__.layer2_configuration,
-        layer3_configuration=__ret__.layer3_configuration,
-        name=__ret__.name,
-        nni_type=__ret__.nni_type,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        use_option_b=__ret__.use_option_b)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        id=pulumi.get(__ret__, 'id'),
+        is_management_type=pulumi.get(__ret__, 'is_management_type'),
+        layer2_configuration=pulumi.get(__ret__, 'layer2_configuration'),
+        layer3_configuration=pulumi.get(__ret__, 'layer3_configuration'),
+        name=pulumi.get(__ret__, 'name'),
+        nni_type=pulumi.get(__ret__, 'nni_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        use_option_b=pulumi.get(__ret__, 'use_option_b'))
 
 
 @_utilities.lift_output_func(get_network_to_network_interconnect)

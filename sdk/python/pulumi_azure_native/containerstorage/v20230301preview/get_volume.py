@@ -173,16 +173,16 @@ def get_volume(pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerstorage/v20230301preview:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        capacity_gi_b=__ret__.capacity_gi_b,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        mount_options=__ret__.mount_options,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        reclaim_policy=__ret__.reclaim_policy,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        volume_mode=__ret__.volume_mode)
+        capacity_gi_b=pulumi.get(__ret__, 'capacity_gi_b'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        mount_options=pulumi.get(__ret__, 'mount_options'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        reclaim_policy=pulumi.get(__ret__, 'reclaim_policy'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_mode=pulumi.get(__ret__, 'volume_mode'))
 
 
 @_utilities.lift_output_func(get_volume)

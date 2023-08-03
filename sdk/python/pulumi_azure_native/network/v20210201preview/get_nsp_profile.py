@@ -136,13 +136,13 @@ def get_nsp_profile(network_security_perimeter_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210201preview:getNspProfile', __args__, opts=opts, typ=GetNspProfileResult).value
 
     return AwaitableGetNspProfileResult(
-        access_rules_version=__ret__.access_rules_version,
-        diagnostic_settings_version=__ret__.diagnostic_settings_version,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        access_rules_version=pulumi.get(__ret__, 'access_rules_version'),
+        diagnostic_settings_version=pulumi.get(__ret__, 'diagnostic_settings_version'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_nsp_profile)

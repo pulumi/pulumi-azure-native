@@ -189,17 +189,17 @@ def get_gallery(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getGallery', __args__, opts=opts, typ=GetGalleryResult).value
 
     return AwaitableGetGalleryResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        identifier=__ret__.identifier,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sharing_profile=__ret__.sharing_profile,
-        sharing_status=__ret__.sharing_status,
-        soft_delete_policy=__ret__.soft_delete_policy,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        identifier=pulumi.get(__ret__, 'identifier'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sharing_profile=pulumi.get(__ret__, 'sharing_profile'),
+        sharing_status=pulumi.get(__ret__, 'sharing_status'),
+        soft_delete_policy=pulumi.get(__ret__, 'soft_delete_policy'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_gallery)

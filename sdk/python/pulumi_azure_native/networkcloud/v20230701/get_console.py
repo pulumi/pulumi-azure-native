@@ -230,21 +230,21 @@ def get_console(console_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud/v20230701:getConsole', __args__, opts=opts, typ=GetConsoleResult).value
 
     return AwaitableGetConsoleResult(
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
-        enabled=__ret__.enabled,
-        expiration=__ret__.expiration,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_link_service_id=__ret__.private_link_service_id,
-        provisioning_state=__ret__.provisioning_state,
-        ssh_public_key=__ret__.ssh_public_key,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_machine_access_id=__ret__.virtual_machine_access_id)
+        detailed_status=pulumi.get(__ret__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        expiration=pulumi.get(__ret__, 'expiration'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_link_service_id=pulumi.get(__ret__, 'private_link_service_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        ssh_public_key=pulumi.get(__ret__, 'ssh_public_key'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machine_access_id=pulumi.get(__ret__, 'virtual_machine_access_id'))
 
 
 @_utilities.lift_output_func(get_console)

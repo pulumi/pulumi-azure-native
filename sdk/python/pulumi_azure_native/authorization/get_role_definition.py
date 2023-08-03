@@ -195,18 +195,18 @@ def get_role_definition(role_definition_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getRoleDefinition', __args__, opts=opts, typ=GetRoleDefinitionResult).value
 
     return AwaitableGetRoleDefinitionResult(
-        assignable_scopes=__ret__.assignable_scopes,
-        created_by=__ret__.created_by,
-        created_on=__ret__.created_on,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        permissions=__ret__.permissions,
-        role_name=__ret__.role_name,
-        role_type=__ret__.role_type,
-        type=__ret__.type,
-        updated_by=__ret__.updated_by,
-        updated_on=__ret__.updated_on)
+        assignable_scopes=pulumi.get(__ret__, 'assignable_scopes'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        permissions=pulumi.get(__ret__, 'permissions'),
+        role_name=pulumi.get(__ret__, 'role_name'),
+        role_type=pulumi.get(__ret__, 'role_type'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_by=pulumi.get(__ret__, 'updated_by'),
+        updated_on=pulumi.get(__ret__, 'updated_on'))
 
 
 @_utilities.lift_output_func(get_role_definition)

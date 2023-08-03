@@ -207,19 +207,19 @@ def get_mongo_cluster(mongo_cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb:getMongoCluster', __args__, opts=opts, typ=GetMongoClusterResult).value
 
     return AwaitableGetMongoClusterResult(
-        administrator_login=__ret__.administrator_login,
-        cluster_status=__ret__.cluster_status,
-        connection_string=__ret__.connection_string,
-        earliest_restore_time=__ret__.earliest_restore_time,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        node_group_specs=__ret__.node_group_specs,
-        provisioning_state=__ret__.provisioning_state,
-        server_version=__ret__.server_version,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        administrator_login=pulumi.get(__ret__, 'administrator_login'),
+        cluster_status=pulumi.get(__ret__, 'cluster_status'),
+        connection_string=pulumi.get(__ret__, 'connection_string'),
+        earliest_restore_time=pulumi.get(__ret__, 'earliest_restore_time'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        node_group_specs=pulumi.get(__ret__, 'node_group_specs'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        server_version=pulumi.get(__ret__, 'server_version'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_mongo_cluster)

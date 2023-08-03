@@ -186,17 +186,17 @@ def get_web_app_source_control_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppSourceControlSlot', __args__, opts=opts, typ=GetWebAppSourceControlSlotResult).value
 
     return AwaitableGetWebAppSourceControlSlotResult(
-        branch=__ret__.branch,
-        deployment_rollback_enabled=__ret__.deployment_rollback_enabled,
-        git_hub_action_configuration=__ret__.git_hub_action_configuration,
-        id=__ret__.id,
-        is_git_hub_action=__ret__.is_git_hub_action,
-        is_manual_integration=__ret__.is_manual_integration,
-        is_mercurial=__ret__.is_mercurial,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        repo_url=__ret__.repo_url,
-        type=__ret__.type)
+        branch=pulumi.get(__ret__, 'branch'),
+        deployment_rollback_enabled=pulumi.get(__ret__, 'deployment_rollback_enabled'),
+        git_hub_action_configuration=pulumi.get(__ret__, 'git_hub_action_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        is_git_hub_action=pulumi.get(__ret__, 'is_git_hub_action'),
+        is_manual_integration=pulumi.get(__ret__, 'is_manual_integration'),
+        is_mercurial=pulumi.get(__ret__, 'is_mercurial'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        repo_url=pulumi.get(__ret__, 'repo_url'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_source_control_slot)

@@ -126,12 +126,12 @@ def get_private_endpoint(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:streamanalytics:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult).value
 
     return AwaitableGetPrivateEndpointResult(
-        created_date=__ret__.created_date,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        manual_private_link_service_connections=__ret__.manual_private_link_service_connections,
-        name=__ret__.name,
-        type=__ret__.type)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        manual_private_link_service_connections=pulumi.get(__ret__, 'manual_private_link_service_connections'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_endpoint)

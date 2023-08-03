@@ -195,18 +195,18 @@ def get_network_interface(network_interface_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult).value
 
     return AwaitableGetNetworkInterfaceResult(
-        dns_settings=__ret__.dns_settings,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        ip_configurations=__ret__.ip_configurations,
-        location=__ret__.location,
-        mac_address=__ret__.mac_address,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        dns_settings=pulumi.get(__ret__, 'dns_settings'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        location=pulumi.get(__ret__, 'location'),
+        mac_address=pulumi.get(__ret__, 'mac_address'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_interface)

@@ -161,15 +161,15 @@ def get_mongo_db_resource_mongo_user_definition(account_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20230415:getMongoDBResourceMongoUserDefinition', __args__, opts=opts, typ=GetMongoDBResourceMongoUserDefinitionResult).value
 
     return AwaitableGetMongoDBResourceMongoUserDefinitionResult(
-        custom_data=__ret__.custom_data,
-        database_name=__ret__.database_name,
-        id=__ret__.id,
-        mechanisms=__ret__.mechanisms,
-        name=__ret__.name,
-        password=__ret__.password,
-        roles=__ret__.roles,
-        type=__ret__.type,
-        user_name=__ret__.user_name)
+        custom_data=pulumi.get(__ret__, 'custom_data'),
+        database_name=pulumi.get(__ret__, 'database_name'),
+        id=pulumi.get(__ret__, 'id'),
+        mechanisms=pulumi.get(__ret__, 'mechanisms'),
+        name=pulumi.get(__ret__, 'name'),
+        password=pulumi.get(__ret__, 'password'),
+        roles=pulumi.get(__ret__, 'roles'),
+        type=pulumi.get(__ret__, 'type'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_mongo_db_resource_mongo_user_definition)

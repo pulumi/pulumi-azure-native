@@ -65,7 +65,7 @@ def get_manager_device_public_encryption_key(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getManagerDevicePublicEncryptionKey', __args__, opts=opts, typ=GetManagerDevicePublicEncryptionKeyResult).value
 
     return AwaitableGetManagerDevicePublicEncryptionKeyResult(
-        key=__ret__.key)
+        key=pulumi.get(__ret__, 'key'))
 
 
 @_utilities.lift_output_func(get_manager_device_public_encryption_key)

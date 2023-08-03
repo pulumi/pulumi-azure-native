@@ -278,23 +278,23 @@ def list_web_app_backup_status_secrets(backup_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:listWebAppBackupStatusSecrets', __args__, opts=opts, typ=ListWebAppBackupStatusSecretsResult).value
 
     return AwaitableListWebAppBackupStatusSecretsResult(
-        backup_id=__ret__.backup_id,
-        blob_name=__ret__.blob_name,
-        correlation_id=__ret__.correlation_id,
-        created=__ret__.created,
-        databases=__ret__.databases,
-        finished_time_stamp=__ret__.finished_time_stamp,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_restore_time_stamp=__ret__.last_restore_time_stamp,
-        log=__ret__.log,
-        name=__ret__.name,
-        scheduled=__ret__.scheduled,
-        size_in_bytes=__ret__.size_in_bytes,
-        status=__ret__.status,
-        storage_account_url=__ret__.storage_account_url,
-        type=__ret__.type,
-        website_size_in_bytes=__ret__.website_size_in_bytes)
+        backup_id=pulumi.get(__ret__, 'backup_id'),
+        blob_name=pulumi.get(__ret__, 'blob_name'),
+        correlation_id=pulumi.get(__ret__, 'correlation_id'),
+        created=pulumi.get(__ret__, 'created'),
+        databases=pulumi.get(__ret__, 'databases'),
+        finished_time_stamp=pulumi.get(__ret__, 'finished_time_stamp'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_restore_time_stamp=pulumi.get(__ret__, 'last_restore_time_stamp'),
+        log=pulumi.get(__ret__, 'log'),
+        name=pulumi.get(__ret__, 'name'),
+        scheduled=pulumi.get(__ret__, 'scheduled'),
+        size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
+        status=pulumi.get(__ret__, 'status'),
+        storage_account_url=pulumi.get(__ret__, 'storage_account_url'),
+        type=pulumi.get(__ret__, 'type'),
+        website_size_in_bytes=pulumi.get(__ret__, 'website_size_in_bytes'))
 
 
 @_utilities.lift_output_func(list_web_app_backup_status_secrets)

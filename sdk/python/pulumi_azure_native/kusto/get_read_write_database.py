@@ -175,16 +175,16 @@ def get_read_write_database(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getReadWriteDatabase', __args__, opts=opts, typ=GetReadWriteDatabaseResult).value
 
     return AwaitableGetReadWriteDatabaseResult(
-        hot_cache_period=__ret__.hot_cache_period,
-        id=__ret__.id,
-        is_followed=__ret__.is_followed,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        soft_delete_period=__ret__.soft_delete_period,
-        statistics=__ret__.statistics,
-        type=__ret__.type)
+        hot_cache_period=pulumi.get(__ret__, 'hot_cache_period'),
+        id=pulumi.get(__ret__, 'id'),
+        is_followed=pulumi.get(__ret__, 'is_followed'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        soft_delete_period=pulumi.get(__ret__, 'soft_delete_period'),
+        statistics=pulumi.get(__ret__, 'statistics'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_read_write_database)

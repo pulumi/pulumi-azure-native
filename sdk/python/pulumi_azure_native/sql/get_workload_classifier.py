@@ -167,15 +167,15 @@ def get_workload_classifier(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getWorkloadClassifier', __args__, opts=opts, typ=GetWorkloadClassifierResult).value
 
     return AwaitableGetWorkloadClassifierResult(
-        context=__ret__.context,
-        end_time=__ret__.end_time,
-        id=__ret__.id,
-        importance=__ret__.importance,
-        label=__ret__.label,
-        member_name=__ret__.member_name,
-        name=__ret__.name,
-        start_time=__ret__.start_time,
-        type=__ret__.type)
+        context=pulumi.get(__ret__, 'context'),
+        end_time=pulumi.get(__ret__, 'end_time'),
+        id=pulumi.get(__ret__, 'id'),
+        importance=pulumi.get(__ret__, 'importance'),
+        label=pulumi.get(__ret__, 'label'),
+        member_name=pulumi.get(__ret__, 'member_name'),
+        name=pulumi.get(__ret__, 'name'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workload_classifier)

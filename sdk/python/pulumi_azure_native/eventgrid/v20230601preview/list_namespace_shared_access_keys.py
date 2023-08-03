@@ -73,8 +73,8 @@ def list_namespace_shared_access_keys(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20230601preview:listNamespaceSharedAccessKeys', __args__, opts=opts, typ=ListNamespaceSharedAccessKeysResult).value
 
     return AwaitableListNamespaceSharedAccessKeysResult(
-        key1=__ret__.key1,
-        key2=__ret__.key2)
+        key1=pulumi.get(__ret__, 'key1'),
+        key2=pulumi.get(__ret__, 'key2'))
 
 
 @_utilities.lift_output_func(list_namespace_shared_access_keys)

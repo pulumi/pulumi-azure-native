@@ -222,20 +222,20 @@ def get_threat_intelligence_alert_rule(resource_group_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230701preview:getThreatIntelligenceAlertRule', __args__, opts=opts, typ=GetThreatIntelligenceAlertRuleResult).value
 
     return AwaitableGetThreatIntelligenceAlertRuleResult(
-        alert_rule_template_name=__ret__.alert_rule_template_name,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        enabled=__ret__.enabled,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_modified_utc=__ret__.last_modified_utc,
-        name=__ret__.name,
-        severity=__ret__.severity,
-        system_data=__ret__.system_data,
-        tactics=__ret__.tactics,
-        techniques=__ret__.techniques,
-        type=__ret__.type)
+        alert_rule_template_name=pulumi.get(__ret__, 'alert_rule_template_name'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_modified_utc=pulumi.get(__ret__, 'last_modified_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        severity=pulumi.get(__ret__, 'severity'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tactics=pulumi.get(__ret__, 'tactics'),
+        techniques=pulumi.get(__ret__, 'techniques'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_threat_intelligence_alert_rule)

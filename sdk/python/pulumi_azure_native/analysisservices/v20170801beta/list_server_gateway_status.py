@@ -61,7 +61,7 @@ def list_server_gateway_status(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:analysisservices/v20170801beta:listServerGatewayStatus', __args__, opts=opts, typ=ListServerGatewayStatusResult).value
 
     return AwaitableListServerGatewayStatusResult(
-        status=__ret__.status)
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(list_server_gateway_status)

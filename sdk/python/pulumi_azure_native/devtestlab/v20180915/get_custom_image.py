@@ -260,23 +260,23 @@ def get_custom_image(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab/v20180915:getCustomImage', __args__, opts=opts, typ=GetCustomImageResult).value
 
     return AwaitableGetCustomImageResult(
-        author=__ret__.author,
-        creation_date=__ret__.creation_date,
-        custom_image_plan=__ret__.custom_image_plan,
-        data_disk_storage_info=__ret__.data_disk_storage_info,
-        description=__ret__.description,
-        id=__ret__.id,
-        is_plan_authorized=__ret__.is_plan_authorized,
-        location=__ret__.location,
-        managed_image_id=__ret__.managed_image_id,
-        managed_snapshot_id=__ret__.managed_snapshot_id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier,
-        vhd=__ret__.vhd,
-        vm=__ret__.vm)
+        author=pulumi.get(__ret__, 'author'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        custom_image_plan=pulumi.get(__ret__, 'custom_image_plan'),
+        data_disk_storage_info=pulumi.get(__ret__, 'data_disk_storage_info'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        is_plan_authorized=pulumi.get(__ret__, 'is_plan_authorized'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_image_id=pulumi.get(__ret__, 'managed_image_id'),
+        managed_snapshot_id=pulumi.get(__ret__, 'managed_snapshot_id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
+        vhd=pulumi.get(__ret__, 'vhd'),
+        vm=pulumi.get(__ret__, 'vm'))
 
 
 @_utilities.lift_output_func(get_custom_image)

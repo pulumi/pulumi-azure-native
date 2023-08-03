@@ -147,14 +147,14 @@ def get_artifact_source(artifact_source_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deploymentmanager:getArtifactSource', __args__, opts=opts, typ=GetArtifactSourceResult).value
 
     return AwaitableGetArtifactSourceResult(
-        artifact_root=__ret__.artifact_root,
-        authentication=__ret__.authentication,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        source_type=__ret__.source_type,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        artifact_root=pulumi.get(__ret__, 'artifact_root'),
+        authentication=pulumi.get(__ret__, 'authentication'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        source_type=pulumi.get(__ret__, 'source_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_artifact_source)

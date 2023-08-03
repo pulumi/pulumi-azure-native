@@ -186,17 +186,17 @@ def get_instance(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:deviceupdate:getInstance', __args__, opts=opts, typ=GetInstanceResult).value
 
     return AwaitableGetInstanceResult(
-        account_name=__ret__.account_name,
-        diagnostic_storage_properties=__ret__.diagnostic_storage_properties,
-        enable_diagnostics=__ret__.enable_diagnostics,
-        id=__ret__.id,
-        iot_hubs=__ret__.iot_hubs,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        diagnostic_storage_properties=pulumi.get(__ret__, 'diagnostic_storage_properties'),
+        enable_diagnostics=pulumi.get(__ret__, 'enable_diagnostics'),
+        id=pulumi.get(__ret__, 'id'),
+        iot_hubs=pulumi.get(__ret__, 'iot_hubs'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_instance)

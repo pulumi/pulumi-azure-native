@@ -124,12 +124,12 @@ def list_managed_cluster_access_profile(resource_group_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20190601:listManagedClusterAccessProfile', __args__, opts=opts, typ=ListManagedClusterAccessProfileResult).value
 
     return AwaitableListManagedClusterAccessProfileResult(
-        id=__ret__.id,
-        kube_config=__ret__.kube_config,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kube_config=pulumi.get(__ret__, 'kube_config'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_managed_cluster_access_profile)

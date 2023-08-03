@@ -208,20 +208,20 @@ def get_assessments_metadata_subscription(assessment_metadata_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20190101preview:getAssessmentsMetadataSubscription', __args__, opts=opts, typ=GetAssessmentsMetadataSubscriptionResult).value
 
     return AwaitableGetAssessmentsMetadataSubscriptionResult(
-        assessment_type=__ret__.assessment_type,
-        categories=__ret__.categories,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        implementation_effort=__ret__.implementation_effort,
-        name=__ret__.name,
-        policy_definition_id=__ret__.policy_definition_id,
-        preview=__ret__.preview,
-        remediation_description=__ret__.remediation_description,
-        severity=__ret__.severity,
-        threats=__ret__.threats,
-        type=__ret__.type,
-        user_impact=__ret__.user_impact)
+        assessment_type=pulumi.get(__ret__, 'assessment_type'),
+        categories=pulumi.get(__ret__, 'categories'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        implementation_effort=pulumi.get(__ret__, 'implementation_effort'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
+        preview=pulumi.get(__ret__, 'preview'),
+        remediation_description=pulumi.get(__ret__, 'remediation_description'),
+        severity=pulumi.get(__ret__, 'severity'),
+        threats=pulumi.get(__ret__, 'threats'),
+        type=pulumi.get(__ret__, 'type'),
+        user_impact=pulumi.get(__ret__, 'user_impact'))
 
 
 @_utilities.lift_output_func(get_assessments_metadata_subscription)
