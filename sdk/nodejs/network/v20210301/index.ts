@@ -25,6 +25,16 @@ export const getExpressRouteGateway: typeof import("./getExpressRouteGateway").g
 export const getExpressRouteGatewayOutput: typeof import("./getExpressRouteGateway").getExpressRouteGatewayOutput = null as any;
 utilities.lazyLoad(exports, ["getExpressRouteGateway","getExpressRouteGatewayOutput"], () => require("./getExpressRouteGateway"));
 
+export { GetVirtualNetworkGatewayNatRuleArgs, GetVirtualNetworkGatewayNatRuleResult, GetVirtualNetworkGatewayNatRuleOutputArgs } from "./getVirtualNetworkGatewayNatRule";
+export const getVirtualNetworkGatewayNatRule: typeof import("./getVirtualNetworkGatewayNatRule").getVirtualNetworkGatewayNatRule = null as any;
+export const getVirtualNetworkGatewayNatRuleOutput: typeof import("./getVirtualNetworkGatewayNatRule").getVirtualNetworkGatewayNatRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayNatRule","getVirtualNetworkGatewayNatRuleOutput"], () => require("./getVirtualNetworkGatewayNatRule"));
+
+export { VirtualNetworkGatewayNatRuleArgs } from "./virtualNetworkGatewayNatRule";
+export type VirtualNetworkGatewayNatRule = import("./virtualNetworkGatewayNatRule").VirtualNetworkGatewayNatRule;
+export const VirtualNetworkGatewayNatRule: typeof import("./virtualNetworkGatewayNatRule").VirtualNetworkGatewayNatRule = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkGatewayNatRule"], () => require("./virtualNetworkGatewayNatRule"));
+
 
 // Export enums:
 export * from "../../types/enums/network/v20210301";
@@ -37,6 +47,8 @@ const _module = {
                 return new CustomIPPrefix(name, <any>undefined, { urn })
             case "azure-native:network/v20210301:ExpressRouteGateway":
                 return new ExpressRouteGateway(name, <any>undefined, { urn })
+            case "azure-native:network/v20210301:VirtualNetworkGatewayNatRule":
+                return new VirtualNetworkGatewayNatRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

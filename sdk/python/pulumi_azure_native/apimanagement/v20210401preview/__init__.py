@@ -7,5 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_api_management_service_domain_ownership_identifier import *
+from .get_private_endpoint_connection_by_name import *
 from .get_schema import *
+from .private_endpoint_connection_by_name import *
 from .schema import *
+from ._inputs import *
+from . import outputs

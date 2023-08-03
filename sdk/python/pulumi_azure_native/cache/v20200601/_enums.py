@@ -5,11 +5,28 @@
 from enum import Enum
 
 __all__ = [
+    'DayOfWeek',
     'PublicNetworkAccess',
+    'ReplicationRole',
     'SkuFamily',
     'SkuName',
     'TlsVersion',
 ]
+
+
+class DayOfWeek(str, Enum):
+    """
+    Day of the week when a cache can be patched.
+    """
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
+    EVERYDAY = "Everyday"
+    WEEKEND = "Weekend"
 
 
 class PublicNetworkAccess(str, Enum):
@@ -18,6 +35,14 @@ class PublicNetworkAccess(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class ReplicationRole(str, Enum):
+    """
+    Role of the linked server.
+    """
+    PRIMARY = "Primary"
+    SECONDARY = "Secondary"
 
 
 class SkuFamily(str, Enum):

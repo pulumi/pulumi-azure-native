@@ -20,10 +20,20 @@ export const getHostPool: typeof import("./getHostPool").getHostPool = null as a
 export const getHostPoolOutput: typeof import("./getHostPool").getHostPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getHostPool","getHostPoolOutput"], () => require("./getHostPool"));
 
+export { GetScalingPlanPooledScheduleArgs, GetScalingPlanPooledScheduleResult, GetScalingPlanPooledScheduleOutputArgs } from "./getScalingPlanPooledSchedule";
+export const getScalingPlanPooledSchedule: typeof import("./getScalingPlanPooledSchedule").getScalingPlanPooledSchedule = null as any;
+export const getScalingPlanPooledScheduleOutput: typeof import("./getScalingPlanPooledSchedule").getScalingPlanPooledScheduleOutput = null as any;
+utilities.lazyLoad(exports, ["getScalingPlanPooledSchedule","getScalingPlanPooledScheduleOutput"], () => require("./getScalingPlanPooledSchedule"));
+
 export { HostPoolArgs } from "./hostPool";
 export type HostPool = import("./hostPool").HostPool;
 export const HostPool: typeof import("./hostPool").HostPool = null as any;
 utilities.lazyLoad(exports, ["HostPool"], () => require("./hostPool"));
+
+export { ScalingPlanPooledScheduleArgs } from "./scalingPlanPooledSchedule";
+export type ScalingPlanPooledSchedule = import("./scalingPlanPooledSchedule").ScalingPlanPooledSchedule;
+export const ScalingPlanPooledSchedule: typeof import("./scalingPlanPooledSchedule").ScalingPlanPooledSchedule = null as any;
+utilities.lazyLoad(exports, ["ScalingPlanPooledSchedule"], () => require("./scalingPlanPooledSchedule"));
 
 
 // Export enums:
@@ -37,6 +47,8 @@ const _module = {
                 return new ApplicationGroup(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization/v20220401preview:HostPool":
                 return new HostPool(name, <any>undefined, { urn })
+            case "azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule":
+                return new ScalingPlanPooledSchedule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

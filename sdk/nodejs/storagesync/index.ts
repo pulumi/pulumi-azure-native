@@ -70,9 +70,11 @@ utilities.lazyLoad(exports, ["SyncGroup"], () => require("./syncGroup"));
 export * from "../types/enums/storagesync";
 
 // Export sub-modules:
+import * as v20200301 from "./v20200301";
 import * as v20220601 from "./v20220601";
 
 export {
+    v20200301,
     v20220601,
 };
 

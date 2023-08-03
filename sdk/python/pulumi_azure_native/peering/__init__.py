@@ -27,9 +27,12 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.peering.v20210101 as __v20210101
     v20210101 = __v20210101
+    import pulumi_azure_native.peering.v20210601 as __v20210601
+    v20210601 = __v20210601
     import pulumi_azure_native.peering.v20221001 as __v20221001
     v20221001 = __v20221001
 else:
     v20210101 = _utilities.lazy_import('pulumi_azure_native.peering.v20210101')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.peering.v20210601')
     v20221001 = _utilities.lazy_import('pulumi_azure_native.peering.v20221001')
 

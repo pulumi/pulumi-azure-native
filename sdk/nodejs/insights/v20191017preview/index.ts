@@ -15,6 +15,16 @@ export const getPrivateLinkScope: typeof import("./getPrivateLinkScope").getPriv
 export const getPrivateLinkScopeOutput: typeof import("./getPrivateLinkScope").getPrivateLinkScopeOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateLinkScope","getPrivateLinkScopeOutput"], () => require("./getPrivateLinkScope"));
 
+export { GetPrivateLinkScopedResourceArgs, GetPrivateLinkScopedResourceResult, GetPrivateLinkScopedResourceOutputArgs } from "./getPrivateLinkScopedResource";
+export const getPrivateLinkScopedResource: typeof import("./getPrivateLinkScopedResource").getPrivateLinkScopedResource = null as any;
+export const getPrivateLinkScopedResourceOutput: typeof import("./getPrivateLinkScopedResource").getPrivateLinkScopedResourceOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateLinkScopedResource","getPrivateLinkScopedResourceOutput"], () => require("./getPrivateLinkScopedResource"));
+
+export { GetWorkbookTemplateArgs, GetWorkbookTemplateResult, GetWorkbookTemplateOutputArgs } from "./getWorkbookTemplate";
+export const getWorkbookTemplate: typeof import("./getWorkbookTemplate").getWorkbookTemplate = null as any;
+export const getWorkbookTemplateOutput: typeof import("./getWorkbookTemplate").getWorkbookTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkbookTemplate","getWorkbookTemplateOutput"], () => require("./getWorkbookTemplate"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -25,6 +35,16 @@ export type PrivateLinkScope = import("./privateLinkScope").PrivateLinkScope;
 export const PrivateLinkScope: typeof import("./privateLinkScope").PrivateLinkScope = null as any;
 utilities.lazyLoad(exports, ["PrivateLinkScope"], () => require("./privateLinkScope"));
 
+export { PrivateLinkScopedResourceArgs } from "./privateLinkScopedResource";
+export type PrivateLinkScopedResource = import("./privateLinkScopedResource").PrivateLinkScopedResource;
+export const PrivateLinkScopedResource: typeof import("./privateLinkScopedResource").PrivateLinkScopedResource = null as any;
+utilities.lazyLoad(exports, ["PrivateLinkScopedResource"], () => require("./privateLinkScopedResource"));
+
+export { WorkbookTemplateArgs } from "./workbookTemplate";
+export type WorkbookTemplate = import("./workbookTemplate").WorkbookTemplate;
+export const WorkbookTemplate: typeof import("./workbookTemplate").WorkbookTemplate = null as any;
+utilities.lazyLoad(exports, ["WorkbookTemplate"], () => require("./workbookTemplate"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -34,6 +54,10 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:insights/v20191017preview:PrivateLinkScope":
                 return new PrivateLinkScope(name, <any>undefined, { urn })
+            case "azure-native:insights/v20191017preview:PrivateLinkScopedResource":
+                return new PrivateLinkScopedResource(name, <any>undefined, { urn })
+            case "azure-native:insights/v20191017preview:WorkbookTemplate":
+                return new WorkbookTemplate(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

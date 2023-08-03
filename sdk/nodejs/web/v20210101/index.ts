@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetKubeEnvironmentArgs, GetKubeEnvironmentResult, GetKubeEnvironmentOutputArgs } from "./getKubeEnvironment";
+export const getKubeEnvironment: typeof import("./getKubeEnvironment").getKubeEnvironment = null as any;
+export const getKubeEnvironmentOutput: typeof import("./getKubeEnvironment").getKubeEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getKubeEnvironment","getKubeEnvironmentOutput"], () => require("./getKubeEnvironment"));
+
 export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
 export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
 export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
@@ -14,6 +19,11 @@ export { GetWebAppScmAllowedArgs, GetWebAppScmAllowedResult, GetWebAppScmAllowed
 export const getWebAppScmAllowed: typeof import("./getWebAppScmAllowed").getWebAppScmAllowed = null as any;
 export const getWebAppScmAllowedOutput: typeof import("./getWebAppScmAllowed").getWebAppScmAllowedOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppScmAllowed","getWebAppScmAllowedOutput"], () => require("./getWebAppScmAllowed"));
+
+export { KubeEnvironmentArgs } from "./kubeEnvironment";
+export type KubeEnvironment = import("./kubeEnvironment").KubeEnvironment;
+export const KubeEnvironment: typeof import("./kubeEnvironment").KubeEnvironment = null as any;
+utilities.lazyLoad(exports, ["KubeEnvironment"], () => require("./kubeEnvironment"));
 
 export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedToHostNameResult, ListSiteIdentifiersAssignedToHostNameOutputArgs } from "./listSiteIdentifiersAssignedToHostName";
 export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
@@ -31,10 +41,15 @@ export const WebAppScmAllowed: typeof import("./webAppScmAllowed").WebAppScmAllo
 utilities.lazyLoad(exports, ["WebAppScmAllowed"], () => require("./webAppScmAllowed"));
 
 
+// Export enums:
+export * from "../../types/enums/web/v20210101";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:web/v20210101:KubeEnvironment":
+                return new KubeEnvironment(name, <any>undefined, { urn })
             case "azure-native:web/v20210101:WebAppFtpAllowed":
                 return new WebAppFtpAllowed(name, <any>undefined, { urn })
             case "azure-native:web/v20210101:WebAppScmAllowed":

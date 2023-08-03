@@ -50,11 +50,13 @@ utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 export * from "../types/enums/databricks";
 
 // Export sub-modules:
+import * as v20180401 from "./v20180401";
 import * as v20220401preview from "./v20220401preview";
 import * as v20230201 from "./v20230201";
 import * as v20230501 from "./v20230501";
 
 export {
+    v20180401,
     v20220401preview,
     v20230201,
     v20230501,

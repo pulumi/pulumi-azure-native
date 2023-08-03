@@ -50,6 +50,7 @@ from .get_ti_data_connector import *
 from .get_ti_taxii_data_connector import *
 from .get_ueba import *
 from .get_watchlist import *
+from .get_watchlist_item import *
 from .incident import *
 from .incident_comment import *
 from .incident_relation import *
@@ -71,5 +72,6 @@ from .ti_data_connector import *
 from .ti_taxii_data_connector import *
 from .ueba import *
 from .watchlist import *
+from .watchlist_item import *
 from ._inputs import *
 from . import outputs

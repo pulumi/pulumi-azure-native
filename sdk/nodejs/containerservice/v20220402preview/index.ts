@@ -15,6 +15,16 @@ export const getAgentPool: typeof import("./getAgentPool").getAgentPool = null a
 export const getAgentPoolOutput: typeof import("./getAgentPool").getAgentPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getAgentPool","getAgentPoolOutput"], () => require("./getAgentPool"));
 
+export { GetTrustedAccessRoleBindingArgs, GetTrustedAccessRoleBindingResult, GetTrustedAccessRoleBindingOutputArgs } from "./getTrustedAccessRoleBinding";
+export const getTrustedAccessRoleBinding: typeof import("./getTrustedAccessRoleBinding").getTrustedAccessRoleBinding = null as any;
+export const getTrustedAccessRoleBindingOutput: typeof import("./getTrustedAccessRoleBinding").getTrustedAccessRoleBindingOutput = null as any;
+utilities.lazyLoad(exports, ["getTrustedAccessRoleBinding","getTrustedAccessRoleBindingOutput"], () => require("./getTrustedAccessRoleBinding"));
+
+export { TrustedAccessRoleBindingArgs } from "./trustedAccessRoleBinding";
+export type TrustedAccessRoleBinding = import("./trustedAccessRoleBinding").TrustedAccessRoleBinding;
+export const TrustedAccessRoleBinding: typeof import("./trustedAccessRoleBinding").TrustedAccessRoleBinding = null as any;
+utilities.lazyLoad(exports, ["TrustedAccessRoleBinding"], () => require("./trustedAccessRoleBinding"));
+
 
 // Export enums:
 export * from "../../types/enums/containerservice/v20220402preview";
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "azure-native:containerservice/v20220402preview:AgentPool":
                 return new AgentPool(name, <any>undefined, { urn })
+            case "azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding":
+                return new TrustedAccessRoleBinding(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -23,6 +23,7 @@ __all__ = [
     'ResourceModelWithAllowedPropertySetResponsePlan',
     'ResourceModelWithAllowedPropertySetResponseSku',
     'SystemDataResponse',
+    'TimeResponse',
 ]
 
 @pulumi.output_type
@@ -775,5 +776,38 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TimeResponse(dict):
+    """
+    The time for a scaling action to occur.
+    """
+    def __init__(__self__, *,
+                 hour: int,
+                 minute: int):
+        """
+        The time for a scaling action to occur.
+        :param int hour: The hour.
+        :param int minute: The minute.
+        """
+        pulumi.set(__self__, "hour", hour)
+        pulumi.set(__self__, "minute", minute)
+
+    @property
+    @pulumi.getter
+    def hour(self) -> int:
+        """
+        The hour.
+        """
+        return pulumi.get(self, "hour")
+
+    @property
+    @pulumi.getter
+    def minute(self) -> int:
+        """
+        The minute.
+        """
+        return pulumi.get(self, "minute")
 
 

@@ -16,6 +16,7 @@ __all__ = [
     'ExpressRouteGatewayPropertiesBoundsArgs',
     'ExtendedLocationArgs',
     'VirtualHubIdArgs',
+    'VpnNatRuleMappingArgs',
 ]
 
 @pulumi.input_type
@@ -312,5 +313,29 @@ class VirtualHubIdArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class VpnNatRuleMappingArgs:
+    def __init__(__self__, *,
+                 address_space: Optional[pulumi.Input[str]] = None):
+        """
+        Vpn NatRule mapping.
+        :param pulumi.Input[str] address_space: Address space for Vpn NatRule mapping.
+        """
+        if address_space is not None:
+            pulumi.set(__self__, "address_space", address_space)
+
+    @property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address space for Vpn NatRule mapping.
+        """
+        return pulumi.get(self, "address_space")
+
+    @address_space.setter
+    def address_space(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address_space", value)
 
 

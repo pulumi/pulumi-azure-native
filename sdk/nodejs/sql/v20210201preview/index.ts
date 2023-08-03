@@ -10,10 +10,20 @@ export const getManagedInstance: typeof import("./getManagedInstance").getManage
 export const getManagedInstanceOutput: typeof import("./getManagedInstance").getManagedInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedInstance","getManagedInstanceOutput"], () => require("./getManagedInstance"));
 
+export { GetOutboundFirewallRuleArgs, GetOutboundFirewallRuleResult, GetOutboundFirewallRuleOutputArgs } from "./getOutboundFirewallRule";
+export const getOutboundFirewallRule: typeof import("./getOutboundFirewallRule").getOutboundFirewallRule = null as any;
+export const getOutboundFirewallRuleOutput: typeof import("./getOutboundFirewallRule").getOutboundFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getOutboundFirewallRule","getOutboundFirewallRuleOutput"], () => require("./getOutboundFirewallRule"));
+
 export { ManagedInstanceArgs } from "./managedInstance";
 export type ManagedInstance = import("./managedInstance").ManagedInstance;
 export const ManagedInstance: typeof import("./managedInstance").ManagedInstance = null as any;
 utilities.lazyLoad(exports, ["ManagedInstance"], () => require("./managedInstance"));
+
+export { OutboundFirewallRuleArgs } from "./outboundFirewallRule";
+export type OutboundFirewallRule = import("./outboundFirewallRule").OutboundFirewallRule;
+export const OutboundFirewallRule: typeof import("./outboundFirewallRule").OutboundFirewallRule = null as any;
+utilities.lazyLoad(exports, ["OutboundFirewallRule"], () => require("./outboundFirewallRule"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "azure-native:sql/v20210201preview:ManagedInstance":
                 return new ManagedInstance(name, <any>undefined, { urn })
+            case "azure-native:sql/v20210201preview:OutboundFirewallRule":
+                return new OutboundFirewallRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

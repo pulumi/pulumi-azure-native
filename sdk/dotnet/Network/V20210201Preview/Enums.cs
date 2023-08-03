@@ -196,6 +196,37 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     }
 
     /// <summary>
+    /// Flag if need to delete existing network security groups.
+    /// </summary>
+    [EnumType]
+    public readonly struct DeleteExistingNSGs : IEquatable<DeleteExistingNSGs>
+    {
+        private readonly string _value;
+
+        private DeleteExistingNSGs(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeleteExistingNSGs False { get; } = new DeleteExistingNSGs("False");
+        public static DeleteExistingNSGs True { get; } = new DeleteExistingNSGs("True");
+
+        public static bool operator ==(DeleteExistingNSGs left, DeleteExistingNSGs right) => left.Equals(right);
+        public static bool operator !=(DeleteExistingNSGs left, DeleteExistingNSGs right) => !left.Equals(right);
+
+        public static explicit operator string(DeleteExistingNSGs value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeleteExistingNSGs other && Equals(other);
+        public bool Equals(DeleteExistingNSGs other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Flag if need to remove current existing peerings.
     /// </summary>
     [EnumType]
@@ -387,6 +418,37 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
     }
 
     /// <summary>
+    /// Security Type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityType : IEquatable<SecurityType>
+    {
+        private readonly string _value;
+
+        private SecurityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityType AdminPolicy { get; } = new SecurityType("AdminPolicy");
+        public static SecurityType UserPolicy { get; } = new SecurityType("UserPolicy");
+
+        public static bool operator ==(SecurityType left, SecurityType right) => left.Equals(right);
+        public static bool operator !=(SecurityType left, SecurityType right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityType other && Equals(other);
+        public bool Equals(SecurityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Flag if need to use hub gateway.
     /// </summary>
     [EnumType]
@@ -410,6 +472,37 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UseHubGateway other && Equals(other);
         public bool Equals(UseHubGateway other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the rule is custom or default.
+    /// </summary>
+    [EnumType]
+    public readonly struct UserRuleKind : IEquatable<UserRuleKind>
+    {
+        private readonly string _value;
+
+        private UserRuleKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UserRuleKind Custom { get; } = new UserRuleKind("Custom");
+        public static UserRuleKind Default { get; } = new UserRuleKind("Default");
+
+        public static bool operator ==(UserRuleKind left, UserRuleKind right) => left.Equals(right);
+        public static bool operator !=(UserRuleKind left, UserRuleKind right) => !left.Equals(right);
+
+        public static explicit operator string(UserRuleKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UserRuleKind other && Equals(other);
+        public bool Equals(UserRuleKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

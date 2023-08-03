@@ -16,19 +16,34 @@ __all__ = [
     'BareMetalMachineConfigurationDataResponse',
     'BgpPeerResponse',
     'ClusterAvailableUpgradeVersionResponse',
+    'ClusterAvailableVersionResponse',
     'ClusterCapacityResponse',
     'CniBgpConfigurationResponse',
     'CommunityAdvertisementResponse',
+    'EgressEndpointResponse',
+    'EndpointDependencyResponse',
     'ExtendedLocationResponse',
+    'HardwareInventoryNetworkInterfaceResponse',
+    'HardwareInventoryResponse',
+    'HardwareValidationStatusResponse',
+    'ImageRepositoryCredentialsResponse',
+    'KeySetUserResponse',
+    'KeySetUserStatusResponse',
+    'LldpNeighborResponse',
     'ManagedResourceGroupConfigurationResponse',
     'NetworkAttachmentResponse',
+    'NicResponse',
     'NodeConfigurationResponse',
     'NodeResponse',
+    'OsDiskResponse',
     'RackDefinitionResponse',
     'ServicePrincipalInformationResponse',
+    'SshPublicKeyResponse',
     'StorageApplianceConfigurationDataResponse',
+    'StorageProfileResponse',
     'SystemDataResponse',
     'ValidationThresholdResponse',
+    'VirtualMachinePlacementHintResponse',
 ]
 
 @pulumi.output_type
@@ -339,6 +354,54 @@ class ClusterAvailableUpgradeVersionResponse(dict):
 
 
 @pulumi.output_type
+class ClusterAvailableVersionResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supportExpiryDate":
+            suggest = "support_expiry_date"
+        elif key == "targetClusterVersion":
+            suggest = "target_cluster_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAvailableVersionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAvailableVersionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAvailableVersionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 support_expiry_date: str,
+                 target_cluster_version: str):
+        """
+        :param str support_expiry_date: The last date the version of the platform is supported.
+        :param str target_cluster_version: The version of the cluster to be deployed.
+        """
+        pulumi.set(__self__, "support_expiry_date", support_expiry_date)
+        pulumi.set(__self__, "target_cluster_version", target_cluster_version)
+
+    @property
+    @pulumi.getter(name="supportExpiryDate")
+    def support_expiry_date(self) -> str:
+        """
+        The last date the version of the platform is supported.
+        """
+        return pulumi.get(self, "support_expiry_date")
+
+    @property
+    @pulumi.getter(name="targetClusterVersion")
+    def target_cluster_version(self) -> str:
+        """
+        The version of the cluster to be deployed.
+        """
+        return pulumi.get(self, "target_cluster_version")
+
+
+@pulumi.output_type
 class ClusterCapacityResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -601,6 +664,82 @@ class CommunityAdvertisementResponse(dict):
 
 
 @pulumi.output_type
+class EgressEndpointResponse(dict):
+    def __init__(__self__, *,
+                 category: str,
+                 endpoints: Sequence['outputs.EndpointDependencyResponse']):
+        """
+        :param str category: The descriptive category name of endpoints accessible by the AKS agent node. For example, azure-resource-management, API server, etc. The platform egress endpoints provided by default will use the category 'default'.
+        :param Sequence['EndpointDependencyResponse'] endpoints: The list of endpoint dependencies.
+        """
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "endpoints", endpoints)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        """
+        The descriptive category name of endpoints accessible by the AKS agent node. For example, azure-resource-management, API server, etc. The platform egress endpoints provided by default will use the category 'default'.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Sequence['outputs.EndpointDependencyResponse']:
+        """
+        The list of endpoint dependencies.
+        """
+        return pulumi.get(self, "endpoints")
+
+
+@pulumi.output_type
+class EndpointDependencyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDependencyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDependencyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDependencyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: str,
+                 port: Optional[float] = None):
+        """
+        :param str domain_name: The domain name of the dependency.
+        :param float port: The port of this endpoint.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The domain name of the dependency.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[float]:
+        """
+        The port of this endpoint.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
 class ExtendedLocationResponse(dict):
     def __init__(__self__, *,
                  name: str,
@@ -627,6 +766,431 @@ class ExtendedLocationResponse(dict):
         The extended location type, for example, CustomLocation.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class HardwareInventoryNetworkInterfaceResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkStatus":
+            suggest = "link_status"
+        elif key == "macAddress":
+            suggest = "mac_address"
+        elif key == "networkInterfaceId":
+            suggest = "network_interface_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HardwareInventoryNetworkInterfaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HardwareInventoryNetworkInterfaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HardwareInventoryNetworkInterfaceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 link_status: str,
+                 mac_address: str,
+                 name: str,
+                 network_interface_id: str):
+        """
+        :param str link_status: The current status of the link.
+        :param str mac_address: The MAC address associated with this interface.
+        :param str name: The name of the interface.
+        :param str network_interface_id: The resource ID of the network interface for the port on the switch that this machine's interface is connected to.
+        """
+        pulumi.set(__self__, "link_status", link_status)
+        pulumi.set(__self__, "mac_address", mac_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_interface_id", network_interface_id)
+
+    @property
+    @pulumi.getter(name="linkStatus")
+    def link_status(self) -> str:
+        """
+        The current status of the link.
+        """
+        return pulumi.get(self, "link_status")
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> str:
+        """
+        The MAC address associated with this interface.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the interface.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> str:
+        """
+        The resource ID of the network interface for the port on the switch that this machine's interface is connected to.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+
+@pulumi.output_type
+class HardwareInventoryResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalHostInformation":
+            suggest = "additional_host_information"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HardwareInventoryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HardwareInventoryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HardwareInventoryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_host_information: str,
+                 interfaces: Sequence['outputs.HardwareInventoryNetworkInterfaceResponse'],
+                 nics: Sequence['outputs.NicResponse']):
+        """
+        :param str additional_host_information: Freeform data extracted from the environment about this machine. This information varies depending on the specific hardware and configuration.
+        :param Sequence['HardwareInventoryNetworkInterfaceResponse'] interfaces: The list of network interfaces and associated details for the bare metal machine.
+        :param Sequence['NicResponse'] nics: Field Deprecated. Will be removed in an upcoming version. The list of network interface cards and associated details for the bare metal machine.
+        """
+        pulumi.set(__self__, "additional_host_information", additional_host_information)
+        pulumi.set(__self__, "interfaces", interfaces)
+        pulumi.set(__self__, "nics", nics)
+
+    @property
+    @pulumi.getter(name="additionalHostInformation")
+    def additional_host_information(self) -> str:
+        """
+        Freeform data extracted from the environment about this machine. This information varies depending on the specific hardware and configuration.
+        """
+        return pulumi.get(self, "additional_host_information")
+
+    @property
+    @pulumi.getter
+    def interfaces(self) -> Sequence['outputs.HardwareInventoryNetworkInterfaceResponse']:
+        """
+        The list of network interfaces and associated details for the bare metal machine.
+        """
+        return pulumi.get(self, "interfaces")
+
+    @property
+    @pulumi.getter
+    def nics(self) -> Sequence['outputs.NicResponse']:
+        """
+        Field Deprecated. Will be removed in an upcoming version. The list of network interface cards and associated details for the bare metal machine.
+        """
+        return pulumi.get(self, "nics")
+
+
+@pulumi.output_type
+class HardwareValidationStatusResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastValidationTime":
+            suggest = "last_validation_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HardwareValidationStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HardwareValidationStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HardwareValidationStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_validation_time: str,
+                 result: str):
+        """
+        :param str last_validation_time: The timestamp of the hardware validation execution.
+        :param str result: The outcome of the hardware validation.
+        """
+        pulumi.set(__self__, "last_validation_time", last_validation_time)
+        pulumi.set(__self__, "result", result)
+
+    @property
+    @pulumi.getter(name="lastValidationTime")
+    def last_validation_time(self) -> str:
+        """
+        The timestamp of the hardware validation execution.
+        """
+        return pulumi.get(self, "last_validation_time")
+
+    @property
+    @pulumi.getter
+    def result(self) -> str:
+        """
+        The outcome of the hardware validation.
+        """
+        return pulumi.get(self, "result")
+
+
+@pulumi.output_type
+class ImageRepositoryCredentialsResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryUrl":
+            suggest = "registry_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRepositoryCredentialsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRepositoryCredentialsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRepositoryCredentialsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password: str,
+                 registry_url: str,
+                 username: str):
+        """
+        :param str password: The password or token used to access an image in the target repository.
+        :param str registry_url: The URL of the authentication server used to validate the repository credentials.
+        :param str username: The username used to access an image in the target repository.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "registry_url", registry_url)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password or token used to access an image in the target repository.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="registryUrl")
+    def registry_url(self) -> str:
+        """
+        The URL of the authentication server used to validate the repository credentials.
+        """
+        return pulumi.get(self, "registry_url")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The username used to access an image in the target repository.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class KeySetUserResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureUserName":
+            suggest = "azure_user_name"
+        elif key == "sshPublicKey":
+            suggest = "ssh_public_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeySetUserResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeySetUserResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeySetUserResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_user_name: str,
+                 ssh_public_key: 'outputs.SshPublicKeyResponse',
+                 description: Optional[str] = None):
+        """
+        :param str azure_user_name: The Azure Active Directory user name (email name).
+        :param 'SshPublicKeyResponse' ssh_public_key: The SSH public key for this user.
+        :param str description: The free-form description for this user.
+        """
+        pulumi.set(__self__, "azure_user_name", azure_user_name)
+        pulumi.set(__self__, "ssh_public_key", ssh_public_key)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="azureUserName")
+    def azure_user_name(self) -> str:
+        """
+        The Azure Active Directory user name (email name).
+        """
+        return pulumi.get(self, "azure_user_name")
+
+    @property
+    @pulumi.getter(name="sshPublicKey")
+    def ssh_public_key(self) -> 'outputs.SshPublicKeyResponse':
+        """
+        The SSH public key for this user.
+        """
+        return pulumi.get(self, "ssh_public_key")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The free-form description for this user.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class KeySetUserStatusResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureUserName":
+            suggest = "azure_user_name"
+        elif key == "statusMessage":
+            suggest = "status_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeySetUserStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeySetUserStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeySetUserStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_user_name: str,
+                 status: str,
+                 status_message: str):
+        """
+        :param str azure_user_name: The Azure Active Directory user name (email name).
+        :param str status: The indicator of whether the user is currently deployed for access.
+        :param str status_message: The additional information describing the current status of this user, if any available.
+        """
+        pulumi.set(__self__, "azure_user_name", azure_user_name)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "status_message", status_message)
+
+    @property
+    @pulumi.getter(name="azureUserName")
+    def azure_user_name(self) -> str:
+        """
+        The Azure Active Directory user name (email name).
+        """
+        return pulumi.get(self, "azure_user_name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The indicator of whether the user is currently deployed for access.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> str:
+        """
+        The additional information describing the current status of this user, if any available.
+        """
+        return pulumi.get(self, "status_message")
+
+
+@pulumi.output_type
+class LldpNeighborResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portDescription":
+            suggest = "port_description"
+        elif key == "portName":
+            suggest = "port_name"
+        elif key == "systemDescription":
+            suggest = "system_description"
+        elif key == "systemName":
+            suggest = "system_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LldpNeighborResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LldpNeighborResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LldpNeighborResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port_description: str,
+                 port_name: str,
+                 system_description: str,
+                 system_name: str):
+        """
+        :param str port_description: The descriptive information about the port on the connected device.
+        :param str port_name: The system-assigned name of the port on the connected device.
+        :param str system_description: The descriptive information about the connected device.
+        :param str system_name: The system-assigned name of the connected device.
+        """
+        pulumi.set(__self__, "port_description", port_description)
+        pulumi.set(__self__, "port_name", port_name)
+        pulumi.set(__self__, "system_description", system_description)
+        pulumi.set(__self__, "system_name", system_name)
+
+    @property
+    @pulumi.getter(name="portDescription")
+    def port_description(self) -> str:
+        """
+        The descriptive information about the port on the connected device.
+        """
+        return pulumi.get(self, "port_description")
+
+    @property
+    @pulumi.getter(name="portName")
+    def port_name(self) -> str:
+        """
+        The system-assigned name of the port on the connected device.
+        """
+        return pulumi.get(self, "port_name")
+
+    @property
+    @pulumi.getter(name="systemDescription")
+    def system_description(self) -> str:
+        """
+        The descriptive information about the connected device.
+        """
+        return pulumi.get(self, "system_description")
+
+    @property
+    @pulumi.getter(name="systemName")
+    def system_name(self) -> str:
+        """
+        The system-assigned name of the connected device.
+        """
+        return pulumi.get(self, "system_name")
 
 
 @pulumi.output_type
@@ -817,6 +1381,65 @@ class NetworkAttachmentResponse(dict):
         For a CloudServicesNetwork resource, this name will be ignored.
         """
         return pulumi.get(self, "network_attachment_name")
+
+
+@pulumi.output_type
+class NicResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lldpNeighbor":
+            suggest = "lldp_neighbor"
+        elif key == "macAddress":
+            suggest = "mac_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NicResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NicResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NicResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 lldp_neighbor: 'outputs.LldpNeighborResponse',
+                 mac_address: str,
+                 name: str):
+        """
+        :param 'LldpNeighborResponse' lldp_neighbor: The information about the device connected to this NIC.
+        :param str mac_address: The MAC address associated with this NIC.
+        :param str name: The name of the NIC/interface.
+        """
+        pulumi.set(__self__, "lldp_neighbor", lldp_neighbor)
+        pulumi.set(__self__, "mac_address", mac_address)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="lldpNeighbor")
+    def lldp_neighbor(self) -> 'outputs.LldpNeighborResponse':
+        """
+        The information about the device connected to this NIC.
+        """
+        return pulumi.get(self, "lldp_neighbor")
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> str:
+        """
+        The MAC address associated with this NIC.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the NIC/interface.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -1044,6 +1667,73 @@ class NodeResponse(dict):
 
 
 @pulumi.output_type
+class OsDiskResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "diskSizeGB":
+            suggest = "disk_size_gb"
+        elif key == "createOption":
+            suggest = "create_option"
+        elif key == "deleteOption":
+            suggest = "delete_option"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OsDiskResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OsDiskResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OsDiskResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disk_size_gb: float,
+                 create_option: Optional[str] = None,
+                 delete_option: Optional[str] = None):
+        """
+        :param float disk_size_gb: The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        :param str create_option: The strategy for creating the OS disk.
+        :param str delete_option: The strategy for deleting the OS disk.
+        """
+        pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if create_option is None:
+            create_option = 'Ephemeral'
+        if create_option is not None:
+            pulumi.set(__self__, "create_option", create_option)
+        if delete_option is None:
+            delete_option = 'Delete'
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
+
+    @property
+    @pulumi.getter(name="diskSizeGB")
+    def disk_size_gb(self) -> float:
+        """
+        The size of the disk in gigabytes. Required if the createOption is Ephemeral.
+        """
+        return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="createOption")
+    def create_option(self) -> Optional[str]:
+        """
+        The strategy for creating the OS disk.
+        """
+        return pulumi.get(self, "create_option")
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[str]:
+        """
+        The strategy for deleting the OS disk.
+        """
+        return pulumi.get(self, "delete_option")
+
+
+@pulumi.output_type
 class RackDefinitionResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1233,6 +1923,41 @@ class ServicePrincipalInformationResponse(dict):
 
 
 @pulumi.output_type
+class SshPublicKeyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyData":
+            suggest = "key_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SshPublicKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SshPublicKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SshPublicKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_data: str):
+        """
+        :param str key_data: The public ssh key of the user.
+        """
+        pulumi.set(__self__, "key_data", key_data)
+
+    @property
+    @pulumi.getter(name="keyData")
+    def key_data(self) -> str:
+        """
+        The public ssh key of the user.
+        """
+        return pulumi.get(self, "key_data")
+
+
+@pulumi.output_type
 class StorageApplianceConfigurationDataResponse(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1305,6 +2030,55 @@ class StorageApplianceConfigurationDataResponse(dict):
         The user-provided name for the storage appliance that will be created from this specification.
         """
         return pulumi.get(self, "storage_appliance_name")
+
+
+@pulumi.output_type
+class StorageProfileResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osDisk":
+            suggest = "os_disk"
+        elif key == "volumeAttachments":
+            suggest = "volume_attachments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 os_disk: 'outputs.OsDiskResponse',
+                 volume_attachments: Optional[Sequence[str]] = None):
+        """
+        :param 'OsDiskResponse' os_disk: The disk to use with this virtual machine.
+        :param Sequence[str] volume_attachments: The resource IDs of volumes that are requested to be attached to the virtual machine.
+        """
+        pulumi.set(__self__, "os_disk", os_disk)
+        if volume_attachments is not None:
+            pulumi.set(__self__, "volume_attachments", volume_attachments)
+
+    @property
+    @pulumi.getter(name="osDisk")
+    def os_disk(self) -> 'outputs.OsDiskResponse':
+        """
+        The disk to use with this virtual machine.
+        """
+        return pulumi.get(self, "os_disk")
+
+    @property
+    @pulumi.getter(name="volumeAttachments")
+    def volume_attachments(self) -> Optional[Sequence[str]]:
+        """
+        The resource IDs of volumes that are requested to be attached to the virtual machine.
+        """
+        return pulumi.get(self, "volume_attachments")
 
 
 @pulumi.output_type
@@ -1455,5 +2229,77 @@ class ValidationThresholdResponse(dict):
         The numeric threshold value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VirtualMachinePlacementHintResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hintType":
+            suggest = "hint_type"
+        elif key == "resourceId":
+            suggest = "resource_id"
+        elif key == "schedulingExecution":
+            suggest = "scheduling_execution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualMachinePlacementHintResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualMachinePlacementHintResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualMachinePlacementHintResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 hint_type: str,
+                 resource_id: str,
+                 scheduling_execution: str,
+                 scope: str):
+        """
+        :param str hint_type: The specification of whether this hint supports affinity or anti-affinity with the referenced resources.
+        :param str resource_id: The resource ID of the target object that the placement hints will be checked against, e.g., the bare metal node to host the virtual machine.
+        :param str scheduling_execution: The indicator of whether the hint is a hard or soft requirement during scheduling.
+        :param str scope: The scope for the virtual machine affinity or anti-affinity placement hint. It should always be "Machine" in the case of node affinity.
+        """
+        pulumi.set(__self__, "hint_type", hint_type)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "scheduling_execution", scheduling_execution)
+        pulumi.set(__self__, "scope", scope)
+
+    @property
+    @pulumi.getter(name="hintType")
+    def hint_type(self) -> str:
+        """
+        The specification of whether this hint supports affinity or anti-affinity with the referenced resources.
+        """
+        return pulumi.get(self, "hint_type")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> str:
+        """
+        The resource ID of the target object that the placement hints will be checked against, e.g., the bare metal node to host the virtual machine.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter(name="schedulingExecution")
+    def scheduling_execution(self) -> str:
+        """
+        The indicator of whether the hint is a hard or soft requirement during scheduling.
+        """
+        return pulumi.get(self, "scheduling_execution")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> str:
+        """
+        The scope for the virtual machine affinity or anti-affinity placement hint. It should always be "Machine" in the case of node affinity.
+        """
+        return pulumi.get(self, "scope")
 
 

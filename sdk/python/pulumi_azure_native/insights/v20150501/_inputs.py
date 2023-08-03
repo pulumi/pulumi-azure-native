@@ -14,6 +14,8 @@ __all__ = [
     'ApplicationInsightsComponentAnalyticsItemPropertiesArgs',
     'ApplicationInsightsComponentDataVolumeCapArgs',
     'ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs',
+    'WebTestGeolocationArgs',
+    'WebTestPropertiesConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -246,5 +248,53 @@ class ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitions
     @supports_email_notifications.setter
     def supports_email_notifications(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "supports_email_notifications", value)
+
+
+@pulumi.input_type
+class WebTestGeolocationArgs:
+    def __init__(__self__, *,
+                 location: Optional[pulumi.Input[str]] = None):
+        """
+        Geo-physical location to run a web test from. You must specify one or more locations for the test to run from.
+        :param pulumi.Input[str] location: Location ID for the webtest to run from.
+        """
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Location ID for the webtest to run from.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
+
+
+@pulumi.input_type
+class WebTestPropertiesConfigurationArgs:
+    def __init__(__self__, *,
+                 web_test: Optional[pulumi.Input[str]] = None):
+        """
+        An XML configuration specification for a WebTest.
+        :param pulumi.Input[str] web_test: The XML specification of a WebTest to run against an application.
+        """
+        if web_test is not None:
+            pulumi.set(__self__, "web_test", web_test)
+
+    @property
+    @pulumi.getter(name="webTest")
+    def web_test(self) -> Optional[pulumi.Input[str]]:
+        """
+        The XML specification of a WebTest to run against an application.
+        """
+        return pulumi.get(self, "web_test")
+
+    @web_test.setter
+    def web_test(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "web_test", value)
 
 

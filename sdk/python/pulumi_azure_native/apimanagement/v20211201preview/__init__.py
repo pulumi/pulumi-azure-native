@@ -5,4 +5,9 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .get_api_management_service_domain_ownership_identifier import *
+from .get_policy_fragment import *
+from .list_policy_fragment_references import *
+from .policy_fragment import *
+from . import outputs

@@ -7,6 +7,10 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .cassandra_cluster import *
+from .cassandra_resource_cassandra_view import *
 from .get_cassandra_cluster import *
+from .get_cassandra_resource_cassandra_view import *
+from .get_graph_resource_graph import *
+from .graph_resource_graph import *
 from ._inputs import *
 from . import outputs

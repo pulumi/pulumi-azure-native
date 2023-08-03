@@ -40,6 +40,40 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
     }
 
     /// <summary>
+    /// The status.
+    /// </summary>
+    [EnumType]
+    public readonly struct Status : IEquatable<Status>
+    {
+        private readonly string _value;
+
+        private Status(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Status Unknown { get; } = new Status("Unknown");
+        public static Status Pending { get; } = new Status("Pending");
+        public static Status Approved { get; } = new Status("Approved");
+        public static Status Rejected { get; } = new Status("Rejected");
+        public static Status Disconnected { get; } = new Status("Disconnected");
+
+        public static bool operator ==(Status left, Status right) => left.Equals(right);
+        public static bool operator !=(Status left, Status right) => !left.Equals(right);
+
+        public static explicit operator string(Status value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Status other && Equals(other);
+        public bool Equals(Status other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Identity Type
     /// </summary>
     [EnumType]

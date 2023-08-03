@@ -15,6 +15,7 @@ __all__ = [
     'MiSqlConnectionInfoResponse',
     'MongoDbConnectionInfoResponse',
     'MySqlConnectionInfoResponse',
+    'NodeMonitoringDataResponse',
     'OracleConnectionInfoResponse',
     'PostgreSqlConnectionInfoResponse',
     'SqlConnectionInfoResponse',
@@ -411,6 +412,112 @@ class MySqlConnectionInfoResponse(dict):
         User name
         """
         return pulumi.get(self, "user_name")
+
+
+@pulumi.output_type
+class NodeMonitoringDataResponse(dict):
+    def __init__(__self__, *,
+                 additional_properties: Mapping[str, Any],
+                 available_memory_in_mb: int,
+                 concurrent_jobs_limit: int,
+                 concurrent_jobs_running: int,
+                 cpu_utilization: int,
+                 max_concurrent_jobs: int,
+                 node_name: str,
+                 received_bytes: float,
+                 sent_bytes: float):
+        """
+        :param Mapping[str, Any] additional_properties:  Unmatched properties from the message are deserialized in this collection.
+        :param int available_memory_in_mb: Available memory (MB) on the integration runtime node.
+        :param int concurrent_jobs_limit: Maximum concurrent jobs on the integration runtime node.
+        :param int concurrent_jobs_running: The number of jobs currently running on the integration runtime node.
+        :param int cpu_utilization: CPU percentage on the integration runtime node.
+        :param int max_concurrent_jobs: The maximum concurrent jobs in this integration runtime.
+        :param str node_name: Name of the integration runtime node.
+        :param float received_bytes: Received bytes on the integration runtime node.
+        :param float sent_bytes: Sent bytes on the integration runtime node.
+        """
+        pulumi.set(__self__, "additional_properties", additional_properties)
+        pulumi.set(__self__, "available_memory_in_mb", available_memory_in_mb)
+        pulumi.set(__self__, "concurrent_jobs_limit", concurrent_jobs_limit)
+        pulumi.set(__self__, "concurrent_jobs_running", concurrent_jobs_running)
+        pulumi.set(__self__, "cpu_utilization", cpu_utilization)
+        pulumi.set(__self__, "max_concurrent_jobs", max_concurrent_jobs)
+        pulumi.set(__self__, "node_name", node_name)
+        pulumi.set(__self__, "received_bytes", received_bytes)
+        pulumi.set(__self__, "sent_bytes", sent_bytes)
+
+    @property
+    @pulumi.getter(name="additionalProperties")
+    def additional_properties(self) -> Mapping[str, Any]:
+        """
+         Unmatched properties from the message are deserialized in this collection.
+        """
+        return pulumi.get(self, "additional_properties")
+
+    @property
+    @pulumi.getter(name="availableMemoryInMB")
+    def available_memory_in_mb(self) -> int:
+        """
+        Available memory (MB) on the integration runtime node.
+        """
+        return pulumi.get(self, "available_memory_in_mb")
+
+    @property
+    @pulumi.getter(name="concurrentJobsLimit")
+    def concurrent_jobs_limit(self) -> int:
+        """
+        Maximum concurrent jobs on the integration runtime node.
+        """
+        return pulumi.get(self, "concurrent_jobs_limit")
+
+    @property
+    @pulumi.getter(name="concurrentJobsRunning")
+    def concurrent_jobs_running(self) -> int:
+        """
+        The number of jobs currently running on the integration runtime node.
+        """
+        return pulumi.get(self, "concurrent_jobs_running")
+
+    @property
+    @pulumi.getter(name="cpuUtilization")
+    def cpu_utilization(self) -> int:
+        """
+        CPU percentage on the integration runtime node.
+        """
+        return pulumi.get(self, "cpu_utilization")
+
+    @property
+    @pulumi.getter(name="maxConcurrentJobs")
+    def max_concurrent_jobs(self) -> int:
+        """
+        The maximum concurrent jobs in this integration runtime.
+        """
+        return pulumi.get(self, "max_concurrent_jobs")
+
+    @property
+    @pulumi.getter(name="nodeName")
+    def node_name(self) -> str:
+        """
+        Name of the integration runtime node.
+        """
+        return pulumi.get(self, "node_name")
+
+    @property
+    @pulumi.getter(name="receivedBytes")
+    def received_bytes(self) -> float:
+        """
+        Received bytes on the integration runtime node.
+        """
+        return pulumi.get(self, "received_bytes")
+
+    @property
+    @pulumi.getter(name="sentBytes")
+    def sent_bytes(self) -> float:
+        """
+        Sent bytes on the integration runtime node.
+        """
+        return pulumi.get(self, "sent_bytes")
 
 
 @pulumi.output_type

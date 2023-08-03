@@ -11,8 +11,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.monitor.v20210603preview as __v20210603preview
+    v20210603preview = __v20210603preview
     import pulumi_azure_native.monitor.v20230403 as __v20230403
     v20230403 = __v20230403
 else:
+    v20210603preview = _utilities.lazy_import('pulumi_azure_native.monitor.v20210603preview')
     v20230403 = _utilities.lazy_import('pulumi_azure_native.monitor.v20230403')
 

@@ -657,6 +657,39 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
     }
 
     /// <summary>
+    /// The kind of the entity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ThreatIntelligenceResourceKind : IEquatable<ThreatIntelligenceResourceKind>
+    {
+        private readonly string _value;
+
+        private ThreatIntelligenceResourceKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Entity represents threat intelligence indicator in the system.
+        /// </summary>
+        public static ThreatIntelligenceResourceKind Indicator { get; } = new ThreatIntelligenceResourceKind("indicator");
+
+        public static bool operator ==(ThreatIntelligenceResourceKind left, ThreatIntelligenceResourceKind right) => left.Equals(right);
+        public static bool operator !=(ThreatIntelligenceResourceKind left, ThreatIntelligenceResourceKind right) => !left.Equals(right);
+
+        public static explicit operator string(ThreatIntelligenceResourceKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ThreatIntelligenceResourceKind other && Equals(other);
+        public bool Equals(ThreatIntelligenceResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of object the automation rule triggers on
     /// </summary>
     [EnumType]

@@ -23,6 +23,16 @@ export const BatchOutputAction = {
  */
 export type BatchOutputAction = (typeof BatchOutputAction)[keyof typeof BatchOutputAction];
 
+export const ContainerType = {
+    StorageInitializer: "StorageInitializer",
+    InferenceServer: "InferenceServer",
+} as const;
+
+/**
+ * The type of container to retrieve logs from.
+ */
+export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
+
 export const ContentsType = {
     AzureBlob: "AzureBlob",
     AzureDataLakeGen1: "AzureDataLakeGen1",

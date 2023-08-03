@@ -25,8 +25,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.azurearcdata.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
+    import pulumi_azure_native.azurearcdata.v20220301preview as __v20220301preview
+    v20220301preview = __v20220301preview
     import pulumi_azure_native.azurearcdata.v20230115preview as __v20230115preview
     v20230115preview = __v20230115preview
 else:
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20210601preview')
+    v20220301preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20220301preview')
     v20230115preview = _utilities.lazy_import('pulumi_azure_native.azurearcdata.v20230115preview')
 

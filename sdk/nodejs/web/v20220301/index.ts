@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs } from "./appServiceEnvironmentAseCustomDnsSuffixConfiguration";
+export type AppServiceEnvironmentAseCustomDnsSuffixConfiguration = import("./appServiceEnvironmentAseCustomDnsSuffixConfiguration").AppServiceEnvironmentAseCustomDnsSuffixConfiguration;
+export const AppServiceEnvironmentAseCustomDnsSuffixConfiguration: typeof import("./appServiceEnvironmentAseCustomDnsSuffixConfiguration").AppServiceEnvironmentAseCustomDnsSuffixConfiguration = null as any;
+utilities.lazyLoad(exports, ["AppServiceEnvironmentAseCustomDnsSuffixConfiguration"], () => require("./appServiceEnvironmentAseCustomDnsSuffixConfiguration"));
+
+export { GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs, GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult, GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutputArgs } from "./getAppServiceEnvironmentAseCustomDnsSuffixConfiguration";
+export const getAppServiceEnvironmentAseCustomDnsSuffixConfiguration: typeof import("./getAppServiceEnvironmentAseCustomDnsSuffixConfiguration").getAppServiceEnvironmentAseCustomDnsSuffixConfiguration = null as any;
+export const getAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutput: typeof import("./getAppServiceEnvironmentAseCustomDnsSuffixConfiguration").getAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServiceEnvironmentAseCustomDnsSuffixConfiguration","getAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutput"], () => require("./getAppServiceEnvironmentAseCustomDnsSuffixConfiguration"));
+
+export { GetStaticSiteLinkedBackendArgs, GetStaticSiteLinkedBackendResult, GetStaticSiteLinkedBackendOutputArgs } from "./getStaticSiteLinkedBackend";
+export const getStaticSiteLinkedBackend: typeof import("./getStaticSiteLinkedBackend").getStaticSiteLinkedBackend = null as any;
+export const getStaticSiteLinkedBackendOutput: typeof import("./getStaticSiteLinkedBackend").getStaticSiteLinkedBackendOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSiteLinkedBackend","getStaticSiteLinkedBackendOutput"], () => require("./getStaticSiteLinkedBackend"));
+
+export { GetStaticSiteLinkedBackendForBuildArgs, GetStaticSiteLinkedBackendForBuildResult, GetStaticSiteLinkedBackendForBuildOutputArgs } from "./getStaticSiteLinkedBackendForBuild";
+export const getStaticSiteLinkedBackendForBuild: typeof import("./getStaticSiteLinkedBackendForBuild").getStaticSiteLinkedBackendForBuild = null as any;
+export const getStaticSiteLinkedBackendForBuildOutput: typeof import("./getStaticSiteLinkedBackendForBuild").getStaticSiteLinkedBackendForBuildOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSiteLinkedBackendForBuild","getStaticSiteLinkedBackendForBuildOutput"], () => require("./getStaticSiteLinkedBackendForBuild"));
+
 export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
 export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
 export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
@@ -19,6 +39,31 @@ export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedT
 export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
 export const listSiteIdentifiersAssignedToHostNameOutput: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostNameOutput = null as any;
 utilities.lazyLoad(exports, ["listSiteIdentifiersAssignedToHostName","listSiteIdentifiersAssignedToHostNameOutput"], () => require("./listSiteIdentifiersAssignedToHostName"));
+
+export { ListWorkflowRunActionExpressionTracesArgs, ListWorkflowRunActionExpressionTracesResult, ListWorkflowRunActionExpressionTracesOutputArgs } from "./listWorkflowRunActionExpressionTraces";
+export const listWorkflowRunActionExpressionTraces: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTraces = null as any;
+export const listWorkflowRunActionExpressionTracesOutput: typeof import("./listWorkflowRunActionExpressionTraces").listWorkflowRunActionExpressionTracesOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowRunActionExpressionTraces","listWorkflowRunActionExpressionTracesOutput"], () => require("./listWorkflowRunActionExpressionTraces"));
+
+export { ListWorkflowRunActionRepetitionExpressionTracesArgs, ListWorkflowRunActionRepetitionExpressionTracesResult, ListWorkflowRunActionRepetitionExpressionTracesOutputArgs } from "./listWorkflowRunActionRepetitionExpressionTraces";
+export const listWorkflowRunActionRepetitionExpressionTraces: typeof import("./listWorkflowRunActionRepetitionExpressionTraces").listWorkflowRunActionRepetitionExpressionTraces = null as any;
+export const listWorkflowRunActionRepetitionExpressionTracesOutput: typeof import("./listWorkflowRunActionRepetitionExpressionTraces").listWorkflowRunActionRepetitionExpressionTracesOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowRunActionRepetitionExpressionTraces","listWorkflowRunActionRepetitionExpressionTracesOutput"], () => require("./listWorkflowRunActionRepetitionExpressionTraces"));
+
+export { ListWorkflowTriggerCallbackUrlArgs, ListWorkflowTriggerCallbackUrlResult, ListWorkflowTriggerCallbackUrlOutputArgs } from "./listWorkflowTriggerCallbackUrl";
+export const listWorkflowTriggerCallbackUrl: typeof import("./listWorkflowTriggerCallbackUrl").listWorkflowTriggerCallbackUrl = null as any;
+export const listWorkflowTriggerCallbackUrlOutput: typeof import("./listWorkflowTriggerCallbackUrl").listWorkflowTriggerCallbackUrlOutput = null as any;
+utilities.lazyLoad(exports, ["listWorkflowTriggerCallbackUrl","listWorkflowTriggerCallbackUrlOutput"], () => require("./listWorkflowTriggerCallbackUrl"));
+
+export { StaticSiteLinkedBackendArgs } from "./staticSiteLinkedBackend";
+export type StaticSiteLinkedBackend = import("./staticSiteLinkedBackend").StaticSiteLinkedBackend;
+export const StaticSiteLinkedBackend: typeof import("./staticSiteLinkedBackend").StaticSiteLinkedBackend = null as any;
+utilities.lazyLoad(exports, ["StaticSiteLinkedBackend"], () => require("./staticSiteLinkedBackend"));
+
+export { StaticSiteLinkedBackendForBuildArgs } from "./staticSiteLinkedBackendForBuild";
+export type StaticSiteLinkedBackendForBuild = import("./staticSiteLinkedBackendForBuild").StaticSiteLinkedBackendForBuild;
+export const StaticSiteLinkedBackendForBuild: typeof import("./staticSiteLinkedBackendForBuild").StaticSiteLinkedBackendForBuild = null as any;
+utilities.lazyLoad(exports, ["StaticSiteLinkedBackendForBuild"], () => require("./staticSiteLinkedBackendForBuild"));
 
 export { WebAppFtpAllowedArgs } from "./webAppFtpAllowed";
 export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
@@ -35,6 +80,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration":
+                return new AppServiceEnvironmentAseCustomDnsSuffixConfiguration(name, <any>undefined, { urn })
+            case "azure-native:web/v20220301:StaticSiteLinkedBackend":
+                return new StaticSiteLinkedBackend(name, <any>undefined, { urn })
+            case "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild":
+                return new StaticSiteLinkedBackendForBuild(name, <any>undefined, { urn })
             case "azure-native:web/v20220301:WebAppFtpAllowed":
                 return new WebAppFtpAllowed(name, <any>undefined, { urn })
             case "azure-native:web/v20220301:WebAppScmAllowed":

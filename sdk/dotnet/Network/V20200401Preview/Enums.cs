@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.Network.V20200401Preview
 {
     /// <summary>
+    /// The state of forwarding rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct ForwardingRuleState : IEquatable<ForwardingRuleState>
+    {
+        private readonly string _value;
+
+        private ForwardingRuleState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ForwardingRuleState Enabled { get; } = new ForwardingRuleState("Enabled");
+        public static ForwardingRuleState Disabled { get; } = new ForwardingRuleState("Disabled");
+
+        public static bool operator ==(ForwardingRuleState left, ForwardingRuleState right) => left.Equals(right);
+        public static bool operator !=(ForwardingRuleState left, ForwardingRuleState right) => !left.Equals(right);
+
+        public static explicit operator string(ForwardingRuleState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ForwardingRuleState other && Equals(other);
+        public bool Equals(ForwardingRuleState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Private IP address allocation method.
     /// </summary>
     [EnumType]

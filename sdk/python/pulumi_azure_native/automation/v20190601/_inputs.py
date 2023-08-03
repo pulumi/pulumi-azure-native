@@ -14,11 +14,23 @@ __all__ = [
     'AdvancedScheduleMonthlyOccurrenceArgs',
     'AdvancedScheduleArgs',
     'AzureQueryPropertiesArgs',
+    'ConnectionTypeAssociationPropertyArgs',
+    'ContentHashArgs',
+    'ContentLinkArgs',
+    'ContentSourceArgs',
+    'DscConfigurationAssociationPropertyArgs',
+    'DscConfigurationParameterArgs',
     'ErrorResponseArgs',
+    'FieldDefinitionArgs',
     'LinuxPropertiesArgs',
     'NonAzureQueryPropertiesArgs',
+    'RunbookAssociationPropertyArgs',
+    'RunbookDraftArgs',
+    'RunbookParameterArgs',
     'SUCSchedulePropertiesArgs',
+    'ScheduleAssociationPropertyArgs',
     'SoftwareUpdateConfigurationTasksArgs',
+    'SourceControlSecurityTokenPropertiesArgs',
     'TagSettingsPropertiesArgs',
     'TargetPropertiesArgs',
     'TaskPropertiesArgs',
@@ -179,6 +191,292 @@ class AzureQueryPropertiesArgs:
 
 
 @pulumi.input_type
+class ConnectionTypeAssociationPropertyArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The connection type property associated with the entity.
+        :param pulumi.Input[str] name: Gets or sets the name of the connection type.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the connection type.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class ContentHashArgs:
+    def __init__(__self__, *,
+                 algorithm: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        Definition of the runbook property type.
+        :param pulumi.Input[str] algorithm: Gets or sets the content hash algorithm used to hash the content.
+        :param pulumi.Input[str] value: Gets or sets expected hash value of the content.
+        """
+        pulumi.set(__self__, "algorithm", algorithm)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def algorithm(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the content hash algorithm used to hash the content.
+        """
+        return pulumi.get(self, "algorithm")
+
+    @algorithm.setter
+    def algorithm(self, value: pulumi.Input[str]):
+        pulumi.set(self, "algorithm", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        Gets or sets expected hash value of the content.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ContentLinkArgs:
+    def __init__(__self__, *,
+                 content_hash: Optional[pulumi.Input['ContentHashArgs']] = None,
+                 uri: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Definition of the content link.
+        :param pulumi.Input['ContentHashArgs'] content_hash: Gets or sets the hash.
+        :param pulumi.Input[str] uri: Gets or sets the uri of the runbook content.
+        :param pulumi.Input[str] version: Gets or sets the version of the content.
+        """
+        if content_hash is not None:
+            pulumi.set(__self__, "content_hash", content_hash)
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="contentHash")
+    def content_hash(self) -> Optional[pulumi.Input['ContentHashArgs']]:
+        """
+        Gets or sets the hash.
+        """
+        return pulumi.get(self, "content_hash")
+
+    @content_hash.setter
+    def content_hash(self, value: Optional[pulumi.Input['ContentHashArgs']]):
+        pulumi.set(self, "content_hash", value)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the uri of the runbook content.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "uri", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the version of the content.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class ContentSourceArgs:
+    def __init__(__self__, *,
+                 hash: Optional[pulumi.Input['ContentHashArgs']] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ContentSourceType']]] = None,
+                 value: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        Definition of the content source.
+        :param pulumi.Input['ContentHashArgs'] hash: Gets or sets the hash.
+        :param pulumi.Input[Union[str, 'ContentSourceType']] type: Gets or sets the content source type.
+        :param pulumi.Input[str] value: Gets or sets the value of the content. This is based on the content source type.
+        :param pulumi.Input[str] version: Gets or sets the version of the content.
+        """
+        if hash is not None:
+            pulumi.set(__self__, "hash", hash)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def hash(self) -> Optional[pulumi.Input['ContentHashArgs']]:
+        """
+        Gets or sets the hash.
+        """
+        return pulumi.get(self, "hash")
+
+    @hash.setter
+    def hash(self, value: Optional[pulumi.Input['ContentHashArgs']]):
+        pulumi.set(self, "hash", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ContentSourceType']]]:
+        """
+        Gets or sets the content source type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ContentSourceType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the value of the content. This is based on the content source type.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the version of the content.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class DscConfigurationAssociationPropertyArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The Dsc configuration property associated with the entity.
+        :param pulumi.Input[str] name: Gets or sets the name of the Dsc configuration.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the Dsc configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class DscConfigurationParameterArgs:
+    def __init__(__self__, *,
+                 default_value: Optional[pulumi.Input[str]] = None,
+                 is_mandatory: Optional[pulumi.Input[bool]] = None,
+                 position: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Definition of the configuration parameter type.
+        :param pulumi.Input[str] default_value: Gets or sets the default value of parameter.
+        :param pulumi.Input[bool] is_mandatory: Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+        :param pulumi.Input[int] position: Get or sets the position of the parameter.
+        :param pulumi.Input[str] type: Gets or sets the type of the parameter.
+        """
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if is_mandatory is not None:
+            pulumi.set(__self__, "is_mandatory", is_mandatory)
+        if position is not None:
+            pulumi.set(__self__, "position", position)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the default value of parameter.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter(name="isMandatory")
+    def is_mandatory(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+        """
+        return pulumi.get(self, "is_mandatory")
+
+    @is_mandatory.setter
+    def is_mandatory(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_mandatory", value)
+
+    @property
+    @pulumi.getter
+    def position(self) -> Optional[pulumi.Input[int]]:
+        """
+        Get or sets the position of the parameter.
+        """
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the type of the parameter.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class ErrorResponseArgs:
     def __init__(__self__, *,
                  code: Optional[pulumi.Input[str]] = None,
@@ -216,6 +514,61 @@ class ErrorResponseArgs:
     @message.setter
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
+
+
+@pulumi.input_type
+class FieldDefinitionArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 is_encrypted: Optional[pulumi.Input[bool]] = None,
+                 is_optional: Optional[pulumi.Input[bool]] = None):
+        """
+        Definition of the connection fields.
+        :param pulumi.Input[str] type: Gets or sets the type of the connection field definition.
+        :param pulumi.Input[bool] is_encrypted: Gets or sets the isEncrypted flag of the connection field definition.
+        :param pulumi.Input[bool] is_optional: Gets or sets the isOptional flag of the connection field definition.
+        """
+        pulumi.set(__self__, "type", type)
+        if is_encrypted is not None:
+            pulumi.set(__self__, "is_encrypted", is_encrypted)
+        if is_optional is not None:
+            pulumi.set(__self__, "is_optional", is_optional)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Gets or sets the type of the connection field definition.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="isEncrypted")
+    def is_encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets the isEncrypted flag of the connection field definition.
+        """
+        return pulumi.get(self, "is_encrypted")
+
+    @is_encrypted.setter
+    def is_encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_encrypted", value)
+
+    @property
+    @pulumi.getter(name="isOptional")
+    def is_optional(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets the isOptional flag of the connection field definition.
+        """
+        return pulumi.get(self, "is_optional")
+
+    @is_optional.setter
+    def is_optional(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_optional", value)
 
 
 @pulumi.input_type
@@ -328,6 +681,205 @@ class NonAzureQueryPropertiesArgs:
     @workspace_id.setter
     def workspace_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "workspace_id", value)
+
+
+@pulumi.input_type
+class RunbookAssociationPropertyArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The runbook property associated with the entity.
+        :param pulumi.Input[str] name: Gets or sets the name of the runbook.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the runbook.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class RunbookDraftArgs:
+    def __init__(__self__, *,
+                 creation_time: Optional[pulumi.Input[str]] = None,
+                 draft_content_link: Optional[pulumi.Input['ContentLinkArgs']] = None,
+                 in_edit: Optional[pulumi.Input[bool]] = None,
+                 last_modified_time: Optional[pulumi.Input[str]] = None,
+                 output_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[str] creation_time: Gets or sets the creation time of the runbook draft.
+        :param pulumi.Input['ContentLinkArgs'] draft_content_link: Gets or sets the draft runbook content link.
+        :param pulumi.Input[bool] in_edit: Gets or sets whether runbook is in edit mode.
+        :param pulumi.Input[str] last_modified_time: Gets or sets the last modified time of the runbook draft.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] output_types: Gets or sets the runbook output types.
+        :param pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgs']]] parameters: Gets or sets the runbook draft parameters.
+        """
+        if creation_time is not None:
+            pulumi.set(__self__, "creation_time", creation_time)
+        if draft_content_link is not None:
+            pulumi.set(__self__, "draft_content_link", draft_content_link)
+        if in_edit is not None:
+            pulumi.set(__self__, "in_edit", in_edit)
+        if last_modified_time is not None:
+            pulumi.set(__self__, "last_modified_time", last_modified_time)
+        if output_types is not None:
+            pulumi.set(__self__, "output_types", output_types)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the creation time of the runbook draft.
+        """
+        return pulumi.get(self, "creation_time")
+
+    @creation_time.setter
+    def creation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_time", value)
+
+    @property
+    @pulumi.getter(name="draftContentLink")
+    def draft_content_link(self) -> Optional[pulumi.Input['ContentLinkArgs']]:
+        """
+        Gets or sets the draft runbook content link.
+        """
+        return pulumi.get(self, "draft_content_link")
+
+    @draft_content_link.setter
+    def draft_content_link(self, value: Optional[pulumi.Input['ContentLinkArgs']]):
+        pulumi.set(self, "draft_content_link", value)
+
+    @property
+    @pulumi.getter(name="inEdit")
+    def in_edit(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets whether runbook is in edit mode.
+        """
+        return pulumi.get(self, "in_edit")
+
+    @in_edit.setter
+    def in_edit(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "in_edit", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedTime")
+    def last_modified_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the last modified time of the runbook draft.
+        """
+        return pulumi.get(self, "last_modified_time")
+
+    @last_modified_time.setter
+    def last_modified_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "last_modified_time", value)
+
+    @property
+    @pulumi.getter(name="outputTypes")
+    def output_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Gets or sets the runbook output types.
+        """
+        return pulumi.get(self, "output_types")
+
+    @output_types.setter
+    def output_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "output_types", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgs']]]]:
+        """
+        Gets or sets the runbook draft parameters.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['RunbookParameterArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+
+@pulumi.input_type
+class RunbookParameterArgs:
+    def __init__(__self__, *,
+                 default_value: Optional[pulumi.Input[str]] = None,
+                 is_mandatory: Optional[pulumi.Input[bool]] = None,
+                 position: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        Definition of the runbook parameter type.
+        :param pulumi.Input[str] default_value: Gets or sets the default value of parameter.
+        :param pulumi.Input[bool] is_mandatory: Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+        :param pulumi.Input[int] position: Get or sets the position of the parameter.
+        :param pulumi.Input[str] type: Gets or sets the type of the parameter.
+        """
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if is_mandatory is not None:
+            pulumi.set(__self__, "is_mandatory", is_mandatory)
+        if position is not None:
+            pulumi.set(__self__, "position", position)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the default value of parameter.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter(name="isMandatory")
+    def is_mandatory(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Gets or sets a Boolean value to indicate whether the parameter is mandatory or not.
+        """
+        return pulumi.get(self, "is_mandatory")
+
+    @is_mandatory.setter
+    def is_mandatory(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_mandatory", value)
+
+    @property
+    @pulumi.getter
+    def position(self) -> Optional[pulumi.Input[int]]:
+        """
+        Get or sets the position of the parameter.
+        """
+        return pulumi.get(self, "position")
+
+    @position.setter
+    def position(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "position", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the type of the parameter.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type
@@ -549,6 +1101,30 @@ class SUCSchedulePropertiesArgs:
 
 
 @pulumi.input_type
+class ScheduleAssociationPropertyArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The schedule property associated with the entity.
+        :param pulumi.Input[str] name: Gets or sets the name of the Schedule.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the name of the Schedule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
 class SoftwareUpdateConfigurationTasksArgs:
     def __init__(__self__, *,
                  post_task: Optional[pulumi.Input['TaskPropertiesArgs']] = None,
@@ -586,6 +1162,61 @@ class SoftwareUpdateConfigurationTasksArgs:
     @pre_task.setter
     def pre_task(self, value: Optional[pulumi.Input['TaskPropertiesArgs']]):
         pulumi.set(self, "pre_task", value)
+
+
+@pulumi.input_type
+class SourceControlSecurityTokenPropertiesArgs:
+    def __init__(__self__, *,
+                 access_token: Optional[pulumi.Input[str]] = None,
+                 refresh_token: Optional[pulumi.Input[str]] = None,
+                 token_type: Optional[pulumi.Input[Union[str, 'TokenType']]] = None):
+        """
+        :param pulumi.Input[str] access_token: The access token.
+        :param pulumi.Input[str] refresh_token: The refresh token.
+        :param pulumi.Input[Union[str, 'TokenType']] token_type: The token type. Must be either PersonalAccessToken or Oauth.
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+        if token_type is not None:
+            pulumi.set(__self__, "token_type", token_type)
+
+    @property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The access token.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_token", value)
+
+    @property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The refresh token.
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "refresh_token", value)
+
+    @property
+    @pulumi.getter(name="tokenType")
+    def token_type(self) -> Optional[pulumi.Input[Union[str, 'TokenType']]]:
+        """
+        The token type. Must be either PersonalAccessToken or Oauth.
+        """
+        return pulumi.get(self, "token_type")
+
+    @token_type.setter
+    def token_type(self, value: Optional[pulumi.Input[Union[str, 'TokenType']]]):
+        pulumi.set(self, "token_type", value)
 
 
 @pulumi.input_type

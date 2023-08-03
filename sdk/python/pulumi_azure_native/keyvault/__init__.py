@@ -23,8 +23,14 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.keyvault.v20190901 as __v20190901
+    v20190901 = __v20190901
+    import pulumi_azure_native.keyvault.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
     import pulumi_azure_native.keyvault.v20230201 as __v20230201
     v20230201 = __v20230201
 else:
+    v20190901 = _utilities.lazy_import('pulumi_azure_native.keyvault.v20190901')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.keyvault.v20210601preview')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.keyvault.v20230201')
 

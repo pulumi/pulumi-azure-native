@@ -60,10 +60,14 @@ utilities.lazyLoad(exports, ["MaintenanceConfiguration"], () => require("./maint
 export * from "../types/enums/maintenance";
 
 // Export sub-modules:
+import * as v20200401 from "./v20200401";
+import * as v20210401preview from "./v20210401preview";
 import * as v20221101preview from "./v20221101preview";
 import * as v20230401 from "./v20230401";
 
 export {
+    v20200401,
+    v20210401preview,
     v20221101preview,
     v20230401,
 };

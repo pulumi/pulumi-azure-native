@@ -31,11 +31,13 @@ export * from "../types/enums/azureactivedirectory";
 
 // Export sub-modules:
 import * as v20190101preview from "./v20190101preview";
+import * as v20200501preview from "./v20200501preview";
 import * as v20210401 from "./v20210401";
 import * as v20230118preview from "./v20230118preview";
 
 export {
     v20190101preview,
+    v20200501preview,
     v20210401,
     v20230118preview,
 };

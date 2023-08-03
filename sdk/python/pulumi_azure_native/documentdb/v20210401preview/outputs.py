@@ -17,6 +17,8 @@ __all__ = [
     'ConsistencyPolicyResponse',
     'ContinuousModeBackupPolicyResponse',
     'CorsPolicyResponse',
+    'DataTransferRegionalServiceResourceResponse',
+    'DataTransferServiceResourcePropertiesResponse',
     'DatabaseAccountConnectionStringResponse',
     'DatabaseRestoreResourceResponse',
     'FailoverPolicyResponse',
@@ -30,6 +32,8 @@ __all__ = [
     'PrivateEndpointPropertyResponse',
     'PrivateLinkServiceConnectionStatePropertyResponse',
     'RestoreParametersResponse',
+    'SqlDedicatedGatewayRegionalServiceResourceResponse',
+    'SqlDedicatedGatewayServiceResourcePropertiesResponse',
     'SystemDataResponse',
     'VirtualNetworkRuleResponse',
 ]
@@ -277,6 +281,154 @@ class CorsPolicyResponse(dict):
         The maximum amount time that a browser should cache the preflight OPTIONS request.
         """
         return pulumi.get(self, "max_age_in_seconds")
+
+
+@pulumi.output_type
+class DataTransferRegionalServiceResourceResponse(dict):
+    """
+    Resource for a regional service location.
+    """
+    def __init__(__self__, *,
+                 location: str,
+                 name: str,
+                 status: str):
+        """
+        Resource for a regional service location.
+        :param str location: The location name.
+        :param str name: The regional service name.
+        :param str status: Describes the status of a service.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location name.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The regional service name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Describes the status of a service.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class DataTransferServiceResourcePropertiesResponse(dict):
+    """
+    Properties for DataTransferServiceResource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+        elif key == "serviceType":
+            suggest = "service_type"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceSize":
+            suggest = "instance_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataTransferServiceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataTransferServiceResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataTransferServiceResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_time: str,
+                 locations: Sequence['outputs.DataTransferRegionalServiceResourceResponse'],
+                 service_type: str,
+                 status: str,
+                 instance_count: Optional[int] = None,
+                 instance_size: Optional[str] = None):
+        """
+        Properties for DataTransferServiceResource.
+        :param str creation_time: Time of the last state change (ISO-8601 format).
+        :param Sequence['DataTransferRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
+        :param str service_type: ServiceType for the service.
+               Expected value is 'DataTransfer'.
+        :param str status: Describes the status of a service.
+        :param int instance_count: Instance count for the service.
+        :param str instance_size: Instance type for the service.
+        """
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "service_type", 'DataTransfer')
+        pulumi.set(__self__, "status", status)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_size is not None:
+            pulumi.set(__self__, "instance_size", instance_size)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        Time of the last state change (ISO-8601 format).
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Sequence['outputs.DataTransferRegionalServiceResourceResponse']:
+        """
+        An array that contains all of the locations for the service.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> str:
+        """
+        ServiceType for the service.
+        Expected value is 'DataTransfer'.
+        """
+        return pulumi.get(self, "service_type")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Describes the status of a service.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        """
+        Instance count for the service.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="instanceSize")
+    def instance_size(self) -> Optional[str]:
+        """
+        Instance type for the service.
+        """
+        return pulumi.get(self, "instance_size")
 
 
 @pulumi.output_type
@@ -1104,6 +1256,196 @@ class RestoreParametersResponse(dict):
         Time to which the account has to be restored (ISO-8601 format).
         """
         return pulumi.get(self, "restore_timestamp_in_utc")
+
+
+@pulumi.output_type
+class SqlDedicatedGatewayRegionalServiceResourceResponse(dict):
+    """
+    Resource for a regional service location.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sqlDedicatedGatewayEndpoint":
+            suggest = "sql_dedicated_gateway_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDedicatedGatewayRegionalServiceResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDedicatedGatewayRegionalServiceResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDedicatedGatewayRegionalServiceResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 location: str,
+                 name: str,
+                 sql_dedicated_gateway_endpoint: str,
+                 status: str):
+        """
+        Resource for a regional service location.
+        :param str location: The location name.
+        :param str name: The regional service name.
+        :param str sql_dedicated_gateway_endpoint: The regional endpoint for SqlDedicatedGateway.
+        :param str status: Describes the status of a service.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "sql_dedicated_gateway_endpoint", sql_dedicated_gateway_endpoint)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location name.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The regional service name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sqlDedicatedGatewayEndpoint")
+    def sql_dedicated_gateway_endpoint(self) -> str:
+        """
+        The regional endpoint for SqlDedicatedGateway.
+        """
+        return pulumi.get(self, "sql_dedicated_gateway_endpoint")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Describes the status of a service.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class SqlDedicatedGatewayServiceResourcePropertiesResponse(dict):
+    """
+    Properties for SqlDedicatedGatewayServiceResource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationTime":
+            suggest = "creation_time"
+        elif key == "serviceType":
+            suggest = "service_type"
+        elif key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceSize":
+            suggest = "instance_size"
+        elif key == "sqlDedicatedGatewayEndpoint":
+            suggest = "sql_dedicated_gateway_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDedicatedGatewayServiceResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDedicatedGatewayServiceResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDedicatedGatewayServiceResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_time: str,
+                 locations: Sequence['outputs.SqlDedicatedGatewayRegionalServiceResourceResponse'],
+                 service_type: str,
+                 status: str,
+                 instance_count: Optional[int] = None,
+                 instance_size: Optional[str] = None,
+                 sql_dedicated_gateway_endpoint: Optional[str] = None):
+        """
+        Properties for SqlDedicatedGatewayServiceResource.
+        :param str creation_time: Time of the last state change (ISO-8601 format).
+        :param Sequence['SqlDedicatedGatewayRegionalServiceResourceResponse'] locations: An array that contains all of the locations for the service.
+        :param str service_type: ServiceType for the service.
+               Expected value is 'SqlDedicatedGateway'.
+        :param str status: Describes the status of a service.
+        :param int instance_count: Instance count for the service.
+        :param str instance_size: Instance type for the service.
+        :param str sql_dedicated_gateway_endpoint: SqlDedicatedGateway endpoint for the service.
+        """
+        pulumi.set(__self__, "creation_time", creation_time)
+        pulumi.set(__self__, "locations", locations)
+        pulumi.set(__self__, "service_type", 'SqlDedicatedGateway')
+        pulumi.set(__self__, "status", status)
+        if instance_count is not None:
+            pulumi.set(__self__, "instance_count", instance_count)
+        if instance_size is not None:
+            pulumi.set(__self__, "instance_size", instance_size)
+        if sql_dedicated_gateway_endpoint is not None:
+            pulumi.set(__self__, "sql_dedicated_gateway_endpoint", sql_dedicated_gateway_endpoint)
+
+    @property
+    @pulumi.getter(name="creationTime")
+    def creation_time(self) -> str:
+        """
+        Time of the last state change (ISO-8601 format).
+        """
+        return pulumi.get(self, "creation_time")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Sequence['outputs.SqlDedicatedGatewayRegionalServiceResourceResponse']:
+        """
+        An array that contains all of the locations for the service.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> str:
+        """
+        ServiceType for the service.
+        Expected value is 'SqlDedicatedGateway'.
+        """
+        return pulumi.get(self, "service_type")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Describes the status of a service.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> Optional[int]:
+        """
+        Instance count for the service.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @property
+    @pulumi.getter(name="instanceSize")
+    def instance_size(self) -> Optional[str]:
+        """
+        Instance type for the service.
+        """
+        return pulumi.get(self, "instance_size")
+
+    @property
+    @pulumi.getter(name="sqlDedicatedGatewayEndpoint")
+    def sql_dedicated_gateway_endpoint(self) -> Optional[str]:
+        """
+        SqlDedicatedGateway endpoint for the service.
+        """
+        return pulumi.get(self, "sql_dedicated_gateway_endpoint")
 
 
 @pulumi.output_type

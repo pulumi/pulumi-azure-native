@@ -5,6 +5,11 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from .get_managed_private_endpoint import *
+from .get_private_endpoint_connection import *
 from .get_script import *
+from .managed_private_endpoint import *
+from .private_endpoint_connection import *
 from .script import *
+from ._inputs import *
 from . import outputs

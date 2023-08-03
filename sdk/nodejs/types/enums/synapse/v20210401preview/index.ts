@@ -45,6 +45,16 @@ export const AzureSkuTier = {
  */
 export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
 
+export const ClusterPrincipalRole = {
+    AllDatabasesAdmin: "AllDatabasesAdmin",
+    AllDatabasesViewer: "AllDatabasesViewer",
+} as const;
+
+/**
+ * Cluster principal role.
+ */
+export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
+
 export const DatabasePrincipalRole = {
     Admin: "Admin",
     Ingestor: "Ingestor",

@@ -6,8 +6,10 @@ from enum import Enum
 
 __all__ = [
     'AzureFrontDoorEnabled',
+    'ConfigurationType',
     'DatabaseTier',
     'DatabaseType',
+    'DiskSkuName',
     'DiskStorageType',
     'EnableBackup',
     'EnableSslEnforcement',
@@ -20,16 +22,20 @@ __all__ = [
     'OSImagePublisher',
     'OSImageSku',
     'OSImageVersion',
+    'OSType',
     'PHPVersion',
     'RedisCacheFamily',
+    'SAPConfigurationType',
     'SAPDatabaseScaleMethod',
     'SAPDatabaseType',
     'SAPDeploymentType',
     'SAPEnvironmentType',
     'SAPHighAvailabilityType',
     'SAPProductType',
+    'SAPSoftwareInstallationType',
     'SearchType',
     'SkuTier',
+    'SslPreference',
     'WordpressVersions',
     'WorkloadKind',
 ]
@@ -41,6 +47,15 @@ class AzureFrontDoorEnabled(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class ConfigurationType(str, Enum):
+    """
+    The type of file share config.
+    """
+    SKIP = "Skip"
+    CREATE_AND_MOUNT = "CreateAndMount"
+    MOUNT = "Mount"
 
 
 class DatabaseTier(str, Enum):
@@ -57,6 +72,19 @@ class DatabaseType(str, Enum):
     Database type
     """
     MY_SQL = "MySql"
+
+
+class DiskSkuName(str, Enum):
+    """
+    Defines the disk sku name.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    PREMIUM_ZRS = "Premium_ZRS"
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
 
 
 class DiskStorageType(str, Enum):
@@ -155,6 +183,14 @@ class OSImageVersion(str, Enum):
     LATEST = "latest"
 
 
+class OSType(str, Enum):
+    """
+    The OS Type
+    """
+    LINUX = "Linux"
+    WINDOWS = "Windows"
+
+
 class PHPVersion(str, Enum):
     """
     PHP version
@@ -170,6 +206,15 @@ class RedisCacheFamily(str, Enum):
     """
     C = "C"
     P = "P"
+
+
+class SAPConfigurationType(str, Enum):
+    """
+    The configuration Type.
+    """
+    DEPLOYMENT = "Deployment"
+    DISCOVERY = "Discovery"
+    DEPLOYMENT_WITH_OS_CONFIG = "DeploymentWithOSConfig"
 
 
 class SAPDatabaseScaleMethod(str, Enum):
@@ -220,6 +265,15 @@ class SAPProductType(str, Enum):
     OTHER = "Other"
 
 
+class SAPSoftwareInstallationType(str, Enum):
+    """
+    The SAP software installation Type.
+    """
+    SERVICE_INITIATED = "ServiceInitiated"
+    SAP_INSTALL_WITHOUT_OS_CONFIG = "SAPInstallWithoutOSConfig"
+    EXTERNAL = "External"
+
+
 class SearchType(str, Enum):
     """
     Search type
@@ -235,6 +289,15 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+class SslPreference(str, Enum):
+    """
+    Gets or sets certificate preference if secure communication is enabled.
+    """
+    DISABLED = "Disabled"
+    ROOT_CERTIFICATE = "RootCertificate"
+    SERVER_CERTIFICATE = "ServerCertificate"
 
 
 class WordpressVersions(str, Enum):

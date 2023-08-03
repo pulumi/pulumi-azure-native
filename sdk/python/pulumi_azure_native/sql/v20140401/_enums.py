@@ -8,8 +8,10 @@ __all__ = [
     'AdministratorType',
     'AutoExecuteStatus',
     'CreateMode',
+    'DataMaskingState',
     'DatabaseEdition',
     'ElasticPoolEdition',
+    'GeoBackupPolicyState',
     'ReadScale',
     'SampleName',
     'SecurityAlertPolicyEmailAccountAdmins',
@@ -67,6 +69,14 @@ class CreateMode(str, Enum):
     RESTORE_LONG_TERM_RETENTION_BACKUP = "RestoreLongTermRetentionBackup"
 
 
+class DataMaskingState(str, Enum):
+    """
+    The state of the data masking policy.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
 class DatabaseEdition(str, Enum):
     """
     The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
@@ -106,6 +116,14 @@ class ElasticPoolEdition(str, Enum):
     PREMIUM = "Premium"
     GENERAL_PURPOSE = "GeneralPurpose"
     BUSINESS_CRITICAL = "BusinessCritical"
+
+
+class GeoBackupPolicyState(str, Enum):
+    """
+    The state of the geo backup policy.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
 
 
 class ReadScale(str, Enum):

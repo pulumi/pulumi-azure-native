@@ -10,10 +10,20 @@ export const getMachine: typeof import("./getMachine").getMachine = null as any;
 export const getMachineOutput: typeof import("./getMachine").getMachineOutput = null as any;
 utilities.lazyLoad(exports, ["getMachine","getMachineOutput"], () => require("./getMachine"));
 
+export { GetMachineExtensionArgs, GetMachineExtensionResult, GetMachineExtensionOutputArgs } from "./getMachineExtension";
+export const getMachineExtension: typeof import("./getMachineExtension").getMachineExtension = null as any;
+export const getMachineExtensionOutput: typeof import("./getMachineExtension").getMachineExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getMachineExtension","getMachineExtensionOutput"], () => require("./getMachineExtension"));
+
 export { MachineArgs } from "./machine";
 export type Machine = import("./machine").Machine;
 export const Machine: typeof import("./machine").Machine = null as any;
 utilities.lazyLoad(exports, ["Machine"], () => require("./machine"));
+
+export { MachineExtensionArgs } from "./machineExtension";
+export type MachineExtension = import("./machineExtension").MachineExtension;
+export const MachineExtension: typeof import("./machineExtension").MachineExtension = null as any;
+utilities.lazyLoad(exports, ["MachineExtension"], () => require("./machineExtension"));
 
 
 const _module = {
@@ -22,6 +32,8 @@ const _module = {
         switch (type) {
             case "azure-native:hybridcompute/v20200802:Machine":
                 return new Machine(name, <any>undefined, { urn })
+            case "azure-native:hybridcompute/v20200802:MachineExtension":
+                return new MachineExtension(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

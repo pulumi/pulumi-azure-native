@@ -9,6 +9,8 @@ from ._enums import *
 from .application_group import *
 from .get_application_group import *
 from .get_host_pool import *
+from .get_scaling_plan_pooled_schedule import *
 from .host_pool import *
+from .scaling_plan_pooled_schedule import *
 from ._inputs import *
 from . import outputs
