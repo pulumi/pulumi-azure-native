@@ -13606,6 +13606,7 @@
       {
         "resourceType": "DataBoxEdgeDevices",
         "apiVersions": [
+          "2023-07-01",
           "2023-02-01",
           "2023-01-01-preview",
           "2022-12-01-preview",
@@ -13633,6 +13634,7 @@
       {
         "resourceType": "DataBoxEdgeDevices/checkNameAvailability",
         "apiVersions": [
+          "2023-07-01",
           "2023-02-01",
           "2023-01-01-preview",
           "2022-12-01-preview",
@@ -13670,6 +13672,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-07-01",
           "2023-02-01",
           "2023-01-01-preview",
           "2022-12-01-preview",
@@ -14698,6 +14701,7 @@
       {
         "resourceType": "agreements",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14708,6 +14712,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14718,6 +14723,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14738,6 +14744,7 @@
       {
         "resourceType": "monitors",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14748,6 +14755,7 @@
       {
         "resourceType": "monitors/getDefaultKey",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14758,6 +14766,7 @@
       {
         "resourceType": "monitors/listApiKeys",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14768,6 +14777,7 @@
       {
         "resourceType": "monitors/listHosts",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14778,6 +14788,7 @@
       {
         "resourceType": "monitors/listLinkedResources",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14788,6 +14799,7 @@
       {
         "resourceType": "monitors/listMonitoredResources",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14798,6 +14810,7 @@
       {
         "resourceType": "monitors/monitoredSubscriptions",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14808,6 +14821,7 @@
       {
         "resourceType": "monitors/refreshSetPasswordLink",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14818,6 +14832,7 @@
       {
         "resourceType": "monitors/setDefaultKey",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14828,6 +14843,7 @@
       {
         "resourceType": "monitors/singleSignOnConfigurations",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14838,6 +14854,7 @@
       {
         "resourceType": "monitors/tagRules",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14848,6 +14865,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14858,6 +14876,7 @@
       {
         "resourceType": "registeredSubscriptions",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01",
           "2022-08-01",
           "2022-06-01",
@@ -14868,6 +14887,7 @@
       {
         "resourceType": "subscriptionStatuses",
         "apiVersions": [
+          "2023-07-07",
           "2023-01-01"
         ]
       }
@@ -17186,6 +17206,8 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17201,6 +17223,8 @@
       {
         "resourceType": "elasticVersions",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview"
@@ -17215,6 +17239,8 @@
       {
         "resourceType": "getOrganizationApiKey",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview"
@@ -17223,6 +17249,8 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17238,6 +17266,8 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17253,6 +17283,8 @@
       {
         "resourceType": "monitors",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17268,6 +17300,8 @@
       {
         "resourceType": "monitors/tagRules",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",
@@ -17283,6 +17317,8 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-07-01-preview",
+          "2023-06-15-preview",
           "2023-06-01",
           "2023-05-01-preview",
           "2023-02-01-preview",

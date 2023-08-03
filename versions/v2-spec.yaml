@@ -267,6 +267,10 @@ ContainerService:
         listManagedClusterAccessProfile: "2020-03-01"
 ContainerStorage:
     tracking: 2023-03-01-preview
+    additions:
+        Pool: 2023-07-01-preview
+        Snapshot: 2023-07-01-preview
+        Volume: 2023-07-01-preview
 CostManagement:
     tracking: "2023-03-01"
     additions:
@@ -1059,6 +1063,8 @@ StoragePool:
     tracking: "2021-08-01"
 StorageSync:
     tracking: "2022-06-01"
+StorageTasks:
+    tracking: "2023-01-01"
 StreamAnalytics:
     tracking: "2020-03-01"
 Subscription:
