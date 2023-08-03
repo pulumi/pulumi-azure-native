@@ -37,6 +37,13 @@ func (v VersionMetadata) ShouldInclude(provider string, version string, typeName
 			}
 		}
 	}
+	if resources, ok := v.PreviousLock[provider]; ok {
+		if defaultResourceVersion, ok := resources[typeName]; ok {
+			if openapi.ApiToSdkVersion(defaultResourceVersion) == version {
+				return true
+			}
+		}
+	}
 	// Exclude versions from removed versions
 	if versions, ok := v.RemovedVersions[provider]; ok {
 		for _, removedVersion := range versions {
