@@ -9,8 +9,10 @@ __all__ = [
     'CreateMode',
     'DatabaseLicenseType',
     'DatabaseReadScale',
+    'IdentityType',
     'SampleName',
     'SecondaryType',
+    'ServerPublicNetworkAccess',
     'StorageAccountType',
 ]
 
@@ -71,6 +73,16 @@ class DatabaseReadScale(str, Enum):
     DISABLED = "Disabled"
 
 
+class IdentityType(str, Enum):
+    """
+    The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
 class SampleName(str, Enum):
     """
     The name of the sample schema to apply when creating this database.
@@ -86,6 +98,14 @@ class SecondaryType(str, Enum):
     """
     GEO = "Geo"
     NAMED = "Named"
+
+
+class ServerPublicNetworkAccess(str, Enum):
+    """
+    Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class StorageAccountType(str, Enum):

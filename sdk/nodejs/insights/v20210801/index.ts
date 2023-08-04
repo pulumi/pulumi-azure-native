@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetScheduledQueryRuleArgs, GetScheduledQueryRuleResult, GetScheduledQueryRuleOutputArgs } from "./getScheduledQueryRule";
+export const getScheduledQueryRule: typeof import("./getScheduledQueryRule").getScheduledQueryRule = null as any;
+export const getScheduledQueryRuleOutput: typeof import("./getScheduledQueryRule").getScheduledQueryRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
+
 export { GetWorkbookArgs, GetWorkbookResult, GetWorkbookOutputArgs } from "./getWorkbook";
 export const getWorkbook: typeof import("./getWorkbook").getWorkbook = null as any;
 export const getWorkbookOutput: typeof import("./getWorkbook").getWorkbookOutput = null as any;
 utilities.lazyLoad(exports, ["getWorkbook","getWorkbookOutput"], () => require("./getWorkbook"));
+
+export { ScheduledQueryRuleArgs } from "./scheduledQueryRule";
+export type ScheduledQueryRule = import("./scheduledQueryRule").ScheduledQueryRule;
+export const ScheduledQueryRule: typeof import("./scheduledQueryRule").ScheduledQueryRule = null as any;
+utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
 
 export { WorkbookArgs } from "./workbook";
 export type Workbook = import("./workbook").Workbook;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:insights/v20210801:ScheduledQueryRule":
+                return new ScheduledQueryRule(name, <any>undefined, { urn })
             case "azure-native:insights/v20210801:Workbook":
                 return new Workbook(name, <any>undefined, { urn })
             default:

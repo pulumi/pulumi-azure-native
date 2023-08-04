@@ -18,11 +18,16 @@ __all__ = [
     'HeaderActionType',
     'HealthProbeEnabled',
     'MatchProcessingBehavior',
+    'RouteNextHopType',
     'RoutingRuleEnabledState',
     'RulesEngineMatchVariable',
     'RulesEngineOperator',
+    'SecurityRuleAccess',
+    'SecurityRuleDirection',
+    'SecurityRuleProtocol',
     'SessionAffinityEnabledState',
     'Transform',
+    'VirtualNetworkPeeringState',
 ]
 
 
@@ -137,6 +142,17 @@ class MatchProcessingBehavior(str, Enum):
     STOP = "Stop"
 
 
+class RouteNextHopType(str, Enum):
+    """
+    The type of Azure hop the packet should be sent to.
+    """
+    VIRTUAL_NETWORK_GATEWAY = "VirtualNetworkGateway"
+    VNET_LOCAL = "VnetLocal"
+    INTERNET = "Internet"
+    VIRTUAL_APPLIANCE = "VirtualAppliance"
+    NONE = "None"
+
+
 class RoutingRuleEnabledState(str, Enum):
     """
     Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -180,6 +196,34 @@ class RulesEngineOperator(str, Enum):
     ENDS_WITH = "EndsWith"
 
 
+class SecurityRuleAccess(str, Enum):
+    """
+    The network traffic is allowed or denied.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
+class SecurityRuleDirection(str, Enum):
+    """
+    The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
+
+
+class SecurityRuleProtocol(str, Enum):
+    """
+    Network protocol this rule applies to.
+    """
+    TCP = "Tcp"
+    UDP = "Udp"
+    ICMP = "Icmp"
+    ESP = "Esp"
+    ASTERISK = "*"
+    AH = "Ah"
+
+
 class SessionAffinityEnabledState(str, Enum):
     """
     Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
@@ -198,3 +242,12 @@ class Transform(str, Enum):
     URL_DECODE = "UrlDecode"
     URL_ENCODE = "UrlEncode"
     REMOVE_NULLS = "RemoveNulls"
+
+
+class VirtualNetworkPeeringState(str, Enum):
+    """
+    The status of the virtual network peering.
+    """
+    INITIATED = "Initiated"
+    CONNECTED = "Connected"
+    DISCONNECTED = "Disconnected"

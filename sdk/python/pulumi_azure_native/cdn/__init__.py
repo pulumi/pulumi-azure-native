@@ -44,9 +44,15 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.cdn.v20200901 as __v20200901
     v20200901 = __v20200901
+    import pulumi_azure_native.cdn.v20210601 as __v20210601
+    v20210601 = __v20210601
+    import pulumi_azure_native.cdn.v20220501preview as __v20220501preview
+    v20220501preview = __v20220501preview
     import pulumi_azure_native.cdn.v20230501 as __v20230501
     v20230501 = __v20230501
 else:
     v20200901 = _utilities.lazy_import('pulumi_azure_native.cdn.v20200901')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.cdn.v20210601')
+    v20220501preview = _utilities.lazy_import('pulumi_azure_native.cdn.v20220501preview')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.cdn.v20230501')
 

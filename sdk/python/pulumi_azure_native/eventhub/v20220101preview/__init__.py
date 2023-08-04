@@ -7,8 +7,14 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .application_group import *
+from .consumer_group import *
+from .event_hub import *
 from .get_application_group import *
+from .get_consumer_group import *
+from .get_event_hub import *
+from .get_namespace import *
 from .get_schema_registry import *
+from .namespace import *
 from .schema_registry import *
 from ._inputs import *
 from . import outputs

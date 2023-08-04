@@ -2,6 +2,298 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApplicationGatewayClientRevocationOptions = {
+    None: "None",
+    OCSP: "OCSP",
+} as const;
+
+/**
+ * Verify client certificate revocation status.
+ */
+export type ApplicationGatewayClientRevocationOptions = (typeof ApplicationGatewayClientRevocationOptions)[keyof typeof ApplicationGatewayClientRevocationOptions];
+
+export const ApplicationGatewayCookieBasedAffinity = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Cookie based affinity.
+ */
+export type ApplicationGatewayCookieBasedAffinity = (typeof ApplicationGatewayCookieBasedAffinity)[keyof typeof ApplicationGatewayCookieBasedAffinity];
+
+export const ApplicationGatewayCustomErrorStatusCode = {
+    HttpStatus403: "HttpStatus403",
+    HttpStatus502: "HttpStatus502",
+} as const;
+
+/**
+ * Status code of the application gateway customer error.
+ */
+export type ApplicationGatewayCustomErrorStatusCode = (typeof ApplicationGatewayCustomErrorStatusCode)[keyof typeof ApplicationGatewayCustomErrorStatusCode];
+
+export const ApplicationGatewayFirewallMode = {
+    Detection: "Detection",
+    Prevention: "Prevention",
+} as const;
+
+/**
+ * Web application firewall mode.
+ */
+export type ApplicationGatewayFirewallMode = (typeof ApplicationGatewayFirewallMode)[keyof typeof ApplicationGatewayFirewallMode];
+
+export const ApplicationGatewayLoadDistributionAlgorithm = {
+    RoundRobin: "RoundRobin",
+    LeastConnections: "LeastConnections",
+    IpHash: "IpHash",
+} as const;
+
+/**
+ * Load Distribution Targets resource of an application gateway.
+ */
+export type ApplicationGatewayLoadDistributionAlgorithm = (typeof ApplicationGatewayLoadDistributionAlgorithm)[keyof typeof ApplicationGatewayLoadDistributionAlgorithm];
+
+export const ApplicationGatewayProtocol = {
+    Http: "Http",
+    Https: "Https",
+    Tcp: "Tcp",
+    Tls: "Tls",
+} as const;
+
+/**
+ * The protocol used for the probe.
+ */
+export type ApplicationGatewayProtocol = (typeof ApplicationGatewayProtocol)[keyof typeof ApplicationGatewayProtocol];
+
+export const ApplicationGatewayRedirectType = {
+    Permanent: "Permanent",
+    Found: "Found",
+    SeeOther: "SeeOther",
+    Temporary: "Temporary",
+} as const;
+
+/**
+ * HTTP redirection type.
+ */
+export type ApplicationGatewayRedirectType = (typeof ApplicationGatewayRedirectType)[keyof typeof ApplicationGatewayRedirectType];
+
+export const ApplicationGatewayRequestRoutingRuleType = {
+    Basic: "Basic",
+    PathBasedRouting: "PathBasedRouting",
+} as const;
+
+/**
+ * Rule type.
+ */
+export type ApplicationGatewayRequestRoutingRuleType = (typeof ApplicationGatewayRequestRoutingRuleType)[keyof typeof ApplicationGatewayRequestRoutingRuleType];
+
+export const ApplicationGatewaySkuName = {
+    Standard_Small: "Standard_Small",
+    Standard_Medium: "Standard_Medium",
+    Standard_Large: "Standard_Large",
+    WAF_Medium: "WAF_Medium",
+    WAF_Large: "WAF_Large",
+    Standard_v2: "Standard_v2",
+    WAF_v2: "WAF_v2",
+} as const;
+
+/**
+ * Name of an application gateway SKU.
+ */
+export type ApplicationGatewaySkuName = (typeof ApplicationGatewaySkuName)[keyof typeof ApplicationGatewaySkuName];
+
+export const ApplicationGatewaySslCipherSuite = {
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384: "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384",
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256: "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA: "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA",
+    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA: "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA",
+    TLS_DHE_RSA_WITH_AES_256_GCM_SHA384: "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384",
+    TLS_DHE_RSA_WITH_AES_128_GCM_SHA256: "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256",
+    TLS_DHE_RSA_WITH_AES_256_CBC_SHA: "TLS_DHE_RSA_WITH_AES_256_CBC_SHA",
+    TLS_DHE_RSA_WITH_AES_128_CBC_SHA: "TLS_DHE_RSA_WITH_AES_128_CBC_SHA",
+    TLS_RSA_WITH_AES_256_GCM_SHA384: "TLS_RSA_WITH_AES_256_GCM_SHA384",
+    TLS_RSA_WITH_AES_128_GCM_SHA256: "TLS_RSA_WITH_AES_128_GCM_SHA256",
+    TLS_RSA_WITH_AES_256_CBC_SHA256: "TLS_RSA_WITH_AES_256_CBC_SHA256",
+    TLS_RSA_WITH_AES_128_CBC_SHA256: "TLS_RSA_WITH_AES_128_CBC_SHA256",
+    TLS_RSA_WITH_AES_256_CBC_SHA: "TLS_RSA_WITH_AES_256_CBC_SHA",
+    TLS_RSA_WITH_AES_128_CBC_SHA: "TLS_RSA_WITH_AES_128_CBC_SHA",
+    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384: "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384",
+    TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256: "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256",
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384: "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384",
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256: "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256",
+    TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA: "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA",
+    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA: "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA",
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA256: "TLS_DHE_DSS_WITH_AES_256_CBC_SHA256",
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA256: "TLS_DHE_DSS_WITH_AES_128_CBC_SHA256",
+    TLS_DHE_DSS_WITH_AES_256_CBC_SHA: "TLS_DHE_DSS_WITH_AES_256_CBC_SHA",
+    TLS_DHE_DSS_WITH_AES_128_CBC_SHA: "TLS_DHE_DSS_WITH_AES_128_CBC_SHA",
+    TLS_RSA_WITH_3DES_EDE_CBC_SHA: "TLS_RSA_WITH_3DES_EDE_CBC_SHA",
+    TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA: "TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA",
+    TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256: "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384: "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384",
+} as const;
+
+/**
+ * Ssl cipher suites enums.
+ */
+export type ApplicationGatewaySslCipherSuite = (typeof ApplicationGatewaySslCipherSuite)[keyof typeof ApplicationGatewaySslCipherSuite];
+
+export const ApplicationGatewaySslPolicyName = {
+    AppGwSslPolicy20150501: "AppGwSslPolicy20150501",
+    AppGwSslPolicy20170401: "AppGwSslPolicy20170401",
+    AppGwSslPolicy20170401S: "AppGwSslPolicy20170401S",
+    AppGwSslPolicy20220101: "AppGwSslPolicy20220101",
+    AppGwSslPolicy20220101S: "AppGwSslPolicy20220101S",
+} as const;
+
+/**
+ * Name of Ssl predefined policy.
+ */
+export type ApplicationGatewaySslPolicyName = (typeof ApplicationGatewaySslPolicyName)[keyof typeof ApplicationGatewaySslPolicyName];
+
+export const ApplicationGatewaySslPolicyType = {
+    Predefined: "Predefined",
+    Custom: "Custom",
+    CustomV2: "CustomV2",
+} as const;
+
+/**
+ * Type of Ssl Policy.
+ */
+export type ApplicationGatewaySslPolicyType = (typeof ApplicationGatewaySslPolicyType)[keyof typeof ApplicationGatewaySslPolicyType];
+
+export const ApplicationGatewaySslProtocol = {
+    TLSv1_0: "TLSv1_0",
+    TLSv1_1: "TLSv1_1",
+    TLSv1_2: "TLSv1_2",
+    TLSv1_3: "TLSv1_3",
+} as const;
+
+/**
+ * Minimum version of Ssl protocol to be supported on application gateway.
+ */
+export type ApplicationGatewaySslProtocol = (typeof ApplicationGatewaySslProtocol)[keyof typeof ApplicationGatewaySslProtocol];
+
+export const ApplicationGatewayTier = {
+    Standard: "Standard",
+    WAF: "WAF",
+    Standard_v2: "Standard_v2",
+    WAF_v2: "WAF_v2",
+} as const;
+
+/**
+ * Tier of an application gateway.
+ */
+export type ApplicationGatewayTier = (typeof ApplicationGatewayTier)[keyof typeof ApplicationGatewayTier];
+
+export const DdosSettingsProtectionMode = {
+    VirtualNetworkInherited: "VirtualNetworkInherited",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The DDoS protection mode of the public IP
+ */
+export type DdosSettingsProtectionMode = (typeof DdosSettingsProtectionMode)[keyof typeof DdosSettingsProtectionMode];
+
+export const DeleteOptions = {
+    Delete: "Delete",
+    Detach: "Detach",
+} as const;
+
+/**
+ * Specify what happens to the public IP address when the VM using it is deleted
+ */
+export type DeleteOptions = (typeof DeleteOptions)[keyof typeof DeleteOptions];
+
+export const DhGroup = {
+    None: "None",
+    DHGroup1: "DHGroup1",
+    DHGroup2: "DHGroup2",
+    DHGroup14: "DHGroup14",
+    DHGroup2048: "DHGroup2048",
+    ECP256: "ECP256",
+    ECP384: "ECP384",
+    DHGroup24: "DHGroup24",
+} as const;
+
+/**
+ * The DH Group used in IKE Phase 1 for initial SA.
+ */
+export type DhGroup = (typeof DhGroup)[keyof typeof DhGroup];
+
+export const ExtendedLocationTypes = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
+export const FirewallPolicyFilterRuleCollectionActionType = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * The type of action.
+ */
+export type FirewallPolicyFilterRuleCollectionActionType = (typeof FirewallPolicyFilterRuleCollectionActionType)[keyof typeof FirewallPolicyFilterRuleCollectionActionType];
+
+export const FirewallPolicyNatRuleCollectionActionType = {
+    DNAT: "DNAT",
+} as const;
+
+/**
+ * The type of action.
+ */
+export type FirewallPolicyNatRuleCollectionActionType = (typeof FirewallPolicyNatRuleCollectionActionType)[keyof typeof FirewallPolicyNatRuleCollectionActionType];
+
+export const FirewallPolicyRuleApplicationProtocolType = {
+    Http: "Http",
+    Https: "Https",
+} as const;
+
+/**
+ * Protocol type.
+ */
+export type FirewallPolicyRuleApplicationProtocolType = (typeof FirewallPolicyRuleApplicationProtocolType)[keyof typeof FirewallPolicyRuleApplicationProtocolType];
+
+export const FirewallPolicyRuleCollectionType = {
+    FirewallPolicyNatRuleCollection: "FirewallPolicyNatRuleCollection",
+    FirewallPolicyFilterRuleCollection: "FirewallPolicyFilterRuleCollection",
+} as const;
+
+/**
+ * The type of the rule collection.
+ */
+export type FirewallPolicyRuleCollectionType = (typeof FirewallPolicyRuleCollectionType)[keyof typeof FirewallPolicyRuleCollectionType];
+
+export const FirewallPolicyRuleNetworkProtocol = {
+    TCP: "TCP",
+    UDP: "UDP",
+    Any: "Any",
+    ICMP: "ICMP",
+} as const;
+
+/**
+ * The Network protocol of a Rule.
+ */
+export type FirewallPolicyRuleNetworkProtocol = (typeof FirewallPolicyRuleNetworkProtocol)[keyof typeof FirewallPolicyRuleNetworkProtocol];
+
+export const FirewallPolicyRuleType = {
+    ApplicationRule: "ApplicationRule",
+    NetworkRule: "NetworkRule",
+    NatRule: "NatRule",
+} as const;
+
+/**
+ * Rule Type.
+ */
+export type FirewallPolicyRuleType = (typeof FirewallPolicyRuleType)[keyof typeof FirewallPolicyRuleType];
+
 export const ForwardingRuleState = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -12,6 +304,55 @@ export const ForwardingRuleState = {
  */
 export type ForwardingRuleState = (typeof ForwardingRuleState)[keyof typeof ForwardingRuleState];
 
+export const IPAllocationMethod = {
+    Static: "Static",
+    Dynamic: "Dynamic",
+} as const;
+
+/**
+ * The private IP address allocation method.
+ */
+export type IPAllocationMethod = (typeof IPAllocationMethod)[keyof typeof IPAllocationMethod];
+
+export const IPVersion = {
+    IPv4: "IPv4",
+    IPv6: "IPv6",
+} as const;
+
+/**
+ * The public IP address version.
+ */
+export type IPVersion = (typeof IPVersion)[keyof typeof IPVersion];
+
+export const IkeEncryption = {
+    DES: "DES",
+    DES3: "DES3",
+    AES128: "AES128",
+    AES192: "AES192",
+    AES256: "AES256",
+    GCMAES256: "GCMAES256",
+    GCMAES128: "GCMAES128",
+} as const;
+
+/**
+ * The IKE encryption algorithm (IKE phase 2).
+ */
+export type IkeEncryption = (typeof IkeEncryption)[keyof typeof IkeEncryption];
+
+export const IkeIntegrity = {
+    MD5: "MD5",
+    SHA1: "SHA1",
+    SHA256: "SHA256",
+    SHA384: "SHA384",
+    GCMAES256: "GCMAES256",
+    GCMAES128: "GCMAES128",
+} as const;
+
+/**
+ * The IKE integrity algorithm (IKE phase 2).
+ */
+export type IkeIntegrity = (typeof IkeIntegrity)[keyof typeof IkeIntegrity];
+
 export const IpAllocationMethod = {
     Static: "Static",
     Dynamic: "Dynamic",
@@ -21,6 +362,108 @@ export const IpAllocationMethod = {
  * Private IP address allocation method.
  */
 export type IpAllocationMethod = (typeof IpAllocationMethod)[keyof typeof IpAllocationMethod];
+
+export const IpsecEncryption = {
+    None: "None",
+    DES: "DES",
+    DES3: "DES3",
+    AES128: "AES128",
+    AES192: "AES192",
+    AES256: "AES256",
+    GCMAES128: "GCMAES128",
+    GCMAES192: "GCMAES192",
+    GCMAES256: "GCMAES256",
+} as const;
+
+/**
+ * The IPSec encryption algorithm (IKE phase 1).
+ */
+export type IpsecEncryption = (typeof IpsecEncryption)[keyof typeof IpsecEncryption];
+
+export const IpsecIntegrity = {
+    MD5: "MD5",
+    SHA1: "SHA1",
+    SHA256: "SHA256",
+    GCMAES128: "GCMAES128",
+    GCMAES192: "GCMAES192",
+    GCMAES256: "GCMAES256",
+} as const;
+
+/**
+ * The IPSec integrity algorithm (IKE phase 1).
+ */
+export type IpsecIntegrity = (typeof IpsecIntegrity)[keyof typeof IpsecIntegrity];
+
+export const NatGatewaySkuName = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * Name of Nat Gateway SKU.
+ */
+export type NatGatewaySkuName = (typeof NatGatewaySkuName)[keyof typeof NatGatewaySkuName];
+
+export const PfsGroup = {
+    None: "None",
+    PFS1: "PFS1",
+    PFS2: "PFS2",
+    PFS2048: "PFS2048",
+    ECP256: "ECP256",
+    ECP384: "ECP384",
+    PFS24: "PFS24",
+    PFS14: "PFS14",
+    PFSMM: "PFSMM",
+} as const;
+
+/**
+ * The Pfs Group used in IKE Phase 2 for new child SA.
+ */
+export type PfsGroup = (typeof PfsGroup)[keyof typeof PfsGroup];
+
+export const PublicIPAddressMigrationPhase = {
+    None: "None",
+    Prepare: "Prepare",
+    Commit: "Commit",
+    Abort: "Abort",
+    Committed: "Committed",
+} as const;
+
+/**
+ * Migration phase of Public IP Address.
+ */
+export type PublicIPAddressMigrationPhase = (typeof PublicIPAddressMigrationPhase)[keyof typeof PublicIPAddressMigrationPhase];
+
+export const PublicIPAddressSkuName = {
+    Basic: "Basic",
+    Standard: "Standard",
+} as const;
+
+/**
+ * Name of a public IP address SKU.
+ */
+export type PublicIPAddressSkuName = (typeof PublicIPAddressSkuName)[keyof typeof PublicIPAddressSkuName];
+
+export const PublicIPAddressSkuTier = {
+    Regional: "Regional",
+    Global: "Global",
+} as const;
+
+/**
+ * Tier of a public IP address SKU.
+ */
+export type PublicIPAddressSkuTier = (typeof PublicIPAddressSkuTier)[keyof typeof PublicIPAddressSkuTier];
+
+export const ResourceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+ */
+export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RouteNextHopType = {
     VirtualNetworkGateway: "VirtualNetworkGateway",
@@ -69,6 +512,133 @@ export const SecurityRuleProtocol = {
  */
 export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
 
+export const VirtualNetworkEncryptionEnforcement = {
+    DropUnencrypted: "DropUnencrypted",
+    AllowUnencrypted: "AllowUnencrypted",
+} as const;
+
+/**
+ * If the encrypted VNet allows VM that does not support encryption
+ */
+export type VirtualNetworkEncryptionEnforcement = (typeof VirtualNetworkEncryptionEnforcement)[keyof typeof VirtualNetworkEncryptionEnforcement];
+
+export const VirtualNetworkGatewayConnectionMode = {
+    Default: "Default",
+    ResponderOnly: "ResponderOnly",
+    InitiatorOnly: "InitiatorOnly",
+} as const;
+
+/**
+ * The connection mode for this connection.
+ */
+export type VirtualNetworkGatewayConnectionMode = (typeof VirtualNetworkGatewayConnectionMode)[keyof typeof VirtualNetworkGatewayConnectionMode];
+
+export const VirtualNetworkGatewayConnectionProtocol = {
+    IKEv2: "IKEv2",
+    IKEv1: "IKEv1",
+} as const;
+
+/**
+ * Connection protocol used for this connection.
+ */
+export type VirtualNetworkGatewayConnectionProtocol = (typeof VirtualNetworkGatewayConnectionProtocol)[keyof typeof VirtualNetworkGatewayConnectionProtocol];
+
+export const VirtualNetworkGatewayConnectionType = {
+    IPsec: "IPsec",
+    Vnet2Vnet: "Vnet2Vnet",
+    ExpressRoute: "ExpressRoute",
+    VPNClient: "VPNClient",
+} as const;
+
+/**
+ * Gateway connection type.
+ */
+export type VirtualNetworkGatewayConnectionType = (typeof VirtualNetworkGatewayConnectionType)[keyof typeof VirtualNetworkGatewayConnectionType];
+
+export const VirtualNetworkGatewaySkuName = {
+    Basic: "Basic",
+    HighPerformance: "HighPerformance",
+    Standard: "Standard",
+    UltraPerformance: "UltraPerformance",
+    VpnGw1: "VpnGw1",
+    VpnGw2: "VpnGw2",
+    VpnGw3: "VpnGw3",
+    VpnGw4: "VpnGw4",
+    VpnGw5: "VpnGw5",
+    VpnGw1AZ: "VpnGw1AZ",
+    VpnGw2AZ: "VpnGw2AZ",
+    VpnGw3AZ: "VpnGw3AZ",
+    VpnGw4AZ: "VpnGw4AZ",
+    VpnGw5AZ: "VpnGw5AZ",
+    ErGw1AZ: "ErGw1AZ",
+    ErGw2AZ: "ErGw2AZ",
+    ErGw3AZ: "ErGw3AZ",
+} as const;
+
+/**
+ * Gateway SKU name.
+ */
+export type VirtualNetworkGatewaySkuName = (typeof VirtualNetworkGatewaySkuName)[keyof typeof VirtualNetworkGatewaySkuName];
+
+export const VirtualNetworkGatewaySkuTier = {
+    Basic: "Basic",
+    HighPerformance: "HighPerformance",
+    Standard: "Standard",
+    UltraPerformance: "UltraPerformance",
+    VpnGw1: "VpnGw1",
+    VpnGw2: "VpnGw2",
+    VpnGw3: "VpnGw3",
+    VpnGw4: "VpnGw4",
+    VpnGw5: "VpnGw5",
+    VpnGw1AZ: "VpnGw1AZ",
+    VpnGw2AZ: "VpnGw2AZ",
+    VpnGw3AZ: "VpnGw3AZ",
+    VpnGw4AZ: "VpnGw4AZ",
+    VpnGw5AZ: "VpnGw5AZ",
+    ErGw1AZ: "ErGw1AZ",
+    ErGw2AZ: "ErGw2AZ",
+    ErGw3AZ: "ErGw3AZ",
+} as const;
+
+/**
+ * Gateway SKU tier.
+ */
+export type VirtualNetworkGatewaySkuTier = (typeof VirtualNetworkGatewaySkuTier)[keyof typeof VirtualNetworkGatewaySkuTier];
+
+export const VirtualNetworkGatewayType = {
+    Vpn: "Vpn",
+    ExpressRoute: "ExpressRoute",
+    LocalGateway: "LocalGateway",
+} as const;
+
+/**
+ * The type of this virtual network gateway.
+ */
+export type VirtualNetworkGatewayType = (typeof VirtualNetworkGatewayType)[keyof typeof VirtualNetworkGatewayType];
+
+export const VirtualNetworkPeeringLevel = {
+    FullyInSync: "FullyInSync",
+    RemoteNotInSync: "RemoteNotInSync",
+    LocalNotInSync: "LocalNotInSync",
+    LocalAndRemoteNotInSync: "LocalAndRemoteNotInSync",
+} as const;
+
+/**
+ * The peering sync status of the virtual network peering.
+ */
+export type VirtualNetworkPeeringLevel = (typeof VirtualNetworkPeeringLevel)[keyof typeof VirtualNetworkPeeringLevel];
+
+export const VirtualNetworkPeeringState = {
+    Initiated: "Initiated",
+    Connected: "Connected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * The status of the virtual network peering.
+ */
+export type VirtualNetworkPeeringState = (typeof VirtualNetworkPeeringState)[keyof typeof VirtualNetworkPeeringState];
+
 export const VirtualNetworkPrivateEndpointNetworkPolicies = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -88,3 +658,77 @@ export const VirtualNetworkPrivateLinkServiceNetworkPolicies = {
  * Enable or Disable apply network policies on private link service in the subnet.
  */
 export type VirtualNetworkPrivateLinkServiceNetworkPolicies = (typeof VirtualNetworkPrivateLinkServiceNetworkPolicies)[keyof typeof VirtualNetworkPrivateLinkServiceNetworkPolicies];
+
+export const VpnAuthenticationType = {
+    Certificate: "Certificate",
+    Radius: "Radius",
+    AAD: "AAD",
+} as const;
+
+/**
+ * VPN authentication types enabled for the virtual network gateway.
+ */
+export type VpnAuthenticationType = (typeof VpnAuthenticationType)[keyof typeof VpnAuthenticationType];
+
+export const VpnClientProtocol = {
+    IkeV2: "IkeV2",
+    SSTP: "SSTP",
+    OpenVPN: "OpenVPN",
+} as const;
+
+/**
+ * VPN client protocol enabled for the virtual network gateway.
+ */
+export type VpnClientProtocol = (typeof VpnClientProtocol)[keyof typeof VpnClientProtocol];
+
+export const VpnGatewayGeneration = {
+    None: "None",
+    Generation1: "Generation1",
+    Generation2: "Generation2",
+} as const;
+
+/**
+ * The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+ */
+export type VpnGatewayGeneration = (typeof VpnGatewayGeneration)[keyof typeof VpnGatewayGeneration];
+
+export const VpnNatRuleMode = {
+    EgressSnat: "EgressSnat",
+    IngressSnat: "IngressSnat",
+} as const;
+
+/**
+ * The Source NAT direction of a VPN NAT.
+ */
+export type VpnNatRuleMode = (typeof VpnNatRuleMode)[keyof typeof VpnNatRuleMode];
+
+export const VpnNatRuleType = {
+    Static: "Static",
+    Dynamic: "Dynamic",
+} as const;
+
+/**
+ * The type of NAT rule for VPN NAT.
+ */
+export type VpnNatRuleType = (typeof VpnNatRuleType)[keyof typeof VpnNatRuleType];
+
+export const VpnPolicyMemberAttributeType = {
+    CertificateGroupId: "CertificateGroupId",
+    AADGroupId: "AADGroupId",
+    RadiusAzureGroupId: "RadiusAzureGroupId",
+} as const;
+
+/**
+ * The Vpn Policy member attribute type.
+ */
+export type VpnPolicyMemberAttributeType = (typeof VpnPolicyMemberAttributeType)[keyof typeof VpnPolicyMemberAttributeType];
+
+export const VpnType = {
+    PolicyBased: "PolicyBased",
+    RouteBased: "RouteBased",
+} as const;
+
+/**
+ * The type of this virtual network gateway.
+ */
+export type VpnType = (typeof VpnType)[keyof typeof VpnType];

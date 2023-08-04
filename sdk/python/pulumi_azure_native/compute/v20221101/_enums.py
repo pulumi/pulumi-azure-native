@@ -5,9 +5,60 @@
 from enum import Enum
 
 __all__ = [
+    'CachingTypes',
+    'ComponentNames',
     'ConsistencyModeTypes',
+    'DeleteOptions',
+    'DiffDiskOptions',
+    'DiffDiskPlacement',
+    'DiskControllerTypes',
+    'DiskCreateOptionTypes',
+    'DiskDeleteOptionTypes',
+    'ExtendedLocationTypes',
+    'IPVersion',
     'IntervalInMins',
+    'LinuxPatchAssessmentMode',
+    'LinuxVMGuestPatchAutomaticByPlatformRebootSetting',
+    'LinuxVMGuestPatchMode',
+    'NetworkApiVersion',
+    'OperatingSystemTypes',
+    'OrchestrationMode',
+    'PassNames',
+    'ProtocolTypes',
+    'ProximityPlacementGroupType',
+    'PublicIPAddressSkuName',
+    'PublicIPAddressSkuTier',
+    'RepairAction',
+    'ResourceIdentityType',
+    'SecurityEncryptionTypes',
+    'SecurityTypes',
+    'SettingNames',
+    'StatusLevelTypes',
+    'StorageAccountTypes',
+    'UpgradeMode',
+    'VirtualMachineEvictionPolicyTypes',
+    'VirtualMachinePriorityTypes',
+    'VirtualMachineScaleSetScaleInRules',
+    'WindowsPatchAssessmentMode',
+    'WindowsVMGuestPatchAutomaticByPlatformRebootSetting',
+    'WindowsVMGuestPatchMode',
 ]
+
+
+class CachingTypes(str, Enum):
+    """
+    Specifies the caching requirements. <br><br> Possible values are: <br><br> **None** <br><br> **ReadOnly** <br><br> **ReadWrite** <br><br> Default: **None for Standard storage. ReadOnly for Premium storage**
+    """
+    NONE = "None"
+    READ_ONLY = "ReadOnly"
+    READ_WRITE = "ReadWrite"
+
+
+class ComponentNames(str, Enum):
+    """
+    The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+    """
+    MICROSOFT_WINDOWS_SHELL_SETUP = "Microsoft-Windows-Shell-Setup"
 
 
 class ConsistencyModeTypes(str, Enum):
@@ -19,6 +70,69 @@ class ConsistencyModeTypes(str, Enum):
     APPLICATION_CONSISTENT = "ApplicationConsistent"
 
 
+class DeleteOptions(str, Enum):
+    """
+    Specify what happens to the public IP when the VM is deleted
+    """
+    DELETE = "Delete"
+    DETACH = "Detach"
+
+
+class DiffDiskOptions(str, Enum):
+    """
+    Specifies the ephemeral disk settings for operating system disk.
+    """
+    LOCAL = "Local"
+
+
+class DiffDiskPlacement(str, Enum):
+    """
+    Specifies the ephemeral disk placement for operating system disk.<br><br> Possible values are: <br><br> **CacheDisk** <br><br> **ResourceDisk** <br><br> Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.<br><br> Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+    """
+    CACHE_DISK = "CacheDisk"
+    RESOURCE_DISK = "ResourceDisk"
+
+
+class DiskControllerTypes(str, Enum):
+    """
+    Specifies the disk controller type configured for the virtual machines in the scale set. <br><br> Minimum api-version: 2022-08-01
+    """
+    SCSI = "SCSI"
+    NV_ME = "NVMe"
+
+
+class DiskCreateOptionTypes(str, Enum):
+    """
+    Specifies how the virtual machines in the scale set should be created.<br><br> The only allowed value is: **FromImage** \\u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+    """
+    FROM_IMAGE = "FromImage"
+    EMPTY = "Empty"
+    ATTACH = "Attach"
+
+
+class DiskDeleteOptionTypes(str, Enum):
+    """
+    Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion (This feature is available for VMSS with Flexible OrchestrationMode only). <br><br> Possible values: <br><br> **Delete** If this value is used, the OS disk is deleted when VMSS Flex VM is deleted.<br><br> **Detach** If this value is used, the OS disk is retained after VMSS Flex VM is deleted. <br><br> The default value is set to **Delete**. For an Ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for Ephemeral OS Disk.
+    """
+    DELETE = "Delete"
+    DETACH = "Detach"
+
+
+class ExtendedLocationTypes(str, Enum):
+    """
+    The type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
+
+
+class IPVersion(str, Enum):
+    """
+    Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+    """
+    I_PV4 = "IPv4"
+    I_PV6 = "IPv6"
+
+
 class IntervalInMins(str, Enum):
     """
     Interval value in minutes used to create LogAnalytics call rate logs.
@@ -27,3 +141,215 @@ class IntervalInMins(str, Enum):
     FIVE_MINS = "FiveMins"
     THIRTY_MINS = "ThirtyMins"
     SIXTY_MINS = "SixtyMins"
+
+
+class LinuxPatchAssessmentMode(str, Enum):
+    """
+    Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+    """
+    IMAGE_DEFAULT = "ImageDefault"
+    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
+
+
+class LinuxVMGuestPatchAutomaticByPlatformRebootSetting(str, Enum):
+    """
+    Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    """
+    UNKNOWN = "Unknown"
+    IF_REQUIRED = "IfRequired"
+    NEVER = "Never"
+    ALWAYS = "Always"
+
+
+class LinuxVMGuestPatchMode(str, Enum):
+    """
+    Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+    """
+    IMAGE_DEFAULT = "ImageDefault"
+    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
+
+
+class NetworkApiVersion(str, Enum):
+    """
+    specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
+    """
+    NETWORK_API_VERSION_2020_11_01 = "2020-11-01"
+
+
+class OperatingSystemTypes(str, Enum):
+    """
+    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. <br><br> Possible values are: <br><br> **Windows** <br><br> **Linux**
+    """
+    WINDOWS = "Windows"
+    LINUX = "Linux"
+
+
+class OrchestrationMode(str, Enum):
+    """
+    Specifies the orchestration mode for the virtual machine scale set.
+    """
+    UNIFORM = "Uniform"
+    FLEXIBLE = "Flexible"
+
+
+class PassNames(str, Enum):
+    """
+    The pass name. Currently, the only allowable value is OobeSystem.
+    """
+    OOBE_SYSTEM = "OobeSystem"
+
+
+class ProtocolTypes(str, Enum):
+    """
+    Specifies the protocol of WinRM listener. <br><br> Possible values are: <br>**http** <br><br> **https**
+    """
+    HTTP = "Http"
+    HTTPS = "Https"
+
+
+class ProximityPlacementGroupType(str, Enum):
+    """
+    Specifies the type of the proximity placement group. <br><br> Possible values are: <br><br> **Standard** : Co-locate resources within an Azure region or Availability Zone. <br><br> **Ultra** : For future use.
+    """
+    STANDARD = "Standard"
+    ULTRA = "Ultra"
+
+
+class PublicIPAddressSkuName(str, Enum):
+    """
+    Specify public IP sku name
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+
+
+class PublicIPAddressSkuTier(str, Enum):
+    """
+    Specify public IP sku tier
+    """
+    REGIONAL = "Regional"
+    GLOBAL_ = "Global"
+
+
+class RepairAction(str, Enum):
+    """
+    Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+    """
+    REPLACE = "Replace"
+    RESTART = "Restart"
+    REIMAGE = "Reimage"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
+
+
+class SecurityEncryptionTypes(str, Enum):
+    """
+    Specifies the EncryptionType of the managed disk. <br> It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. <br><br> NOTE: It can be set for only Confidential VMs.
+    """
+    VM_GUEST_STATE_ONLY = "VMGuestStateOnly"
+    DISK_WITH_VM_GUEST_STATE = "DiskWithVMGuestState"
+
+
+class SecurityTypes(str, Enum):
+    """
+    Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. <br><br> Default: UefiSettings will not be enabled unless this property is set.
+    """
+    TRUSTED_LAUNCH = "TrustedLaunch"
+    CONFIDENTIAL_VM = "ConfidentialVM"
+
+
+class SettingNames(str, Enum):
+    """
+    Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+    """
+    AUTO_LOGON = "AutoLogon"
+    FIRST_LOGON_COMMANDS = "FirstLogonCommands"
+
+
+class StatusLevelTypes(str, Enum):
+    """
+    The level code.
+    """
+    INFO = "Info"
+    WARNING = "Warning"
+    ERROR = "Error"
+
+
+class StorageAccountTypes(str, Enum):
+    """
+    Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+    """
+    STANDARD_LRS = "Standard_LRS"
+    PREMIUM_LRS = "Premium_LRS"
+    STANDARD_SS_D_LRS = "StandardSSD_LRS"
+    ULTRA_SS_D_LRS = "UltraSSD_LRS"
+    PREMIUM_ZRS = "Premium_ZRS"
+    STANDARD_SS_D_ZRS = "StandardSSD_ZRS"
+    PREMIUM_V2_LRS = "PremiumV2_LRS"
+
+
+class UpgradeMode(str, Enum):
+    """
+    Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
+    """
+    AUTOMATIC = "Automatic"
+    MANUAL = "Manual"
+    ROLLING = "Rolling"
+
+
+class VirtualMachineEvictionPolicyTypes(str, Enum):
+    """
+    Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. <br><br>For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. <br><br>For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+    """
+    DEALLOCATE = "Deallocate"
+    DELETE = "Delete"
+
+
+class VirtualMachinePriorityTypes(str, Enum):
+    """
+    Specifies the priority for the virtual machines in the scale set. <br><br>Minimum api-version: 2017-10-30-preview
+    """
+    REGULAR = "Regular"
+    LOW = "Low"
+    SPOT = "Spot"
+
+
+class VirtualMachineScaleSetScaleInRules(str, Enum):
+    DEFAULT = "Default"
+    OLDEST_VM = "OldestVM"
+    NEWEST_VM = "NewestVM"
+
+
+class WindowsPatchAssessmentMode(str, Enum):
+    """
+    Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+    """
+    IMAGE_DEFAULT = "ImageDefault"
+    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
+
+
+class WindowsVMGuestPatchAutomaticByPlatformRebootSetting(str, Enum):
+    """
+    Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    """
+    UNKNOWN = "Unknown"
+    IF_REQUIRED = "IfRequired"
+    NEVER = "Never"
+    ALWAYS = "Always"
+
+
+class WindowsVMGuestPatchMode(str, Enum):
+    """
+    Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+    """
+    MANUAL = "Manual"
+    AUTOMATIC_BY_OS = "AutomaticByOS"
+    AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"

@@ -1358,6 +1358,7 @@ import * as v20180501 from "./v20180501";
 import * as v20180601 from "./v20180601";
 import * as v20180701 from "./v20180701";
 import * as v20180801 from "./v20180801";
+import * as v20180901 from "./v20180901";
 import * as v20181201 from "./v20181201";
 import * as v20190201 from "./v20190201";
 import * as v20190601 from "./v20190601";
@@ -1392,6 +1393,7 @@ export {
     v20180601,
     v20180701,
     v20180801,
+    v20180901,
     v20181201,
     v20190201,
     v20190601,

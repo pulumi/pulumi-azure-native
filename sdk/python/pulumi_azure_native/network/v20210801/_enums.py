@@ -6,11 +6,20 @@ from enum import Enum
 
 __all__ = [
     'AzureFirewallThreatIntelMode',
+    'BastionHostSkuName',
+    'ExtendedLocationTypes',
     'FirewallPolicyIDPSQuerySortOrder',
     'FirewallPolicyIntrusionDetectionProtocol',
     'FirewallPolicyIntrusionDetectionStateType',
     'FirewallPolicySkuTier',
+    'IPAllocationMethod',
     'ResourceIdentityType',
+    'RouteNextHopType',
+    'SecurityRuleAccess',
+    'SecurityRuleDirection',
+    'SecurityRuleProtocol',
+    'VirtualNetworkPrivateEndpointNetworkPolicies',
+    'VirtualNetworkPrivateLinkServiceNetworkPolicies',
 ]
 
 
@@ -21,6 +30,21 @@ class AzureFirewallThreatIntelMode(str, Enum):
     ALERT = "Alert"
     DENY = "Deny"
     OFF = "Off"
+
+
+class BastionHostSkuName(str, Enum):
+    """
+    The name of this Bastion Host.
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+
+
+class ExtendedLocationTypes(str, Enum):
+    """
+    The type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
 
 
 class FirewallPolicyIDPSQuerySortOrder(str, Enum):
@@ -59,6 +83,14 @@ class FirewallPolicySkuTier(str, Enum):
     BASIC = "Basic"
 
 
+class IPAllocationMethod(str, Enum):
+    """
+    Private IP allocation method.
+    """
+    STATIC = "Static"
+    DYNAMIC = "Dynamic"
+
+
 class ResourceIdentityType(str, Enum):
     """
     The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
@@ -67,3 +99,58 @@ class ResourceIdentityType(str, Enum):
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
     NONE = "None"
+
+
+class RouteNextHopType(str, Enum):
+    """
+    The type of Azure hop the packet should be sent to.
+    """
+    VIRTUAL_NETWORK_GATEWAY = "VirtualNetworkGateway"
+    VNET_LOCAL = "VnetLocal"
+    INTERNET = "Internet"
+    VIRTUAL_APPLIANCE = "VirtualAppliance"
+    NONE = "None"
+
+
+class SecurityRuleAccess(str, Enum):
+    """
+    The network traffic is allowed or denied.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
+class SecurityRuleDirection(str, Enum):
+    """
+    The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
+
+
+class SecurityRuleProtocol(str, Enum):
+    """
+    Network protocol this rule applies to.
+    """
+    TCP = "Tcp"
+    UDP = "Udp"
+    ICMP = "Icmp"
+    ESP = "Esp"
+    ASTERISK = "*"
+    AH = "Ah"
+
+
+class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private end point in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private link service in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

@@ -25,6 +25,15 @@ export const DdosCustomPolicyTriggerSensitivityOverride = {
  */
 export type DdosCustomPolicyTriggerSensitivityOverride = (typeof DdosCustomPolicyTriggerSensitivityOverride)[keyof typeof DdosCustomPolicyTriggerSensitivityOverride];
 
+export const ExtendedLocationTypes = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
 export const FirewallPolicyIDPSQuerySortOrder = {
     Ascending: "Ascending",
     Descending: "Descending",
@@ -34,6 +43,106 @@ export const FirewallPolicyIDPSQuerySortOrder = {
  * Describes if results should be in ascending/descending order
  */
 export type FirewallPolicyIDPSQuerySortOrder = (typeof FirewallPolicyIDPSQuerySortOrder)[keyof typeof FirewallPolicyIDPSQuerySortOrder];
+
+export const RouteNextHopType = {
+    VirtualNetworkGateway: "VirtualNetworkGateway",
+    VnetLocal: "VnetLocal",
+    Internet: "Internet",
+    VirtualAppliance: "VirtualAppliance",
+    None: "None",
+} as const;
+
+/**
+ * The type of Azure hop the packet should be sent to.
+ */
+export type RouteNextHopType = (typeof RouteNextHopType)[keyof typeof RouteNextHopType];
+
+export const SecurityRuleAccess = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * The network traffic is allowed or denied.
+ */
+export type SecurityRuleAccess = (typeof SecurityRuleAccess)[keyof typeof SecurityRuleAccess];
+
+export const SecurityRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+ */
+export type SecurityRuleDirection = (typeof SecurityRuleDirection)[keyof typeof SecurityRuleDirection];
+
+export const SecurityRuleProtocol = {
+    Tcp: "Tcp",
+    Udp: "Udp",
+    Icmp: "Icmp",
+    Esp: "Esp",
+    Asterisk: "*",
+    Ah: "Ah",
+} as const;
+
+/**
+ * Network protocol this rule applies to.
+ */
+export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
+
+export const VirtualNetworkEncryptionEnforcement = {
+    DropUnencrypted: "DropUnencrypted",
+    AllowUnencrypted: "AllowUnencrypted",
+} as const;
+
+/**
+ * If the encrypted VNet allows VM that does not support encryption
+ */
+export type VirtualNetworkEncryptionEnforcement = (typeof VirtualNetworkEncryptionEnforcement)[keyof typeof VirtualNetworkEncryptionEnforcement];
+
+export const VirtualNetworkPeeringLevel = {
+    FullyInSync: "FullyInSync",
+    RemoteNotInSync: "RemoteNotInSync",
+    LocalNotInSync: "LocalNotInSync",
+    LocalAndRemoteNotInSync: "LocalAndRemoteNotInSync",
+} as const;
+
+/**
+ * The peering sync status of the virtual network peering.
+ */
+export type VirtualNetworkPeeringLevel = (typeof VirtualNetworkPeeringLevel)[keyof typeof VirtualNetworkPeeringLevel];
+
+export const VirtualNetworkPeeringState = {
+    Initiated: "Initiated",
+    Connected: "Connected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * The status of the virtual network peering.
+ */
+export type VirtualNetworkPeeringState = (typeof VirtualNetworkPeeringState)[keyof typeof VirtualNetworkPeeringState];
+
+export const VirtualNetworkPrivateEndpointNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private end point in the subnet.
+ */
+export type VirtualNetworkPrivateEndpointNetworkPolicies = (typeof VirtualNetworkPrivateEndpointNetworkPolicies)[keyof typeof VirtualNetworkPrivateEndpointNetworkPolicies];
+
+export const VirtualNetworkPrivateLinkServiceNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private link service in the subnet.
+ */
+export type VirtualNetworkPrivateLinkServiceNetworkPolicies = (typeof VirtualNetworkPrivateLinkServiceNetworkPolicies)[keyof typeof VirtualNetworkPrivateLinkServiceNetworkPolicies];
 
 export const VpnPolicyMemberAttributeType = {
     CertificateGroupId: "CertificateGroupId",

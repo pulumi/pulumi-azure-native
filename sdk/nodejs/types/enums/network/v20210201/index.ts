@@ -51,6 +51,15 @@ export const IPVersion = {
  */
 export type IPVersion = (typeof IPVersion)[keyof typeof IPVersion];
 
+export const ManagedRuleEnabledState = {
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * The state of the managed rule. Defaults to Disabled if not specified.
+ */
+export type ManagedRuleEnabledState = (typeof ManagedRuleEnabledState)[keyof typeof ManagedRuleEnabledState];
+
 export const NatGatewaySkuName = {
     Standard: "Standard",
 } as const;
@@ -59,6 +68,30 @@ export const NatGatewaySkuName = {
  * Name of Nat Gateway SKU.
  */
 export type NatGatewaySkuName = (typeof NatGatewaySkuName)[keyof typeof NatGatewaySkuName];
+
+export const OwaspCrsExclusionEntryMatchVariable = {
+    RequestHeaderNames: "RequestHeaderNames",
+    RequestCookieNames: "RequestCookieNames",
+    RequestArgNames: "RequestArgNames",
+} as const;
+
+/**
+ * The variable to be excluded.
+ */
+export type OwaspCrsExclusionEntryMatchVariable = (typeof OwaspCrsExclusionEntryMatchVariable)[keyof typeof OwaspCrsExclusionEntryMatchVariable];
+
+export const OwaspCrsExclusionEntrySelectorMatchOperator = {
+    Equals: "Equals",
+    Contains: "Contains",
+    StartsWith: "StartsWith",
+    EndsWith: "EndsWith",
+    EqualsAny: "EqualsAny",
+} as const;
+
+/**
+ * When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+ */
+export type OwaspCrsExclusionEntrySelectorMatchOperator = (typeof OwaspCrsExclusionEntrySelectorMatchOperator)[keyof typeof OwaspCrsExclusionEntrySelectorMatchOperator];
 
 export const PublicIPAddressMigrationPhase = {
     None: "None",
@@ -140,6 +173,29 @@ export const SecurityRuleProtocol = {
  */
 export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
 
+export const VirtualNetworkPeeringLevel = {
+    FullyInSync: "FullyInSync",
+    RemoteNotInSync: "RemoteNotInSync",
+    LocalNotInSync: "LocalNotInSync",
+    LocalAndRemoteNotInSync: "LocalAndRemoteNotInSync",
+} as const;
+
+/**
+ * The peering sync status of the virtual network peering.
+ */
+export type VirtualNetworkPeeringLevel = (typeof VirtualNetworkPeeringLevel)[keyof typeof VirtualNetworkPeeringLevel];
+
+export const VirtualNetworkPeeringState = {
+    Initiated: "Initiated",
+    Connected: "Connected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * The status of the virtual network peering.
+ */
+export type VirtualNetworkPeeringState = (typeof VirtualNetworkPeeringState)[keyof typeof VirtualNetworkPeeringState];
+
 export const VirtualNetworkPrivateEndpointNetworkPolicies = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -159,3 +215,93 @@ export const VirtualNetworkPrivateLinkServiceNetworkPolicies = {
  * Enable or Disable apply network policies on private link service in the subnet.
  */
 export type VirtualNetworkPrivateLinkServiceNetworkPolicies = (typeof VirtualNetworkPrivateLinkServiceNetworkPolicies)[keyof typeof VirtualNetworkPrivateLinkServiceNetworkPolicies];
+
+export const WebApplicationFirewallAction = {
+    Allow: "Allow",
+    Block: "Block",
+    Log: "Log",
+} as const;
+
+/**
+ * Type of Actions.
+ */
+export type WebApplicationFirewallAction = (typeof WebApplicationFirewallAction)[keyof typeof WebApplicationFirewallAction];
+
+export const WebApplicationFirewallEnabledState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * The state of the policy.
+ */
+export type WebApplicationFirewallEnabledState = (typeof WebApplicationFirewallEnabledState)[keyof typeof WebApplicationFirewallEnabledState];
+
+export const WebApplicationFirewallMatchVariable = {
+    RemoteAddr: "RemoteAddr",
+    RequestMethod: "RequestMethod",
+    QueryString: "QueryString",
+    PostArgs: "PostArgs",
+    RequestUri: "RequestUri",
+    RequestHeaders: "RequestHeaders",
+    RequestBody: "RequestBody",
+    RequestCookies: "RequestCookies",
+} as const;
+
+/**
+ * Match Variable.
+ */
+export type WebApplicationFirewallMatchVariable = (typeof WebApplicationFirewallMatchVariable)[keyof typeof WebApplicationFirewallMatchVariable];
+
+export const WebApplicationFirewallMode = {
+    Prevention: "Prevention",
+    Detection: "Detection",
+} as const;
+
+/**
+ * The mode of the policy.
+ */
+export type WebApplicationFirewallMode = (typeof WebApplicationFirewallMode)[keyof typeof WebApplicationFirewallMode];
+
+export const WebApplicationFirewallOperator = {
+    IPMatch: "IPMatch",
+    Equal: "Equal",
+    Contains: "Contains",
+    LessThan: "LessThan",
+    GreaterThan: "GreaterThan",
+    LessThanOrEqual: "LessThanOrEqual",
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    BeginsWith: "BeginsWith",
+    EndsWith: "EndsWith",
+    Regex: "Regex",
+    GeoMatch: "GeoMatch",
+} as const;
+
+/**
+ * The operator to be matched.
+ */
+export type WebApplicationFirewallOperator = (typeof WebApplicationFirewallOperator)[keyof typeof WebApplicationFirewallOperator];
+
+export const WebApplicationFirewallRuleType = {
+    MatchRule: "MatchRule",
+    Invalid: "Invalid",
+} as const;
+
+/**
+ * The rule type.
+ */
+export type WebApplicationFirewallRuleType = (typeof WebApplicationFirewallRuleType)[keyof typeof WebApplicationFirewallRuleType];
+
+export const WebApplicationFirewallTransform = {
+    Lowercase: "Lowercase",
+    Trim: "Trim",
+    UrlDecode: "UrlDecode",
+    UrlEncode: "UrlEncode",
+    RemoveNulls: "RemoveNulls",
+    HtmlEntityDecode: "HtmlEntityDecode",
+} as const;
+
+/**
+ * Transforms applied before matching.
+ */
+export type WebApplicationFirewallTransform = (typeof WebApplicationFirewallTransform)[keyof typeof WebApplicationFirewallTransform];

@@ -7,7 +7,17 @@ from enum import Enum
 __all__ = [
     'DdosCustomPolicyProtocol',
     'DdosCustomPolicyTriggerSensitivityOverride',
+    'ExtendedLocationTypes',
     'FirewallPolicyIDPSQuerySortOrder',
+    'RouteNextHopType',
+    'SecurityRuleAccess',
+    'SecurityRuleDirection',
+    'SecurityRuleProtocol',
+    'VirtualNetworkEncryptionEnforcement',
+    'VirtualNetworkPeeringLevel',
+    'VirtualNetworkPeeringState',
+    'VirtualNetworkPrivateEndpointNetworkPolicies',
+    'VirtualNetworkPrivateLinkServiceNetworkPolicies',
     'VpnPolicyMemberAttributeType',
 ]
 
@@ -31,12 +41,101 @@ class DdosCustomPolicyTriggerSensitivityOverride(str, Enum):
     HIGH = "High"
 
 
+class ExtendedLocationTypes(str, Enum):
+    """
+    The type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
+
+
 class FirewallPolicyIDPSQuerySortOrder(str, Enum):
     """
     Describes if results should be in ascending/descending order
     """
     ASCENDING = "Ascending"
     DESCENDING = "Descending"
+
+
+class RouteNextHopType(str, Enum):
+    """
+    The type of Azure hop the packet should be sent to.
+    """
+    VIRTUAL_NETWORK_GATEWAY = "VirtualNetworkGateway"
+    VNET_LOCAL = "VnetLocal"
+    INTERNET = "Internet"
+    VIRTUAL_APPLIANCE = "VirtualAppliance"
+    NONE = "None"
+
+
+class SecurityRuleAccess(str, Enum):
+    """
+    The network traffic is allowed or denied.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
+class SecurityRuleDirection(str, Enum):
+    """
+    The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
+
+
+class SecurityRuleProtocol(str, Enum):
+    """
+    Network protocol this rule applies to.
+    """
+    TCP = "Tcp"
+    UDP = "Udp"
+    ICMP = "Icmp"
+    ESP = "Esp"
+    ASTERISK = "*"
+    AH = "Ah"
+
+
+class VirtualNetworkEncryptionEnforcement(str, Enum):
+    """
+    If the encrypted VNet allows VM that does not support encryption
+    """
+    DROP_UNENCRYPTED = "DropUnencrypted"
+    ALLOW_UNENCRYPTED = "AllowUnencrypted"
+
+
+class VirtualNetworkPeeringLevel(str, Enum):
+    """
+    The peering sync status of the virtual network peering.
+    """
+    FULLY_IN_SYNC = "FullyInSync"
+    REMOTE_NOT_IN_SYNC = "RemoteNotInSync"
+    LOCAL_NOT_IN_SYNC = "LocalNotInSync"
+    LOCAL_AND_REMOTE_NOT_IN_SYNC = "LocalAndRemoteNotInSync"
+
+
+class VirtualNetworkPeeringState(str, Enum):
+    """
+    The status of the virtual network peering.
+    """
+    INITIATED = "Initiated"
+    CONNECTED = "Connected"
+    DISCONNECTED = "Disconnected"
+
+
+class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private end point in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private link service in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 class VpnPolicyMemberAttributeType(str, Enum):

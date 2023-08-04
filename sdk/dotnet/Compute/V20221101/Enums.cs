@@ -8,6 +8,68 @@ using Pulumi;
 namespace Pulumi.AzureNative.Compute.V20221101
 {
     /// <summary>
+    /// Specifies the caching requirements. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **None** &lt;br&gt;&lt;br&gt; **ReadOnly** &lt;br&gt;&lt;br&gt; **ReadWrite** &lt;br&gt;&lt;br&gt; Default: **None for Standard storage. ReadOnly for Premium storage**
+    /// </summary>
+    [EnumType]
+    public readonly struct CachingTypes : IEquatable<CachingTypes>
+    {
+        private readonly string _value;
+
+        private CachingTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CachingTypes None { get; } = new CachingTypes("None");
+        public static CachingTypes ReadOnly { get; } = new CachingTypes("ReadOnly");
+        public static CachingTypes ReadWrite { get; } = new CachingTypes("ReadWrite");
+
+        public static bool operator ==(CachingTypes left, CachingTypes right) => left.Equals(right);
+        public static bool operator !=(CachingTypes left, CachingTypes right) => !left.Equals(right);
+
+        public static explicit operator string(CachingTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CachingTypes other && Equals(other);
+        public bool Equals(CachingTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComponentNames : IEquatable<ComponentNames>
+    {
+        private readonly string _value;
+
+        private ComponentNames(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComponentNames Microsoft_Windows_Shell_Setup { get; } = new ComponentNames("Microsoft-Windows-Shell-Setup");
+
+        public static bool operator ==(ComponentNames left, ComponentNames right) => left.Equals(right);
+        public static bool operator !=(ComponentNames left, ComponentNames right) => !left.Equals(right);
+
+        public static explicit operator string(ComponentNames value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComponentNames other && Equals(other);
+        public bool Equals(ComponentNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
     /// </summary>
     [EnumType]
@@ -32,6 +94,253 @@ namespace Pulumi.AzureNative.Compute.V20221101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConsistencyModeTypes other && Equals(other);
         public bool Equals(ConsistencyModeTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify what happens to the public IP when the VM is deleted
+    /// </summary>
+    [EnumType]
+    public readonly struct DeleteOptions : IEquatable<DeleteOptions>
+    {
+        private readonly string _value;
+
+        private DeleteOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeleteOptions Delete { get; } = new DeleteOptions("Delete");
+        public static DeleteOptions Detach { get; } = new DeleteOptions("Detach");
+
+        public static bool operator ==(DeleteOptions left, DeleteOptions right) => left.Equals(right);
+        public static bool operator !=(DeleteOptions left, DeleteOptions right) => !left.Equals(right);
+
+        public static explicit operator string(DeleteOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeleteOptions other && Equals(other);
+        public bool Equals(DeleteOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the ephemeral disk settings for operating system disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiffDiskOptions : IEquatable<DiffDiskOptions>
+    {
+        private readonly string _value;
+
+        private DiffDiskOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiffDiskOptions Local { get; } = new DiffDiskOptions("Local");
+
+        public static bool operator ==(DiffDiskOptions left, DiffDiskOptions right) => left.Equals(right);
+        public static bool operator !=(DiffDiskOptions left, DiffDiskOptions right) => !left.Equals(right);
+
+        public static explicit operator string(DiffDiskOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiffDiskOptions other && Equals(other);
+        public bool Equals(DiffDiskOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the ephemeral disk placement for operating system disk.&lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **CacheDisk** &lt;br&gt;&lt;br&gt; **ResourceDisk** &lt;br&gt;&lt;br&gt; Default: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used.&lt;br&gt;&lt;br&gt; Refer to VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiffDiskPlacement : IEquatable<DiffDiskPlacement>
+    {
+        private readonly string _value;
+
+        private DiffDiskPlacement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiffDiskPlacement CacheDisk { get; } = new DiffDiskPlacement("CacheDisk");
+        public static DiffDiskPlacement ResourceDisk { get; } = new DiffDiskPlacement("ResourceDisk");
+
+        public static bool operator ==(DiffDiskPlacement left, DiffDiskPlacement right) => left.Equals(right);
+        public static bool operator !=(DiffDiskPlacement left, DiffDiskPlacement right) => !left.Equals(right);
+
+        public static explicit operator string(DiffDiskPlacement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiffDiskPlacement other && Equals(other);
+        public bool Equals(DiffDiskPlacement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the disk controller type configured for the virtual machines in the scale set. &lt;br&gt;&lt;br&gt; Minimum api-version: 2022-08-01
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskControllerTypes : IEquatable<DiskControllerTypes>
+    {
+        private readonly string _value;
+
+        private DiskControllerTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskControllerTypes SCSI { get; } = new DiskControllerTypes("SCSI");
+        public static DiskControllerTypes NVMe { get; } = new DiskControllerTypes("NVMe");
+
+        public static bool operator ==(DiskControllerTypes left, DiskControllerTypes right) => left.Equals(right);
+        public static bool operator !=(DiskControllerTypes left, DiskControllerTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DiskControllerTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskControllerTypes other && Equals(other);
+        public bool Equals(DiskControllerTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies how the virtual machines in the scale set should be created.&lt;br&gt;&lt;br&gt; The only allowed value is: **FromImage** \u2013 This value is used when you are using an image to create the virtual machine. If you are using a platform image, you also use the imageReference element described above. If you are using a marketplace image, you  also use the plan element previously described.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskCreateOptionTypes : IEquatable<DiskCreateOptionTypes>
+    {
+        private readonly string _value;
+
+        private DiskCreateOptionTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskCreateOptionTypes FromImage { get; } = new DiskCreateOptionTypes("FromImage");
+        public static DiskCreateOptionTypes Empty { get; } = new DiskCreateOptionTypes("Empty");
+        public static DiskCreateOptionTypes Attach { get; } = new DiskCreateOptionTypes("Attach");
+
+        public static bool operator ==(DiskCreateOptionTypes left, DiskCreateOptionTypes right) => left.Equals(right);
+        public static bool operator !=(DiskCreateOptionTypes left, DiskCreateOptionTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DiskCreateOptionTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskCreateOptionTypes other && Equals(other);
+        public bool Equals(DiskCreateOptionTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies whether OS Disk should be deleted or detached upon VMSS Flex deletion (This feature is available for VMSS with Flexible OrchestrationMode only). &lt;br&gt;&lt;br&gt; Possible values: &lt;br&gt;&lt;br&gt; **Delete** If this value is used, the OS disk is deleted when VMSS Flex VM is deleted.&lt;br&gt;&lt;br&gt; **Detach** If this value is used, the OS disk is retained after VMSS Flex VM is deleted. &lt;br&gt;&lt;br&gt; The default value is set to **Delete**. For an Ephemeral OS Disk, the default value is set to **Delete**. User cannot change the delete option for Ephemeral OS Disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiskDeleteOptionTypes : IEquatable<DiskDeleteOptionTypes>
+    {
+        private readonly string _value;
+
+        private DiskDeleteOptionTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiskDeleteOptionTypes Delete { get; } = new DiskDeleteOptionTypes("Delete");
+        public static DiskDeleteOptionTypes Detach { get; } = new DiskDeleteOptionTypes("Detach");
+
+        public static bool operator ==(DiskDeleteOptionTypes left, DiskDeleteOptionTypes right) => left.Equals(right);
+        public static bool operator !=(DiskDeleteOptionTypes left, DiskDeleteOptionTypes right) => !left.Equals(right);
+
+        public static explicit operator string(DiskDeleteOptionTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiskDeleteOptionTypes other && Equals(other);
+        public bool Equals(DiskDeleteOptionTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationTypes : IEquatable<ExtendedLocationTypes>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationTypes EdgeZone { get; } = new ExtendedLocationTypes("EdgeZone");
+
+        public static bool operator ==(ExtendedLocationTypes left, ExtendedLocationTypes right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationTypes left, ExtendedLocationTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
+        public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPVersion : IEquatable<IPVersion>
+    {
+        private readonly string _value;
+
+        private IPVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPVersion IPv4 { get; } = new IPVersion("IPv4");
+        public static IPVersion IPv6 { get; } = new IPVersion("IPv6");
+
+        public static bool operator ==(IPVersion left, IPVersion right) => left.Equals(right);
+        public static bool operator !=(IPVersion left, IPVersion right) => !left.Equals(right);
+
+        public static explicit operator string(IPVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPVersion other && Equals(other);
+        public bool Equals(IPVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -65,6 +374,793 @@ namespace Pulumi.AzureNative.Compute.V20221101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IntervalInMins other && Equals(other);
         public bool Equals(IntervalInMins other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+    /// </summary>
+    [EnumType]
+    public readonly struct LinuxPatchAssessmentMode : IEquatable<LinuxPatchAssessmentMode>
+    {
+        private readonly string _value;
+
+        private LinuxPatchAssessmentMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinuxPatchAssessmentMode ImageDefault { get; } = new LinuxPatchAssessmentMode("ImageDefault");
+        public static LinuxPatchAssessmentMode AutomaticByPlatform { get; } = new LinuxPatchAssessmentMode("AutomaticByPlatform");
+
+        public static bool operator ==(LinuxPatchAssessmentMode left, LinuxPatchAssessmentMode right) => left.Equals(right);
+        public static bool operator !=(LinuxPatchAssessmentMode left, LinuxPatchAssessmentMode right) => !left.Equals(right);
+
+        public static explicit operator string(LinuxPatchAssessmentMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinuxPatchAssessmentMode other && Equals(other);
+        public bool Equals(LinuxPatchAssessmentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    /// </summary>
+    [EnumType]
+    public readonly struct LinuxVMGuestPatchAutomaticByPlatformRebootSetting : IEquatable<LinuxVMGuestPatchAutomaticByPlatformRebootSetting>
+    {
+        private readonly string _value;
+
+        private LinuxVMGuestPatchAutomaticByPlatformRebootSetting(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting Unknown { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("Unknown");
+        public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting IfRequired { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("IfRequired");
+        public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting Never { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("Never");
+        public static LinuxVMGuestPatchAutomaticByPlatformRebootSetting Always { get; } = new LinuxVMGuestPatchAutomaticByPlatformRebootSetting("Always");
+
+        public static bool operator ==(LinuxVMGuestPatchAutomaticByPlatformRebootSetting left, LinuxVMGuestPatchAutomaticByPlatformRebootSetting right) => left.Equals(right);
+        public static bool operator !=(LinuxVMGuestPatchAutomaticByPlatformRebootSetting left, LinuxVMGuestPatchAutomaticByPlatformRebootSetting right) => !left.Equals(right);
+
+        public static explicit operator string(LinuxVMGuestPatchAutomaticByPlatformRebootSetting value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinuxVMGuestPatchAutomaticByPlatformRebootSetting other && Equals(other);
+        public bool Equals(LinuxVMGuestPatchAutomaticByPlatformRebootSetting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - The virtual machine's default patching configuration is used. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+    /// </summary>
+    [EnumType]
+    public readonly struct LinuxVMGuestPatchMode : IEquatable<LinuxVMGuestPatchMode>
+    {
+        private readonly string _value;
+
+        private LinuxVMGuestPatchMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LinuxVMGuestPatchMode ImageDefault { get; } = new LinuxVMGuestPatchMode("ImageDefault");
+        public static LinuxVMGuestPatchMode AutomaticByPlatform { get; } = new LinuxVMGuestPatchMode("AutomaticByPlatform");
+
+        public static bool operator ==(LinuxVMGuestPatchMode left, LinuxVMGuestPatchMode right) => left.Equals(right);
+        public static bool operator !=(LinuxVMGuestPatchMode left, LinuxVMGuestPatchMode right) => !left.Equals(right);
+
+        public static explicit operator string(LinuxVMGuestPatchMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LinuxVMGuestPatchMode other && Equals(other);
+        public bool Equals(LinuxVMGuestPatchMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations for Virtual Machine Scale Set with orchestration mode 'Flexible'
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkApiVersion : IEquatable<NetworkApiVersion>
+    {
+        private readonly string _value;
+
+        private NetworkApiVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkApiVersion NetworkApiVersion_2020_11_01 { get; } = new NetworkApiVersion("2020-11-01");
+
+        public static bool operator ==(NetworkApiVersion left, NetworkApiVersion right) => left.Equals(right);
+        public static bool operator !=(NetworkApiVersion left, NetworkApiVersion right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkApiVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkApiVersion other && Equals(other);
+        public bool Equals(NetworkApiVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Windows** &lt;br&gt;&lt;br&gt; **Linux**
+    /// </summary>
+    [EnumType]
+    public readonly struct OperatingSystemTypes : IEquatable<OperatingSystemTypes>
+    {
+        private readonly string _value;
+
+        private OperatingSystemTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OperatingSystemTypes Windows { get; } = new OperatingSystemTypes("Windows");
+        public static OperatingSystemTypes Linux { get; } = new OperatingSystemTypes("Linux");
+
+        public static bool operator ==(OperatingSystemTypes left, OperatingSystemTypes right) => left.Equals(right);
+        public static bool operator !=(OperatingSystemTypes left, OperatingSystemTypes right) => !left.Equals(right);
+
+        public static explicit operator string(OperatingSystemTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OperatingSystemTypes other && Equals(other);
+        public bool Equals(OperatingSystemTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the orchestration mode for the virtual machine scale set.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrchestrationMode : IEquatable<OrchestrationMode>
+    {
+        private readonly string _value;
+
+        private OrchestrationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrchestrationMode Uniform { get; } = new OrchestrationMode("Uniform");
+        public static OrchestrationMode Flexible { get; } = new OrchestrationMode("Flexible");
+
+        public static bool operator ==(OrchestrationMode left, OrchestrationMode right) => left.Equals(right);
+        public static bool operator !=(OrchestrationMode left, OrchestrationMode right) => !left.Equals(right);
+
+        public static explicit operator string(OrchestrationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrchestrationMode other && Equals(other);
+        public bool Equals(OrchestrationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The pass name. Currently, the only allowable value is OobeSystem.
+    /// </summary>
+    [EnumType]
+    public readonly struct PassNames : IEquatable<PassNames>
+    {
+        private readonly string _value;
+
+        private PassNames(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PassNames OobeSystem { get; } = new PassNames("OobeSystem");
+
+        public static bool operator ==(PassNames left, PassNames right) => left.Equals(right);
+        public static bool operator !=(PassNames left, PassNames right) => !left.Equals(right);
+
+        public static explicit operator string(PassNames value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PassNames other && Equals(other);
+        public bool Equals(PassNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the protocol of WinRM listener. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;**http** &lt;br&gt;&lt;br&gt; **https**
+    /// </summary>
+    [EnumType]
+    public readonly struct ProtocolTypes : IEquatable<ProtocolTypes>
+    {
+        private readonly string _value;
+
+        private ProtocolTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProtocolTypes Http { get; } = new ProtocolTypes("Http");
+        public static ProtocolTypes Https { get; } = new ProtocolTypes("Https");
+
+        public static bool operator ==(ProtocolTypes left, ProtocolTypes right) => left.Equals(right);
+        public static bool operator !=(ProtocolTypes left, ProtocolTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ProtocolTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProtocolTypes other && Equals(other);
+        public bool Equals(ProtocolTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the type of the proximity placement group. &lt;br&gt;&lt;br&gt; Possible values are: &lt;br&gt;&lt;br&gt; **Standard** : Co-locate resources within an Azure region or Availability Zone. &lt;br&gt;&lt;br&gt; **Ultra** : For future use.
+    /// </summary>
+    [EnumType]
+    public readonly struct ProximityPlacementGroupType : IEquatable<ProximityPlacementGroupType>
+    {
+        private readonly string _value;
+
+        private ProximityPlacementGroupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ProximityPlacementGroupType Standard { get; } = new ProximityPlacementGroupType("Standard");
+        public static ProximityPlacementGroupType Ultra { get; } = new ProximityPlacementGroupType("Ultra");
+
+        public static bool operator ==(ProximityPlacementGroupType left, ProximityPlacementGroupType right) => left.Equals(right);
+        public static bool operator !=(ProximityPlacementGroupType left, ProximityPlacementGroupType right) => !left.Equals(right);
+
+        public static explicit operator string(ProximityPlacementGroupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ProximityPlacementGroupType other && Equals(other);
+        public bool Equals(ProximityPlacementGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify public IP sku name
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAddressSkuName : IEquatable<PublicIPAddressSkuName>
+    {
+        private readonly string _value;
+
+        private PublicIPAddressSkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAddressSkuName Basic { get; } = new PublicIPAddressSkuName("Basic");
+        public static PublicIPAddressSkuName Standard { get; } = new PublicIPAddressSkuName("Standard");
+
+        public static bool operator ==(PublicIPAddressSkuName left, PublicIPAddressSkuName right) => left.Equals(right);
+        public static bool operator !=(PublicIPAddressSkuName left, PublicIPAddressSkuName right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAddressSkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAddressSkuName other && Equals(other);
+        public bool Equals(PublicIPAddressSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify public IP sku tier
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAddressSkuTier : IEquatable<PublicIPAddressSkuTier>
+    {
+        private readonly string _value;
+
+        private PublicIPAddressSkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAddressSkuTier Regional { get; } = new PublicIPAddressSkuTier("Regional");
+        public static PublicIPAddressSkuTier Global { get; } = new PublicIPAddressSkuTier("Global");
+
+        public static bool operator ==(PublicIPAddressSkuTier left, PublicIPAddressSkuTier right) => left.Equals(right);
+        public static bool operator !=(PublicIPAddressSkuTier left, PublicIPAddressSkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAddressSkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAddressSkuTier other && Equals(other);
+        public bool Equals(PublicIPAddressSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+    /// </summary>
+    [EnumType]
+    public readonly struct RepairAction : IEquatable<RepairAction>
+    {
+        private readonly string _value;
+
+        private RepairAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RepairAction Replace { get; } = new RepairAction("Replace");
+        public static RepairAction Restart { get; } = new RepairAction("Restart");
+        public static RepairAction Reimage { get; } = new RepairAction("Reimage");
+
+        public static bool operator ==(RepairAction left, RepairAction right) => left.Equals(right);
+        public static bool operator !=(RepairAction left, RepairAction right) => !left.Equals(right);
+
+        public static explicit operator string(RepairAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RepairAction other && Equals(other);
+        public bool Equals(RepairAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity used for the virtual machine scale set. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine scale set.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned, UserAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the EncryptionType of the managed disk. &lt;br&gt; It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. &lt;br&gt;&lt;br&gt; NOTE: It can be set for only Confidential VMs.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityEncryptionTypes : IEquatable<SecurityEncryptionTypes>
+    {
+        private readonly string _value;
+
+        private SecurityEncryptionTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityEncryptionTypes VMGuestStateOnly { get; } = new SecurityEncryptionTypes("VMGuestStateOnly");
+        public static SecurityEncryptionTypes DiskWithVMGuestState { get; } = new SecurityEncryptionTypes("DiskWithVMGuestState");
+
+        public static bool operator ==(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => left.Equals(right);
+        public static bool operator !=(SecurityEncryptionTypes left, SecurityEncryptionTypes right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityEncryptionTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityEncryptionTypes other && Equals(other);
+        public bool Equals(SecurityEncryptionTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. &lt;br&gt;&lt;br&gt; Default: UefiSettings will not be enabled unless this property is set.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityTypes : IEquatable<SecurityTypes>
+    {
+        private readonly string _value;
+
+        private SecurityTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityTypes TrustedLaunch { get; } = new SecurityTypes("TrustedLaunch");
+        public static SecurityTypes ConfidentialVM { get; } = new SecurityTypes("ConfidentialVM");
+
+        public static bool operator ==(SecurityTypes left, SecurityTypes right) => left.Equals(right);
+        public static bool operator !=(SecurityTypes left, SecurityTypes right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityTypes other && Equals(other);
+        public bool Equals(SecurityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+    /// </summary>
+    [EnumType]
+    public readonly struct SettingNames : IEquatable<SettingNames>
+    {
+        private readonly string _value;
+
+        private SettingNames(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SettingNames AutoLogon { get; } = new SettingNames("AutoLogon");
+        public static SettingNames FirstLogonCommands { get; } = new SettingNames("FirstLogonCommands");
+
+        public static bool operator ==(SettingNames left, SettingNames right) => left.Equals(right);
+        public static bool operator !=(SettingNames left, SettingNames right) => !left.Equals(right);
+
+        public static explicit operator string(SettingNames value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SettingNames other && Equals(other);
+        public bool Equals(SettingNames other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The level code.
+    /// </summary>
+    [EnumType]
+    public readonly struct StatusLevelTypes : IEquatable<StatusLevelTypes>
+    {
+        private readonly string _value;
+
+        private StatusLevelTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StatusLevelTypes Info { get; } = new StatusLevelTypes("Info");
+        public static StatusLevelTypes Warning { get; } = new StatusLevelTypes("Warning");
+        public static StatusLevelTypes Error { get; } = new StatusLevelTypes("Error");
+
+        public static bool operator ==(StatusLevelTypes left, StatusLevelTypes right) => left.Equals(right);
+        public static bool operator !=(StatusLevelTypes left, StatusLevelTypes right) => !left.Equals(right);
+
+        public static explicit operator string(StatusLevelTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StatusLevelTypes other && Equals(other);
+        public bool Equals(StatusLevelTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageAccountTypes : IEquatable<StorageAccountTypes>
+    {
+        private readonly string _value;
+
+        private StorageAccountTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StorageAccountTypes Standard_LRS { get; } = new StorageAccountTypes("Standard_LRS");
+        public static StorageAccountTypes Premium_LRS { get; } = new StorageAccountTypes("Premium_LRS");
+        public static StorageAccountTypes StandardSSD_LRS { get; } = new StorageAccountTypes("StandardSSD_LRS");
+        public static StorageAccountTypes UltraSSD_LRS { get; } = new StorageAccountTypes("UltraSSD_LRS");
+        public static StorageAccountTypes Premium_ZRS { get; } = new StorageAccountTypes("Premium_ZRS");
+        public static StorageAccountTypes StandardSSD_ZRS { get; } = new StorageAccountTypes("StandardSSD_ZRS");
+        public static StorageAccountTypes PremiumV2_LRS { get; } = new StorageAccountTypes("PremiumV2_LRS");
+
+        public static bool operator ==(StorageAccountTypes left, StorageAccountTypes right) => left.Equals(right);
+        public static bool operator !=(StorageAccountTypes left, StorageAccountTypes right) => !left.Equals(right);
+
+        public static explicit operator string(StorageAccountTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageAccountTypes other && Equals(other);
+        public bool Equals(StorageAccountTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mode of an upgrade to virtual machines in the scale set.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.&lt;br /&gt;&lt;br /&gt; **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
+    /// </summary>
+    [EnumType]
+    public readonly struct UpgradeMode : IEquatable<UpgradeMode>
+    {
+        private readonly string _value;
+
+        private UpgradeMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UpgradeMode Automatic { get; } = new UpgradeMode("Automatic");
+        public static UpgradeMode Manual { get; } = new UpgradeMode("Manual");
+        public static UpgradeMode Rolling { get; } = new UpgradeMode("Rolling");
+
+        public static bool operator ==(UpgradeMode left, UpgradeMode right) => left.Equals(right);
+        public static bool operator !=(UpgradeMode left, UpgradeMode right) => !left.Equals(right);
+
+        public static explicit operator string(UpgradeMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpgradeMode other && Equals(other);
+        public bool Equals(UpgradeMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. &lt;br&gt;&lt;br&gt;For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. &lt;br&gt;&lt;br&gt;For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualMachineEvictionPolicyTypes : IEquatable<VirtualMachineEvictionPolicyTypes>
+    {
+        private readonly string _value;
+
+        private VirtualMachineEvictionPolicyTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualMachineEvictionPolicyTypes Deallocate { get; } = new VirtualMachineEvictionPolicyTypes("Deallocate");
+        public static VirtualMachineEvictionPolicyTypes Delete { get; } = new VirtualMachineEvictionPolicyTypes("Delete");
+
+        public static bool operator ==(VirtualMachineEvictionPolicyTypes left, VirtualMachineEvictionPolicyTypes right) => left.Equals(right);
+        public static bool operator !=(VirtualMachineEvictionPolicyTypes left, VirtualMachineEvictionPolicyTypes right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualMachineEvictionPolicyTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualMachineEvictionPolicyTypes other && Equals(other);
+        public bool Equals(VirtualMachineEvictionPolicyTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the priority for the virtual machines in the scale set. &lt;br&gt;&lt;br&gt;Minimum api-version: 2017-10-30-preview
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualMachinePriorityTypes : IEquatable<VirtualMachinePriorityTypes>
+    {
+        private readonly string _value;
+
+        private VirtualMachinePriorityTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualMachinePriorityTypes Regular { get; } = new VirtualMachinePriorityTypes("Regular");
+        public static VirtualMachinePriorityTypes Low { get; } = new VirtualMachinePriorityTypes("Low");
+        public static VirtualMachinePriorityTypes Spot { get; } = new VirtualMachinePriorityTypes("Spot");
+
+        public static bool operator ==(VirtualMachinePriorityTypes left, VirtualMachinePriorityTypes right) => left.Equals(right);
+        public static bool operator !=(VirtualMachinePriorityTypes left, VirtualMachinePriorityTypes right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualMachinePriorityTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualMachinePriorityTypes other && Equals(other);
+        public bool Equals(VirtualMachinePriorityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VirtualMachineScaleSetScaleInRules : IEquatable<VirtualMachineScaleSetScaleInRules>
+    {
+        private readonly string _value;
+
+        private VirtualMachineScaleSetScaleInRules(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualMachineScaleSetScaleInRules Default { get; } = new VirtualMachineScaleSetScaleInRules("Default");
+        public static VirtualMachineScaleSetScaleInRules OldestVM { get; } = new VirtualMachineScaleSetScaleInRules("OldestVM");
+        public static VirtualMachineScaleSetScaleInRules NewestVM { get; } = new VirtualMachineScaleSetScaleInRules("NewestVM");
+
+        public static bool operator ==(VirtualMachineScaleSetScaleInRules left, VirtualMachineScaleSetScaleInRules right) => left.Equals(right);
+        public static bool operator !=(VirtualMachineScaleSetScaleInRules left, VirtualMachineScaleSetScaleInRules right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualMachineScaleSetScaleInRules value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualMachineScaleSetScaleInRules other && Equals(other);
+        public bool Equals(VirtualMachineScaleSetScaleInRules other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **ImageDefault** - You control the timing of patch assessments on a virtual machine.&lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+    /// </summary>
+    [EnumType]
+    public readonly struct WindowsPatchAssessmentMode : IEquatable<WindowsPatchAssessmentMode>
+    {
+        private readonly string _value;
+
+        private WindowsPatchAssessmentMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WindowsPatchAssessmentMode ImageDefault { get; } = new WindowsPatchAssessmentMode("ImageDefault");
+        public static WindowsPatchAssessmentMode AutomaticByPlatform { get; } = new WindowsPatchAssessmentMode("AutomaticByPlatform");
+
+        public static bool operator ==(WindowsPatchAssessmentMode left, WindowsPatchAssessmentMode right) => left.Equals(right);
+        public static bool operator !=(WindowsPatchAssessmentMode left, WindowsPatchAssessmentMode right) => !left.Equals(right);
+
+        public static explicit operator string(WindowsPatchAssessmentMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WindowsPatchAssessmentMode other && Equals(other);
+        public bool Equals(WindowsPatchAssessmentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+    /// </summary>
+    [EnumType]
+    public readonly struct WindowsVMGuestPatchAutomaticByPlatformRebootSetting : IEquatable<WindowsVMGuestPatchAutomaticByPlatformRebootSetting>
+    {
+        private readonly string _value;
+
+        private WindowsVMGuestPatchAutomaticByPlatformRebootSetting(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting Unknown { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("Unknown");
+        public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting IfRequired { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("IfRequired");
+        public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting Never { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("Never");
+        public static WindowsVMGuestPatchAutomaticByPlatformRebootSetting Always { get; } = new WindowsVMGuestPatchAutomaticByPlatformRebootSetting("Always");
+
+        public static bool operator ==(WindowsVMGuestPatchAutomaticByPlatformRebootSetting left, WindowsVMGuestPatchAutomaticByPlatformRebootSetting right) => left.Equals(right);
+        public static bool operator !=(WindowsVMGuestPatchAutomaticByPlatformRebootSetting left, WindowsVMGuestPatchAutomaticByPlatformRebootSetting right) => !left.Equals(right);
+
+        public static explicit operator string(WindowsVMGuestPatchAutomaticByPlatformRebootSetting value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WindowsVMGuestPatchAutomaticByPlatformRebootSetting other && Equals(other);
+        public bool Equals(WindowsVMGuestPatchAutomaticByPlatformRebootSetting other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.&lt;br /&gt;&lt;br /&gt; Possible values are:&lt;br /&gt;&lt;br /&gt; **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false&lt;br /&gt;&lt;br /&gt; **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. &lt;br /&gt;&lt;br /&gt; **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+    /// </summary>
+    [EnumType]
+    public readonly struct WindowsVMGuestPatchMode : IEquatable<WindowsVMGuestPatchMode>
+    {
+        private readonly string _value;
+
+        private WindowsVMGuestPatchMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WindowsVMGuestPatchMode Manual { get; } = new WindowsVMGuestPatchMode("Manual");
+        public static WindowsVMGuestPatchMode AutomaticByOS { get; } = new WindowsVMGuestPatchMode("AutomaticByOS");
+        public static WindowsVMGuestPatchMode AutomaticByPlatform { get; } = new WindowsVMGuestPatchMode("AutomaticByPlatform");
+
+        public static bool operator ==(WindowsVMGuestPatchMode left, WindowsVMGuestPatchMode right) => left.Equals(right);
+        public static bool operator !=(WindowsVMGuestPatchMode left, WindowsVMGuestPatchMode right) => !left.Equals(right);
+
+        public static explicit operator string(WindowsVMGuestPatchMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WindowsVMGuestPatchMode other && Equals(other);
+        public bool Equals(WindowsVMGuestPatchMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

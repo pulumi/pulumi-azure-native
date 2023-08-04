@@ -15,10 +15,20 @@ export const getFederatedIdentityCredential: typeof import("./getFederatedIdenti
 export const getFederatedIdentityCredentialOutput: typeof import("./getFederatedIdentityCredential").getFederatedIdentityCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["getFederatedIdentityCredential","getFederatedIdentityCredentialOutput"], () => require("./getFederatedIdentityCredential"));
 
+export { GetUserAssignedIdentityArgs, GetUserAssignedIdentityResult, GetUserAssignedIdentityOutputArgs } from "./getUserAssignedIdentity";
+export const getUserAssignedIdentity: typeof import("./getUserAssignedIdentity").getUserAssignedIdentity = null as any;
+export const getUserAssignedIdentityOutput: typeof import("./getUserAssignedIdentity").getUserAssignedIdentityOutput = null as any;
+utilities.lazyLoad(exports, ["getUserAssignedIdentity","getUserAssignedIdentityOutput"], () => require("./getUserAssignedIdentity"));
+
 export { ListUserAssignedIdentityAssociatedResourcesArgs, ListUserAssignedIdentityAssociatedResourcesResult, ListUserAssignedIdentityAssociatedResourcesOutputArgs } from "./listUserAssignedIdentityAssociatedResources";
 export const listUserAssignedIdentityAssociatedResources: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResources = null as any;
 export const listUserAssignedIdentityAssociatedResourcesOutput: typeof import("./listUserAssignedIdentityAssociatedResources").listUserAssignedIdentityAssociatedResourcesOutput = null as any;
 utilities.lazyLoad(exports, ["listUserAssignedIdentityAssociatedResources","listUserAssignedIdentityAssociatedResourcesOutput"], () => require("./listUserAssignedIdentityAssociatedResources"));
+
+export { UserAssignedIdentityArgs } from "./userAssignedIdentity";
+export type UserAssignedIdentity = import("./userAssignedIdentity").UserAssignedIdentity;
+export const UserAssignedIdentity: typeof import("./userAssignedIdentity").UserAssignedIdentity = null as any;
+utilities.lazyLoad(exports, ["UserAssignedIdentity"], () => require("./userAssignedIdentity"));
 
 
 const _module = {
@@ -27,6 +37,8 @@ const _module = {
         switch (type) {
             case "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential":
                 return new FederatedIdentityCredential(name, <any>undefined, { urn })
+            case "azure-native:managedidentity/v20220131preview:UserAssignedIdentity":
+                return new UserAssignedIdentity(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -39,4 +39,68 @@ namespace Pulumi.AzureNative.Web.V20210115
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Type of managed service identity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedServiceIdentityType : IEquatable<ManagedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private ManagedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
+        public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
+        public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
+
+        public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
+        public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// State indicating whether staging environments are allowed or not allowed for a static web app.
+    /// </summary>
+    [EnumType]
+    public readonly struct StagingEnvironmentPolicy : IEquatable<StagingEnvironmentPolicy>
+    {
+        private readonly string _value;
+
+        private StagingEnvironmentPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static StagingEnvironmentPolicy Enabled { get; } = new StagingEnvironmentPolicy("Enabled");
+        public static StagingEnvironmentPolicy Disabled { get; } = new StagingEnvironmentPolicy("Disabled");
+
+        public static bool operator ==(StagingEnvironmentPolicy left, StagingEnvironmentPolicy right) => left.Equals(right);
+        public static bool operator !=(StagingEnvironmentPolicy left, StagingEnvironmentPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(StagingEnvironmentPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StagingEnvironmentPolicy other && Equals(other);
+        public bool Equals(StagingEnvironmentPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

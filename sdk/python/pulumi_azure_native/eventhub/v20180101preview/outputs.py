@@ -8,12 +8,16 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
     'ClusterSkuResponse',
     'ConnectionStateResponse',
+    'NWRuleSetIpRulesResponse',
+    'NWRuleSetVirtualNetworkRulesResponse',
     'PrivateEndpointResponse',
+    'SubnetResponse',
 ]
 
 @pulumi.output_type
@@ -86,6 +90,110 @@ class ConnectionStateResponse(dict):
 
 
 @pulumi.output_type
+class NWRuleSetIpRulesResponse(dict):
+    """
+    The response from the List namespace operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipMask":
+            suggest = "ip_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NWRuleSetIpRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NWRuleSetIpRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NWRuleSetIpRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: Optional[str] = None,
+                 ip_mask: Optional[str] = None):
+        """
+        The response from the List namespace operation.
+        :param str action: The IP Filter Action
+        :param str ip_mask: IP Mask
+        """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if ip_mask is not None:
+            pulumi.set(__self__, "ip_mask", ip_mask)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        The IP Filter Action
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> Optional[str]:
+        """
+        IP Mask
+        """
+        return pulumi.get(self, "ip_mask")
+
+
+@pulumi.output_type
+class NWRuleSetVirtualNetworkRulesResponse(dict):
+    """
+    The response from the List namespace operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreMissingVnetServiceEndpoint":
+            suggest = "ignore_missing_vnet_service_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NWRuleSetVirtualNetworkRulesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NWRuleSetVirtualNetworkRulesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NWRuleSetVirtualNetworkRulesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ignore_missing_vnet_service_endpoint: Optional[bool] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None):
+        """
+        The response from the List namespace operation.
+        :param bool ignore_missing_vnet_service_endpoint: Value that indicates whether to ignore missing Vnet Service Endpoint
+        :param 'SubnetResponse' subnet: Subnet properties
+        """
+        if ignore_missing_vnet_service_endpoint is not None:
+            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[bool]:
+        """
+        Value that indicates whether to ignore missing Vnet Service Endpoint
+        """
+        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        Subnet properties
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
 class PrivateEndpointResponse(dict):
     """
     PrivateEndpoint information.
@@ -104,6 +212,29 @@ class PrivateEndpointResponse(dict):
     def id(self) -> Optional[str]:
         """
         The ARM identifier for Private Endpoint.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SubnetResponse(dict):
+    """
+    Properties supplied for Subnet
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        Properties supplied for Subnet
+        :param str id: Resource ID of Virtual Network Subnet
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID of Virtual Network Subnet
         """
         return pulumi.get(self, "id")
 

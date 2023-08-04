@@ -13,3 +13,25 @@ export const LoadBalancingMode = {
  * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
  */
 export type LoadBalancingMode = (typeof LoadBalancingMode)[keyof typeof LoadBalancingMode];
+
+export const ManagedServiceIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * Type of managed service identity.
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const StagingEnvironmentPolicy = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * State indicating whether staging environments are allowed or not allowed for a static web app.
+ */
+export type StagingEnvironmentPolicy = (typeof StagingEnvironmentPolicy)[keyof typeof StagingEnvironmentPolicy];

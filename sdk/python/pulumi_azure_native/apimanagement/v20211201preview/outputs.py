@@ -8,11 +8,835 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AdditionalLocationResponse',
+    'ApiManagementServiceIdentityResponse',
+    'ApiManagementServiceSkuPropertiesResponse',
+    'ApiVersionConstraintResponse',
+    'ArmIdWrapperResponse',
+    'CertificateConfigurationResponse',
+    'CertificateInformationResponse',
+    'HostnameConfigurationResponse',
+    'PrivateLinkServiceConnectionStateResponse',
+    'RemotePrivateEndpointConnectionWrapperResponse',
     'ResourceCollectionResponseValue',
+    'SystemDataResponse',
+    'UserIdentityPropertiesResponse',
+    'VirtualNetworkConfigurationResponse',
 ]
+
+@pulumi.output_type
+class AdditionalLocationResponse(dict):
+    """
+    Description of an additional API Management resource location.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "gatewayRegionalUrl":
+            suggest = "gateway_regional_url"
+        elif key == "platformVersion":
+            suggest = "platform_version"
+        elif key == "privateIPAddresses":
+            suggest = "private_ip_addresses"
+        elif key == "publicIPAddresses":
+            suggest = "public_ip_addresses"
+        elif key == "disableGateway":
+            suggest = "disable_gateway"
+        elif key == "publicIpAddressId":
+            suggest = "public_ip_address_id"
+        elif key == "virtualNetworkConfiguration":
+            suggest = "virtual_network_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdditionalLocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdditionalLocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdditionalLocationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 gateway_regional_url: str,
+                 location: str,
+                 platform_version: str,
+                 private_ip_addresses: Sequence[str],
+                 public_ip_addresses: Sequence[str],
+                 sku: 'outputs.ApiManagementServiceSkuPropertiesResponse',
+                 disable_gateway: Optional[bool] = None,
+                 public_ip_address_id: Optional[str] = None,
+                 virtual_network_configuration: Optional['outputs.VirtualNetworkConfigurationResponse'] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Description of an additional API Management resource location.
+        :param str gateway_regional_url: Gateway URL of the API Management service in the Region.
+        :param str location: The location name of the additional region among Azure Data center regions.
+        :param str platform_version: Compute Platform Version running the service.
+        :param Sequence[str] private_ip_addresses: Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+        :param Sequence[str] public_ip_addresses: Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+        :param 'ApiManagementServiceSkuPropertiesResponse' sku: SKU properties of the API Management service.
+        :param bool disable_gateway: Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        :param str public_ip_address_id: Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
+        :param 'VirtualNetworkConfigurationResponse' virtual_network_configuration: Virtual network configuration for the location.
+        :param Sequence[str] zones: A list of availability zones denoting where the resource needs to come from.
+        """
+        pulumi.set(__self__, "gateway_regional_url", gateway_regional_url)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "platform_version", platform_version)
+        pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        pulumi.set(__self__, "sku", sku)
+        if disable_gateway is None:
+            disable_gateway = False
+        if disable_gateway is not None:
+            pulumi.set(__self__, "disable_gateway", disable_gateway)
+        if public_ip_address_id is not None:
+            pulumi.set(__self__, "public_ip_address_id", public_ip_address_id)
+        if virtual_network_configuration is not None:
+            pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter(name="gatewayRegionalUrl")
+    def gateway_regional_url(self) -> str:
+        """
+        Gateway URL of the API Management service in the Region.
+        """
+        return pulumi.get(self, "gateway_regional_url")
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        """
+        The location name of the additional region among Azure Data center regions.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> str:
+        """
+        Compute Platform Version running the service.
+        """
+        return pulumi.get(self, "platform_version")
+
+    @property
+    @pulumi.getter(name="privateIPAddresses")
+    def private_ip_addresses(self) -> Sequence[str]:
+        """
+        Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicIPAddresses")
+    def public_ip_addresses(self) -> Sequence[str]:
+        """
+        Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> 'outputs.ApiManagementServiceSkuPropertiesResponse':
+        """
+        SKU properties of the API Management service.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="disableGateway")
+    def disable_gateway(self) -> Optional[bool]:
+        """
+        Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location.
+        """
+        return pulumi.get(self, "disable_gateway")
+
+    @property
+    @pulumi.getter(name="publicIpAddressId")
+    def public_ip_address_id(self) -> Optional[str]:
+        """
+        Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network.
+        """
+        return pulumi.get(self, "public_ip_address_id")
+
+    @property
+    @pulumi.getter(name="virtualNetworkConfiguration")
+    def virtual_network_configuration(self) -> Optional['outputs.VirtualNetworkConfigurationResponse']:
+        """
+        Virtual network configuration for the location.
+        """
+        return pulumi.get(self, "virtual_network_configuration")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class ApiManagementServiceIdentityResponse(dict):
+    """
+    Identity properties of the Api Management service resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiManagementServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiManagementServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiManagementServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']] = None):
+        """
+        Identity properties of the Api Management service resource.
+        :param str principal_id: The principal id of the identity.
+        :param str tenant_id: The client tenant id of the identity.
+        :param str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param Mapping[str, 'UserIdentityPropertiesResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity 
+               dictionary key references will be ARM resource ids in the form: 
+               '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+                   providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of the identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The client tenant id of the identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserIdentityPropertiesResponse']]:
+        """
+        The list of user identities associated with the resource. The user identity 
+        dictionary key references will be ARM resource ids in the form: 
+        '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/
+            providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ApiManagementServiceSkuPropertiesResponse(dict):
+    """
+    API Management service resource SKU properties.
+    """
+    def __init__(__self__, *,
+                 capacity: int,
+                 name: str):
+        """
+        API Management service resource SKU properties.
+        :param int capacity: Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
+        :param str name: Name of the Sku.
+        """
+        pulumi.set(__self__, "capacity", capacity)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> int:
+        """
+        Capacity of the SKU (number of deployed units of the SKU). For Consumption SKU capacity must be specified as 0.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the Sku.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApiVersionConstraintResponse(dict):
+    """
+    Control Plane Apis version constraint for the API Management service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minApiVersion":
+            suggest = "min_api_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApiVersionConstraintResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApiVersionConstraintResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApiVersionConstraintResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 min_api_version: Optional[str] = None):
+        """
+        Control Plane Apis version constraint for the API Management service.
+        :param str min_api_version: Limit control plane API calls to API Management service with version equal to or newer than this value.
+        """
+        if min_api_version is not None:
+            pulumi.set(__self__, "min_api_version", min_api_version)
+
+    @property
+    @pulumi.getter(name="minApiVersion")
+    def min_api_version(self) -> Optional[str]:
+        """
+        Limit control plane API calls to API Management service with version equal to or newer than this value.
+        """
+        return pulumi.get(self, "min_api_version")
+
+
+@pulumi.output_type
+class ArmIdWrapperResponse(dict):
+    """
+    A wrapper for an ARM resource id
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        A wrapper for an ARM resource id
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class CertificateConfigurationResponse(dict):
+    """
+    Certificate configuration which consist of non-trusted intermediates and root certificates.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storeName":
+            suggest = "store_name"
+        elif key == "certificatePassword":
+            suggest = "certificate_password"
+        elif key == "encodedCertificate":
+            suggest = "encoded_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 store_name: str,
+                 certificate: Optional['outputs.CertificateInformationResponse'] = None,
+                 certificate_password: Optional[str] = None,
+                 encoded_certificate: Optional[str] = None):
+        """
+        Certificate configuration which consist of non-trusted intermediates and root certificates.
+        :param str store_name: The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
+        :param 'CertificateInformationResponse' certificate: Certificate information.
+        :param str certificate_password: Certificate Password.
+        :param str encoded_certificate: Base64 Encoded certificate.
+        """
+        pulumi.set(__self__, "store_name", store_name)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
+        if encoded_certificate is not None:
+            pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+
+    @property
+    @pulumi.getter(name="storeName")
+    def store_name(self) -> str:
+        """
+        The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations.
+        """
+        return pulumi.get(self, "store_name")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional['outputs.CertificateInformationResponse']:
+        """
+        Certificate information.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[str]:
+        """
+        Certificate Password.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="encodedCertificate")
+    def encoded_certificate(self) -> Optional[str]:
+        """
+        Base64 Encoded certificate.
+        """
+        return pulumi.get(self, "encoded_certificate")
+
+
+@pulumi.output_type
+class CertificateInformationResponse(dict):
+    """
+    SSL certificate information.
+    """
+    def __init__(__self__, *,
+                 expiry: str,
+                 subject: str,
+                 thumbprint: str):
+        """
+        SSL certificate information.
+        :param str expiry: Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        :param str subject: Subject of the certificate.
+        :param str thumbprint: Thumbprint of the certificate.
+        """
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> str:
+        """
+        Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
+        """
+        return pulumi.get(self, "expiry")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        """
+        Subject of the certificate.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter
+    def thumbprint(self) -> str:
+        """
+        Thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
+
+
+@pulumi.output_type
+class HostnameConfigurationResponse(dict):
+    """
+    Custom hostname configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+        elif key == "certificatePassword":
+            suggest = "certificate_password"
+        elif key == "certificateSource":
+            suggest = "certificate_source"
+        elif key == "certificateStatus":
+            suggest = "certificate_status"
+        elif key == "defaultSslBinding":
+            suggest = "default_ssl_binding"
+        elif key == "encodedCertificate":
+            suggest = "encoded_certificate"
+        elif key == "identityClientId":
+            suggest = "identity_client_id"
+        elif key == "keyVaultId":
+            suggest = "key_vault_id"
+        elif key == "negotiateClientCertificate":
+            suggest = "negotiate_client_certificate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostnameConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostnameConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostnameConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_name: str,
+                 type: str,
+                 certificate: Optional['outputs.CertificateInformationResponse'] = None,
+                 certificate_password: Optional[str] = None,
+                 certificate_source: Optional[str] = None,
+                 certificate_status: Optional[str] = None,
+                 default_ssl_binding: Optional[bool] = None,
+                 encoded_certificate: Optional[str] = None,
+                 identity_client_id: Optional[str] = None,
+                 key_vault_id: Optional[str] = None,
+                 negotiate_client_certificate: Optional[bool] = None):
+        """
+        Custom hostname configuration.
+        :param str host_name: Hostname to configure on the Api Management service.
+        :param str type: Hostname type.
+        :param 'CertificateInformationResponse' certificate: Certificate information.
+        :param str certificate_password: Certificate Password.
+        :param str certificate_source: Certificate Source.
+        :param str certificate_status: Certificate Status.
+        :param bool default_ssl_binding: Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
+        :param str encoded_certificate: Base64 Encoded certificate.
+        :param str identity_client_id: System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
+        :param str key_vault_id: Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+        :param bool negotiate_client_certificate: Specify true to always negotiate client certificate on the hostname. Default Value is false.
+        """
+        pulumi.set(__self__, "host_name", host_name)
+        pulumi.set(__self__, "type", type)
+        if certificate is not None:
+            pulumi.set(__self__, "certificate", certificate)
+        if certificate_password is not None:
+            pulumi.set(__self__, "certificate_password", certificate_password)
+        if certificate_source is not None:
+            pulumi.set(__self__, "certificate_source", certificate_source)
+        if certificate_status is not None:
+            pulumi.set(__self__, "certificate_status", certificate_status)
+        if default_ssl_binding is None:
+            default_ssl_binding = False
+        if default_ssl_binding is not None:
+            pulumi.set(__self__, "default_ssl_binding", default_ssl_binding)
+        if encoded_certificate is not None:
+            pulumi.set(__self__, "encoded_certificate", encoded_certificate)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
+        if key_vault_id is not None:
+            pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if negotiate_client_certificate is None:
+            negotiate_client_certificate = False
+        if negotiate_client_certificate is not None:
+            pulumi.set(__self__, "negotiate_client_certificate", negotiate_client_certificate)
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> str:
+        """
+        Hostname to configure on the Api Management service.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Hostname type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> Optional['outputs.CertificateInformationResponse']:
+        """
+        Certificate information.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="certificatePassword")
+    def certificate_password(self) -> Optional[str]:
+        """
+        Certificate Password.
+        """
+        return pulumi.get(self, "certificate_password")
+
+    @property
+    @pulumi.getter(name="certificateSource")
+    def certificate_source(self) -> Optional[str]:
+        """
+        Certificate Source.
+        """
+        return pulumi.get(self, "certificate_source")
+
+    @property
+    @pulumi.getter(name="certificateStatus")
+    def certificate_status(self) -> Optional[str]:
+        """
+        Certificate Status.
+        """
+        return pulumi.get(self, "certificate_status")
+
+    @property
+    @pulumi.getter(name="defaultSslBinding")
+    def default_ssl_binding(self) -> Optional[bool]:
+        """
+        Specify true to setup the certificate associated with this Hostname as the Default SSL Certificate. If a client does not send the SNI header, then this will be the certificate that will be challenged. The property is useful if a service has multiple custom hostname enabled and it needs to decide on the default ssl certificate. The setting only applied to Proxy Hostname Type.
+        """
+        return pulumi.get(self, "default_ssl_binding")
+
+    @property
+    @pulumi.getter(name="encodedCertificate")
+    def encoded_certificate(self) -> Optional[str]:
+        """
+        Base64 Encoded certificate.
+        """
+        return pulumi.get(self, "encoded_certificate")
+
+    @property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> Optional[str]:
+        """
+        System or User Assigned Managed identity clientId as generated by Azure AD, which has GET access to the keyVault containing the SSL certificate.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> Optional[str]:
+        """
+        Url to the KeyVault Secret containing the Ssl Certificate. If absolute Url containing version is provided, auto-update of ssl certificate will not work. This requires Api Management service to be configured with aka.ms/apimmsi. The secret should be of type *application/x-pkcs12*
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter(name="negotiateClientCertificate")
+    def negotiate_client_certificate(self) -> Optional[bool]:
+        """
+        Specify true to always negotiate client certificate on the hostname. Default Value is false.
+        """
+        return pulumi.get(self, "negotiate_client_certificate")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The reason for approval/rejection of the connection.
+        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RemotePrivateEndpointConnectionWrapperResponse(dict):
+    """
+    Remote Private Endpoint Connection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemotePrivateEndpointConnectionWrapperResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemotePrivateEndpointConnectionWrapperResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemotePrivateEndpointConnectionWrapperResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 private_link_service_connection_state: 'outputs.PrivateLinkServiceConnectionStateResponse',
+                 provisioning_state: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_endpoint: Optional['outputs.ArmIdWrapperResponse'] = None,
+                 type: Optional[str] = None):
+        """
+        Remote Private Endpoint Connection resource.
+        :param Sequence[str] group_ids: All the Group ids.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param str id: Private Endpoint connection resource id
+        :param str name: Private Endpoint Connection Name
+        :param 'ArmIdWrapperResponse' private_endpoint: The resource of private end point.
+        :param str type: Private Endpoint Connection Resource Type
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        All the Group ids.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> 'outputs.PrivateLinkServiceConnectionStateResponse':
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Private Endpoint connection resource id
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Private Endpoint Connection Name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.ArmIdWrapperResponse']:
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Private Endpoint Connection Resource Type
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class ResourceCollectionResponseValue(dict):
@@ -52,5 +876,227 @@ class ResourceCollectionResponseValue(dict):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserIdentityPropertiesResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserIdentityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserIdentityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[str] = None,
+                 principal_id: Optional[str] = None):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[str]:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> Optional[str]:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class VirtualNetworkConfigurationResponse(dict):
+    """
+    Configuration of a virtual network to which API Management service is deployed.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetResourceId":
+            suggest = "subnet_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnetname: str,
+                 vnetid: str,
+                 subnet_resource_id: Optional[str] = None):
+        """
+        Configuration of a virtual network to which API Management service is deployed.
+        :param str subnetname: The name of the subnet.
+        :param str vnetid: The virtual network ID. This is typically a GUID. Expect a null GUID by default.
+        :param str subnet_resource_id: The full resource ID of a subnet in a virtual network to deploy the API Management service in.
+        """
+        pulumi.set(__self__, "subnetname", subnetname)
+        pulumi.set(__self__, "vnetid", vnetid)
+        if subnet_resource_id is not None:
+            pulumi.set(__self__, "subnet_resource_id", subnet_resource_id)
+
+    @property
+    @pulumi.getter
+    def subnetname(self) -> str:
+        """
+        The name of the subnet.
+        """
+        return pulumi.get(self, "subnetname")
+
+    @property
+    @pulumi.getter
+    def vnetid(self) -> str:
+        """
+        The virtual network ID. This is typically a GUID. Expect a null GUID by default.
+        """
+        return pulumi.get(self, "vnetid")
+
+    @property
+    @pulumi.getter(name="subnetResourceId")
+    def subnet_resource_id(self) -> Optional[str]:
+        """
+        The full resource ID of a subnet in a virtual network to deploy the API Management service in.
+        """
+        return pulumi.get(self, "subnet_resource_id")
 
 

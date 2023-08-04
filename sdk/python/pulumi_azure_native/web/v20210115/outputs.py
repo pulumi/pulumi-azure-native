@@ -8,13 +8,285 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ArmIdWrapperResponse',
+    'ArmPlanResponse',
+    'CapabilityResponse',
+    'ErrorEntityResponse',
     'IdentifierResponse',
+    'ManagedServiceIdentityResponse',
     'NameValuePairResponse',
+    'PrivateLinkConnectionStateResponse',
+    'RemotePrivateEndpointConnectionResponse',
+    'ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse',
+    'SkuCapacityResponse',
+    'SkuDescriptionResponse',
+    'StaticSiteBuildPropertiesResponse',
+    'StaticSiteTemplateOptionsResponse',
+    'StaticSiteUserProvidedFunctionAppResponse',
+    'UserAssignedIdentityResponse',
     'VirtualNetworkProfileResponse',
 ]
+
+@pulumi.output_type
+class ArmIdWrapperResponse(dict):
+    """
+    A wrapper for an ARM resource id
+    """
+    def __init__(__self__, *,
+                 id: str):
+        """
+        A wrapper for an ARM resource id
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ArmPlanResponse(dict):
+    """
+    The plan object in Azure Resource Manager, represents a marketplace plan.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "promotionCode":
+            suggest = "promotion_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArmPlanResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArmPlanResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArmPlanResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 product: Optional[str] = None,
+                 promotion_code: Optional[str] = None,
+                 publisher: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        The plan object in Azure Resource Manager, represents a marketplace plan.
+        :param str name: The name.
+        :param str product: The product.
+        :param str promotion_code: The promotion code.
+        :param str publisher: The publisher.
+        :param str version: Version of product.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if product is not None:
+            pulumi.set(__self__, "product", product)
+        if promotion_code is not None:
+            pulumi.set(__self__, "promotion_code", promotion_code)
+        if publisher is not None:
+            pulumi.set(__self__, "publisher", publisher)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def product(self) -> Optional[str]:
+        """
+        The product.
+        """
+        return pulumi.get(self, "product")
+
+    @property
+    @pulumi.getter(name="promotionCode")
+    def promotion_code(self) -> Optional[str]:
+        """
+        The promotion code.
+        """
+        return pulumi.get(self, "promotion_code")
+
+    @property
+    @pulumi.getter
+    def publisher(self) -> Optional[str]:
+        """
+        The publisher.
+        """
+        return pulumi.get(self, "publisher")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        Version of product.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class CapabilityResponse(dict):
+    """
+    Describes the capabilities/features allowed for a specific SKU.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 reason: Optional[str] = None,
+                 value: Optional[str] = None):
+        """
+        Describes the capabilities/features allowed for a specific SKU.
+        :param str name: Name of the SKU capability.
+        :param str reason: Reason of the SKU capability.
+        :param str value: Value of the SKU capability.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the SKU capability.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def reason(self) -> Optional[str]:
+        """
+        Reason of the SKU capability.
+        """
+        return pulumi.get(self, "reason")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        """
+        Value of the SKU capability.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ErrorEntityResponse(dict):
+    """
+    Body of the error response returned from the API.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extendedCode":
+            suggest = "extended_code"
+        elif key == "innerErrors":
+            suggest = "inner_errors"
+        elif key == "messageTemplate":
+            suggest = "message_template"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ErrorEntityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ErrorEntityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ErrorEntityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 code: Optional[str] = None,
+                 extended_code: Optional[str] = None,
+                 inner_errors: Optional[Sequence['outputs.ErrorEntityResponse']] = None,
+                 message: Optional[str] = None,
+                 message_template: Optional[str] = None,
+                 parameters: Optional[Sequence[str]] = None):
+        """
+        Body of the error response returned from the API.
+        :param str code: Basic error code.
+        :param str extended_code: Type of error.
+        :param Sequence['ErrorEntityResponse'] inner_errors: Inner errors.
+        :param str message: Any details of the error.
+        :param str message_template: Message template.
+        :param Sequence[str] parameters: Parameters for the template.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if extended_code is not None:
+            pulumi.set(__self__, "extended_code", extended_code)
+        if inner_errors is not None:
+            pulumi.set(__self__, "inner_errors", inner_errors)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if message_template is not None:
+            pulumi.set(__self__, "message_template", message_template)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Basic error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="extendedCode")
+    def extended_code(self) -> Optional[str]:
+        """
+        Type of error.
+        """
+        return pulumi.get(self, "extended_code")
+
+    @property
+    @pulumi.getter(name="innerErrors")
+    def inner_errors(self) -> Optional[Sequence['outputs.ErrorEntityResponse']]:
+        """
+        Inner errors.
+        """
+        return pulumi.get(self, "inner_errors")
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        Any details of the error.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="messageTemplate")
+    def message_template(self) -> Optional[str]:
+        """
+        Message template.
+        """
+        return pulumi.get(self, "message_template")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Sequence[str]]:
+        """
+        Parameters for the template.
+        """
+        return pulumi.get(self, "parameters")
+
 
 @pulumi.output_type
 class IdentifierResponse(dict):
@@ -85,6 +357,84 @@ class IdentifierResponse(dict):
 
 
 @pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity.
+        :param str principal_id: Principal Id of managed service identity.
+        :param str tenant_id: Tenant of managed service identity.
+        :param str type: Type of managed service identity.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id of managed service identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        Tenant of managed service identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
 class NameValuePairResponse(dict):
     """
     Name value pair.
@@ -117,6 +467,959 @@ class NameValuePairResponse(dict):
         Pair value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PrivateLinkConnectionStateResponse(dict):
+    """
+    The state of a private link connection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        The state of a private link connection
+        :param str actions_required: ActionsRequired for a private link connection
+        :param str description: Description of a private link connection
+        :param str status: Status of a private link connection
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        ActionsRequired for a private link connection
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of a private link connection
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Status of a private link connection
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class RemotePrivateEndpointConnectionResponse(dict):
+    """
+    A remote private endpoint connection
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemotePrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemotePrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemotePrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 provisioning_state: str,
+                 type: str,
+                 ip_addresses: Optional[Sequence[str]] = None,
+                 kind: Optional[str] = None,
+                 private_endpoint: Optional['outputs.ArmIdWrapperResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkConnectionStateResponse'] = None):
+        """
+        A remote private endpoint connection
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param Sequence[str] ip_addresses: Private IPAddresses mapped to the remote private endpoint
+        :param str kind: Kind of resource.
+        :param 'ArmIdWrapperResponse' private_endpoint: PrivateEndpoint of a remote private endpoint connection
+        :param 'PrivateLinkConnectionStateResponse' private_link_service_connection_state: The state of a private link connection
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        Private IPAddresses mapped to the remote private endpoint
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.ArmIdWrapperResponse']:
+        """
+        PrivateEndpoint of a remote private endpoint connection
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkConnectionStateResponse']:
+        """
+        The state of a private link connection
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse(dict):
+    """
+    Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
+    """
+    def __init__(__self__, *,
+                 error: Optional['outputs.ErrorEntityResponse'] = None,
+                 id: Optional[str] = None,
+                 identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
+                 location: Optional[str] = None,
+                 name: Optional[str] = None,
+                 plan: Optional['outputs.ArmPlanResponse'] = None,
+                 properties: Optional['outputs.RemotePrivateEndpointConnectionResponse'] = None,
+                 sku: Optional['outputs.SkuDescriptionResponse'] = None,
+                 status: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 type: Optional[str] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Message envelope that contains the common Azure resource manager properties and the resource provider specific content.
+        :param 'ErrorEntityResponse' error: Azure-AsyncOperation Error info.
+        :param str id: Resource Id. Typically ID is populated only for responses to GET requests. Caller is responsible for passing in this
+               value for GET requests only.
+               For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+        :param 'ManagedServiceIdentityResponse' identity: MSI resource
+        :param str location: Geographical region resource belongs to e.g. SouthCentralUS, SouthEastAsia.
+        :param str name: Name of resource.
+        :param 'ArmPlanResponse' plan: Azure resource manager plan.
+        :param 'RemotePrivateEndpointConnectionResponse' properties: Resource specific properties.
+        :param 'SkuDescriptionResponse' sku: SKU description of the resource.
+        :param str status: Azure-AsyncOperation Status info.
+        :param Mapping[str, str] tags: Tags associated with resource.
+        :param str type: Type of resource e.g "Microsoft.Web/sites".
+        :param Sequence[str] zones: Logical Availability Zones the service is hosted in
+        """
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if plan is not None:
+            pulumi.set(__self__, "plan", plan)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.ErrorEntityResponse']:
+        """
+        Azure-AsyncOperation Error info.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource Id. Typically ID is populated only for responses to GET requests. Caller is responsible for passing in this
+        value for GET requests only.
+        For example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupId}/providers/Microsoft.Web/sites/{sitename}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        MSI resource
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Geographical region resource belongs to e.g. SouthCentralUS, SouthEastAsia.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def plan(self) -> Optional['outputs.ArmPlanResponse']:
+        """
+        Azure resource manager plan.
+        """
+        return pulumi.get(self, "plan")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.RemotePrivateEndpointConnectionResponse']:
+        """
+        Resource specific properties.
+        """
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.SkuDescriptionResponse']:
+        """
+        SKU description of the resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Azure-AsyncOperation Status info.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Tags associated with resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of resource e.g "Microsoft.Web/sites".
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        Logical Availability Zones the service is hosted in
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class SkuCapacityResponse(dict):
+    """
+    Description of the App Service plan scale options.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "elasticMaximum":
+            suggest = "elastic_maximum"
+        elif key == "scaleType":
+            suggest = "scale_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuCapacityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuCapacityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuCapacityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default: Optional[int] = None,
+                 elastic_maximum: Optional[int] = None,
+                 maximum: Optional[int] = None,
+                 minimum: Optional[int] = None,
+                 scale_type: Optional[str] = None):
+        """
+        Description of the App Service plan scale options.
+        :param int default: Default number of workers for this App Service plan SKU.
+        :param int elastic_maximum: Maximum number of Elastic workers for this App Service plan SKU.
+        :param int maximum: Maximum number of workers for this App Service plan SKU.
+        :param int minimum: Minimum number of workers for this App Service plan SKU.
+        :param str scale_type: Available scale configurations for an App Service plan.
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if elastic_maximum is not None:
+            pulumi.set(__self__, "elastic_maximum", elastic_maximum)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+        if scale_type is not None:
+            pulumi.set(__self__, "scale_type", scale_type)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[int]:
+        """
+        Default number of workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter(name="elasticMaximum")
+    def elastic_maximum(self) -> Optional[int]:
+        """
+        Maximum number of Elastic workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "elastic_maximum")
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[int]:
+        """
+        Maximum number of workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[int]:
+        """
+        Minimum number of workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "minimum")
+
+    @property
+    @pulumi.getter(name="scaleType")
+    def scale_type(self) -> Optional[str]:
+        """
+        Available scale configurations for an App Service plan.
+        """
+        return pulumi.get(self, "scale_type")
+
+
+@pulumi.output_type
+class SkuDescriptionResponse(dict):
+    """
+    Description of a SKU for a scalable resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skuCapacity":
+            suggest = "sku_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuDescriptionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuDescriptionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuDescriptionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capabilities: Optional[Sequence['outputs.CapabilityResponse']] = None,
+                 capacity: Optional[int] = None,
+                 family: Optional[str] = None,
+                 locations: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None,
+                 size: Optional[str] = None,
+                 sku_capacity: Optional['outputs.SkuCapacityResponse'] = None,
+                 tier: Optional[str] = None):
+        """
+        Description of a SKU for a scalable resource.
+        :param Sequence['CapabilityResponse'] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
+        :param int capacity: Current number of instances assigned to the resource.
+        :param str family: Family code of the resource SKU.
+        :param Sequence[str] locations: Locations of the SKU.
+        :param str name: Name of the resource SKU.
+        :param str size: Size specifier of the resource SKU.
+        :param 'SkuCapacityResponse' sku_capacity: Min, max, and default scale values of the SKU.
+        :param str tier: Service tier of the resource SKU.
+        """
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if sku_capacity is not None:
+            pulumi.set(__self__, "sku_capacity", sku_capacity)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[Sequence['outputs.CapabilityResponse']]:
+        """
+        Capabilities of the SKU, e.g., is traffic manager enabled?
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        Current number of instances assigned to the resource.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[str]:
+        """
+        Family code of the resource SKU.
+        """
+        return pulumi.get(self, "family")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[str]]:
+        """
+        Locations of the SKU.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the resource SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        Size specifier of the resource SKU.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="skuCapacity")
+    def sku_capacity(self) -> Optional['outputs.SkuCapacityResponse']:
+        """
+        Min, max, and default scale values of the SKU.
+        """
+        return pulumi.get(self, "sku_capacity")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Service tier of the resource SKU.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class StaticSiteBuildPropertiesResponse(dict):
+    """
+    Build properties for the static site.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiBuildCommand":
+            suggest = "api_build_command"
+        elif key == "apiLocation":
+            suggest = "api_location"
+        elif key == "appArtifactLocation":
+            suggest = "app_artifact_location"
+        elif key == "appBuildCommand":
+            suggest = "app_build_command"
+        elif key == "appLocation":
+            suggest = "app_location"
+        elif key == "githubActionSecretNameOverride":
+            suggest = "github_action_secret_name_override"
+        elif key == "outputLocation":
+            suggest = "output_location"
+        elif key == "skipGithubActionWorkflowGeneration":
+            suggest = "skip_github_action_workflow_generation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticSiteBuildPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticSiteBuildPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticSiteBuildPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_build_command: Optional[str] = None,
+                 api_location: Optional[str] = None,
+                 app_artifact_location: Optional[str] = None,
+                 app_build_command: Optional[str] = None,
+                 app_location: Optional[str] = None,
+                 github_action_secret_name_override: Optional[str] = None,
+                 output_location: Optional[str] = None,
+                 skip_github_action_workflow_generation: Optional[bool] = None):
+        """
+        Build properties for the static site.
+        :param str api_build_command: A custom command to run during deployment of the Azure Functions API application.
+        :param str api_location: The path to the api code within the repository.
+        :param str app_artifact_location: Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
+        :param str app_build_command: A custom command to run during deployment of the static content application.
+        :param str app_location: The path to the app code within the repository.
+        :param str github_action_secret_name_override: Github Action secret name override.
+        :param str output_location: The output path of the app after building.
+        :param bool skip_github_action_workflow_generation: Skip Github Action workflow generation.
+        """
+        if api_build_command is not None:
+            pulumi.set(__self__, "api_build_command", api_build_command)
+        if api_location is not None:
+            pulumi.set(__self__, "api_location", api_location)
+        if app_artifact_location is not None:
+            pulumi.set(__self__, "app_artifact_location", app_artifact_location)
+        if app_build_command is not None:
+            pulumi.set(__self__, "app_build_command", app_build_command)
+        if app_location is not None:
+            pulumi.set(__self__, "app_location", app_location)
+        if github_action_secret_name_override is not None:
+            pulumi.set(__self__, "github_action_secret_name_override", github_action_secret_name_override)
+        if output_location is not None:
+            pulumi.set(__self__, "output_location", output_location)
+        if skip_github_action_workflow_generation is not None:
+            pulumi.set(__self__, "skip_github_action_workflow_generation", skip_github_action_workflow_generation)
+
+    @property
+    @pulumi.getter(name="apiBuildCommand")
+    def api_build_command(self) -> Optional[str]:
+        """
+        A custom command to run during deployment of the Azure Functions API application.
+        """
+        return pulumi.get(self, "api_build_command")
+
+    @property
+    @pulumi.getter(name="apiLocation")
+    def api_location(self) -> Optional[str]:
+        """
+        The path to the api code within the repository.
+        """
+        return pulumi.get(self, "api_location")
+
+    @property
+    @pulumi.getter(name="appArtifactLocation")
+    def app_artifact_location(self) -> Optional[str]:
+        """
+        Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
+        """
+        return pulumi.get(self, "app_artifact_location")
+
+    @property
+    @pulumi.getter(name="appBuildCommand")
+    def app_build_command(self) -> Optional[str]:
+        """
+        A custom command to run during deployment of the static content application.
+        """
+        return pulumi.get(self, "app_build_command")
+
+    @property
+    @pulumi.getter(name="appLocation")
+    def app_location(self) -> Optional[str]:
+        """
+        The path to the app code within the repository.
+        """
+        return pulumi.get(self, "app_location")
+
+    @property
+    @pulumi.getter(name="githubActionSecretNameOverride")
+    def github_action_secret_name_override(self) -> Optional[str]:
+        """
+        Github Action secret name override.
+        """
+        return pulumi.get(self, "github_action_secret_name_override")
+
+    @property
+    @pulumi.getter(name="outputLocation")
+    def output_location(self) -> Optional[str]:
+        """
+        The output path of the app after building.
+        """
+        return pulumi.get(self, "output_location")
+
+    @property
+    @pulumi.getter(name="skipGithubActionWorkflowGeneration")
+    def skip_github_action_workflow_generation(self) -> Optional[bool]:
+        """
+        Skip Github Action workflow generation.
+        """
+        return pulumi.get(self, "skip_github_action_workflow_generation")
+
+
+@pulumi.output_type
+class StaticSiteTemplateOptionsResponse(dict):
+    """
+    Template Options for the static site.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isPrivate":
+            suggest = "is_private"
+        elif key == "repositoryName":
+            suggest = "repository_name"
+        elif key == "templateRepositoryUrl":
+            suggest = "template_repository_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticSiteTemplateOptionsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticSiteTemplateOptionsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticSiteTemplateOptionsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 is_private: Optional[bool] = None,
+                 owner: Optional[str] = None,
+                 repository_name: Optional[str] = None,
+                 template_repository_url: Optional[str] = None):
+        """
+        Template Options for the static site.
+        :param str description: Description of the newly generated repository.
+        :param bool is_private: Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        :param str owner: Owner of the newly generated repository.
+        :param str repository_name: Name of the newly generated repository.
+        :param str template_repository_url: URL of the template repository. The newly generated repository will be based on this one.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_private is not None:
+            pulumi.set(__self__, "is_private", is_private)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if template_repository_url is not None:
+            pulumi.set(__self__, "template_repository_url", template_repository_url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of the newly generated repository.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="isPrivate")
+    def is_private(self) -> Optional[bool]:
+        """
+        Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        """
+        return pulumi.get(self, "is_private")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[str]:
+        """
+        Owner of the newly generated repository.
+        """
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[str]:
+        """
+        Name of the newly generated repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @property
+    @pulumi.getter(name="templateRepositoryUrl")
+    def template_repository_url(self) -> Optional[str]:
+        """
+        URL of the template repository. The newly generated repository will be based on this one.
+        """
+        return pulumi.get(self, "template_repository_url")
+
+
+@pulumi.output_type
+class StaticSiteUserProvidedFunctionAppResponse(dict):
+    """
+    A static site user provided function.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "functionAppRegion":
+            suggest = "function_app_region"
+        elif key == "functionAppResourceId":
+            suggest = "function_app_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StaticSiteUserProvidedFunctionAppResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StaticSiteUserProvidedFunctionAppResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StaticSiteUserProvidedFunctionAppResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_on: str,
+                 id: str,
+                 name: str,
+                 type: str,
+                 function_app_region: Optional[str] = None,
+                 function_app_resource_id: Optional[str] = None,
+                 kind: Optional[str] = None):
+        """
+        A static site user provided function.
+        :param str created_on: The date and time on which the function app was registered with the static site.
+        :param str id: Resource Id.
+        :param str name: Resource Name.
+        :param str type: Resource type.
+        :param str function_app_region: The region of the function app registered with the static site
+        :param str function_app_resource_id: The resource id of the function app registered with the static site
+        :param str kind: Kind of resource.
+        """
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if function_app_region is not None:
+            pulumi.set(__self__, "function_app_region", function_app_region)
+        if function_app_resource_id is not None:
+            pulumi.set(__self__, "function_app_resource_id", function_app_resource_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        """
+        The date and time on which the function app was registered with the static site.
+        """
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource Id.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="functionAppRegion")
+    def function_app_region(self) -> Optional[str]:
+        """
+        The region of the function app registered with the static site
+        """
+        return pulumi.get(self, "function_app_region")
+
+    @property
+    @pulumi.getter(name="functionAppResourceId")
+    def function_app_resource_id(self) -> Optional[str]:
+        """
+        The resource id of the function app registered with the static site
+        """
+        return pulumi.get(self, "function_app_resource_id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[str]:
+        """
+        Kind of resource.
+        """
+        return pulumi.get(self, "kind")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User Assigned identity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        User Assigned identity.
+        :param str client_id: Client Id of user assigned identity
+        :param str principal_id: Principal Id of user assigned identity
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        Client Id of user assigned identity
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        Principal Id of user assigned identity
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

@@ -11,10 +11,1143 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'AnalyticalStorageConfigurationArgs',
+    'ApiPropertiesArgs',
+    'AutoscaleSettingsArgs',
+    'BackupPolicyMigrationStateArgs',
+    'CapabilityArgs',
+    'CapacityArgs',
+    'CompositePathArgs',
+    'ConflictResolutionPolicyArgs',
+    'ConsistencyPolicyArgs',
+    'ContainerPartitionKeyArgs',
+    'ContinuousModeBackupPolicyArgs',
+    'CorsPolicyArgs',
+    'CreateUpdateOptionsArgs',
+    'DatabaseRestoreResourceArgs',
+    'DiagnosticLogSettingsArgs',
+    'ExcludedPathArgs',
+    'GremlinDatabaseResourceArgs',
+    'IncludedPathArgs',
+    'IndexesArgs',
+    'IndexingPolicyArgs',
+    'IpAddressOrRangeArgs',
+    'LocationArgs',
+    'ManagedServiceIdentityArgs',
+    'PeriodicModeBackupPolicyArgs',
+    'PeriodicModePropertiesArgs',
     'PrivilegeResourceArgs',
     'PrivilegeArgs',
+    'RestoreParametersArgs',
     'RoleArgs',
+    'SpatialSpecArgs',
+    'SqlContainerResourceArgs',
+    'SqlDatabaseResourceArgs',
+    'UniqueKeyPolicyArgs',
+    'UniqueKeyArgs',
+    'VirtualNetworkRuleArgs',
 ]
+
+@pulumi.input_type
+class AnalyticalStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 schema_type: Optional[pulumi.Input[Union[str, 'AnalyticalStorageSchemaType']]] = None):
+        """
+        Analytical storage specific properties.
+        :param pulumi.Input[Union[str, 'AnalyticalStorageSchemaType']] schema_type: Describes the types of schema for analytical storage.
+        """
+        if schema_type is not None:
+            pulumi.set(__self__, "schema_type", schema_type)
+
+    @property
+    @pulumi.getter(name="schemaType")
+    def schema_type(self) -> Optional[pulumi.Input[Union[str, 'AnalyticalStorageSchemaType']]]:
+        """
+        Describes the types of schema for analytical storage.
+        """
+        return pulumi.get(self, "schema_type")
+
+    @schema_type.setter
+    def schema_type(self, value: Optional[pulumi.Input[Union[str, 'AnalyticalStorageSchemaType']]]):
+        pulumi.set(self, "schema_type", value)
+
+
+@pulumi.input_type
+class ApiPropertiesArgs:
+    def __init__(__self__, *,
+                 server_version: Optional[pulumi.Input[Union[str, 'ServerVersion']]] = None):
+        """
+        :param pulumi.Input[Union[str, 'ServerVersion']] server_version: Describes the ServerVersion of an a MongoDB account.
+        """
+        if server_version is not None:
+            pulumi.set(__self__, "server_version", server_version)
+
+    @property
+    @pulumi.getter(name="serverVersion")
+    def server_version(self) -> Optional[pulumi.Input[Union[str, 'ServerVersion']]]:
+        """
+        Describes the ServerVersion of an a MongoDB account.
+        """
+        return pulumi.get(self, "server_version")
+
+    @server_version.setter
+    def server_version(self, value: Optional[pulumi.Input[Union[str, 'ServerVersion']]]):
+        pulumi.set(self, "server_version", value)
+
+
+@pulumi.input_type
+class AutoscaleSettingsArgs:
+    def __init__(__self__, *,
+                 max_throughput: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max_throughput: Represents maximum throughput, the resource can scale up to.
+        """
+        if max_throughput is not None:
+            pulumi.set(__self__, "max_throughput", max_throughput)
+
+    @property
+    @pulumi.getter(name="maxThroughput")
+    def max_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        Represents maximum throughput, the resource can scale up to.
+        """
+        return pulumi.get(self, "max_throughput")
+
+    @max_throughput.setter
+    def max_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_throughput", value)
+
+
+@pulumi.input_type
+class BackupPolicyMigrationStateArgs:
+    def __init__(__self__, *,
+                 start_time: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'BackupPolicyMigrationStatus']]] = None,
+                 target_type: Optional[pulumi.Input[Union[str, 'BackupPolicyType']]] = None):
+        """
+        The object representing the state of the migration between the backup policies.
+        :param pulumi.Input[str] start_time: Time at which the backup policy migration started (ISO-8601 format).
+        :param pulumi.Input[Union[str, 'BackupPolicyMigrationStatus']] status: Describes the status of migration between backup policy types.
+        :param pulumi.Input[Union[str, 'BackupPolicyType']] target_type: Describes the target backup policy type of the backup policy migration.
+        """
+        if start_time is not None:
+            pulumi.set(__self__, "start_time", start_time)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if target_type is not None:
+            pulumi.set(__self__, "target_type", target_type)
+
+    @property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time at which the backup policy migration started (ISO-8601 format).
+        """
+        return pulumi.get(self, "start_time")
+
+    @start_time.setter
+    def start_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "start_time", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'BackupPolicyMigrationStatus']]]:
+        """
+        Describes the status of migration between backup policy types.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'BackupPolicyMigrationStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> Optional[pulumi.Input[Union[str, 'BackupPolicyType']]]:
+        """
+        Describes the target backup policy type of the backup policy migration.
+        """
+        return pulumi.get(self, "target_type")
+
+    @target_type.setter
+    def target_type(self, value: Optional[pulumi.Input[Union[str, 'BackupPolicyType']]]):
+        pulumi.set(self, "target_type", value)
+
+
+@pulumi.input_type
+class CapabilityArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Cosmos DB capability object
+        :param pulumi.Input[str] name: Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Cosmos DB capability. For example, "name": "EnableCassandra". Current values also include "EnableTable" and "EnableGremlin".
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class CapacityArgs:
+    def __init__(__self__, *,
+                 total_throughput_limit: Optional[pulumi.Input[int]] = None):
+        """
+        The object that represents all properties related to capacity enforcement on an account.
+        :param pulumi.Input[int] total_throughput_limit: The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
+        """
+        if total_throughput_limit is not None:
+            pulumi.set(__self__, "total_throughput_limit", total_throughput_limit)
+
+    @property
+    @pulumi.getter(name="totalThroughputLimit")
+    def total_throughput_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total throughput limit imposed on the account. A totalThroughputLimit of 2000 imposes a strict limit of max throughput that can be provisioned on that account to be 2000. A totalThroughputLimit of -1 indicates no limits on provisioning of throughput.
+        """
+        return pulumi.get(self, "total_throughput_limit")
+
+    @total_throughput_limit.setter
+    def total_throughput_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "total_throughput_limit", value)
+
+
+@pulumi.input_type
+class CompositePathArgs:
+    def __init__(__self__, *,
+                 order: Optional[pulumi.Input[Union[str, 'CompositePathSortOrder']]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Union[str, 'CompositePathSortOrder']] order: Sort order for composite paths.
+        :param pulumi.Input[str] path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        if order is not None:
+            pulumi.set(__self__, "order", order)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def order(self) -> Optional[pulumi.Input[Union[str, 'CompositePathSortOrder']]]:
+        """
+        Sort order for composite paths.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: Optional[pulumi.Input[Union[str, 'CompositePathSortOrder']]]):
+        pulumi.set(self, "order", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class ConflictResolutionPolicyArgs:
+    def __init__(__self__, *,
+                 conflict_resolution_path: Optional[pulumi.Input[str]] = None,
+                 conflict_resolution_procedure: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]] = None):
+        """
+        The conflict resolution policy for the container.
+        :param pulumi.Input[str] conflict_resolution_path: The conflict resolution path in the case of LastWriterWins mode.
+        :param pulumi.Input[str] conflict_resolution_procedure: The procedure to resolve conflicts in the case of custom mode.
+        :param pulumi.Input[Union[str, 'ConflictResolutionMode']] mode: Indicates the conflict resolution mode.
+        """
+        if conflict_resolution_path is not None:
+            pulumi.set(__self__, "conflict_resolution_path", conflict_resolution_path)
+        if conflict_resolution_procedure is not None:
+            pulumi.set(__self__, "conflict_resolution_procedure", conflict_resolution_procedure)
+        if mode is None:
+            mode = 'LastWriterWins'
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter(name="conflictResolutionPath")
+    def conflict_resolution_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The conflict resolution path in the case of LastWriterWins mode.
+        """
+        return pulumi.get(self, "conflict_resolution_path")
+
+    @conflict_resolution_path.setter
+    def conflict_resolution_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conflict_resolution_path", value)
+
+    @property
+    @pulumi.getter(name="conflictResolutionProcedure")
+    def conflict_resolution_procedure(self) -> Optional[pulumi.Input[str]]:
+        """
+        The procedure to resolve conflicts in the case of custom mode.
+        """
+        return pulumi.get(self, "conflict_resolution_procedure")
+
+    @conflict_resolution_procedure.setter
+    def conflict_resolution_procedure(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "conflict_resolution_procedure", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]]:
+        """
+        Indicates the conflict resolution mode.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[str, 'ConflictResolutionMode']]]):
+        pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
+class ConsistencyPolicyArgs:
+    def __init__(__self__, *,
+                 default_consistency_level: pulumi.Input['DefaultConsistencyLevel'],
+                 max_interval_in_seconds: Optional[pulumi.Input[int]] = None,
+                 max_staleness_prefix: Optional[pulumi.Input[float]] = None):
+        """
+        The consistency policy for the Cosmos DB database account.
+        :param pulumi.Input['DefaultConsistencyLevel'] default_consistency_level: The default consistency level and configuration settings of the Cosmos DB account.
+        :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        :param pulumi.Input[float] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+        pulumi.set(__self__, "default_consistency_level", default_consistency_level)
+        if max_interval_in_seconds is not None:
+            pulumi.set(__self__, "max_interval_in_seconds", max_interval_in_seconds)
+        if max_staleness_prefix is not None:
+            pulumi.set(__self__, "max_staleness_prefix", max_staleness_prefix)
+
+    @property
+    @pulumi.getter(name="defaultConsistencyLevel")
+    def default_consistency_level(self) -> pulumi.Input['DefaultConsistencyLevel']:
+        """
+        The default consistency level and configuration settings of the Cosmos DB account.
+        """
+        return pulumi.get(self, "default_consistency_level")
+
+    @default_consistency_level.setter
+    def default_consistency_level(self, value: pulumi.Input['DefaultConsistencyLevel']):
+        pulumi.set(self, "default_consistency_level", value)
+
+    @property
+    @pulumi.getter(name="maxIntervalInSeconds")
+    def max_interval_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 5 - 86400. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+        return pulumi.get(self, "max_interval_in_seconds")
+
+    @max_interval_in_seconds.setter
+    def max_interval_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_interval_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="maxStalenessPrefix")
+    def max_staleness_prefix(self) -> Optional[pulumi.Input[float]]:
+        """
+        When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647. Required when defaultConsistencyPolicy is set to 'BoundedStaleness'.
+        """
+        return pulumi.get(self, "max_staleness_prefix")
+
+    @max_staleness_prefix.setter
+    def max_staleness_prefix(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_staleness_prefix", value)
+
+
+@pulumi.input_type
+class ContainerPartitionKeyArgs:
+    def __init__(__self__, *,
+                 kind: Optional[pulumi.Input[Union[str, 'PartitionKind']]] = None,
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 version: Optional[pulumi.Input[int]] = None):
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param pulumi.Input[Union[str, 'PartitionKind']] kind: Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths using which data within the container can be partitioned
+        :param pulumi.Input[int] version: Indicates the version of the partition key definition
+        """
+        if kind is None:
+            kind = 'Hash'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'PartitionKind']]]:
+        """
+        Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'PartitionKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of paths using which data within the container can be partitioned
+        """
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "paths", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates the version of the partition key definition
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class ContinuousModeBackupPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 migration_state: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']] = None):
+        """
+        The object representing continuous mode backup policy.
+        :param pulumi.Input[str] type: Describes the mode of backups.
+               Expected value is 'Continuous'.
+        :param pulumi.Input['BackupPolicyMigrationStateArgs'] migration_state: The object representing the state of the migration between the backup policies.
+        """
+        pulumi.set(__self__, "type", 'Continuous')
+        if migration_state is not None:
+            pulumi.set(__self__, "migration_state", migration_state)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Describes the mode of backups.
+        Expected value is 'Continuous'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="migrationState")
+    def migration_state(self) -> Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]:
+        """
+        The object representing the state of the migration between the backup policies.
+        """
+        return pulumi.get(self, "migration_state")
+
+    @migration_state.setter
+    def migration_state(self, value: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]):
+        pulumi.set(self, "migration_state", value)
+
+
+@pulumi.input_type
+class CorsPolicyArgs:
+    def __init__(__self__, *,
+                 allowed_origins: pulumi.Input[str],
+                 allowed_headers: Optional[pulumi.Input[str]] = None,
+                 allowed_methods: Optional[pulumi.Input[str]] = None,
+                 exposed_headers: Optional[pulumi.Input[str]] = None,
+                 max_age_in_seconds: Optional[pulumi.Input[float]] = None):
+        """
+        The CORS policy for the Cosmos DB database account.
+        :param pulumi.Input[str] allowed_origins: The origin domains that are permitted to make a request against the service via CORS.
+        :param pulumi.Input[str] allowed_headers: The request headers that the origin domain may specify on the CORS request.
+        :param pulumi.Input[str] allowed_methods: The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+        :param pulumi.Input[str] exposed_headers: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+        :param pulumi.Input[float] max_age_in_seconds: The maximum amount time that a browser should cache the preflight OPTIONS request.
+        """
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        if allowed_headers is not None:
+            pulumi.set(__self__, "allowed_headers", allowed_headers)
+        if allowed_methods is not None:
+            pulumi.set(__self__, "allowed_methods", allowed_methods)
+        if exposed_headers is not None:
+            pulumi.set(__self__, "exposed_headers", exposed_headers)
+        if max_age_in_seconds is not None:
+            pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> pulumi.Input[str]:
+        """
+        The origin domains that are permitted to make a request against the service via CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @allowed_origins.setter
+    def allowed_origins(self, value: pulumi.Input[str]):
+        pulumi.set(self, "allowed_origins", value)
+
+    @property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Optional[pulumi.Input[str]]:
+        """
+        The request headers that the origin domain may specify on the CORS request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @allowed_headers.setter
+    def allowed_headers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allowed_headers", value)
+
+    @property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Optional[pulumi.Input[str]]:
+        """
+        The methods (HTTP request verbs) that the origin domain may use for a CORS request.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "allowed_methods", value)
+
+    @property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Optional[pulumi.Input[str]]:
+        """
+        The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @exposed_headers.setter
+    def exposed_headers(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "exposed_headers", value)
+
+    @property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The maximum amount time that a browser should cache the preflight OPTIONS request.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+    @max_age_in_seconds.setter
+    def max_age_in_seconds(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max_age_in_seconds", value)
+
+
+@pulumi.input_type
+class CreateUpdateOptionsArgs:
+    def __init__(__self__, *,
+                 autoscale_settings: Optional[pulumi.Input['AutoscaleSettingsArgs']] = None,
+                 throughput: Optional[pulumi.Input[int]] = None):
+        """
+        CreateUpdateOptions are a list of key-value pairs that describe the resource. Supported keys are "If-Match", "If-None-Match", "Session-Token" and "Throughput"
+        :param pulumi.Input['AutoscaleSettingsArgs'] autoscale_settings: Specifies the Autoscale settings.
+        :param pulumi.Input[int] throughput: Request Units per second. For example, "throughput": 10000.
+        """
+        if autoscale_settings is not None:
+            pulumi.set(__self__, "autoscale_settings", autoscale_settings)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
+
+    @property
+    @pulumi.getter(name="autoscaleSettings")
+    def autoscale_settings(self) -> Optional[pulumi.Input['AutoscaleSettingsArgs']]:
+        """
+        Specifies the Autoscale settings.
+        """
+        return pulumi.get(self, "autoscale_settings")
+
+    @autoscale_settings.setter
+    def autoscale_settings(self, value: Optional[pulumi.Input['AutoscaleSettingsArgs']]):
+        pulumi.set(self, "autoscale_settings", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        Request Units per second. For example, "throughput": 10000.
+        """
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
+
+
+@pulumi.input_type
+class DatabaseRestoreResourceArgs:
+    def __init__(__self__, *,
+                 collection_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None):
+        """
+        Specific Databases to restore.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] collection_names: The names of the collections available for restore.
+        :param pulumi.Input[str] database_name: The name of the database available for restore.
+        """
+        if collection_names is not None:
+            pulumi.set(__self__, "collection_names", collection_names)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="collectionNames")
+    def collection_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The names of the collections available for restore.
+        """
+        return pulumi.get(self, "collection_names")
+
+    @collection_names.setter
+    def collection_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "collection_names", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database available for restore.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+
+@pulumi.input_type
+class DiagnosticLogSettingsArgs:
+    def __init__(__self__, *,
+                 enable_full_text_query: Optional[pulumi.Input['EnableFullTextQuery']] = None):
+        """
+        Indicates what diagnostic log settings are to be enabled.
+        :param pulumi.Input['EnableFullTextQuery'] enable_full_text_query: Describe the level of detail with which queries are to be logged.
+        """
+        if enable_full_text_query is not None:
+            pulumi.set(__self__, "enable_full_text_query", enable_full_text_query)
+
+    @property
+    @pulumi.getter(name="enableFullTextQuery")
+    def enable_full_text_query(self) -> Optional[pulumi.Input['EnableFullTextQuery']]:
+        """
+        Describe the level of detail with which queries are to be logged.
+        """
+        return pulumi.get(self, "enable_full_text_query")
+
+    @enable_full_text_query.setter
+    def enable_full_text_query(self, value: Optional[pulumi.Input['EnableFullTextQuery']]):
+        pulumi.set(self, "enable_full_text_query", value)
+
+
+@pulumi.input_type
+class ExcludedPathArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class GremlinDatabaseResourceArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Cosmos DB Gremlin database resource object
+        :param pulumi.Input[str] id: Name of the Cosmos DB Gremlin database
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Name of the Cosmos DB Gremlin database
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class IncludedPathArgs:
+    def __init__(__self__, *,
+                 indexes: Optional[pulumi.Input[Sequence[pulumi.Input['IndexesArgs']]]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        The paths that are included in indexing
+        :param pulumi.Input[Sequence[pulumi.Input['IndexesArgs']]] indexes: List of indexes for this path
+        :param pulumi.Input[str] path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        if indexes is not None:
+            pulumi.set(__self__, "indexes", indexes)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter
+    def indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IndexesArgs']]]]:
+        """
+        List of indexes for this path
+        """
+        return pulumi.get(self, "indexes")
+
+    @indexes.setter
+    def indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IndexesArgs']]]]):
+        pulumi.set(self, "indexes", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
+class IndexesArgs:
+    def __init__(__self__, *,
+                 data_type: Optional[pulumi.Input[Union[str, 'DataType']]] = None,
+                 kind: Optional[pulumi.Input[Union[str, 'IndexKind']]] = None,
+                 precision: Optional[pulumi.Input[int]] = None):
+        """
+        The indexes for the path.
+        :param pulumi.Input[Union[str, 'DataType']] data_type: The datatype for which the indexing behavior is applied to.
+        :param pulumi.Input[Union[str, 'IndexKind']] kind: Indicates the type of index.
+        :param pulumi.Input[int] precision: The precision of the index. -1 is maximum precision.
+        """
+        if data_type is None:
+            data_type = 'String'
+        if data_type is not None:
+            pulumi.set(__self__, "data_type", data_type)
+        if kind is None:
+            kind = 'Hash'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if precision is not None:
+            pulumi.set(__self__, "precision", precision)
+
+    @property
+    @pulumi.getter(name="dataType")
+    def data_type(self) -> Optional[pulumi.Input[Union[str, 'DataType']]]:
+        """
+        The datatype for which the indexing behavior is applied to.
+        """
+        return pulumi.get(self, "data_type")
+
+    @data_type.setter
+    def data_type(self, value: Optional[pulumi.Input[Union[str, 'DataType']]]):
+        pulumi.set(self, "data_type", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[Union[str, 'IndexKind']]]:
+        """
+        Indicates the type of index.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[Union[str, 'IndexKind']]]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter
+    def precision(self) -> Optional[pulumi.Input[int]]:
+        """
+        The precision of the index. -1 is maximum precision.
+        """
+        return pulumi.get(self, "precision")
+
+    @precision.setter
+    def precision(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "precision", value)
+
+
+@pulumi.input_type
+class IndexingPolicyArgs:
+    def __init__(__self__, *,
+                 automatic: Optional[pulumi.Input[bool]] = None,
+                 composite_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]]] = None,
+                 excluded_paths: Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]] = None,
+                 included_paths: Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]] = None,
+                 indexing_mode: Optional[pulumi.Input[Union[str, 'IndexingMode']]] = None,
+                 spatial_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]] = None):
+        """
+        Cosmos DB indexing policy
+        :param pulumi.Input[bool] automatic: Indicates if the indexing policy is automatic
+        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]] composite_indexes: List of composite path list
+        :param pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]] excluded_paths: List of paths to exclude from indexing
+        :param pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]] included_paths: List of paths to include in the indexing
+        :param pulumi.Input[Union[str, 'IndexingMode']] indexing_mode: Indicates the indexing mode.
+        :param pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]] spatial_indexes: List of spatial specifics
+        """
+        if automatic is not None:
+            pulumi.set(__self__, "automatic", automatic)
+        if composite_indexes is not None:
+            pulumi.set(__self__, "composite_indexes", composite_indexes)
+        if excluded_paths is not None:
+            pulumi.set(__self__, "excluded_paths", excluded_paths)
+        if included_paths is not None:
+            pulumi.set(__self__, "included_paths", included_paths)
+        if indexing_mode is None:
+            indexing_mode = 'consistent'
+        if indexing_mode is not None:
+            pulumi.set(__self__, "indexing_mode", indexing_mode)
+        if spatial_indexes is not None:
+            pulumi.set(__self__, "spatial_indexes", spatial_indexes)
+
+    @property
+    @pulumi.getter
+    def automatic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the indexing policy is automatic
+        """
+        return pulumi.get(self, "automatic")
+
+    @automatic.setter
+    def automatic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "automatic", value)
+
+    @property
+    @pulumi.getter(name="compositeIndexes")
+    def composite_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]]]:
+        """
+        List of composite path list
+        """
+        return pulumi.get(self, "composite_indexes")
+
+    @composite_indexes.setter
+    def composite_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['CompositePathArgs']]]]]]):
+        pulumi.set(self, "composite_indexes", value)
+
+    @property
+    @pulumi.getter(name="excludedPaths")
+    def excluded_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]]:
+        """
+        List of paths to exclude from indexing
+        """
+        return pulumi.get(self, "excluded_paths")
+
+    @excluded_paths.setter
+    def excluded_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExcludedPathArgs']]]]):
+        pulumi.set(self, "excluded_paths", value)
+
+    @property
+    @pulumi.getter(name="includedPaths")
+    def included_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]]:
+        """
+        List of paths to include in the indexing
+        """
+        return pulumi.get(self, "included_paths")
+
+    @included_paths.setter
+    def included_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IncludedPathArgs']]]]):
+        pulumi.set(self, "included_paths", value)
+
+    @property
+    @pulumi.getter(name="indexingMode")
+    def indexing_mode(self) -> Optional[pulumi.Input[Union[str, 'IndexingMode']]]:
+        """
+        Indicates the indexing mode.
+        """
+        return pulumi.get(self, "indexing_mode")
+
+    @indexing_mode.setter
+    def indexing_mode(self, value: Optional[pulumi.Input[Union[str, 'IndexingMode']]]):
+        pulumi.set(self, "indexing_mode", value)
+
+    @property
+    @pulumi.getter(name="spatialIndexes")
+    def spatial_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]]:
+        """
+        List of spatial specifics
+        """
+        return pulumi.get(self, "spatial_indexes")
+
+    @spatial_indexes.setter
+    def spatial_indexes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpatialSpecArgs']]]]):
+        pulumi.set(self, "spatial_indexes", value)
+
+
+@pulumi.input_type
+class IpAddressOrRangeArgs:
+    def __init__(__self__, *,
+                 ip_address_or_range: Optional[pulumi.Input[str]] = None):
+        """
+        IpAddressOrRange object
+        :param pulumi.Input[str] ip_address_or_range: A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
+        """
+        if ip_address_or_range is not None:
+            pulumi.set(__self__, "ip_address_or_range", ip_address_or_range)
+
+    @property
+    @pulumi.getter(name="ipAddressOrRange")
+    def ip_address_or_range(self) -> Optional[pulumi.Input[str]]:
+        """
+        A single IPv4 address or a single IPv4 address range in CIDR format. Provided IPs must be well-formatted and cannot be contained in one of the following ranges: 10.0.0.0/8, 100.64.0.0/10, 172.16.0.0/12, 192.168.0.0/16, since these are not enforceable by the IP address filter. Example of valid inputs: “23.40.210.245” or “23.40.210.0/8”.
+        """
+        return pulumi.get(self, "ip_address_or_range")
+
+    @ip_address_or_range.setter
+    def ip_address_or_range(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_or_range", value)
+
+
+@pulumi.input_type
+class LocationArgs:
+    def __init__(__self__, *,
+                 failover_priority: Optional[pulumi.Input[int]] = None,
+                 is_zone_redundant: Optional[pulumi.Input[bool]] = None,
+                 location_name: Optional[pulumi.Input[str]] = None):
+        """
+        A region in which the Azure Cosmos DB database account is deployed.
+        :param pulumi.Input[int] failover_priority: The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        :param pulumi.Input[bool] is_zone_redundant: Flag to indicate whether or not this region is an AvailabilityZone region
+        :param pulumi.Input[str] location_name: The name of the region.
+        """
+        if failover_priority is not None:
+            pulumi.set(__self__, "failover_priority", failover_priority)
+        if is_zone_redundant is not None:
+            pulumi.set(__self__, "is_zone_redundant", is_zone_redundant)
+        if location_name is not None:
+            pulumi.set(__self__, "location_name", location_name)
+
+    @property
+    @pulumi.getter(name="failoverPriority")
+    def failover_priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists.
+        """
+        return pulumi.get(self, "failover_priority")
+
+    @failover_priority.setter
+    def failover_priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failover_priority", value)
+
+    @property
+    @pulumi.getter(name="isZoneRedundant")
+    def is_zone_redundant(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Flag to indicate whether or not this region is an AvailabilityZone region
+        """
+        return pulumi.get(self, "is_zone_redundant")
+
+    @is_zone_redundant.setter
+    def is_zone_redundant(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_zone_redundant", value)
+
+    @property
+    @pulumi.getter(name="locationName")
+    def location_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the region.
+        """
+        return pulumi.get(self, "location_name")
+
+    @location_name.setter
+    def location_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location_name", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Identity for the resource.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class PeriodicModeBackupPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 migration_state: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']] = None,
+                 periodic_mode_properties: Optional[pulumi.Input['PeriodicModePropertiesArgs']] = None):
+        """
+        The object representing periodic mode backup policy.
+        :param pulumi.Input[str] type: Describes the mode of backups.
+               Expected value is 'Periodic'.
+        :param pulumi.Input['BackupPolicyMigrationStateArgs'] migration_state: The object representing the state of the migration between the backup policies.
+        :param pulumi.Input['PeriodicModePropertiesArgs'] periodic_mode_properties: Configuration values for periodic mode backup
+        """
+        pulumi.set(__self__, "type", 'Periodic')
+        if migration_state is not None:
+            pulumi.set(__self__, "migration_state", migration_state)
+        if periodic_mode_properties is not None:
+            pulumi.set(__self__, "periodic_mode_properties", periodic_mode_properties)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Describes the mode of backups.
+        Expected value is 'Periodic'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="migrationState")
+    def migration_state(self) -> Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]:
+        """
+        The object representing the state of the migration between the backup policies.
+        """
+        return pulumi.get(self, "migration_state")
+
+    @migration_state.setter
+    def migration_state(self, value: Optional[pulumi.Input['BackupPolicyMigrationStateArgs']]):
+        pulumi.set(self, "migration_state", value)
+
+    @property
+    @pulumi.getter(name="periodicModeProperties")
+    def periodic_mode_properties(self) -> Optional[pulumi.Input['PeriodicModePropertiesArgs']]:
+        """
+        Configuration values for periodic mode backup
+        """
+        return pulumi.get(self, "periodic_mode_properties")
+
+    @periodic_mode_properties.setter
+    def periodic_mode_properties(self, value: Optional[pulumi.Input['PeriodicModePropertiesArgs']]):
+        pulumi.set(self, "periodic_mode_properties", value)
+
+
+@pulumi.input_type
+class PeriodicModePropertiesArgs:
+    def __init__(__self__, *,
+                 backup_interval_in_minutes: Optional[pulumi.Input[int]] = None,
+                 backup_retention_interval_in_hours: Optional[pulumi.Input[int]] = None,
+                 backup_storage_redundancy: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]] = None):
+        """
+        Configuration values for periodic mode backup
+        :param pulumi.Input[int] backup_interval_in_minutes: An integer representing the interval in minutes between two backups
+        :param pulumi.Input[int] backup_retention_interval_in_hours: An integer representing the time (in hours) that each backup is retained
+        :param pulumi.Input[Union[str, 'BackupStorageRedundancy']] backup_storage_redundancy: Enum to indicate type of backup residency
+        """
+        if backup_interval_in_minutes is not None:
+            pulumi.set(__self__, "backup_interval_in_minutes", backup_interval_in_minutes)
+        if backup_retention_interval_in_hours is not None:
+            pulumi.set(__self__, "backup_retention_interval_in_hours", backup_retention_interval_in_hours)
+        if backup_storage_redundancy is not None:
+            pulumi.set(__self__, "backup_storage_redundancy", backup_storage_redundancy)
+
+    @property
+    @pulumi.getter(name="backupIntervalInMinutes")
+    def backup_interval_in_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer representing the interval in minutes between two backups
+        """
+        return pulumi.get(self, "backup_interval_in_minutes")
+
+    @backup_interval_in_minutes.setter
+    def backup_interval_in_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backup_interval_in_minutes", value)
+
+    @property
+    @pulumi.getter(name="backupRetentionIntervalInHours")
+    def backup_retention_interval_in_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer representing the time (in hours) that each backup is retained
+        """
+        return pulumi.get(self, "backup_retention_interval_in_hours")
+
+    @backup_retention_interval_in_hours.setter
+    def backup_retention_interval_in_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "backup_retention_interval_in_hours", value)
+
+    @property
+    @pulumi.getter(name="backupStorageRedundancy")
+    def backup_storage_redundancy(self) -> Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]:
+        """
+        Enum to indicate type of backup residency
+        """
+        return pulumi.get(self, "backup_storage_redundancy")
+
+    @backup_storage_redundancy.setter
+    def backup_storage_redundancy(self, value: Optional[pulumi.Input[Union[str, 'BackupStorageRedundancy']]]):
+        pulumi.set(self, "backup_storage_redundancy", value)
+
 
 @pulumi.input_type
 class PrivilegeResourceArgs:
@@ -97,6 +1230,78 @@ class PrivilegeArgs:
 
 
 @pulumi.input_type
+class RestoreParametersArgs:
+    def __init__(__self__, *,
+                 databases_to_restore: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]] = None,
+                 restore_mode: Optional[pulumi.Input[Union[str, 'RestoreMode']]] = None,
+                 restore_source: Optional[pulumi.Input[str]] = None,
+                 restore_timestamp_in_utc: Optional[pulumi.Input[str]] = None):
+        """
+        Parameters to indicate the information about the restore.
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]] databases_to_restore: List of specific databases available for restore.
+        :param pulumi.Input[Union[str, 'RestoreMode']] restore_mode: Describes the mode of the restore.
+        :param pulumi.Input[str] restore_source: The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        :param pulumi.Input[str] restore_timestamp_in_utc: Time to which the account has to be restored (ISO-8601 format).
+        """
+        if databases_to_restore is not None:
+            pulumi.set(__self__, "databases_to_restore", databases_to_restore)
+        if restore_mode is not None:
+            pulumi.set(__self__, "restore_mode", restore_mode)
+        if restore_source is not None:
+            pulumi.set(__self__, "restore_source", restore_source)
+        if restore_timestamp_in_utc is not None:
+            pulumi.set(__self__, "restore_timestamp_in_utc", restore_timestamp_in_utc)
+
+    @property
+    @pulumi.getter(name="databasesToRestore")
+    def databases_to_restore(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]]:
+        """
+        List of specific databases available for restore.
+        """
+        return pulumi.get(self, "databases_to_restore")
+
+    @databases_to_restore.setter
+    def databases_to_restore(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRestoreResourceArgs']]]]):
+        pulumi.set(self, "databases_to_restore", value)
+
+    @property
+    @pulumi.getter(name="restoreMode")
+    def restore_mode(self) -> Optional[pulumi.Input[Union[str, 'RestoreMode']]]:
+        """
+        Describes the mode of the restore.
+        """
+        return pulumi.get(self, "restore_mode")
+
+    @restore_mode.setter
+    def restore_mode(self, value: Optional[pulumi.Input[Union[str, 'RestoreMode']]]):
+        pulumi.set(self, "restore_mode", value)
+
+    @property
+    @pulumi.getter(name="restoreSource")
+    def restore_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the restorable database account from which the restore has to be initiated. For example: /subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}
+        """
+        return pulumi.get(self, "restore_source")
+
+    @restore_source.setter
+    def restore_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_source", value)
+
+    @property
+    @pulumi.getter(name="restoreTimestampInUtc")
+    def restore_timestamp_in_utc(self) -> Optional[pulumi.Input[str]]:
+        """
+        Time to which the account has to be restored (ISO-8601 format).
+        """
+        return pulumi.get(self, "restore_timestamp_in_utc")
+
+    @restore_timestamp_in_utc.setter
+    def restore_timestamp_in_utc(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "restore_timestamp_in_utc", value)
+
+
+@pulumi.input_type
 class RoleArgs:
     def __init__(__self__, *,
                  db: Optional[pulumi.Input[str]] = None,
@@ -134,5 +1339,274 @@ class RoleArgs:
     @role.setter
     def role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "role", value)
+
+
+@pulumi.input_type
+class SpatialSpecArgs:
+    def __init__(__self__, *,
+                 path: Optional[pulumi.Input[str]] = None,
+                 types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]]] = None):
+        """
+        :param pulumi.Input[str] path: The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]] types: List of path's spatial type
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if types is not None:
+            pulumi.set(__self__, "types", types)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path for which the indexing behavior applies to. Index paths typically start with root and end with wildcard (/path/*)
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]]]:
+        """
+        List of path's spatial type
+        """
+        return pulumi.get(self, "types")
+
+    @types.setter
+    def types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'SpatialType']]]]]):
+        pulumi.set(self, "types", value)
+
+
+@pulumi.input_type
+class SqlContainerResourceArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 analytical_storage_ttl: Optional[pulumi.Input[float]] = None,
+                 conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
+                 default_ttl: Optional[pulumi.Input[int]] = None,
+                 indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
+                 partition_key: Optional[pulumi.Input['ContainerPartitionKeyArgs']] = None,
+                 unique_key_policy: Optional[pulumi.Input['UniqueKeyPolicyArgs']] = None):
+        """
+        Cosmos DB SQL container resource object
+        :param pulumi.Input[str] id: Name of the Cosmos DB SQL container
+        :param pulumi.Input[float] analytical_storage_ttl: Analytical TTL.
+        :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the container.
+        :param pulumi.Input[int] default_ttl: Default time to live
+        :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        :param pulumi.Input['ContainerPartitionKeyArgs'] partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
+        :param pulumi.Input['UniqueKeyPolicyArgs'] unique_key_policy: The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+        pulumi.set(__self__, "id", id)
+        if analytical_storage_ttl is not None:
+            pulumi.set(__self__, "analytical_storage_ttl", analytical_storage_ttl)
+        if conflict_resolution_policy is not None:
+            pulumi.set(__self__, "conflict_resolution_policy", conflict_resolution_policy)
+        if default_ttl is not None:
+            pulumi.set(__self__, "default_ttl", default_ttl)
+        if indexing_policy is not None:
+            pulumi.set(__self__, "indexing_policy", indexing_policy)
+        if partition_key is not None:
+            pulumi.set(__self__, "partition_key", partition_key)
+        if unique_key_policy is not None:
+            pulumi.set(__self__, "unique_key_policy", unique_key_policy)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Name of the Cosmos DB SQL container
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="analyticalStorageTtl")
+    def analytical_storage_ttl(self) -> Optional[pulumi.Input[float]]:
+        """
+        Analytical TTL.
+        """
+        return pulumi.get(self, "analytical_storage_ttl")
+
+    @analytical_storage_ttl.setter
+    def analytical_storage_ttl(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "analytical_storage_ttl", value)
+
+    @property
+    @pulumi.getter(name="conflictResolutionPolicy")
+    def conflict_resolution_policy(self) -> Optional[pulumi.Input['ConflictResolutionPolicyArgs']]:
+        """
+        The conflict resolution policy for the container.
+        """
+        return pulumi.get(self, "conflict_resolution_policy")
+
+    @conflict_resolution_policy.setter
+    def conflict_resolution_policy(self, value: Optional[pulumi.Input['ConflictResolutionPolicyArgs']]):
+        pulumi.set(self, "conflict_resolution_policy", value)
+
+    @property
+    @pulumi.getter(name="defaultTtl")
+    def default_ttl(self) -> Optional[pulumi.Input[int]]:
+        """
+        Default time to live
+        """
+        return pulumi.get(self, "default_ttl")
+
+    @default_ttl.setter
+    def default_ttl(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_ttl", value)
+
+    @property
+    @pulumi.getter(name="indexingPolicy")
+    def indexing_policy(self) -> Optional[pulumi.Input['IndexingPolicyArgs']]:
+        """
+        The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
+        """
+        return pulumi.get(self, "indexing_policy")
+
+    @indexing_policy.setter
+    def indexing_policy(self, value: Optional[pulumi.Input['IndexingPolicyArgs']]):
+        pulumi.set(self, "indexing_policy", value)
+
+    @property
+    @pulumi.getter(name="partitionKey")
+    def partition_key(self) -> Optional[pulumi.Input['ContainerPartitionKeyArgs']]:
+        """
+        The configuration of the partition key to be used for partitioning data into multiple partitions
+        """
+        return pulumi.get(self, "partition_key")
+
+    @partition_key.setter
+    def partition_key(self, value: Optional[pulumi.Input['ContainerPartitionKeyArgs']]):
+        pulumi.set(self, "partition_key", value)
+
+    @property
+    @pulumi.getter(name="uniqueKeyPolicy")
+    def unique_key_policy(self) -> Optional[pulumi.Input['UniqueKeyPolicyArgs']]:
+        """
+        The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        """
+        return pulumi.get(self, "unique_key_policy")
+
+    @unique_key_policy.setter
+    def unique_key_policy(self, value: Optional[pulumi.Input['UniqueKeyPolicyArgs']]):
+        pulumi.set(self, "unique_key_policy", value)
+
+
+@pulumi.input_type
+class SqlDatabaseResourceArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str]):
+        """
+        Cosmos DB SQL database resource object
+        :param pulumi.Input[str] id: Name of the Cosmos DB SQL database
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Name of the Cosmos DB SQL database
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class UniqueKeyPolicyArgs:
+    def __init__(__self__, *,
+                 unique_keys: Optional[pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]]] = None):
+        """
+        The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
+        :param pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]] unique_keys: List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        """
+        if unique_keys is not None:
+            pulumi.set(__self__, "unique_keys", unique_keys)
+
+    @property
+    @pulumi.getter(name="uniqueKeys")
+    def unique_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]]]:
+        """
+        List of unique keys on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        """
+        return pulumi.get(self, "unique_keys")
+
+    @unique_keys.setter
+    def unique_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UniqueKeyArgs']]]]):
+        pulumi.set(self, "unique_keys", value)
+
+
+@pulumi.input_type
+class UniqueKeyArgs:
+    def __init__(__self__, *,
+                 paths: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The unique key on that enforces uniqueness constraint on documents in the collection in the Azure Cosmos DB service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] paths: List of paths must be unique for each document in the Azure Cosmos DB service
+        """
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of paths must be unique for each document in the Azure Cosmos DB service
+        """
+        return pulumi.get(self, "paths")
+
+    @paths.setter
+    def paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "paths", value)
+
+
+@pulumi.input_type
+class VirtualNetworkRuleArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 ignore_missing_v_net_service_endpoint: Optional[pulumi.Input[bool]] = None):
+        """
+        Virtual Network ACL Rule object
+        :param pulumi.Input[str] id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+        :param pulumi.Input[bool] ignore_missing_v_net_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ignore_missing_v_net_service_endpoint is not None:
+            pulumi.set(__self__, "ignore_missing_v_net_service_endpoint", ignore_missing_v_net_service_endpoint)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="ignoreMissingVNetServiceEndpoint")
+    def ignore_missing_v_net_service_endpoint(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Create firewall rule before the virtual network has vnet service endpoint enabled.
+        """
+        return pulumi.get(self, "ignore_missing_v_net_service_endpoint")
+
+    @ignore_missing_v_net_service_endpoint.setter
+    def ignore_missing_v_net_service_endpoint(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_missing_v_net_service_endpoint", value)
 
 

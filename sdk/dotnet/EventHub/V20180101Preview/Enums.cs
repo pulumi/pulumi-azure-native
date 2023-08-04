@@ -38,6 +38,37 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
     }
 
     /// <summary>
+    /// Default Action for Network Rule Set
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultAction : IEquatable<DefaultAction>
+    {
+        private readonly string _value;
+
+        private DefaultAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DefaultAction Allow { get; } = new DefaultAction("Allow");
+        public static DefaultAction Deny { get; } = new DefaultAction("Deny");
+
+        public static bool operator ==(DefaultAction left, DefaultAction right) => left.Equals(right);
+        public static bool operator !=(DefaultAction left, DefaultAction right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultAction other && Equals(other);
+        public bool Equals(DefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Provisioning state of the Private Endpoint Connection.
     /// </summary>
     [EnumType]
@@ -96,6 +127,36 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IPAction other && Equals(other);
         public bool Equals(IPAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP Filter Action
+    /// </summary>
+    [EnumType]
+    public readonly struct NetworkRuleIPAction : IEquatable<NetworkRuleIPAction>
+    {
+        private readonly string _value;
+
+        private NetworkRuleIPAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetworkRuleIPAction Allow { get; } = new NetworkRuleIPAction("Allow");
+
+        public static bool operator ==(NetworkRuleIPAction left, NetworkRuleIPAction right) => left.Equals(right);
+        public static bool operator !=(NetworkRuleIPAction left, NetworkRuleIPAction right) => !left.Equals(right);
+
+        public static explicit operator string(NetworkRuleIPAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetworkRuleIPAction other && Equals(other);
+        public bool Equals(NetworkRuleIPAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

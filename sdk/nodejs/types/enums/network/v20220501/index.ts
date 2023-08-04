@@ -3,11 +3,10 @@
 
 
 export const ActionType = {
+    AnomalyScoring: "AnomalyScoring",
     Allow: "Allow",
     Block: "Block",
     Log: "Log",
-    Redirect: "Redirect",
-    AnomalyScoring: "AnomalyScoring",
 } as const;
 
 /**
@@ -24,6 +23,15 @@ export const CustomRuleEnabledState = {
  * Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
  */
 export type CustomRuleEnabledState = (typeof CustomRuleEnabledState)[keyof typeof CustomRuleEnabledState];
+
+export const ExtendedLocationTypes = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
 export const FrontDoorMatchVariable = {
     RemoteAddr: "RemoteAddr",
@@ -48,7 +56,7 @@ export const ManagedRuleEnabledState = {
 } as const;
 
 /**
- * Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+ * The state of the managed rule. Defaults to Disabled if not specified.
  */
 export type ManagedRuleEnabledState = (typeof ManagedRuleEnabledState)[keyof typeof ManagedRuleEnabledState];
 
@@ -109,6 +117,36 @@ export const Operator = {
  */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
+export const OwaspCrsExclusionEntryMatchVariable = {
+    RequestHeaderNames: "RequestHeaderNames",
+    RequestCookieNames: "RequestCookieNames",
+    RequestArgNames: "RequestArgNames",
+    RequestHeaderKeys: "RequestHeaderKeys",
+    RequestHeaderValues: "RequestHeaderValues",
+    RequestCookieKeys: "RequestCookieKeys",
+    RequestCookieValues: "RequestCookieValues",
+    RequestArgKeys: "RequestArgKeys",
+    RequestArgValues: "RequestArgValues",
+} as const;
+
+/**
+ * The variable to be excluded.
+ */
+export type OwaspCrsExclusionEntryMatchVariable = (typeof OwaspCrsExclusionEntryMatchVariable)[keyof typeof OwaspCrsExclusionEntryMatchVariable];
+
+export const OwaspCrsExclusionEntrySelectorMatchOperator = {
+    Equals: "Equals",
+    Contains: "Contains",
+    StartsWith: "StartsWith",
+    EndsWith: "EndsWith",
+    EqualsAny: "EqualsAny",
+} as const;
+
+/**
+ * When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+ */
+export type OwaspCrsExclusionEntrySelectorMatchOperator = (typeof OwaspCrsExclusionEntrySelectorMatchOperator)[keyof typeof OwaspCrsExclusionEntrySelectorMatchOperator];
+
 export const PolicyEnabledState = {
     Disabled: "Disabled",
     Enabled: "Enabled",
@@ -139,6 +177,19 @@ export const PolicyRequestBodyCheck = {
  */
 export type PolicyRequestBodyCheck = (typeof PolicyRequestBodyCheck)[keyof typeof PolicyRequestBodyCheck];
 
+export const RouteNextHopType = {
+    VirtualNetworkGateway: "VirtualNetworkGateway",
+    VnetLocal: "VnetLocal",
+    Internet: "Internet",
+    VirtualAppliance: "VirtualAppliance",
+    None: "None",
+} as const;
+
+/**
+ * The type of Azure hop the packet should be sent to.
+ */
+export type RouteNextHopType = (typeof RouteNextHopType)[keyof typeof RouteNextHopType];
+
 export const RuleType = {
     MatchRule: "MatchRule",
     RateLimitRule: "RateLimitRule",
@@ -148,6 +199,40 @@ export const RuleType = {
  * Describes type of rule.
  */
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+export const SecurityRuleAccess = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * The network traffic is allowed or denied.
+ */
+export type SecurityRuleAccess = (typeof SecurityRuleAccess)[keyof typeof SecurityRuleAccess];
+
+export const SecurityRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+ */
+export type SecurityRuleDirection = (typeof SecurityRuleDirection)[keyof typeof SecurityRuleDirection];
+
+export const SecurityRuleProtocol = {
+    Tcp: "Tcp",
+    Udp: "Udp",
+    Icmp: "Icmp",
+    Esp: "Esp",
+    Asterisk: "*",
+    Ah: "Ah",
+} as const;
+
+/**
+ * Network protocol this rule applies to.
+ */
+export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
 
 export const SkuName = {
     Classic_AzureFrontDoor: "Classic_AzureFrontDoor",
@@ -173,3 +258,115 @@ export const TransformType = {
  * Describes what transforms applied before matching.
  */
 export type TransformType = (typeof TransformType)[keyof typeof TransformType];
+
+export const VirtualNetworkPrivateEndpointNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private end point in the subnet.
+ */
+export type VirtualNetworkPrivateEndpointNetworkPolicies = (typeof VirtualNetworkPrivateEndpointNetworkPolicies)[keyof typeof VirtualNetworkPrivateEndpointNetworkPolicies];
+
+export const VirtualNetworkPrivateLinkServiceNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private link service in the subnet.
+ */
+export type VirtualNetworkPrivateLinkServiceNetworkPolicies = (typeof VirtualNetworkPrivateLinkServiceNetworkPolicies)[keyof typeof VirtualNetworkPrivateLinkServiceNetworkPolicies];
+
+export const WebApplicationFirewallAction = {
+    Allow: "Allow",
+    Block: "Block",
+    Log: "Log",
+} as const;
+
+/**
+ * Type of Actions.
+ */
+export type WebApplicationFirewallAction = (typeof WebApplicationFirewallAction)[keyof typeof WebApplicationFirewallAction];
+
+export const WebApplicationFirewallEnabledState = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * The state of the policy.
+ */
+export type WebApplicationFirewallEnabledState = (typeof WebApplicationFirewallEnabledState)[keyof typeof WebApplicationFirewallEnabledState];
+
+export const WebApplicationFirewallMatchVariable = {
+    RemoteAddr: "RemoteAddr",
+    RequestMethod: "RequestMethod",
+    QueryString: "QueryString",
+    PostArgs: "PostArgs",
+    RequestUri: "RequestUri",
+    RequestHeaders: "RequestHeaders",
+    RequestBody: "RequestBody",
+    RequestCookies: "RequestCookies",
+} as const;
+
+/**
+ * Match Variable.
+ */
+export type WebApplicationFirewallMatchVariable = (typeof WebApplicationFirewallMatchVariable)[keyof typeof WebApplicationFirewallMatchVariable];
+
+export const WebApplicationFirewallMode = {
+    Prevention: "Prevention",
+    Detection: "Detection",
+} as const;
+
+/**
+ * The mode of the policy.
+ */
+export type WebApplicationFirewallMode = (typeof WebApplicationFirewallMode)[keyof typeof WebApplicationFirewallMode];
+
+export const WebApplicationFirewallOperator = {
+    IPMatch: "IPMatch",
+    Equal: "Equal",
+    Contains: "Contains",
+    LessThan: "LessThan",
+    GreaterThan: "GreaterThan",
+    LessThanOrEqual: "LessThanOrEqual",
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    BeginsWith: "BeginsWith",
+    EndsWith: "EndsWith",
+    Regex: "Regex",
+    GeoMatch: "GeoMatch",
+    Any: "Any",
+} as const;
+
+/**
+ * The operator to be matched.
+ */
+export type WebApplicationFirewallOperator = (typeof WebApplicationFirewallOperator)[keyof typeof WebApplicationFirewallOperator];
+
+export const WebApplicationFirewallRuleType = {
+    MatchRule: "MatchRule",
+    Invalid: "Invalid",
+} as const;
+
+/**
+ * The rule type.
+ */
+export type WebApplicationFirewallRuleType = (typeof WebApplicationFirewallRuleType)[keyof typeof WebApplicationFirewallRuleType];
+
+export const WebApplicationFirewallTransform = {
+    Uppercase: "Uppercase",
+    Lowercase: "Lowercase",
+    Trim: "Trim",
+    UrlDecode: "UrlDecode",
+    UrlEncode: "UrlEncode",
+    RemoveNulls: "RemoveNulls",
+    HtmlEntityDecode: "HtmlEntityDecode",
+} as const;
+
+/**
+ * Transforms applied before matching.
+ */
+export type WebApplicationFirewallTransform = (typeof WebApplicationFirewallTransform)[keyof typeof WebApplicationFirewallTransform];

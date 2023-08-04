@@ -17,7 +17,12 @@ __all__ = [
     'ManagedInstancePrivateEndpointConnectionPropertiesResponse',
     'ManagedInstancePrivateEndpointPropertyResponse',
     'ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse',
+    'PrivateEndpointConnectionPropertiesResponse',
+    'PrivateEndpointPropertyResponse',
+    'PrivateLinkServiceConnectionStatePropertyResponse',
     'ResourceIdentityResponse',
+    'ServerExternalAdministratorResponse',
+    'ServerPrivateEndpointConnectionResponse',
     'SkuResponse',
     'UserIdentityResponse',
 ]
@@ -305,6 +310,149 @@ class ManagedInstancePrivateLinkServiceConnectionStatePropertyResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionPropertiesResponse(dict):
+    """
+    Properties of a private endpoint connection.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 private_endpoint: Optional['outputs.PrivateEndpointPropertyResponse'] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse'] = None):
+        """
+        Properties of a private endpoint connection.
+        :param str provisioning_state: State of the private endpoint connection.
+        :param 'PrivateEndpointPropertyResponse' private_endpoint: Private endpoint which the connection belongs to.
+        :param 'PrivateLinkServiceConnectionStatePropertyResponse' private_link_service_connection_state: Connection state of the private endpoint connection.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if private_endpoint is not None:
+            pulumi.set(__self__, "private_endpoint", private_endpoint)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        State of the private endpoint connection.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> Optional['outputs.PrivateEndpointPropertyResponse']:
+        """
+        Private endpoint which the connection belongs to.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStatePropertyResponse']:
+        """
+        Connection state of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class PrivateEndpointPropertyResponse(dict):
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        :param str id: Resource id of the private endpoint.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource id of the private endpoint.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStatePropertyResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStatePropertyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStatePropertyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: str,
+                 description: str,
+                 status: str):
+        """
+        :param str actions_required: The actions required for private link service connection.
+        :param str description: The private link service connection description.
+        :param str status: The private link service connection status.
+        """
+        pulumi.set(__self__, "actions_required", actions_required)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> str:
+        """
+        The actions required for private link service connection.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        """
+        The private link service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The private link service connection status.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class ResourceIdentityResponse(dict):
     """
     Azure Active Directory identity configuration for a resource.
@@ -380,6 +528,145 @@ class ResourceIdentityResponse(dict):
         The resource ids of the user assigned identities to use
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ServerExternalAdministratorResponse(dict):
+    """
+    Properties of a active directory administrator.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "administratorType":
+            suggest = "administrator_type"
+        elif key == "azureADOnlyAuthentication":
+            suggest = "azure_ad_only_authentication"
+        elif key == "principalType":
+            suggest = "principal_type"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServerExternalAdministratorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServerExternalAdministratorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServerExternalAdministratorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 administrator_type: Optional[str] = None,
+                 azure_ad_only_authentication: Optional[bool] = None,
+                 login: Optional[str] = None,
+                 principal_type: Optional[str] = None,
+                 sid: Optional[str] = None,
+                 tenant_id: Optional[str] = None):
+        """
+        Properties of a active directory administrator.
+        :param str administrator_type: Type of the sever administrator.
+        :param bool azure_ad_only_authentication: Azure Active Directory only Authentication enabled.
+        :param str login: Login name of the server administrator.
+        :param str principal_type: Principal Type of the sever administrator.
+        :param str sid: SID (object ID) of the server administrator.
+        :param str tenant_id: Tenant ID of the administrator.
+        """
+        if administrator_type is not None:
+            pulumi.set(__self__, "administrator_type", administrator_type)
+        if azure_ad_only_authentication is not None:
+            pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="administratorType")
+    def administrator_type(self) -> Optional[str]:
+        """
+        Type of the sever administrator.
+        """
+        return pulumi.get(self, "administrator_type")
+
+    @property
+    @pulumi.getter(name="azureADOnlyAuthentication")
+    def azure_ad_only_authentication(self) -> Optional[bool]:
+        """
+        Azure Active Directory only Authentication enabled.
+        """
+        return pulumi.get(self, "azure_ad_only_authentication")
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[str]:
+        """
+        Login name of the server administrator.
+        """
+        return pulumi.get(self, "login")
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[str]:
+        """
+        Principal Type of the sever administrator.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[str]:
+        """
+        SID (object ID) of the server administrator.
+        """
+        return pulumi.get(self, "sid")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[str]:
+        """
+        Tenant ID of the administrator.
+        """
+        return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class ServerPrivateEndpointConnectionResponse(dict):
+    """
+    A private endpoint connection under a server
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 properties: 'outputs.PrivateEndpointConnectionPropertiesResponse'):
+        """
+        A private endpoint connection under a server
+        :param str id: Resource ID.
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Private endpoint connection properties
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
+        """
+        Private endpoint connection properties
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type

@@ -25,6 +25,21 @@ export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
 
+export { GetPrivateDnsZoneGroupArgs, GetPrivateDnsZoneGroupResult, GetPrivateDnsZoneGroupOutputArgs } from "./getPrivateDnsZoneGroup";
+export const getPrivateDnsZoneGroup: typeof import("./getPrivateDnsZoneGroup").getPrivateDnsZoneGroup = null as any;
+export const getPrivateDnsZoneGroupOutput: typeof import("./getPrivateDnsZoneGroup").getPrivateDnsZoneGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateDnsZoneGroup","getPrivateDnsZoneGroupOutput"], () => require("./getPrivateDnsZoneGroup"));
+
+export { GetPrivateEndpointArgs, GetPrivateEndpointResult, GetPrivateEndpointOutputArgs } from "./getPrivateEndpoint";
+export const getPrivateEndpoint: typeof import("./getPrivateEndpoint").getPrivateEndpoint = null as any;
+export const getPrivateEndpointOutput: typeof import("./getPrivateEndpoint").getPrivateEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpoint","getPrivateEndpointOutput"], () => require("./getPrivateEndpoint"));
+
+export { GetWebApplicationFirewallPolicyArgs, GetWebApplicationFirewallPolicyResult, GetWebApplicationFirewallPolicyOutputArgs } from "./getWebApplicationFirewallPolicy";
+export const getWebApplicationFirewallPolicy: typeof import("./getWebApplicationFirewallPolicy").getWebApplicationFirewallPolicy = null as any;
+export const getWebApplicationFirewallPolicyOutput: typeof import("./getWebApplicationFirewallPolicy").getWebApplicationFirewallPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getWebApplicationFirewallPolicy","getWebApplicationFirewallPolicyOutput"], () => require("./getWebApplicationFirewallPolicy"));
+
 export { NetworkWatcherArgs } from "./networkWatcher";
 export type NetworkWatcher = import("./networkWatcher").NetworkWatcher;
 export const NetworkWatcher: typeof import("./networkWatcher").NetworkWatcher = null as any;
@@ -34,6 +49,21 @@ export { PolicyArgs } from "./policy";
 export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
 utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
+export { PrivateDnsZoneGroupArgs } from "./privateDnsZoneGroup";
+export type PrivateDnsZoneGroup = import("./privateDnsZoneGroup").PrivateDnsZoneGroup;
+export const PrivateDnsZoneGroup: typeof import("./privateDnsZoneGroup").PrivateDnsZoneGroup = null as any;
+utilities.lazyLoad(exports, ["PrivateDnsZoneGroup"], () => require("./privateDnsZoneGroup"));
+
+export { PrivateEndpointArgs } from "./privateEndpoint";
+export type PrivateEndpoint = import("./privateEndpoint").PrivateEndpoint;
+export const PrivateEndpoint: typeof import("./privateEndpoint").PrivateEndpoint = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpoint"], () => require("./privateEndpoint"));
+
+export { WebApplicationFirewallPolicyArgs } from "./webApplicationFirewallPolicy";
+export type WebApplicationFirewallPolicy = import("./webApplicationFirewallPolicy").WebApplicationFirewallPolicy;
+export const WebApplicationFirewallPolicy: typeof import("./webApplicationFirewallPolicy").WebApplicationFirewallPolicy = null as any;
+utilities.lazyLoad(exports, ["WebApplicationFirewallPolicy"], () => require("./webApplicationFirewallPolicy"));
 
 
 // Export enums:
@@ -49,6 +79,12 @@ const _module = {
                 return new NetworkWatcher(name, <any>undefined, { urn })
             case "azure-native:network/v20220501:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "azure-native:network/v20220501:PrivateDnsZoneGroup":
+                return new PrivateDnsZoneGroup(name, <any>undefined, { urn })
+            case "azure-native:network/v20220501:PrivateEndpoint":
+                return new PrivateEndpoint(name, <any>undefined, { urn })
+            case "azure-native:network/v20220501:WebApplicationFirewallPolicy":
+                return new WebApplicationFirewallPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

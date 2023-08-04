@@ -5,15 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { BastionHostArgs } from "./bastionHost";
+export type BastionHost = import("./bastionHost").BastionHost;
+export const BastionHost: typeof import("./bastionHost").BastionHost = null as any;
+utilities.lazyLoad(exports, ["BastionHost"], () => require("./bastionHost"));
+
 export { FirewallPolicyArgs } from "./firewallPolicy";
 export type FirewallPolicy = import("./firewallPolicy").FirewallPolicy;
 export const FirewallPolicy: typeof import("./firewallPolicy").FirewallPolicy = null as any;
 utilities.lazyLoad(exports, ["FirewallPolicy"], () => require("./firewallPolicy"));
 
+export { GetBastionHostArgs, GetBastionHostResult, GetBastionHostOutputArgs } from "./getBastionHost";
+export const getBastionHost: typeof import("./getBastionHost").getBastionHost = null as any;
+export const getBastionHostOutput: typeof import("./getBastionHost").getBastionHostOutput = null as any;
+utilities.lazyLoad(exports, ["getBastionHost","getBastionHostOutput"], () => require("./getBastionHost"));
+
 export { GetFirewallPolicyArgs, GetFirewallPolicyResult, GetFirewallPolicyOutputArgs } from "./getFirewallPolicy";
 export const getFirewallPolicy: typeof import("./getFirewallPolicy").getFirewallPolicy = null as any;
 export const getFirewallPolicyOutput: typeof import("./getFirewallPolicy").getFirewallPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getFirewallPolicy","getFirewallPolicyOutput"], () => require("./getFirewallPolicy"));
+
+export { GetPrivateEndpointArgs, GetPrivateEndpointResult, GetPrivateEndpointOutputArgs } from "./getPrivateEndpoint";
+export const getPrivateEndpoint: typeof import("./getPrivateEndpoint").getPrivateEndpoint = null as any;
+export const getPrivateEndpointOutput: typeof import("./getPrivateEndpoint").getPrivateEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpoint","getPrivateEndpointOutput"], () => require("./getPrivateEndpoint"));
 
 export { ListFirewallPolicyIdpsSignatureArgs, ListFirewallPolicyIdpsSignatureResult, ListFirewallPolicyIdpsSignatureOutputArgs } from "./listFirewallPolicyIdpsSignature";
 export const listFirewallPolicyIdpsSignature: typeof import("./listFirewallPolicyIdpsSignature").listFirewallPolicyIdpsSignature = null as any;
@@ -25,6 +40,11 @@ export const listFirewallPolicyIdpsSignaturesFilterValue: typeof import("./listF
 export const listFirewallPolicyIdpsSignaturesFilterValueOutput: typeof import("./listFirewallPolicyIdpsSignaturesFilterValue").listFirewallPolicyIdpsSignaturesFilterValueOutput = null as any;
 utilities.lazyLoad(exports, ["listFirewallPolicyIdpsSignaturesFilterValue","listFirewallPolicyIdpsSignaturesFilterValueOutput"], () => require("./listFirewallPolicyIdpsSignaturesFilterValue"));
 
+export { PrivateEndpointArgs } from "./privateEndpoint";
+export type PrivateEndpoint = import("./privateEndpoint").PrivateEndpoint;
+export const PrivateEndpoint: typeof import("./privateEndpoint").PrivateEndpoint = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpoint"], () => require("./privateEndpoint"));
+
 
 // Export enums:
 export * from "../../types/enums/network/v20210801";
@@ -33,8 +53,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:network/v20210801:BastionHost":
+                return new BastionHost(name, <any>undefined, { urn })
             case "azure-native:network/v20210801:FirewallPolicy":
                 return new FirewallPolicy(name, <any>undefined, { urn })
+            case "azure-native:network/v20210801:PrivateEndpoint":
+                return new PrivateEndpoint(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

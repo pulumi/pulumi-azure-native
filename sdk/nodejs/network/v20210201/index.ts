@@ -20,6 +20,21 @@ export const getPrivateLinkService: typeof import("./getPrivateLinkService").get
 export const getPrivateLinkServiceOutput: typeof import("./getPrivateLinkService").getPrivateLinkServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateLinkService","getPrivateLinkServiceOutput"], () => require("./getPrivateLinkService"));
 
+export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
+export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
+export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
+
+export { GetVirtualNetworkPeeringArgs, GetVirtualNetworkPeeringResult, GetVirtualNetworkPeeringOutputArgs } from "./getVirtualNetworkPeering";
+export const getVirtualNetworkPeering: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeering = null as any;
+export const getVirtualNetworkPeeringOutput: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkPeering","getVirtualNetworkPeeringOutput"], () => require("./getVirtualNetworkPeering"));
+
+export { GetWebApplicationFirewallPolicyArgs, GetWebApplicationFirewallPolicyResult, GetWebApplicationFirewallPolicyOutputArgs } from "./getWebApplicationFirewallPolicy";
+export const getWebApplicationFirewallPolicy: typeof import("./getWebApplicationFirewallPolicy").getWebApplicationFirewallPolicy = null as any;
+export const getWebApplicationFirewallPolicyOutput: typeof import("./getWebApplicationFirewallPolicy").getWebApplicationFirewallPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getWebApplicationFirewallPolicy","getWebApplicationFirewallPolicyOutput"], () => require("./getWebApplicationFirewallPolicy"));
+
 export { PrivateDnsZoneGroupArgs } from "./privateDnsZoneGroup";
 export type PrivateDnsZoneGroup = import("./privateDnsZoneGroup").PrivateDnsZoneGroup;
 export const PrivateDnsZoneGroup: typeof import("./privateDnsZoneGroup").PrivateDnsZoneGroup = null as any;
@@ -35,6 +50,21 @@ export type PrivateLinkService = import("./privateLinkService").PrivateLinkServi
 export const PrivateLinkService: typeof import("./privateLinkService").PrivateLinkService = null as any;
 utilities.lazyLoad(exports, ["PrivateLinkService"], () => require("./privateLinkService"));
 
+export { VirtualNetworkArgs } from "./virtualNetwork";
+export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
+export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
+utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
+
+export { VirtualNetworkPeeringArgs } from "./virtualNetworkPeering";
+export type VirtualNetworkPeering = import("./virtualNetworkPeering").VirtualNetworkPeering;
+export const VirtualNetworkPeering: typeof import("./virtualNetworkPeering").VirtualNetworkPeering = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkPeering"], () => require("./virtualNetworkPeering"));
+
+export { WebApplicationFirewallPolicyArgs } from "./webApplicationFirewallPolicy";
+export type WebApplicationFirewallPolicy = import("./webApplicationFirewallPolicy").WebApplicationFirewallPolicy;
+export const WebApplicationFirewallPolicy: typeof import("./webApplicationFirewallPolicy").WebApplicationFirewallPolicy = null as any;
+utilities.lazyLoad(exports, ["WebApplicationFirewallPolicy"], () => require("./webApplicationFirewallPolicy"));
+
 
 // Export enums:
 export * from "../../types/enums/network/v20210201";
@@ -49,6 +79,12 @@ const _module = {
                 return new PrivateEndpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20210201:PrivateLinkService":
                 return new PrivateLinkService(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201:VirtualNetwork":
+                return new VirtualNetwork(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201:VirtualNetworkPeering":
+                return new VirtualNetworkPeering(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201:WebApplicationFirewallPolicy":
+                return new WebApplicationFirewallPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

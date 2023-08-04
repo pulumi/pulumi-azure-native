@@ -11,9 +11,111 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'CapabilityArgs',
+    'ManagedServiceIdentityArgs',
     'NameValuePairArgs',
+    'SkuCapacityArgs',
+    'SkuDescriptionArgs',
+    'StaticSiteBuildPropertiesArgs',
+    'StaticSiteTemplateOptionsArgs',
     'VirtualNetworkProfileArgs',
 ]
+
+@pulumi.input_type
+class CapabilityArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None,
+                 reason: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[str]] = None):
+        """
+        Describes the capabilities/features allowed for a specific SKU.
+        :param pulumi.Input[str] name: Name of the SKU capability.
+        :param pulumi.Input[str] reason: Reason of the SKU capability.
+        :param pulumi.Input[str] value: Value of the SKU capability.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the SKU capability.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def reason(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reason of the SKU capability.
+        """
+        return pulumi.get(self, "reason")
+
+    @reason.setter
+    def reason(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reason", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        Value of the SKU capability.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ManagedServiceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Managed service identity.
+        :param pulumi.Input['ManagedServiceIdentityType'] type: Type of managed service identity.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] user_assigned_identities: The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of user assigned identities associated with the resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
 
 @pulumi.input_type
 class NameValuePairArgs:
@@ -53,6 +155,454 @@ class NameValuePairArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class SkuCapacityArgs:
+    def __init__(__self__, *,
+                 default: Optional[pulumi.Input[int]] = None,
+                 elastic_maximum: Optional[pulumi.Input[int]] = None,
+                 maximum: Optional[pulumi.Input[int]] = None,
+                 minimum: Optional[pulumi.Input[int]] = None,
+                 scale_type: Optional[pulumi.Input[str]] = None):
+        """
+        Description of the App Service plan scale options.
+        :param pulumi.Input[int] default: Default number of workers for this App Service plan SKU.
+        :param pulumi.Input[int] elastic_maximum: Maximum number of Elastic workers for this App Service plan SKU.
+        :param pulumi.Input[int] maximum: Maximum number of workers for this App Service plan SKU.
+        :param pulumi.Input[int] minimum: Minimum number of workers for this App Service plan SKU.
+        :param pulumi.Input[str] scale_type: Available scale configurations for an App Service plan.
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if elastic_maximum is not None:
+            pulumi.set(__self__, "elastic_maximum", elastic_maximum)
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+        if scale_type is not None:
+            pulumi.set(__self__, "scale_type", scale_type)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[pulumi.Input[int]]:
+        """
+        Default number of workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default", value)
+
+    @property
+    @pulumi.getter(name="elasticMaximum")
+    def elastic_maximum(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of Elastic workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "elastic_maximum")
+
+    @elastic_maximum.setter
+    def elastic_maximum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "elastic_maximum", value)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum number of workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum number of workers for this App Service plan SKU.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum", value)
+
+    @property
+    @pulumi.getter(name="scaleType")
+    def scale_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Available scale configurations for an App Service plan.
+        """
+        return pulumi.get(self, "scale_type")
+
+    @scale_type.setter
+    def scale_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scale_type", value)
+
+
+@pulumi.input_type
+class SkuDescriptionArgs:
+    def __init__(__self__, *,
+                 capabilities: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]] = None,
+                 capacity: Optional[pulumi.Input[int]] = None,
+                 family: Optional[pulumi.Input[str]] = None,
+                 locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 size: Optional[pulumi.Input[str]] = None,
+                 sku_capacity: Optional[pulumi.Input['SkuCapacityArgs']] = None,
+                 tier: Optional[pulumi.Input[str]] = None):
+        """
+        Description of a SKU for a scalable resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]] capabilities: Capabilities of the SKU, e.g., is traffic manager enabled?
+        :param pulumi.Input[int] capacity: Current number of instances assigned to the resource.
+        :param pulumi.Input[str] family: Family code of the resource SKU.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] locations: Locations of the SKU.
+        :param pulumi.Input[str] name: Name of the resource SKU.
+        :param pulumi.Input[str] size: Size specifier of the resource SKU.
+        :param pulumi.Input['SkuCapacityArgs'] sku_capacity: Min, max, and default scale values of the SKU.
+        :param pulumi.Input[str] tier: Service tier of the resource SKU.
+        """
+        if capabilities is not None:
+            pulumi.set(__self__, "capabilities", capabilities)
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if family is not None:
+            pulumi.set(__self__, "family", family)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if sku_capacity is not None:
+            pulumi.set(__self__, "sku_capacity", sku_capacity)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]:
+        """
+        Capabilities of the SKU, e.g., is traffic manager enabled?
+        """
+        return pulumi.get(self, "capabilities")
+
+    @capabilities.setter
+    def capabilities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CapabilityArgs']]]]):
+        pulumi.set(self, "capabilities", value)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[pulumi.Input[int]]:
+        """
+        Current number of instances assigned to the resource.
+        """
+        return pulumi.get(self, "capacity")
+
+    @capacity.setter
+    def capacity(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "capacity", value)
+
+    @property
+    @pulumi.getter
+    def family(self) -> Optional[pulumi.Input[str]]:
+        """
+        Family code of the resource SKU.
+        """
+        return pulumi.get(self, "family")
+
+    @family.setter
+    def family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "family", value)
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Locations of the SKU.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "locations", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the resource SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[pulumi.Input[str]]:
+        """
+        Size specifier of the resource SKU.
+        """
+        return pulumi.get(self, "size")
+
+    @size.setter
+    def size(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "size", value)
+
+    @property
+    @pulumi.getter(name="skuCapacity")
+    def sku_capacity(self) -> Optional[pulumi.Input['SkuCapacityArgs']]:
+        """
+        Min, max, and default scale values of the SKU.
+        """
+        return pulumi.get(self, "sku_capacity")
+
+    @sku_capacity.setter
+    def sku_capacity(self, value: Optional[pulumi.Input['SkuCapacityArgs']]):
+        pulumi.set(self, "sku_capacity", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service tier of the resource SKU.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tier", value)
+
+
+@pulumi.input_type
+class StaticSiteBuildPropertiesArgs:
+    def __init__(__self__, *,
+                 api_build_command: Optional[pulumi.Input[str]] = None,
+                 api_location: Optional[pulumi.Input[str]] = None,
+                 app_artifact_location: Optional[pulumi.Input[str]] = None,
+                 app_build_command: Optional[pulumi.Input[str]] = None,
+                 app_location: Optional[pulumi.Input[str]] = None,
+                 github_action_secret_name_override: Optional[pulumi.Input[str]] = None,
+                 output_location: Optional[pulumi.Input[str]] = None,
+                 skip_github_action_workflow_generation: Optional[pulumi.Input[bool]] = None):
+        """
+        Build properties for the static site.
+        :param pulumi.Input[str] api_build_command: A custom command to run during deployment of the Azure Functions API application.
+        :param pulumi.Input[str] api_location: The path to the api code within the repository.
+        :param pulumi.Input[str] app_artifact_location: Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
+        :param pulumi.Input[str] app_build_command: A custom command to run during deployment of the static content application.
+        :param pulumi.Input[str] app_location: The path to the app code within the repository.
+        :param pulumi.Input[str] github_action_secret_name_override: Github Action secret name override.
+        :param pulumi.Input[str] output_location: The output path of the app after building.
+        :param pulumi.Input[bool] skip_github_action_workflow_generation: Skip Github Action workflow generation.
+        """
+        if api_build_command is not None:
+            pulumi.set(__self__, "api_build_command", api_build_command)
+        if api_location is not None:
+            pulumi.set(__self__, "api_location", api_location)
+        if app_artifact_location is not None:
+            pulumi.set(__self__, "app_artifact_location", app_artifact_location)
+        if app_build_command is not None:
+            pulumi.set(__self__, "app_build_command", app_build_command)
+        if app_location is not None:
+            pulumi.set(__self__, "app_location", app_location)
+        if github_action_secret_name_override is not None:
+            pulumi.set(__self__, "github_action_secret_name_override", github_action_secret_name_override)
+        if output_location is not None:
+            pulumi.set(__self__, "output_location", output_location)
+        if skip_github_action_workflow_generation is not None:
+            pulumi.set(__self__, "skip_github_action_workflow_generation", skip_github_action_workflow_generation)
+
+    @property
+    @pulumi.getter(name="apiBuildCommand")
+    def api_build_command(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom command to run during deployment of the Azure Functions API application.
+        """
+        return pulumi.get(self, "api_build_command")
+
+    @api_build_command.setter
+    def api_build_command(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_build_command", value)
+
+    @property
+    @pulumi.getter(name="apiLocation")
+    def api_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the api code within the repository.
+        """
+        return pulumi.get(self, "api_location")
+
+    @api_location.setter
+    def api_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "api_location", value)
+
+    @property
+    @pulumi.getter(name="appArtifactLocation")
+    def app_artifact_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)
+        """
+        return pulumi.get(self, "app_artifact_location")
+
+    @app_artifact_location.setter
+    def app_artifact_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_artifact_location", value)
+
+    @property
+    @pulumi.getter(name="appBuildCommand")
+    def app_build_command(self) -> Optional[pulumi.Input[str]]:
+        """
+        A custom command to run during deployment of the static content application.
+        """
+        return pulumi.get(self, "app_build_command")
+
+    @app_build_command.setter
+    def app_build_command(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_build_command", value)
+
+    @property
+    @pulumi.getter(name="appLocation")
+    def app_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the app code within the repository.
+        """
+        return pulumi.get(self, "app_location")
+
+    @app_location.setter
+    def app_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_location", value)
+
+    @property
+    @pulumi.getter(name="githubActionSecretNameOverride")
+    def github_action_secret_name_override(self) -> Optional[pulumi.Input[str]]:
+        """
+        Github Action secret name override.
+        """
+        return pulumi.get(self, "github_action_secret_name_override")
+
+    @github_action_secret_name_override.setter
+    def github_action_secret_name_override(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "github_action_secret_name_override", value)
+
+    @property
+    @pulumi.getter(name="outputLocation")
+    def output_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        The output path of the app after building.
+        """
+        return pulumi.get(self, "output_location")
+
+    @output_location.setter
+    def output_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_location", value)
+
+    @property
+    @pulumi.getter(name="skipGithubActionWorkflowGeneration")
+    def skip_github_action_workflow_generation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Skip Github Action workflow generation.
+        """
+        return pulumi.get(self, "skip_github_action_workflow_generation")
+
+    @skip_github_action_workflow_generation.setter
+    def skip_github_action_workflow_generation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_github_action_workflow_generation", value)
+
+
+@pulumi.input_type
+class StaticSiteTemplateOptionsArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_private: Optional[pulumi.Input[bool]] = None,
+                 owner: Optional[pulumi.Input[str]] = None,
+                 repository_name: Optional[pulumi.Input[str]] = None,
+                 template_repository_url: Optional[pulumi.Input[str]] = None):
+        """
+        Template Options for the static site.
+        :param pulumi.Input[str] description: Description of the newly generated repository.
+        :param pulumi.Input[bool] is_private: Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        :param pulumi.Input[str] owner: Owner of the newly generated repository.
+        :param pulumi.Input[str] repository_name: Name of the newly generated repository.
+        :param pulumi.Input[str] template_repository_url: URL of the template repository. The newly generated repository will be based on this one.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_private is not None:
+            pulumi.set(__self__, "is_private", is_private)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if repository_name is not None:
+            pulumi.set(__self__, "repository_name", repository_name)
+        if template_repository_url is not None:
+            pulumi.set(__self__, "template_repository_url", template_repository_url)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of the newly generated repository.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isPrivate")
+    def is_private(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not the newly generated repository is a private repository. Defaults to false (i.e. public).
+        """
+        return pulumi.get(self, "is_private")
+
+    @is_private.setter
+    def is_private(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_private", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        Owner of the newly generated repository.
+        """
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the newly generated repository.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter(name="templateRepositoryUrl")
+    def template_repository_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the template repository. The newly generated repository will be based on this one.
+        """
+        return pulumi.get(self, "template_repository_url")
+
+    @template_repository_url.setter
+    def template_repository_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_repository_url", value)
 
 
 @pulumi.input_type

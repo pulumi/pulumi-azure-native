@@ -8,6 +8,802 @@ using Pulumi;
 namespace Pulumi.AzureNative.Network.V20220701
 {
     /// <summary>
+    /// Verify client certificate revocation status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayClientRevocationOptions : IEquatable<ApplicationGatewayClientRevocationOptions>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayClientRevocationOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayClientRevocationOptions None { get; } = new ApplicationGatewayClientRevocationOptions("None");
+        public static ApplicationGatewayClientRevocationOptions OCSP { get; } = new ApplicationGatewayClientRevocationOptions("OCSP");
+
+        public static bool operator ==(ApplicationGatewayClientRevocationOptions left, ApplicationGatewayClientRevocationOptions right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayClientRevocationOptions left, ApplicationGatewayClientRevocationOptions right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayClientRevocationOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayClientRevocationOptions other && Equals(other);
+        public bool Equals(ApplicationGatewayClientRevocationOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Cookie based affinity.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayCookieBasedAffinity : IEquatable<ApplicationGatewayCookieBasedAffinity>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayCookieBasedAffinity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayCookieBasedAffinity Enabled { get; } = new ApplicationGatewayCookieBasedAffinity("Enabled");
+        public static ApplicationGatewayCookieBasedAffinity Disabled { get; } = new ApplicationGatewayCookieBasedAffinity("Disabled");
+
+        public static bool operator ==(ApplicationGatewayCookieBasedAffinity left, ApplicationGatewayCookieBasedAffinity right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayCookieBasedAffinity left, ApplicationGatewayCookieBasedAffinity right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayCookieBasedAffinity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayCookieBasedAffinity other && Equals(other);
+        public bool Equals(ApplicationGatewayCookieBasedAffinity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status code of the application gateway customer error.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayCustomErrorStatusCode : IEquatable<ApplicationGatewayCustomErrorStatusCode>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayCustomErrorStatusCode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayCustomErrorStatusCode HttpStatus403 { get; } = new ApplicationGatewayCustomErrorStatusCode("HttpStatus403");
+        public static ApplicationGatewayCustomErrorStatusCode HttpStatus502 { get; } = new ApplicationGatewayCustomErrorStatusCode("HttpStatus502");
+
+        public static bool operator ==(ApplicationGatewayCustomErrorStatusCode left, ApplicationGatewayCustomErrorStatusCode right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayCustomErrorStatusCode left, ApplicationGatewayCustomErrorStatusCode right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayCustomErrorStatusCode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayCustomErrorStatusCode other && Equals(other);
+        public bool Equals(ApplicationGatewayCustomErrorStatusCode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Web application firewall mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayFirewallMode : IEquatable<ApplicationGatewayFirewallMode>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayFirewallMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayFirewallMode Detection { get; } = new ApplicationGatewayFirewallMode("Detection");
+        public static ApplicationGatewayFirewallMode Prevention { get; } = new ApplicationGatewayFirewallMode("Prevention");
+
+        public static bool operator ==(ApplicationGatewayFirewallMode left, ApplicationGatewayFirewallMode right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayFirewallMode left, ApplicationGatewayFirewallMode right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayFirewallMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayFirewallMode other && Equals(other);
+        public bool Equals(ApplicationGatewayFirewallMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Load Distribution Targets resource of an application gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayLoadDistributionAlgorithm : IEquatable<ApplicationGatewayLoadDistributionAlgorithm>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayLoadDistributionAlgorithm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayLoadDistributionAlgorithm RoundRobin { get; } = new ApplicationGatewayLoadDistributionAlgorithm("RoundRobin");
+        public static ApplicationGatewayLoadDistributionAlgorithm LeastConnections { get; } = new ApplicationGatewayLoadDistributionAlgorithm("LeastConnections");
+        public static ApplicationGatewayLoadDistributionAlgorithm IpHash { get; } = new ApplicationGatewayLoadDistributionAlgorithm("IpHash");
+
+        public static bool operator ==(ApplicationGatewayLoadDistributionAlgorithm left, ApplicationGatewayLoadDistributionAlgorithm right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayLoadDistributionAlgorithm left, ApplicationGatewayLoadDistributionAlgorithm right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayLoadDistributionAlgorithm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayLoadDistributionAlgorithm other && Equals(other);
+        public bool Equals(ApplicationGatewayLoadDistributionAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The protocol used for the probe.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayProtocol : IEquatable<ApplicationGatewayProtocol>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayProtocol Http { get; } = new ApplicationGatewayProtocol("Http");
+        public static ApplicationGatewayProtocol Https { get; } = new ApplicationGatewayProtocol("Https");
+        public static ApplicationGatewayProtocol Tcp { get; } = new ApplicationGatewayProtocol("Tcp");
+        public static ApplicationGatewayProtocol Tls { get; } = new ApplicationGatewayProtocol("Tls");
+
+        public static bool operator ==(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayProtocol left, ApplicationGatewayProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayProtocol other && Equals(other);
+        public bool Equals(ApplicationGatewayProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// HTTP redirection type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayRedirectType : IEquatable<ApplicationGatewayRedirectType>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayRedirectType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayRedirectType Permanent { get; } = new ApplicationGatewayRedirectType("Permanent");
+        public static ApplicationGatewayRedirectType Found { get; } = new ApplicationGatewayRedirectType("Found");
+        public static ApplicationGatewayRedirectType SeeOther { get; } = new ApplicationGatewayRedirectType("SeeOther");
+        public static ApplicationGatewayRedirectType Temporary { get; } = new ApplicationGatewayRedirectType("Temporary");
+
+        public static bool operator ==(ApplicationGatewayRedirectType left, ApplicationGatewayRedirectType right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayRedirectType left, ApplicationGatewayRedirectType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayRedirectType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayRedirectType other && Equals(other);
+        public bool Equals(ApplicationGatewayRedirectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Rule type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayRequestRoutingRuleType : IEquatable<ApplicationGatewayRequestRoutingRuleType>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayRequestRoutingRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayRequestRoutingRuleType Basic { get; } = new ApplicationGatewayRequestRoutingRuleType("Basic");
+        public static ApplicationGatewayRequestRoutingRuleType PathBasedRouting { get; } = new ApplicationGatewayRequestRoutingRuleType("PathBasedRouting");
+
+        public static bool operator ==(ApplicationGatewayRequestRoutingRuleType left, ApplicationGatewayRequestRoutingRuleType right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayRequestRoutingRuleType left, ApplicationGatewayRequestRoutingRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayRequestRoutingRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayRequestRoutingRuleType other && Equals(other);
+        public bool Equals(ApplicationGatewayRequestRoutingRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of an application gateway SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewaySkuName : IEquatable<ApplicationGatewaySkuName>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewaySkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewaySkuName Standard_Small { get; } = new ApplicationGatewaySkuName("Standard_Small");
+        public static ApplicationGatewaySkuName Standard_Medium { get; } = new ApplicationGatewaySkuName("Standard_Medium");
+        public static ApplicationGatewaySkuName Standard_Large { get; } = new ApplicationGatewaySkuName("Standard_Large");
+        public static ApplicationGatewaySkuName WAF_Medium { get; } = new ApplicationGatewaySkuName("WAF_Medium");
+        public static ApplicationGatewaySkuName WAF_Large { get; } = new ApplicationGatewaySkuName("WAF_Large");
+        public static ApplicationGatewaySkuName Standard_v2 { get; } = new ApplicationGatewaySkuName("Standard_v2");
+        public static ApplicationGatewaySkuName WAF_v2 { get; } = new ApplicationGatewaySkuName("WAF_v2");
+
+        public static bool operator ==(ApplicationGatewaySkuName left, ApplicationGatewaySkuName right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewaySkuName left, ApplicationGatewaySkuName right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewaySkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewaySkuName other && Equals(other);
+        public bool Equals(ApplicationGatewaySkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Ssl cipher suites enums.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewaySslCipherSuite : IEquatable<ApplicationGatewaySslCipherSuite>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewaySslCipherSuite(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 { get; } = new ApplicationGatewaySslCipherSuite("TLS_DHE_RSA_WITH_AES_256_GCM_SHA384");
+        public static ApplicationGatewaySslCipherSuite TLS_DHE_RSA_WITH_AES_128_GCM_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_DHE_RSA_WITH_AES_128_GCM_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_DHE_RSA_WITH_AES_256_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_DHE_RSA_WITH_AES_256_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_DHE_RSA_WITH_AES_128_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_DHE_RSA_WITH_AES_128_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_RSA_WITH_AES_256_GCM_SHA384 { get; } = new ApplicationGatewaySslCipherSuite("TLS_RSA_WITH_AES_256_GCM_SHA384");
+        public static ApplicationGatewaySslCipherSuite TLS_RSA_WITH_AES_128_GCM_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_RSA_WITH_AES_128_GCM_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_RSA_WITH_AES_256_CBC_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_RSA_WITH_AES_256_CBC_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_RSA_WITH_AES_128_CBC_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_RSA_WITH_AES_128_CBC_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_RSA_WITH_AES_256_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_RSA_WITH_AES_256_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_RSA_WITH_AES_128_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_RSA_WITH_AES_128_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384 { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_DHE_DSS_WITH_AES_256_CBC_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_DHE_DSS_WITH_AES_256_CBC_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_DHE_DSS_WITH_AES_128_CBC_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_DHE_DSS_WITH_AES_128_CBC_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_DHE_DSS_WITH_AES_256_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_DHE_DSS_WITH_AES_256_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_DHE_DSS_WITH_AES_128_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_DHE_DSS_WITH_AES_128_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_RSA_WITH_3DES_EDE_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_RSA_WITH_3DES_EDE_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA { get; } = new ApplicationGatewaySslCipherSuite("TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256");
+        public static ApplicationGatewaySslCipherSuite TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 { get; } = new ApplicationGatewaySslCipherSuite("TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384");
+
+        public static bool operator ==(ApplicationGatewaySslCipherSuite left, ApplicationGatewaySslCipherSuite right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewaySslCipherSuite left, ApplicationGatewaySslCipherSuite right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewaySslCipherSuite value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewaySslCipherSuite other && Equals(other);
+        public bool Equals(ApplicationGatewaySslCipherSuite other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of Ssl predefined policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewaySslPolicyName : IEquatable<ApplicationGatewaySslPolicyName>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewaySslPolicyName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewaySslPolicyName AppGwSslPolicy20150501 { get; } = new ApplicationGatewaySslPolicyName("AppGwSslPolicy20150501");
+        public static ApplicationGatewaySslPolicyName AppGwSslPolicy20170401 { get; } = new ApplicationGatewaySslPolicyName("AppGwSslPolicy20170401");
+        public static ApplicationGatewaySslPolicyName AppGwSslPolicy20170401S { get; } = new ApplicationGatewaySslPolicyName("AppGwSslPolicy20170401S");
+        public static ApplicationGatewaySslPolicyName AppGwSslPolicy20220101 { get; } = new ApplicationGatewaySslPolicyName("AppGwSslPolicy20220101");
+        public static ApplicationGatewaySslPolicyName AppGwSslPolicy20220101S { get; } = new ApplicationGatewaySslPolicyName("AppGwSslPolicy20220101S");
+
+        public static bool operator ==(ApplicationGatewaySslPolicyName left, ApplicationGatewaySslPolicyName right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewaySslPolicyName left, ApplicationGatewaySslPolicyName right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewaySslPolicyName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewaySslPolicyName other && Equals(other);
+        public bool Equals(ApplicationGatewaySslPolicyName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of Ssl Policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewaySslPolicyType : IEquatable<ApplicationGatewaySslPolicyType>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewaySslPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewaySslPolicyType Predefined { get; } = new ApplicationGatewaySslPolicyType("Predefined");
+        public static ApplicationGatewaySslPolicyType Custom { get; } = new ApplicationGatewaySslPolicyType("Custom");
+        public static ApplicationGatewaySslPolicyType CustomV2 { get; } = new ApplicationGatewaySslPolicyType("CustomV2");
+
+        public static bool operator ==(ApplicationGatewaySslPolicyType left, ApplicationGatewaySslPolicyType right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewaySslPolicyType left, ApplicationGatewaySslPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewaySslPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewaySslPolicyType other && Equals(other);
+        public bool Equals(ApplicationGatewaySslPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Minimum version of Ssl protocol to be supported on application gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewaySslProtocol : IEquatable<ApplicationGatewaySslProtocol>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewaySslProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewaySslProtocol TLSv1_0 { get; } = new ApplicationGatewaySslProtocol("TLSv1_0");
+        public static ApplicationGatewaySslProtocol TLSv1_1 { get; } = new ApplicationGatewaySslProtocol("TLSv1_1");
+        public static ApplicationGatewaySslProtocol TLSv1_2 { get; } = new ApplicationGatewaySslProtocol("TLSv1_2");
+        public static ApplicationGatewaySslProtocol TLSv1_3 { get; } = new ApplicationGatewaySslProtocol("TLSv1_3");
+
+        public static bool operator ==(ApplicationGatewaySslProtocol left, ApplicationGatewaySslProtocol right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewaySslProtocol left, ApplicationGatewaySslProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewaySslProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewaySslProtocol other && Equals(other);
+        public bool Equals(ApplicationGatewaySslProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tier of an application gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGatewayTier : IEquatable<ApplicationGatewayTier>
+    {
+        private readonly string _value;
+
+        private ApplicationGatewayTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGatewayTier Standard { get; } = new ApplicationGatewayTier("Standard");
+        public static ApplicationGatewayTier WAF { get; } = new ApplicationGatewayTier("WAF");
+        public static ApplicationGatewayTier Standard_v2 { get; } = new ApplicationGatewayTier("Standard_v2");
+        public static ApplicationGatewayTier WAF_v2 { get; } = new ApplicationGatewayTier("WAF_v2");
+
+        public static bool operator ==(ApplicationGatewayTier left, ApplicationGatewayTier right) => left.Equals(right);
+        public static bool operator !=(ApplicationGatewayTier left, ApplicationGatewayTier right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGatewayTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGatewayTier other && Equals(other);
+        public bool Equals(ApplicationGatewayTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The DDoS protection mode of the public IP
+    /// </summary>
+    [EnumType]
+    public readonly struct DdosSettingsProtectionMode : IEquatable<DdosSettingsProtectionMode>
+    {
+        private readonly string _value;
+
+        private DdosSettingsProtectionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DdosSettingsProtectionMode VirtualNetworkInherited { get; } = new DdosSettingsProtectionMode("VirtualNetworkInherited");
+        public static DdosSettingsProtectionMode Enabled { get; } = new DdosSettingsProtectionMode("Enabled");
+        public static DdosSettingsProtectionMode Disabled { get; } = new DdosSettingsProtectionMode("Disabled");
+
+        public static bool operator ==(DdosSettingsProtectionMode left, DdosSettingsProtectionMode right) => left.Equals(right);
+        public static bool operator !=(DdosSettingsProtectionMode left, DdosSettingsProtectionMode right) => !left.Equals(right);
+
+        public static explicit operator string(DdosSettingsProtectionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DdosSettingsProtectionMode other && Equals(other);
+        public bool Equals(DdosSettingsProtectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specify what happens to the public IP address when the VM using it is deleted
+    /// </summary>
+    [EnumType]
+    public readonly struct DeleteOptions : IEquatable<DeleteOptions>
+    {
+        private readonly string _value;
+
+        private DeleteOptions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DeleteOptions Delete { get; } = new DeleteOptions("Delete");
+        public static DeleteOptions Detach { get; } = new DeleteOptions("Detach");
+
+        public static bool operator ==(DeleteOptions left, DeleteOptions right) => left.Equals(right);
+        public static bool operator !=(DeleteOptions left, DeleteOptions right) => !left.Equals(right);
+
+        public static explicit operator string(DeleteOptions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DeleteOptions other && Equals(other);
+        public bool Equals(DeleteOptions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The DH Group used in IKE Phase 1 for initial SA.
+    /// </summary>
+    [EnumType]
+    public readonly struct DhGroup : IEquatable<DhGroup>
+    {
+        private readonly string _value;
+
+        private DhGroup(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DhGroup None { get; } = new DhGroup("None");
+        public static DhGroup DHGroup1 { get; } = new DhGroup("DHGroup1");
+        public static DhGroup DHGroup2 { get; } = new DhGroup("DHGroup2");
+        public static DhGroup DHGroup14 { get; } = new DhGroup("DHGroup14");
+        public static DhGroup DHGroup2048 { get; } = new DhGroup("DHGroup2048");
+        public static DhGroup ECP256 { get; } = new DhGroup("ECP256");
+        public static DhGroup ECP384 { get; } = new DhGroup("ECP384");
+        public static DhGroup DHGroup24 { get; } = new DhGroup("DHGroup24");
+
+        public static bool operator ==(DhGroup left, DhGroup right) => left.Equals(right);
+        public static bool operator !=(DhGroup left, DhGroup right) => !left.Equals(right);
+
+        public static explicit operator string(DhGroup value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DhGroup other && Equals(other);
+        public bool Equals(DhGroup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationTypes : IEquatable<ExtendedLocationTypes>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationTypes EdgeZone { get; } = new ExtendedLocationTypes("EdgeZone");
+
+        public static bool operator ==(ExtendedLocationTypes left, ExtendedLocationTypes right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationTypes left, ExtendedLocationTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
+        public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallPolicyFilterRuleCollectionActionType : IEquatable<FirewallPolicyFilterRuleCollectionActionType>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyFilterRuleCollectionActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyFilterRuleCollectionActionType Allow { get; } = new FirewallPolicyFilterRuleCollectionActionType("Allow");
+        public static FirewallPolicyFilterRuleCollectionActionType Deny { get; } = new FirewallPolicyFilterRuleCollectionActionType("Deny");
+
+        public static bool operator ==(FirewallPolicyFilterRuleCollectionActionType left, FirewallPolicyFilterRuleCollectionActionType right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyFilterRuleCollectionActionType left, FirewallPolicyFilterRuleCollectionActionType right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyFilterRuleCollectionActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyFilterRuleCollectionActionType other && Equals(other);
+        public bool Equals(FirewallPolicyFilterRuleCollectionActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of action.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallPolicyNatRuleCollectionActionType : IEquatable<FirewallPolicyNatRuleCollectionActionType>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyNatRuleCollectionActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyNatRuleCollectionActionType DNAT { get; } = new FirewallPolicyNatRuleCollectionActionType("DNAT");
+
+        public static bool operator ==(FirewallPolicyNatRuleCollectionActionType left, FirewallPolicyNatRuleCollectionActionType right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyNatRuleCollectionActionType left, FirewallPolicyNatRuleCollectionActionType right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyNatRuleCollectionActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyNatRuleCollectionActionType other && Equals(other);
+        public bool Equals(FirewallPolicyNatRuleCollectionActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Protocol type.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallPolicyRuleApplicationProtocolType : IEquatable<FirewallPolicyRuleApplicationProtocolType>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyRuleApplicationProtocolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyRuleApplicationProtocolType Http { get; } = new FirewallPolicyRuleApplicationProtocolType("Http");
+        public static FirewallPolicyRuleApplicationProtocolType Https { get; } = new FirewallPolicyRuleApplicationProtocolType("Https");
+
+        public static bool operator ==(FirewallPolicyRuleApplicationProtocolType left, FirewallPolicyRuleApplicationProtocolType right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyRuleApplicationProtocolType left, FirewallPolicyRuleApplicationProtocolType right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyRuleApplicationProtocolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyRuleApplicationProtocolType other && Equals(other);
+        public bool Equals(FirewallPolicyRuleApplicationProtocolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the rule collection.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallPolicyRuleCollectionType : IEquatable<FirewallPolicyRuleCollectionType>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyRuleCollectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyRuleCollectionType FirewallPolicyNatRuleCollection { get; } = new FirewallPolicyRuleCollectionType("FirewallPolicyNatRuleCollection");
+        public static FirewallPolicyRuleCollectionType FirewallPolicyFilterRuleCollection { get; } = new FirewallPolicyRuleCollectionType("FirewallPolicyFilterRuleCollection");
+
+        public static bool operator ==(FirewallPolicyRuleCollectionType left, FirewallPolicyRuleCollectionType right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyRuleCollectionType left, FirewallPolicyRuleCollectionType right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyRuleCollectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyRuleCollectionType other && Equals(other);
+        public bool Equals(FirewallPolicyRuleCollectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Network protocol of a Rule.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallPolicyRuleNetworkProtocol : IEquatable<FirewallPolicyRuleNetworkProtocol>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyRuleNetworkProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyRuleNetworkProtocol TCP { get; } = new FirewallPolicyRuleNetworkProtocol("TCP");
+        public static FirewallPolicyRuleNetworkProtocol UDP { get; } = new FirewallPolicyRuleNetworkProtocol("UDP");
+        public static FirewallPolicyRuleNetworkProtocol Any { get; } = new FirewallPolicyRuleNetworkProtocol("Any");
+        public static FirewallPolicyRuleNetworkProtocol ICMP { get; } = new FirewallPolicyRuleNetworkProtocol("ICMP");
+
+        public static bool operator ==(FirewallPolicyRuleNetworkProtocol left, FirewallPolicyRuleNetworkProtocol right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyRuleNetworkProtocol left, FirewallPolicyRuleNetworkProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyRuleNetworkProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyRuleNetworkProtocol other && Equals(other);
+        public bool Equals(FirewallPolicyRuleNetworkProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Rule Type.
+    /// </summary>
+    [EnumType]
+    public readonly struct FirewallPolicyRuleType : IEquatable<FirewallPolicyRuleType>
+    {
+        private readonly string _value;
+
+        private FirewallPolicyRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FirewallPolicyRuleType ApplicationRule { get; } = new FirewallPolicyRuleType("ApplicationRule");
+        public static FirewallPolicyRuleType NetworkRule { get; } = new FirewallPolicyRuleType("NetworkRule");
+        public static FirewallPolicyRuleType NatRule { get; } = new FirewallPolicyRuleType("NatRule");
+
+        public static bool operator ==(FirewallPolicyRuleType left, FirewallPolicyRuleType right) => left.Equals(right);
+        public static bool operator !=(FirewallPolicyRuleType left, FirewallPolicyRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(FirewallPolicyRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FirewallPolicyRuleType other && Equals(other);
+        public bool Equals(FirewallPolicyRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The state of forwarding rule.
     /// </summary>
     [EnumType]
@@ -39,6 +835,139 @@ namespace Pulumi.AzureNative.Network.V20220701
     }
 
     /// <summary>
+    /// The private IP address allocation method.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAllocationMethod : IEquatable<IPAllocationMethod>
+    {
+        private readonly string _value;
+
+        private IPAllocationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAllocationMethod Static { get; } = new IPAllocationMethod("Static");
+        public static IPAllocationMethod Dynamic { get; } = new IPAllocationMethod("Dynamic");
+
+        public static bool operator ==(IPAllocationMethod left, IPAllocationMethod right) => left.Equals(right);
+        public static bool operator !=(IPAllocationMethod left, IPAllocationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(IPAllocationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAllocationMethod other && Equals(other);
+        public bool Equals(IPAllocationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The public IP address version.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPVersion : IEquatable<IPVersion>
+    {
+        private readonly string _value;
+
+        private IPVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPVersion IPv4 { get; } = new IPVersion("IPv4");
+        public static IPVersion IPv6 { get; } = new IPVersion("IPv6");
+
+        public static bool operator ==(IPVersion left, IPVersion right) => left.Equals(right);
+        public static bool operator !=(IPVersion left, IPVersion right) => !left.Equals(right);
+
+        public static explicit operator string(IPVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPVersion other && Equals(other);
+        public bool Equals(IPVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IKE encryption algorithm (IKE phase 2).
+    /// </summary>
+    [EnumType]
+    public readonly struct IkeEncryption : IEquatable<IkeEncryption>
+    {
+        private readonly string _value;
+
+        private IkeEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IkeEncryption DES { get; } = new IkeEncryption("DES");
+        public static IkeEncryption DES3 { get; } = new IkeEncryption("DES3");
+        public static IkeEncryption AES128 { get; } = new IkeEncryption("AES128");
+        public static IkeEncryption AES192 { get; } = new IkeEncryption("AES192");
+        public static IkeEncryption AES256 { get; } = new IkeEncryption("AES256");
+        public static IkeEncryption GCMAES256 { get; } = new IkeEncryption("GCMAES256");
+        public static IkeEncryption GCMAES128 { get; } = new IkeEncryption("GCMAES128");
+
+        public static bool operator ==(IkeEncryption left, IkeEncryption right) => left.Equals(right);
+        public static bool operator !=(IkeEncryption left, IkeEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(IkeEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IkeEncryption other && Equals(other);
+        public bool Equals(IkeEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IKE integrity algorithm (IKE phase 2).
+    /// </summary>
+    [EnumType]
+    public readonly struct IkeIntegrity : IEquatable<IkeIntegrity>
+    {
+        private readonly string _value;
+
+        private IkeIntegrity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IkeIntegrity MD5 { get; } = new IkeIntegrity("MD5");
+        public static IkeIntegrity SHA1 { get; } = new IkeIntegrity("SHA1");
+        public static IkeIntegrity SHA256 { get; } = new IkeIntegrity("SHA256");
+        public static IkeIntegrity SHA384 { get; } = new IkeIntegrity("SHA384");
+        public static IkeIntegrity GCMAES256 { get; } = new IkeIntegrity("GCMAES256");
+        public static IkeIntegrity GCMAES128 { get; } = new IkeIntegrity("GCMAES128");
+
+        public static bool operator ==(IkeIntegrity left, IkeIntegrity right) => left.Equals(right);
+        public static bool operator !=(IkeIntegrity left, IkeIntegrity right) => !left.Equals(right);
+
+        public static explicit operator string(IkeIntegrity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IkeIntegrity other && Equals(other);
+        public bool Equals(IkeIntegrity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Private IP address allocation method.
     /// </summary>
     [EnumType]
@@ -62,6 +991,276 @@ namespace Pulumi.AzureNative.Network.V20220701
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IpAllocationMethod other && Equals(other);
         public bool Equals(IpAllocationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IPSec encryption algorithm (IKE phase 1).
+    /// </summary>
+    [EnumType]
+    public readonly struct IpsecEncryption : IEquatable<IpsecEncryption>
+    {
+        private readonly string _value;
+
+        private IpsecEncryption(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpsecEncryption None { get; } = new IpsecEncryption("None");
+        public static IpsecEncryption DES { get; } = new IpsecEncryption("DES");
+        public static IpsecEncryption DES3 { get; } = new IpsecEncryption("DES3");
+        public static IpsecEncryption AES128 { get; } = new IpsecEncryption("AES128");
+        public static IpsecEncryption AES192 { get; } = new IpsecEncryption("AES192");
+        public static IpsecEncryption AES256 { get; } = new IpsecEncryption("AES256");
+        public static IpsecEncryption GCMAES128 { get; } = new IpsecEncryption("GCMAES128");
+        public static IpsecEncryption GCMAES192 { get; } = new IpsecEncryption("GCMAES192");
+        public static IpsecEncryption GCMAES256 { get; } = new IpsecEncryption("GCMAES256");
+
+        public static bool operator ==(IpsecEncryption left, IpsecEncryption right) => left.Equals(right);
+        public static bool operator !=(IpsecEncryption left, IpsecEncryption right) => !left.Equals(right);
+
+        public static explicit operator string(IpsecEncryption value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpsecEncryption other && Equals(other);
+        public bool Equals(IpsecEncryption other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IPSec integrity algorithm (IKE phase 1).
+    /// </summary>
+    [EnumType]
+    public readonly struct IpsecIntegrity : IEquatable<IpsecIntegrity>
+    {
+        private readonly string _value;
+
+        private IpsecIntegrity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpsecIntegrity MD5 { get; } = new IpsecIntegrity("MD5");
+        public static IpsecIntegrity SHA1 { get; } = new IpsecIntegrity("SHA1");
+        public static IpsecIntegrity SHA256 { get; } = new IpsecIntegrity("SHA256");
+        public static IpsecIntegrity GCMAES128 { get; } = new IpsecIntegrity("GCMAES128");
+        public static IpsecIntegrity GCMAES192 { get; } = new IpsecIntegrity("GCMAES192");
+        public static IpsecIntegrity GCMAES256 { get; } = new IpsecIntegrity("GCMAES256");
+
+        public static bool operator ==(IpsecIntegrity left, IpsecIntegrity right) => left.Equals(right);
+        public static bool operator !=(IpsecIntegrity left, IpsecIntegrity right) => !left.Equals(right);
+
+        public static explicit operator string(IpsecIntegrity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpsecIntegrity other && Equals(other);
+        public bool Equals(IpsecIntegrity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of Nat Gateway SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct NatGatewaySkuName : IEquatable<NatGatewaySkuName>
+    {
+        private readonly string _value;
+
+        private NatGatewaySkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NatGatewaySkuName Standard { get; } = new NatGatewaySkuName("Standard");
+
+        public static bool operator ==(NatGatewaySkuName left, NatGatewaySkuName right) => left.Equals(right);
+        public static bool operator !=(NatGatewaySkuName left, NatGatewaySkuName right) => !left.Equals(right);
+
+        public static explicit operator string(NatGatewaySkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NatGatewaySkuName other && Equals(other);
+        public bool Equals(NatGatewaySkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Pfs Group used in IKE Phase 2 for new child SA.
+    /// </summary>
+    [EnumType]
+    public readonly struct PfsGroup : IEquatable<PfsGroup>
+    {
+        private readonly string _value;
+
+        private PfsGroup(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PfsGroup None { get; } = new PfsGroup("None");
+        public static PfsGroup PFS1 { get; } = new PfsGroup("PFS1");
+        public static PfsGroup PFS2 { get; } = new PfsGroup("PFS2");
+        public static PfsGroup PFS2048 { get; } = new PfsGroup("PFS2048");
+        public static PfsGroup ECP256 { get; } = new PfsGroup("ECP256");
+        public static PfsGroup ECP384 { get; } = new PfsGroup("ECP384");
+        public static PfsGroup PFS24 { get; } = new PfsGroup("PFS24");
+        public static PfsGroup PFS14 { get; } = new PfsGroup("PFS14");
+        public static PfsGroup PFSMM { get; } = new PfsGroup("PFSMM");
+
+        public static bool operator ==(PfsGroup left, PfsGroup right) => left.Equals(right);
+        public static bool operator !=(PfsGroup left, PfsGroup right) => !left.Equals(right);
+
+        public static explicit operator string(PfsGroup value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PfsGroup other && Equals(other);
+        public bool Equals(PfsGroup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Migration phase of Public IP Address.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAddressMigrationPhase : IEquatable<PublicIPAddressMigrationPhase>
+    {
+        private readonly string _value;
+
+        private PublicIPAddressMigrationPhase(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAddressMigrationPhase None { get; } = new PublicIPAddressMigrationPhase("None");
+        public static PublicIPAddressMigrationPhase Prepare { get; } = new PublicIPAddressMigrationPhase("Prepare");
+        public static PublicIPAddressMigrationPhase Commit { get; } = new PublicIPAddressMigrationPhase("Commit");
+        public static PublicIPAddressMigrationPhase Abort { get; } = new PublicIPAddressMigrationPhase("Abort");
+        public static PublicIPAddressMigrationPhase Committed { get; } = new PublicIPAddressMigrationPhase("Committed");
+
+        public static bool operator ==(PublicIPAddressMigrationPhase left, PublicIPAddressMigrationPhase right) => left.Equals(right);
+        public static bool operator !=(PublicIPAddressMigrationPhase left, PublicIPAddressMigrationPhase right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAddressMigrationPhase value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAddressMigrationPhase other && Equals(other);
+        public bool Equals(PublicIPAddressMigrationPhase other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of a public IP address SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAddressSkuName : IEquatable<PublicIPAddressSkuName>
+    {
+        private readonly string _value;
+
+        private PublicIPAddressSkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAddressSkuName Basic { get; } = new PublicIPAddressSkuName("Basic");
+        public static PublicIPAddressSkuName Standard { get; } = new PublicIPAddressSkuName("Standard");
+
+        public static bool operator ==(PublicIPAddressSkuName left, PublicIPAddressSkuName right) => left.Equals(right);
+        public static bool operator !=(PublicIPAddressSkuName left, PublicIPAddressSkuName right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAddressSkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAddressSkuName other && Equals(other);
+        public bool Equals(PublicIPAddressSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Tier of a public IP address SKU.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicIPAddressSkuTier : IEquatable<PublicIPAddressSkuTier>
+    {
+        private readonly string _value;
+
+        private PublicIPAddressSkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicIPAddressSkuTier Regional { get; } = new PublicIPAddressSkuTier("Regional");
+        public static PublicIPAddressSkuTier Global { get; } = new PublicIPAddressSkuTier("Global");
+
+        public static bool operator ==(PublicIPAddressSkuTier left, PublicIPAddressSkuTier right) => left.Equals(right);
+        public static bool operator !=(PublicIPAddressSkuTier left, PublicIPAddressSkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(PublicIPAddressSkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicIPAddressSkuTier other && Equals(other);
+        public bool Equals(PublicIPAddressSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
+    {
+        private readonly string _value;
+
+        private ResourceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceIdentityType SystemAssigned { get; } = new ResourceIdentityType("SystemAssigned");
+        public static ResourceIdentityType UserAssigned { get; } = new ResourceIdentityType("UserAssigned");
+        public static ResourceIdentityType SystemAssigned_UserAssigned { get; } = new ResourceIdentityType("SystemAssigned, UserAssigned");
+        public static ResourceIdentityType None { get; } = new ResourceIdentityType("None");
+
+        public static bool operator ==(ResourceIdentityType left, ResourceIdentityType right) => left.Equals(right);
+        public static bool operator !=(ResourceIdentityType left, ResourceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
+        public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -201,6 +1400,322 @@ namespace Pulumi.AzureNative.Network.V20220701
     }
 
     /// <summary>
+    /// If the encrypted VNet allows VM that does not support encryption
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkEncryptionEnforcement : IEquatable<VirtualNetworkEncryptionEnforcement>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkEncryptionEnforcement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkEncryptionEnforcement DropUnencrypted { get; } = new VirtualNetworkEncryptionEnforcement("DropUnencrypted");
+        public static VirtualNetworkEncryptionEnforcement AllowUnencrypted { get; } = new VirtualNetworkEncryptionEnforcement("AllowUnencrypted");
+
+        public static bool operator ==(VirtualNetworkEncryptionEnforcement left, VirtualNetworkEncryptionEnforcement right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkEncryptionEnforcement left, VirtualNetworkEncryptionEnforcement right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkEncryptionEnforcement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkEncryptionEnforcement other && Equals(other);
+        public bool Equals(VirtualNetworkEncryptionEnforcement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The connection mode for this connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewayConnectionMode : IEquatable<VirtualNetworkGatewayConnectionMode>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewayConnectionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewayConnectionMode Default { get; } = new VirtualNetworkGatewayConnectionMode("Default");
+        public static VirtualNetworkGatewayConnectionMode ResponderOnly { get; } = new VirtualNetworkGatewayConnectionMode("ResponderOnly");
+        public static VirtualNetworkGatewayConnectionMode InitiatorOnly { get; } = new VirtualNetworkGatewayConnectionMode("InitiatorOnly");
+
+        public static bool operator ==(VirtualNetworkGatewayConnectionMode left, VirtualNetworkGatewayConnectionMode right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewayConnectionMode left, VirtualNetworkGatewayConnectionMode right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewayConnectionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewayConnectionMode other && Equals(other);
+        public bool Equals(VirtualNetworkGatewayConnectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Connection protocol used for this connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewayConnectionProtocol : IEquatable<VirtualNetworkGatewayConnectionProtocol>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewayConnectionProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewayConnectionProtocol IKEv2 { get; } = new VirtualNetworkGatewayConnectionProtocol("IKEv2");
+        public static VirtualNetworkGatewayConnectionProtocol IKEv1 { get; } = new VirtualNetworkGatewayConnectionProtocol("IKEv1");
+
+        public static bool operator ==(VirtualNetworkGatewayConnectionProtocol left, VirtualNetworkGatewayConnectionProtocol right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewayConnectionProtocol left, VirtualNetworkGatewayConnectionProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewayConnectionProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewayConnectionProtocol other && Equals(other);
+        public bool Equals(VirtualNetworkGatewayConnectionProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gateway connection type.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewayConnectionType : IEquatable<VirtualNetworkGatewayConnectionType>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewayConnectionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewayConnectionType IPsec { get; } = new VirtualNetworkGatewayConnectionType("IPsec");
+        public static VirtualNetworkGatewayConnectionType Vnet2Vnet { get; } = new VirtualNetworkGatewayConnectionType("Vnet2Vnet");
+        public static VirtualNetworkGatewayConnectionType ExpressRoute { get; } = new VirtualNetworkGatewayConnectionType("ExpressRoute");
+        public static VirtualNetworkGatewayConnectionType VPNClient { get; } = new VirtualNetworkGatewayConnectionType("VPNClient");
+
+        public static bool operator ==(VirtualNetworkGatewayConnectionType left, VirtualNetworkGatewayConnectionType right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewayConnectionType left, VirtualNetworkGatewayConnectionType right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewayConnectionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewayConnectionType other && Equals(other);
+        public bool Equals(VirtualNetworkGatewayConnectionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gateway SKU name.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewaySkuName : IEquatable<VirtualNetworkGatewaySkuName>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewaySkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewaySkuName Basic { get; } = new VirtualNetworkGatewaySkuName("Basic");
+        public static VirtualNetworkGatewaySkuName HighPerformance { get; } = new VirtualNetworkGatewaySkuName("HighPerformance");
+        public static VirtualNetworkGatewaySkuName Standard { get; } = new VirtualNetworkGatewaySkuName("Standard");
+        public static VirtualNetworkGatewaySkuName UltraPerformance { get; } = new VirtualNetworkGatewaySkuName("UltraPerformance");
+        public static VirtualNetworkGatewaySkuName VpnGw1 { get; } = new VirtualNetworkGatewaySkuName("VpnGw1");
+        public static VirtualNetworkGatewaySkuName VpnGw2 { get; } = new VirtualNetworkGatewaySkuName("VpnGw2");
+        public static VirtualNetworkGatewaySkuName VpnGw3 { get; } = new VirtualNetworkGatewaySkuName("VpnGw3");
+        public static VirtualNetworkGatewaySkuName VpnGw4 { get; } = new VirtualNetworkGatewaySkuName("VpnGw4");
+        public static VirtualNetworkGatewaySkuName VpnGw5 { get; } = new VirtualNetworkGatewaySkuName("VpnGw5");
+        public static VirtualNetworkGatewaySkuName VpnGw1AZ { get; } = new VirtualNetworkGatewaySkuName("VpnGw1AZ");
+        public static VirtualNetworkGatewaySkuName VpnGw2AZ { get; } = new VirtualNetworkGatewaySkuName("VpnGw2AZ");
+        public static VirtualNetworkGatewaySkuName VpnGw3AZ { get; } = new VirtualNetworkGatewaySkuName("VpnGw3AZ");
+        public static VirtualNetworkGatewaySkuName VpnGw4AZ { get; } = new VirtualNetworkGatewaySkuName("VpnGw4AZ");
+        public static VirtualNetworkGatewaySkuName VpnGw5AZ { get; } = new VirtualNetworkGatewaySkuName("VpnGw5AZ");
+        public static VirtualNetworkGatewaySkuName ErGw1AZ { get; } = new VirtualNetworkGatewaySkuName("ErGw1AZ");
+        public static VirtualNetworkGatewaySkuName ErGw2AZ { get; } = new VirtualNetworkGatewaySkuName("ErGw2AZ");
+        public static VirtualNetworkGatewaySkuName ErGw3AZ { get; } = new VirtualNetworkGatewaySkuName("ErGw3AZ");
+
+        public static bool operator ==(VirtualNetworkGatewaySkuName left, VirtualNetworkGatewaySkuName right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewaySkuName left, VirtualNetworkGatewaySkuName right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewaySkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewaySkuName other && Equals(other);
+        public bool Equals(VirtualNetworkGatewaySkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gateway SKU tier.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewaySkuTier : IEquatable<VirtualNetworkGatewaySkuTier>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewaySkuTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewaySkuTier Basic { get; } = new VirtualNetworkGatewaySkuTier("Basic");
+        public static VirtualNetworkGatewaySkuTier HighPerformance { get; } = new VirtualNetworkGatewaySkuTier("HighPerformance");
+        public static VirtualNetworkGatewaySkuTier Standard { get; } = new VirtualNetworkGatewaySkuTier("Standard");
+        public static VirtualNetworkGatewaySkuTier UltraPerformance { get; } = new VirtualNetworkGatewaySkuTier("UltraPerformance");
+        public static VirtualNetworkGatewaySkuTier VpnGw1 { get; } = new VirtualNetworkGatewaySkuTier("VpnGw1");
+        public static VirtualNetworkGatewaySkuTier VpnGw2 { get; } = new VirtualNetworkGatewaySkuTier("VpnGw2");
+        public static VirtualNetworkGatewaySkuTier VpnGw3 { get; } = new VirtualNetworkGatewaySkuTier("VpnGw3");
+        public static VirtualNetworkGatewaySkuTier VpnGw4 { get; } = new VirtualNetworkGatewaySkuTier("VpnGw4");
+        public static VirtualNetworkGatewaySkuTier VpnGw5 { get; } = new VirtualNetworkGatewaySkuTier("VpnGw5");
+        public static VirtualNetworkGatewaySkuTier VpnGw1AZ { get; } = new VirtualNetworkGatewaySkuTier("VpnGw1AZ");
+        public static VirtualNetworkGatewaySkuTier VpnGw2AZ { get; } = new VirtualNetworkGatewaySkuTier("VpnGw2AZ");
+        public static VirtualNetworkGatewaySkuTier VpnGw3AZ { get; } = new VirtualNetworkGatewaySkuTier("VpnGw3AZ");
+        public static VirtualNetworkGatewaySkuTier VpnGw4AZ { get; } = new VirtualNetworkGatewaySkuTier("VpnGw4AZ");
+        public static VirtualNetworkGatewaySkuTier VpnGw5AZ { get; } = new VirtualNetworkGatewaySkuTier("VpnGw5AZ");
+        public static VirtualNetworkGatewaySkuTier ErGw1AZ { get; } = new VirtualNetworkGatewaySkuTier("ErGw1AZ");
+        public static VirtualNetworkGatewaySkuTier ErGw2AZ { get; } = new VirtualNetworkGatewaySkuTier("ErGw2AZ");
+        public static VirtualNetworkGatewaySkuTier ErGw3AZ { get; } = new VirtualNetworkGatewaySkuTier("ErGw3AZ");
+
+        public static bool operator ==(VirtualNetworkGatewaySkuTier left, VirtualNetworkGatewaySkuTier right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewaySkuTier left, VirtualNetworkGatewaySkuTier right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewaySkuTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewaySkuTier other && Equals(other);
+        public bool Equals(VirtualNetworkGatewaySkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of this virtual network gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkGatewayType : IEquatable<VirtualNetworkGatewayType>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkGatewayType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkGatewayType Vpn { get; } = new VirtualNetworkGatewayType("Vpn");
+        public static VirtualNetworkGatewayType ExpressRoute { get; } = new VirtualNetworkGatewayType("ExpressRoute");
+        public static VirtualNetworkGatewayType LocalGateway { get; } = new VirtualNetworkGatewayType("LocalGateway");
+
+        public static bool operator ==(VirtualNetworkGatewayType left, VirtualNetworkGatewayType right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkGatewayType left, VirtualNetworkGatewayType right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkGatewayType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkGatewayType other && Equals(other);
+        public bool Equals(VirtualNetworkGatewayType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The peering sync status of the virtual network peering.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkPeeringLevel : IEquatable<VirtualNetworkPeeringLevel>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkPeeringLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkPeeringLevel FullyInSync { get; } = new VirtualNetworkPeeringLevel("FullyInSync");
+        public static VirtualNetworkPeeringLevel RemoteNotInSync { get; } = new VirtualNetworkPeeringLevel("RemoteNotInSync");
+        public static VirtualNetworkPeeringLevel LocalNotInSync { get; } = new VirtualNetworkPeeringLevel("LocalNotInSync");
+        public static VirtualNetworkPeeringLevel LocalAndRemoteNotInSync { get; } = new VirtualNetworkPeeringLevel("LocalAndRemoteNotInSync");
+
+        public static bool operator ==(VirtualNetworkPeeringLevel left, VirtualNetworkPeeringLevel right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkPeeringLevel left, VirtualNetworkPeeringLevel right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkPeeringLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkPeeringLevel other && Equals(other);
+        public bool Equals(VirtualNetworkPeeringLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the virtual network peering.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkPeeringState : IEquatable<VirtualNetworkPeeringState>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkPeeringState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkPeeringState Initiated { get; } = new VirtualNetworkPeeringState("Initiated");
+        public static VirtualNetworkPeeringState Connected { get; } = new VirtualNetworkPeeringState("Connected");
+        public static VirtualNetworkPeeringState Disconnected { get; } = new VirtualNetworkPeeringState("Disconnected");
+
+        public static bool operator ==(VirtualNetworkPeeringState left, VirtualNetworkPeeringState right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkPeeringState left, VirtualNetworkPeeringState right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkPeeringState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkPeeringState other && Equals(other);
+        public bool Equals(VirtualNetworkPeeringState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enable or Disable apply network policies on private end point in the subnet.
     /// </summary>
     [EnumType]
@@ -255,6 +1770,227 @@ namespace Pulumi.AzureNative.Network.V20220701
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VirtualNetworkPrivateLinkServiceNetworkPolicies other && Equals(other);
         public bool Equals(VirtualNetworkPrivateLinkServiceNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// VPN authentication types enabled for the virtual network gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnAuthenticationType : IEquatable<VpnAuthenticationType>
+    {
+        private readonly string _value;
+
+        private VpnAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnAuthenticationType Certificate { get; } = new VpnAuthenticationType("Certificate");
+        public static VpnAuthenticationType Radius { get; } = new VpnAuthenticationType("Radius");
+        public static VpnAuthenticationType AAD { get; } = new VpnAuthenticationType("AAD");
+
+        public static bool operator ==(VpnAuthenticationType left, VpnAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(VpnAuthenticationType left, VpnAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(VpnAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnAuthenticationType other && Equals(other);
+        public bool Equals(VpnAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// VPN client protocol enabled for the virtual network gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnClientProtocol : IEquatable<VpnClientProtocol>
+    {
+        private readonly string _value;
+
+        private VpnClientProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnClientProtocol IkeV2 { get; } = new VpnClientProtocol("IkeV2");
+        public static VpnClientProtocol SSTP { get; } = new VpnClientProtocol("SSTP");
+        public static VpnClientProtocol OpenVPN { get; } = new VpnClientProtocol("OpenVPN");
+
+        public static bool operator ==(VpnClientProtocol left, VpnClientProtocol right) => left.Equals(right);
+        public static bool operator !=(VpnClientProtocol left, VpnClientProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(VpnClientProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnClientProtocol other && Equals(other);
+        public bool Equals(VpnClientProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnGatewayGeneration : IEquatable<VpnGatewayGeneration>
+    {
+        private readonly string _value;
+
+        private VpnGatewayGeneration(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnGatewayGeneration None { get; } = new VpnGatewayGeneration("None");
+        public static VpnGatewayGeneration Generation1 { get; } = new VpnGatewayGeneration("Generation1");
+        public static VpnGatewayGeneration Generation2 { get; } = new VpnGatewayGeneration("Generation2");
+
+        public static bool operator ==(VpnGatewayGeneration left, VpnGatewayGeneration right) => left.Equals(right);
+        public static bool operator !=(VpnGatewayGeneration left, VpnGatewayGeneration right) => !left.Equals(right);
+
+        public static explicit operator string(VpnGatewayGeneration value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnGatewayGeneration other && Equals(other);
+        public bool Equals(VpnGatewayGeneration other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Source NAT direction of a VPN NAT.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnNatRuleMode : IEquatable<VpnNatRuleMode>
+    {
+        private readonly string _value;
+
+        private VpnNatRuleMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnNatRuleMode EgressSnat { get; } = new VpnNatRuleMode("EgressSnat");
+        public static VpnNatRuleMode IngressSnat { get; } = new VpnNatRuleMode("IngressSnat");
+
+        public static bool operator ==(VpnNatRuleMode left, VpnNatRuleMode right) => left.Equals(right);
+        public static bool operator !=(VpnNatRuleMode left, VpnNatRuleMode right) => !left.Equals(right);
+
+        public static explicit operator string(VpnNatRuleMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnNatRuleMode other && Equals(other);
+        public bool Equals(VpnNatRuleMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of NAT rule for VPN NAT.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnNatRuleType : IEquatable<VpnNatRuleType>
+    {
+        private readonly string _value;
+
+        private VpnNatRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnNatRuleType Static { get; } = new VpnNatRuleType("Static");
+        public static VpnNatRuleType Dynamic { get; } = new VpnNatRuleType("Dynamic");
+
+        public static bool operator ==(VpnNatRuleType left, VpnNatRuleType right) => left.Equals(right);
+        public static bool operator !=(VpnNatRuleType left, VpnNatRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(VpnNatRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnNatRuleType other && Equals(other);
+        public bool Equals(VpnNatRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Vpn Policy member attribute type.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnPolicyMemberAttributeType : IEquatable<VpnPolicyMemberAttributeType>
+    {
+        private readonly string _value;
+
+        private VpnPolicyMemberAttributeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnPolicyMemberAttributeType CertificateGroupId { get; } = new VpnPolicyMemberAttributeType("CertificateGroupId");
+        public static VpnPolicyMemberAttributeType AADGroupId { get; } = new VpnPolicyMemberAttributeType("AADGroupId");
+        public static VpnPolicyMemberAttributeType RadiusAzureGroupId { get; } = new VpnPolicyMemberAttributeType("RadiusAzureGroupId");
+
+        public static bool operator ==(VpnPolicyMemberAttributeType left, VpnPolicyMemberAttributeType right) => left.Equals(right);
+        public static bool operator !=(VpnPolicyMemberAttributeType left, VpnPolicyMemberAttributeType right) => !left.Equals(right);
+
+        public static explicit operator string(VpnPolicyMemberAttributeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnPolicyMemberAttributeType other && Equals(other);
+        public bool Equals(VpnPolicyMemberAttributeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of this virtual network gateway.
+    /// </summary>
+    [EnumType]
+    public readonly struct VpnType : IEquatable<VpnType>
+    {
+        private readonly string _value;
+
+        private VpnType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpnType PolicyBased { get; } = new VpnType("PolicyBased");
+        public static VpnType RouteBased { get; } = new VpnType("RouteBased");
+
+        public static bool operator ==(VpnType left, VpnType right) => left.Equals(right);
+        public static bool operator !=(VpnType left, VpnType right) => !left.Equals(right);
+
+        public static explicit operator string(VpnType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpnType other && Equals(other);
+        public bool Equals(VpnType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

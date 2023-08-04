@@ -15,6 +15,16 @@ export const getDatabase: typeof import("./getDatabase").getDatabase = null as a
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
 
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+
+export { ServerArgs } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+
 
 // Export enums:
 export * from "../../types/enums/sql/v20190601preview";
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "azure-native:sql/v20190601preview:Database":
                 return new Database(name, <any>undefined, { urn })
+            case "azure-native:sql/v20190601preview:Server":
+                return new Server(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

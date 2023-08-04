@@ -15,15 +15,35 @@ export const getLogAnalyticExportThrottledRequests: typeof import("./getLogAnaly
 export const getLogAnalyticExportThrottledRequestsOutput: typeof import("./getLogAnalyticExportThrottledRequests").getLogAnalyticExportThrottledRequestsOutput = null as any;
 utilities.lazyLoad(exports, ["getLogAnalyticExportThrottledRequests","getLogAnalyticExportThrottledRequestsOutput"], () => require("./getLogAnalyticExportThrottledRequests"));
 
+export { GetProximityPlacementGroupArgs, GetProximityPlacementGroupResult, GetProximityPlacementGroupOutputArgs } from "./getProximityPlacementGroup";
+export const getProximityPlacementGroup: typeof import("./getProximityPlacementGroup").getProximityPlacementGroup = null as any;
+export const getProximityPlacementGroupOutput: typeof import("./getProximityPlacementGroup").getProximityPlacementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getProximityPlacementGroup","getProximityPlacementGroupOutput"], () => require("./getProximityPlacementGroup"));
+
 export { GetRestorePointArgs, GetRestorePointResult, GetRestorePointOutputArgs } from "./getRestorePoint";
 export const getRestorePoint: typeof import("./getRestorePoint").getRestorePoint = null as any;
 export const getRestorePointOutput: typeof import("./getRestorePoint").getRestorePointOutput = null as any;
 utilities.lazyLoad(exports, ["getRestorePoint","getRestorePointOutput"], () => require("./getRestorePoint"));
 
+export { GetVirtualMachineScaleSetArgs, GetVirtualMachineScaleSetResult, GetVirtualMachineScaleSetOutputArgs } from "./getVirtualMachineScaleSet";
+export const getVirtualMachineScaleSet: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSet = null as any;
+export const getVirtualMachineScaleSetOutput: typeof import("./getVirtualMachineScaleSet").getVirtualMachineScaleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineScaleSet","getVirtualMachineScaleSetOutput"], () => require("./getVirtualMachineScaleSet"));
+
+export { ProximityPlacementGroupArgs } from "./proximityPlacementGroup";
+export type ProximityPlacementGroup = import("./proximityPlacementGroup").ProximityPlacementGroup;
+export const ProximityPlacementGroup: typeof import("./proximityPlacementGroup").ProximityPlacementGroup = null as any;
+utilities.lazyLoad(exports, ["ProximityPlacementGroup"], () => require("./proximityPlacementGroup"));
+
 export { RestorePointArgs } from "./restorePoint";
 export type RestorePoint = import("./restorePoint").RestorePoint;
 export const RestorePoint: typeof import("./restorePoint").RestorePoint = null as any;
 utilities.lazyLoad(exports, ["RestorePoint"], () => require("./restorePoint"));
+
+export { VirtualMachineScaleSetArgs } from "./virtualMachineScaleSet";
+export type VirtualMachineScaleSet = import("./virtualMachineScaleSet").VirtualMachineScaleSet;
+export const VirtualMachineScaleSet: typeof import("./virtualMachineScaleSet").VirtualMachineScaleSet = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineScaleSet"], () => require("./virtualMachineScaleSet"));
 
 
 // Export enums:
@@ -33,8 +53,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:compute/v20221101:ProximityPlacementGroup":
+                return new ProximityPlacementGroup(name, <any>undefined, { urn })
             case "azure-native:compute/v20221101:RestorePoint":
                 return new RestorePoint(name, <any>undefined, { urn })
+            case "azure-native:compute/v20221101:VirtualMachineScaleSet":
+                return new VirtualMachineScaleSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -139,6 +139,19 @@ export const MatchProcessingBehavior = {
  */
 export type MatchProcessingBehavior = (typeof MatchProcessingBehavior)[keyof typeof MatchProcessingBehavior];
 
+export const RouteNextHopType = {
+    VirtualNetworkGateway: "VirtualNetworkGateway",
+    VnetLocal: "VnetLocal",
+    Internet: "Internet",
+    VirtualAppliance: "VirtualAppliance",
+    None: "None",
+} as const;
+
+/**
+ * The type of Azure hop the packet should be sent to.
+ */
+export type RouteNextHopType = (typeof RouteNextHopType)[keyof typeof RouteNextHopType];
+
 export const RoutingRuleEnabledState = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -188,6 +201,40 @@ export const RulesEngineOperator = {
  */
 export type RulesEngineOperator = (typeof RulesEngineOperator)[keyof typeof RulesEngineOperator];
 
+export const SecurityRuleAccess = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * The network traffic is allowed or denied.
+ */
+export type SecurityRuleAccess = (typeof SecurityRuleAccess)[keyof typeof SecurityRuleAccess];
+
+export const SecurityRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+ */
+export type SecurityRuleDirection = (typeof SecurityRuleDirection)[keyof typeof SecurityRuleDirection];
+
+export const SecurityRuleProtocol = {
+    Tcp: "Tcp",
+    Udp: "Udp",
+    Icmp: "Icmp",
+    Esp: "Esp",
+    Asterisk: "*",
+    Ah: "Ah",
+} as const;
+
+/**
+ * Network protocol this rule applies to.
+ */
+export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
+
 export const SessionAffinityEnabledState = {
     Enabled: "Enabled",
     Disabled: "Disabled",
@@ -211,3 +258,14 @@ export const Transform = {
  * Describes what transforms are applied before matching
  */
 export type Transform = (typeof Transform)[keyof typeof Transform];
+
+export const VirtualNetworkPeeringState = {
+    Initiated: "Initiated",
+    Connected: "Connected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * The status of the virtual network peering.
+ */
+export type VirtualNetworkPeeringState = (typeof VirtualNetworkPeeringState)[keyof typeof VirtualNetworkPeeringState];

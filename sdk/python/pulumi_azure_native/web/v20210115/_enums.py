@@ -6,6 +6,8 @@ from enum import Enum
 
 __all__ = [
     'LoadBalancingMode',
+    'ManagedServiceIdentityType',
+    'StagingEnvironmentPolicy',
 ]
 
 
@@ -17,3 +19,21 @@ class LoadBalancingMode(str, Enum):
     WEB = "Web"
     PUBLISHING = "Publishing"
     WEB_PUBLISHING = "Web, Publishing"
+
+
+class ManagedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
+
+
+class StagingEnvironmentPolicy(str, Enum):
+    """
+    State indicating whether staging environments are allowed or not allowed for a static web app.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"

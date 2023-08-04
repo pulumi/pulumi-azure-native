@@ -5,15 +5,85 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { AppServicePlanArgs } from "./appServicePlan";
+export type AppServicePlan = import("./appServicePlan").AppServicePlan;
+export const AppServicePlan: typeof import("./appServicePlan").AppServicePlan = null as any;
+utilities.lazyLoad(exports, ["AppServicePlan"], () => require("./appServicePlan"));
+
+export { CertificateArgs } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
+
+export { GetAppServicePlanArgs, GetAppServicePlanResult, GetAppServicePlanOutputArgs } from "./getAppServicePlan";
+export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServicePlan = null as any;
+export const getAppServicePlanOutput: typeof import("./getAppServicePlan").getAppServicePlanOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServicePlan","getAppServicePlanOutput"], () => require("./getAppServicePlan"));
+
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetStaticSiteArgs, GetStaticSiteResult, GetStaticSiteOutputArgs } from "./getStaticSite";
+export const getStaticSite: typeof import("./getStaticSite").getStaticSite = null as any;
+export const getStaticSiteOutput: typeof import("./getStaticSite").getStaticSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSite","getStaticSiteOutput"], () => require("./getStaticSite"));
+
+export { GetStaticSiteCustomDomainArgs, GetStaticSiteCustomDomainResult, GetStaticSiteCustomDomainOutputArgs } from "./getStaticSiteCustomDomain";
+export const getStaticSiteCustomDomain: typeof import("./getStaticSiteCustomDomain").getStaticSiteCustomDomain = null as any;
+export const getStaticSiteCustomDomainOutput: typeof import("./getStaticSiteCustomDomain").getStaticSiteCustomDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSiteCustomDomain","getStaticSiteCustomDomainOutput"], () => require("./getStaticSiteCustomDomain"));
+
+export { GetStaticSiteUserProvidedFunctionAppForStaticSiteArgs, GetStaticSiteUserProvidedFunctionAppForStaticSiteResult, GetStaticSiteUserProvidedFunctionAppForStaticSiteOutputArgs } from "./getStaticSiteUserProvidedFunctionAppForStaticSite";
+export const getStaticSiteUserProvidedFunctionAppForStaticSite: typeof import("./getStaticSiteUserProvidedFunctionAppForStaticSite").getStaticSiteUserProvidedFunctionAppForStaticSite = null as any;
+export const getStaticSiteUserProvidedFunctionAppForStaticSiteOutput: typeof import("./getStaticSiteUserProvidedFunctionAppForStaticSite").getStaticSiteUserProvidedFunctionAppForStaticSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSiteUserProvidedFunctionAppForStaticSite","getStaticSiteUserProvidedFunctionAppForStaticSiteOutput"], () => require("./getStaticSiteUserProvidedFunctionAppForStaticSite"));
+
+export { GetWebAppArgs, GetWebAppResult, GetWebAppOutputArgs } from "./getWebApp";
+export const getWebApp: typeof import("./getWebApp").getWebApp = null as any;
+export const getWebAppOutput: typeof import("./getWebApp").getWebAppOutput = null as any;
+utilities.lazyLoad(exports, ["getWebApp","getWebAppOutput"], () => require("./getWebApp"));
+
 export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
 export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
 export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppFtpAllowed","getWebAppFtpAllowedOutput"], () => require("./getWebAppFtpAllowed"));
 
+export { GetWebAppPublicCertificateArgs, GetWebAppPublicCertificateResult, GetWebAppPublicCertificateOutputArgs } from "./getWebAppPublicCertificate";
+export const getWebAppPublicCertificate: typeof import("./getWebAppPublicCertificate").getWebAppPublicCertificate = null as any;
+export const getWebAppPublicCertificateOutput: typeof import("./getWebAppPublicCertificate").getWebAppPublicCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppPublicCertificate","getWebAppPublicCertificateOutput"], () => require("./getWebAppPublicCertificate"));
+
+export { GetWebAppPublicCertificateSlotArgs, GetWebAppPublicCertificateSlotResult, GetWebAppPublicCertificateSlotOutputArgs } from "./getWebAppPublicCertificateSlot";
+export const getWebAppPublicCertificateSlot: typeof import("./getWebAppPublicCertificateSlot").getWebAppPublicCertificateSlot = null as any;
+export const getWebAppPublicCertificateSlotOutput: typeof import("./getWebAppPublicCertificateSlot").getWebAppPublicCertificateSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppPublicCertificateSlot","getWebAppPublicCertificateSlotOutput"], () => require("./getWebAppPublicCertificateSlot"));
+
 export { GetWebAppScmAllowedArgs, GetWebAppScmAllowedResult, GetWebAppScmAllowedOutputArgs } from "./getWebAppScmAllowed";
 export const getWebAppScmAllowed: typeof import("./getWebAppScmAllowed").getWebAppScmAllowed = null as any;
 export const getWebAppScmAllowedOutput: typeof import("./getWebAppScmAllowed").getWebAppScmAllowedOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppScmAllowed","getWebAppScmAllowedOutput"], () => require("./getWebAppScmAllowed"));
+
+export { GetWebAppSlotArgs, GetWebAppSlotResult, GetWebAppSlotOutputArgs } from "./getWebAppSlot";
+export const getWebAppSlot: typeof import("./getWebAppSlot").getWebAppSlot = null as any;
+export const getWebAppSlotOutput: typeof import("./getWebAppSlot").getWebAppSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSlot","getWebAppSlotOutput"], () => require("./getWebAppSlot"));
+
+export { GetWebAppSlotConfigurationNamesArgs, GetWebAppSlotConfigurationNamesResult, GetWebAppSlotConfigurationNamesOutputArgs } from "./getWebAppSlotConfigurationNames";
+export const getWebAppSlotConfigurationNames: typeof import("./getWebAppSlotConfigurationNames").getWebAppSlotConfigurationNames = null as any;
+export const getWebAppSlotConfigurationNamesOutput: typeof import("./getWebAppSlotConfigurationNames").getWebAppSlotConfigurationNamesOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSlotConfigurationNames","getWebAppSlotConfigurationNamesOutput"], () => require("./getWebAppSlotConfigurationNames"));
+
+export { GetWebAppSwiftVirtualNetworkConnectionArgs, GetWebAppSwiftVirtualNetworkConnectionResult, GetWebAppSwiftVirtualNetworkConnectionOutputArgs } from "./getWebAppSwiftVirtualNetworkConnection";
+export const getWebAppSwiftVirtualNetworkConnection: typeof import("./getWebAppSwiftVirtualNetworkConnection").getWebAppSwiftVirtualNetworkConnection = null as any;
+export const getWebAppSwiftVirtualNetworkConnectionOutput: typeof import("./getWebAppSwiftVirtualNetworkConnection").getWebAppSwiftVirtualNetworkConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSwiftVirtualNetworkConnection","getWebAppSwiftVirtualNetworkConnectionOutput"], () => require("./getWebAppSwiftVirtualNetworkConnection"));
+
+export { GetWebAppSwiftVirtualNetworkConnectionSlotArgs, GetWebAppSwiftVirtualNetworkConnectionSlotResult, GetWebAppSwiftVirtualNetworkConnectionSlotOutputArgs } from "./getWebAppSwiftVirtualNetworkConnectionSlot";
+export const getWebAppSwiftVirtualNetworkConnectionSlot: typeof import("./getWebAppSwiftVirtualNetworkConnectionSlot").getWebAppSwiftVirtualNetworkConnectionSlot = null as any;
+export const getWebAppSwiftVirtualNetworkConnectionSlotOutput: typeof import("./getWebAppSwiftVirtualNetworkConnectionSlot").getWebAppSwiftVirtualNetworkConnectionSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSwiftVirtualNetworkConnectionSlot","getWebAppSwiftVirtualNetworkConnectionSlotOutput"], () => require("./getWebAppSwiftVirtualNetworkConnectionSlot"));
 
 export { ListContainerAppSecretsArgs, ListContainerAppSecretsResult, ListContainerAppSecretsOutputArgs } from "./listContainerAppSecrets";
 export const listContainerAppSecrets: typeof import("./listContainerAppSecrets").listContainerAppSecrets = null as any;
@@ -25,25 +95,109 @@ export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIde
 export const listSiteIdentifiersAssignedToHostNameOutput: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostNameOutput = null as any;
 utilities.lazyLoad(exports, ["listSiteIdentifiersAssignedToHostName","listSiteIdentifiersAssignedToHostNameOutput"], () => require("./listSiteIdentifiersAssignedToHostName"));
 
+export { StaticSiteArgs } from "./staticSite";
+export type StaticSite = import("./staticSite").StaticSite;
+export const StaticSite: typeof import("./staticSite").StaticSite = null as any;
+utilities.lazyLoad(exports, ["StaticSite"], () => require("./staticSite"));
+
+export { StaticSiteCustomDomainArgs } from "./staticSiteCustomDomain";
+export type StaticSiteCustomDomain = import("./staticSiteCustomDomain").StaticSiteCustomDomain;
+export const StaticSiteCustomDomain: typeof import("./staticSiteCustomDomain").StaticSiteCustomDomain = null as any;
+utilities.lazyLoad(exports, ["StaticSiteCustomDomain"], () => require("./staticSiteCustomDomain"));
+
+export { StaticSiteUserProvidedFunctionAppForStaticSiteArgs } from "./staticSiteUserProvidedFunctionAppForStaticSite";
+export type StaticSiteUserProvidedFunctionAppForStaticSite = import("./staticSiteUserProvidedFunctionAppForStaticSite").StaticSiteUserProvidedFunctionAppForStaticSite;
+export const StaticSiteUserProvidedFunctionAppForStaticSite: typeof import("./staticSiteUserProvidedFunctionAppForStaticSite").StaticSiteUserProvidedFunctionAppForStaticSite = null as any;
+utilities.lazyLoad(exports, ["StaticSiteUserProvidedFunctionAppForStaticSite"], () => require("./staticSiteUserProvidedFunctionAppForStaticSite"));
+
+export { WebAppArgs } from "./webApp";
+export type WebApp = import("./webApp").WebApp;
+export const WebApp: typeof import("./webApp").WebApp = null as any;
+utilities.lazyLoad(exports, ["WebApp"], () => require("./webApp"));
+
+export { WebAppApplicationSettingsArgs } from "./webAppApplicationSettings";
+export type WebAppApplicationSettings = import("./webAppApplicationSettings").WebAppApplicationSettings;
+export const WebAppApplicationSettings: typeof import("./webAppApplicationSettings").WebAppApplicationSettings = null as any;
+utilities.lazyLoad(exports, ["WebAppApplicationSettings"], () => require("./webAppApplicationSettings"));
+
 export { WebAppFtpAllowedArgs } from "./webAppFtpAllowed";
 export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
 export const WebAppFtpAllowed: typeof import("./webAppFtpAllowed").WebAppFtpAllowed = null as any;
 utilities.lazyLoad(exports, ["WebAppFtpAllowed"], () => require("./webAppFtpAllowed"));
+
+export { WebAppPublicCertificateArgs } from "./webAppPublicCertificate";
+export type WebAppPublicCertificate = import("./webAppPublicCertificate").WebAppPublicCertificate;
+export const WebAppPublicCertificate: typeof import("./webAppPublicCertificate").WebAppPublicCertificate = null as any;
+utilities.lazyLoad(exports, ["WebAppPublicCertificate"], () => require("./webAppPublicCertificate"));
+
+export { WebAppPublicCertificateSlotArgs } from "./webAppPublicCertificateSlot";
+export type WebAppPublicCertificateSlot = import("./webAppPublicCertificateSlot").WebAppPublicCertificateSlot;
+export const WebAppPublicCertificateSlot: typeof import("./webAppPublicCertificateSlot").WebAppPublicCertificateSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppPublicCertificateSlot"], () => require("./webAppPublicCertificateSlot"));
 
 export { WebAppScmAllowedArgs } from "./webAppScmAllowed";
 export type WebAppScmAllowed = import("./webAppScmAllowed").WebAppScmAllowed;
 export const WebAppScmAllowed: typeof import("./webAppScmAllowed").WebAppScmAllowed = null as any;
 utilities.lazyLoad(exports, ["WebAppScmAllowed"], () => require("./webAppScmAllowed"));
 
+export { WebAppSlotArgs } from "./webAppSlot";
+export type WebAppSlot = import("./webAppSlot").WebAppSlot;
+export const WebAppSlot: typeof import("./webAppSlot").WebAppSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppSlot"], () => require("./webAppSlot"));
+
+export { WebAppSlotConfigurationNamesArgs } from "./webAppSlotConfigurationNames";
+export type WebAppSlotConfigurationNames = import("./webAppSlotConfigurationNames").WebAppSlotConfigurationNames;
+export const WebAppSlotConfigurationNames: typeof import("./webAppSlotConfigurationNames").WebAppSlotConfigurationNames = null as any;
+utilities.lazyLoad(exports, ["WebAppSlotConfigurationNames"], () => require("./webAppSlotConfigurationNames"));
+
+export { WebAppSwiftVirtualNetworkConnectionArgs } from "./webAppSwiftVirtualNetworkConnection";
+export type WebAppSwiftVirtualNetworkConnection = import("./webAppSwiftVirtualNetworkConnection").WebAppSwiftVirtualNetworkConnection;
+export const WebAppSwiftVirtualNetworkConnection: typeof import("./webAppSwiftVirtualNetworkConnection").WebAppSwiftVirtualNetworkConnection = null as any;
+utilities.lazyLoad(exports, ["WebAppSwiftVirtualNetworkConnection"], () => require("./webAppSwiftVirtualNetworkConnection"));
+
+export { WebAppSwiftVirtualNetworkConnectionSlotArgs } from "./webAppSwiftVirtualNetworkConnectionSlot";
+export type WebAppSwiftVirtualNetworkConnectionSlot = import("./webAppSwiftVirtualNetworkConnectionSlot").WebAppSwiftVirtualNetworkConnectionSlot;
+export const WebAppSwiftVirtualNetworkConnectionSlot: typeof import("./webAppSwiftVirtualNetworkConnectionSlot").WebAppSwiftVirtualNetworkConnectionSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppSwiftVirtualNetworkConnectionSlot"], () => require("./webAppSwiftVirtualNetworkConnectionSlot"));
+
+
+// Export enums:
+export * from "../../types/enums/web/v20210301";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:web/v20210301:AppServicePlan":
+                return new AppServicePlan(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:Certificate":
+                return new Certificate(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:StaticSite":
+                return new StaticSite(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:StaticSiteCustomDomain":
+                return new StaticSiteCustomDomain(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:StaticSiteUserProvidedFunctionAppForStaticSite":
+                return new StaticSiteUserProvidedFunctionAppForStaticSite(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:WebApp":
+                return new WebApp(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:WebAppApplicationSettings":
+                return new WebAppApplicationSettings(name, <any>undefined, { urn })
             case "azure-native:web/v20210301:WebAppFtpAllowed":
                 return new WebAppFtpAllowed(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:WebAppPublicCertificate":
+                return new WebAppPublicCertificate(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:WebAppPublicCertificateSlot":
+                return new WebAppPublicCertificateSlot(name, <any>undefined, { urn })
             case "azure-native:web/v20210301:WebAppScmAllowed":
                 return new WebAppScmAllowed(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:WebAppSlot":
+                return new WebAppSlot(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:WebAppSlotConfigurationNames":
+                return new WebAppSlotConfigurationNames(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection":
+                return new WebAppSwiftVirtualNetworkConnection(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnectionSlot":
+                return new WebAppSwiftVirtualNetworkConnectionSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

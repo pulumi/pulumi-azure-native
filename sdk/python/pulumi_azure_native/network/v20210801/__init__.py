@@ -6,9 +6,13 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .bastion_host import *
 from .firewall_policy import *
+from .get_bastion_host import *
 from .get_firewall_policy import *
+from .get_private_endpoint import *
 from .list_firewall_policy_idps_signature import *
 from .list_firewall_policy_idps_signatures_filter_value import *
+from .private_endpoint import *
 from ._inputs import *
 from . import outputs

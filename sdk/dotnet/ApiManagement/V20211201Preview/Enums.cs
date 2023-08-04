@@ -8,6 +8,138 @@ using Pulumi;
 namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
 {
     /// <summary>
+    /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApimIdentityType : IEquatable<ApimIdentityType>
+    {
+        private readonly string _value;
+
+        private ApimIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApimIdentityType SystemAssigned { get; } = new ApimIdentityType("SystemAssigned");
+        public static ApimIdentityType UserAssigned { get; } = new ApimIdentityType("UserAssigned");
+        public static ApimIdentityType SystemAssigned_UserAssigned { get; } = new ApimIdentityType("SystemAssigned, UserAssigned");
+        public static ApimIdentityType None { get; } = new ApimIdentityType("None");
+
+        public static bool operator ==(ApimIdentityType left, ApimIdentityType right) => left.Equals(right);
+        public static bool operator !=(ApimIdentityType left, ApimIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(ApimIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApimIdentityType other && Equals(other);
+        public bool Equals(ApimIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Certificate Source.
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateSource : IEquatable<CertificateSource>
+    {
+        private readonly string _value;
+
+        private CertificateSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CertificateSource Managed { get; } = new CertificateSource("Managed");
+        public static CertificateSource KeyVault { get; } = new CertificateSource("KeyVault");
+        public static CertificateSource Custom { get; } = new CertificateSource("Custom");
+        public static CertificateSource BuiltIn { get; } = new CertificateSource("BuiltIn");
+
+        public static bool operator ==(CertificateSource left, CertificateSource right) => left.Equals(right);
+        public static bool operator !=(CertificateSource left, CertificateSource right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateSource other && Equals(other);
+        public bool Equals(CertificateSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Certificate Status.
+    /// </summary>
+    [EnumType]
+    public readonly struct CertificateStatus : IEquatable<CertificateStatus>
+    {
+        private readonly string _value;
+
+        private CertificateStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CertificateStatus Completed { get; } = new CertificateStatus("Completed");
+        public static CertificateStatus Failed { get; } = new CertificateStatus("Failed");
+        public static CertificateStatus InProgress { get; } = new CertificateStatus("InProgress");
+
+        public static bool operator ==(CertificateStatus left, CertificateStatus right) => left.Equals(right);
+        public static bool operator !=(CertificateStatus left, CertificateStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CertificateStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CertificateStatus other && Equals(other);
+        public bool Equals(CertificateStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Hostname type.
+    /// </summary>
+    [EnumType]
+    public readonly struct HostnameType : IEquatable<HostnameType>
+    {
+        private readonly string _value;
+
+        private HostnameType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HostnameType Proxy { get; } = new HostnameType("Proxy");
+        public static HostnameType Portal { get; } = new HostnameType("Portal");
+        public static HostnameType Management { get; } = new HostnameType("Management");
+        public static HostnameType Scm { get; } = new HostnameType("Scm");
+        public static HostnameType DeveloperPortal { get; } = new HostnameType("DeveloperPortal");
+
+        public static bool operator ==(HostnameType left, HostnameType right) => left.Equals(right);
+        public static bool operator !=(HostnameType left, HostnameType right) => !left.Equals(right);
+
+        public static explicit operator string(HostnameType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HostnameType other && Equals(other);
+        public bool Equals(HostnameType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Format of the policy fragment content.
     /// </summary>
     [EnumType]
@@ -37,6 +169,163 @@ namespace Pulumi.AzureNative.ApiManagement.V20211201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PolicyFragmentContentFormat other && Equals(other);
         public bool Equals(PolicyFragmentContentFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointServiceConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
+        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
+        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
+
+        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Name of the Sku.
+    /// </summary>
+    [EnumType]
+    public readonly struct SkuType : IEquatable<SkuType>
+    {
+        private readonly string _value;
+
+        private SkuType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Developer SKU of Api Management.
+        /// </summary>
+        public static SkuType Developer { get; } = new SkuType("Developer");
+        /// <summary>
+        /// Standard SKU of Api Management.
+        /// </summary>
+        public static SkuType Standard { get; } = new SkuType("Standard");
+        /// <summary>
+        /// Premium SKU of Api Management.
+        /// </summary>
+        public static SkuType Premium { get; } = new SkuType("Premium");
+        /// <summary>
+        /// Basic SKU of Api Management.
+        /// </summary>
+        public static SkuType Basic { get; } = new SkuType("Basic");
+        /// <summary>
+        /// Consumption SKU of Api Management.
+        /// </summary>
+        public static SkuType Consumption { get; } = new SkuType("Consumption");
+        /// <summary>
+        /// Isolated SKU of Api Management.
+        /// </summary>
+        public static SkuType Isolated { get; } = new SkuType("Isolated");
+
+        public static bool operator ==(SkuType left, SkuType right) => left.Equals(right);
+        public static bool operator !=(SkuType left, SkuType right) => !left.Equals(right);
+
+        public static explicit operator string(SkuType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SkuType other && Equals(other);
+        public bool Equals(SkuType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkType : IEquatable<VirtualNetworkType>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The service is not part of any Virtual Network.
+        /// </summary>
+        public static VirtualNetworkType None { get; } = new VirtualNetworkType("None");
+        /// <summary>
+        /// The service is part of Virtual Network and it is accessible from Internet.
+        /// </summary>
+        public static VirtualNetworkType External { get; } = new VirtualNetworkType("External");
+        /// <summary>
+        /// The service is part of Virtual Network and it is only accessible from within the virtual network.
+        /// </summary>
+        public static VirtualNetworkType Internal { get; } = new VirtualNetworkType("Internal");
+
+        public static bool operator ==(VirtualNetworkType left, VirtualNetworkType right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkType left, VirtualNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkType other && Equals(other);
+        public bool Equals(VirtualNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

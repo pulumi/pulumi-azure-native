@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { ApiManagementServiceArgs } from "./apiManagementService";
+export type ApiManagementService = import("./apiManagementService").ApiManagementService;
+export const ApiManagementService: typeof import("./apiManagementService").ApiManagementService = null as any;
+utilities.lazyLoad(exports, ["ApiManagementService"], () => require("./apiManagementService"));
+
+export { GetApiManagementServiceArgs, GetApiManagementServiceResult, GetApiManagementServiceOutputArgs } from "./getApiManagementService";
+export const getApiManagementService: typeof import("./getApiManagementService").getApiManagementService = null as any;
+export const getApiManagementServiceOutput: typeof import("./getApiManagementService").getApiManagementServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getApiManagementService","getApiManagementServiceOutput"], () => require("./getApiManagementService"));
+
 export { GetApiManagementServiceDomainOwnershipIdentifierArgs, GetApiManagementServiceDomainOwnershipIdentifierResult } from "./getApiManagementServiceDomainOwnershipIdentifier";
 export const getApiManagementServiceDomainOwnershipIdentifier: typeof import("./getApiManagementServiceDomainOwnershipIdentifier").getApiManagementServiceDomainOwnershipIdentifier = null as any;
 utilities.lazyLoad(exports, ["getApiManagementServiceDomainOwnershipIdentifier"], () => require("./getApiManagementServiceDomainOwnershipIdentifier"));
@@ -32,6 +42,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:apimanagement/v20211201preview:ApiManagementService":
+                return new ApiManagementService(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20211201preview:PolicyFragment":
                 return new PolicyFragment(name, <any>undefined, { urn })
             default:

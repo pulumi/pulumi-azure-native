@@ -28,10 +28,13 @@ if typing.TYPE_CHECKING:
     v20170418 = __v20170418
     import pulumi_azure_native.cognitiveservices.v20211001 as __v20211001
     v20211001 = __v20211001
+    import pulumi_azure_native.cognitiveservices.v20220301 as __v20220301
+    v20220301 = __v20220301
     import pulumi_azure_native.cognitiveservices.v20230501 as __v20230501
     v20230501 = __v20230501
 else:
     v20170418 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20170418')
     v20211001 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20211001')
+    v20220301 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20220301')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.cognitiveservices.v20230501')
 

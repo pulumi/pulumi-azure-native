@@ -66,6 +66,18 @@ export const DatabaseReadScale = {
  */
 export type DatabaseReadScale = (typeof DatabaseReadScale)[keyof typeof DatabaseReadScale];
 
+export const IdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
 export const SampleName = {
     AdventureWorksLT: "AdventureWorksLT",
     WideWorldImportersStd: "WideWorldImportersStd",
@@ -86,6 +98,16 @@ export const SecondaryType = {
  * The secondary type of the database if it is a secondary.  Valid values are Geo and Named.
  */
 export type SecondaryType = (typeof SecondaryType)[keyof typeof SecondaryType];
+
+export const ServerPublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ */
+export type ServerPublicNetworkAccess = (typeof ServerPublicNetworkAccess)[keyof typeof ServerPublicNetworkAccess];
 
 export const StorageAccountType = {
     GRS: "GRS",

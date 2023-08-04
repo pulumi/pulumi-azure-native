@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetSignalRArgs, GetSignalRResult, GetSignalROutputArgs } from "./getSignalR";
+export const getSignalR: typeof import("./getSignalR").getSignalR = null as any;
+export const getSignalROutput: typeof import("./getSignalR").getSignalROutput = null as any;
+utilities.lazyLoad(exports, ["getSignalR","getSignalROutput"], () => require("./getSignalR"));
+
 export { GetSignalRCustomCertificateArgs, GetSignalRCustomCertificateResult, GetSignalRCustomCertificateOutputArgs } from "./getSignalRCustomCertificate";
 export const getSignalRCustomCertificate: typeof import("./getSignalRCustomCertificate").getSignalRCustomCertificate = null as any;
 export const getSignalRCustomCertificateOutput: typeof import("./getSignalRCustomCertificate").getSignalRCustomCertificateOutput = null as any;
@@ -14,6 +19,11 @@ export { GetSignalRCustomDomainArgs, GetSignalRCustomDomainResult, GetSignalRCus
 export const getSignalRCustomDomain: typeof import("./getSignalRCustomDomain").getSignalRCustomDomain = null as any;
 export const getSignalRCustomDomainOutput: typeof import("./getSignalRCustomDomain").getSignalRCustomDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getSignalRCustomDomain","getSignalRCustomDomainOutput"], () => require("./getSignalRCustomDomain"));
+
+export { SignalRArgs } from "./signalR";
+export type SignalR = import("./signalR").SignalR;
+export const SignalR: typeof import("./signalR").SignalR = null as any;
+utilities.lazyLoad(exports, ["SignalR"], () => require("./signalR"));
 
 export { SignalRCustomCertificateArgs } from "./signalRCustomCertificate";
 export type SignalRCustomCertificate = import("./signalRCustomCertificate").SignalRCustomCertificate;
@@ -26,10 +36,15 @@ export const SignalRCustomDomain: typeof import("./signalRCustomDomain").SignalR
 utilities.lazyLoad(exports, ["SignalRCustomDomain"], () => require("./signalRCustomDomain"));
 
 
+// Export enums:
+export * from "../../types/enums/signalrservice/v20220201";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:signalrservice/v20220201:SignalR":
+                return new SignalR(name, <any>undefined, { urn })
             case "azure-native:signalrservice/v20220201:SignalRCustomCertificate":
                 return new SignalRCustomCertificate(name, <any>undefined, { urn })
             case "azure-native:signalrservice/v20220201:SignalRCustomDomain":

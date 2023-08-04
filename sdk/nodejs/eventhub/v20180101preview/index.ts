@@ -20,6 +20,11 @@ export const getNamespaceIpFilterRule: typeof import("./getNamespaceIpFilterRule
 export const getNamespaceIpFilterRuleOutput: typeof import("./getNamespaceIpFilterRule").getNamespaceIpFilterRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceIpFilterRule","getNamespaceIpFilterRuleOutput"], () => require("./getNamespaceIpFilterRule"));
 
+export { GetNamespaceNetworkRuleSetArgs, GetNamespaceNetworkRuleSetResult, GetNamespaceNetworkRuleSetOutputArgs } from "./getNamespaceNetworkRuleSet";
+export const getNamespaceNetworkRuleSet: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSet = null as any;
+export const getNamespaceNetworkRuleSetOutput: typeof import("./getNamespaceNetworkRuleSet").getNamespaceNetworkRuleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespaceNetworkRuleSet","getNamespaceNetworkRuleSetOutput"], () => require("./getNamespaceNetworkRuleSet"));
+
 export { GetNamespaceVirtualNetworkRuleArgs, GetNamespaceVirtualNetworkRuleResult, GetNamespaceVirtualNetworkRuleOutputArgs } from "./getNamespaceVirtualNetworkRule";
 export const getNamespaceVirtualNetworkRule: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRule = null as any;
 export const getNamespaceVirtualNetworkRuleOutput: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRuleOutput = null as any;
@@ -34,6 +39,11 @@ export { NamespaceIpFilterRuleArgs } from "./namespaceIpFilterRule";
 export type NamespaceIpFilterRule = import("./namespaceIpFilterRule").NamespaceIpFilterRule;
 export const NamespaceIpFilterRule: typeof import("./namespaceIpFilterRule").NamespaceIpFilterRule = null as any;
 utilities.lazyLoad(exports, ["NamespaceIpFilterRule"], () => require("./namespaceIpFilterRule"));
+
+export { NamespaceNetworkRuleSetArgs } from "./namespaceNetworkRuleSet";
+export type NamespaceNetworkRuleSet = import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet;
+export const NamespaceNetworkRuleSet: typeof import("./namespaceNetworkRuleSet").NamespaceNetworkRuleSet = null as any;
+utilities.lazyLoad(exports, ["NamespaceNetworkRuleSet"], () => require("./namespaceNetworkRuleSet"));
 
 export { NamespaceVirtualNetworkRuleArgs } from "./namespaceVirtualNetworkRule";
 export type NamespaceVirtualNetworkRule = import("./namespaceVirtualNetworkRule").NamespaceVirtualNetworkRule;
@@ -57,6 +67,8 @@ const _module = {
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20180101preview:NamespaceIpFilterRule":
                 return new NamespaceIpFilterRule(name, <any>undefined, { urn })
+            case "azure-native:eventhub/v20180101preview:NamespaceNetworkRuleSet":
+                return new NamespaceNetworkRuleSet(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule":
                 return new NamespaceVirtualNetworkRule(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20180101preview:PrivateEndpointConnection":

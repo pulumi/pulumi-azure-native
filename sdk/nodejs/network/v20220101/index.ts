@@ -40,6 +40,11 @@ export const getRoutingIntent: typeof import("./getRoutingIntent").getRoutingInt
 export const getRoutingIntentOutput: typeof import("./getRoutingIntent").getRoutingIntentOutput = null as any;
 utilities.lazyLoad(exports, ["getRoutingIntent","getRoutingIntentOutput"], () => require("./getRoutingIntent"));
 
+export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
+export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
+export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
+
 export { GetVirtualRouterArgs, GetVirtualRouterResult, GetVirtualRouterOutputArgs } from "./getVirtualRouter";
 export const getVirtualRouter: typeof import("./getVirtualRouter").getVirtualRouter = null as any;
 export const getVirtualRouterOutput: typeof import("./getVirtualRouter").getVirtualRouterOutput = null as any;
@@ -64,6 +69,11 @@ export { RoutingIntentArgs } from "./routingIntent";
 export type RoutingIntent = import("./routingIntent").RoutingIntent;
 export const RoutingIntent: typeof import("./routingIntent").RoutingIntent = null as any;
 utilities.lazyLoad(exports, ["RoutingIntent"], () => require("./routingIntent"));
+
+export { VirtualNetworkArgs } from "./virtualNetwork";
+export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
+export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
+utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
 
 export { VirtualRouterArgs } from "./virtualRouter";
 export type VirtualRouter = import("./virtualRouter").VirtualRouter;
@@ -91,6 +101,8 @@ const _module = {
                 return new ExpressRoutePortAuthorization(name, <any>undefined, { urn })
             case "azure-native:network/v20220101:RoutingIntent":
                 return new RoutingIntent(name, <any>undefined, { urn })
+            case "azure-native:network/v20220101:VirtualNetwork":
+                return new VirtualNetwork(name, <any>undefined, { urn })
             case "azure-native:network/v20220101:VirtualRouter":
                 return new VirtualRouter(name, <any>undefined, { urn })
             case "azure-native:network/v20220101:VirtualRouterPeering":

@@ -8,10 +8,14 @@ import typing
 from ._enums import *
 from .cassandra_cluster import *
 from .cassandra_data_center import *
+from .database_account import *
 from .get_cassandra_cluster import *
 from .get_cassandra_data_center import *
+from .get_database_account import *
+from .get_sql_resource_sql_database import *
 from .get_sql_resource_sql_role_assignment import *
 from .get_sql_resource_sql_role_definition import *
+from .sql_resource_sql_database import *
 from .sql_resource_sql_role_assignment import *
 from .sql_resource_sql_role_definition import *
 from ._inputs import *

@@ -7,18 +7,34 @@ from enum import Enum
 __all__ = [
     'ActionType',
     'CustomRuleEnabledState',
+    'ExtendedLocationTypes',
     'FrontDoorMatchVariable',
     'ManagedRuleEnabledState',
     'ManagedRuleExclusionMatchVariable',
     'ManagedRuleExclusionSelectorMatchOperator',
     'ManagedRuleSetActionType',
     'Operator',
+    'OwaspCrsExclusionEntryMatchVariable',
+    'OwaspCrsExclusionEntrySelectorMatchOperator',
     'PolicyEnabledState',
     'PolicyMode',
     'PolicyRequestBodyCheck',
+    'RouteNextHopType',
     'RuleType',
+    'SecurityRuleAccess',
+    'SecurityRuleDirection',
+    'SecurityRuleProtocol',
     'SkuName',
     'TransformType',
+    'VirtualNetworkPrivateEndpointNetworkPolicies',
+    'VirtualNetworkPrivateLinkServiceNetworkPolicies',
+    'WebApplicationFirewallAction',
+    'WebApplicationFirewallEnabledState',
+    'WebApplicationFirewallMatchVariable',
+    'WebApplicationFirewallMode',
+    'WebApplicationFirewallOperator',
+    'WebApplicationFirewallRuleType',
+    'WebApplicationFirewallTransform',
 ]
 
 
@@ -26,11 +42,10 @@ class ActionType(str, Enum):
     """
     Describes the override action to be applied when rule matches.
     """
+    ANOMALY_SCORING = "AnomalyScoring"
     ALLOW = "Allow"
     BLOCK = "Block"
     LOG = "Log"
-    REDIRECT = "Redirect"
-    ANOMALY_SCORING = "AnomalyScoring"
 
 
 class CustomRuleEnabledState(str, Enum):
@@ -39,6 +54,13 @@ class CustomRuleEnabledState(str, Enum):
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
+
+
+class ExtendedLocationTypes(str, Enum):
+    """
+    The type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
 
 
 class FrontDoorMatchVariable(str, Enum):
@@ -58,7 +80,7 @@ class FrontDoorMatchVariable(str, Enum):
 
 class ManagedRuleEnabledState(str, Enum):
     """
-    Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+    The state of the managed rule. Defaults to Disabled if not specified.
     """
     DISABLED = "Disabled"
     ENABLED = "Enabled"
@@ -113,6 +135,32 @@ class Operator(str, Enum):
     REG_EX = "RegEx"
 
 
+class OwaspCrsExclusionEntryMatchVariable(str, Enum):
+    """
+    The variable to be excluded.
+    """
+    REQUEST_HEADER_NAMES = "RequestHeaderNames"
+    REQUEST_COOKIE_NAMES = "RequestCookieNames"
+    REQUEST_ARG_NAMES = "RequestArgNames"
+    REQUEST_HEADER_KEYS = "RequestHeaderKeys"
+    REQUEST_HEADER_VALUES = "RequestHeaderValues"
+    REQUEST_COOKIE_KEYS = "RequestCookieKeys"
+    REQUEST_COOKIE_VALUES = "RequestCookieValues"
+    REQUEST_ARG_KEYS = "RequestArgKeys"
+    REQUEST_ARG_VALUES = "RequestArgValues"
+
+
+class OwaspCrsExclusionEntrySelectorMatchOperator(str, Enum):
+    """
+    When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+    """
+    EQUALS = "Equals"
+    CONTAINS = "Contains"
+    STARTS_WITH = "StartsWith"
+    ENDS_WITH = "EndsWith"
+    EQUALS_ANY = "EqualsAny"
+
+
 class PolicyEnabledState(str, Enum):
     """
     Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -137,12 +185,51 @@ class PolicyRequestBodyCheck(str, Enum):
     ENABLED = "Enabled"
 
 
+class RouteNextHopType(str, Enum):
+    """
+    The type of Azure hop the packet should be sent to.
+    """
+    VIRTUAL_NETWORK_GATEWAY = "VirtualNetworkGateway"
+    VNET_LOCAL = "VnetLocal"
+    INTERNET = "Internet"
+    VIRTUAL_APPLIANCE = "VirtualAppliance"
+    NONE = "None"
+
+
 class RuleType(str, Enum):
     """
     Describes type of rule.
     """
     MATCH_RULE = "MatchRule"
     RATE_LIMIT_RULE = "RateLimitRule"
+
+
+class SecurityRuleAccess(str, Enum):
+    """
+    The network traffic is allowed or denied.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
+class SecurityRuleDirection(str, Enum):
+    """
+    The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    """
+    INBOUND = "Inbound"
+    OUTBOUND = "Outbound"
+
+
+class SecurityRuleProtocol(str, Enum):
+    """
+    Network protocol this rule applies to.
+    """
+    TCP = "Tcp"
+    UDP = "Udp"
+    ICMP = "Icmp"
+    ESP = "Esp"
+    ASTERISK = "*"
+    AH = "Ah"
 
 
 class SkuName(str, Enum):
@@ -164,3 +251,97 @@ class TransformType(str, Enum):
     URL_DECODE = "UrlDecode"
     URL_ENCODE = "UrlEncode"
     REMOVE_NULLS = "RemoveNulls"
+
+
+class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private end point in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
+    """
+    Enable or Disable apply network policies on private link service in the subnet.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class WebApplicationFirewallAction(str, Enum):
+    """
+    Type of Actions.
+    """
+    ALLOW = "Allow"
+    BLOCK = "Block"
+    LOG = "Log"
+
+
+class WebApplicationFirewallEnabledState(str, Enum):
+    """
+    The state of the policy.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class WebApplicationFirewallMatchVariable(str, Enum):
+    """
+    Match Variable.
+    """
+    REMOTE_ADDR = "RemoteAddr"
+    REQUEST_METHOD = "RequestMethod"
+    QUERY_STRING = "QueryString"
+    POST_ARGS = "PostArgs"
+    REQUEST_URI = "RequestUri"
+    REQUEST_HEADERS = "RequestHeaders"
+    REQUEST_BODY = "RequestBody"
+    REQUEST_COOKIES = "RequestCookies"
+
+
+class WebApplicationFirewallMode(str, Enum):
+    """
+    The mode of the policy.
+    """
+    PREVENTION = "Prevention"
+    DETECTION = "Detection"
+
+
+class WebApplicationFirewallOperator(str, Enum):
+    """
+    The operator to be matched.
+    """
+    IP_MATCH = "IPMatch"
+    EQUAL = "Equal"
+    CONTAINS = "Contains"
+    LESS_THAN = "LessThan"
+    GREATER_THAN = "GreaterThan"
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    BEGINS_WITH = "BeginsWith"
+    ENDS_WITH = "EndsWith"
+    REGEX = "Regex"
+    GEO_MATCH = "GeoMatch"
+    ANY = "Any"
+
+
+class WebApplicationFirewallRuleType(str, Enum):
+    """
+    The rule type.
+    """
+    MATCH_RULE = "MatchRule"
+    INVALID = "Invalid"
+
+
+class WebApplicationFirewallTransform(str, Enum):
+    """
+    Transforms applied before matching.
+    """
+    UPPERCASE = "Uppercase"
+    LOWERCASE = "Lowercase"
+    TRIM = "Trim"
+    URL_DECODE = "UrlDecode"
+    URL_ENCODE = "UrlEncode"
+    REMOVE_NULLS = "RemoveNulls"
+    HTML_ENTITY_DECODE = "HtmlEntityDecode"

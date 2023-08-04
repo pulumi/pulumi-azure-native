@@ -12,21 +12,5874 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApplicationGatewayAuthenticationCertificateResponse',
+    'ApplicationGatewayAutoscaleConfigurationResponse',
+    'ApplicationGatewayBackendAddressPoolResponse',
+    'ApplicationGatewayBackendAddressResponse',
+    'ApplicationGatewayBackendHttpSettingsResponse',
+    'ApplicationGatewayBackendSettingsResponse',
+    'ApplicationGatewayClientAuthConfigurationResponse',
+    'ApplicationGatewayConnectionDrainingResponse',
+    'ApplicationGatewayCustomErrorResponse',
+    'ApplicationGatewayFirewallDisabledRuleGroupResponse',
+    'ApplicationGatewayFirewallExclusionResponse',
+    'ApplicationGatewayFrontendIPConfigurationResponse',
+    'ApplicationGatewayFrontendPortResponse',
+    'ApplicationGatewayGlobalConfigurationResponse',
+    'ApplicationGatewayHeaderConfigurationResponse',
+    'ApplicationGatewayHttpListenerResponse',
+    'ApplicationGatewayIPConfigurationResponse',
+    'ApplicationGatewayListenerResponse',
+    'ApplicationGatewayLoadDistributionPolicyResponse',
+    'ApplicationGatewayLoadDistributionTargetResponse',
+    'ApplicationGatewayPathRuleResponse',
+    'ApplicationGatewayPrivateEndpointConnectionResponse',
+    'ApplicationGatewayPrivateLinkConfigurationResponse',
+    'ApplicationGatewayPrivateLinkIpConfigurationResponse',
+    'ApplicationGatewayProbeHealthResponseMatchResponse',
+    'ApplicationGatewayProbeResponse',
+    'ApplicationGatewayRedirectConfigurationResponse',
+    'ApplicationGatewayRequestRoutingRuleResponse',
+    'ApplicationGatewayResponse',
+    'ApplicationGatewayRewriteRuleActionSetResponse',
+    'ApplicationGatewayRewriteRuleConditionResponse',
+    'ApplicationGatewayRewriteRuleResponse',
+    'ApplicationGatewayRewriteRuleSetResponse',
+    'ApplicationGatewayRoutingRuleResponse',
+    'ApplicationGatewaySkuResponse',
+    'ApplicationGatewaySslCertificateResponse',
+    'ApplicationGatewaySslPolicyResponse',
+    'ApplicationGatewaySslProfileResponse',
+    'ApplicationGatewayTrustedClientCertificateResponse',
+    'ApplicationGatewayTrustedRootCertificateResponse',
+    'ApplicationGatewayUrlConfigurationResponse',
+    'ApplicationGatewayUrlPathMapResponse',
+    'ApplicationGatewayWebApplicationFirewallConfigurationResponse',
+    'ApplicationSecurityGroupResponse',
+    'BackendAddressPoolResponse',
+    'CustomDnsConfigPropertiesFormatResponse',
     'CustomRuleListResponse',
     'CustomRuleResponse',
+    'DdosSettingsResponse',
+    'DelegationResponse',
+    'ExclusionManagedRuleGroupResponse',
+    'ExclusionManagedRuleResponse',
+    'ExclusionManagedRuleSetResponse',
+    'ExtendedLocationResponse',
+    'FlowLogFormatParametersResponse',
+    'FlowLogResponse',
     'FrontDoorManagedRuleGroupOverrideResponse',
     'FrontDoorManagedRuleOverrideResponse',
     'FrontDoorManagedRuleSetResponse',
     'FrontDoorMatchConditionResponse',
     'FrontDoorPolicySettingsResponse',
     'FrontendEndpointLinkResponse',
+    'FrontendIPConfigurationResponse',
+    'GatewayLoadBalancerTunnelInterfaceResponse',
+    'IPConfigurationProfileResponse',
+    'IPConfigurationResponse',
+    'InboundNatRuleResponse',
+    'IpTagResponse',
+    'LoadBalancerBackendAddressResponse',
     'ManagedRuleExclusionResponse',
+    'ManagedRuleGroupOverrideResponse',
+    'ManagedRuleOverrideResponse',
     'ManagedRuleSetListResponse',
+    'ManagedRuleSetResponse',
+    'ManagedRulesDefinitionResponse',
+    'ManagedServiceIdentityResponse',
+    'ManagedServiceIdentityResponseUserAssignedIdentities',
+    'MatchConditionResponse',
+    'MatchVariableResponse',
+    'NatGatewayResponse',
+    'NatGatewaySkuResponse',
+    'NatRulePortMappingResponse',
+    'NetworkInterfaceDnsSettingsResponse',
+    'NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse',
+    'NetworkInterfaceIPConfigurationResponse',
+    'NetworkInterfaceResponse',
+    'NetworkInterfaceTapConfigurationResponse',
+    'NetworkSecurityGroupResponse',
+    'OwaspCrsExclusionEntryResponse',
+    'PolicySettingsResponse',
+    'PrivateDnsZoneConfigResponse',
+    'PrivateEndpointConnectionResponse',
+    'PrivateEndpointIPConfigurationResponse',
+    'PrivateEndpointResponse',
+    'PrivateLinkServiceConnectionResponse',
+    'PrivateLinkServiceConnectionStateResponse',
+    'PrivateLinkServiceIpConfigurationResponse',
+    'PrivateLinkServicePropertiesResponseAutoApproval',
+    'PrivateLinkServicePropertiesResponseVisibility',
+    'PrivateLinkServiceResponse',
+    'PublicIPAddressDnsSettingsResponse',
+    'PublicIPAddressResponse',
+    'PublicIPAddressSkuResponse',
+    'RecordSetResponse',
+    'ResourceNavigationLinkResponse',
+    'RetentionPolicyParametersResponse',
+    'RouteResponse',
+    'RouteTableResponse',
     'RoutingRuleLinkResponse',
     'SecurityPolicyLinkResponse',
+    'SecurityRuleResponse',
+    'ServiceAssociationLinkResponse',
+    'ServiceEndpointPolicyDefinitionResponse',
+    'ServiceEndpointPolicyResponse',
+    'ServiceEndpointPropertiesFormatResponse',
     'SkuResponse',
     'SubResourceResponse',
+    'SubnetResponse',
+    'TrafficAnalyticsConfigurationPropertiesResponse',
+    'TrafficAnalyticsPropertiesResponse',
+    'VirtualNetworkTapResponse',
+    'WebApplicationFirewallCustomRuleResponse',
 ]
+
+@pulumi.output_type
+class ApplicationGatewayAuthenticationCertificateResponse(dict):
+    """
+    Authentication certificates of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayAuthenticationCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayAuthenticationCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayAuthenticationCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 data: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Authentication certificates of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the authentication certificate resource.
+        :param str type: Type of the resource.
+        :param str data: Certificate public data.
+        :param str id: Resource ID.
+        :param str name: Name of the authentication certificate that is unique within an Application Gateway.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the authentication certificate resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[str]:
+        """
+        Certificate public data.
+        """
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the authentication certificate that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationGatewayAutoscaleConfigurationResponse(dict):
+    """
+    Application Gateway autoscale configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minCapacity":
+            suggest = "min_capacity"
+        elif key == "maxCapacity":
+            suggest = "max_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayAutoscaleConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayAutoscaleConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayAutoscaleConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 min_capacity: int,
+                 max_capacity: Optional[int] = None):
+        """
+        Application Gateway autoscale configuration.
+        :param int min_capacity: Lower bound on number of Application Gateway capacity.
+        :param int max_capacity: Upper bound on number of Application Gateway capacity.
+        """
+        pulumi.set(__self__, "min_capacity", min_capacity)
+        if max_capacity is not None:
+            pulumi.set(__self__, "max_capacity", max_capacity)
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> int:
+        """
+        Lower bound on number of Application Gateway capacity.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> Optional[int]:
+        """
+        Upper bound on number of Application Gateway capacity.
+        """
+        return pulumi.get(self, "max_capacity")
+
+
+@pulumi.output_type
+class ApplicationGatewayBackendAddressPoolResponse(dict):
+    """
+    Backend Address Pool of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendIPConfigurations":
+            suggest = "backend_ip_configurations"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddresses":
+            suggest = "backend_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayBackendAddressPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayBackendAddressPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayBackendAddressPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_ip_configurations: Sequence['outputs.NetworkInterfaceIPConfigurationResponse'],
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 backend_addresses: Optional[Sequence['outputs.ApplicationGatewayBackendAddressResponse']] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Backend Address Pool of an application gateway.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: Collection of references to IPs defined in network interfaces.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the backend address pool resource.
+        :param str type: Type of the resource.
+        :param Sequence['ApplicationGatewayBackendAddressResponse'] backend_addresses: Backend addresses.
+        :param str id: Resource ID.
+        :param str name: Name of the backend address pool that is unique within an Application Gateway.
+        """
+        pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if backend_addresses is not None:
+            pulumi.set(__self__, "backend_addresses", backend_addresses)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="backendIPConfigurations")
+    def backend_ip_configurations(self) -> Sequence['outputs.NetworkInterfaceIPConfigurationResponse']:
+        """
+        Collection of references to IPs defined in network interfaces.
+        """
+        return pulumi.get(self, "backend_ip_configurations")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the backend address pool resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="backendAddresses")
+    def backend_addresses(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressResponse']]:
+        """
+        Backend addresses.
+        """
+        return pulumi.get(self, "backend_addresses")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the backend address pool that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationGatewayBackendAddressResponse(dict):
+    """
+    Backend address of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayBackendAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayBackendAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayBackendAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fqdn: Optional[str] = None,
+                 ip_address: Optional[str] = None):
+        """
+        Backend address of an application gateway.
+        :param str fqdn: Fully qualified domain name (FQDN).
+        :param str ip_address: IP address.
+        """
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        Fully qualified domain name (FQDN).
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+
+@pulumi.output_type
+class ApplicationGatewayBackendHttpSettingsResponse(dict):
+    """
+    Backend address pool settings of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "affinityCookieName":
+            suggest = "affinity_cookie_name"
+        elif key == "authenticationCertificates":
+            suggest = "authentication_certificates"
+        elif key == "connectionDraining":
+            suggest = "connection_draining"
+        elif key == "cookieBasedAffinity":
+            suggest = "cookie_based_affinity"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "pickHostNameFromBackendAddress":
+            suggest = "pick_host_name_from_backend_address"
+        elif key == "probeEnabled":
+            suggest = "probe_enabled"
+        elif key == "requestTimeout":
+            suggest = "request_timeout"
+        elif key == "trustedRootCertificates":
+            suggest = "trusted_root_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayBackendHttpSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayBackendHttpSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayBackendHttpSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 affinity_cookie_name: Optional[str] = None,
+                 authentication_certificates: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 connection_draining: Optional['outputs.ApplicationGatewayConnectionDrainingResponse'] = None,
+                 cookie_based_affinity: Optional[str] = None,
+                 host_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 path: Optional[str] = None,
+                 pick_host_name_from_backend_address: Optional[bool] = None,
+                 port: Optional[int] = None,
+                 probe: Optional['outputs.SubResourceResponse'] = None,
+                 probe_enabled: Optional[bool] = None,
+                 protocol: Optional[str] = None,
+                 request_timeout: Optional[int] = None,
+                 trusted_root_certificates: Optional[Sequence['outputs.SubResourceResponse']] = None):
+        """
+        Backend address pool settings of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the backend HTTP settings resource.
+        :param str type: Type of the resource.
+        :param str affinity_cookie_name: Cookie name to use for the affinity cookie.
+        :param Sequence['SubResourceResponse'] authentication_certificates: Array of references to application gateway authentication certificates.
+        :param 'ApplicationGatewayConnectionDrainingResponse' connection_draining: Connection draining of the backend http settings resource.
+        :param str cookie_based_affinity: Cookie based affinity.
+        :param str host_name: Host header to be sent to the backend servers.
+        :param str id: Resource ID.
+        :param str name: Name of the backend http settings that is unique within an Application Gateway.
+        :param str path: Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
+        :param bool pick_host_name_from_backend_address: Whether to pick host header should be picked from the host name of the backend server. Default value is false.
+        :param int port: The destination port on the backend.
+        :param 'SubResourceResponse' probe: Probe resource of an application gateway.
+        :param bool probe_enabled: Whether the probe is enabled. Default value is false.
+        :param str protocol: The protocol used to communicate with the backend.
+        :param int request_timeout: Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+        :param Sequence['SubResourceResponse'] trusted_root_certificates: Array of references to application gateway trusted root certificates.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if affinity_cookie_name is not None:
+            pulumi.set(__self__, "affinity_cookie_name", affinity_cookie_name)
+        if authentication_certificates is not None:
+            pulumi.set(__self__, "authentication_certificates", authentication_certificates)
+        if connection_draining is not None:
+            pulumi.set(__self__, "connection_draining", connection_draining)
+        if cookie_based_affinity is not None:
+            pulumi.set(__self__, "cookie_based_affinity", cookie_based_affinity)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if pick_host_name_from_backend_address is not None:
+            pulumi.set(__self__, "pick_host_name_from_backend_address", pick_host_name_from_backend_address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if probe is not None:
+            pulumi.set(__self__, "probe", probe)
+        if probe_enabled is not None:
+            pulumi.set(__self__, "probe_enabled", probe_enabled)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if request_timeout is not None:
+            pulumi.set(__self__, "request_timeout", request_timeout)
+        if trusted_root_certificates is not None:
+            pulumi.set(__self__, "trusted_root_certificates", trusted_root_certificates)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the backend HTTP settings resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="affinityCookieName")
+    def affinity_cookie_name(self) -> Optional[str]:
+        """
+        Cookie name to use for the affinity cookie.
+        """
+        return pulumi.get(self, "affinity_cookie_name")
+
+    @property
+    @pulumi.getter(name="authenticationCertificates")
+    def authentication_certificates(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        Array of references to application gateway authentication certificates.
+        """
+        return pulumi.get(self, "authentication_certificates")
+
+    @property
+    @pulumi.getter(name="connectionDraining")
+    def connection_draining(self) -> Optional['outputs.ApplicationGatewayConnectionDrainingResponse']:
+        """
+        Connection draining of the backend http settings resource.
+        """
+        return pulumi.get(self, "connection_draining")
+
+    @property
+    @pulumi.getter(name="cookieBasedAffinity")
+    def cookie_based_affinity(self) -> Optional[str]:
+        """
+        Cookie based affinity.
+        """
+        return pulumi.get(self, "cookie_based_affinity")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[str]:
+        """
+        Host header to be sent to the backend servers.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the backend http settings that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Path which should be used as a prefix for all HTTP requests. Null means no path will be prefixed. Default value is null.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="pickHostNameFromBackendAddress")
+    def pick_host_name_from_backend_address(self) -> Optional[bool]:
+        """
+        Whether to pick host header should be picked from the host name of the backend server. Default value is false.
+        """
+        return pulumi.get(self, "pick_host_name_from_backend_address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The destination port on the backend.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def probe(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Probe resource of an application gateway.
+        """
+        return pulumi.get(self, "probe")
+
+    @property
+    @pulumi.getter(name="probeEnabled")
+    def probe_enabled(self) -> Optional[bool]:
+        """
+        Whether the probe is enabled. Default value is false.
+        """
+        return pulumi.get(self, "probe_enabled")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol used to communicate with the backend.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="requestTimeout")
+    def request_timeout(self) -> Optional[int]:
+        """
+        Request timeout in seconds. Application Gateway will fail the request if response is not received within RequestTimeout. Acceptable values are from 1 second to 86400 seconds.
+        """
+        return pulumi.get(self, "request_timeout")
+
+    @property
+    @pulumi.getter(name="trustedRootCertificates")
+    def trusted_root_certificates(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        Array of references to application gateway trusted root certificates.
+        """
+        return pulumi.get(self, "trusted_root_certificates")
+
+
+@pulumi.output_type
+class ApplicationGatewayBackendSettingsResponse(dict):
+    """
+    Backend address pool settings of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "pickHostNameFromBackendAddress":
+            suggest = "pick_host_name_from_backend_address"
+        elif key == "trustedRootCertificates":
+            suggest = "trusted_root_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayBackendSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayBackendSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayBackendSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 host_name: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 pick_host_name_from_backend_address: Optional[bool] = None,
+                 port: Optional[int] = None,
+                 probe: Optional['outputs.SubResourceResponse'] = None,
+                 protocol: Optional[str] = None,
+                 timeout: Optional[int] = None,
+                 trusted_root_certificates: Optional[Sequence['outputs.SubResourceResponse']] = None):
+        """
+        Backend address pool settings of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the backend HTTP settings resource.
+        :param str type: Type of the resource.
+        :param str host_name: Server name indication to be sent to the backend servers for Tls protocol.
+        :param str id: Resource ID.
+        :param str name: Name of the backend settings that is unique within an Application Gateway.
+        :param bool pick_host_name_from_backend_address: Whether to pick server name indication from the host name of the backend server for Tls protocol. Default value is false.
+        :param int port: The destination port on the backend.
+        :param 'SubResourceResponse' probe: Probe resource of an application gateway.
+        :param str protocol: The protocol used to communicate with the backend.
+        :param int timeout: Connection timeout in seconds. Application Gateway will fail the request if response is not received within ConnectionTimeout. Acceptable values are from 1 second to 86400 seconds.
+        :param Sequence['SubResourceResponse'] trusted_root_certificates: Array of references to application gateway trusted root certificates.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if pick_host_name_from_backend_address is not None:
+            pulumi.set(__self__, "pick_host_name_from_backend_address", pick_host_name_from_backend_address)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if probe is not None:
+            pulumi.set(__self__, "probe", probe)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if trusted_root_certificates is not None:
+            pulumi.set(__self__, "trusted_root_certificates", trusted_root_certificates)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the backend HTTP settings resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[str]:
+        """
+        Server name indication to be sent to the backend servers for Tls protocol.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the backend settings that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pickHostNameFromBackendAddress")
+    def pick_host_name_from_backend_address(self) -> Optional[bool]:
+        """
+        Whether to pick server name indication from the host name of the backend server for Tls protocol. Default value is false.
+        """
+        return pulumi.get(self, "pick_host_name_from_backend_address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The destination port on the backend.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def probe(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Probe resource of an application gateway.
+        """
+        return pulumi.get(self, "probe")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol used to communicate with the backend.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        Connection timeout in seconds. Application Gateway will fail the request if response is not received within ConnectionTimeout. Acceptable values are from 1 second to 86400 seconds.
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter(name="trustedRootCertificates")
+    def trusted_root_certificates(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        Array of references to application gateway trusted root certificates.
+        """
+        return pulumi.get(self, "trusted_root_certificates")
+
+
+@pulumi.output_type
+class ApplicationGatewayClientAuthConfigurationResponse(dict):
+    """
+    Application gateway client authentication configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "verifyClientCertIssuerDN":
+            suggest = "verify_client_cert_issuer_dn"
+        elif key == "verifyClientRevocation":
+            suggest = "verify_client_revocation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayClientAuthConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayClientAuthConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayClientAuthConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 verify_client_cert_issuer_dn: Optional[bool] = None,
+                 verify_client_revocation: Optional[str] = None):
+        """
+        Application gateway client authentication configuration.
+        :param bool verify_client_cert_issuer_dn: Verify client certificate issuer name on the application gateway.
+        :param str verify_client_revocation: Verify client certificate revocation status.
+        """
+        if verify_client_cert_issuer_dn is not None:
+            pulumi.set(__self__, "verify_client_cert_issuer_dn", verify_client_cert_issuer_dn)
+        if verify_client_revocation is not None:
+            pulumi.set(__self__, "verify_client_revocation", verify_client_revocation)
+
+    @property
+    @pulumi.getter(name="verifyClientCertIssuerDN")
+    def verify_client_cert_issuer_dn(self) -> Optional[bool]:
+        """
+        Verify client certificate issuer name on the application gateway.
+        """
+        return pulumi.get(self, "verify_client_cert_issuer_dn")
+
+    @property
+    @pulumi.getter(name="verifyClientRevocation")
+    def verify_client_revocation(self) -> Optional[str]:
+        """
+        Verify client certificate revocation status.
+        """
+        return pulumi.get(self, "verify_client_revocation")
+
+
+@pulumi.output_type
+class ApplicationGatewayConnectionDrainingResponse(dict):
+    """
+    Connection draining allows open connections to a backend server to be active for a specified time after the backend server got removed from the configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "drainTimeoutInSec":
+            suggest = "drain_timeout_in_sec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayConnectionDrainingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayConnectionDrainingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayConnectionDrainingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 drain_timeout_in_sec: int,
+                 enabled: bool):
+        """
+        Connection draining allows open connections to a backend server to be active for a specified time after the backend server got removed from the configuration.
+        :param int drain_timeout_in_sec: The number of seconds connection draining is active. Acceptable values are from 1 second to 3600 seconds.
+        :param bool enabled: Whether connection draining is enabled or not.
+        """
+        pulumi.set(__self__, "drain_timeout_in_sec", drain_timeout_in_sec)
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="drainTimeoutInSec")
+    def drain_timeout_in_sec(self) -> int:
+        """
+        The number of seconds connection draining is active. Acceptable values are from 1 second to 3600 seconds.
+        """
+        return pulumi.get(self, "drain_timeout_in_sec")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether connection draining is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ApplicationGatewayCustomErrorResponse(dict):
+    """
+    Customer error of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customErrorPageUrl":
+            suggest = "custom_error_page_url"
+        elif key == "statusCode":
+            suggest = "status_code"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayCustomErrorResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayCustomErrorResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayCustomErrorResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_error_page_url: Optional[str] = None,
+                 status_code: Optional[str] = None):
+        """
+        Customer error of an application gateway.
+        :param str custom_error_page_url: Error page URL of the application gateway customer error.
+        :param str status_code: Status code of the application gateway customer error.
+        """
+        if custom_error_page_url is not None:
+            pulumi.set(__self__, "custom_error_page_url", custom_error_page_url)
+        if status_code is not None:
+            pulumi.set(__self__, "status_code", status_code)
+
+    @property
+    @pulumi.getter(name="customErrorPageUrl")
+    def custom_error_page_url(self) -> Optional[str]:
+        """
+        Error page URL of the application gateway customer error.
+        """
+        return pulumi.get(self, "custom_error_page_url")
+
+    @property
+    @pulumi.getter(name="statusCode")
+    def status_code(self) -> Optional[str]:
+        """
+        Status code of the application gateway customer error.
+        """
+        return pulumi.get(self, "status_code")
+
+
+@pulumi.output_type
+class ApplicationGatewayFirewallDisabledRuleGroupResponse(dict):
+    """
+    Allows to disable rules within a rule group or an entire rule group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayFirewallDisabledRuleGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayFirewallDisabledRuleGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayFirewallDisabledRuleGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_group_name: str,
+                 rules: Optional[Sequence[int]] = None):
+        """
+        Allows to disable rules within a rule group or an entire rule group.
+        :param str rule_group_name: The name of the rule group that will be disabled.
+        :param Sequence[int] rules: The list of rules that will be disabled. If null, all rules of the rule group will be disabled.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> str:
+        """
+        The name of the rule group that will be disabled.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence[int]]:
+        """
+        The list of rules that will be disabled. If null, all rules of the rule group will be disabled.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class ApplicationGatewayFirewallExclusionResponse(dict):
+    """
+    Allow to exclude some variable satisfy the condition for the WAF check.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "selectorMatchOperator":
+            suggest = "selector_match_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayFirewallExclusionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayFirewallExclusionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayFirewallExclusionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_variable: str,
+                 selector: str,
+                 selector_match_operator: str):
+        """
+        Allow to exclude some variable satisfy the condition for the WAF check.
+        :param str match_variable: The variable to be excluded.
+        :param str selector: When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+        :param str selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "selector", selector)
+        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        The variable to be excluded.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> str:
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> str:
+        """
+        When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
+
+@pulumi.output_type
+class ApplicationGatewayFrontendIPConfigurationResponse(dict):
+    """
+    Frontend IP configuration of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "privateLinkConfiguration":
+            suggest = "private_link_configuration"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayFrontendIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayFrontendIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayFrontendIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 private_link_configuration: Optional['outputs.SubResourceResponse'] = None,
+                 public_ip_address: Optional['outputs.SubResourceResponse'] = None,
+                 subnet: Optional['outputs.SubResourceResponse'] = None):
+        """
+        Frontend IP configuration of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the frontend IP configuration resource.
+        :param str type: Type of the resource.
+        :param str id: Resource ID.
+        :param str name: Name of the frontend IP configuration that is unique within an Application Gateway.
+        :param str private_ip_address: PrivateIPAddress of the network interface IP Configuration.
+        :param str private_ip_allocation_method: The private IP address allocation method.
+        :param 'SubResourceResponse' private_link_configuration: Reference to the application gateway private link configuration.
+        :param 'SubResourceResponse' public_ip_address: Reference to the PublicIP resource.
+        :param 'SubResourceResponse' subnet: Reference to the subnet resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if private_link_configuration is not None:
+            pulumi.set(__self__, "private_link_configuration", private_link_configuration)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the frontend IP configuration resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the frontend IP configuration that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        PrivateIPAddress of the network interface IP Configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="privateLinkConfiguration")
+    def private_link_configuration(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the application gateway private link configuration.
+        """
+        return pulumi.get(self, "private_link_configuration")
+
+    @property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the PublicIP resource.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class ApplicationGatewayFrontendPortResponse(dict):
+    """
+    Frontend port of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayFrontendPortResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayFrontendPortResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayFrontendPortResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 port: Optional[int] = None):
+        """
+        Frontend port of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the frontend port resource.
+        :param str type: Type of the resource.
+        :param str id: Resource ID.
+        :param str name: Name of the frontend port that is unique within an Application Gateway.
+        :param int port: Frontend port.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the frontend port resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the frontend port that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Frontend port.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class ApplicationGatewayGlobalConfigurationResponse(dict):
+    """
+    Application Gateway global configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableRequestBuffering":
+            suggest = "enable_request_buffering"
+        elif key == "enableResponseBuffering":
+            suggest = "enable_response_buffering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayGlobalConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayGlobalConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayGlobalConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_request_buffering: Optional[bool] = None,
+                 enable_response_buffering: Optional[bool] = None):
+        """
+        Application Gateway global configuration.
+        :param bool enable_request_buffering: Enable request buffering.
+        :param bool enable_response_buffering: Enable response buffering.
+        """
+        if enable_request_buffering is not None:
+            pulumi.set(__self__, "enable_request_buffering", enable_request_buffering)
+        if enable_response_buffering is not None:
+            pulumi.set(__self__, "enable_response_buffering", enable_response_buffering)
+
+    @property
+    @pulumi.getter(name="enableRequestBuffering")
+    def enable_request_buffering(self) -> Optional[bool]:
+        """
+        Enable request buffering.
+        """
+        return pulumi.get(self, "enable_request_buffering")
+
+    @property
+    @pulumi.getter(name="enableResponseBuffering")
+    def enable_response_buffering(self) -> Optional[bool]:
+        """
+        Enable response buffering.
+        """
+        return pulumi.get(self, "enable_response_buffering")
+
+
+@pulumi.output_type
+class ApplicationGatewayHeaderConfigurationResponse(dict):
+    """
+    Header configuration of the Actions set in Application Gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "headerName":
+            suggest = "header_name"
+        elif key == "headerValue":
+            suggest = "header_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayHeaderConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayHeaderConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayHeaderConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header_name: Optional[str] = None,
+                 header_value: Optional[str] = None):
+        """
+        Header configuration of the Actions set in Application Gateway.
+        :param str header_name: Header name of the header configuration.
+        :param str header_value: Header value of the header configuration.
+        """
+        if header_name is not None:
+            pulumi.set(__self__, "header_name", header_name)
+        if header_value is not None:
+            pulumi.set(__self__, "header_value", header_value)
+
+    @property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> Optional[str]:
+        """
+        Header name of the header configuration.
+        """
+        return pulumi.get(self, "header_name")
+
+    @property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> Optional[str]:
+        """
+        Header value of the header configuration.
+        """
+        return pulumi.get(self, "header_value")
+
+
+@pulumi.output_type
+class ApplicationGatewayHttpListenerResponse(dict):
+    """
+    Http listener of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "customErrorConfigurations":
+            suggest = "custom_error_configurations"
+        elif key == "firewallPolicy":
+            suggest = "firewall_policy"
+        elif key == "frontendIPConfiguration":
+            suggest = "frontend_ip_configuration"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "hostName":
+            suggest = "host_name"
+        elif key == "hostNames":
+            suggest = "host_names"
+        elif key == "requireServerNameIndication":
+            suggest = "require_server_name_indication"
+        elif key == "sslCertificate":
+            suggest = "ssl_certificate"
+        elif key == "sslProfile":
+            suggest = "ssl_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayHttpListenerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayHttpListenerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayHttpListenerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 custom_error_configurations: Optional[Sequence['outputs.ApplicationGatewayCustomErrorResponse']] = None,
+                 firewall_policy: Optional['outputs.SubResourceResponse'] = None,
+                 frontend_ip_configuration: Optional['outputs.SubResourceResponse'] = None,
+                 frontend_port: Optional['outputs.SubResourceResponse'] = None,
+                 host_name: Optional[str] = None,
+                 host_names: Optional[Sequence[str]] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 require_server_name_indication: Optional[bool] = None,
+                 ssl_certificate: Optional['outputs.SubResourceResponse'] = None,
+                 ssl_profile: Optional['outputs.SubResourceResponse'] = None):
+        """
+        Http listener of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the HTTP listener resource.
+        :param str type: Type of the resource.
+        :param Sequence['ApplicationGatewayCustomErrorResponse'] custom_error_configurations: Custom error configurations of the HTTP listener.
+        :param 'SubResourceResponse' firewall_policy: Reference to the FirewallPolicy resource.
+        :param 'SubResourceResponse' frontend_ip_configuration: Frontend IP configuration resource of an application gateway.
+        :param 'SubResourceResponse' frontend_port: Frontend port resource of an application gateway.
+        :param str host_name: Host name of HTTP listener.
+        :param Sequence[str] host_names: List of Host names for HTTP Listener that allows special wildcard characters as well.
+        :param str id: Resource ID.
+        :param str name: Name of the HTTP listener that is unique within an Application Gateway.
+        :param str protocol: Protocol of the HTTP listener.
+        :param bool require_server_name_indication: Applicable only if protocol is https. Enables SNI for multi-hosting.
+        :param 'SubResourceResponse' ssl_certificate: SSL certificate resource of an application gateway.
+        :param 'SubResourceResponse' ssl_profile: SSL profile resource of the application gateway.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if custom_error_configurations is not None:
+            pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
+        if firewall_policy is not None:
+            pulumi.set(__self__, "firewall_policy", firewall_policy)
+        if frontend_ip_configuration is not None:
+            pulumi.set(__self__, "frontend_ip_configuration", frontend_ip_configuration)
+        if frontend_port is not None:
+            pulumi.set(__self__, "frontend_port", frontend_port)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if host_names is not None:
+            pulumi.set(__self__, "host_names", host_names)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if require_server_name_indication is not None:
+            pulumi.set(__self__, "require_server_name_indication", require_server_name_indication)
+        if ssl_certificate is not None:
+            pulumi.set(__self__, "ssl_certificate", ssl_certificate)
+        if ssl_profile is not None:
+            pulumi.set(__self__, "ssl_profile", ssl_profile)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the HTTP listener resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="customErrorConfigurations")
+    def custom_error_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayCustomErrorResponse']]:
+        """
+        Custom error configurations of the HTTP listener.
+        """
+        return pulumi.get(self, "custom_error_configurations")
+
+    @property
+    @pulumi.getter(name="firewallPolicy")
+    def firewall_policy(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the FirewallPolicy resource.
+        """
+        return pulumi.get(self, "firewall_policy")
+
+    @property
+    @pulumi.getter(name="frontendIPConfiguration")
+    def frontend_ip_configuration(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Frontend IP configuration resource of an application gateway.
+        """
+        return pulumi.get(self, "frontend_ip_configuration")
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Frontend port resource of an application gateway.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[str]:
+        """
+        Host name of HTTP listener.
+        """
+        return pulumi.get(self, "host_name")
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> Optional[Sequence[str]]:
+        """
+        List of Host names for HTTP Listener that allows special wildcard characters as well.
+        """
+        return pulumi.get(self, "host_names")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the HTTP listener that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Protocol of the HTTP listener.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="requireServerNameIndication")
+    def require_server_name_indication(self) -> Optional[bool]:
+        """
+        Applicable only if protocol is https. Enables SNI for multi-hosting.
+        """
+        return pulumi.get(self, "require_server_name_indication")
+
+    @property
+    @pulumi.getter(name="sslCertificate")
+    def ssl_certificate(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        SSL certificate resource of an application gateway.
+        """
+        return pulumi.get(self, "ssl_certificate")
+
+    @property
+    @pulumi.getter(name="sslProfile")
+    def ssl_profile(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        SSL profile resource of the application gateway.
+        """
+        return pulumi.get(self, "ssl_profile")
+
+
+@pulumi.output_type
+class ApplicationGatewayIPConfigurationResponse(dict):
+    """
+    IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 subnet: Optional['outputs.SubResourceResponse'] = None):
+        """
+        IP configuration of an application gateway. Currently 1 public and 1 private IP configuration is allowed.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the application gateway IP configuration resource.
+        :param str type: Type of the resource.
+        :param str id: Resource ID.
+        :param str name: Name of the IP configuration that is unique within an Application Gateway.
+        :param 'SubResourceResponse' subnet: Reference to the subnet resource. A subnet from where application gateway gets its private address.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the application gateway IP configuration resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the IP configuration that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the subnet resource. A subnet from where application gateway gets its private address.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class ApplicationGatewayListenerResponse(dict):
+    """
+    Listener of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "frontendIPConfiguration":
+            suggest = "frontend_ip_configuration"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "sslCertificate":
+            suggest = "ssl_certificate"
+        elif key == "sslProfile":
+            suggest = "ssl_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayListenerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayListenerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayListenerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 frontend_ip_configuration: Optional['outputs.SubResourceResponse'] = None,
+                 frontend_port: Optional['outputs.SubResourceResponse'] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 protocol: Optional[str] = None,
+                 ssl_certificate: Optional['outputs.SubResourceResponse'] = None,
+                 ssl_profile: Optional['outputs.SubResourceResponse'] = None):
+        """
+        Listener of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the listener resource.
+        :param str type: Type of the resource.
+        :param 'SubResourceResponse' frontend_ip_configuration: Frontend IP configuration resource of an application gateway.
+        :param 'SubResourceResponse' frontend_port: Frontend port resource of an application gateway.
+        :param str id: Resource ID.
+        :param str name: Name of the listener that is unique within an Application Gateway.
+        :param str protocol: Protocol of the listener.
+        :param 'SubResourceResponse' ssl_certificate: SSL certificate resource of an application gateway.
+        :param 'SubResourceResponse' ssl_profile: SSL profile resource of the application gateway.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if frontend_ip_configuration is not None:
+            pulumi.set(__self__, "frontend_ip_configuration", frontend_ip_configuration)
+        if frontend_port is not None:
+            pulumi.set(__self__, "frontend_port", frontend_port)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if ssl_certificate is not None:
+            pulumi.set(__self__, "ssl_certificate", ssl_certificate)
+        if ssl_profile is not None:
+            pulumi.set(__self__, "ssl_profile", ssl_profile)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the listener resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="frontendIPConfiguration")
+    def frontend_ip_configuration(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Frontend IP configuration resource of an application gateway.
+        """
+        return pulumi.get(self, "frontend_ip_configuration")
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Frontend port resource of an application gateway.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the listener that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Protocol of the listener.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="sslCertificate")
+    def ssl_certificate(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        SSL certificate resource of an application gateway.
+        """
+        return pulumi.get(self, "ssl_certificate")
+
+    @property
+    @pulumi.getter(name="sslProfile")
+    def ssl_profile(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        SSL profile resource of the application gateway.
+        """
+        return pulumi.get(self, "ssl_profile")
+
+
+@pulumi.output_type
+class ApplicationGatewayLoadDistributionPolicyResponse(dict):
+    """
+    Load Distribution Policy of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "loadDistributionAlgorithm":
+            suggest = "load_distribution_algorithm"
+        elif key == "loadDistributionTargets":
+            suggest = "load_distribution_targets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayLoadDistributionPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayLoadDistributionPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayLoadDistributionPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 load_distribution_algorithm: Optional[str] = None,
+                 load_distribution_targets: Optional[Sequence['outputs.ApplicationGatewayLoadDistributionTargetResponse']] = None,
+                 name: Optional[str] = None):
+        """
+        Load Distribution Policy of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the Load Distribution Policy resource.
+        :param str type: Type of the resource.
+        :param str id: Resource ID.
+        :param str load_distribution_algorithm: Load Distribution Targets resource of an application gateway.
+        :param Sequence['ApplicationGatewayLoadDistributionTargetResponse'] load_distribution_targets: Load Distribution Targets resource of an application gateway.
+        :param str name: Name of the load distribution policy that is unique within an Application Gateway.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if load_distribution_algorithm is not None:
+            pulumi.set(__self__, "load_distribution_algorithm", load_distribution_algorithm)
+        if load_distribution_targets is not None:
+            pulumi.set(__self__, "load_distribution_targets", load_distribution_targets)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the Load Distribution Policy resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="loadDistributionAlgorithm")
+    def load_distribution_algorithm(self) -> Optional[str]:
+        """
+        Load Distribution Targets resource of an application gateway.
+        """
+        return pulumi.get(self, "load_distribution_algorithm")
+
+    @property
+    @pulumi.getter(name="loadDistributionTargets")
+    def load_distribution_targets(self) -> Optional[Sequence['outputs.ApplicationGatewayLoadDistributionTargetResponse']]:
+        """
+        Load Distribution Targets resource of an application gateway.
+        """
+        return pulumi.get(self, "load_distribution_targets")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the load distribution policy that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationGatewayLoadDistributionTargetResponse(dict):
+    """
+    Load Distribution Target of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "weightPerServer":
+            suggest = "weight_per_server"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayLoadDistributionTargetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayLoadDistributionTargetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayLoadDistributionTargetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 type: str,
+                 backend_address_pool: Optional['outputs.SubResourceResponse'] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 weight_per_server: Optional[int] = None):
+        """
+        Load Distribution Target of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str type: Type of the resource.
+        :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of the application gateway.
+        :param str id: Resource ID.
+        :param str name: Name of the load distribution policy that is unique within an Application Gateway.
+        :param int weight_per_server: Weight per server. Range between 1 and 100.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "type", type)
+        if backend_address_pool is not None:
+            pulumi.set(__self__, "backend_address_pool", backend_address_pool)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if weight_per_server is not None:
+            pulumi.set(__self__, "weight_per_server", weight_per_server)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="backendAddressPool")
+    def backend_address_pool(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Backend address pool resource of the application gateway.
+        """
+        return pulumi.get(self, "backend_address_pool")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the load distribution policy that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="weightPerServer")
+    def weight_per_server(self) -> Optional[int]:
+        """
+        Weight per server. Range between 1 and 100.
+        """
+        return pulumi.get(self, "weight_per_server")
+
+
+@pulumi.output_type
+class ApplicationGatewayPathRuleResponse(dict):
+    """
+    Path rule of URL path map of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "backendHttpSettings":
+            suggest = "backend_http_settings"
+        elif key == "firewallPolicy":
+            suggest = "firewall_policy"
+        elif key == "loadDistributionPolicy":
+            suggest = "load_distribution_policy"
+        elif key == "redirectConfiguration":
+            suggest = "redirect_configuration"
+        elif key == "rewriteRuleSet":
+            suggest = "rewrite_rule_set"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayPathRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayPathRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayPathRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 backend_address_pool: Optional['outputs.SubResourceResponse'] = None,
+                 backend_http_settings: Optional['outputs.SubResourceResponse'] = None,
+                 firewall_policy: Optional['outputs.SubResourceResponse'] = None,
+                 id: Optional[str] = None,
+                 load_distribution_policy: Optional['outputs.SubResourceResponse'] = None,
+                 name: Optional[str] = None,
+                 paths: Optional[Sequence[str]] = None,
+                 redirect_configuration: Optional['outputs.SubResourceResponse'] = None,
+                 rewrite_rule_set: Optional['outputs.SubResourceResponse'] = None):
+        """
+        Path rule of URL path map of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the path rule resource.
+        :param str type: Type of the resource.
+        :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of URL path map path rule.
+        :param 'SubResourceResponse' backend_http_settings: Backend http settings resource of URL path map path rule.
+        :param 'SubResourceResponse' firewall_policy: Reference to the FirewallPolicy resource.
+        :param str id: Resource ID.
+        :param 'SubResourceResponse' load_distribution_policy: Load Distribution Policy resource of URL path map path rule.
+        :param str name: Name of the path rule that is unique within an Application Gateway.
+        :param Sequence[str] paths: Path rules of URL path map.
+        :param 'SubResourceResponse' redirect_configuration: Redirect configuration resource of URL path map path rule.
+        :param 'SubResourceResponse' rewrite_rule_set: Rewrite rule set resource of URL path map path rule.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if backend_address_pool is not None:
+            pulumi.set(__self__, "backend_address_pool", backend_address_pool)
+        if backend_http_settings is not None:
+            pulumi.set(__self__, "backend_http_settings", backend_http_settings)
+        if firewall_policy is not None:
+            pulumi.set(__self__, "firewall_policy", firewall_policy)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if load_distribution_policy is not None:
+            pulumi.set(__self__, "load_distribution_policy", load_distribution_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if paths is not None:
+            pulumi.set(__self__, "paths", paths)
+        if redirect_configuration is not None:
+            pulumi.set(__self__, "redirect_configuration", redirect_configuration)
+        if rewrite_rule_set is not None:
+            pulumi.set(__self__, "rewrite_rule_set", rewrite_rule_set)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the path rule resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="backendAddressPool")
+    def backend_address_pool(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Backend address pool resource of URL path map path rule.
+        """
+        return pulumi.get(self, "backend_address_pool")
+
+    @property
+    @pulumi.getter(name="backendHttpSettings")
+    def backend_http_settings(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Backend http settings resource of URL path map path rule.
+        """
+        return pulumi.get(self, "backend_http_settings")
+
+    @property
+    @pulumi.getter(name="firewallPolicy")
+    def firewall_policy(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the FirewallPolicy resource.
+        """
+        return pulumi.get(self, "firewall_policy")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="loadDistributionPolicy")
+    def load_distribution_policy(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Load Distribution Policy resource of URL path map path rule.
+        """
+        return pulumi.get(self, "load_distribution_policy")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the path rule that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def paths(self) -> Optional[Sequence[str]]:
+        """
+        Path rules of URL path map.
+        """
+        return pulumi.get(self, "paths")
+
+    @property
+    @pulumi.getter(name="redirectConfiguration")
+    def redirect_configuration(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Redirect configuration resource of URL path map path rule.
+        """
+        return pulumi.get(self, "redirect_configuration")
+
+    @property
+    @pulumi.getter(name="rewriteRuleSet")
+    def rewrite_rule_set(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Rewrite rule set resource of URL path map path rule.
+        """
+        return pulumi.get(self, "rewrite_rule_set")
+
+
+@pulumi.output_type
+class ApplicationGatewayPrivateEndpointConnectionResponse(dict):
+    """
+    Private Endpoint connection on an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkIdentifier":
+            suggest = "link_identifier"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayPrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayPrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayPrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 link_identifier: str,
+                 private_endpoint: 'outputs.PrivateEndpointResponse',
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        Private Endpoint connection on an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str link_identifier: The consumer link id.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param str provisioning_state: The provisioning state of the application gateway private endpoint connection resource.
+        :param str type: Type of the resource.
+        :param str id: Resource ID.
+        :param str name: Name of the private endpoint connection on an application gateway.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "link_identifier", link_identifier)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="linkIdentifier")
+    def link_identifier(self) -> str:
+        """
+        The consumer link id.
+        """
+        return pulumi.get(self, "link_identifier")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the application gateway private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the private endpoint connection on an application gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class ApplicationGatewayPrivateLinkConfigurationResponse(dict):
+    """
+    Private Link Configuration on an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayPrivateLinkConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayPrivateLinkConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayPrivateLinkConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 ip_configurations: Optional[Sequence['outputs.ApplicationGatewayPrivateLinkIpConfigurationResponse']] = None,
+                 name: Optional[str] = None):
+        """
+        Private Link Configuration on an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the application gateway private link configuration.
+        :param str type: Type of the resource.
+        :param str id: Resource ID.
+        :param Sequence['ApplicationGatewayPrivateLinkIpConfigurationResponse'] ip_configurations: An array of application gateway private link ip configurations.
+        :param str name: Name of the private link configuration that is unique within an Application Gateway.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the application gateway private link configuration.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayPrivateLinkIpConfigurationResponse']]:
+        """
+        An array of application gateway private link ip configurations.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the private link configuration that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationGatewayPrivateLinkIpConfigurationResponse(dict):
+    """
+    The application gateway private link ip configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayPrivateLinkIpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayPrivateLinkIpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayPrivateLinkIpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet: Optional['outputs.SubResourceResponse'] = None):
+        """
+        The application gateway private link ip configuration.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the application gateway private link IP configuration.
+        :param str type: The resource type.
+        :param str id: Resource ID.
+        :param str name: The name of application gateway private link ip configuration.
+        :param bool primary: Whether the ip configuration is primary or not.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP address allocation method.
+        :param 'SubResourceResponse' subnet: Reference to the subnet resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the application gateway private link IP configuration.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of application gateway private link ip configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Whether the ip configuration is primary or not.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class ApplicationGatewayProbeHealthResponseMatchResponse(dict):
+    """
+    Application gateway probe health response match.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "statusCodes":
+            suggest = "status_codes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayProbeHealthResponseMatchResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayProbeHealthResponseMatchResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayProbeHealthResponseMatchResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 body: Optional[str] = None,
+                 status_codes: Optional[Sequence[str]] = None):
+        """
+        Application gateway probe health response match.
+        :param str body: Body that must be contained in the health response. Default value is empty.
+        :param Sequence[str] status_codes: Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
+        """
+        if body is not None:
+            pulumi.set(__self__, "body", body)
+        if status_codes is not None:
+            pulumi.set(__self__, "status_codes", status_codes)
+
+    @property
+    @pulumi.getter
+    def body(self) -> Optional[str]:
+        """
+        Body that must be contained in the health response. Default value is empty.
+        """
+        return pulumi.get(self, "body")
+
+    @property
+    @pulumi.getter(name="statusCodes")
+    def status_codes(self) -> Optional[Sequence[str]]:
+        """
+        Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399.
+        """
+        return pulumi.get(self, "status_codes")
+
+
+@pulumi.output_type
+class ApplicationGatewayProbeResponse(dict):
+    """
+    Probe of the application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "minServers":
+            suggest = "min_servers"
+        elif key == "pickHostNameFromBackendHttpSettings":
+            suggest = "pick_host_name_from_backend_http_settings"
+        elif key == "pickHostNameFromBackendSettings":
+            suggest = "pick_host_name_from_backend_settings"
+        elif key == "unhealthyThreshold":
+            suggest = "unhealthy_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayProbeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayProbeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayProbeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 host: Optional[str] = None,
+                 id: Optional[str] = None,
+                 interval: Optional[int] = None,
+                 match: Optional['outputs.ApplicationGatewayProbeHealthResponseMatchResponse'] = None,
+                 min_servers: Optional[int] = None,
+                 name: Optional[str] = None,
+                 path: Optional[str] = None,
+                 pick_host_name_from_backend_http_settings: Optional[bool] = None,
+                 pick_host_name_from_backend_settings: Optional[bool] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 timeout: Optional[int] = None,
+                 unhealthy_threshold: Optional[int] = None):
+        """
+        Probe of the application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the probe resource.
+        :param str type: Type of the resource.
+        :param str host: Host name to send the probe to.
+        :param str id: Resource ID.
+        :param int interval: The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
+        :param 'ApplicationGatewayProbeHealthResponseMatchResponse' match: Criterion for classifying a healthy probe response.
+        :param int min_servers: Minimum number of servers that are always marked healthy. Default value is 0.
+        :param str name: Name of the probe that is unique within an Application Gateway.
+        :param str path: Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
+        :param bool pick_host_name_from_backend_http_settings: Whether the host header should be picked from the backend http settings. Default value is false.
+        :param bool pick_host_name_from_backend_settings: Whether the server name indication should be picked from the backend settings for Tls protocol. Default value is false.
+        :param int port: Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        :param str protocol: The protocol used for the probe.
+        :param int timeout: The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
+        :param int unhealthy_threshold: The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if match is not None:
+            pulumi.set(__self__, "match", match)
+        if min_servers is not None:
+            pulumi.set(__self__, "min_servers", min_servers)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if pick_host_name_from_backend_http_settings is not None:
+            pulumi.set(__self__, "pick_host_name_from_backend_http_settings", pick_host_name_from_backend_http_settings)
+        if pick_host_name_from_backend_settings is not None:
+            pulumi.set(__self__, "pick_host_name_from_backend_settings", pick_host_name_from_backend_settings)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if unhealthy_threshold is not None:
+            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the probe resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        """
+        Host name to send the probe to.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        The probing interval in seconds. This is the time interval between two consecutive probes. Acceptable values are from 1 second to 86400 seconds.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter
+    def match(self) -> Optional['outputs.ApplicationGatewayProbeHealthResponseMatchResponse']:
+        """
+        Criterion for classifying a healthy probe response.
+        """
+        return pulumi.get(self, "match")
+
+    @property
+    @pulumi.getter(name="minServers")
+    def min_servers(self) -> Optional[int]:
+        """
+        Minimum number of servers that are always marked healthy. Default value is 0.
+        """
+        return pulumi.get(self, "min_servers")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the probe that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[str]:
+        """
+        Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter(name="pickHostNameFromBackendHttpSettings")
+    def pick_host_name_from_backend_http_settings(self) -> Optional[bool]:
+        """
+        Whether the host header should be picked from the backend http settings. Default value is false.
+        """
+        return pulumi.get(self, "pick_host_name_from_backend_http_settings")
+
+    @property
+    @pulumi.getter(name="pickHostNameFromBackendSettings")
+    def pick_host_name_from_backend_settings(self) -> Optional[bool]:
+        """
+        Whether the server name indication should be picked from the backend settings for Tls protocol. Default value is false.
+        """
+        return pulumi.get(self, "pick_host_name_from_backend_settings")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Custom port which will be used for probing the backend servers. The valid value ranges from 1 to 65535. In case not set, port from http settings will be used. This property is valid for Standard_v2 and WAF_v2 only.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The protocol used for the probe.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[int]:
+        """
+        The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
+        """
+        return pulumi.get(self, "timeout")
+
+    @property
+    @pulumi.getter(name="unhealthyThreshold")
+    def unhealthy_threshold(self) -> Optional[int]:
+        """
+        The probe retry count. Backend server is marked down after consecutive probe failure count reaches UnhealthyThreshold. Acceptable values are from 1 second to 20.
+        """
+        return pulumi.get(self, "unhealthy_threshold")
+
+
+@pulumi.output_type
+class ApplicationGatewayRedirectConfigurationResponse(dict):
+    """
+    Redirect configuration of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includePath":
+            suggest = "include_path"
+        elif key == "includeQueryString":
+            suggest = "include_query_string"
+        elif key == "pathRules":
+            suggest = "path_rules"
+        elif key == "redirectType":
+            suggest = "redirect_type"
+        elif key == "requestRoutingRules":
+            suggest = "request_routing_rules"
+        elif key == "targetListener":
+            suggest = "target_listener"
+        elif key == "targetUrl":
+            suggest = "target_url"
+        elif key == "urlPathMaps":
+            suggest = "url_path_maps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRedirectConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRedirectConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRedirectConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 include_path: Optional[bool] = None,
+                 include_query_string: Optional[bool] = None,
+                 name: Optional[str] = None,
+                 path_rules: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 redirect_type: Optional[str] = None,
+                 request_routing_rules: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 target_listener: Optional['outputs.SubResourceResponse'] = None,
+                 target_url: Optional[str] = None,
+                 url_path_maps: Optional[Sequence['outputs.SubResourceResponse']] = None):
+        """
+        Redirect configuration of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str type: Type of the resource.
+        :param str id: Resource ID.
+        :param bool include_path: Include path in the redirected url.
+        :param bool include_query_string: Include query string in the redirected url.
+        :param str name: Name of the redirect configuration that is unique within an Application Gateway.
+        :param Sequence['SubResourceResponse'] path_rules: Path rules specifying redirect configuration.
+        :param str redirect_type: HTTP redirection type.
+        :param Sequence['SubResourceResponse'] request_routing_rules: Request routing specifying redirect configuration.
+        :param 'SubResourceResponse' target_listener: Reference to a listener to redirect the request to.
+        :param str target_url: Url to redirect the request to.
+        :param Sequence['SubResourceResponse'] url_path_maps: Url path maps specifying default redirect configuration.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if include_path is not None:
+            pulumi.set(__self__, "include_path", include_path)
+        if include_query_string is not None:
+            pulumi.set(__self__, "include_query_string", include_query_string)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path_rules is not None:
+            pulumi.set(__self__, "path_rules", path_rules)
+        if redirect_type is not None:
+            pulumi.set(__self__, "redirect_type", redirect_type)
+        if request_routing_rules is not None:
+            pulumi.set(__self__, "request_routing_rules", request_routing_rules)
+        if target_listener is not None:
+            pulumi.set(__self__, "target_listener", target_listener)
+        if target_url is not None:
+            pulumi.set(__self__, "target_url", target_url)
+        if url_path_maps is not None:
+            pulumi.set(__self__, "url_path_maps", url_path_maps)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="includePath")
+    def include_path(self) -> Optional[bool]:
+        """
+        Include path in the redirected url.
+        """
+        return pulumi.get(self, "include_path")
+
+    @property
+    @pulumi.getter(name="includeQueryString")
+    def include_query_string(self) -> Optional[bool]:
+        """
+        Include query string in the redirected url.
+        """
+        return pulumi.get(self, "include_query_string")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the redirect configuration that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pathRules")
+    def path_rules(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        Path rules specifying redirect configuration.
+        """
+        return pulumi.get(self, "path_rules")
+
+    @property
+    @pulumi.getter(name="redirectType")
+    def redirect_type(self) -> Optional[str]:
+        """
+        HTTP redirection type.
+        """
+        return pulumi.get(self, "redirect_type")
+
+    @property
+    @pulumi.getter(name="requestRoutingRules")
+    def request_routing_rules(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        Request routing specifying redirect configuration.
+        """
+        return pulumi.get(self, "request_routing_rules")
+
+    @property
+    @pulumi.getter(name="targetListener")
+    def target_listener(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to a listener to redirect the request to.
+        """
+        return pulumi.get(self, "target_listener")
+
+    @property
+    @pulumi.getter(name="targetUrl")
+    def target_url(self) -> Optional[str]:
+        """
+        Url to redirect the request to.
+        """
+        return pulumi.get(self, "target_url")
+
+    @property
+    @pulumi.getter(name="urlPathMaps")
+    def url_path_maps(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        Url path maps specifying default redirect configuration.
+        """
+        return pulumi.get(self, "url_path_maps")
+
+
+@pulumi.output_type
+class ApplicationGatewayRequestRoutingRuleResponse(dict):
+    """
+    Request routing rule of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "backendHttpSettings":
+            suggest = "backend_http_settings"
+        elif key == "httpListener":
+            suggest = "http_listener"
+        elif key == "loadDistributionPolicy":
+            suggest = "load_distribution_policy"
+        elif key == "redirectConfiguration":
+            suggest = "redirect_configuration"
+        elif key == "rewriteRuleSet":
+            suggest = "rewrite_rule_set"
+        elif key == "ruleType":
+            suggest = "rule_type"
+        elif key == "urlPathMap":
+            suggest = "url_path_map"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRequestRoutingRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRequestRoutingRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRequestRoutingRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 backend_address_pool: Optional['outputs.SubResourceResponse'] = None,
+                 backend_http_settings: Optional['outputs.SubResourceResponse'] = None,
+                 http_listener: Optional['outputs.SubResourceResponse'] = None,
+                 id: Optional[str] = None,
+                 load_distribution_policy: Optional['outputs.SubResourceResponse'] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 redirect_configuration: Optional['outputs.SubResourceResponse'] = None,
+                 rewrite_rule_set: Optional['outputs.SubResourceResponse'] = None,
+                 rule_type: Optional[str] = None,
+                 url_path_map: Optional['outputs.SubResourceResponse'] = None):
+        """
+        Request routing rule of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the request routing rule resource.
+        :param str type: Type of the resource.
+        :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of the application gateway.
+        :param 'SubResourceResponse' backend_http_settings: Backend http settings resource of the application gateway.
+        :param 'SubResourceResponse' http_listener: Http listener resource of the application gateway.
+        :param str id: Resource ID.
+        :param 'SubResourceResponse' load_distribution_policy: Load Distribution Policy resource of the application gateway.
+        :param str name: Name of the request routing rule that is unique within an Application Gateway.
+        :param int priority: Priority of the request routing rule.
+        :param 'SubResourceResponse' redirect_configuration: Redirect configuration resource of the application gateway.
+        :param 'SubResourceResponse' rewrite_rule_set: Rewrite Rule Set resource in Basic rule of the application gateway.
+        :param str rule_type: Rule type.
+        :param 'SubResourceResponse' url_path_map: URL path map resource of the application gateway.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if backend_address_pool is not None:
+            pulumi.set(__self__, "backend_address_pool", backend_address_pool)
+        if backend_http_settings is not None:
+            pulumi.set(__self__, "backend_http_settings", backend_http_settings)
+        if http_listener is not None:
+            pulumi.set(__self__, "http_listener", http_listener)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if load_distribution_policy is not None:
+            pulumi.set(__self__, "load_distribution_policy", load_distribution_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if redirect_configuration is not None:
+            pulumi.set(__self__, "redirect_configuration", redirect_configuration)
+        if rewrite_rule_set is not None:
+            pulumi.set(__self__, "rewrite_rule_set", rewrite_rule_set)
+        if rule_type is not None:
+            pulumi.set(__self__, "rule_type", rule_type)
+        if url_path_map is not None:
+            pulumi.set(__self__, "url_path_map", url_path_map)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the request routing rule resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="backendAddressPool")
+    def backend_address_pool(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Backend address pool resource of the application gateway.
+        """
+        return pulumi.get(self, "backend_address_pool")
+
+    @property
+    @pulumi.getter(name="backendHttpSettings")
+    def backend_http_settings(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Backend http settings resource of the application gateway.
+        """
+        return pulumi.get(self, "backend_http_settings")
+
+    @property
+    @pulumi.getter(name="httpListener")
+    def http_listener(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Http listener resource of the application gateway.
+        """
+        return pulumi.get(self, "http_listener")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="loadDistributionPolicy")
+    def load_distribution_policy(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Load Distribution Policy resource of the application gateway.
+        """
+        return pulumi.get(self, "load_distribution_policy")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the request routing rule that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        Priority of the request routing rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="redirectConfiguration")
+    def redirect_configuration(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Redirect configuration resource of the application gateway.
+        """
+        return pulumi.get(self, "redirect_configuration")
+
+    @property
+    @pulumi.getter(name="rewriteRuleSet")
+    def rewrite_rule_set(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Rewrite Rule Set resource in Basic rule of the application gateway.
+        """
+        return pulumi.get(self, "rewrite_rule_set")
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> Optional[str]:
+        """
+        Rule type.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter(name="urlPathMap")
+    def url_path_map(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        URL path map resource of the application gateway.
+        """
+        return pulumi.get(self, "url_path_map")
+
+
+@pulumi.output_type
+class ApplicationGatewayResponse(dict):
+    """
+    Application gateway resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationalState":
+            suggest = "operational_state"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "authenticationCertificates":
+            suggest = "authentication_certificates"
+        elif key == "autoscaleConfiguration":
+            suggest = "autoscale_configuration"
+        elif key == "backendAddressPools":
+            suggest = "backend_address_pools"
+        elif key == "backendHttpSettingsCollection":
+            suggest = "backend_http_settings_collection"
+        elif key == "backendSettingsCollection":
+            suggest = "backend_settings_collection"
+        elif key == "customErrorConfigurations":
+            suggest = "custom_error_configurations"
+        elif key == "enableFips":
+            suggest = "enable_fips"
+        elif key == "enableHttp2":
+            suggest = "enable_http2"
+        elif key == "firewallPolicy":
+            suggest = "firewall_policy"
+        elif key == "forceFirewallPolicyAssociation":
+            suggest = "force_firewall_policy_association"
+        elif key == "frontendIPConfigurations":
+            suggest = "frontend_ip_configurations"
+        elif key == "frontendPorts":
+            suggest = "frontend_ports"
+        elif key == "gatewayIPConfigurations":
+            suggest = "gateway_ip_configurations"
+        elif key == "globalConfiguration":
+            suggest = "global_configuration"
+        elif key == "httpListeners":
+            suggest = "http_listeners"
+        elif key == "loadDistributionPolicies":
+            suggest = "load_distribution_policies"
+        elif key == "privateLinkConfigurations":
+            suggest = "private_link_configurations"
+        elif key == "redirectConfigurations":
+            suggest = "redirect_configurations"
+        elif key == "requestRoutingRules":
+            suggest = "request_routing_rules"
+        elif key == "rewriteRuleSets":
+            suggest = "rewrite_rule_sets"
+        elif key == "routingRules":
+            suggest = "routing_rules"
+        elif key == "sslCertificates":
+            suggest = "ssl_certificates"
+        elif key == "sslPolicy":
+            suggest = "ssl_policy"
+        elif key == "sslProfiles":
+            suggest = "ssl_profiles"
+        elif key == "trustedClientCertificates":
+            suggest = "trusted_client_certificates"
+        elif key == "trustedRootCertificates":
+            suggest = "trusted_root_certificates"
+        elif key == "urlPathMaps":
+            suggest = "url_path_maps"
+        elif key == "webApplicationFirewallConfiguration":
+            suggest = "web_application_firewall_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 name: str,
+                 operational_state: str,
+                 private_endpoint_connections: Sequence['outputs.ApplicationGatewayPrivateEndpointConnectionResponse'],
+                 provisioning_state: str,
+                 resource_guid: str,
+                 type: str,
+                 authentication_certificates: Optional[Sequence['outputs.ApplicationGatewayAuthenticationCertificateResponse']] = None,
+                 autoscale_configuration: Optional['outputs.ApplicationGatewayAutoscaleConfigurationResponse'] = None,
+                 backend_address_pools: Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']] = None,
+                 backend_http_settings_collection: Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingsResponse']] = None,
+                 backend_settings_collection: Optional[Sequence['outputs.ApplicationGatewayBackendSettingsResponse']] = None,
+                 custom_error_configurations: Optional[Sequence['outputs.ApplicationGatewayCustomErrorResponse']] = None,
+                 enable_fips: Optional[bool] = None,
+                 enable_http2: Optional[bool] = None,
+                 firewall_policy: Optional['outputs.SubResourceResponse'] = None,
+                 force_firewall_policy_association: Optional[bool] = None,
+                 frontend_ip_configurations: Optional[Sequence['outputs.ApplicationGatewayFrontendIPConfigurationResponse']] = None,
+                 frontend_ports: Optional[Sequence['outputs.ApplicationGatewayFrontendPortResponse']] = None,
+                 gateway_ip_configurations: Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']] = None,
+                 global_configuration: Optional['outputs.ApplicationGatewayGlobalConfigurationResponse'] = None,
+                 http_listeners: Optional[Sequence['outputs.ApplicationGatewayHttpListenerResponse']] = None,
+                 id: Optional[str] = None,
+                 identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
+                 listeners: Optional[Sequence['outputs.ApplicationGatewayListenerResponse']] = None,
+                 load_distribution_policies: Optional[Sequence['outputs.ApplicationGatewayLoadDistributionPolicyResponse']] = None,
+                 location: Optional[str] = None,
+                 private_link_configurations: Optional[Sequence['outputs.ApplicationGatewayPrivateLinkConfigurationResponse']] = None,
+                 probes: Optional[Sequence['outputs.ApplicationGatewayProbeResponse']] = None,
+                 redirect_configurations: Optional[Sequence['outputs.ApplicationGatewayRedirectConfigurationResponse']] = None,
+                 request_routing_rules: Optional[Sequence['outputs.ApplicationGatewayRequestRoutingRuleResponse']] = None,
+                 rewrite_rule_sets: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetResponse']] = None,
+                 routing_rules: Optional[Sequence['outputs.ApplicationGatewayRoutingRuleResponse']] = None,
+                 sku: Optional['outputs.ApplicationGatewaySkuResponse'] = None,
+                 ssl_certificates: Optional[Sequence['outputs.ApplicationGatewaySslCertificateResponse']] = None,
+                 ssl_policy: Optional['outputs.ApplicationGatewaySslPolicyResponse'] = None,
+                 ssl_profiles: Optional[Sequence['outputs.ApplicationGatewaySslProfileResponse']] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 trusted_client_certificates: Optional[Sequence['outputs.ApplicationGatewayTrustedClientCertificateResponse']] = None,
+                 trusted_root_certificates: Optional[Sequence['outputs.ApplicationGatewayTrustedRootCertificateResponse']] = None,
+                 url_path_maps: Optional[Sequence['outputs.ApplicationGatewayUrlPathMapResponse']] = None,
+                 web_application_firewall_configuration: Optional['outputs.ApplicationGatewayWebApplicationFirewallConfigurationResponse'] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Application gateway resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: Resource name.
+        :param str operational_state: Operational state of the application gateway resource.
+        :param Sequence['ApplicationGatewayPrivateEndpointConnectionResponse'] private_endpoint_connections: Private Endpoint connections on application gateway.
+        :param str provisioning_state: The provisioning state of the application gateway resource.
+        :param str resource_guid: The resource GUID property of the application gateway resource.
+        :param str type: Resource type.
+        :param Sequence['ApplicationGatewayAuthenticationCertificateResponse'] authentication_certificates: Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewayAutoscaleConfigurationResponse' autoscale_configuration: Autoscale Configuration.
+        :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayBackendHttpSettingsResponse'] backend_http_settings_collection: Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayBackendSettingsResponse'] backend_settings_collection: Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayCustomErrorResponse'] custom_error_configurations: Custom error configurations of the application gateway resource.
+        :param bool enable_fips: Whether FIPS is enabled on the application gateway resource.
+        :param bool enable_http2: Whether HTTP2 is enabled on the application gateway resource.
+        :param 'SubResourceResponse' firewall_policy: Reference to the FirewallPolicy resource.
+        :param bool force_firewall_policy_association: If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
+        :param Sequence['ApplicationGatewayFrontendIPConfigurationResponse'] frontend_ip_configurations: Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayFrontendPortResponse'] frontend_ports: Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayIPConfigurationResponse'] gateway_ip_configurations: Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewayGlobalConfigurationResponse' global_configuration: Global Configuration.
+        :param Sequence['ApplicationGatewayHttpListenerResponse'] http_listeners: Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param str id: Resource ID.
+        :param 'ManagedServiceIdentityResponse' identity: The identity of the application gateway, if configured.
+        :param Sequence['ApplicationGatewayListenerResponse'] listeners: Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayLoadDistributionPolicyResponse'] load_distribution_policies: Load distribution policies of the application gateway resource.
+        :param str location: Resource location.
+        :param Sequence['ApplicationGatewayPrivateLinkConfigurationResponse'] private_link_configurations: PrivateLink configurations on application gateway.
+        :param Sequence['ApplicationGatewayProbeResponse'] probes: Probes of the application gateway resource.
+        :param Sequence['ApplicationGatewayRedirectConfigurationResponse'] redirect_configurations: Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayRequestRoutingRuleResponse'] request_routing_rules: Request routing rules of the application gateway resource.
+        :param Sequence['ApplicationGatewayRewriteRuleSetResponse'] rewrite_rule_sets: Rewrite rules for the application gateway resource.
+        :param Sequence['ApplicationGatewayRoutingRuleResponse'] routing_rules: Routing rules of the application gateway resource.
+        :param 'ApplicationGatewaySkuResponse' sku: SKU of the application gateway resource.
+        :param Sequence['ApplicationGatewaySslCertificateResponse'] ssl_certificates: SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewaySslPolicyResponse' ssl_policy: SSL policy of the application gateway resource.
+        :param Sequence['ApplicationGatewaySslProfileResponse'] ssl_profiles: SSL profiles of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Mapping[str, str] tags: Resource tags.
+        :param Sequence['ApplicationGatewayTrustedClientCertificateResponse'] trusted_client_certificates: Trusted client certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayTrustedRootCertificateResponse'] trusted_root_certificates: Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param Sequence['ApplicationGatewayUrlPathMapResponse'] url_path_maps: URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        :param 'ApplicationGatewayWebApplicationFirewallConfigurationResponse' web_application_firewall_configuration: Web application firewall configuration.
+        :param Sequence[str] zones: A list of availability zones denoting where the resource needs to come from.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operational_state", operational_state)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "type", type)
+        if authentication_certificates is not None:
+            pulumi.set(__self__, "authentication_certificates", authentication_certificates)
+        if autoscale_configuration is not None:
+            pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        if backend_http_settings_collection is not None:
+            pulumi.set(__self__, "backend_http_settings_collection", backend_http_settings_collection)
+        if backend_settings_collection is not None:
+            pulumi.set(__self__, "backend_settings_collection", backend_settings_collection)
+        if custom_error_configurations is not None:
+            pulumi.set(__self__, "custom_error_configurations", custom_error_configurations)
+        if enable_fips is not None:
+            pulumi.set(__self__, "enable_fips", enable_fips)
+        if enable_http2 is not None:
+            pulumi.set(__self__, "enable_http2", enable_http2)
+        if firewall_policy is not None:
+            pulumi.set(__self__, "firewall_policy", firewall_policy)
+        if force_firewall_policy_association is not None:
+            pulumi.set(__self__, "force_firewall_policy_association", force_firewall_policy_association)
+        if frontend_ip_configurations is not None:
+            pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        if frontend_ports is not None:
+            pulumi.set(__self__, "frontend_ports", frontend_ports)
+        if gateway_ip_configurations is not None:
+            pulumi.set(__self__, "gateway_ip_configurations", gateway_ip_configurations)
+        if global_configuration is not None:
+            pulumi.set(__self__, "global_configuration", global_configuration)
+        if http_listeners is not None:
+            pulumi.set(__self__, "http_listeners", http_listeners)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if listeners is not None:
+            pulumi.set(__self__, "listeners", listeners)
+        if load_distribution_policies is not None:
+            pulumi.set(__self__, "load_distribution_policies", load_distribution_policies)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if private_link_configurations is not None:
+            pulumi.set(__self__, "private_link_configurations", private_link_configurations)
+        if probes is not None:
+            pulumi.set(__self__, "probes", probes)
+        if redirect_configurations is not None:
+            pulumi.set(__self__, "redirect_configurations", redirect_configurations)
+        if request_routing_rules is not None:
+            pulumi.set(__self__, "request_routing_rules", request_routing_rules)
+        if rewrite_rule_sets is not None:
+            pulumi.set(__self__, "rewrite_rule_sets", rewrite_rule_sets)
+        if routing_rules is not None:
+            pulumi.set(__self__, "routing_rules", routing_rules)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if ssl_certificates is not None:
+            pulumi.set(__self__, "ssl_certificates", ssl_certificates)
+        if ssl_policy is not None:
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
+        if ssl_profiles is not None:
+            pulumi.set(__self__, "ssl_profiles", ssl_profiles)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if trusted_client_certificates is not None:
+            pulumi.set(__self__, "trusted_client_certificates", trusted_client_certificates)
+        if trusted_root_certificates is not None:
+            pulumi.set(__self__, "trusted_root_certificates", trusted_root_certificates)
+        if url_path_maps is not None:
+            pulumi.set(__self__, "url_path_maps", url_path_maps)
+        if web_application_firewall_configuration is not None:
+            pulumi.set(__self__, "web_application_firewall_configuration", web_application_firewall_configuration)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationalState")
+    def operational_state(self) -> str:
+        """
+        Operational state of the application gateway resource.
+        """
+        return pulumi.get(self, "operational_state")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.ApplicationGatewayPrivateEndpointConnectionResponse']:
+        """
+        Private Endpoint connections on application gateway.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the application gateway resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the application gateway resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="authenticationCertificates")
+    def authentication_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayAuthenticationCertificateResponse']]:
+        """
+        Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "authentication_certificates")
+
+    @property
+    @pulumi.getter(name="autoscaleConfiguration")
+    def autoscale_configuration(self) -> Optional['outputs.ApplicationGatewayAutoscaleConfigurationResponse']:
+        """
+        Autoscale Configuration.
+        """
+        return pulumi.get(self, "autoscale_configuration")
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']]:
+        """
+        Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @property
+    @pulumi.getter(name="backendHttpSettingsCollection")
+    def backend_http_settings_collection(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingsResponse']]:
+        """
+        Backend http settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "backend_http_settings_collection")
+
+    @property
+    @pulumi.getter(name="backendSettingsCollection")
+    def backend_settings_collection(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendSettingsResponse']]:
+        """
+        Backend settings of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "backend_settings_collection")
+
+    @property
+    @pulumi.getter(name="customErrorConfigurations")
+    def custom_error_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayCustomErrorResponse']]:
+        """
+        Custom error configurations of the application gateway resource.
+        """
+        return pulumi.get(self, "custom_error_configurations")
+
+    @property
+    @pulumi.getter(name="enableFips")
+    def enable_fips(self) -> Optional[bool]:
+        """
+        Whether FIPS is enabled on the application gateway resource.
+        """
+        return pulumi.get(self, "enable_fips")
+
+    @property
+    @pulumi.getter(name="enableHttp2")
+    def enable_http2(self) -> Optional[bool]:
+        """
+        Whether HTTP2 is enabled on the application gateway resource.
+        """
+        return pulumi.get(self, "enable_http2")
+
+    @property
+    @pulumi.getter(name="firewallPolicy")
+    def firewall_policy(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the FirewallPolicy resource.
+        """
+        return pulumi.get(self, "firewall_policy")
+
+    @property
+    @pulumi.getter(name="forceFirewallPolicyAssociation")
+    def force_firewall_policy_association(self) -> Optional[bool]:
+        """
+        If true, associates a firewall policy with an application gateway regardless whether the policy differs from the WAF Config.
+        """
+        return pulumi.get(self, "force_firewall_policy_association")
+
+    @property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendIPConfigurationResponse']]:
+        """
+        Frontend IP addresses of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @property
+    @pulumi.getter(name="frontendPorts")
+    def frontend_ports(self) -> Optional[Sequence['outputs.ApplicationGatewayFrontendPortResponse']]:
+        """
+        Frontend ports of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "frontend_ports")
+
+    @property
+    @pulumi.getter(name="gatewayIPConfigurations")
+    def gateway_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]:
+        """
+        Subnets of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "gateway_ip_configurations")
+
+    @property
+    @pulumi.getter(name="globalConfiguration")
+    def global_configuration(self) -> Optional['outputs.ApplicationGatewayGlobalConfigurationResponse']:
+        """
+        Global Configuration.
+        """
+        return pulumi.get(self, "global_configuration")
+
+    @property
+    @pulumi.getter(name="httpListeners")
+    def http_listeners(self) -> Optional[Sequence['outputs.ApplicationGatewayHttpListenerResponse']]:
+        """
+        Http listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "http_listeners")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        The identity of the application gateway, if configured.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
+    def listeners(self) -> Optional[Sequence['outputs.ApplicationGatewayListenerResponse']]:
+        """
+        Listeners of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "listeners")
+
+    @property
+    @pulumi.getter(name="loadDistributionPolicies")
+    def load_distribution_policies(self) -> Optional[Sequence['outputs.ApplicationGatewayLoadDistributionPolicyResponse']]:
+        """
+        Load distribution policies of the application gateway resource.
+        """
+        return pulumi.get(self, "load_distribution_policies")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="privateLinkConfigurations")
+    def private_link_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayPrivateLinkConfigurationResponse']]:
+        """
+        PrivateLink configurations on application gateway.
+        """
+        return pulumi.get(self, "private_link_configurations")
+
+    @property
+    @pulumi.getter
+    def probes(self) -> Optional[Sequence['outputs.ApplicationGatewayProbeResponse']]:
+        """
+        Probes of the application gateway resource.
+        """
+        return pulumi.get(self, "probes")
+
+    @property
+    @pulumi.getter(name="redirectConfigurations")
+    def redirect_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayRedirectConfigurationResponse']]:
+        """
+        Redirect configurations of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "redirect_configurations")
+
+    @property
+    @pulumi.getter(name="requestRoutingRules")
+    def request_routing_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayRequestRoutingRuleResponse']]:
+        """
+        Request routing rules of the application gateway resource.
+        """
+        return pulumi.get(self, "request_routing_rules")
+
+    @property
+    @pulumi.getter(name="rewriteRuleSets")
+    def rewrite_rule_sets(self) -> Optional[Sequence['outputs.ApplicationGatewayRewriteRuleSetResponse']]:
+        """
+        Rewrite rules for the application gateway resource.
+        """
+        return pulumi.get(self, "rewrite_rule_sets")
+
+    @property
+    @pulumi.getter(name="routingRules")
+    def routing_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayRoutingRuleResponse']]:
+        """
+        Routing rules of the application gateway resource.
+        """
+        return pulumi.get(self, "routing_rules")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.ApplicationGatewaySkuResponse']:
+        """
+        SKU of the application gateway resource.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="sslCertificates")
+    def ssl_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewaySslCertificateResponse']]:
+        """
+        SSL certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "ssl_certificates")
+
+    @property
+    @pulumi.getter(name="sslPolicy")
+    def ssl_policy(self) -> Optional['outputs.ApplicationGatewaySslPolicyResponse']:
+        """
+        SSL policy of the application gateway resource.
+        """
+        return pulumi.get(self, "ssl_policy")
+
+    @property
+    @pulumi.getter(name="sslProfiles")
+    def ssl_profiles(self) -> Optional[Sequence['outputs.ApplicationGatewaySslProfileResponse']]:
+        """
+        SSL profiles of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "ssl_profiles")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="trustedClientCertificates")
+    def trusted_client_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayTrustedClientCertificateResponse']]:
+        """
+        Trusted client certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "trusted_client_certificates")
+
+    @property
+    @pulumi.getter(name="trustedRootCertificates")
+    def trusted_root_certificates(self) -> Optional[Sequence['outputs.ApplicationGatewayTrustedRootCertificateResponse']]:
+        """
+        Trusted Root certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "trusted_root_certificates")
+
+    @property
+    @pulumi.getter(name="urlPathMaps")
+    def url_path_maps(self) -> Optional[Sequence['outputs.ApplicationGatewayUrlPathMapResponse']]:
+        """
+        URL path map of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
+        """
+        return pulumi.get(self, "url_path_maps")
+
+    @property
+    @pulumi.getter(name="webApplicationFirewallConfiguration")
+    def web_application_firewall_configuration(self) -> Optional['outputs.ApplicationGatewayWebApplicationFirewallConfigurationResponse']:
+        """
+        Web application firewall configuration.
+        """
+        return pulumi.get(self, "web_application_firewall_configuration")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        A list of availability zones denoting where the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class ApplicationGatewayRewriteRuleActionSetResponse(dict):
+    """
+    Set of actions in the Rewrite Rule in Application Gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestHeaderConfigurations":
+            suggest = "request_header_configurations"
+        elif key == "responseHeaderConfigurations":
+            suggest = "response_header_configurations"
+        elif key == "urlConfiguration":
+            suggest = "url_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRewriteRuleActionSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRewriteRuleActionSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRewriteRuleActionSetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_header_configurations: Optional[Sequence['outputs.ApplicationGatewayHeaderConfigurationResponse']] = None,
+                 response_header_configurations: Optional[Sequence['outputs.ApplicationGatewayHeaderConfigurationResponse']] = None,
+                 url_configuration: Optional['outputs.ApplicationGatewayUrlConfigurationResponse'] = None):
+        """
+        Set of actions in the Rewrite Rule in Application Gateway.
+        :param Sequence['ApplicationGatewayHeaderConfigurationResponse'] request_header_configurations: Request Header Actions in the Action Set.
+        :param Sequence['ApplicationGatewayHeaderConfigurationResponse'] response_header_configurations: Response Header Actions in the Action Set.
+        :param 'ApplicationGatewayUrlConfigurationResponse' url_configuration: Url Configuration Action in the Action Set.
+        """
+        if request_header_configurations is not None:
+            pulumi.set(__self__, "request_header_configurations", request_header_configurations)
+        if response_header_configurations is not None:
+            pulumi.set(__self__, "response_header_configurations", response_header_configurations)
+        if url_configuration is not None:
+            pulumi.set(__self__, "url_configuration", url_configuration)
+
+    @property
+    @pulumi.getter(name="requestHeaderConfigurations")
+    def request_header_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayHeaderConfigurationResponse']]:
+        """
+        Request Header Actions in the Action Set.
+        """
+        return pulumi.get(self, "request_header_configurations")
+
+    @property
+    @pulumi.getter(name="responseHeaderConfigurations")
+    def response_header_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayHeaderConfigurationResponse']]:
+        """
+        Response Header Actions in the Action Set.
+        """
+        return pulumi.get(self, "response_header_configurations")
+
+    @property
+    @pulumi.getter(name="urlConfiguration")
+    def url_configuration(self) -> Optional['outputs.ApplicationGatewayUrlConfigurationResponse']:
+        """
+        Url Configuration Action in the Action Set.
+        """
+        return pulumi.get(self, "url_configuration")
+
+
+@pulumi.output_type
+class ApplicationGatewayRewriteRuleConditionResponse(dict):
+    """
+    Set of conditions in the Rewrite Rule in Application Gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ignoreCase":
+            suggest = "ignore_case"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRewriteRuleConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRewriteRuleConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRewriteRuleConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ignore_case: Optional[bool] = None,
+                 negate: Optional[bool] = None,
+                 pattern: Optional[str] = None,
+                 variable: Optional[str] = None):
+        """
+        Set of conditions in the Rewrite Rule in Application Gateway.
+        :param bool ignore_case: Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
+        :param bool negate: Setting this value as truth will force to check the negation of the condition given by the user.
+        :param str pattern: The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+        :param str variable: The condition parameter of the RewriteRuleCondition.
+        """
+        if ignore_case is not None:
+            pulumi.set(__self__, "ignore_case", ignore_case)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+        if variable is not None:
+            pulumi.set(__self__, "variable", variable)
+
+    @property
+    @pulumi.getter(name="ignoreCase")
+    def ignore_case(self) -> Optional[bool]:
+        """
+        Setting this parameter to truth value with force the pattern to do a case in-sensitive comparison.
+        """
+        return pulumi.get(self, "ignore_case")
+
+    @property
+    @pulumi.getter
+    def negate(self) -> Optional[bool]:
+        """
+        Setting this value as truth will force to check the negation of the condition given by the user.
+        """
+        return pulumi.get(self, "negate")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[str]:
+        """
+        The pattern, either fixed string or regular expression, that evaluates the truthfulness of the condition.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def variable(self) -> Optional[str]:
+        """
+        The condition parameter of the RewriteRuleCondition.
+        """
+        return pulumi.get(self, "variable")
+
+
+@pulumi.output_type
+class ApplicationGatewayRewriteRuleResponse(dict):
+    """
+    Rewrite rule of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionSet":
+            suggest = "action_set"
+        elif key == "ruleSequence":
+            suggest = "rule_sequence"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRewriteRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRewriteRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRewriteRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action_set: Optional['outputs.ApplicationGatewayRewriteRuleActionSetResponse'] = None,
+                 conditions: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleConditionResponse']] = None,
+                 name: Optional[str] = None,
+                 rule_sequence: Optional[int] = None):
+        """
+        Rewrite rule of an application gateway.
+        :param 'ApplicationGatewayRewriteRuleActionSetResponse' action_set: Set of actions to be done as part of the rewrite Rule.
+        :param Sequence['ApplicationGatewayRewriteRuleConditionResponse'] conditions: Conditions based on which the action set execution will be evaluated.
+        :param str name: Name of the rewrite rule that is unique within an Application Gateway.
+        :param int rule_sequence: Rule Sequence of the rewrite rule that determines the order of execution of a particular rule in a RewriteRuleSet.
+        """
+        if action_set is not None:
+            pulumi.set(__self__, "action_set", action_set)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rule_sequence is not None:
+            pulumi.set(__self__, "rule_sequence", rule_sequence)
+
+    @property
+    @pulumi.getter(name="actionSet")
+    def action_set(self) -> Optional['outputs.ApplicationGatewayRewriteRuleActionSetResponse']:
+        """
+        Set of actions to be done as part of the rewrite Rule.
+        """
+        return pulumi.get(self, "action_set")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.ApplicationGatewayRewriteRuleConditionResponse']]:
+        """
+        Conditions based on which the action set execution will be evaluated.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the rewrite rule that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ruleSequence")
+    def rule_sequence(self) -> Optional[int]:
+        """
+        Rule Sequence of the rewrite rule that determines the order of execution of a particular rule in a RewriteRuleSet.
+        """
+        return pulumi.get(self, "rule_sequence")
+
+
+@pulumi.output_type
+class ApplicationGatewayRewriteRuleSetResponse(dict):
+    """
+    Rewrite rule set of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "rewriteRules":
+            suggest = "rewrite_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRewriteRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRewriteRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRewriteRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 rewrite_rules: Optional[Sequence['outputs.ApplicationGatewayRewriteRuleResponse']] = None):
+        """
+        Rewrite rule set of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the rewrite rule set resource.
+        :param str id: Resource ID.
+        :param str name: Name of the rewrite rule set that is unique within an Application Gateway.
+        :param Sequence['ApplicationGatewayRewriteRuleResponse'] rewrite_rules: Rewrite rules in the rewrite rule set.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rewrite_rules is not None:
+            pulumi.set(__self__, "rewrite_rules", rewrite_rules)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the rewrite rule set resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the rewrite rule set that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rewriteRules")
+    def rewrite_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayRewriteRuleResponse']]:
+        """
+        Rewrite rules in the rewrite rule set.
+        """
+        return pulumi.get(self, "rewrite_rules")
+
+
+@pulumi.output_type
+class ApplicationGatewayRoutingRuleResponse(dict):
+    """
+    Routing rule of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "backendSettings":
+            suggest = "backend_settings"
+        elif key == "ruleType":
+            suggest = "rule_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayRoutingRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayRoutingRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayRoutingRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 priority: int,
+                 provisioning_state: str,
+                 type: str,
+                 backend_address_pool: Optional['outputs.SubResourceResponse'] = None,
+                 backend_settings: Optional['outputs.SubResourceResponse'] = None,
+                 id: Optional[str] = None,
+                 listener: Optional['outputs.SubResourceResponse'] = None,
+                 name: Optional[str] = None,
+                 rule_type: Optional[str] = None):
+        """
+        Routing rule of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param int priority: Priority of the routing rule.
+        :param str provisioning_state: The provisioning state of the request routing rule resource.
+        :param str type: Type of the resource.
+        :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of the application gateway.
+        :param 'SubResourceResponse' backend_settings: Backend settings resource of the application gateway.
+        :param str id: Resource ID.
+        :param 'SubResourceResponse' listener: Listener resource of the application gateway.
+        :param str name: Name of the routing rule that is unique within an Application Gateway.
+        :param str rule_type: Rule type.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if backend_address_pool is not None:
+            pulumi.set(__self__, "backend_address_pool", backend_address_pool)
+        if backend_settings is not None:
+            pulumi.set(__self__, "backend_settings", backend_settings)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if listener is not None:
+            pulumi.set(__self__, "listener", listener)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rule_type is not None:
+            pulumi.set(__self__, "rule_type", rule_type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Priority of the routing rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the request routing rule resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="backendAddressPool")
+    def backend_address_pool(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Backend address pool resource of the application gateway.
+        """
+        return pulumi.get(self, "backend_address_pool")
+
+    @property
+    @pulumi.getter(name="backendSettings")
+    def backend_settings(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Backend settings resource of the application gateway.
+        """
+        return pulumi.get(self, "backend_settings")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def listener(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Listener resource of the application gateway.
+        """
+        return pulumi.get(self, "listener")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the routing rule that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> Optional[str]:
+        """
+        Rule type.
+        """
+        return pulumi.get(self, "rule_type")
+
+
+@pulumi.output_type
+class ApplicationGatewaySkuResponse(dict):
+    """
+    SKU of an application gateway.
+    """
+    def __init__(__self__, *,
+                 capacity: Optional[int] = None,
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        SKU of an application gateway.
+        :param int capacity: Capacity (instance count) of an application gateway.
+        :param str name: Name of an application gateway SKU.
+        :param str tier: Tier of an application gateway.
+        """
+        if capacity is not None:
+            pulumi.set(__self__, "capacity", capacity)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capacity(self) -> Optional[int]:
+        """
+        Capacity (instance count) of an application gateway.
+        """
+        return pulumi.get(self, "capacity")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of an application gateway SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Tier of an application gateway.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class ApplicationGatewaySslCertificateResponse(dict):
+    """
+    SSL certificates of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "publicCertData":
+            suggest = "public_cert_data"
+        elif key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewaySslCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewaySslCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewaySslCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 public_cert_data: str,
+                 type: str,
+                 data: Optional[str] = None,
+                 id: Optional[str] = None,
+                 key_vault_secret_id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 password: Optional[str] = None):
+        """
+        SSL certificates of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the SSL certificate resource.
+        :param str public_cert_data: Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
+        :param str type: Type of the resource.
+        :param str data: Base-64 encoded pfx certificate. Only applicable in PUT Request.
+        :param str id: Resource ID.
+        :param str key_vault_secret_id: Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        :param str name: Name of the SSL certificate that is unique within an Application Gateway.
+        :param str password: Password for the pfx file specified in data. Only applicable in PUT request.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "public_cert_data", public_cert_data)
+        pulumi.set(__self__, "type", type)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the SSL certificate resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="publicCertData")
+    def public_cert_data(self) -> str:
+        """
+        Base-64 encoded Public cert data corresponding to pfx specified in data. Only applicable in GET request.
+        """
+        return pulumi.get(self, "public_cert_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[str]:
+        """
+        Base-64 encoded pfx certificate. Only applicable in PUT Request.
+        """
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[str]:
+        """
+        Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the SSL certificate that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[str]:
+        """
+        Password for the pfx file specified in data. Only applicable in PUT request.
+        """
+        return pulumi.get(self, "password")
+
+
+@pulumi.output_type
+class ApplicationGatewaySslPolicyResponse(dict):
+    """
+    Application Gateway Ssl policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cipherSuites":
+            suggest = "cipher_suites"
+        elif key == "disabledSslProtocols":
+            suggest = "disabled_ssl_protocols"
+        elif key == "minProtocolVersion":
+            suggest = "min_protocol_version"
+        elif key == "policyName":
+            suggest = "policy_name"
+        elif key == "policyType":
+            suggest = "policy_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewaySslPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewaySslPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewaySslPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cipher_suites: Optional[Sequence[str]] = None,
+                 disabled_ssl_protocols: Optional[Sequence[str]] = None,
+                 min_protocol_version: Optional[str] = None,
+                 policy_name: Optional[str] = None,
+                 policy_type: Optional[str] = None):
+        """
+        Application Gateway Ssl policy.
+        :param Sequence[str] cipher_suites: Ssl cipher suites to be enabled in the specified order to application gateway.
+        :param Sequence[str] disabled_ssl_protocols: Ssl protocols to be disabled on application gateway.
+        :param str min_protocol_version: Minimum version of Ssl protocol to be supported on application gateway.
+        :param str policy_name: Name of Ssl predefined policy.
+        :param str policy_type: Type of Ssl Policy.
+        """
+        if cipher_suites is not None:
+            pulumi.set(__self__, "cipher_suites", cipher_suites)
+        if disabled_ssl_protocols is not None:
+            pulumi.set(__self__, "disabled_ssl_protocols", disabled_ssl_protocols)
+        if min_protocol_version is not None:
+            pulumi.set(__self__, "min_protocol_version", min_protocol_version)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+
+    @property
+    @pulumi.getter(name="cipherSuites")
+    def cipher_suites(self) -> Optional[Sequence[str]]:
+        """
+        Ssl cipher suites to be enabled in the specified order to application gateway.
+        """
+        return pulumi.get(self, "cipher_suites")
+
+    @property
+    @pulumi.getter(name="disabledSslProtocols")
+    def disabled_ssl_protocols(self) -> Optional[Sequence[str]]:
+        """
+        Ssl protocols to be disabled on application gateway.
+        """
+        return pulumi.get(self, "disabled_ssl_protocols")
+
+    @property
+    @pulumi.getter(name="minProtocolVersion")
+    def min_protocol_version(self) -> Optional[str]:
+        """
+        Minimum version of Ssl protocol to be supported on application gateway.
+        """
+        return pulumi.get(self, "min_protocol_version")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> Optional[str]:
+        """
+        Name of Ssl predefined policy.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[str]:
+        """
+        Type of Ssl Policy.
+        """
+        return pulumi.get(self, "policy_type")
+
+
+@pulumi.output_type
+class ApplicationGatewaySslProfileResponse(dict):
+    """
+    SSL profile of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "clientAuthConfiguration":
+            suggest = "client_auth_configuration"
+        elif key == "sslPolicy":
+            suggest = "ssl_policy"
+        elif key == "trustedClientCertificates":
+            suggest = "trusted_client_certificates"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewaySslProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewaySslProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewaySslProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 client_auth_configuration: Optional['outputs.ApplicationGatewayClientAuthConfigurationResponse'] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 ssl_policy: Optional['outputs.ApplicationGatewaySslPolicyResponse'] = None,
+                 trusted_client_certificates: Optional[Sequence['outputs.SubResourceResponse']] = None):
+        """
+        SSL profile of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the HTTP listener resource.
+        :param str type: Type of the resource.
+        :param 'ApplicationGatewayClientAuthConfigurationResponse' client_auth_configuration: Client authentication configuration of the application gateway resource.
+        :param str id: Resource ID.
+        :param str name: Name of the SSL profile that is unique within an Application Gateway.
+        :param 'ApplicationGatewaySslPolicyResponse' ssl_policy: SSL policy of the application gateway resource.
+        :param Sequence['SubResourceResponse'] trusted_client_certificates: Array of references to application gateway trusted client certificates.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if client_auth_configuration is not None:
+            pulumi.set(__self__, "client_auth_configuration", client_auth_configuration)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if ssl_policy is not None:
+            pulumi.set(__self__, "ssl_policy", ssl_policy)
+        if trusted_client_certificates is not None:
+            pulumi.set(__self__, "trusted_client_certificates", trusted_client_certificates)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the HTTP listener resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="clientAuthConfiguration")
+    def client_auth_configuration(self) -> Optional['outputs.ApplicationGatewayClientAuthConfigurationResponse']:
+        """
+        Client authentication configuration of the application gateway resource.
+        """
+        return pulumi.get(self, "client_auth_configuration")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the SSL profile that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="sslPolicy")
+    def ssl_policy(self) -> Optional['outputs.ApplicationGatewaySslPolicyResponse']:
+        """
+        SSL policy of the application gateway resource.
+        """
+        return pulumi.get(self, "ssl_policy")
+
+    @property
+    @pulumi.getter(name="trustedClientCertificates")
+    def trusted_client_certificates(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        Array of references to application gateway trusted client certificates.
+        """
+        return pulumi.get(self, "trusted_client_certificates")
+
+
+@pulumi.output_type
+class ApplicationGatewayTrustedClientCertificateResponse(dict):
+    """
+    Trusted client certificates of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertIssuerDN":
+            suggest = "client_cert_issuer_dn"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "validatedCertData":
+            suggest = "validated_cert_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayTrustedClientCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayTrustedClientCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayTrustedClientCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_cert_issuer_dn: str,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 validated_cert_data: str,
+                 data: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Trusted client certificates of an application gateway.
+        :param str client_cert_issuer_dn: Distinguished name of client certificate issuer.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the trusted client certificate resource.
+        :param str type: Type of the resource.
+        :param str validated_cert_data: Validated certificate data.
+        :param str data: Certificate public data.
+        :param str id: Resource ID.
+        :param str name: Name of the trusted client certificate that is unique within an Application Gateway.
+        """
+        pulumi.set(__self__, "client_cert_issuer_dn", client_cert_issuer_dn)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "validated_cert_data", validated_cert_data)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="clientCertIssuerDN")
+    def client_cert_issuer_dn(self) -> str:
+        """
+        Distinguished name of client certificate issuer.
+        """
+        return pulumi.get(self, "client_cert_issuer_dn")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the trusted client certificate resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="validatedCertData")
+    def validated_cert_data(self) -> str:
+        """
+        Validated certificate data.
+        """
+        return pulumi.get(self, "validated_cert_data")
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[str]:
+        """
+        Certificate public data.
+        """
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the trusted client certificate that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationGatewayTrustedRootCertificateResponse(dict):
+    """
+    Trusted Root certificates of an application gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "keyVaultSecretId":
+            suggest = "key_vault_secret_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayTrustedRootCertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayTrustedRootCertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayTrustedRootCertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 data: Optional[str] = None,
+                 id: Optional[str] = None,
+                 key_vault_secret_id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Trusted Root certificates of an application gateway.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the trusted root certificate resource.
+        :param str type: Type of the resource.
+        :param str data: Certificate public data.
+        :param str id: Resource ID.
+        :param str key_vault_secret_id: Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        :param str name: Name of the trusted root certificate that is unique within an Application Gateway.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if key_vault_secret_id is not None:
+            pulumi.set(__self__, "key_vault_secret_id", key_vault_secret_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the trusted root certificate resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[str]:
+        """
+        Certificate public data.
+        """
+        return pulumi.get(self, "data")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="keyVaultSecretId")
+    def key_vault_secret_id(self) -> Optional[str]:
+        """
+        Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault.
+        """
+        return pulumi.get(self, "key_vault_secret_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the trusted root certificate that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ApplicationGatewayUrlConfigurationResponse(dict):
+    """
+    Url configuration of the Actions set in Application Gateway.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modifiedPath":
+            suggest = "modified_path"
+        elif key == "modifiedQueryString":
+            suggest = "modified_query_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayUrlConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayUrlConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayUrlConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 modified_path: Optional[str] = None,
+                 modified_query_string: Optional[str] = None,
+                 reroute: Optional[bool] = None):
+        """
+        Url configuration of the Actions set in Application Gateway.
+        :param str modified_path: Url path which user has provided for url rewrite. Null means no path will be updated. Default value is null.
+        :param str modified_query_string: Query string which user has provided for url rewrite. Null means no query string will be updated. Default value is null.
+        :param bool reroute: If set as true, it will re-evaluate the url path map provided in path based request routing rules using modified path. Default value is false.
+        """
+        if modified_path is not None:
+            pulumi.set(__self__, "modified_path", modified_path)
+        if modified_query_string is not None:
+            pulumi.set(__self__, "modified_query_string", modified_query_string)
+        if reroute is not None:
+            pulumi.set(__self__, "reroute", reroute)
+
+    @property
+    @pulumi.getter(name="modifiedPath")
+    def modified_path(self) -> Optional[str]:
+        """
+        Url path which user has provided for url rewrite. Null means no path will be updated. Default value is null.
+        """
+        return pulumi.get(self, "modified_path")
+
+    @property
+    @pulumi.getter(name="modifiedQueryString")
+    def modified_query_string(self) -> Optional[str]:
+        """
+        Query string which user has provided for url rewrite. Null means no query string will be updated. Default value is null.
+        """
+        return pulumi.get(self, "modified_query_string")
+
+    @property
+    @pulumi.getter
+    def reroute(self) -> Optional[bool]:
+        """
+        If set as true, it will re-evaluate the url path map provided in path based request routing rules using modified path. Default value is false.
+        """
+        return pulumi.get(self, "reroute")
+
+
+@pulumi.output_type
+class ApplicationGatewayUrlPathMapResponse(dict):
+    """
+    UrlPathMaps give a url path to the backend mapping information for PathBasedRouting.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "defaultBackendAddressPool":
+            suggest = "default_backend_address_pool"
+        elif key == "defaultBackendHttpSettings":
+            suggest = "default_backend_http_settings"
+        elif key == "defaultLoadDistributionPolicy":
+            suggest = "default_load_distribution_policy"
+        elif key == "defaultRedirectConfiguration":
+            suggest = "default_redirect_configuration"
+        elif key == "defaultRewriteRuleSet":
+            suggest = "default_rewrite_rule_set"
+        elif key == "pathRules":
+            suggest = "path_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayUrlPathMapResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayUrlPathMapResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayUrlPathMapResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 default_backend_address_pool: Optional['outputs.SubResourceResponse'] = None,
+                 default_backend_http_settings: Optional['outputs.SubResourceResponse'] = None,
+                 default_load_distribution_policy: Optional['outputs.SubResourceResponse'] = None,
+                 default_redirect_configuration: Optional['outputs.SubResourceResponse'] = None,
+                 default_rewrite_rule_set: Optional['outputs.SubResourceResponse'] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 path_rules: Optional[Sequence['outputs.ApplicationGatewayPathRuleResponse']] = None):
+        """
+        UrlPathMaps give a url path to the backend mapping information for PathBasedRouting.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the URL path map resource.
+        :param str type: Type of the resource.
+        :param 'SubResourceResponse' default_backend_address_pool: Default backend address pool resource of URL path map.
+        :param 'SubResourceResponse' default_backend_http_settings: Default backend http settings resource of URL path map.
+        :param 'SubResourceResponse' default_load_distribution_policy: Default Load Distribution Policy resource of URL path map.
+        :param 'SubResourceResponse' default_redirect_configuration: Default redirect configuration resource of URL path map.
+        :param 'SubResourceResponse' default_rewrite_rule_set: Default Rewrite rule set resource of URL path map.
+        :param str id: Resource ID.
+        :param str name: Name of the URL path map that is unique within an Application Gateway.
+        :param Sequence['ApplicationGatewayPathRuleResponse'] path_rules: Path rule of URL path map resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if default_backend_address_pool is not None:
+            pulumi.set(__self__, "default_backend_address_pool", default_backend_address_pool)
+        if default_backend_http_settings is not None:
+            pulumi.set(__self__, "default_backend_http_settings", default_backend_http_settings)
+        if default_load_distribution_policy is not None:
+            pulumi.set(__self__, "default_load_distribution_policy", default_load_distribution_policy)
+        if default_redirect_configuration is not None:
+            pulumi.set(__self__, "default_redirect_configuration", default_redirect_configuration)
+        if default_rewrite_rule_set is not None:
+            pulumi.set(__self__, "default_rewrite_rule_set", default_rewrite_rule_set)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path_rules is not None:
+            pulumi.set(__self__, "path_rules", path_rules)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the URL path map resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="defaultBackendAddressPool")
+    def default_backend_address_pool(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Default backend address pool resource of URL path map.
+        """
+        return pulumi.get(self, "default_backend_address_pool")
+
+    @property
+    @pulumi.getter(name="defaultBackendHttpSettings")
+    def default_backend_http_settings(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Default backend http settings resource of URL path map.
+        """
+        return pulumi.get(self, "default_backend_http_settings")
+
+    @property
+    @pulumi.getter(name="defaultLoadDistributionPolicy")
+    def default_load_distribution_policy(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Default Load Distribution Policy resource of URL path map.
+        """
+        return pulumi.get(self, "default_load_distribution_policy")
+
+    @property
+    @pulumi.getter(name="defaultRedirectConfiguration")
+    def default_redirect_configuration(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Default redirect configuration resource of URL path map.
+        """
+        return pulumi.get(self, "default_redirect_configuration")
+
+    @property
+    @pulumi.getter(name="defaultRewriteRuleSet")
+    def default_rewrite_rule_set(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Default Rewrite rule set resource of URL path map.
+        """
+        return pulumi.get(self, "default_rewrite_rule_set")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the URL path map that is unique within an Application Gateway.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="pathRules")
+    def path_rules(self) -> Optional[Sequence['outputs.ApplicationGatewayPathRuleResponse']]:
+        """
+        Path rule of URL path map resource.
+        """
+        return pulumi.get(self, "path_rules")
+
+
+@pulumi.output_type
+class ApplicationGatewayWebApplicationFirewallConfigurationResponse(dict):
+    """
+    Application gateway web application firewall configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "firewallMode":
+            suggest = "firewall_mode"
+        elif key == "ruleSetType":
+            suggest = "rule_set_type"
+        elif key == "ruleSetVersion":
+            suggest = "rule_set_version"
+        elif key == "disabledRuleGroups":
+            suggest = "disabled_rule_groups"
+        elif key == "fileUploadLimitInMb":
+            suggest = "file_upload_limit_in_mb"
+        elif key == "maxRequestBodySize":
+            suggest = "max_request_body_size"
+        elif key == "maxRequestBodySizeInKb":
+            suggest = "max_request_body_size_in_kb"
+        elif key == "requestBodyCheck":
+            suggest = "request_body_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayWebApplicationFirewallConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayWebApplicationFirewallConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayWebApplicationFirewallConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 firewall_mode: str,
+                 rule_set_type: str,
+                 rule_set_version: str,
+                 disabled_rule_groups: Optional[Sequence['outputs.ApplicationGatewayFirewallDisabledRuleGroupResponse']] = None,
+                 exclusions: Optional[Sequence['outputs.ApplicationGatewayFirewallExclusionResponse']] = None,
+                 file_upload_limit_in_mb: Optional[int] = None,
+                 max_request_body_size: Optional[int] = None,
+                 max_request_body_size_in_kb: Optional[int] = None,
+                 request_body_check: Optional[bool] = None):
+        """
+        Application gateway web application firewall configuration.
+        :param bool enabled: Whether the web application firewall is enabled or not.
+        :param str firewall_mode: Web application firewall mode.
+        :param str rule_set_type: The type of the web application firewall rule set. Possible values are: 'OWASP'.
+        :param str rule_set_version: The version of the rule set type.
+        :param Sequence['ApplicationGatewayFirewallDisabledRuleGroupResponse'] disabled_rule_groups: The disabled rule groups.
+        :param Sequence['ApplicationGatewayFirewallExclusionResponse'] exclusions: The exclusion list.
+        :param int file_upload_limit_in_mb: Maximum file upload size in Mb for WAF.
+        :param int max_request_body_size: Maximum request body size for WAF.
+        :param int max_request_body_size_in_kb: Maximum request body size in Kb for WAF.
+        :param bool request_body_check: Whether allow WAF to check request Body.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "firewall_mode", firewall_mode)
+        pulumi.set(__self__, "rule_set_type", rule_set_type)
+        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        if disabled_rule_groups is not None:
+            pulumi.set(__self__, "disabled_rule_groups", disabled_rule_groups)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+        if file_upload_limit_in_mb is not None:
+            pulumi.set(__self__, "file_upload_limit_in_mb", file_upload_limit_in_mb)
+        if max_request_body_size is not None:
+            pulumi.set(__self__, "max_request_body_size", max_request_body_size)
+        if max_request_body_size_in_kb is not None:
+            pulumi.set(__self__, "max_request_body_size_in_kb", max_request_body_size_in_kb)
+        if request_body_check is not None:
+            pulumi.set(__self__, "request_body_check", request_body_check)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether the web application firewall is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="firewallMode")
+    def firewall_mode(self) -> str:
+        """
+        Web application firewall mode.
+        """
+        return pulumi.get(self, "firewall_mode")
+
+    @property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> str:
+        """
+        The type of the web application firewall rule set. Possible values are: 'OWASP'.
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @property
+    @pulumi.getter(name="ruleSetVersion")
+    def rule_set_version(self) -> str:
+        """
+        The version of the rule set type.
+        """
+        return pulumi.get(self, "rule_set_version")
+
+    @property
+    @pulumi.getter(name="disabledRuleGroups")
+    def disabled_rule_groups(self) -> Optional[Sequence['outputs.ApplicationGatewayFirewallDisabledRuleGroupResponse']]:
+        """
+        The disabled rule groups.
+        """
+        return pulumi.get(self, "disabled_rule_groups")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.ApplicationGatewayFirewallExclusionResponse']]:
+        """
+        The exclusion list.
+        """
+        return pulumi.get(self, "exclusions")
+
+    @property
+    @pulumi.getter(name="fileUploadLimitInMb")
+    def file_upload_limit_in_mb(self) -> Optional[int]:
+        """
+        Maximum file upload size in Mb for WAF.
+        """
+        return pulumi.get(self, "file_upload_limit_in_mb")
+
+    @property
+    @pulumi.getter(name="maxRequestBodySize")
+    def max_request_body_size(self) -> Optional[int]:
+        """
+        Maximum request body size for WAF.
+        """
+        return pulumi.get(self, "max_request_body_size")
+
+    @property
+    @pulumi.getter(name="maxRequestBodySizeInKb")
+    def max_request_body_size_in_kb(self) -> Optional[int]:
+        """
+        Maximum request body size in Kb for WAF.
+        """
+        return pulumi.get(self, "max_request_body_size_in_kb")
+
+    @property
+    @pulumi.getter(name="requestBodyCheck")
+    def request_body_check(self) -> Optional[bool]:
+        """
+        Whether allow WAF to check request Body.
+        """
+        return pulumi.get(self, "request_body_check")
+
+
+@pulumi.output_type
+class ApplicationSecurityGroupResponse(dict):
+    """
+    An application security group in a resource group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationSecurityGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationSecurityGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationSecurityGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 name: str,
+                 provisioning_state: str,
+                 resource_guid: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        An application security group in a resource group.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: Resource name.
+        :param str provisioning_state: The provisioning state of the application security group resource.
+        :param str resource_guid: The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+        :param str type: Resource type.
+        :param str id: Resource ID.
+        :param str location: Resource location.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the application security group resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the application security group resource. It uniquely identifies a resource, even if the user changes its name or migrate the resource across subscriptions or resource groups.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class BackendAddressPoolResponse(dict):
+    """
+    Pool of backend IP addresses.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendIPConfigurations":
+            suggest = "backend_ip_configurations"
+        elif key == "inboundNatRules":
+            suggest = "inbound_nat_rules"
+        elif key == "loadBalancingRules":
+            suggest = "load_balancing_rules"
+        elif key == "outboundRule":
+            suggest = "outbound_rule"
+        elif key == "outboundRules":
+            suggest = "outbound_rules"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "drainPeriodInSeconds":
+            suggest = "drain_period_in_seconds"
+        elif key == "loadBalancerBackendAddresses":
+            suggest = "load_balancer_backend_addresses"
+        elif key == "tunnelInterfaces":
+            suggest = "tunnel_interfaces"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendAddressPoolResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendAddressPoolResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendAddressPoolResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_ip_configurations: Sequence['outputs.NetworkInterfaceIPConfigurationResponse'],
+                 etag: str,
+                 inbound_nat_rules: Sequence['outputs.SubResourceResponse'],
+                 load_balancing_rules: Sequence['outputs.SubResourceResponse'],
+                 outbound_rule: 'outputs.SubResourceResponse',
+                 outbound_rules: Sequence['outputs.SubResourceResponse'],
+                 provisioning_state: str,
+                 type: str,
+                 drain_period_in_seconds: Optional[int] = None,
+                 id: Optional[str] = None,
+                 load_balancer_backend_addresses: Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']] = None,
+                 location: Optional[str] = None,
+                 name: Optional[str] = None,
+                 tunnel_interfaces: Optional[Sequence['outputs.GatewayLoadBalancerTunnelInterfaceResponse']] = None):
+        """
+        Pool of backend IP addresses.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] backend_ip_configurations: An array of references to IP addresses defined in network interfaces.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param Sequence['SubResourceResponse'] inbound_nat_rules: An array of references to inbound NAT rules that use this backend address pool.
+        :param Sequence['SubResourceResponse'] load_balancing_rules: An array of references to load balancing rules that use this backend address pool.
+        :param 'SubResourceResponse' outbound_rule: A reference to an outbound rule that uses this backend address pool.
+        :param Sequence['SubResourceResponse'] outbound_rules: An array of references to outbound rules that use this backend address pool.
+        :param str provisioning_state: The provisioning state of the backend address pool resource.
+        :param str type: Type of the resource.
+        :param int drain_period_in_seconds: Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+        :param str id: Resource ID.
+        :param Sequence['LoadBalancerBackendAddressResponse'] load_balancer_backend_addresses: An array of backend addresses.
+        :param str location: The location of the backend address pool.
+        :param str name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+        :param Sequence['GatewayLoadBalancerTunnelInterfaceResponse'] tunnel_interfaces: An array of gateway load balancer tunnel interfaces.
+        """
+        pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+        pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+        pulumi.set(__self__, "outbound_rule", outbound_rule)
+        pulumi.set(__self__, "outbound_rules", outbound_rules)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if drain_period_in_seconds is not None:
+            pulumi.set(__self__, "drain_period_in_seconds", drain_period_in_seconds)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if load_balancer_backend_addresses is not None:
+            pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tunnel_interfaces is not None:
+            pulumi.set(__self__, "tunnel_interfaces", tunnel_interfaces)
+
+    @property
+    @pulumi.getter(name="backendIPConfigurations")
+    def backend_ip_configurations(self) -> Sequence['outputs.NetworkInterfaceIPConfigurationResponse']:
+        """
+        An array of references to IP addresses defined in network interfaces.
+        """
+        return pulumi.get(self, "backend_ip_configurations")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="inboundNatRules")
+    def inbound_nat_rules(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        An array of references to inbound NAT rules that use this backend address pool.
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @property
+    @pulumi.getter(name="loadBalancingRules")
+    def load_balancing_rules(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        An array of references to load balancing rules that use this backend address pool.
+        """
+        return pulumi.get(self, "load_balancing_rules")
+
+    @property
+    @pulumi.getter(name="outboundRule")
+    def outbound_rule(self) -> 'outputs.SubResourceResponse':
+        """
+        A reference to an outbound rule that uses this backend address pool.
+        """
+        return pulumi.get(self, "outbound_rule")
+
+    @property
+    @pulumi.getter(name="outboundRules")
+    def outbound_rules(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        An array of references to outbound rules that use this backend address pool.
+        """
+        return pulumi.get(self, "outbound_rules")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the backend address pool resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="drainPeriodInSeconds")
+    def drain_period_in_seconds(self) -> Optional[int]:
+        """
+        Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
+        """
+        return pulumi.get(self, "drain_period_in_seconds")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="loadBalancerBackendAddresses")
+    def load_balancer_backend_addresses(self) -> Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']]:
+        """
+        An array of backend addresses.
+        """
+        return pulumi.get(self, "load_balancer_backend_addresses")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        The location of the backend address pool.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="tunnelInterfaces")
+    def tunnel_interfaces(self) -> Optional[Sequence['outputs.GatewayLoadBalancerTunnelInterfaceResponse']]:
+        """
+        An array of gateway load balancer tunnel interfaces.
+        """
+        return pulumi.get(self, "tunnel_interfaces")
+
+
+@pulumi.output_type
+class CustomDnsConfigPropertiesFormatResponse(dict):
+    """
+    Contains custom Dns resolution configuration from customer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomDnsConfigPropertiesFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomDnsConfigPropertiesFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomDnsConfigPropertiesFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fqdn: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None):
+        """
+        Contains custom Dns resolution configuration from customer.
+        :param str fqdn: Fqdn that resolves to private endpoint ip address.
+        :param Sequence[str] ip_addresses: A list of private ip addresses of the private endpoint.
+        """
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        Fqdn that resolves to private endpoint ip address.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        A list of private ip addresses of the private endpoint.
+        """
+        return pulumi.get(self, "ip_addresses")
+
 
 @pulumi.output_type
 class CustomRuleListResponse(dict):
@@ -177,6 +6030,598 @@ class CustomRuleResponse(dict):
         Number of allowed requests per client within the time window.
         """
         return pulumi.get(self, "rate_limit_threshold")
+
+
+@pulumi.output_type
+class DdosSettingsResponse(dict):
+    """
+    Contains the DDoS protection settings of the public IP.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ddosProtectionPlan":
+            suggest = "ddos_protection_plan"
+        elif key == "protectionMode":
+            suggest = "protection_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DdosSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DdosSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DdosSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ddos_protection_plan: Optional['outputs.SubResourceResponse'] = None,
+                 protection_mode: Optional[str] = None):
+        """
+        Contains the DDoS protection settings of the public IP.
+        :param 'SubResourceResponse' ddos_protection_plan: The DDoS protection plan associated with the public IP. Can only be set if ProtectionMode is Enabled
+        :param str protection_mode: The DDoS protection mode of the public IP
+        """
+        if ddos_protection_plan is not None:
+            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
+        if protection_mode is not None:
+            pulumi.set(__self__, "protection_mode", protection_mode)
+
+    @property
+    @pulumi.getter(name="ddosProtectionPlan")
+    def ddos_protection_plan(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The DDoS protection plan associated with the public IP. Can only be set if ProtectionMode is Enabled
+        """
+        return pulumi.get(self, "ddos_protection_plan")
+
+    @property
+    @pulumi.getter(name="protectionMode")
+    def protection_mode(self) -> Optional[str]:
+        """
+        The DDoS protection mode of the public IP
+        """
+        return pulumi.get(self, "protection_mode")
+
+
+@pulumi.output_type
+class DelegationResponse(dict):
+    """
+    Details the service to which the subnet is delegated.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceName":
+            suggest = "service_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DelegationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DelegationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DelegationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: Sequence[str],
+                 etag: str,
+                 provisioning_state: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 service_name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Details the service to which the subnet is delegated.
+        :param Sequence[str] actions: The actions permitted to the service upon delegation.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the service delegation resource.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a subnet. This name can be used to access the resource.
+        :param str service_name: The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+        :param str type: Resource type.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Sequence[str]:
+        """
+        The actions permitted to the service upon delegation.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the service delegation resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a subnet. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[str]:
+        """
+        The name of the service to whom the subnet should be delegated (e.g. Microsoft.Sql/servers).
+        """
+        return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ExclusionManagedRuleGroupResponse(dict):
+    """
+    Defines a managed rule group to use for exclusion.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExclusionManagedRuleGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExclusionManagedRuleGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExclusionManagedRuleGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_group_name: str,
+                 rules: Optional[Sequence['outputs.ExclusionManagedRuleResponse']] = None):
+        """
+        Defines a managed rule group to use for exclusion.
+        :param str rule_group_name: The managed rule group for exclusion.
+        :param Sequence['ExclusionManagedRuleResponse'] rules: List of rules that will be excluded. If none specified, all rules in the group will be excluded.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> str:
+        """
+        The managed rule group for exclusion.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ExclusionManagedRuleResponse']]:
+        """
+        List of rules that will be excluded. If none specified, all rules in the group will be excluded.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class ExclusionManagedRuleResponse(dict):
+    """
+    Defines a managed rule to use for exclusion.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExclusionManagedRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExclusionManagedRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExclusionManagedRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_id: str):
+        """
+        Defines a managed rule to use for exclusion.
+        :param str rule_id: Identifier for the managed rule.
+        """
+        pulumi.set(__self__, "rule_id", rule_id)
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> str:
+        """
+        Identifier for the managed rule.
+        """
+        return pulumi.get(self, "rule_id")
+
+
+@pulumi.output_type
+class ExclusionManagedRuleSetResponse(dict):
+    """
+    Defines a managed rule set for Exclusions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleSetType":
+            suggest = "rule_set_type"
+        elif key == "ruleSetVersion":
+            suggest = "rule_set_version"
+        elif key == "ruleGroups":
+            suggest = "rule_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ExclusionManagedRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ExclusionManagedRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ExclusionManagedRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_set_type: str,
+                 rule_set_version: str,
+                 rule_groups: Optional[Sequence['outputs.ExclusionManagedRuleGroupResponse']] = None):
+        """
+        Defines a managed rule set for Exclusions.
+        :param str rule_set_type: Defines the rule set type to use.
+        :param str rule_set_version: Defines the version of the rule set to use.
+        :param Sequence['ExclusionManagedRuleGroupResponse'] rule_groups: Defines the rule groups to apply to the rule set.
+        """
+        pulumi.set(__self__, "rule_set_type", rule_set_type)
+        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        if rule_groups is not None:
+            pulumi.set(__self__, "rule_groups", rule_groups)
+
+    @property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> str:
+        """
+        Defines the rule set type to use.
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @property
+    @pulumi.getter(name="ruleSetVersion")
+    def rule_set_version(self) -> str:
+        """
+        Defines the version of the rule set to use.
+        """
+        return pulumi.get(self, "rule_set_version")
+
+    @property
+    @pulumi.getter(name="ruleGroups")
+    def rule_groups(self) -> Optional[Sequence['outputs.ExclusionManagedRuleGroupResponse']]:
+        """
+        Defines the rule groups to apply to the rule set.
+        """
+        return pulumi.get(self, "rule_groups")
+
+
+@pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    ExtendedLocation complex type.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        ExtendedLocation complex type.
+        :param str name: The name of the extended location.
+        :param str type: The type of the extended location.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the extended location.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FlowLogFormatParametersResponse(dict):
+    """
+    Parameters that define the flow log format.
+    """
+    def __init__(__self__, *,
+                 type: Optional[str] = None,
+                 version: Optional[int] = None):
+        """
+        Parameters that define the flow log format.
+        :param str type: The file type of flow log.
+        :param int version: The version (revision) of the flow log.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if version is None:
+            version = 0
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The file type of flow log.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[int]:
+        """
+        The version (revision) of the flow log.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class FlowLogResponse(dict):
+    """
+    A flow log resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "storageId":
+            suggest = "storage_id"
+        elif key == "targetResourceGuid":
+            suggest = "target_resource_guid"
+        elif key == "targetResourceId":
+            suggest = "target_resource_id"
+        elif key == "flowAnalyticsConfiguration":
+            suggest = "flow_analytics_configuration"
+        elif key == "retentionPolicy":
+            suggest = "retention_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowLogResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowLogResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowLogResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 name: str,
+                 provisioning_state: str,
+                 storage_id: str,
+                 target_resource_guid: str,
+                 target_resource_id: str,
+                 type: str,
+                 enabled: Optional[bool] = None,
+                 flow_analytics_configuration: Optional['outputs.TrafficAnalyticsPropertiesResponse'] = None,
+                 format: Optional['outputs.FlowLogFormatParametersResponse'] = None,
+                 id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 retention_policy: Optional['outputs.RetentionPolicyParametersResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        A flow log resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: Resource name.
+        :param str provisioning_state: The provisioning state of the flow log.
+        :param str storage_id: ID of the storage account which is used to store the flow log.
+        :param str target_resource_guid: Guid of network security group to which flow log will be applied.
+        :param str target_resource_id: ID of network security group to which flow log will be applied.
+        :param str type: Resource type.
+        :param bool enabled: Flag to enable/disable flow logging.
+        :param 'TrafficAnalyticsPropertiesResponse' flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
+        :param 'FlowLogFormatParametersResponse' format: Parameters that define the flow log format.
+        :param str id: Resource ID.
+        :param str location: Resource location.
+        :param 'RetentionPolicyParametersResponse' retention_policy: Parameters that define the retention policy for flow log.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "storage_id", storage_id)
+        pulumi.set(__self__, "target_resource_guid", target_resource_guid)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        pulumi.set(__self__, "type", type)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if flow_analytics_configuration is not None:
+            pulumi.set(__self__, "flow_analytics_configuration", flow_analytics_configuration)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the flow log.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="storageId")
+    def storage_id(self) -> str:
+        """
+        ID of the storage account which is used to store the flow log.
+        """
+        return pulumi.get(self, "storage_id")
+
+    @property
+    @pulumi.getter(name="targetResourceGuid")
+    def target_resource_guid(self) -> str:
+        """
+        Guid of network security group to which flow log will be applied.
+        """
+        return pulumi.get(self, "target_resource_guid")
+
+    @property
+    @pulumi.getter(name="targetResourceId")
+    def target_resource_id(self) -> str:
+        """
+        ID of network security group to which flow log will be applied.
+        """
+        return pulumi.get(self, "target_resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Flag to enable/disable flow logging.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="flowAnalyticsConfiguration")
+    def flow_analytics_configuration(self) -> Optional['outputs.TrafficAnalyticsPropertiesResponse']:
+        """
+        Parameters that define the configuration of traffic analytics.
+        """
+        return pulumi.get(self, "flow_analytics_configuration")
+
+    @property
+    @pulumi.getter
+    def format(self) -> Optional['outputs.FlowLogFormatParametersResponse']:
+        """
+        Parameters that define the flow log format.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional['outputs.RetentionPolicyParametersResponse']:
+        """
+        Parameters that define the retention policy for flow log.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -644,6 +7089,957 @@ class FrontendEndpointLinkResponse(dict):
 
 
 @pulumi.output_type
+class FrontendIPConfigurationResponse(dict):
+    """
+    Frontend IP address of the load balancer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inboundNatPools":
+            suggest = "inbound_nat_pools"
+        elif key == "inboundNatRules":
+            suggest = "inbound_nat_rules"
+        elif key == "loadBalancingRules":
+            suggest = "load_balancing_rules"
+        elif key == "outboundRules":
+            suggest = "outbound_rules"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "gatewayLoadBalancer":
+            suggest = "gateway_load_balancer"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAddressVersion":
+            suggest = "private_ip_address_version"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+        elif key == "publicIPPrefix":
+            suggest = "public_ip_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontendIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontendIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontendIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 inbound_nat_pools: Sequence['outputs.SubResourceResponse'],
+                 inbound_nat_rules: Sequence['outputs.SubResourceResponse'],
+                 load_balancing_rules: Sequence['outputs.SubResourceResponse'],
+                 outbound_rules: Sequence['outputs.SubResourceResponse'],
+                 provisioning_state: str,
+                 type: str,
+                 gateway_load_balancer: Optional['outputs.SubResourceResponse'] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_address_version: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 public_ip_address: Optional['outputs.PublicIPAddressResponse'] = None,
+                 public_ip_prefix: Optional['outputs.SubResourceResponse'] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Frontend IP address of the load balancer.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param Sequence['SubResourceResponse'] inbound_nat_pools: An array of references to inbound pools that use this frontend IP.
+        :param Sequence['SubResourceResponse'] inbound_nat_rules: An array of references to inbound rules that use this frontend IP.
+        :param Sequence['SubResourceResponse'] load_balancing_rules: An array of references to load balancing rules that use this frontend IP.
+        :param Sequence['SubResourceResponse'] outbound_rules: An array of references to outbound rules that use this frontend IP.
+        :param str provisioning_state: The provisioning state of the frontend IP configuration resource.
+        :param str type: Type of the resource.
+        :param 'SubResourceResponse' gateway_load_balancer: The reference to gateway load balancer frontend IP.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_address_version: Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+        :param str private_ip_allocation_method: The Private IP allocation method.
+        :param 'PublicIPAddressResponse' public_ip_address: The reference to the Public IP resource.
+        :param 'SubResourceResponse' public_ip_prefix: The reference to the Public IP Prefix resource.
+        :param 'SubnetResponse' subnet: The reference to the subnet resource.
+        :param Sequence[str] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "inbound_nat_pools", inbound_nat_pools)
+        pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+        pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+        pulumi.set(__self__, "outbound_rules", outbound_rules)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if gateway_load_balancer is not None:
+            pulumi.set(__self__, "gateway_load_balancer", gateway_load_balancer)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_address_version is not None:
+            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if public_ip_prefix is not None:
+            pulumi.set(__self__, "public_ip_prefix", public_ip_prefix)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="inboundNatPools")
+    def inbound_nat_pools(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        An array of references to inbound pools that use this frontend IP.
+        """
+        return pulumi.get(self, "inbound_nat_pools")
+
+    @property
+    @pulumi.getter(name="inboundNatRules")
+    def inbound_nat_rules(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        An array of references to inbound rules that use this frontend IP.
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @property
+    @pulumi.getter(name="loadBalancingRules")
+    def load_balancing_rules(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        An array of references to load balancing rules that use this frontend IP.
+        """
+        return pulumi.get(self, "load_balancing_rules")
+
+    @property
+    @pulumi.getter(name="outboundRules")
+    def outbound_rules(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        An array of references to outbound rules that use this frontend IP.
+        """
+        return pulumi.get(self, "outbound_rules")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the frontend IP configuration resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="gatewayLoadBalancer")
+    def gateway_load_balancer(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference to gateway load balancer frontend IP.
+        """
+        return pulumi.get(self, "gateway_load_balancer")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within the set of frontend IP configurations used by the load balancer. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIPAddressVersion")
+    def private_ip_address_version(self) -> Optional[str]:
+        """
+        Whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.
+        """
+        return pulumi.get(self, "private_ip_address_version")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The Private IP allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
+        """
+        The reference to the Public IP resource.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIPPrefix")
+    def public_ip_prefix(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference to the Public IP Prefix resource.
+        """
+        return pulumi.get(self, "public_ip_prefix")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        The reference to the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class GatewayLoadBalancerTunnelInterfaceResponse(dict):
+    """
+    Gateway load balancer tunnel interface of a load balancer backend address pool.
+    """
+    def __init__(__self__, *,
+                 identifier: Optional[int] = None,
+                 port: Optional[int] = None,
+                 protocol: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Gateway load balancer tunnel interface of a load balancer backend address pool.
+        :param int identifier: Identifier of gateway load balancer tunnel interface.
+        :param int port: Port of gateway load balancer tunnel interface.
+        :param str protocol: Protocol of gateway load balancer tunnel interface.
+        :param str type: Traffic type of gateway load balancer tunnel interface.
+        """
+        if identifier is not None:
+            pulumi.set(__self__, "identifier", identifier)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def identifier(self) -> Optional[int]:
+        """
+        Identifier of gateway load balancer tunnel interface.
+        """
+        return pulumi.get(self, "identifier")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        Port of gateway load balancer tunnel interface.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Protocol of gateway load balancer tunnel interface.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Traffic type of gateway load balancer tunnel interface.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class IPConfigurationProfileResponse(dict):
+    """
+    IP configuration profile child resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPConfigurationProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPConfigurationProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPConfigurationProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None):
+        """
+        IP configuration profile child resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the IP configuration profile resource.
+        :param str type: Sub Resource type.
+        :param str id: Resource ID.
+        :param str name: The name of the resource. This name can be used to access the resource.
+        :param 'SubnetResponse' subnet: The reference to the subnet resource to create a container network interface ip configuration.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the IP configuration profile resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Sub Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        The reference to the subnet resource to create a container network interface ip configuration.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class IPConfigurationResponse(dict):
+    """
+    IP configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 public_ip_address: Optional['outputs.PublicIPAddressResponse'] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None):
+        """
+        IP configuration.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the IP configuration resource.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_allocation_method: The private IP address allocation method.
+        :param 'PublicIPAddressResponse' public_ip_address: The reference to the public IP resource.
+        :param 'SubnetResponse' subnet: The reference to the subnet resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is None:
+            private_ip_allocation_method = 'Dynamic'
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the IP configuration resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
+        """
+        The reference to the public IP resource.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        The reference to the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class InboundNatRuleResponse(dict):
+    """
+    Inbound NAT rule of the load balancer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendIPConfiguration":
+            suggest = "backend_ip_configuration"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "backendPort":
+            suggest = "backend_port"
+        elif key == "enableFloatingIP":
+            suggest = "enable_floating_ip"
+        elif key == "enableTcpReset":
+            suggest = "enable_tcp_reset"
+        elif key == "frontendIPConfiguration":
+            suggest = "frontend_ip_configuration"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "frontendPortRangeEnd":
+            suggest = "frontend_port_range_end"
+        elif key == "frontendPortRangeStart":
+            suggest = "frontend_port_range_start"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundNatRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundNatRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundNatRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_ip_configuration: 'outputs.NetworkInterfaceIPConfigurationResponse',
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 backend_address_pool: Optional['outputs.SubResourceResponse'] = None,
+                 backend_port: Optional[int] = None,
+                 enable_floating_ip: Optional[bool] = None,
+                 enable_tcp_reset: Optional[bool] = None,
+                 frontend_ip_configuration: Optional['outputs.SubResourceResponse'] = None,
+                 frontend_port: Optional[int] = None,
+                 frontend_port_range_end: Optional[int] = None,
+                 frontend_port_range_start: Optional[int] = None,
+                 id: Optional[str] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 name: Optional[str] = None,
+                 protocol: Optional[str] = None):
+        """
+        Inbound NAT rule of the load balancer.
+        :param 'NetworkInterfaceIPConfigurationResponse' backend_ip_configuration: A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the inbound NAT rule resource.
+        :param str type: Type of the resource.
+        :param 'SubResourceResponse' backend_address_pool: A reference to backendAddressPool resource.
+        :param int backend_port: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+        :param bool enable_floating_ip: Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+        :param bool enable_tcp_reset: Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        :param 'SubResourceResponse' frontend_ip_configuration: A reference to frontend IP addresses.
+        :param int frontend_port: The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+        :param int frontend_port_range_end: The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        :param int frontend_port_range_start: The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        :param str id: Resource ID.
+        :param int idle_timeout_in_minutes: The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        :param str name: The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
+        :param str protocol: The reference to the transport protocol used by the load balancing rule.
+        """
+        pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if backend_address_pool is not None:
+            pulumi.set(__self__, "backend_address_pool", backend_address_pool)
+        if backend_port is not None:
+            pulumi.set(__self__, "backend_port", backend_port)
+        if enable_floating_ip is not None:
+            pulumi.set(__self__, "enable_floating_ip", enable_floating_ip)
+        if enable_tcp_reset is not None:
+            pulumi.set(__self__, "enable_tcp_reset", enable_tcp_reset)
+        if frontend_ip_configuration is not None:
+            pulumi.set(__self__, "frontend_ip_configuration", frontend_ip_configuration)
+        if frontend_port is not None:
+            pulumi.set(__self__, "frontend_port", frontend_port)
+        if frontend_port_range_end is not None:
+            pulumi.set(__self__, "frontend_port_range_end", frontend_port_range_end)
+        if frontend_port_range_start is not None:
+            pulumi.set(__self__, "frontend_port_range_start", frontend_port_range_start)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="backendIPConfiguration")
+    def backend_ip_configuration(self) -> 'outputs.NetworkInterfaceIPConfigurationResponse':
+        """
+        A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
+        """
+        return pulumi.get(self, "backend_ip_configuration")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the inbound NAT rule resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="backendAddressPool")
+    def backend_address_pool(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to backendAddressPool resource.
+        """
+        return pulumi.get(self, "backend_address_pool")
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> Optional[int]:
+        """
+        The port used for the internal endpoint. Acceptable values range from 1 to 65535.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @property
+    @pulumi.getter(name="enableFloatingIP")
+    def enable_floating_ip(self) -> Optional[bool]:
+        """
+        Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
+        """
+        return pulumi.get(self, "enable_floating_ip")
+
+    @property
+    @pulumi.getter(name="enableTcpReset")
+    def enable_tcp_reset(self) -> Optional[bool]:
+        """
+        Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
+        """
+        return pulumi.get(self, "enable_tcp_reset")
+
+    @property
+    @pulumi.getter(name="frontendIPConfiguration")
+    def frontend_ip_configuration(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to frontend IP addresses.
+        """
+        return pulumi.get(self, "frontend_ip_configuration")
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> Optional[int]:
+        """
+        The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @property
+    @pulumi.getter(name="frontendPortRangeEnd")
+    def frontend_port_range_end(self) -> Optional[int]:
+        """
+        The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        """
+        return pulumi.get(self, "frontend_port_range_end")
+
+    @property
+    @pulumi.getter(name="frontendPortRangeStart")
+    def frontend_port_range_start(self) -> Optional[int]:
+        """
+        The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
+        """
+        return pulumi.get(self, "frontend_port_range_start")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        The reference to the transport protocol used by the load balancing rule.
+        """
+        return pulumi.get(self, "protocol")
+
+
+@pulumi.output_type
+class IpTagResponse(dict):
+    """
+    Contains the IpTag associated with the object.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipTagType":
+            suggest = "ip_tag_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IpTagResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IpTagResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IpTagResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_tag_type: Optional[str] = None,
+                 tag: Optional[str] = None):
+        """
+        Contains the IpTag associated with the object.
+        :param str ip_tag_type: The IP tag type. Example: FirstPartyUsage.
+        :param str tag: The value of the IP tag associated with the public IP. Example: SQL.
+        """
+        if ip_tag_type is not None:
+            pulumi.set(__self__, "ip_tag_type", ip_tag_type)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="ipTagType")
+    def ip_tag_type(self) -> Optional[str]:
+        """
+        The IP tag type. Example: FirstPartyUsage.
+        """
+        return pulumi.get(self, "ip_tag_type")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[str]:
+        """
+        The value of the IP tag associated with the public IP. Example: SQL.
+        """
+        return pulumi.get(self, "tag")
+
+
+@pulumi.output_type
+class LoadBalancerBackendAddressResponse(dict):
+    """
+    Load balancer backend addresses.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inboundNatRulesPortMapping":
+            suggest = "inbound_nat_rules_port_mapping"
+        elif key == "networkInterfaceIPConfiguration":
+            suggest = "network_interface_ip_configuration"
+        elif key == "adminState":
+            suggest = "admin_state"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "loadBalancerFrontendIPConfiguration":
+            suggest = "load_balancer_frontend_ip_configuration"
+        elif key == "virtualNetwork":
+            suggest = "virtual_network"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerBackendAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerBackendAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerBackendAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 inbound_nat_rules_port_mapping: Sequence['outputs.NatRulePortMappingResponse'],
+                 network_interface_ip_configuration: 'outputs.SubResourceResponse',
+                 admin_state: Optional[str] = None,
+                 ip_address: Optional[str] = None,
+                 load_balancer_frontend_ip_configuration: Optional['outputs.SubResourceResponse'] = None,
+                 name: Optional[str] = None,
+                 subnet: Optional['outputs.SubResourceResponse'] = None,
+                 virtual_network: Optional['outputs.SubResourceResponse'] = None):
+        """
+        Load balancer backend addresses.
+        :param Sequence['NatRulePortMappingResponse'] inbound_nat_rules_port_mapping: Collection of inbound NAT rule port mappings.
+        :param 'SubResourceResponse' network_interface_ip_configuration: Reference to IP address defined in network interfaces.
+        :param str admin_state: A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
+        :param str ip_address: IP Address belonging to the referenced virtual network.
+        :param 'SubResourceResponse' load_balancer_frontend_ip_configuration: Reference to the frontend ip address configuration defined in regional loadbalancer.
+        :param str name: Name of the backend address.
+        :param 'SubResourceResponse' subnet: Reference to an existing subnet.
+        :param 'SubResourceResponse' virtual_network: Reference to an existing virtual network.
+        """
+        pulumi.set(__self__, "inbound_nat_rules_port_mapping", inbound_nat_rules_port_mapping)
+        pulumi.set(__self__, "network_interface_ip_configuration", network_interface_ip_configuration)
+        if admin_state is not None:
+            pulumi.set(__self__, "admin_state", admin_state)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if load_balancer_frontend_ip_configuration is not None:
+            pulumi.set(__self__, "load_balancer_frontend_ip_configuration", load_balancer_frontend_ip_configuration)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if virtual_network is not None:
+            pulumi.set(__self__, "virtual_network", virtual_network)
+
+    @property
+    @pulumi.getter(name="inboundNatRulesPortMapping")
+    def inbound_nat_rules_port_mapping(self) -> Sequence['outputs.NatRulePortMappingResponse']:
+        """
+        Collection of inbound NAT rule port mappings.
+        """
+        return pulumi.get(self, "inbound_nat_rules_port_mapping")
+
+    @property
+    @pulumi.getter(name="networkInterfaceIPConfiguration")
+    def network_interface_ip_configuration(self) -> 'outputs.SubResourceResponse':
+        """
+        Reference to IP address defined in network interfaces.
+        """
+        return pulumi.get(self, "network_interface_ip_configuration")
+
+    @property
+    @pulumi.getter(name="adminState")
+    def admin_state(self) -> Optional[str]:
+        """
+        A list of administrative states which once set can override health probe so that Load Balancer will always forward new connections to backend, or deny new connections and reset existing connections.
+        """
+        return pulumi.get(self, "admin_state")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        IP Address belonging to the referenced virtual network.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="loadBalancerFrontendIPConfiguration")
+    def load_balancer_frontend_ip_configuration(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to the frontend ip address configuration defined in regional loadbalancer.
+        """
+        return pulumi.get(self, "load_balancer_frontend_ip_configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the backend address.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to an existing subnet.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to an existing virtual network.
+        """
+        return pulumi.get(self, "virtual_network")
+
+
+@pulumi.output_type
 class ManagedRuleExclusionResponse(dict):
     """
     Exclude variables from managed rule evaluation.
@@ -707,6 +8103,120 @@ class ManagedRuleExclusionResponse(dict):
 
 
 @pulumi.output_type
+class ManagedRuleGroupOverrideResponse(dict):
+    """
+    Defines a managed rule group override setting.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleGroupName":
+            suggest = "rule_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleGroupOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleGroupOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_group_name: str,
+                 rules: Optional[Sequence['outputs.ManagedRuleOverrideResponse']] = None):
+        """
+        Defines a managed rule group override setting.
+        :param str rule_group_name: The managed rule group to override.
+        :param Sequence['ManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+        pulumi.set(__self__, "rule_group_name", rule_group_name)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> str:
+        """
+        The managed rule group to override.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.ManagedRuleOverrideResponse']]:
+        """
+        List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class ManagedRuleOverrideResponse(dict):
+    """
+    Defines a managed rule group override setting.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleId":
+            suggest = "rule_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleOverrideResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleOverrideResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleOverrideResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_id: str,
+                 action: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        Defines a managed rule group override setting.
+        :param str rule_id: Identifier for the managed rule.
+        :param str action: Describes the override action to be applied when rule matches.
+        :param str state: The state of the managed rule. Defaults to Disabled if not specified.
+        """
+        pulumi.set(__self__, "rule_id", rule_id)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> str:
+        """
+        Identifier for the managed rule.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[str]:
+        """
+        Describes the override action to be applied when rule matches.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of the managed rule. Defaults to Disabled if not specified.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
 class ManagedRuleSetListResponse(dict):
     """
     Defines the list of managed rule sets for the policy.
@@ -744,6 +8254,4127 @@ class ManagedRuleSetListResponse(dict):
         List of rule sets.
         """
         return pulumi.get(self, "managed_rule_sets")
+
+
+@pulumi.output_type
+class ManagedRuleSetResponse(dict):
+    """
+    Defines a managed rule set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleSetType":
+            suggest = "rule_set_type"
+        elif key == "ruleSetVersion":
+            suggest = "rule_set_version"
+        elif key == "ruleGroupOverrides":
+            suggest = "rule_group_overrides"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRuleSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRuleSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRuleSetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_set_type: str,
+                 rule_set_version: str,
+                 rule_group_overrides: Optional[Sequence['outputs.ManagedRuleGroupOverrideResponse']] = None):
+        """
+        Defines a managed rule set.
+        :param str rule_set_type: Defines the rule set type to use.
+        :param str rule_set_version: Defines the version of the rule set to use.
+        :param Sequence['ManagedRuleGroupOverrideResponse'] rule_group_overrides: Defines the rule group overrides to apply to the rule set.
+        """
+        pulumi.set(__self__, "rule_set_type", rule_set_type)
+        pulumi.set(__self__, "rule_set_version", rule_set_version)
+        if rule_group_overrides is not None:
+            pulumi.set(__self__, "rule_group_overrides", rule_group_overrides)
+
+    @property
+    @pulumi.getter(name="ruleSetType")
+    def rule_set_type(self) -> str:
+        """
+        Defines the rule set type to use.
+        """
+        return pulumi.get(self, "rule_set_type")
+
+    @property
+    @pulumi.getter(name="ruleSetVersion")
+    def rule_set_version(self) -> str:
+        """
+        Defines the version of the rule set to use.
+        """
+        return pulumi.get(self, "rule_set_version")
+
+    @property
+    @pulumi.getter(name="ruleGroupOverrides")
+    def rule_group_overrides(self) -> Optional[Sequence['outputs.ManagedRuleGroupOverrideResponse']]:
+        """
+        Defines the rule group overrides to apply to the rule set.
+        """
+        return pulumi.get(self, "rule_group_overrides")
+
+
+@pulumi.output_type
+class ManagedRulesDefinitionResponse(dict):
+    """
+    Allow to exclude some variable satisfy the condition for the WAF check.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedRuleSets":
+            suggest = "managed_rule_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedRulesDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedRulesDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedRulesDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_rule_sets: Sequence['outputs.ManagedRuleSetResponse'],
+                 exclusions: Optional[Sequence['outputs.OwaspCrsExclusionEntryResponse']] = None):
+        """
+        Allow to exclude some variable satisfy the condition for the WAF check.
+        :param Sequence['ManagedRuleSetResponse'] managed_rule_sets: The managed rule sets that are associated with the policy.
+        :param Sequence['OwaspCrsExclusionEntryResponse'] exclusions: The Exclusions that are applied on the policy.
+        """
+        pulumi.set(__self__, "managed_rule_sets", managed_rule_sets)
+        if exclusions is not None:
+            pulumi.set(__self__, "exclusions", exclusions)
+
+    @property
+    @pulumi.getter(name="managedRuleSets")
+    def managed_rule_sets(self) -> Sequence['outputs.ManagedRuleSetResponse']:
+        """
+        The managed rule sets that are associated with the policy.
+        """
+        return pulumi.get(self, "managed_rule_sets")
+
+    @property
+    @pulumi.getter
+    def exclusions(self) -> Optional[Sequence['outputs.OwaspCrsExclusionEntryResponse']]:
+        """
+        The Exclusions that are applied on the policy.
+        """
+        return pulumi.get(self, "exclusions")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Identity for the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: str,
+                 tenant_id: str,
+                 type: Optional[str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']] = None):
+        """
+        Identity for the resource.
+        :param str principal_id: The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str tenant_id: The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+        :param Mapping[str, 'ManagedServiceIdentityResponseUserAssignedIdentities'] user_assigned_identities: The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> str:
+        """
+        The tenant id of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ManagedServiceIdentityResponseUserAssignedIdentities']]:
+        """
+        The list of user identities associated with resource. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponseUserAssignedIdentities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponseUserAssignedIdentities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponseUserAssignedIdentities.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: str,
+                 principal_id: str):
+        """
+        :param str client_id: The client id of user assigned identity.
+        :param str principal_id: The principal id of user assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> str:
+        """
+        The client id of user assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> str:
+        """
+        The principal id of user assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class MatchConditionResponse(dict):
+    """
+    Define match conditions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchValues":
+            suggest = "match_values"
+        elif key == "matchVariables":
+            suggest = "match_variables"
+        elif key == "negationConditon":
+            suggest = "negation_conditon"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchConditionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchConditionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchConditionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_values: Sequence[str],
+                 match_variables: Sequence['outputs.MatchVariableResponse'],
+                 operator: str,
+                 negation_conditon: Optional[bool] = None,
+                 transforms: Optional[Sequence[str]] = None):
+        """
+        Define match conditions.
+        :param Sequence[str] match_values: Match value.
+        :param Sequence['MatchVariableResponse'] match_variables: List of match variables.
+        :param str operator: The operator to be matched.
+        :param bool negation_conditon: Whether this is negate condition or not.
+        :param Sequence[str] transforms: List of transforms.
+        """
+        pulumi.set(__self__, "match_values", match_values)
+        pulumi.set(__self__, "match_variables", match_variables)
+        pulumi.set(__self__, "operator", operator)
+        if negation_conditon is not None:
+            pulumi.set(__self__, "negation_conditon", negation_conditon)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+
+    @property
+    @pulumi.getter(name="matchValues")
+    def match_values(self) -> Sequence[str]:
+        """
+        Match value.
+        """
+        return pulumi.get(self, "match_values")
+
+    @property
+    @pulumi.getter(name="matchVariables")
+    def match_variables(self) -> Sequence['outputs.MatchVariableResponse']:
+        """
+        List of match variables.
+        """
+        return pulumi.get(self, "match_variables")
+
+    @property
+    @pulumi.getter
+    def operator(self) -> str:
+        """
+        The operator to be matched.
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter(name="negationConditon")
+    def negation_conditon(self) -> Optional[bool]:
+        """
+        Whether this is negate condition or not.
+        """
+        return pulumi.get(self, "negation_conditon")
+
+    @property
+    @pulumi.getter
+    def transforms(self) -> Optional[Sequence[str]]:
+        """
+        List of transforms.
+        """
+        return pulumi.get(self, "transforms")
+
+
+@pulumi.output_type
+class MatchVariableResponse(dict):
+    """
+    Define match variables.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variableName":
+            suggest = "variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MatchVariableResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MatchVariableResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MatchVariableResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 variable_name: str,
+                 selector: Optional[str] = None):
+        """
+        Define match variables.
+        :param str variable_name: Match Variable.
+        :param str selector: The selector of match variable.
+        """
+        pulumi.set(__self__, "variable_name", variable_name)
+        if selector is not None:
+            pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter(name="variableName")
+    def variable_name(self) -> str:
+        """
+        Match Variable.
+        """
+        return pulumi.get(self, "variable_name")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> Optional[str]:
+        """
+        The selector of match variable.
+        """
+        return pulumi.get(self, "selector")
+
+
+@pulumi.output_type
+class NatGatewayResponse(dict):
+    """
+    Nat Gateway resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "publicIpAddresses":
+            suggest = "public_ip_addresses"
+        elif key == "publicIpPrefixes":
+            suggest = "public_ip_prefixes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NatGatewayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NatGatewayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NatGatewayResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 name: str,
+                 provisioning_state: str,
+                 resource_guid: str,
+                 subnets: Sequence['outputs.SubResourceResponse'],
+                 type: str,
+                 id: Optional[str] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 location: Optional[str] = None,
+                 public_ip_addresses: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 public_ip_prefixes: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 sku: Optional['outputs.NatGatewaySkuResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Nat Gateway resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: Resource name.
+        :param str provisioning_state: The provisioning state of the NAT gateway resource.
+        :param str resource_guid: The resource GUID property of the NAT gateway resource.
+        :param Sequence['SubResourceResponse'] subnets: An array of references to the subnets using this nat gateway resource.
+        :param str type: Resource type.
+        :param str id: Resource ID.
+        :param int idle_timeout_in_minutes: The idle timeout of the nat gateway.
+        :param str location: Resource location.
+        :param Sequence['SubResourceResponse'] public_ip_addresses: An array of public ip addresses associated with the nat gateway resource.
+        :param Sequence['SubResourceResponse'] public_ip_prefixes: An array of public ip prefixes associated with the nat gateway resource.
+        :param 'NatGatewaySkuResponse' sku: The nat gateway SKU.
+        :param Mapping[str, str] tags: Resource tags.
+        :param Sequence[str] zones: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "subnets", subnets)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if public_ip_prefixes is not None:
+            pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the NAT gateway resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the NAT gateway resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence['outputs.SubResourceResponse']:
+        """
+        An array of references to the subnets using this nat gateway resource.
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The idle timeout of the nat gateway.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="publicIpAddresses")
+    def public_ip_addresses(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        An array of public ip addresses associated with the nat gateway resource.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @property
+    @pulumi.getter(name="publicIpPrefixes")
+    def public_ip_prefixes(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        An array of public ip prefixes associated with the nat gateway resource.
+        """
+        return pulumi.get(self, "public_ip_prefixes")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.NatGatewaySkuResponse']:
+        """
+        The nat gateway SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        A list of availability zones denoting the zone in which Nat Gateway should be deployed.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class NatGatewaySkuResponse(dict):
+    """
+    SKU of nat gateway.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None):
+        """
+        SKU of nat gateway.
+        :param str name: Name of Nat Gateway SKU.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of Nat Gateway SKU.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class NatRulePortMappingResponse(dict):
+    """
+    Individual port mappings for inbound NAT rule created for backend pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "inboundNatRuleName":
+            suggest = "inbound_nat_rule_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NatRulePortMappingResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NatRulePortMappingResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NatRulePortMappingResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_port: Optional[int] = None,
+                 frontend_port: Optional[int] = None,
+                 inbound_nat_rule_name: Optional[str] = None):
+        """
+        Individual port mappings for inbound NAT rule created for backend pool.
+        :param int backend_port: Backend port.
+        :param int frontend_port: Frontend port.
+        :param str inbound_nat_rule_name: Name of inbound NAT rule.
+        """
+        if backend_port is not None:
+            pulumi.set(__self__, "backend_port", backend_port)
+        if frontend_port is not None:
+            pulumi.set(__self__, "frontend_port", frontend_port)
+        if inbound_nat_rule_name is not None:
+            pulumi.set(__self__, "inbound_nat_rule_name", inbound_nat_rule_name)
+
+    @property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> Optional[int]:
+        """
+        Backend port.
+        """
+        return pulumi.get(self, "backend_port")
+
+    @property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> Optional[int]:
+        """
+        Frontend port.
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @property
+    @pulumi.getter(name="inboundNatRuleName")
+    def inbound_nat_rule_name(self) -> Optional[str]:
+        """
+        Name of inbound NAT rule.
+        """
+        return pulumi.get(self, "inbound_nat_rule_name")
+
+
+@pulumi.output_type
+class NetworkInterfaceDnsSettingsResponse(dict):
+    """
+    DNS settings of a network interface.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appliedDnsServers":
+            suggest = "applied_dns_servers"
+        elif key == "internalDomainNameSuffix":
+            suggest = "internal_domain_name_suffix"
+        elif key == "internalFqdn":
+            suggest = "internal_fqdn"
+        elif key == "dnsServers":
+            suggest = "dns_servers"
+        elif key == "internalDnsNameLabel":
+            suggest = "internal_dns_name_label"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceDnsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceDnsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceDnsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 applied_dns_servers: Sequence[str],
+                 internal_domain_name_suffix: str,
+                 internal_fqdn: str,
+                 dns_servers: Optional[Sequence[str]] = None,
+                 internal_dns_name_label: Optional[str] = None):
+        """
+        DNS settings of a network interface.
+        :param Sequence[str] applied_dns_servers: If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
+        :param str internal_domain_name_suffix: Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.
+        :param str internal_fqdn: Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
+        :param Sequence[str] dns_servers: List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
+        :param str internal_dns_name_label: Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
+        """
+        pulumi.set(__self__, "applied_dns_servers", applied_dns_servers)
+        pulumi.set(__self__, "internal_domain_name_suffix", internal_domain_name_suffix)
+        pulumi.set(__self__, "internal_fqdn", internal_fqdn)
+        if dns_servers is not None:
+            pulumi.set(__self__, "dns_servers", dns_servers)
+        if internal_dns_name_label is not None:
+            pulumi.set(__self__, "internal_dns_name_label", internal_dns_name_label)
+
+    @property
+    @pulumi.getter(name="appliedDnsServers")
+    def applied_dns_servers(self) -> Sequence[str]:
+        """
+        If the VM that uses this NIC is part of an Availability Set, then this list will have the union of all DNS servers from all NICs that are part of the Availability Set. This property is what is configured on each of those VMs.
+        """
+        return pulumi.get(self, "applied_dns_servers")
+
+    @property
+    @pulumi.getter(name="internalDomainNameSuffix")
+    def internal_domain_name_suffix(self) -> str:
+        """
+        Even if internalDnsNameLabel is not specified, a DNS entry is created for the primary NIC of the VM. This DNS name can be constructed by concatenating the VM name with the value of internalDomainNameSuffix.
+        """
+        return pulumi.get(self, "internal_domain_name_suffix")
+
+    @property
+    @pulumi.getter(name="internalFqdn")
+    def internal_fqdn(self) -> str:
+        """
+        Fully qualified DNS name supporting internal communications between VMs in the same virtual network.
+        """
+        return pulumi.get(self, "internal_fqdn")
+
+    @property
+    @pulumi.getter(name="dnsServers")
+    def dns_servers(self) -> Optional[Sequence[str]]:
+        """
+        List of DNS servers IP addresses. Use 'AzureProvidedDNS' to switch to azure provided DNS resolution. 'AzureProvidedDNS' value cannot be combined with other IPs, it must be the only value in dnsServers collection.
+        """
+        return pulumi.get(self, "dns_servers")
+
+    @property
+    @pulumi.getter(name="internalDnsNameLabel")
+    def internal_dns_name_label(self) -> Optional[str]:
+        """
+        Relative DNS name for this NIC used for internal communications between VMs in the same virtual network.
+        """
+        return pulumi.get(self, "internal_dns_name_label")
+
+
+@pulumi.output_type
+class NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse(dict):
+    """
+    PrivateLinkConnection properties for the network interface.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "requiredMemberName":
+            suggest = "required_member_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fqdns: Sequence[str],
+                 group_id: str,
+                 required_member_name: str):
+        """
+        PrivateLinkConnection properties for the network interface.
+        :param Sequence[str] fqdns: List of FQDNs for current private link connection.
+        :param str group_id: The group ID for current private link connection.
+        :param str required_member_name: The required member name for current private link connection.
+        """
+        pulumi.set(__self__, "fqdns", fqdns)
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "required_member_name", required_member_name)
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Sequence[str]:
+        """
+        List of FQDNs for current private link connection.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> str:
+        """
+        The group ID for current private link connection.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="requiredMemberName")
+    def required_member_name(self) -> str:
+        """
+        The required member name for current private link connection.
+        """
+        return pulumi.get(self, "required_member_name")
+
+
+@pulumi.output_type
+class NetworkInterfaceIPConfigurationResponse(dict):
+    """
+    IPConfiguration in a network interface.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateLinkConnectionProperties":
+            suggest = "private_link_connection_properties"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "applicationGatewayBackendAddressPools":
+            suggest = "application_gateway_backend_address_pools"
+        elif key == "applicationSecurityGroups":
+            suggest = "application_security_groups"
+        elif key == "gatewayLoadBalancer":
+            suggest = "gateway_load_balancer"
+        elif key == "loadBalancerBackendAddressPools":
+            suggest = "load_balancer_backend_address_pools"
+        elif key == "loadBalancerInboundNatRules":
+            suggest = "load_balancer_inbound_nat_rules"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAddressVersion":
+            suggest = "private_ip_address_version"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+        elif key == "virtualNetworkTaps":
+            suggest = "virtual_network_taps"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 private_link_connection_properties: 'outputs.NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse',
+                 provisioning_state: str,
+                 application_gateway_backend_address_pools: Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']] = None,
+                 application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
+                 gateway_load_balancer: Optional['outputs.SubResourceResponse'] = None,
+                 id: Optional[str] = None,
+                 load_balancer_backend_address_pools: Optional[Sequence['outputs.BackendAddressPoolResponse']] = None,
+                 load_balancer_inbound_nat_rules: Optional[Sequence['outputs.InboundNatRuleResponse']] = None,
+                 name: Optional[str] = None,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_address_version: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 public_ip_address: Optional['outputs.PublicIPAddressResponse'] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None,
+                 type: Optional[str] = None,
+                 virtual_network_taps: Optional[Sequence['outputs.VirtualNetworkTapResponse']] = None):
+        """
+        IPConfiguration in a network interface.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param 'NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse' private_link_connection_properties: PrivateLinkConnection properties for the network interface.
+        :param str provisioning_state: The provisioning state of the network interface IP configuration.
+        :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] application_gateway_backend_address_pools: The reference to ApplicationGatewayBackendAddressPool resource.
+        :param Sequence['ApplicationSecurityGroupResponse'] application_security_groups: Application security groups in which the IP configuration is included.
+        :param 'SubResourceResponse' gateway_load_balancer: The reference to gateway load balancer frontend IP.
+        :param str id: Resource ID.
+        :param Sequence['BackendAddressPoolResponse'] load_balancer_backend_address_pools: The reference to LoadBalancerBackendAddressPool resource.
+        :param Sequence['InboundNatRuleResponse'] load_balancer_inbound_nat_rules: A list of references of LoadBalancerInboundNatRules.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param bool primary: Whether this is a primary customer address on the network interface.
+        :param str private_ip_address: Private IP address of the IP configuration.
+        :param str private_ip_address_version: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        :param str private_ip_allocation_method: The private IP address allocation method.
+        :param 'PublicIPAddressResponse' public_ip_address: Public IP address bound to the IP configuration.
+        :param 'SubnetResponse' subnet: Subnet bound to the IP configuration.
+        :param str type: Resource type.
+        :param Sequence['VirtualNetworkTapResponse'] virtual_network_taps: The reference to Virtual Network Taps.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "private_link_connection_properties", private_link_connection_properties)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if application_gateway_backend_address_pools is not None:
+            pulumi.set(__self__, "application_gateway_backend_address_pools", application_gateway_backend_address_pools)
+        if application_security_groups is not None:
+            pulumi.set(__self__, "application_security_groups", application_security_groups)
+        if gateway_load_balancer is not None:
+            pulumi.set(__self__, "gateway_load_balancer", gateway_load_balancer)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if load_balancer_backend_address_pools is not None:
+            pulumi.set(__self__, "load_balancer_backend_address_pools", load_balancer_backend_address_pools)
+        if load_balancer_inbound_nat_rules is not None:
+            pulumi.set(__self__, "load_balancer_inbound_nat_rules", load_balancer_inbound_nat_rules)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_address_version is not None:
+            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if virtual_network_taps is not None:
+            pulumi.set(__self__, "virtual_network_taps", virtual_network_taps)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="privateLinkConnectionProperties")
+    def private_link_connection_properties(self) -> 'outputs.NetworkInterfaceIPConfigurationPrivateLinkConnectionPropertiesResponse':
+        """
+        PrivateLinkConnection properties for the network interface.
+        """
+        return pulumi.get(self, "private_link_connection_properties")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the network interface IP configuration.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="applicationGatewayBackendAddressPools")
+    def application_gateway_backend_address_pools(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']]:
+        """
+        The reference to ApplicationGatewayBackendAddressPool resource.
+        """
+        return pulumi.get(self, "application_gateway_backend_address_pools")
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroups")
+    def application_security_groups(self) -> Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]:
+        """
+        Application security groups in which the IP configuration is included.
+        """
+        return pulumi.get(self, "application_security_groups")
+
+    @property
+    @pulumi.getter(name="gatewayLoadBalancer")
+    def gateway_load_balancer(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The reference to gateway load balancer frontend IP.
+        """
+        return pulumi.get(self, "gateway_load_balancer")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="loadBalancerBackendAddressPools")
+    def load_balancer_backend_address_pools(self) -> Optional[Sequence['outputs.BackendAddressPoolResponse']]:
+        """
+        The reference to LoadBalancerBackendAddressPool resource.
+        """
+        return pulumi.get(self, "load_balancer_backend_address_pools")
+
+    @property
+    @pulumi.getter(name="loadBalancerInboundNatRules")
+    def load_balancer_inbound_nat_rules(self) -> Optional[Sequence['outputs.InboundNatRuleResponse']]:
+        """
+        A list of references of LoadBalancerInboundNatRules.
+        """
+        return pulumi.get(self, "load_balancer_inbound_nat_rules")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Whether this is a primary customer address on the network interface.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        Private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIPAddressVersion")
+    def private_ip_address_version(self) -> Optional[str]:
+        """
+        Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        """
+        return pulumi.get(self, "private_ip_address_version")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
+        """
+        Public IP address bound to the IP configuration.
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        Subnet bound to the IP configuration.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualNetworkTaps")
+    def virtual_network_taps(self) -> Optional[Sequence['outputs.VirtualNetworkTapResponse']]:
+        """
+        The reference to Virtual Network Taps.
+        """
+        return pulumi.get(self, "virtual_network_taps")
+
+
+@pulumi.output_type
+class NetworkInterfaceResponse(dict):
+    """
+    A network interface in a resource group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dscpConfiguration":
+            suggest = "dscp_configuration"
+        elif key == "hostedWorkloads":
+            suggest = "hosted_workloads"
+        elif key == "macAddress":
+            suggest = "mac_address"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "tapConfigurations":
+            suggest = "tap_configurations"
+        elif key == "virtualMachine":
+            suggest = "virtual_machine"
+        elif key == "vnetEncryptionSupported":
+            suggest = "vnet_encryption_supported"
+        elif key == "auxiliaryMode":
+            suggest = "auxiliary_mode"
+        elif key == "disableTcpStateTracking":
+            suggest = "disable_tcp_state_tracking"
+        elif key == "dnsSettings":
+            suggest = "dns_settings"
+        elif key == "enableAcceleratedNetworking":
+            suggest = "enable_accelerated_networking"
+        elif key == "enableIPForwarding":
+            suggest = "enable_ip_forwarding"
+        elif key == "extendedLocation":
+            suggest = "extended_location"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "migrationPhase":
+            suggest = "migration_phase"
+        elif key == "networkSecurityGroup":
+            suggest = "network_security_group"
+        elif key == "nicType":
+            suggest = "nic_type"
+        elif key == "privateLinkService":
+            suggest = "private_link_service"
+        elif key == "workloadType":
+            suggest = "workload_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dscp_configuration: 'outputs.SubResourceResponse',
+                 etag: str,
+                 hosted_workloads: Sequence[str],
+                 mac_address: str,
+                 name: str,
+                 primary: bool,
+                 private_endpoint: 'outputs.PrivateEndpointResponse',
+                 provisioning_state: str,
+                 resource_guid: str,
+                 tap_configurations: Sequence['outputs.NetworkInterfaceTapConfigurationResponse'],
+                 type: str,
+                 virtual_machine: 'outputs.SubResourceResponse',
+                 vnet_encryption_supported: bool,
+                 auxiliary_mode: Optional[str] = None,
+                 disable_tcp_state_tracking: Optional[bool] = None,
+                 dns_settings: Optional['outputs.NetworkInterfaceDnsSettingsResponse'] = None,
+                 enable_accelerated_networking: Optional[bool] = None,
+                 enable_ip_forwarding: Optional[bool] = None,
+                 extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 id: Optional[str] = None,
+                 ip_configurations: Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']] = None,
+                 location: Optional[str] = None,
+                 migration_phase: Optional[str] = None,
+                 network_security_group: Optional['outputs.NetworkSecurityGroupResponse'] = None,
+                 nic_type: Optional[str] = None,
+                 private_link_service: Optional['outputs.PrivateLinkServiceResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 workload_type: Optional[str] = None):
+        """
+        A network interface in a resource group.
+        :param 'SubResourceResponse' dscp_configuration: A reference to the dscp configuration to which the network interface is linked.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param Sequence[str] hosted_workloads: A list of references to linked BareMetal resources.
+        :param str mac_address: The MAC address of the network interface.
+        :param str name: Resource name.
+        :param bool primary: Whether this is a primary network interface on a virtual machine.
+        :param 'PrivateEndpointResponse' private_endpoint: A reference to the private endpoint to which the network interface is linked.
+        :param str provisioning_state: The provisioning state of the network interface resource.
+        :param str resource_guid: The resource GUID property of the network interface resource.
+        :param Sequence['NetworkInterfaceTapConfigurationResponse'] tap_configurations: A list of TapConfigurations of the network interface.
+        :param str type: Resource type.
+        :param 'SubResourceResponse' virtual_machine: The reference to a virtual machine.
+        :param bool vnet_encryption_supported: Whether the virtual machine this nic is attached to supports encryption.
+        :param str auxiliary_mode: Auxiliary mode of Network Interface resource.
+        :param bool disable_tcp_state_tracking: Indicates whether to disable tcp state tracking.
+        :param 'NetworkInterfaceDnsSettingsResponse' dns_settings: The DNS settings in network interface.
+        :param bool enable_accelerated_networking: If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
+        :param bool enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
+        :param 'ExtendedLocationResponse' extended_location: The extended location of the network interface.
+        :param str id: Resource ID.
+        :param Sequence['NetworkInterfaceIPConfigurationResponse'] ip_configurations: A list of IPConfigurations of the network interface.
+        :param str location: Resource location.
+        :param str migration_phase: Migration phase of Network Interface resource.
+        :param 'NetworkSecurityGroupResponse' network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param str nic_type: Type of Network Interface resource.
+        :param 'PrivateLinkServiceResponse' private_link_service: Privatelinkservice of the network interface resource.
+        :param Mapping[str, str] tags: Resource tags.
+        :param str workload_type: WorkloadType of the NetworkInterface for BareMetal resources
+        """
+        pulumi.set(__self__, "dscp_configuration", dscp_configuration)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "hosted_workloads", hosted_workloads)
+        pulumi.set(__self__, "mac_address", mac_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "primary", primary)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "tap_configurations", tap_configurations)
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "virtual_machine", virtual_machine)
+        pulumi.set(__self__, "vnet_encryption_supported", vnet_encryption_supported)
+        if auxiliary_mode is not None:
+            pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
+        if disable_tcp_state_tracking is not None:
+            pulumi.set(__self__, "disable_tcp_state_tracking", disable_tcp_state_tracking)
+        if dns_settings is not None:
+            pulumi.set(__self__, "dns_settings", dns_settings)
+        if enable_accelerated_networking is not None:
+            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
+        if enable_ip_forwarding is not None:
+            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if migration_phase is not None:
+            pulumi.set(__self__, "migration_phase", migration_phase)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
+        if nic_type is not None:
+            pulumi.set(__self__, "nic_type", nic_type)
+        if private_link_service is not None:
+            pulumi.set(__self__, "private_link_service", private_link_service)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if workload_type is not None:
+            pulumi.set(__self__, "workload_type", workload_type)
+
+    @property
+    @pulumi.getter(name="dscpConfiguration")
+    def dscp_configuration(self) -> 'outputs.SubResourceResponse':
+        """
+        A reference to the dscp configuration to which the network interface is linked.
+        """
+        return pulumi.get(self, "dscp_configuration")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="hostedWorkloads")
+    def hosted_workloads(self) -> Sequence[str]:
+        """
+        A list of references to linked BareMetal resources.
+        """
+        return pulumi.get(self, "hosted_workloads")
+
+    @property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> str:
+        """
+        The MAC address of the network interface.
+        """
+        return pulumi.get(self, "mac_address")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> bool:
+        """
+        Whether this is a primary network interface on a virtual machine.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+        """
+        A reference to the private endpoint to which the network interface is linked.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the network interface resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the network interface resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter(name="tapConfigurations")
+    def tap_configurations(self) -> Sequence['outputs.NetworkInterfaceTapConfigurationResponse']:
+        """
+        A list of TapConfigurations of the network interface.
+        """
+        return pulumi.get(self, "tap_configurations")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="virtualMachine")
+    def virtual_machine(self) -> 'outputs.SubResourceResponse':
+        """
+        The reference to a virtual machine.
+        """
+        return pulumi.get(self, "virtual_machine")
+
+    @property
+    @pulumi.getter(name="vnetEncryptionSupported")
+    def vnet_encryption_supported(self) -> bool:
+        """
+        Whether the virtual machine this nic is attached to supports encryption.
+        """
+        return pulumi.get(self, "vnet_encryption_supported")
+
+    @property
+    @pulumi.getter(name="auxiliaryMode")
+    def auxiliary_mode(self) -> Optional[str]:
+        """
+        Auxiliary mode of Network Interface resource.
+        """
+        return pulumi.get(self, "auxiliary_mode")
+
+    @property
+    @pulumi.getter(name="disableTcpStateTracking")
+    def disable_tcp_state_tracking(self) -> Optional[bool]:
+        """
+        Indicates whether to disable tcp state tracking.
+        """
+        return pulumi.get(self, "disable_tcp_state_tracking")
+
+    @property
+    @pulumi.getter(name="dnsSettings")
+    def dns_settings(self) -> Optional['outputs.NetworkInterfaceDnsSettingsResponse']:
+        """
+        The DNS settings in network interface.
+        """
+        return pulumi.get(self, "dns_settings")
+
+    @property
+    @pulumi.getter(name="enableAcceleratedNetworking")
+    def enable_accelerated_networking(self) -> Optional[bool]:
+        """
+        If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
+        """
+        return pulumi.get(self, "enable_accelerated_networking")
+
+    @property
+    @pulumi.getter(name="enableIPForwarding")
+    def enable_ip_forwarding(self) -> Optional[bool]:
+        """
+        Indicates whether IP forwarding is enabled on this network interface.
+        """
+        return pulumi.get(self, "enable_ip_forwarding")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the network interface.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.NetworkInterfaceIPConfigurationResponse']]:
+        """
+        A list of IPConfigurations of the network interface.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="migrationPhase")
+    def migration_phase(self) -> Optional[str]:
+        """
+        Migration phase of Network Interface resource.
+        """
+        return pulumi.get(self, "migration_phase")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupResponse']:
+        """
+        The reference to the NetworkSecurityGroup resource.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @property
+    @pulumi.getter(name="nicType")
+    def nic_type(self) -> Optional[str]:
+        """
+        Type of Network Interface resource.
+        """
+        return pulumi.get(self, "nic_type")
+
+    @property
+    @pulumi.getter(name="privateLinkService")
+    def private_link_service(self) -> Optional['outputs.PrivateLinkServiceResponse']:
+        """
+        Privatelinkservice of the network interface resource.
+        """
+        return pulumi.get(self, "private_link_service")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="workloadType")
+    def workload_type(self) -> Optional[str]:
+        """
+        WorkloadType of the NetworkInterface for BareMetal resources
+        """
+        return pulumi.get(self, "workload_type")
+
+
+@pulumi.output_type
+class NetworkInterfaceTapConfigurationResponse(dict):
+    """
+    Tap configuration in a Network Interface.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "virtualNetworkTap":
+            suggest = "virtual_network_tap"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkInterfaceTapConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkInterfaceTapConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkInterfaceTapConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 virtual_network_tap: Optional['outputs.VirtualNetworkTapResponse'] = None):
+        """
+        Tap configuration in a Network Interface.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the network interface tap configuration resource.
+        :param str type: Sub Resource type.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'VirtualNetworkTapResponse' virtual_network_tap: The reference to the Virtual Network Tap resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if virtual_network_tap is not None:
+            pulumi.set(__self__, "virtual_network_tap", virtual_network_tap)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the network interface tap configuration resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Sub Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="virtualNetworkTap")
+    def virtual_network_tap(self) -> Optional['outputs.VirtualNetworkTapResponse']:
+        """
+        The reference to the Virtual Network Tap resource.
+        """
+        return pulumi.get(self, "virtual_network_tap")
+
+
+@pulumi.output_type
+class NetworkSecurityGroupResponse(dict):
+    """
+    NetworkSecurityGroup resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultSecurityRules":
+            suggest = "default_security_rules"
+        elif key == "flowLogs":
+            suggest = "flow_logs"
+        elif key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "flushConnection":
+            suggest = "flush_connection"
+        elif key == "securityRules":
+            suggest = "security_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkSecurityGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkSecurityGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkSecurityGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_security_rules: Sequence['outputs.SecurityRuleResponse'],
+                 etag: str,
+                 flow_logs: Sequence['outputs.FlowLogResponse'],
+                 name: str,
+                 network_interfaces: Sequence['outputs.NetworkInterfaceResponse'],
+                 provisioning_state: str,
+                 resource_guid: str,
+                 subnets: Sequence['outputs.SubnetResponse'],
+                 type: str,
+                 flush_connection: Optional[bool] = None,
+                 id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 security_rules: Optional[Sequence['outputs.SecurityRuleResponse']] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        NetworkSecurityGroup resource.
+        :param Sequence['SecurityRuleResponse'] default_security_rules: The default security rules of network security group.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param Sequence['FlowLogResponse'] flow_logs: A collection of references to flow log resources.
+        :param str name: Resource name.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: A collection of references to network interfaces.
+        :param str provisioning_state: The provisioning state of the network security group resource.
+        :param str resource_guid: The resource GUID property of the network security group resource.
+        :param Sequence['SubnetResponse'] subnets: A collection of references to subnets.
+        :param str type: Resource type.
+        :param bool flush_connection: When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        :param str id: Resource ID.
+        :param str location: Resource location.
+        :param Sequence['SecurityRuleResponse'] security_rules: A collection of security rules of the network security group.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "default_security_rules", default_security_rules)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "flow_logs", flow_logs)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "subnets", subnets)
+        pulumi.set(__self__, "type", type)
+        if flush_connection is not None:
+            pulumi.set(__self__, "flush_connection", flush_connection)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if security_rules is not None:
+            pulumi.set(__self__, "security_rules", security_rules)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="defaultSecurityRules")
+    def default_security_rules(self) -> Sequence['outputs.SecurityRuleResponse']:
+        """
+        The default security rules of network security group.
+        """
+        return pulumi.get(self, "default_security_rules")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="flowLogs")
+    def flow_logs(self) -> Sequence['outputs.FlowLogResponse']:
+        """
+        A collection of references to flow log resources.
+        """
+        return pulumi.get(self, "flow_logs")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
+        """
+        A collection of references to network interfaces.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the network security group resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the network security group resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence['outputs.SubnetResponse']:
+        """
+        A collection of references to subnets.
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="flushConnection")
+    def flush_connection(self) -> Optional[bool]:
+        """
+        When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
+        """
+        return pulumi.get(self, "flush_connection")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="securityRules")
+    def security_rules(self) -> Optional[Sequence['outputs.SecurityRuleResponse']]:
+        """
+        A collection of security rules of the network security group.
+        """
+        return pulumi.get(self, "security_rules")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class OwaspCrsExclusionEntryResponse(dict):
+    """
+    Allow to exclude some variable satisfy the condition for the WAF check.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchVariable":
+            suggest = "match_variable"
+        elif key == "selectorMatchOperator":
+            suggest = "selector_match_operator"
+        elif key == "exclusionManagedRuleSets":
+            suggest = "exclusion_managed_rule_sets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OwaspCrsExclusionEntryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OwaspCrsExclusionEntryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OwaspCrsExclusionEntryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_variable: str,
+                 selector: str,
+                 selector_match_operator: str,
+                 exclusion_managed_rule_sets: Optional[Sequence['outputs.ExclusionManagedRuleSetResponse']] = None):
+        """
+        Allow to exclude some variable satisfy the condition for the WAF check.
+        :param str match_variable: The variable to be excluded.
+        :param str selector: When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+        :param str selector_match_operator: When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+        :param Sequence['ExclusionManagedRuleSetResponse'] exclusion_managed_rule_sets: The managed rule sets that are associated with the exclusion.
+        """
+        pulumi.set(__self__, "match_variable", match_variable)
+        pulumi.set(__self__, "selector", selector)
+        pulumi.set(__self__, "selector_match_operator", selector_match_operator)
+        if exclusion_managed_rule_sets is not None:
+            pulumi.set(__self__, "exclusion_managed_rule_sets", exclusion_managed_rule_sets)
+
+    @property
+    @pulumi.getter(name="matchVariable")
+    def match_variable(self) -> str:
+        """
+        The variable to be excluded.
+        """
+        return pulumi.get(self, "match_variable")
+
+    @property
+    @pulumi.getter
+    def selector(self) -> str:
+        """
+        When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector")
+
+    @property
+    @pulumi.getter(name="selectorMatchOperator")
+    def selector_match_operator(self) -> str:
+        """
+        When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+        """
+        return pulumi.get(self, "selector_match_operator")
+
+    @property
+    @pulumi.getter(name="exclusionManagedRuleSets")
+    def exclusion_managed_rule_sets(self) -> Optional[Sequence['outputs.ExclusionManagedRuleSetResponse']]:
+        """
+        The managed rule sets that are associated with the exclusion.
+        """
+        return pulumi.get(self, "exclusion_managed_rule_sets")
+
+
+@pulumi.output_type
+class PolicySettingsResponse(dict):
+    """
+    Defines contents of a web application firewall global configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileUploadLimitInMb":
+            suggest = "file_upload_limit_in_mb"
+        elif key == "maxRequestBodySizeInKb":
+            suggest = "max_request_body_size_in_kb"
+        elif key == "requestBodyCheck":
+            suggest = "request_body_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_upload_limit_in_mb: Optional[int] = None,
+                 max_request_body_size_in_kb: Optional[int] = None,
+                 mode: Optional[str] = None,
+                 request_body_check: Optional[bool] = None,
+                 state: Optional[str] = None):
+        """
+        Defines contents of a web application firewall global configuration.
+        :param int file_upload_limit_in_mb: Maximum file upload size in Mb for WAF.
+        :param int max_request_body_size_in_kb: Maximum request body size in Kb for WAF.
+        :param str mode: The mode of the policy.
+        :param bool request_body_check: Whether to allow WAF to check request Body.
+        :param str state: The state of the policy.
+        """
+        if file_upload_limit_in_mb is not None:
+            pulumi.set(__self__, "file_upload_limit_in_mb", file_upload_limit_in_mb)
+        if max_request_body_size_in_kb is not None:
+            pulumi.set(__self__, "max_request_body_size_in_kb", max_request_body_size_in_kb)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if request_body_check is not None:
+            pulumi.set(__self__, "request_body_check", request_body_check)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="fileUploadLimitInMb")
+    def file_upload_limit_in_mb(self) -> Optional[int]:
+        """
+        Maximum file upload size in Mb for WAF.
+        """
+        return pulumi.get(self, "file_upload_limit_in_mb")
+
+    @property
+    @pulumi.getter(name="maxRequestBodySizeInKb")
+    def max_request_body_size_in_kb(self) -> Optional[int]:
+        """
+        Maximum request body size in Kb for WAF.
+        """
+        return pulumi.get(self, "max_request_body_size_in_kb")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        The mode of the policy.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="requestBodyCheck")
+    def request_body_check(self) -> Optional[bool]:
+        """
+        Whether to allow WAF to check request Body.
+        """
+        return pulumi.get(self, "request_body_check")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        The state of the policy.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class PrivateDnsZoneConfigResponse(dict):
+    """
+    PrivateDnsZoneConfig resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordSets":
+            suggest = "record_sets"
+        elif key == "privateDnsZoneId":
+            suggest = "private_dns_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateDnsZoneConfigResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateDnsZoneConfigResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateDnsZoneConfigResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 record_sets: Sequence['outputs.RecordSetResponse'],
+                 name: Optional[str] = None,
+                 private_dns_zone_id: Optional[str] = None):
+        """
+        PrivateDnsZoneConfig resource.
+        :param Sequence['RecordSetResponse'] record_sets: A collection of information regarding a recordSet, holding information to identify private resources.
+        :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param str private_dns_zone_id: The resource id of the private dns zone.
+        """
+        pulumi.set(__self__, "record_sets", record_sets)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_dns_zone_id is not None:
+            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+
+    @property
+    @pulumi.getter(name="recordSets")
+    def record_sets(self) -> Sequence['outputs.RecordSetResponse']:
+        """
+        A collection of information regarding a recordSet, holding information to identify private resources.
+        """
+        return pulumi.get(self, "record_sets")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> Optional[str]:
+        """
+        The resource id of the private dns zone.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
+
+
+@pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    PrivateEndpointConnection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkIdentifier":
+            suggest = "link_identifier"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 link_identifier: str,
+                 private_endpoint: 'outputs.PrivateEndpointResponse',
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        PrivateEndpointConnection resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str link_identifier: The consumer link id.
+        :param 'PrivateEndpointResponse' private_endpoint: The resource of private end point.
+        :param str provisioning_state: The provisioning state of the private endpoint connection resource.
+        :param str type: The resource type.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "link_identifier", link_identifier)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="linkIdentifier")
+    def link_identifier(self) -> str:
+        """
+        The consumer link id.
+        """
+        return pulumi.get(self, "link_identifier")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.PrivateEndpointResponse':
+        """
+        The resource of private end point.
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
+class PrivateEndpointIPConfigurationResponse(dict):
+    """
+    An IP Configuration of the private endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "memberName":
+            suggest = "member_name"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointIPConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointIPConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointIPConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 type: str,
+                 group_id: Optional[str] = None,
+                 member_name: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_ip_address: Optional[str] = None):
+        """
+        An IP Configuration of the private endpoint.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str type: The resource type.
+        :param str group_id: The ID of a group obtained from the remote resource that this private endpoint should connect to.
+        :param str member_name: The member name of a group obtained from the remote resource that this private endpoint should connect to.
+        :param str name: The name of the resource that is unique within a resource group.
+        :param str private_ip_address: A private ip address obtained from the private endpoint's subnet.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "type", type)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
+        if member_name is not None:
+            pulumi.set(__self__, "member_name", member_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> Optional[str]:
+        """
+        The ID of a group obtained from the remote resource that this private endpoint should connect to.
+        """
+        return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="memberName")
+    def member_name(self) -> Optional[str]:
+        """
+        The member name of a group obtained from the remote resource that this private endpoint should connect to.
+        """
+        return pulumi.get(self, "member_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        A private ip address obtained from the private endpoint's subnet.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+
+@pulumi.output_type
+class PrivateEndpointResponse(dict):
+    """
+    Private endpoint resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "applicationSecurityGroups":
+            suggest = "application_security_groups"
+        elif key == "customDnsConfigs":
+            suggest = "custom_dns_configs"
+        elif key == "customNetworkInterfaceName":
+            suggest = "custom_network_interface_name"
+        elif key == "extendedLocation":
+            suggest = "extended_location"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "manualPrivateLinkServiceConnections":
+            suggest = "manual_private_link_service_connections"
+        elif key == "privateLinkServiceConnections":
+            suggest = "private_link_service_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 name: str,
+                 network_interfaces: Sequence['outputs.NetworkInterfaceResponse'],
+                 provisioning_state: str,
+                 type: str,
+                 application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
+                 custom_dns_configs: Optional[Sequence['outputs.CustomDnsConfigPropertiesFormatResponse']] = None,
+                 custom_network_interface_name: Optional[str] = None,
+                 extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 id: Optional[str] = None,
+                 ip_configurations: Optional[Sequence['outputs.PrivateEndpointIPConfigurationResponse']] = None,
+                 location: Optional[str] = None,
+                 manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+                 private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Private endpoint resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: Resource name.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: An array of references to the network interfaces created for this private endpoint.
+        :param str provisioning_state: The provisioning state of the private endpoint resource.
+        :param str type: Resource type.
+        :param Sequence['ApplicationSecurityGroupResponse'] application_security_groups: Application security groups in which the private endpoint IP configuration is included.
+        :param Sequence['CustomDnsConfigPropertiesFormatResponse'] custom_dns_configs: An array of custom dns configurations.
+        :param str custom_network_interface_name: The custom name of the network interface attached to the private endpoint.
+        :param 'ExtendedLocationResponse' extended_location: The extended location of the load balancer.
+        :param str id: Resource ID.
+        :param Sequence['PrivateEndpointIPConfigurationResponse'] ip_configurations: A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+        :param str location: Resource location.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        :param Sequence['PrivateLinkServiceConnectionResponse'] private_link_service_connections: A grouping of information about the connection to the remote resource.
+        :param 'SubnetResponse' subnet: The ID of the subnet from which the private IP will be allocated.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if application_security_groups is not None:
+            pulumi.set(__self__, "application_security_groups", application_security_groups)
+        if custom_dns_configs is not None:
+            pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
+        if custom_network_interface_name is not None:
+            pulumi.set(__self__, "custom_network_interface_name", custom_network_interface_name)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if manual_private_link_service_connections is not None:
+            pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+        if private_link_service_connections is not None:
+            pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
+        """
+        An array of references to the network interfaces created for this private endpoint.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private endpoint resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroups")
+    def application_security_groups(self) -> Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]:
+        """
+        Application security groups in which the private endpoint IP configuration is included.
+        """
+        return pulumi.get(self, "application_security_groups")
+
+    @property
+    @pulumi.getter(name="customDnsConfigs")
+    def custom_dns_configs(self) -> Optional[Sequence['outputs.CustomDnsConfigPropertiesFormatResponse']]:
+        """
+        An array of custom dns configurations.
+        """
+        return pulumi.get(self, "custom_dns_configs")
+
+    @property
+    @pulumi.getter(name="customNetworkInterfaceName")
+    def custom_network_interface_name(self) -> Optional[str]:
+        """
+        The custom name of the network interface attached to the private endpoint.
+        """
+        return pulumi.get(self, "custom_network_interface_name")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the load balancer.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.PrivateEndpointIPConfigurationResponse']]:
+        """
+        A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="manualPrivateLinkServiceConnections")
+    def manual_private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
+        """
+        A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        """
+        return pulumi.get(self, "manual_private_link_service_connections")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnections")
+    def private_link_service_connections(self) -> Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']]:
+        """
+        A grouping of information about the connection to the remote resource.
+        """
+        return pulumi.get(self, "private_link_service_connections")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        The ID of the subnet from which the private IP will be allocated.
+        """
+        return pulumi.get(self, "subnet")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionResponse(dict):
+    """
+    PrivateLinkServiceConnection resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+        elif key == "privateLinkServiceId":
+            suggest = "private_link_service_id"
+        elif key == "requestMessage":
+            suggest = "request_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 group_ids: Optional[Sequence[str]] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None,
+                 private_link_service_id: Optional[str] = None,
+                 request_message: Optional[str] = None):
+        """
+        PrivateLinkServiceConnection resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the private link service connection resource.
+        :param str type: The resource type.
+        :param Sequence[str] group_ids: The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: A collection of read-only information about the state of the connection to the remote resource.
+        :param str private_link_service_id: The resource id of private link service.
+        :param str request_message: A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+        if private_link_service_id is not None:
+            pulumi.set(__self__, "private_link_service_id", private_link_service_id)
+        if request_message is not None:
+            pulumi.set(__self__, "request_message", request_message)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private link service connection resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[Sequence[str]]:
+        """
+        The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        A collection of read-only information about the state of the connection to the remote resource.
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceId")
+    def private_link_service_id(self) -> Optional[str]:
+        """
+        The resource id of private link service.
+        """
+        return pulumi.get(self, "private_link_service_id")
+
+    @property
+    @pulumi.getter(name="requestMessage")
+    def request_message(self) -> Optional[str]:
+        """
+        A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "request_message")
+
+
+@pulumi.output_type
+class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    A collection of information about the state of the connection between service consumer and provider.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionsRequired":
+            suggest = "actions_required"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceConnectionStateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceConnectionStateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions_required: Optional[str] = None,
+                 description: Optional[str] = None,
+                 status: Optional[str] = None):
+        """
+        A collection of information about the state of the connection between service consumer and provider.
+        :param str actions_required: A message indicating if changes on the service provider require any updates on the consumer.
+        :param str description: The reason for approval/rejection of the connection.
+        :param str status: Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        if actions_required is not None:
+            pulumi.set(__self__, "actions_required", actions_required)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="actionsRequired")
+    def actions_required(self) -> Optional[str]:
+        """
+        A message indicating if changes on the service provider require any updates on the consumer.
+        """
+        return pulumi.get(self, "actions_required")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The reason for approval/rejection of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class PrivateLinkServiceIpConfigurationResponse(dict):
+    """
+    The private link service ip configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAddressVersion":
+            suggest = "private_ip_address_version"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceIpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceIpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceIpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 primary: Optional[bool] = None,
+                 private_ip_address: Optional[str] = None,
+                 private_ip_address_version: Optional[str] = None,
+                 private_ip_allocation_method: Optional[str] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None):
+        """
+        The private link service ip configuration.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the private link service IP configuration resource.
+        :param str type: The resource type.
+        :param str id: Resource ID.
+        :param str name: The name of private link service ip configuration.
+        :param bool primary: Whether the ip configuration is primary or not.
+        :param str private_ip_address: The private IP address of the IP configuration.
+        :param str private_ip_address_version: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        :param str private_ip_allocation_method: The private IP address allocation method.
+        :param 'SubnetResponse' subnet: The reference to the subnet resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_address_version is not None:
+            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private link service IP configuration resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of private link service ip configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def primary(self) -> Optional[bool]:
+        """
+        Whether the ip configuration is primary or not.
+        """
+        return pulumi.get(self, "primary")
+
+    @property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="privateIPAddressVersion")
+    def private_ip_address_version(self) -> Optional[str]:
+        """
+        Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        """
+        return pulumi.get(self, "private_ip_address_version")
+
+    @property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[str]:
+        """
+        The private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        The reference to the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class PrivateLinkServicePropertiesResponseAutoApproval(dict):
+    """
+    The auto-approval list of the private link service.
+    """
+    def __init__(__self__, *,
+                 subscriptions: Optional[Sequence[str]] = None):
+        """
+        The auto-approval list of the private link service.
+        :param Sequence[str] subscriptions: The list of subscriptions.
+        """
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[Sequence[str]]:
+        """
+        The list of subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
+
+
+@pulumi.output_type
+class PrivateLinkServicePropertiesResponseVisibility(dict):
+    """
+    The visibility list of the private link service.
+    """
+    def __init__(__self__, *,
+                 subscriptions: Optional[Sequence[str]] = None):
+        """
+        The visibility list of the private link service.
+        :param Sequence[str] subscriptions: The list of subscriptions.
+        """
+        if subscriptions is not None:
+            pulumi.set(__self__, "subscriptions", subscriptions)
+
+    @property
+    @pulumi.getter
+    def subscriptions(self) -> Optional[Sequence[str]]:
+        """
+        The list of subscriptions.
+        """
+        return pulumi.get(self, "subscriptions")
+
+
+@pulumi.output_type
+class PrivateLinkServiceResponse(dict):
+    """
+    Private link service resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "privateEndpointConnections":
+            suggest = "private_endpoint_connections"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "autoApproval":
+            suggest = "auto_approval"
+        elif key == "enableProxyProtocol":
+            suggest = "enable_proxy_protocol"
+        elif key == "extendedLocation":
+            suggest = "extended_location"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "loadBalancerFrontendIpConfigurations":
+            suggest = "load_balancer_frontend_ip_configurations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateLinkServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateLinkServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateLinkServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alias: str,
+                 etag: str,
+                 name: str,
+                 network_interfaces: Sequence['outputs.NetworkInterfaceResponse'],
+                 private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
+                 provisioning_state: str,
+                 type: str,
+                 auto_approval: Optional['outputs.PrivateLinkServicePropertiesResponseAutoApproval'] = None,
+                 enable_proxy_protocol: Optional[bool] = None,
+                 extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 fqdns: Optional[Sequence[str]] = None,
+                 id: Optional[str] = None,
+                 ip_configurations: Optional[Sequence['outputs.PrivateLinkServiceIpConfigurationResponse']] = None,
+                 load_balancer_frontend_ip_configurations: Optional[Sequence['outputs.FrontendIPConfigurationResponse']] = None,
+                 location: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 visibility: Optional['outputs.PrivateLinkServicePropertiesResponseVisibility'] = None):
+        """
+        Private link service resource.
+        :param str alias: The alias of the private link service.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: Resource name.
+        :param Sequence['NetworkInterfaceResponse'] network_interfaces: An array of references to the network interfaces created for this private link service.
+        :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: An array of list about connections to the private endpoint.
+        :param str provisioning_state: The provisioning state of the private link service resource.
+        :param str type: Resource type.
+        :param 'PrivateLinkServicePropertiesResponseAutoApproval' auto_approval: The auto-approval list of the private link service.
+        :param bool enable_proxy_protocol: Whether the private link service is enabled for proxy protocol or not.
+        :param 'ExtendedLocationResponse' extended_location: The extended location of the load balancer.
+        :param Sequence[str] fqdns: The list of Fqdn.
+        :param str id: Resource ID.
+        :param Sequence['PrivateLinkServiceIpConfigurationResponse'] ip_configurations: An array of private link service IP configurations.
+        :param Sequence['FrontendIPConfigurationResponse'] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
+        :param str location: Resource location.
+        :param Mapping[str, str] tags: Resource tags.
+        :param 'PrivateLinkServicePropertiesResponseVisibility' visibility: The visibility list of the private link service.
+        """
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_interfaces", network_interfaces)
+        pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if auto_approval is not None:
+            pulumi.set(__self__, "auto_approval", auto_approval)
+        if enable_proxy_protocol is not None:
+            pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if fqdns is not None:
+            pulumi.set(__self__, "fqdns", fqdns)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if load_balancer_frontend_ip_configurations is not None:
+            pulumi.set(__self__, "load_balancer_frontend_ip_configurations", load_balancer_frontend_ip_configurations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter
+    def alias(self) -> str:
+        """
+        The alias of the private link service.
+        """
+        return pulumi.get(self, "alias")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Sequence['outputs.NetworkInterfaceResponse']:
+        """
+        An array of references to the network interfaces created for this private link service.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="privateEndpointConnections")
+    def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
+        """
+        An array of list about connections to the private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint_connections")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the private link service resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="autoApproval")
+    def auto_approval(self) -> Optional['outputs.PrivateLinkServicePropertiesResponseAutoApproval']:
+        """
+        The auto-approval list of the private link service.
+        """
+        return pulumi.get(self, "auto_approval")
+
+    @property
+    @pulumi.getter(name="enableProxyProtocol")
+    def enable_proxy_protocol(self) -> Optional[bool]:
+        """
+        Whether the private link service is enabled for proxy protocol or not.
+        """
+        return pulumi.get(self, "enable_proxy_protocol")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the load balancer.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter
+    def fqdns(self) -> Optional[Sequence[str]]:
+        """
+        The list of Fqdn.
+        """
+        return pulumi.get(self, "fqdns")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Optional[Sequence['outputs.PrivateLinkServiceIpConfigurationResponse']]:
+        """
+        An array of private link service IP configurations.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="loadBalancerFrontendIpConfigurations")
+    def load_balancer_frontend_ip_configurations(self) -> Optional[Sequence['outputs.FrontendIPConfigurationResponse']]:
+        """
+        An array of references to the load balancer IP configurations.
+        """
+        return pulumi.get(self, "load_balancer_frontend_ip_configurations")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional['outputs.PrivateLinkServicePropertiesResponseVisibility']:
+        """
+        The visibility list of the private link service.
+        """
+        return pulumi.get(self, "visibility")
+
+
+@pulumi.output_type
+class PublicIPAddressDnsSettingsResponse(dict):
+    """
+    Contains FQDN of the DNS record associated with the public IP address.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainNameLabel":
+            suggest = "domain_name_label"
+        elif key == "reverseFqdn":
+            suggest = "reverse_fqdn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressDnsSettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicIPAddressDnsSettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicIPAddressDnsSettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name_label: Optional[str] = None,
+                 fqdn: Optional[str] = None,
+                 reverse_fqdn: Optional[str] = None):
+        """
+        Contains FQDN of the DNS record associated with the public IP address.
+        :param str domain_name_label: The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        :param str fqdn: The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+        :param str reverse_fqdn: The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
+        """
+        if domain_name_label is not None:
+            pulumi.set(__self__, "domain_name_label", domain_name_label)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if reverse_fqdn is not None:
+            pulumi.set(__self__, "reverse_fqdn", reverse_fqdn)
+
+    @property
+    @pulumi.getter(name="domainNameLabel")
+    def domain_name_label(self) -> Optional[str]:
+        """
+        The domain name label. The concatenation of the domain name label and the regionalized DNS zone make up the fully qualified domain name associated with the public IP address. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
+        """
+        return pulumi.get(self, "domain_name_label")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        The Fully Qualified Domain Name of the A DNS record associated with the public IP. This is the concatenation of the domainNameLabel and the regionalized DNS zone.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="reverseFqdn")
+    def reverse_fqdn(self) -> Optional[str]:
+        """
+        The reverse FQDN. A user-visible, fully qualified domain name that resolves to this public IP address. If the reverseFqdn is specified, then a PTR DNS record is created pointing from the IP address in the in-addr.arpa domain to the reverse FQDN.
+        """
+        return pulumi.get(self, "reverse_fqdn")
+
+
+@pulumi.output_type
+class PublicIPAddressResponse(dict):
+    """
+    Public IP address resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfiguration":
+            suggest = "ip_configuration"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "ddosSettings":
+            suggest = "ddos_settings"
+        elif key == "deleteOption":
+            suggest = "delete_option"
+        elif key == "dnsSettings":
+            suggest = "dns_settings"
+        elif key == "extendedLocation":
+            suggest = "extended_location"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "ipTags":
+            suggest = "ip_tags"
+        elif key == "linkedPublicIPAddress":
+            suggest = "linked_public_ip_address"
+        elif key == "migrationPhase":
+            suggest = "migration_phase"
+        elif key == "natGateway":
+            suggest = "nat_gateway"
+        elif key == "publicIPAddressVersion":
+            suggest = "public_ip_address_version"
+        elif key == "publicIPAllocationMethod":
+            suggest = "public_ip_allocation_method"
+        elif key == "publicIPPrefix":
+            suggest = "public_ip_prefix"
+        elif key == "servicePublicIPAddress":
+            suggest = "service_public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicIPAddressResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicIPAddressResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 ip_configuration: 'outputs.IPConfigurationResponse',
+                 name: str,
+                 provisioning_state: str,
+                 resource_guid: str,
+                 type: str,
+                 ddos_settings: Optional['outputs.DdosSettingsResponse'] = None,
+                 delete_option: Optional[str] = None,
+                 dns_settings: Optional['outputs.PublicIPAddressDnsSettingsResponse'] = None,
+                 extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 id: Optional[str] = None,
+                 idle_timeout_in_minutes: Optional[int] = None,
+                 ip_address: Optional[str] = None,
+                 ip_tags: Optional[Sequence['outputs.IpTagResponse']] = None,
+                 linked_public_ip_address: Optional['outputs.PublicIPAddressResponse'] = None,
+                 location: Optional[str] = None,
+                 migration_phase: Optional[str] = None,
+                 nat_gateway: Optional['outputs.NatGatewayResponse'] = None,
+                 public_ip_address_version: Optional[str] = None,
+                 public_ip_allocation_method: Optional[str] = None,
+                 public_ip_prefix: Optional['outputs.SubResourceResponse'] = None,
+                 service_public_ip_address: Optional['outputs.PublicIPAddressResponse'] = None,
+                 sku: Optional['outputs.PublicIPAddressSkuResponse'] = None,
+                 tags: Optional[Mapping[str, str]] = None,
+                 zones: Optional[Sequence[str]] = None):
+        """
+        Public IP address resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param 'IPConfigurationResponse' ip_configuration: The IP configuration associated with the public IP address.
+        :param str name: Resource name.
+        :param str provisioning_state: The provisioning state of the public IP address resource.
+        :param str resource_guid: The resource GUID property of the public IP address resource.
+        :param str type: Resource type.
+        :param 'DdosSettingsResponse' ddos_settings: The DDoS protection custom policy associated with the public IP address.
+        :param str delete_option: Specify what happens to the public IP address when the VM using it is deleted
+        :param 'PublicIPAddressDnsSettingsResponse' dns_settings: The FQDN of the DNS record associated with the public IP address.
+        :param 'ExtendedLocationResponse' extended_location: The extended location of the public ip address.
+        :param str id: Resource ID.
+        :param int idle_timeout_in_minutes: The idle timeout of the public IP address.
+        :param str ip_address: The IP address associated with the public IP address resource.
+        :param Sequence['IpTagResponse'] ip_tags: The list of tags associated with the public IP address.
+        :param 'PublicIPAddressResponse' linked_public_ip_address: The linked public IP address of the public IP address resource.
+        :param str location: Resource location.
+        :param str migration_phase: Migration phase of Public IP Address.
+        :param 'NatGatewayResponse' nat_gateway: The NatGateway for the Public IP address.
+        :param str public_ip_address_version: The public IP address version.
+        :param str public_ip_allocation_method: The public IP address allocation method.
+        :param 'SubResourceResponse' public_ip_prefix: The Public IP Prefix this Public IP Address should be allocated from.
+        :param 'PublicIPAddressResponse' service_public_ip_address: The service public IP address of the public IP address resource.
+        :param 'PublicIPAddressSkuResponse' sku: The public IP address SKU.
+        :param Mapping[str, str] tags: Resource tags.
+        :param Sequence[str] zones: A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "ip_configuration", ip_configuration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "type", type)
+        if ddos_settings is not None:
+            pulumi.set(__self__, "ddos_settings", ddos_settings)
+        if delete_option is not None:
+            pulumi.set(__self__, "delete_option", delete_option)
+        if dns_settings is not None:
+            pulumi.set(__self__, "dns_settings", dns_settings)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if ip_tags is not None:
+            pulumi.set(__self__, "ip_tags", ip_tags)
+        if linked_public_ip_address is not None:
+            pulumi.set(__self__, "linked_public_ip_address", linked_public_ip_address)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if migration_phase is not None:
+            pulumi.set(__self__, "migration_phase", migration_phase)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+        if public_ip_allocation_method is not None:
+            pulumi.set(__self__, "public_ip_allocation_method", public_ip_allocation_method)
+        if public_ip_prefix is not None:
+            pulumi.set(__self__, "public_ip_prefix", public_ip_prefix)
+        if service_public_ip_address is not None:
+            pulumi.set(__self__, "service_public_ip_address", service_public_ip_address)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if zones is not None:
+            pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> 'outputs.IPConfigurationResponse':
+        """
+        The IP configuration associated with the public IP address.
+        """
+        return pulumi.get(self, "ip_configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the public IP address resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the public IP address resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="ddosSettings")
+    def ddos_settings(self) -> Optional['outputs.DdosSettingsResponse']:
+        """
+        The DDoS protection custom policy associated with the public IP address.
+        """
+        return pulumi.get(self, "ddos_settings")
+
+    @property
+    @pulumi.getter(name="deleteOption")
+    def delete_option(self) -> Optional[str]:
+        """
+        Specify what happens to the public IP address when the VM using it is deleted
+        """
+        return pulumi.get(self, "delete_option")
+
+    @property
+    @pulumi.getter(name="dnsSettings")
+    def dns_settings(self) -> Optional['outputs.PublicIPAddressDnsSettingsResponse']:
+        """
+        The FQDN of the DNS record associated with the public IP address.
+        """
+        return pulumi.get(self, "dns_settings")
+
+    @property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the public ip address.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[int]:
+        """
+        The idle timeout of the public IP address.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        The IP address associated with the public IP address resource.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="ipTags")
+    def ip_tags(self) -> Optional[Sequence['outputs.IpTagResponse']]:
+        """
+        The list of tags associated with the public IP address.
+        """
+        return pulumi.get(self, "ip_tags")
+
+    @property
+    @pulumi.getter(name="linkedPublicIPAddress")
+    def linked_public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
+        """
+        The linked public IP address of the public IP address resource.
+        """
+        return pulumi.get(self, "linked_public_ip_address")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="migrationPhase")
+    def migration_phase(self) -> Optional[str]:
+        """
+        Migration phase of Public IP Address.
+        """
+        return pulumi.get(self, "migration_phase")
+
+    @property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional['outputs.NatGatewayResponse']:
+        """
+        The NatGateway for the Public IP address.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[str]:
+        """
+        The public IP address version.
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @property
+    @pulumi.getter(name="publicIPAllocationMethod")
+    def public_ip_allocation_method(self) -> Optional[str]:
+        """
+        The public IP address allocation method.
+        """
+        return pulumi.get(self, "public_ip_allocation_method")
+
+    @property
+    @pulumi.getter(name="publicIPPrefix")
+    def public_ip_prefix(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The Public IP Prefix this Public IP Address should be allocated from.
+        """
+        return pulumi.get(self, "public_ip_prefix")
+
+    @property
+    @pulumi.getter(name="servicePublicIPAddress")
+    def service_public_ip_address(self) -> Optional['outputs.PublicIPAddressResponse']:
+        """
+        The service public IP address of the public IP address resource.
+        """
+        return pulumi.get(self, "service_public_ip_address")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional['outputs.PublicIPAddressSkuResponse']:
+        """
+        The public IP address SKU.
+        """
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def zones(self) -> Optional[Sequence[str]]:
+        """
+        A list of availability zones denoting the IP allocated for the resource needs to come from.
+        """
+        return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class PublicIPAddressSkuResponse(dict):
+    """
+    SKU of a public IP address.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 tier: Optional[str] = None):
+        """
+        SKU of a public IP address.
+        :param str name: Name of a public IP address SKU.
+        :param str tier: Tier of a public IP address SKU.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of a public IP address SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> Optional[str]:
+        """
+        Tier of a public IP address SKU.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
+class RecordSetResponse(dict):
+    """
+    A collective group of information about the record set information.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+        elif key == "recordSetName":
+            suggest = "record_set_name"
+        elif key == "recordType":
+            suggest = "record_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RecordSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RecordSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RecordSetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 fqdn: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None,
+                 record_set_name: Optional[str] = None,
+                 record_type: Optional[str] = None,
+                 ttl: Optional[int] = None):
+        """
+        A collective group of information about the record set information.
+        :param str provisioning_state: The provisioning state of the recordset.
+        :param str fqdn: Fqdn that resolves to private endpoint ip address.
+        :param Sequence[str] ip_addresses: The private ip address of the private endpoint.
+        :param str record_set_name: Recordset name.
+        :param str record_type: Resource record type.
+        :param int ttl: Recordset time to live.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if record_set_name is not None:
+            pulumi.set(__self__, "record_set_name", record_set_name)
+        if record_type is not None:
+            pulumi.set(__self__, "record_type", record_type)
+        if ttl is not None:
+            pulumi.set(__self__, "ttl", ttl)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the recordset.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[str]:
+        """
+        Fqdn that resolves to private endpoint ip address.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        The private ip address of the private endpoint.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+    @property
+    @pulumi.getter(name="recordSetName")
+    def record_set_name(self) -> Optional[str]:
+        """
+        Recordset name.
+        """
+        return pulumi.get(self, "record_set_name")
+
+    @property
+    @pulumi.getter(name="recordType")
+    def record_type(self) -> Optional[str]:
+        """
+        Resource record type.
+        """
+        return pulumi.get(self, "record_type")
+
+    @property
+    @pulumi.getter
+    def ttl(self) -> Optional[int]:
+        """
+        Recordset time to live.
+        """
+        return pulumi.get(self, "ttl")
+
+
+@pulumi.output_type
+class ResourceNavigationLinkResponse(dict):
+    """
+    ResourceNavigationLink resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "linkedResourceType":
+            suggest = "linked_resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceNavigationLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceNavigationLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceNavigationLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 id: str,
+                 provisioning_state: str,
+                 type: str,
+                 link: Optional[str] = None,
+                 linked_resource_type: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        ResourceNavigationLink resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str id: Resource ID.
+        :param str provisioning_state: The provisioning state of the resource navigation link resource.
+        :param str type: Resource type.
+        :param str link: Link to the external resource.
+        :param str linked_resource_type: Resource type of the linked resource.
+        :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if linked_resource_type is not None:
+            pulumi.set(__self__, "linked_resource_type", linked_resource_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the resource navigation link resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        """
+        Link to the external resource.
+        """
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="linkedResourceType")
+    def linked_resource_type(self) -> Optional[str]:
+        """
+        Resource type of the linked resource.
+        """
+        return pulumi.get(self, "linked_resource_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class RetentionPolicyParametersResponse(dict):
+    """
+    Parameters that define the retention policy for flow log.
+    """
+    def __init__(__self__, *,
+                 days: Optional[int] = None,
+                 enabled: Optional[bool] = None):
+        """
+        Parameters that define the retention policy for flow log.
+        :param int days: Number of days to retain flow log records.
+        :param bool enabled: Flag to enable/disable retention.
+        """
+        if days is None:
+            days = 0
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if enabled is None:
+            enabled = False
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[int]:
+        """
+        Number of days to retain flow log records.
+        """
+        return pulumi.get(self, "days")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Flag to enable/disable retention.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class RouteResponse(dict):
+    """
+    Route resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextHopType":
+            suggest = "next_hop_type"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "hasBgpOverride":
+            suggest = "has_bgp_override"
+        elif key == "nextHopIpAddress":
+            suggest = "next_hop_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 next_hop_type: str,
+                 provisioning_state: str,
+                 address_prefix: Optional[str] = None,
+                 has_bgp_override: Optional[bool] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 next_hop_ip_address: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Route resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str next_hop_type: The type of Azure hop the packet should be sent to.
+        :param str provisioning_state: The provisioning state of the route resource.
+        :param str address_prefix: The destination CIDR to which the route applies.
+        :param bool has_bgp_override: A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param str next_hop_ip_address: The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        :param str type: The type of the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "next_hop_type", next_hop_type)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if has_bgp_override is not None:
+            pulumi.set(__self__, "has_bgp_override", has_bgp_override)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if next_hop_ip_address is not None:
+            pulumi.set(__self__, "next_hop_ip_address", next_hop_ip_address)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="nextHopType")
+    def next_hop_type(self) -> str:
+        """
+        The type of Azure hop the packet should be sent to.
+        """
+        return pulumi.get(self, "next_hop_type")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the route resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[str]:
+        """
+        The destination CIDR to which the route applies.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter(name="hasBgpOverride")
+    def has_bgp_override(self) -> Optional[bool]:
+        """
+        A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
+        """
+        return pulumi.get(self, "has_bgp_override")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="nextHopIpAddress")
+    def next_hop_ip_address(self) -> Optional[str]:
+        """
+        The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
+        """
+        return pulumi.get(self, "next_hop_ip_address")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class RouteTableResponse(dict):
+    """
+    Route table resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "disableBgpRoutePropagation":
+            suggest = "disable_bgp_route_propagation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteTableResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteTableResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteTableResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 name: str,
+                 provisioning_state: str,
+                 resource_guid: str,
+                 subnets: Sequence['outputs.SubnetResponse'],
+                 type: str,
+                 disable_bgp_route_propagation: Optional[bool] = None,
+                 id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 routes: Optional[Sequence['outputs.RouteResponse']] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Route table resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: Resource name.
+        :param str provisioning_state: The provisioning state of the route table resource.
+        :param str resource_guid: The resource GUID property of the route table.
+        :param Sequence['SubnetResponse'] subnets: A collection of references to subnets.
+        :param str type: Resource type.
+        :param bool disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
+        :param str id: Resource ID.
+        :param str location: Resource location.
+        :param Sequence['RouteResponse'] routes: Collection of routes contained within a route table.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "subnets", subnets)
+        pulumi.set(__self__, "type", type)
+        if disable_bgp_route_propagation is not None:
+            pulumi.set(__self__, "disable_bgp_route_propagation", disable_bgp_route_propagation)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if routes is not None:
+            pulumi.set(__self__, "routes", routes)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the route table resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the route table.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence['outputs.SubnetResponse']:
+        """
+        A collection of references to subnets.
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="disableBgpRoutePropagation")
+    def disable_bgp_route_propagation(self) -> Optional[bool]:
+        """
+        Whether to disable the routes learned by BGP on that route table. True means disable.
+        """
+        return pulumi.get(self, "disable_bgp_route_propagation")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def routes(self) -> Optional[Sequence['outputs.RouteResponse']]:
+        """
+        Collection of routes contained within a route table.
+        """
+        return pulumi.get(self, "routes")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -793,6 +12424,798 @@ class SecurityPolicyLinkResponse(dict):
 
 
 @pulumi.output_type
+class SecurityRuleResponse(dict):
+    """
+    Network security rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "destinationAddressPrefix":
+            suggest = "destination_address_prefix"
+        elif key == "destinationAddressPrefixes":
+            suggest = "destination_address_prefixes"
+        elif key == "destinationApplicationSecurityGroups":
+            suggest = "destination_application_security_groups"
+        elif key == "destinationPortRange":
+            suggest = "destination_port_range"
+        elif key == "destinationPortRanges":
+            suggest = "destination_port_ranges"
+        elif key == "sourceAddressPrefix":
+            suggest = "source_address_prefix"
+        elif key == "sourceAddressPrefixes":
+            suggest = "source_address_prefixes"
+        elif key == "sourceApplicationSecurityGroups":
+            suggest = "source_application_security_groups"
+        elif key == "sourcePortRange":
+            suggest = "source_port_range"
+        elif key == "sourcePortRanges":
+            suggest = "source_port_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access: str,
+                 direction: str,
+                 etag: str,
+                 protocol: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None,
+                 destination_address_prefix: Optional[str] = None,
+                 destination_address_prefixes: Optional[Sequence[str]] = None,
+                 destination_application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
+                 destination_port_range: Optional[str] = None,
+                 destination_port_ranges: Optional[Sequence[str]] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 source_address_prefix: Optional[str] = None,
+                 source_address_prefixes: Optional[Sequence[str]] = None,
+                 source_application_security_groups: Optional[Sequence['outputs.ApplicationSecurityGroupResponse']] = None,
+                 source_port_range: Optional[str] = None,
+                 source_port_ranges: Optional[Sequence[str]] = None,
+                 type: Optional[str] = None):
+        """
+        Network security rule.
+        :param str access: The network traffic is allowed or denied.
+        :param str direction: The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str protocol: Network protocol this rule applies to.
+        :param str provisioning_state: The provisioning state of the security rule resource.
+        :param str description: A description for this rule. Restricted to 140 chars.
+        :param str destination_address_prefix: The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        :param Sequence[str] destination_address_prefixes: The destination address prefixes. CIDR or destination IP ranges.
+        :param Sequence['ApplicationSecurityGroupResponse'] destination_application_security_groups: The application security group specified as destination.
+        :param str destination_port_range: The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        :param Sequence[str] destination_port_ranges: The destination port ranges.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param int priority: The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        :param str source_address_prefix: The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+        :param Sequence[str] source_address_prefixes: The CIDR or source IP ranges.
+        :param Sequence['ApplicationSecurityGroupResponse'] source_application_security_groups: The application security group specified as source.
+        :param str source_port_range: The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        :param Sequence[str] source_port_ranges: The source port ranges.
+        :param str type: The type of the resource.
+        """
+        pulumi.set(__self__, "access", access)
+        pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination_address_prefix is not None:
+            pulumi.set(__self__, "destination_address_prefix", destination_address_prefix)
+        if destination_address_prefixes is not None:
+            pulumi.set(__self__, "destination_address_prefixes", destination_address_prefixes)
+        if destination_application_security_groups is not None:
+            pulumi.set(__self__, "destination_application_security_groups", destination_application_security_groups)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if destination_port_ranges is not None:
+            pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if source_address_prefix is not None:
+            pulumi.set(__self__, "source_address_prefix", source_address_prefix)
+        if source_address_prefixes is not None:
+            pulumi.set(__self__, "source_address_prefixes", source_address_prefixes)
+        if source_application_security_groups is not None:
+            pulumi.set(__self__, "source_application_security_groups", source_application_security_groups)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+        if source_port_ranges is not None:
+            pulumi.set(__self__, "source_port_ranges", source_port_ranges)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def access(self) -> str:
+        """
+        The network traffic is allowed or denied.
+        """
+        return pulumi.get(self, "access")
+
+    @property
+    @pulumi.getter
+    def direction(self) -> str:
+        """
+        The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+        """
+        return pulumi.get(self, "direction")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        """
+        Network protocol this rule applies to.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the security rule resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="destinationAddressPrefix")
+    def destination_address_prefix(self) -> Optional[str]:
+        """
+        The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used.
+        """
+        return pulumi.get(self, "destination_address_prefix")
+
+    @property
+    @pulumi.getter(name="destinationAddressPrefixes")
+    def destination_address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        The destination address prefixes. CIDR or destination IP ranges.
+        """
+        return pulumi.get(self, "destination_address_prefixes")
+
+    @property
+    @pulumi.getter(name="destinationApplicationSecurityGroups")
+    def destination_application_security_groups(self) -> Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]:
+        """
+        The application security group specified as destination.
+        """
+        return pulumi.get(self, "destination_application_security_groups")
+
+    @property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional[str]:
+        """
+        The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @property
+    @pulumi.getter(name="destinationPortRanges")
+    def destination_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The destination port ranges.
+        """
+        return pulumi.get(self, "destination_port_ranges")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="sourceAddressPrefix")
+    def source_address_prefix(self) -> Optional[str]:
+        """
+        The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
+        """
+        return pulumi.get(self, "source_address_prefix")
+
+    @property
+    @pulumi.getter(name="sourceAddressPrefixes")
+    def source_address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        The CIDR or source IP ranges.
+        """
+        return pulumi.get(self, "source_address_prefixes")
+
+    @property
+    @pulumi.getter(name="sourceApplicationSecurityGroups")
+    def source_application_security_groups(self) -> Optional[Sequence['outputs.ApplicationSecurityGroupResponse']]:
+        """
+        The application security group specified as source.
+        """
+        return pulumi.get(self, "source_application_security_groups")
+
+    @property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional[str]:
+        """
+        The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
+        """
+        return pulumi.get(self, "source_port_range")
+
+    @property
+    @pulumi.getter(name="sourcePortRanges")
+    def source_port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        The source port ranges.
+        """
+        return pulumi.get(self, "source_port_ranges")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ServiceAssociationLinkResponse(dict):
+    """
+    ServiceAssociationLink resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "allowDelete":
+            suggest = "allow_delete"
+        elif key == "linkedResourceType":
+            suggest = "linked_resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceAssociationLinkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceAssociationLinkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceAssociationLinkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 type: str,
+                 allow_delete: Optional[bool] = None,
+                 id: Optional[str] = None,
+                 link: Optional[str] = None,
+                 linked_resource_type: Optional[str] = None,
+                 locations: Optional[Sequence[str]] = None,
+                 name: Optional[str] = None):
+        """
+        ServiceAssociationLink resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the service association link resource.
+        :param str type: Resource type.
+        :param bool allow_delete: If true, the resource can be deleted.
+        :param str id: Resource ID.
+        :param str link: Link to the external resource.
+        :param str linked_resource_type: Resource type of the linked resource.
+        :param Sequence[str] locations: A list of locations.
+        :param str name: Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if allow_delete is not None:
+            pulumi.set(__self__, "allow_delete", allow_delete)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if link is not None:
+            pulumi.set(__self__, "link", link)
+        if linked_resource_type is not None:
+            pulumi.set(__self__, "linked_resource_type", linked_resource_type)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the service association link resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="allowDelete")
+    def allow_delete(self) -> Optional[bool]:
+        """
+        If true, the resource can be deleted.
+        """
+        return pulumi.get(self, "allow_delete")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def link(self) -> Optional[str]:
+        """
+        Link to the external resource.
+        """
+        return pulumi.get(self, "link")
+
+    @property
+    @pulumi.getter(name="linkedResourceType")
+    def linked_resource_type(self) -> Optional[str]:
+        """
+        Resource type of the linked resource.
+        """
+        return pulumi.get(self, "linked_resource_type")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[str]]:
+        """
+        A list of locations.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ServiceEndpointPolicyDefinitionResponse(dict):
+    """
+    Service Endpoint policy definitions.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "serviceResources":
+            suggest = "service_resources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointPolicyDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointPolicyDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointPolicyDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 provisioning_state: str,
+                 description: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 service: Optional[str] = None,
+                 service_resources: Optional[Sequence[str]] = None,
+                 type: Optional[str] = None):
+        """
+        Service Endpoint policy definitions.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str provisioning_state: The provisioning state of the service endpoint policy definition resource.
+        :param str description: A description for this rule. Restricted to 140 chars.
+        :param str id: Resource ID.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param str service: Service endpoint name.
+        :param Sequence[str] service_resources: A list of service resources.
+        :param str type: The type of the resource.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+        if service_resources is not None:
+            pulumi.set(__self__, "service_resources", service_resources)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the service endpoint policy definition resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description for this rule. Restricted to 140 chars.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[str]:
+        """
+        Service endpoint name.
+        """
+        return pulumi.get(self, "service")
+
+    @property
+    @pulumi.getter(name="serviceResources")
+    def service_resources(self) -> Optional[Sequence[str]]:
+        """
+        A list of service resources.
+        """
+        return pulumi.get(self, "service_resources")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ServiceEndpointPolicyResponse(dict):
+    """
+    Service End point policy resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "contextualServiceEndpointPolicies":
+            suggest = "contextual_service_endpoint_policies"
+        elif key == "serviceAlias":
+            suggest = "service_alias"
+        elif key == "serviceEndpointPolicyDefinitions":
+            suggest = "service_endpoint_policy_definitions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 kind: str,
+                 name: str,
+                 provisioning_state: str,
+                 resource_guid: str,
+                 subnets: Sequence['outputs.SubnetResponse'],
+                 type: str,
+                 contextual_service_endpoint_policies: Optional[Sequence[str]] = None,
+                 id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 service_alias: Optional[str] = None,
+                 service_endpoint_policy_definitions: Optional[Sequence['outputs.ServiceEndpointPolicyDefinitionResponse']] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Service End point policy resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str kind: Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+        :param str name: Resource name.
+        :param str provisioning_state: The provisioning state of the service endpoint policy resource.
+        :param str resource_guid: The resource GUID property of the service endpoint policy resource.
+        :param Sequence['SubnetResponse'] subnets: A collection of references to subnets.
+        :param str type: Resource type.
+        :param Sequence[str] contextual_service_endpoint_policies: A collection of contextual service endpoint policy.
+        :param str id: Resource ID.
+        :param str location: Resource location.
+        :param str service_alias: The alias indicating if the policy belongs to a service
+        :param Sequence['ServiceEndpointPolicyDefinitionResponse'] service_endpoint_policy_definitions: A collection of service endpoint policy definitions of the service endpoint policy.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "subnets", subnets)
+        pulumi.set(__self__, "type", type)
+        if contextual_service_endpoint_policies is not None:
+            pulumi.set(__self__, "contextual_service_endpoint_policies", contextual_service_endpoint_policies)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if service_alias is not None:
+            pulumi.set(__self__, "service_alias", service_alias)
+        if service_endpoint_policy_definitions is not None:
+            pulumi.set(__self__, "service_endpoint_policy_definitions", service_endpoint_policy_definitions)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> str:
+        """
+        Kind of service endpoint policy. This is metadata used for the Azure portal experience.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the service endpoint policy resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the service endpoint policy resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence['outputs.SubnetResponse']:
+        """
+        A collection of references to subnets.
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="contextualServiceEndpointPolicies")
+    def contextual_service_endpoint_policies(self) -> Optional[Sequence[str]]:
+        """
+        A collection of contextual service endpoint policy.
+        """
+        return pulumi.get(self, "contextual_service_endpoint_policies")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter(name="serviceAlias")
+    def service_alias(self) -> Optional[str]:
+        """
+        The alias indicating if the policy belongs to a service
+        """
+        return pulumi.get(self, "service_alias")
+
+    @property
+    @pulumi.getter(name="serviceEndpointPolicyDefinitions")
+    def service_endpoint_policy_definitions(self) -> Optional[Sequence['outputs.ServiceEndpointPolicyDefinitionResponse']]:
+        """
+        A collection of service endpoint policy definitions of the service endpoint policy.
+        """
+        return pulumi.get(self, "service_endpoint_policy_definitions")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ServiceEndpointPropertiesFormatResponse(dict):
+    """
+    The service endpoint properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointPropertiesFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointPropertiesFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointPropertiesFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str,
+                 locations: Optional[Sequence[str]] = None,
+                 service: Optional[str] = None):
+        """
+        The service endpoint properties.
+        :param str provisioning_state: The provisioning state of the service endpoint resource.
+        :param Sequence[str] locations: A list of locations.
+        :param str service: The type of the endpoint service.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if service is not None:
+            pulumi.set(__self__, "service", service)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the service endpoint resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def locations(self) -> Optional[Sequence[str]]:
+        """
+        A list of locations.
+        """
+        return pulumi.get(self, "locations")
+
+    @property
+    @pulumi.getter
+    def service(self) -> Optional[str]:
+        """
+        The type of the endpoint service.
+        """
+        return pulumi.get(self, "service")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The pricing tier of the web application firewall policy.
@@ -836,5 +13259,744 @@ class SubResourceResponse(dict):
         Resource ID.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class SubnetResponse(dict):
+    """
+    Subnet in a virtual network resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfigurationProfiles":
+            suggest = "ip_configuration_profiles"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "privateEndpoints":
+            suggest = "private_endpoints"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceNavigationLinks":
+            suggest = "resource_navigation_links"
+        elif key == "serviceAssociationLinks":
+            suggest = "service_association_links"
+        elif key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "addressPrefixes":
+            suggest = "address_prefixes"
+        elif key == "applicationGatewayIpConfigurations":
+            suggest = "application_gateway_ip_configurations"
+        elif key == "ipAllocations":
+            suggest = "ip_allocations"
+        elif key == "natGateway":
+            suggest = "nat_gateway"
+        elif key == "networkSecurityGroup":
+            suggest = "network_security_group"
+        elif key == "privateEndpointNetworkPolicies":
+            suggest = "private_endpoint_network_policies"
+        elif key == "privateLinkServiceNetworkPolicies":
+            suggest = "private_link_service_network_policies"
+        elif key == "routeTable":
+            suggest = "route_table"
+        elif key == "serviceEndpointPolicies":
+            suggest = "service_endpoint_policies"
+        elif key == "serviceEndpoints":
+            suggest = "service_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SubnetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SubnetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 ip_configuration_profiles: Sequence['outputs.IPConfigurationProfileResponse'],
+                 ip_configurations: Sequence['outputs.IPConfigurationResponse'],
+                 private_endpoints: Sequence['outputs.PrivateEndpointResponse'],
+                 provisioning_state: str,
+                 purpose: str,
+                 resource_navigation_links: Sequence['outputs.ResourceNavigationLinkResponse'],
+                 service_association_links: Sequence['outputs.ServiceAssociationLinkResponse'],
+                 address_prefix: Optional[str] = None,
+                 address_prefixes: Optional[Sequence[str]] = None,
+                 application_gateway_ip_configurations: Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']] = None,
+                 delegations: Optional[Sequence['outputs.DelegationResponse']] = None,
+                 id: Optional[str] = None,
+                 ip_allocations: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 name: Optional[str] = None,
+                 nat_gateway: Optional['outputs.SubResourceResponse'] = None,
+                 network_security_group: Optional['outputs.NetworkSecurityGroupResponse'] = None,
+                 private_endpoint_network_policies: Optional[str] = None,
+                 private_link_service_network_policies: Optional[str] = None,
+                 route_table: Optional['outputs.RouteTableResponse'] = None,
+                 service_endpoint_policies: Optional[Sequence['outputs.ServiceEndpointPolicyResponse']] = None,
+                 service_endpoints: Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']] = None,
+                 type: Optional[str] = None):
+        """
+        Subnet in a virtual network resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param Sequence['IPConfigurationProfileResponse'] ip_configuration_profiles: Array of IP configuration profiles which reference this subnet.
+        :param Sequence['IPConfigurationResponse'] ip_configurations: An array of references to the network interface IP configurations using subnet.
+        :param Sequence['PrivateEndpointResponse'] private_endpoints: An array of references to private endpoints.
+        :param str provisioning_state: The provisioning state of the subnet resource.
+        :param str purpose: A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+        :param Sequence['ResourceNavigationLinkResponse'] resource_navigation_links: An array of references to the external resources using subnet.
+        :param Sequence['ServiceAssociationLinkResponse'] service_association_links: An array of references to services injecting into this subnet.
+        :param str address_prefix: The address prefix for the subnet.
+        :param Sequence[str] address_prefixes: List of address prefixes for the subnet.
+        :param Sequence['ApplicationGatewayIPConfigurationResponse'] application_gateway_ip_configurations: Application gateway IP configurations of virtual network resource.
+        :param Sequence['DelegationResponse'] delegations: An array of references to the delegations on the subnet.
+        :param str id: Resource ID.
+        :param Sequence['SubResourceResponse'] ip_allocations: Array of IpAllocation which reference this subnet.
+        :param str name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param 'SubResourceResponse' nat_gateway: Nat gateway associated with this subnet.
+        :param 'NetworkSecurityGroupResponse' network_security_group: The reference to the NetworkSecurityGroup resource.
+        :param str private_endpoint_network_policies: Enable or Disable apply network policies on private end point in the subnet.
+        :param str private_link_service_network_policies: Enable or Disable apply network policies on private link service in the subnet.
+        :param 'RouteTableResponse' route_table: The reference to the RouteTable resource.
+        :param Sequence['ServiceEndpointPolicyResponse'] service_endpoint_policies: An array of service endpoint policies.
+        :param Sequence['ServiceEndpointPropertiesFormatResponse'] service_endpoints: An array of service endpoints.
+        :param str type: Resource type.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "ip_configuration_profiles", ip_configuration_profiles)
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "private_endpoints", private_endpoints)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "purpose", purpose)
+        pulumi.set(__self__, "resource_navigation_links", resource_navigation_links)
+        pulumi.set(__self__, "service_association_links", service_association_links)
+        if address_prefix is not None:
+            pulumi.set(__self__, "address_prefix", address_prefix)
+        if address_prefixes is not None:
+            pulumi.set(__self__, "address_prefixes", address_prefixes)
+        if application_gateway_ip_configurations is not None:
+            pulumi.set(__self__, "application_gateway_ip_configurations", application_gateway_ip_configurations)
+        if delegations is not None:
+            pulumi.set(__self__, "delegations", delegations)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_allocations is not None:
+            pulumi.set(__self__, "ip_allocations", ip_allocations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
+        if private_endpoint_network_policies is None:
+            private_endpoint_network_policies = 'Disabled'
+        if private_endpoint_network_policies is not None:
+            pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
+        if private_link_service_network_policies is None:
+            private_link_service_network_policies = 'Enabled'
+        if private_link_service_network_policies is not None:
+            pulumi.set(__self__, "private_link_service_network_policies", private_link_service_network_policies)
+        if route_table is not None:
+            pulumi.set(__self__, "route_table", route_table)
+        if service_endpoint_policies is not None:
+            pulumi.set(__self__, "service_endpoint_policies", service_endpoint_policies)
+        if service_endpoints is not None:
+            pulumi.set(__self__, "service_endpoints", service_endpoints)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="ipConfigurationProfiles")
+    def ip_configuration_profiles(self) -> Sequence['outputs.IPConfigurationProfileResponse']:
+        """
+        Array of IP configuration profiles which reference this subnet.
+        """
+        return pulumi.get(self, "ip_configuration_profiles")
+
+    @property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Sequence['outputs.IPConfigurationResponse']:
+        """
+        An array of references to the network interface IP configurations using subnet.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @property
+    @pulumi.getter(name="privateEndpoints")
+    def private_endpoints(self) -> Sequence['outputs.PrivateEndpointResponse']:
+        """
+        An array of references to private endpoints.
+        """
+        return pulumi.get(self, "private_endpoints")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the subnet resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def purpose(self) -> str:
+        """
+        A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
+        """
+        return pulumi.get(self, "purpose")
+
+    @property
+    @pulumi.getter(name="resourceNavigationLinks")
+    def resource_navigation_links(self) -> Sequence['outputs.ResourceNavigationLinkResponse']:
+        """
+        An array of references to the external resources using subnet.
+        """
+        return pulumi.get(self, "resource_navigation_links")
+
+    @property
+    @pulumi.getter(name="serviceAssociationLinks")
+    def service_association_links(self) -> Sequence['outputs.ServiceAssociationLinkResponse']:
+        """
+        An array of references to services injecting into this subnet.
+        """
+        return pulumi.get(self, "service_association_links")
+
+    @property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> Optional[str]:
+        """
+        The address prefix for the subnet.
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @property
+    @pulumi.getter(name="addressPrefixes")
+    def address_prefixes(self) -> Optional[Sequence[str]]:
+        """
+        List of address prefixes for the subnet.
+        """
+        return pulumi.get(self, "address_prefixes")
+
+    @property
+    @pulumi.getter(name="applicationGatewayIpConfigurations")
+    def application_gateway_ip_configurations(self) -> Optional[Sequence['outputs.ApplicationGatewayIPConfigurationResponse']]:
+        """
+        Application gateway IP configurations of virtual network resource.
+        """
+        return pulumi.get(self, "application_gateway_ip_configurations")
+
+    @property
+    @pulumi.getter
+    def delegations(self) -> Optional[Sequence['outputs.DelegationResponse']]:
+        """
+        An array of references to the delegations on the subnet.
+        """
+        return pulumi.get(self, "delegations")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAllocations")
+    def ip_allocations(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        Array of IpAllocation which reference this subnet.
+        """
+        return pulumi.get(self, "ip_allocations")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Nat gateway associated with this subnet.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupResponse']:
+        """
+        The reference to the NetworkSecurityGroup resource.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @property
+    @pulumi.getter(name="privateEndpointNetworkPolicies")
+    def private_endpoint_network_policies(self) -> Optional[str]:
+        """
+        Enable or Disable apply network policies on private end point in the subnet.
+        """
+        return pulumi.get(self, "private_endpoint_network_policies")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceNetworkPolicies")
+    def private_link_service_network_policies(self) -> Optional[str]:
+        """
+        Enable or Disable apply network policies on private link service in the subnet.
+        """
+        return pulumi.get(self, "private_link_service_network_policies")
+
+    @property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional['outputs.RouteTableResponse']:
+        """
+        The reference to the RouteTable resource.
+        """
+        return pulumi.get(self, "route_table")
+
+    @property
+    @pulumi.getter(name="serviceEndpointPolicies")
+    def service_endpoint_policies(self) -> Optional[Sequence['outputs.ServiceEndpointPolicyResponse']]:
+        """
+        An array of service endpoint policies.
+        """
+        return pulumi.get(self, "service_endpoint_policies")
+
+    @property
+    @pulumi.getter(name="serviceEndpoints")
+    def service_endpoints(self) -> Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']]:
+        """
+        An array of service endpoints.
+        """
+        return pulumi.get(self, "service_endpoints")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class TrafficAnalyticsConfigurationPropertiesResponse(dict):
+    """
+    Parameters that define the configuration of traffic analytics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trafficAnalyticsInterval":
+            suggest = "traffic_analytics_interval"
+        elif key == "workspaceId":
+            suggest = "workspace_id"
+        elif key == "workspaceRegion":
+            suggest = "workspace_region"
+        elif key == "workspaceResourceId":
+            suggest = "workspace_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrafficAnalyticsConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrafficAnalyticsConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrafficAnalyticsConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 traffic_analytics_interval: Optional[int] = None,
+                 workspace_id: Optional[str] = None,
+                 workspace_region: Optional[str] = None,
+                 workspace_resource_id: Optional[str] = None):
+        """
+        Parameters that define the configuration of traffic analytics.
+        :param bool enabled: Flag to enable/disable traffic analytics.
+        :param int traffic_analytics_interval: The interval in minutes which would decide how frequently TA service should do flow analytics.
+        :param str workspace_id: The resource guid of the attached workspace.
+        :param str workspace_region: The location of the attached workspace.
+        :param str workspace_resource_id: Resource Id of the attached workspace.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if traffic_analytics_interval is not None:
+            pulumi.set(__self__, "traffic_analytics_interval", traffic_analytics_interval)
+        if workspace_id is not None:
+            pulumi.set(__self__, "workspace_id", workspace_id)
+        if workspace_region is not None:
+            pulumi.set(__self__, "workspace_region", workspace_region)
+        if workspace_resource_id is not None:
+            pulumi.set(__self__, "workspace_resource_id", workspace_resource_id)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Flag to enable/disable traffic analytics.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="trafficAnalyticsInterval")
+    def traffic_analytics_interval(self) -> Optional[int]:
+        """
+        The interval in minutes which would decide how frequently TA service should do flow analytics.
+        """
+        return pulumi.get(self, "traffic_analytics_interval")
+
+    @property
+    @pulumi.getter(name="workspaceId")
+    def workspace_id(self) -> Optional[str]:
+        """
+        The resource guid of the attached workspace.
+        """
+        return pulumi.get(self, "workspace_id")
+
+    @property
+    @pulumi.getter(name="workspaceRegion")
+    def workspace_region(self) -> Optional[str]:
+        """
+        The location of the attached workspace.
+        """
+        return pulumi.get(self, "workspace_region")
+
+    @property
+    @pulumi.getter(name="workspaceResourceId")
+    def workspace_resource_id(self) -> Optional[str]:
+        """
+        Resource Id of the attached workspace.
+        """
+        return pulumi.get(self, "workspace_resource_id")
+
+
+@pulumi.output_type
+class TrafficAnalyticsPropertiesResponse(dict):
+    """
+    Parameters that define the configuration of traffic analytics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkWatcherFlowAnalyticsConfiguration":
+            suggest = "network_watcher_flow_analytics_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TrafficAnalyticsPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TrafficAnalyticsPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TrafficAnalyticsPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_watcher_flow_analytics_configuration: Optional['outputs.TrafficAnalyticsConfigurationPropertiesResponse'] = None):
+        """
+        Parameters that define the configuration of traffic analytics.
+        :param 'TrafficAnalyticsConfigurationPropertiesResponse' network_watcher_flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
+        """
+        if network_watcher_flow_analytics_configuration is not None:
+            pulumi.set(__self__, "network_watcher_flow_analytics_configuration", network_watcher_flow_analytics_configuration)
+
+    @property
+    @pulumi.getter(name="networkWatcherFlowAnalyticsConfiguration")
+    def network_watcher_flow_analytics_configuration(self) -> Optional['outputs.TrafficAnalyticsConfigurationPropertiesResponse']:
+        """
+        Parameters that define the configuration of traffic analytics.
+        """
+        return pulumi.get(self, "network_watcher_flow_analytics_configuration")
+
+
+@pulumi.output_type
+class VirtualNetworkTapResponse(dict):
+    """
+    Virtual Network Tap resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaceTapConfigurations":
+            suggest = "network_interface_tap_configurations"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "destinationLoadBalancerFrontEndIPConfiguration":
+            suggest = "destination_load_balancer_front_end_ip_configuration"
+        elif key == "destinationNetworkInterfaceIPConfiguration":
+            suggest = "destination_network_interface_ip_configuration"
+        elif key == "destinationPort":
+            suggest = "destination_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkTapResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkTapResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkTapResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: str,
+                 name: str,
+                 network_interface_tap_configurations: Sequence['outputs.NetworkInterfaceTapConfigurationResponse'],
+                 provisioning_state: str,
+                 resource_guid: str,
+                 type: str,
+                 destination_load_balancer_front_end_ip_configuration: Optional['outputs.FrontendIPConfigurationResponse'] = None,
+                 destination_network_interface_ip_configuration: Optional['outputs.NetworkInterfaceIPConfigurationResponse'] = None,
+                 destination_port: Optional[int] = None,
+                 id: Optional[str] = None,
+                 location: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        Virtual Network Tap resource.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param str name: Resource name.
+        :param Sequence['NetworkInterfaceTapConfigurationResponse'] network_interface_tap_configurations: Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+        :param str provisioning_state: The provisioning state of the virtual network tap resource.
+        :param str resource_guid: The resource GUID property of the virtual network tap resource.
+        :param str type: Resource type.
+        :param 'FrontendIPConfigurationResponse' destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        :param 'NetworkInterfaceIPConfigurationResponse' destination_network_interface_ip_configuration: The reference to the private IP Address of the collector nic that will receive the tap.
+        :param int destination_port: The VXLAN destination port that will receive the tapped traffic.
+        :param str id: Resource ID.
+        :param str location: Resource location.
+        :param Mapping[str, str] tags: Resource tags.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_interface_tap_configurations", network_interface_tap_configurations)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "type", type)
+        if destination_load_balancer_front_end_ip_configuration is not None:
+            pulumi.set(__self__, "destination_load_balancer_front_end_ip_configuration", destination_load_balancer_front_end_ip_configuration)
+        if destination_network_interface_ip_configuration is not None:
+            pulumi.set(__self__, "destination_network_interface_ip_configuration", destination_network_interface_ip_configuration)
+        if destination_port is not None:
+            pulumi.set(__self__, "destination_port", destination_port)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkInterfaceTapConfigurations")
+    def network_interface_tap_configurations(self) -> Sequence['outputs.NetworkInterfaceTapConfigurationResponse']:
+        """
+        Specifies the list of resource IDs for the network interface IP configuration that needs to be tapped.
+        """
+        return pulumi.get(self, "network_interface_tap_configurations")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state of the virtual network tap resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> str:
+        """
+        The resource GUID property of the virtual network tap resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="destinationLoadBalancerFrontEndIPConfiguration")
+    def destination_load_balancer_front_end_ip_configuration(self) -> Optional['outputs.FrontendIPConfigurationResponse']:
+        """
+        The reference to the private IP address on the internal Load Balancer that will receive the tap.
+        """
+        return pulumi.get(self, "destination_load_balancer_front_end_ip_configuration")
+
+    @property
+    @pulumi.getter(name="destinationNetworkInterfaceIPConfiguration")
+    def destination_network_interface_ip_configuration(self) -> Optional['outputs.NetworkInterfaceIPConfigurationResponse']:
+        """
+        The reference to the private IP Address of the collector nic that will receive the tap.
+        """
+        return pulumi.get(self, "destination_network_interface_ip_configuration")
+
+    @property
+    @pulumi.getter(name="destinationPort")
+    def destination_port(self) -> Optional[int]:
+        """
+        The VXLAN destination port that will receive the tapped traffic.
+        """
+        return pulumi.get(self, "destination_port")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class WebApplicationFirewallCustomRuleResponse(dict):
+    """
+    Defines contents of a web application rule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchConditions":
+            suggest = "match_conditions"
+        elif key == "ruleType":
+            suggest = "rule_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebApplicationFirewallCustomRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebApplicationFirewallCustomRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebApplicationFirewallCustomRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 etag: str,
+                 match_conditions: Sequence['outputs.MatchConditionResponse'],
+                 priority: int,
+                 rule_type: str,
+                 name: Optional[str] = None):
+        """
+        Defines contents of a web application rule.
+        :param str action: Type of Actions.
+        :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param Sequence['MatchConditionResponse'] match_conditions: List of match conditions.
+        :param int priority: Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        :param str rule_type: The rule type.
+        :param str name: The name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "match_conditions", match_conditions)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "rule_type", rule_type)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        Type of Actions.
+        """
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def etag(self) -> str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="matchConditions")
+    def match_conditions(self) -> Sequence['outputs.MatchConditionResponse']:
+        """
+        List of match conditions.
+        """
+        return pulumi.get(self, "match_conditions")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> str:
+        """
+        The rule type.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the resource that is unique within a policy. This name can be used to access the resource.
+        """
+        return pulumi.get(self, "name")
 
 

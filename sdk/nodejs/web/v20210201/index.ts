@@ -10,6 +10,11 @@ export const getStaticSite: typeof import("./getStaticSite").getStaticSite = nul
 export const getStaticSiteOutput: typeof import("./getStaticSite").getStaticSiteOutput = null as any;
 utilities.lazyLoad(exports, ["getStaticSite","getStaticSiteOutput"], () => require("./getStaticSite"));
 
+export { GetStaticSiteCustomDomainArgs, GetStaticSiteCustomDomainResult, GetStaticSiteCustomDomainOutputArgs } from "./getStaticSiteCustomDomain";
+export const getStaticSiteCustomDomain: typeof import("./getStaticSiteCustomDomain").getStaticSiteCustomDomain = null as any;
+export const getStaticSiteCustomDomainOutput: typeof import("./getStaticSiteCustomDomain").getStaticSiteCustomDomainOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSiteCustomDomain","getStaticSiteCustomDomainOutput"], () => require("./getStaticSiteCustomDomain"));
+
 export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
 export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
 export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
@@ -65,6 +70,11 @@ export type StaticSite = import("./staticSite").StaticSite;
 export const StaticSite: typeof import("./staticSite").StaticSite = null as any;
 utilities.lazyLoad(exports, ["StaticSite"], () => require("./staticSite"));
 
+export { StaticSiteCustomDomainArgs } from "./staticSiteCustomDomain";
+export type StaticSiteCustomDomain = import("./staticSiteCustomDomain").StaticSiteCustomDomain;
+export const StaticSiteCustomDomain: typeof import("./staticSiteCustomDomain").StaticSiteCustomDomain = null as any;
+utilities.lazyLoad(exports, ["StaticSiteCustomDomain"], () => require("./staticSiteCustomDomain"));
+
 export { WebAppAuthSettingsV2Args } from "./webAppAuthSettingsV2";
 export type WebAppAuthSettingsV2 = import("./webAppAuthSettingsV2").WebAppAuthSettingsV2;
 export const WebAppAuthSettingsV2: typeof import("./webAppAuthSettingsV2").WebAppAuthSettingsV2 = null as any;
@@ -95,6 +105,8 @@ const _module = {
         switch (type) {
             case "azure-native:web/v20210201:StaticSite":
                 return new StaticSite(name, <any>undefined, { urn })
+            case "azure-native:web/v20210201:StaticSiteCustomDomain":
+                return new StaticSiteCustomDomain(name, <any>undefined, { urn })
             case "azure-native:web/v20210201:WebAppAuthSettingsV2":
                 return new WebAppAuthSettingsV2(name, <any>undefined, { urn })
             case "azure-native:web/v20210201:WebAppAuthSettingsV2Slot":

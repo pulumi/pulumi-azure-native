@@ -6,9 +6,17 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .database import *
+from .firewall_rule import *
+from .get_database import *
+from .get_firewall_rule import *
 from .get_managed_instance import *
 from .get_outbound_firewall_rule import *
+from .get_server import *
+from .get_server_azure_ad_administrator import *
 from .managed_instance import *
 from .outbound_firewall_rule import *
+from .server import *
+from .server_azure_ad_administrator import *
 from ._inputs import *
 from . import outputs

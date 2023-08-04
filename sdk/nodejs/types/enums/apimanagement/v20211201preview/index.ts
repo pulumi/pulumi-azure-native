@@ -2,6 +2,54 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApimIdentityType = {
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
+    None: "None",
+} as const;
+
+/**
+ * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+ */
+export type ApimIdentityType = (typeof ApimIdentityType)[keyof typeof ApimIdentityType];
+
+export const CertificateSource = {
+    Managed: "Managed",
+    KeyVault: "KeyVault",
+    Custom: "Custom",
+    BuiltIn: "BuiltIn",
+} as const;
+
+/**
+ * Certificate Source.
+ */
+export type CertificateSource = (typeof CertificateSource)[keyof typeof CertificateSource];
+
+export const CertificateStatus = {
+    Completed: "Completed",
+    Failed: "Failed",
+    InProgress: "InProgress",
+} as const;
+
+/**
+ * Certificate Status.
+ */
+export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
+
+export const HostnameType = {
+    Proxy: "Proxy",
+    Portal: "Portal",
+    Management: "Management",
+    Scm: "Scm",
+    DeveloperPortal: "DeveloperPortal",
+} as const;
+
+/**
+ * Hostname type.
+ */
+export type HostnameType = (typeof HostnameType)[keyof typeof HostnameType];
+
 export const PolicyFragmentContentFormat = {
     /**
      * The contents are inline and Content type is an XML document.
@@ -17,3 +65,76 @@ export const PolicyFragmentContentFormat = {
  * Format of the policy fragment content.
  */
 export type PolicyFragmentContentFormat = (typeof PolicyFragmentContentFormat)[keyof typeof PolicyFragmentContentFormat];
+
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const SkuType = {
+    /**
+     * Developer SKU of Api Management.
+     */
+    Developer: "Developer",
+    /**
+     * Standard SKU of Api Management.
+     */
+    Standard: "Standard",
+    /**
+     * Premium SKU of Api Management.
+     */
+    Premium: "Premium",
+    /**
+     * Basic SKU of Api Management.
+     */
+    Basic: "Basic",
+    /**
+     * Consumption SKU of Api Management.
+     */
+    Consumption: "Consumption",
+    /**
+     * Isolated SKU of Api Management.
+     */
+    Isolated: "Isolated",
+} as const;
+
+/**
+ * Name of the Sku.
+ */
+export type SkuType = (typeof SkuType)[keyof typeof SkuType];
+
+export const VirtualNetworkType = {
+    /**
+     * The service is not part of any Virtual Network.
+     */
+    None: "None",
+    /**
+     * The service is part of Virtual Network and it is accessible from Internet.
+     */
+    External: "External",
+    /**
+     * The service is part of Virtual Network and it is only accessible from within the virtual network.
+     */
+    Internal: "Internal",
+} as const;
+
+/**
+ * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+ */
+export type VirtualNetworkType = (typeof VirtualNetworkType)[keyof typeof VirtualNetworkType];

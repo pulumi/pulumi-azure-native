@@ -5,15 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { AppServiceEnvironmentArgs } from "./appServiceEnvironment";
+export type AppServiceEnvironment = import("./appServiceEnvironment").AppServiceEnvironment;
+export const AppServiceEnvironment: typeof import("./appServiceEnvironment").AppServiceEnvironment = null as any;
+utilities.lazyLoad(exports, ["AppServiceEnvironment"], () => require("./appServiceEnvironment"));
+
 export { AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs } from "./appServiceEnvironmentAseCustomDnsSuffixConfiguration";
 export type AppServiceEnvironmentAseCustomDnsSuffixConfiguration = import("./appServiceEnvironmentAseCustomDnsSuffixConfiguration").AppServiceEnvironmentAseCustomDnsSuffixConfiguration;
 export const AppServiceEnvironmentAseCustomDnsSuffixConfiguration: typeof import("./appServiceEnvironmentAseCustomDnsSuffixConfiguration").AppServiceEnvironmentAseCustomDnsSuffixConfiguration = null as any;
 utilities.lazyLoad(exports, ["AppServiceEnvironmentAseCustomDnsSuffixConfiguration"], () => require("./appServiceEnvironmentAseCustomDnsSuffixConfiguration"));
 
+export { AppServicePlanArgs } from "./appServicePlan";
+export type AppServicePlan = import("./appServicePlan").AppServicePlan;
+export const AppServicePlan: typeof import("./appServicePlan").AppServicePlan = null as any;
+utilities.lazyLoad(exports, ["AppServicePlan"], () => require("./appServicePlan"));
+
+export { GetAppServiceEnvironmentArgs, GetAppServiceEnvironmentResult, GetAppServiceEnvironmentOutputArgs } from "./getAppServiceEnvironment";
+export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment").getAppServiceEnvironment = null as any;
+export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
+
 export { GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs, GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationResult, GetAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutputArgs } from "./getAppServiceEnvironmentAseCustomDnsSuffixConfiguration";
 export const getAppServiceEnvironmentAseCustomDnsSuffixConfiguration: typeof import("./getAppServiceEnvironmentAseCustomDnsSuffixConfiguration").getAppServiceEnvironmentAseCustomDnsSuffixConfiguration = null as any;
 export const getAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutput: typeof import("./getAppServiceEnvironmentAseCustomDnsSuffixConfiguration").getAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutput = null as any;
 utilities.lazyLoad(exports, ["getAppServiceEnvironmentAseCustomDnsSuffixConfiguration","getAppServiceEnvironmentAseCustomDnsSuffixConfigurationOutput"], () => require("./getAppServiceEnvironmentAseCustomDnsSuffixConfiguration"));
+
+export { GetAppServicePlanArgs, GetAppServicePlanResult, GetAppServicePlanOutputArgs } from "./getAppServicePlan";
+export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServicePlan = null as any;
+export const getAppServicePlanOutput: typeof import("./getAppServicePlan").getAppServicePlanOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServicePlan","getAppServicePlanOutput"], () => require("./getAppServicePlan"));
 
 export { GetStaticSiteLinkedBackendArgs, GetStaticSiteLinkedBackendResult, GetStaticSiteLinkedBackendOutputArgs } from "./getStaticSiteLinkedBackend";
 export const getStaticSiteLinkedBackend: typeof import("./getStaticSiteLinkedBackend").getStaticSiteLinkedBackend = null as any;
@@ -25,6 +45,11 @@ export const getStaticSiteLinkedBackendForBuild: typeof import("./getStaticSiteL
 export const getStaticSiteLinkedBackendForBuildOutput: typeof import("./getStaticSiteLinkedBackendForBuild").getStaticSiteLinkedBackendForBuildOutput = null as any;
 utilities.lazyLoad(exports, ["getStaticSiteLinkedBackendForBuild","getStaticSiteLinkedBackendForBuildOutput"], () => require("./getStaticSiteLinkedBackendForBuild"));
 
+export { GetWebAppArgs, GetWebAppResult, GetWebAppOutputArgs } from "./getWebApp";
+export const getWebApp: typeof import("./getWebApp").getWebApp = null as any;
+export const getWebAppOutput: typeof import("./getWebApp").getWebAppOutput = null as any;
+utilities.lazyLoad(exports, ["getWebApp","getWebAppOutput"], () => require("./getWebApp"));
+
 export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
 export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
 export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
@@ -34,6 +59,11 @@ export { GetWebAppScmAllowedArgs, GetWebAppScmAllowedResult, GetWebAppScmAllowed
 export const getWebAppScmAllowed: typeof import("./getWebAppScmAllowed").getWebAppScmAllowed = null as any;
 export const getWebAppScmAllowedOutput: typeof import("./getWebAppScmAllowed").getWebAppScmAllowedOutput = null as any;
 utilities.lazyLoad(exports, ["getWebAppScmAllowed","getWebAppScmAllowedOutput"], () => require("./getWebAppScmAllowed"));
+
+export { GetWebAppSlotArgs, GetWebAppSlotResult, GetWebAppSlotOutputArgs } from "./getWebAppSlot";
+export const getWebAppSlot: typeof import("./getWebAppSlot").getWebAppSlot = null as any;
+export const getWebAppSlotOutput: typeof import("./getWebAppSlot").getWebAppSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppSlot","getWebAppSlotOutput"], () => require("./getWebAppSlot"));
 
 export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedToHostNameResult, ListSiteIdentifiersAssignedToHostNameOutputArgs } from "./listSiteIdentifiersAssignedToHostName";
 export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
@@ -65,6 +95,21 @@ export type StaticSiteLinkedBackendForBuild = import("./staticSiteLinkedBackendF
 export const StaticSiteLinkedBackendForBuild: typeof import("./staticSiteLinkedBackendForBuild").StaticSiteLinkedBackendForBuild = null as any;
 utilities.lazyLoad(exports, ["StaticSiteLinkedBackendForBuild"], () => require("./staticSiteLinkedBackendForBuild"));
 
+export { WebAppArgs } from "./webApp";
+export type WebApp = import("./webApp").WebApp;
+export const WebApp: typeof import("./webApp").WebApp = null as any;
+utilities.lazyLoad(exports, ["WebApp"], () => require("./webApp"));
+
+export { WebAppApplicationSettingsArgs } from "./webAppApplicationSettings";
+export type WebAppApplicationSettings = import("./webAppApplicationSettings").WebAppApplicationSettings;
+export const WebAppApplicationSettings: typeof import("./webAppApplicationSettings").WebAppApplicationSettings = null as any;
+utilities.lazyLoad(exports, ["WebAppApplicationSettings"], () => require("./webAppApplicationSettings"));
+
+export { WebAppAzureStorageAccountsArgs } from "./webAppAzureStorageAccounts";
+export type WebAppAzureStorageAccounts = import("./webAppAzureStorageAccounts").WebAppAzureStorageAccounts;
+export const WebAppAzureStorageAccounts: typeof import("./webAppAzureStorageAccounts").WebAppAzureStorageAccounts = null as any;
+utilities.lazyLoad(exports, ["WebAppAzureStorageAccounts"], () => require("./webAppAzureStorageAccounts"));
+
 export { WebAppFtpAllowedArgs } from "./webAppFtpAllowed";
 export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
 export const WebAppFtpAllowed: typeof import("./webAppFtpAllowed").WebAppFtpAllowed = null as any;
@@ -75,21 +120,41 @@ export type WebAppScmAllowed = import("./webAppScmAllowed").WebAppScmAllowed;
 export const WebAppScmAllowed: typeof import("./webAppScmAllowed").WebAppScmAllowed = null as any;
 utilities.lazyLoad(exports, ["WebAppScmAllowed"], () => require("./webAppScmAllowed"));
 
+export { WebAppSlotArgs } from "./webAppSlot";
+export type WebAppSlot = import("./webAppSlot").WebAppSlot;
+export const WebAppSlot: typeof import("./webAppSlot").WebAppSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppSlot"], () => require("./webAppSlot"));
+
+
+// Export enums:
+export * from "../../types/enums/web/v20220301";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:web/v20220301:AppServiceEnvironment":
+                return new AppServiceEnvironment(name, <any>undefined, { urn })
             case "azure-native:web/v20220301:AppServiceEnvironmentAseCustomDnsSuffixConfiguration":
                 return new AppServiceEnvironmentAseCustomDnsSuffixConfiguration(name, <any>undefined, { urn })
+            case "azure-native:web/v20220301:AppServicePlan":
+                return new AppServicePlan(name, <any>undefined, { urn })
             case "azure-native:web/v20220301:StaticSiteLinkedBackend":
                 return new StaticSiteLinkedBackend(name, <any>undefined, { urn })
             case "azure-native:web/v20220301:StaticSiteLinkedBackendForBuild":
                 return new StaticSiteLinkedBackendForBuild(name, <any>undefined, { urn })
+            case "azure-native:web/v20220301:WebApp":
+                return new WebApp(name, <any>undefined, { urn })
+            case "azure-native:web/v20220301:WebAppApplicationSettings":
+                return new WebAppApplicationSettings(name, <any>undefined, { urn })
+            case "azure-native:web/v20220301:WebAppAzureStorageAccounts":
+                return new WebAppAzureStorageAccounts(name, <any>undefined, { urn })
             case "azure-native:web/v20220301:WebAppFtpAllowed":
                 return new WebAppFtpAllowed(name, <any>undefined, { urn })
             case "azure-native:web/v20220301:WebAppScmAllowed":
                 return new WebAppScmAllowed(name, <any>undefined, { urn })
+            case "azure-native:web/v20220301:WebAppSlot":
+                return new WebAppSlot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

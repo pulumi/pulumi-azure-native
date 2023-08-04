@@ -40,6 +40,11 @@ export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointCo
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
+export { GetRegistryArgs, GetRegistryResult, GetRegistryOutputArgs } from "./getRegistry";
+export const getRegistry: typeof import("./getRegistry").getRegistry = null as any;
+export const getRegistryOutput: typeof import("./getRegistry").getRegistryOutput = null as any;
+utilities.lazyLoad(exports, ["getRegistry","getRegistryOutput"], () => require("./getRegistry"));
+
 export { GetScopeMapArgs, GetScopeMapResult, GetScopeMapOutputArgs } from "./getScopeMap";
 export const getScopeMap: typeof import("./getScopeMap").getScopeMap = null as any;
 export const getScopeMapOutput: typeof import("./getScopeMap").getScopeMapOutput = null as any;
@@ -64,6 +69,11 @@ export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
 utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
+
+export { RegistryArgs } from "./registry";
+export type Registry = import("./registry").Registry;
+export const Registry: typeof import("./registry").Registry = null as any;
+utilities.lazyLoad(exports, ["Registry"], () => require("./registry"));
 
 export { ScopeMapArgs } from "./scopeMap";
 export type ScopeMap = import("./scopeMap").ScopeMap;
@@ -93,6 +103,8 @@ const _module = {
                 return new PipelineRun(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20201101preview:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
+            case "azure-native:containerregistry/v20201101preview:Registry":
+                return new Registry(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20201101preview:ScopeMap":
                 return new ScopeMap(name, <any>undefined, { urn })
             case "azure-native:containerregistry/v20201101preview:Token":

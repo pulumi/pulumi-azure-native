@@ -80,6 +80,8 @@ if typing.TYPE_CHECKING:
     v20210901preview = __v20210901preview
     import pulumi_azure_native.appplatform.v20220101preview as __v20220101preview
     v20220101preview = __v20220101preview
+    import pulumi_azure_native.appplatform.v20221101preview as __v20221101preview
+    v20221101preview = __v20221101preview
     import pulumi_azure_native.appplatform.v20230501preview as __v20230501preview
     v20230501preview = __v20230501preview
 else:
@@ -87,5 +89,6 @@ else:
     v20210601preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210601preview')
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20210901preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20220101preview')
+    v20221101preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20221101preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.appplatform.v20230501preview')
 

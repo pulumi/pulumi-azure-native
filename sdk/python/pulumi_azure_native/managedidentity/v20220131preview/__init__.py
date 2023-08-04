@@ -7,5 +7,7 @@ import typing
 # Export this package's modules as members:
 from .federated_identity_credential import *
 from .get_federated_identity_credential import *
+from .get_user_assigned_identity import *
 from .list_user_assigned_identity_associated_resources import *
+from .user_assigned_identity import *
 from . import outputs

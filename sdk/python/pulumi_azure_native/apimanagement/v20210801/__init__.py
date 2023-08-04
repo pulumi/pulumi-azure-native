@@ -5,5 +5,16 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
+from .api import *
+from .api_management_service import *
+from .api_schema import *
+from .backend import *
+from .get_api import *
+from .get_api_management_service import *
 from .get_api_management_service_domain_ownership_identifier import *
+from .get_api_schema import *
+from .get_backend import *
 from .list_delegation_setting_secrets import *
+from ._inputs import *
+from . import outputs

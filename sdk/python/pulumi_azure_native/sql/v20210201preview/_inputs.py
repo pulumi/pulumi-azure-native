@@ -13,6 +13,7 @@ from ._enums import *
 __all__ = [
     'ManagedInstanceExternalAdministratorArgs',
     'ResourceIdentityArgs',
+    'ServerExternalAdministratorArgs',
     'SkuArgs',
 ]
 
@@ -158,6 +159,110 @@ class ResourceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+@pulumi.input_type
+class ServerExternalAdministratorArgs:
+    def __init__(__self__, *,
+                 administrator_type: Optional[pulumi.Input[Union[str, 'AdministratorType']]] = None,
+                 azure_ad_only_authentication: Optional[pulumi.Input[bool]] = None,
+                 login: Optional[pulumi.Input[str]] = None,
+                 principal_type: Optional[pulumi.Input[Union[str, 'PrincipalType']]] = None,
+                 sid: Optional[pulumi.Input[str]] = None,
+                 tenant_id: Optional[pulumi.Input[str]] = None):
+        """
+        Properties of a active directory administrator.
+        :param pulumi.Input[Union[str, 'AdministratorType']] administrator_type: Type of the sever administrator.
+        :param pulumi.Input[bool] azure_ad_only_authentication: Azure Active Directory only Authentication enabled.
+        :param pulumi.Input[str] login: Login name of the server administrator.
+        :param pulumi.Input[Union[str, 'PrincipalType']] principal_type: Principal Type of the sever administrator.
+        :param pulumi.Input[str] sid: SID (object ID) of the server administrator.
+        :param pulumi.Input[str] tenant_id: Tenant ID of the administrator.
+        """
+        if administrator_type is not None:
+            pulumi.set(__self__, "administrator_type", administrator_type)
+        if azure_ad_only_authentication is not None:
+            pulumi.set(__self__, "azure_ad_only_authentication", azure_ad_only_authentication)
+        if login is not None:
+            pulumi.set(__self__, "login", login)
+        if principal_type is not None:
+            pulumi.set(__self__, "principal_type", principal_type)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @property
+    @pulumi.getter(name="administratorType")
+    def administrator_type(self) -> Optional[pulumi.Input[Union[str, 'AdministratorType']]]:
+        """
+        Type of the sever administrator.
+        """
+        return pulumi.get(self, "administrator_type")
+
+    @administrator_type.setter
+    def administrator_type(self, value: Optional[pulumi.Input[Union[str, 'AdministratorType']]]):
+        pulumi.set(self, "administrator_type", value)
+
+    @property
+    @pulumi.getter(name="azureADOnlyAuthentication")
+    def azure_ad_only_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Azure Active Directory only Authentication enabled.
+        """
+        return pulumi.get(self, "azure_ad_only_authentication")
+
+    @azure_ad_only_authentication.setter
+    def azure_ad_only_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "azure_ad_only_authentication", value)
+
+    @property
+    @pulumi.getter
+    def login(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login name of the server administrator.
+        """
+        return pulumi.get(self, "login")
+
+    @login.setter
+    def login(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "login", value)
+
+    @property
+    @pulumi.getter(name="principalType")
+    def principal_type(self) -> Optional[pulumi.Input[Union[str, 'PrincipalType']]]:
+        """
+        Principal Type of the sever administrator.
+        """
+        return pulumi.get(self, "principal_type")
+
+    @principal_type.setter
+    def principal_type(self, value: Optional[pulumi.Input[Union[str, 'PrincipalType']]]):
+        pulumi.set(self, "principal_type", value)
+
+    @property
+    @pulumi.getter
+    def sid(self) -> Optional[pulumi.Input[str]]:
+        """
+        SID (object ID) of the server administrator.
+        """
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sid", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Tenant ID of the administrator.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_id", value)
 
 
 @pulumi.input_type

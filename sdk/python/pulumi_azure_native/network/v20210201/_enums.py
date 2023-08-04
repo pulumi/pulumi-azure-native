@@ -10,7 +10,10 @@ __all__ = [
     'ExtendedLocationTypes',
     'IPAllocationMethod',
     'IPVersion',
+    'ManagedRuleEnabledState',
     'NatGatewaySkuName',
+    'OwaspCrsExclusionEntryMatchVariable',
+    'OwaspCrsExclusionEntrySelectorMatchOperator',
     'PublicIPAddressMigrationPhase',
     'PublicIPAddressSkuName',
     'PublicIPAddressSkuTier',
@@ -18,8 +21,17 @@ __all__ = [
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
+    'VirtualNetworkPeeringLevel',
+    'VirtualNetworkPeeringState',
     'VirtualNetworkPrivateEndpointNetworkPolicies',
     'VirtualNetworkPrivateLinkServiceNetworkPolicies',
+    'WebApplicationFirewallAction',
+    'WebApplicationFirewallEnabledState',
+    'WebApplicationFirewallMatchVariable',
+    'WebApplicationFirewallMode',
+    'WebApplicationFirewallOperator',
+    'WebApplicationFirewallRuleType',
+    'WebApplicationFirewallTransform',
 ]
 
 
@@ -62,11 +74,38 @@ class IPVersion(str, Enum):
     I_PV6 = "IPv6"
 
 
+class ManagedRuleEnabledState(str, Enum):
+    """
+    The state of the managed rule. Defaults to Disabled if not specified.
+    """
+    DISABLED = "Disabled"
+
+
 class NatGatewaySkuName(str, Enum):
     """
     Name of Nat Gateway SKU.
     """
     STANDARD = "Standard"
+
+
+class OwaspCrsExclusionEntryMatchVariable(str, Enum):
+    """
+    The variable to be excluded.
+    """
+    REQUEST_HEADER_NAMES = "RequestHeaderNames"
+    REQUEST_COOKIE_NAMES = "RequestCookieNames"
+    REQUEST_ARG_NAMES = "RequestArgNames"
+
+
+class OwaspCrsExclusionEntrySelectorMatchOperator(str, Enum):
+    """
+    When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+    """
+    EQUALS = "Equals"
+    CONTAINS = "Contains"
+    STARTS_WITH = "StartsWith"
+    ENDS_WITH = "EndsWith"
+    EQUALS_ANY = "EqualsAny"
 
 
 class PublicIPAddressMigrationPhase(str, Enum):
@@ -135,6 +174,25 @@ class SecurityRuleProtocol(str, Enum):
     AH = "Ah"
 
 
+class VirtualNetworkPeeringLevel(str, Enum):
+    """
+    The peering sync status of the virtual network peering.
+    """
+    FULLY_IN_SYNC = "FullyInSync"
+    REMOTE_NOT_IN_SYNC = "RemoteNotInSync"
+    LOCAL_NOT_IN_SYNC = "LocalNotInSync"
+    LOCAL_AND_REMOTE_NOT_IN_SYNC = "LocalAndRemoteNotInSync"
+
+
+class VirtualNetworkPeeringState(str, Enum):
+    """
+    The status of the virtual network peering.
+    """
+    INITIATED = "Initiated"
+    CONNECTED = "Connected"
+    DISCONNECTED = "Disconnected"
+
+
 class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
     """
     Enable or Disable apply network policies on private end point in the subnet.
@@ -149,3 +207,79 @@ class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class WebApplicationFirewallAction(str, Enum):
+    """
+    Type of Actions.
+    """
+    ALLOW = "Allow"
+    BLOCK = "Block"
+    LOG = "Log"
+
+
+class WebApplicationFirewallEnabledState(str, Enum):
+    """
+    The state of the policy.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+
+
+class WebApplicationFirewallMatchVariable(str, Enum):
+    """
+    Match Variable.
+    """
+    REMOTE_ADDR = "RemoteAddr"
+    REQUEST_METHOD = "RequestMethod"
+    QUERY_STRING = "QueryString"
+    POST_ARGS = "PostArgs"
+    REQUEST_URI = "RequestUri"
+    REQUEST_HEADERS = "RequestHeaders"
+    REQUEST_BODY = "RequestBody"
+    REQUEST_COOKIES = "RequestCookies"
+
+
+class WebApplicationFirewallMode(str, Enum):
+    """
+    The mode of the policy.
+    """
+    PREVENTION = "Prevention"
+    DETECTION = "Detection"
+
+
+class WebApplicationFirewallOperator(str, Enum):
+    """
+    The operator to be matched.
+    """
+    IP_MATCH = "IPMatch"
+    EQUAL = "Equal"
+    CONTAINS = "Contains"
+    LESS_THAN = "LessThan"
+    GREATER_THAN = "GreaterThan"
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    BEGINS_WITH = "BeginsWith"
+    ENDS_WITH = "EndsWith"
+    REGEX = "Regex"
+    GEO_MATCH = "GeoMatch"
+
+
+class WebApplicationFirewallRuleType(str, Enum):
+    """
+    The rule type.
+    """
+    MATCH_RULE = "MatchRule"
+    INVALID = "Invalid"
+
+
+class WebApplicationFirewallTransform(str, Enum):
+    """
+    Transforms applied before matching.
+    """
+    LOWERCASE = "Lowercase"
+    TRIM = "Trim"
+    URL_DECODE = "UrlDecode"
+    URL_ENCODE = "UrlEncode"
+    REMOVE_NULLS = "RemoveNulls"
+    HTML_ENTITY_DECODE = "HtmlEntityDecode"

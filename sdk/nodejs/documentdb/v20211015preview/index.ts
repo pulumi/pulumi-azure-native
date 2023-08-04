@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { DatabaseAccountArgs } from "./databaseAccount";
+export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
+export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
+utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
+
+export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
+export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
+export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
+
+export { GetGremlinResourceGremlinDatabaseArgs, GetGremlinResourceGremlinDatabaseResult, GetGremlinResourceGremlinDatabaseOutputArgs } from "./getGremlinResourceGremlinDatabase";
+export const getGremlinResourceGremlinDatabase: typeof import("./getGremlinResourceGremlinDatabase").getGremlinResourceGremlinDatabase = null as any;
+export const getGremlinResourceGremlinDatabaseOutput: typeof import("./getGremlinResourceGremlinDatabase").getGremlinResourceGremlinDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getGremlinResourceGremlinDatabase","getGremlinResourceGremlinDatabaseOutput"], () => require("./getGremlinResourceGremlinDatabase"));
+
 export { GetMongoDBResourceMongoRoleDefinitionArgs, GetMongoDBResourceMongoRoleDefinitionResult, GetMongoDBResourceMongoRoleDefinitionOutputArgs } from "./getMongoDBResourceMongoRoleDefinition";
 export const getMongoDBResourceMongoRoleDefinition: typeof import("./getMongoDBResourceMongoRoleDefinition").getMongoDBResourceMongoRoleDefinition = null as any;
 export const getMongoDBResourceMongoRoleDefinitionOutput: typeof import("./getMongoDBResourceMongoRoleDefinition").getMongoDBResourceMongoRoleDefinitionOutput = null as any;
@@ -14,6 +29,21 @@ export { GetMongoDBResourceMongoUserDefinitionArgs, GetMongoDBResourceMongoUserD
 export const getMongoDBResourceMongoUserDefinition: typeof import("./getMongoDBResourceMongoUserDefinition").getMongoDBResourceMongoUserDefinition = null as any;
 export const getMongoDBResourceMongoUserDefinitionOutput: typeof import("./getMongoDBResourceMongoUserDefinition").getMongoDBResourceMongoUserDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getMongoDBResourceMongoUserDefinition","getMongoDBResourceMongoUserDefinitionOutput"], () => require("./getMongoDBResourceMongoUserDefinition"));
+
+export { GetSqlResourceSqlContainerArgs, GetSqlResourceSqlContainerResult, GetSqlResourceSqlContainerOutputArgs } from "./getSqlResourceSqlContainer";
+export const getSqlResourceSqlContainer: typeof import("./getSqlResourceSqlContainer").getSqlResourceSqlContainer = null as any;
+export const getSqlResourceSqlContainerOutput: typeof import("./getSqlResourceSqlContainer").getSqlResourceSqlContainerOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlContainer","getSqlResourceSqlContainerOutput"], () => require("./getSqlResourceSqlContainer"));
+
+export { GetSqlResourceSqlDatabaseArgs, GetSqlResourceSqlDatabaseResult, GetSqlResourceSqlDatabaseOutputArgs } from "./getSqlResourceSqlDatabase";
+export const getSqlResourceSqlDatabase: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabase = null as any;
+export const getSqlResourceSqlDatabaseOutput: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlDatabase","getSqlResourceSqlDatabaseOutput"], () => require("./getSqlResourceSqlDatabase"));
+
+export { GremlinResourceGremlinDatabaseArgs } from "./gremlinResourceGremlinDatabase";
+export type GremlinResourceGremlinDatabase = import("./gremlinResourceGremlinDatabase").GremlinResourceGremlinDatabase;
+export const GremlinResourceGremlinDatabase: typeof import("./gremlinResourceGremlinDatabase").GremlinResourceGremlinDatabase = null as any;
+utilities.lazyLoad(exports, ["GremlinResourceGremlinDatabase"], () => require("./gremlinResourceGremlinDatabase"));
 
 export { MongoDBResourceMongoRoleDefinitionArgs } from "./mongoDBResourceMongoRoleDefinition";
 export type MongoDBResourceMongoRoleDefinition = import("./mongoDBResourceMongoRoleDefinition").MongoDBResourceMongoRoleDefinition;
@@ -25,6 +55,16 @@ export type MongoDBResourceMongoUserDefinition = import("./mongoDBResourceMongoU
 export const MongoDBResourceMongoUserDefinition: typeof import("./mongoDBResourceMongoUserDefinition").MongoDBResourceMongoUserDefinition = null as any;
 utilities.lazyLoad(exports, ["MongoDBResourceMongoUserDefinition"], () => require("./mongoDBResourceMongoUserDefinition"));
 
+export { SqlResourceSqlContainerArgs } from "./sqlResourceSqlContainer";
+export type SqlResourceSqlContainer = import("./sqlResourceSqlContainer").SqlResourceSqlContainer;
+export const SqlResourceSqlContainer: typeof import("./sqlResourceSqlContainer").SqlResourceSqlContainer = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlContainer"], () => require("./sqlResourceSqlContainer"));
+
+export { SqlResourceSqlDatabaseArgs } from "./sqlResourceSqlDatabase";
+export type SqlResourceSqlDatabase = import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase;
+export const SqlResourceSqlDatabase: typeof import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlDatabase"], () => require("./sqlResourceSqlDatabase"));
+
 
 // Export enums:
 export * from "../../types/enums/documentdb/v20211015preview";
@@ -33,10 +73,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:documentdb/v20211015preview:DatabaseAccount":
+                return new DatabaseAccount(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20211015preview:GremlinResourceGremlinDatabase":
+                return new GremlinResourceGremlinDatabase(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20211015preview:MongoDBResourceMongoRoleDefinition":
                 return new MongoDBResourceMongoRoleDefinition(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition":
                 return new MongoDBResourceMongoUserDefinition(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20211015preview:SqlResourceSqlContainer":
+                return new SqlResourceSqlContainer(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20211015preview:SqlResourceSqlDatabase":
+                return new SqlResourceSqlDatabase(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

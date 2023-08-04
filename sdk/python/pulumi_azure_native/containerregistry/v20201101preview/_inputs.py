@@ -11,24 +11,73 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'EncryptionPropertyArgs',
     'ExportPipelineTargetPropertiesArgs',
+    'IPRuleArgs',
     'IdentityPropertiesArgs',
     'ImportPipelineSourcePropertiesArgs',
+    'KeyVaultPropertiesArgs',
     'LoggingPropertiesArgs',
+    'NetworkRuleSetArgs',
     'ParentPropertiesArgs',
     'PipelineRunRequestArgs',
     'PipelineRunSourcePropertiesArgs',
     'PipelineRunTargetPropertiesArgs',
     'PipelineSourceTriggerPropertiesArgs',
     'PipelineTriggerPropertiesArgs',
+    'PoliciesArgs',
     'PrivateEndpointArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'QuarantinePolicyArgs',
+    'RetentionPolicyArgs',
+    'SkuArgs',
     'SyncPropertiesArgs',
     'TokenCertificateArgs',
     'TokenCredentialsPropertiesArgs',
     'TokenPasswordArgs',
+    'TrustPolicyArgs',
     'UserIdentityPropertiesArgs',
+    'VirtualNetworkRuleArgs',
 ]
+
+@pulumi.input_type
+class EncryptionPropertyArgs:
+    def __init__(__self__, *,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+                 status: Optional[pulumi.Input[Union[str, 'EncryptionStatus']]] = None):
+        """
+        :param pulumi.Input['KeyVaultPropertiesArgs'] key_vault_properties: Key vault properties.
+        :param pulumi.Input[Union[str, 'EncryptionStatus']] status: Indicates whether or not the encryption is enabled for container registry.
+        """
+        if key_vault_properties is not None:
+            pulumi.set(__self__, "key_vault_properties", key_vault_properties)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="keyVaultProperties")
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+        """
+        Key vault properties.
+        """
+        return pulumi.get(self, "key_vault_properties")
+
+    @key_vault_properties.setter
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+        pulumi.set(self, "key_vault_properties", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'EncryptionStatus']]]:
+        """
+        Indicates whether or not the encryption is enabled for container registry.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'EncryptionStatus']]]):
+        pulumi.set(self, "status", value)
+
 
 @pulumi.input_type
 class ExportPipelineTargetPropertiesArgs:
@@ -87,6 +136,47 @@ class ExportPipelineTargetPropertiesArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class IPRuleArgs:
+    def __init__(__self__, *,
+                 i_p_address_or_range: pulumi.Input[str],
+                 action: Optional[pulumi.Input[Union[str, 'Action']]] = None):
+        """
+        IP rule with specific IP or IP range in CIDR format.
+        :param pulumi.Input[str] i_p_address_or_range: Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        :param pulumi.Input[Union[str, 'Action']] action: The action of IP ACL rule.
+        """
+        pulumi.set(__self__, "i_p_address_or_range", i_p_address_or_range)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="iPAddressOrRange")
+    def i_p_address_or_range(self) -> pulumi.Input[str]:
+        """
+        Specifies the IP or IP range in CIDR format. Only IPV4 address is allowed.
+        """
+        return pulumi.get(self, "i_p_address_or_range")
+
+    @i_p_address_or_range.setter
+    def i_p_address_or_range(self, value: pulumi.Input[str]):
+        pulumi.set(self, "i_p_address_or_range", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[str, 'Action']]]:
+        """
+        The action of IP ACL rule.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[str, 'Action']]]):
+        pulumi.set(self, "action", value)
 
 
 @pulumi.input_type
@@ -229,6 +319,45 @@ class ImportPipelineSourcePropertiesArgs:
 
 
 @pulumi.input_type
+class KeyVaultPropertiesArgs:
+    def __init__(__self__, *,
+                 identity: Optional[pulumi.Input[str]] = None,
+                 key_identifier: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] identity: The client id of the identity which will be used to access key vault.
+        :param pulumi.Input[str] key_identifier: Key vault uri to access the encryption key.
+        """
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if key_identifier is not None:
+            pulumi.set(__self__, "key_identifier", key_identifier)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client id of the identity which will be used to access key vault.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="keyIdentifier")
+    def key_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        Key vault uri to access the encryption key.
+        """
+        return pulumi.get(self, "key_identifier")
+
+    @key_identifier.setter
+    def key_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_identifier", value)
+
+
+@pulumi.input_type
 class LoggingPropertiesArgs:
     def __init__(__self__, *,
                  audit_log_status: Optional[pulumi.Input[Union[str, 'AuditLogStatus']]] = None,
@@ -270,6 +399,63 @@ class LoggingPropertiesArgs:
     @log_level.setter
     def log_level(self, value: Optional[pulumi.Input[Union[str, 'LogLevel']]]):
         pulumi.set(self, "log_level", value)
+
+
+@pulumi.input_type
+class NetworkRuleSetArgs:
+    def __init__(__self__, *,
+                 default_action: pulumi.Input[Union[str, 'DefaultAction']],
+                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]] = None,
+                 virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]] = None):
+        """
+        The network rule set for a container registry.
+        :param pulumi.Input[Union[str, 'DefaultAction']] default_action: The default action of allow or deny when no other rules match.
+        :param pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]] ip_rules: The IP ACL rules.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]] virtual_network_rules: The virtual network rules.
+        """
+        if default_action is None:
+            default_action = 'Allow'
+        pulumi.set(__self__, "default_action", default_action)
+        if ip_rules is not None:
+            pulumi.set(__self__, "ip_rules", ip_rules)
+        if virtual_network_rules is not None:
+            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
+
+    @property
+    @pulumi.getter(name="defaultAction")
+    def default_action(self) -> pulumi.Input[Union[str, 'DefaultAction']]:
+        """
+        The default action of allow or deny when no other rules match.
+        """
+        return pulumi.get(self, "default_action")
+
+    @default_action.setter
+    def default_action(self, value: pulumi.Input[Union[str, 'DefaultAction']]):
+        pulumi.set(self, "default_action", value)
+
+    @property
+    @pulumi.getter(name="ipRules")
+    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]:
+        """
+        The IP ACL rules.
+        """
+        return pulumi.get(self, "ip_rules")
+
+    @ip_rules.setter
+    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPRuleArgs']]]]):
+        pulumi.set(self, "ip_rules", value)
+
+    @property
+    @pulumi.getter(name="virtualNetworkRules")
+    def virtual_network_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]:
+        """
+        The virtual network rules.
+        """
+        return pulumi.get(self, "virtual_network_rules")
+
+    @virtual_network_rules.setter
+    def virtual_network_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkRuleArgs']]]]):
+        pulumi.set(self, "virtual_network_rules", value)
 
 
 @pulumi.input_type
@@ -535,6 +721,62 @@ class PipelineTriggerPropertiesArgs:
 
 
 @pulumi.input_type
+class PoliciesArgs:
+    def __init__(__self__, *,
+                 quarantine_policy: Optional[pulumi.Input['QuarantinePolicyArgs']] = None,
+                 retention_policy: Optional[pulumi.Input['RetentionPolicyArgs']] = None,
+                 trust_policy: Optional[pulumi.Input['TrustPolicyArgs']] = None):
+        """
+        The policies for a container registry.
+        :param pulumi.Input['QuarantinePolicyArgs'] quarantine_policy: The quarantine policy for a container registry.
+        :param pulumi.Input['RetentionPolicyArgs'] retention_policy: The retention policy for a container registry.
+        :param pulumi.Input['TrustPolicyArgs'] trust_policy: The content trust policy for a container registry.
+        """
+        if quarantine_policy is not None:
+            pulumi.set(__self__, "quarantine_policy", quarantine_policy)
+        if retention_policy is not None:
+            pulumi.set(__self__, "retention_policy", retention_policy)
+        if trust_policy is not None:
+            pulumi.set(__self__, "trust_policy", trust_policy)
+
+    @property
+    @pulumi.getter(name="quarantinePolicy")
+    def quarantine_policy(self) -> Optional[pulumi.Input['QuarantinePolicyArgs']]:
+        """
+        The quarantine policy for a container registry.
+        """
+        return pulumi.get(self, "quarantine_policy")
+
+    @quarantine_policy.setter
+    def quarantine_policy(self, value: Optional[pulumi.Input['QuarantinePolicyArgs']]):
+        pulumi.set(self, "quarantine_policy", value)
+
+    @property
+    @pulumi.getter(name="retentionPolicy")
+    def retention_policy(self) -> Optional[pulumi.Input['RetentionPolicyArgs']]:
+        """
+        The retention policy for a container registry.
+        """
+        return pulumi.get(self, "retention_policy")
+
+    @retention_policy.setter
+    def retention_policy(self, value: Optional[pulumi.Input['RetentionPolicyArgs']]):
+        pulumi.set(self, "retention_policy", value)
+
+    @property
+    @pulumi.getter(name="trustPolicy")
+    def trust_policy(self) -> Optional[pulumi.Input['TrustPolicyArgs']]:
+        """
+        The content trust policy for a container registry.
+        """
+        return pulumi.get(self, "trust_policy")
+
+    @trust_policy.setter
+    def trust_policy(self, value: Optional[pulumi.Input['TrustPolicyArgs']]):
+        pulumi.set(self, "trust_policy", value)
+
+
+@pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None):
@@ -612,6 +854,99 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'ConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class QuarantinePolicyArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[Union[str, 'PolicyStatus']]] = None):
+        """
+        The quarantine policy for a container registry.
+        :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
+        """
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PolicyStatus']]]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PolicyStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class RetentionPolicyArgs:
+    def __init__(__self__, *,
+                 days: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[Union[str, 'PolicyStatus']]] = None):
+        """
+        The retention policy for a container registry.
+        :param pulumi.Input[int] days: The number of days to retain an untagged manifest after which it gets purged.
+        :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
+        """
+        if days is None:
+            days = 7
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of days to retain an untagged manifest after which it gets purged.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "days", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PolicyStatus']]]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PolicyStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class SkuArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Union[str, 'SkuName']]):
+        """
+        The SKU of a container registry.
+        :param pulumi.Input[Union[str, 'SkuName']] name: The SKU name of the container registry. Required for registry creation.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
+        """
+        The SKU name of the container registry. Required for registry creation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Union[str, 'SkuName']]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -841,6 +1176,50 @@ class TokenPasswordArgs:
 
 
 @pulumi.input_type
+class TrustPolicyArgs:
+    def __init__(__self__, *,
+                 status: Optional[pulumi.Input[Union[str, 'PolicyStatus']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'TrustPolicyType']]] = None):
+        """
+        The content trust policy for a container registry.
+        :param pulumi.Input[Union[str, 'PolicyStatus']] status: The value that indicates whether the policy is enabled or not.
+        :param pulumi.Input[Union[str, 'TrustPolicyType']] type: The type of trust policy.
+        """
+        if status is None:
+            status = 'disabled'
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if type is None:
+            type = 'Notary'
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[str, 'PolicyStatus']]]:
+        """
+        The value that indicates whether the policy is enabled or not.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[str, 'PolicyStatus']]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'TrustPolicyType']]]:
+        """
+        The type of trust policy.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'TrustPolicyType']]]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
 class UserIdentityPropertiesArgs:
     def __init__(__self__, *,
                  client_id: Optional[pulumi.Input[str]] = None,
@@ -877,5 +1256,46 @@ class UserIdentityPropertiesArgs:
     @principal_id.setter
     def principal_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal_id", value)
+
+
+@pulumi.input_type
+class VirtualNetworkRuleArgs:
+    def __init__(__self__, *,
+                 virtual_network_resource_id: pulumi.Input[str],
+                 action: Optional[pulumi.Input[Union[str, 'Action']]] = None):
+        """
+        Virtual network rule.
+        :param pulumi.Input[str] virtual_network_resource_id: Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        :param pulumi.Input[Union[str, 'Action']] action: The action of virtual network rule.
+        """
+        pulumi.set(__self__, "virtual_network_resource_id", virtual_network_resource_id)
+        if action is None:
+            action = 'Allow'
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+
+    @property
+    @pulumi.getter(name="virtualNetworkResourceId")
+    def virtual_network_resource_id(self) -> pulumi.Input[str]:
+        """
+        Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}.
+        """
+        return pulumi.get(self, "virtual_network_resource_id")
+
+    @virtual_network_resource_id.setter
+    def virtual_network_resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "virtual_network_resource_id", value)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[str, 'Action']]]:
+        """
+        The action of virtual network rule.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[str, 'Action']]]):
+        pulumi.set(self, "action", value)
 
 

@@ -6,6 +6,8 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .action_group import *
+from .get_action_group import *
 from .get_metric_alert import *
 from .metric_alert import *
 from ._inputs import *

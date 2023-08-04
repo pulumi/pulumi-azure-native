@@ -15,6 +15,11 @@ export const getAppServiceEnvironment: typeof import("./getAppServiceEnvironment
 export const getAppServiceEnvironmentOutput: typeof import("./getAppServiceEnvironment").getAppServiceEnvironmentOutput = null as any;
 utilities.lazyLoad(exports, ["getAppServiceEnvironment","getAppServiceEnvironmentOutput"], () => require("./getAppServiceEnvironment"));
 
+export { GetStaticSiteArgs, GetStaticSiteResult, GetStaticSiteOutputArgs } from "./getStaticSite";
+export const getStaticSite: typeof import("./getStaticSite").getStaticSite = null as any;
+export const getStaticSiteOutput: typeof import("./getStaticSite").getStaticSiteOutput = null as any;
+utilities.lazyLoad(exports, ["getStaticSite","getStaticSiteOutput"], () => require("./getStaticSite"));
+
 export { GetWebAppFtpAllowedArgs, GetWebAppFtpAllowedResult, GetWebAppFtpAllowedOutputArgs } from "./getWebAppFtpAllowed";
 export const getWebAppFtpAllowed: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowed = null as any;
 export const getWebAppFtpAllowedOutput: typeof import("./getWebAppFtpAllowed").getWebAppFtpAllowedOutput = null as any;
@@ -29,6 +34,11 @@ export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedT
 export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
 export const listSiteIdentifiersAssignedToHostNameOutput: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostNameOutput = null as any;
 utilities.lazyLoad(exports, ["listSiteIdentifiersAssignedToHostName","listSiteIdentifiersAssignedToHostNameOutput"], () => require("./listSiteIdentifiersAssignedToHostName"));
+
+export { StaticSiteArgs } from "./staticSite";
+export type StaticSite = import("./staticSite").StaticSite;
+export const StaticSite: typeof import("./staticSite").StaticSite = null as any;
+utilities.lazyLoad(exports, ["StaticSite"], () => require("./staticSite"));
 
 export { WebAppFtpAllowedArgs } from "./webAppFtpAllowed";
 export type WebAppFtpAllowed = import("./webAppFtpAllowed").WebAppFtpAllowed;
@@ -50,6 +60,8 @@ const _module = {
         switch (type) {
             case "azure-native:web/v20210115:AppServiceEnvironment":
                 return new AppServiceEnvironment(name, <any>undefined, { urn })
+            case "azure-native:web/v20210115:StaticSite":
+                return new StaticSite(name, <any>undefined, { urn })
             case "azure-native:web/v20210115:WebAppFtpAllowed":
                 return new WebAppFtpAllowed(name, <any>undefined, { urn })
             case "azure-native:web/v20210115:WebAppScmAllowed":

@@ -13,6 +13,25 @@ export const AzureFirewallThreatIntelMode = {
  */
 export type AzureFirewallThreatIntelMode = (typeof AzureFirewallThreatIntelMode)[keyof typeof AzureFirewallThreatIntelMode];
 
+export const BastionHostSkuName = {
+    Basic: "Basic",
+    Standard: "Standard",
+} as const;
+
+/**
+ * The name of this Bastion Host.
+ */
+export type BastionHostSkuName = (typeof BastionHostSkuName)[keyof typeof BastionHostSkuName];
+
+export const ExtendedLocationTypes = {
+    EdgeZone: "EdgeZone",
+} as const;
+
+/**
+ * The type of the extended location.
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
 export const FirewallPolicyIDPSQuerySortOrder = {
     Ascending: "Ascending",
     Descending: "Descending",
@@ -57,6 +76,16 @@ export const FirewallPolicySkuTier = {
  */
 export type FirewallPolicySkuTier = (typeof FirewallPolicySkuTier)[keyof typeof FirewallPolicySkuTier];
 
+export const IPAllocationMethod = {
+    Static: "Static",
+    Dynamic: "Dynamic",
+} as const;
+
+/**
+ * Private IP allocation method.
+ */
+export type IPAllocationMethod = (typeof IPAllocationMethod)[keyof typeof IPAllocationMethod];
+
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
     UserAssigned: "UserAssigned",
@@ -68,3 +97,70 @@ export const ResourceIdentityType = {
  * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const RouteNextHopType = {
+    VirtualNetworkGateway: "VirtualNetworkGateway",
+    VnetLocal: "VnetLocal",
+    Internet: "Internet",
+    VirtualAppliance: "VirtualAppliance",
+    None: "None",
+} as const;
+
+/**
+ * The type of Azure hop the packet should be sent to.
+ */
+export type RouteNextHopType = (typeof RouteNextHopType)[keyof typeof RouteNextHopType];
+
+export const SecurityRuleAccess = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * The network traffic is allowed or denied.
+ */
+export type SecurityRuleAccess = (typeof SecurityRuleAccess)[keyof typeof SecurityRuleAccess];
+
+export const SecurityRuleDirection = {
+    Inbound: "Inbound",
+    Outbound: "Outbound",
+} as const;
+
+/**
+ * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+ */
+export type SecurityRuleDirection = (typeof SecurityRuleDirection)[keyof typeof SecurityRuleDirection];
+
+export const SecurityRuleProtocol = {
+    Tcp: "Tcp",
+    Udp: "Udp",
+    Icmp: "Icmp",
+    Esp: "Esp",
+    Asterisk: "*",
+    Ah: "Ah",
+} as const;
+
+/**
+ * Network protocol this rule applies to.
+ */
+export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
+
+export const VirtualNetworkPrivateEndpointNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private end point in the subnet.
+ */
+export type VirtualNetworkPrivateEndpointNetworkPolicies = (typeof VirtualNetworkPrivateEndpointNetworkPolicies)[keyof typeof VirtualNetworkPrivateEndpointNetworkPolicies];
+
+export const VirtualNetworkPrivateLinkServiceNetworkPolicies = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enable or Disable apply network policies on private link service in the subnet.
+ */
+export type VirtualNetworkPrivateLinkServiceNetworkPolicies = (typeof VirtualNetworkPrivateLinkServiceNetworkPolicies)[keyof typeof VirtualNetworkPrivateLinkServiceNetworkPolicies];

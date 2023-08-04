@@ -25,6 +25,16 @@ export const getAzurePowerShellScript: typeof import("./getAzurePowerShellScript
 export const getAzurePowerShellScriptOutput: typeof import("./getAzurePowerShellScript").getAzurePowerShellScriptOutput = null as any;
 utilities.lazyLoad(exports, ["getAzurePowerShellScript","getAzurePowerShellScriptOutput"], () => require("./getAzurePowerShellScript"));
 
+export { GetResourceGroupArgs, GetResourceGroupResult, GetResourceGroupOutputArgs } from "./getResourceGroup";
+export const getResourceGroup: typeof import("./getResourceGroup").getResourceGroup = null as any;
+export const getResourceGroupOutput: typeof import("./getResourceGroup").getResourceGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceGroup","getResourceGroupOutput"], () => require("./getResourceGroup"));
+
+export { ResourceGroupArgs } from "./resourceGroup";
+export type ResourceGroup = import("./resourceGroup").ResourceGroup;
+export const ResourceGroup: typeof import("./resourceGroup").ResourceGroup = null as any;
+utilities.lazyLoad(exports, ["ResourceGroup"], () => require("./resourceGroup"));
+
 
 // Export enums:
 export * from "../../types/enums/resources/v20201001";
@@ -37,6 +47,8 @@ const _module = {
                 return new AzureCliScript(name, <any>undefined, { urn })
             case "azure-native:resources/v20201001:AzurePowerShellScript":
                 return new AzurePowerShellScript(name, <any>undefined, { urn })
+            case "azure-native:resources/v20201001:ResourceGroup":
+                return new ResourceGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

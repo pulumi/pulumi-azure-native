@@ -5,6 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { DatabaseArgs } from "./database";
+export type Database = import("./database").Database;
+export const Database: typeof import("./database").Database = null as any;
+utilities.lazyLoad(exports, ["Database"], () => require("./database"));
+
+export { FirewallRuleArgs } from "./firewallRule";
+export type FirewallRule = import("./firewallRule").FirewallRule;
+export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
+utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
+
+export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
+export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
+export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabase","getDatabaseOutput"], () => require("./getDatabase"));
+
+export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs } from "./getFirewallRule";
+export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
+export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
+
 export { GetManagedInstanceArgs, GetManagedInstanceResult, GetManagedInstanceOutputArgs } from "./getManagedInstance";
 export const getManagedInstance: typeof import("./getManagedInstance").getManagedInstance = null as any;
 export const getManagedInstanceOutput: typeof import("./getManagedInstance").getManagedInstanceOutput = null as any;
@@ -14,6 +34,16 @@ export { GetOutboundFirewallRuleArgs, GetOutboundFirewallRuleResult, GetOutbound
 export const getOutboundFirewallRule: typeof import("./getOutboundFirewallRule").getOutboundFirewallRule = null as any;
 export const getOutboundFirewallRuleOutput: typeof import("./getOutboundFirewallRule").getOutboundFirewallRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getOutboundFirewallRule","getOutboundFirewallRuleOutput"], () => require("./getOutboundFirewallRule"));
+
+export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
+export const getServer: typeof import("./getServer").getServer = null as any;
+export const getServerOutput: typeof import("./getServer").getServerOutput = null as any;
+utilities.lazyLoad(exports, ["getServer","getServerOutput"], () => require("./getServer"));
+
+export { GetServerAzureADAdministratorArgs, GetServerAzureADAdministratorResult, GetServerAzureADAdministratorOutputArgs } from "./getServerAzureADAdministrator";
+export const getServerAzureADAdministrator: typeof import("./getServerAzureADAdministrator").getServerAzureADAdministrator = null as any;
+export const getServerAzureADAdministratorOutput: typeof import("./getServerAzureADAdministrator").getServerAzureADAdministratorOutput = null as any;
+utilities.lazyLoad(exports, ["getServerAzureADAdministrator","getServerAzureADAdministratorOutput"], () => require("./getServerAzureADAdministrator"));
 
 export { ManagedInstanceArgs } from "./managedInstance";
 export type ManagedInstance = import("./managedInstance").ManagedInstance;
@@ -25,6 +55,16 @@ export type OutboundFirewallRule = import("./outboundFirewallRule").OutboundFire
 export const OutboundFirewallRule: typeof import("./outboundFirewallRule").OutboundFirewallRule = null as any;
 utilities.lazyLoad(exports, ["OutboundFirewallRule"], () => require("./outboundFirewallRule"));
 
+export { ServerArgs } from "./server";
+export type Server = import("./server").Server;
+export const Server: typeof import("./server").Server = null as any;
+utilities.lazyLoad(exports, ["Server"], () => require("./server"));
+
+export { ServerAzureADAdministratorArgs } from "./serverAzureADAdministrator";
+export type ServerAzureADAdministrator = import("./serverAzureADAdministrator").ServerAzureADAdministrator;
+export const ServerAzureADAdministrator: typeof import("./serverAzureADAdministrator").ServerAzureADAdministrator = null as any;
+utilities.lazyLoad(exports, ["ServerAzureADAdministrator"], () => require("./serverAzureADAdministrator"));
+
 
 // Export enums:
 export * from "../../types/enums/sql/v20210201preview";
@@ -33,10 +73,18 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql/v20210201preview:Database":
+                return new Database(name, <any>undefined, { urn })
+            case "azure-native:sql/v20210201preview:FirewallRule":
+                return new FirewallRule(name, <any>undefined, { urn })
             case "azure-native:sql/v20210201preview:ManagedInstance":
                 return new ManagedInstance(name, <any>undefined, { urn })
             case "azure-native:sql/v20210201preview:OutboundFirewallRule":
                 return new OutboundFirewallRule(name, <any>undefined, { urn })
+            case "azure-native:sql/v20210201preview:Server":
+                return new Server(name, <any>undefined, { urn })
+            case "azure-native:sql/v20210201preview:ServerAzureADAdministrator":
+                return new ServerAzureADAdministrator(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -9,8 +9,14 @@ from ._enums import *
 from .get_private_dns_zone_group import *
 from .get_private_endpoint import *
 from .get_private_link_service import *
+from .get_virtual_network import *
+from .get_virtual_network_peering import *
+from .get_web_application_firewall_policy import *
 from .private_dns_zone_group import *
 from .private_endpoint import *
 from .private_link_service import *
+from .virtual_network import *
+from .virtual_network_peering import *
+from .web_application_firewall_policy import *
 from ._inputs import *
 from . import outputs

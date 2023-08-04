@@ -10,5 +10,7 @@ from .azure_cli_script import *
 from .azure_power_shell_script import *
 from .get_azure_cli_script import *
 from .get_azure_power_shell_script import *
+from .get_resource_group import *
+from .resource_group import *
 from ._inputs import *
 from . import outputs

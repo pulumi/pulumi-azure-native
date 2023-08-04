@@ -5,15 +5,311 @@
 from enum import Enum
 
 __all__ = [
+    'ApplicationGatewayClientRevocationOptions',
+    'ApplicationGatewayCookieBasedAffinity',
+    'ApplicationGatewayCustomErrorStatusCode',
+    'ApplicationGatewayFirewallMode',
+    'ApplicationGatewayLoadDistributionAlgorithm',
+    'ApplicationGatewayProtocol',
+    'ApplicationGatewayRedirectType',
+    'ApplicationGatewayRequestRoutingRuleType',
+    'ApplicationGatewaySkuName',
+    'ApplicationGatewaySslCipherSuite',
+    'ApplicationGatewaySslPolicyName',
+    'ApplicationGatewaySslPolicyType',
+    'ApplicationGatewaySslProtocol',
+    'ApplicationGatewayTier',
+    'DdosSettingsProtectionMode',
+    'DeleteOptions',
+    'DhGroup',
+    'ExtendedLocationTypes',
+    'FirewallPolicyFilterRuleCollectionActionType',
+    'FirewallPolicyNatRuleCollectionActionType',
+    'FirewallPolicyRuleApplicationProtocolType',
+    'FirewallPolicyRuleCollectionType',
+    'FirewallPolicyRuleNetworkProtocol',
+    'FirewallPolicyRuleType',
     'ForwardingRuleState',
+    'IPAllocationMethod',
+    'IPVersion',
+    'IkeEncryption',
+    'IkeIntegrity',
     'IpAllocationMethod',
+    'IpsecEncryption',
+    'IpsecIntegrity',
+    'NatGatewaySkuName',
+    'PfsGroup',
+    'PublicIPAddressMigrationPhase',
+    'PublicIPAddressSkuName',
+    'PublicIPAddressSkuTier',
+    'ResourceIdentityType',
     'RouteNextHopType',
     'SecurityRuleAccess',
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
+    'VirtualNetworkEncryptionEnforcement',
+    'VirtualNetworkGatewayConnectionMode',
+    'VirtualNetworkGatewayConnectionProtocol',
+    'VirtualNetworkGatewayConnectionType',
+    'VirtualNetworkGatewaySkuName',
+    'VirtualNetworkGatewaySkuTier',
+    'VirtualNetworkGatewayType',
+    'VirtualNetworkPeeringLevel',
+    'VirtualNetworkPeeringState',
     'VirtualNetworkPrivateEndpointNetworkPolicies',
     'VirtualNetworkPrivateLinkServiceNetworkPolicies',
+    'VpnAuthenticationType',
+    'VpnClientProtocol',
+    'VpnGatewayGeneration',
+    'VpnNatRuleMode',
+    'VpnNatRuleType',
+    'VpnPolicyMemberAttributeType',
+    'VpnType',
 ]
+
+
+class ApplicationGatewayClientRevocationOptions(str, Enum):
+    """
+    Verify client certificate revocation status.
+    """
+    NONE = "None"
+    OCSP = "OCSP"
+
+
+class ApplicationGatewayCookieBasedAffinity(str, Enum):
+    """
+    Cookie based affinity.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class ApplicationGatewayCustomErrorStatusCode(str, Enum):
+    """
+    Status code of the application gateway customer error.
+    """
+    HTTP_STATUS403 = "HttpStatus403"
+    HTTP_STATUS502 = "HttpStatus502"
+
+
+class ApplicationGatewayFirewallMode(str, Enum):
+    """
+    Web application firewall mode.
+    """
+    DETECTION = "Detection"
+    PREVENTION = "Prevention"
+
+
+class ApplicationGatewayLoadDistributionAlgorithm(str, Enum):
+    """
+    Load Distribution Targets resource of an application gateway.
+    """
+    ROUND_ROBIN = "RoundRobin"
+    LEAST_CONNECTIONS = "LeastConnections"
+    IP_HASH = "IpHash"
+
+
+class ApplicationGatewayProtocol(str, Enum):
+    """
+    The protocol used for the probe.
+    """
+    HTTP = "Http"
+    HTTPS = "Https"
+    TCP = "Tcp"
+    TLS = "Tls"
+
+
+class ApplicationGatewayRedirectType(str, Enum):
+    """
+    HTTP redirection type.
+    """
+    PERMANENT = "Permanent"
+    FOUND = "Found"
+    SEE_OTHER = "SeeOther"
+    TEMPORARY = "Temporary"
+
+
+class ApplicationGatewayRequestRoutingRuleType(str, Enum):
+    """
+    Rule type.
+    """
+    BASIC = "Basic"
+    PATH_BASED_ROUTING = "PathBasedRouting"
+
+
+class ApplicationGatewaySkuName(str, Enum):
+    """
+    Name of an application gateway SKU.
+    """
+    STANDARD_SMALL = "Standard_Small"
+    STANDARD_MEDIUM = "Standard_Medium"
+    STANDARD_LARGE = "Standard_Large"
+    WA_F_MEDIUM = "WAF_Medium"
+    WA_F_LARGE = "WAF_Large"
+    STANDARD_V2 = "Standard_v2"
+    WA_F_V2 = "WAF_v2"
+
+
+class ApplicationGatewaySslCipherSuite(str, Enum):
+    """
+    Ssl cipher suites enums.
+    """
+    TL_S_ECDH_E_RS_A_WIT_H_AE_S_256_CB_C_SHA384 = "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"
+    TL_S_ECDH_E_RS_A_WIT_H_AE_S_128_CB_C_SHA256 = "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
+    TL_S_ECDH_E_RS_A_WIT_H_AE_S_256_CB_C_SHA = "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"
+    TL_S_ECDH_E_RS_A_WIT_H_AE_S_128_CB_C_SHA = "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"
+    TL_S_DH_E_RS_A_WIT_H_AE_S_256_GC_M_SHA384 = "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384"
+    TL_S_DH_E_RS_A_WIT_H_AE_S_128_GC_M_SHA256 = "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256"
+    TL_S_DH_E_RS_A_WIT_H_AE_S_256_CB_C_SHA = "TLS_DHE_RSA_WITH_AES_256_CBC_SHA"
+    TL_S_DH_E_RS_A_WIT_H_AE_S_128_CB_C_SHA = "TLS_DHE_RSA_WITH_AES_128_CBC_SHA"
+    TL_S_RS_A_WIT_H_AE_S_256_GC_M_SHA384 = "TLS_RSA_WITH_AES_256_GCM_SHA384"
+    TL_S_RS_A_WIT_H_AE_S_128_GC_M_SHA256 = "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    TL_S_RS_A_WIT_H_AE_S_256_CB_C_SHA256 = "TLS_RSA_WITH_AES_256_CBC_SHA256"
+    TL_S_RS_A_WIT_H_AE_S_128_CB_C_SHA256 = "TLS_RSA_WITH_AES_128_CBC_SHA256"
+    TL_S_RS_A_WIT_H_AE_S_256_CB_C_SHA = "TLS_RSA_WITH_AES_256_CBC_SHA"
+    TL_S_RS_A_WIT_H_AE_S_128_CB_C_SHA = "TLS_RSA_WITH_AES_128_CBC_SHA"
+    TL_S_ECDH_E_ECDS_A_WIT_H_AE_S_256_GC_M_SHA384 = "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
+    TL_S_ECDH_E_ECDS_A_WIT_H_AE_S_128_GC_M_SHA256 = "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+    TL_S_ECDH_E_ECDS_A_WIT_H_AE_S_256_CB_C_SHA384 = "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384"
+    TL_S_ECDH_E_ECDS_A_WIT_H_AE_S_128_CB_C_SHA256 = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"
+    TL_S_ECDH_E_ECDS_A_WIT_H_AE_S_256_CB_C_SHA = "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA"
+    TL_S_ECDH_E_ECDS_A_WIT_H_AE_S_128_CB_C_SHA = "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA"
+    TL_S_DH_E_DS_S_WIT_H_AE_S_256_CB_C_SHA256 = "TLS_DHE_DSS_WITH_AES_256_CBC_SHA256"
+    TL_S_DH_E_DS_S_WIT_H_AE_S_128_CB_C_SHA256 = "TLS_DHE_DSS_WITH_AES_128_CBC_SHA256"
+    TL_S_DH_E_DS_S_WIT_H_AE_S_256_CB_C_SHA = "TLS_DHE_DSS_WITH_AES_256_CBC_SHA"
+    TL_S_DH_E_DS_S_WIT_H_AE_S_128_CB_C_SHA = "TLS_DHE_DSS_WITH_AES_128_CBC_SHA"
+    TL_S_RS_A_WIT_H_3_DE_S_ED_E_CB_C_SHA = "TLS_RSA_WITH_3DES_EDE_CBC_SHA"
+    TL_S_DH_E_DS_S_WIT_H_3_DE_S_ED_E_CB_C_SHA = "TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA"
+    TL_S_ECDH_E_RS_A_WIT_H_AE_S_128_GC_M_SHA256 = "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"
+    TL_S_ECDH_E_RS_A_WIT_H_AE_S_256_GC_M_SHA384 = "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"
+
+
+class ApplicationGatewaySslPolicyName(str, Enum):
+    """
+    Name of Ssl predefined policy.
+    """
+    APP_GW_SSL_POLICY20150501 = "AppGwSslPolicy20150501"
+    APP_GW_SSL_POLICY20170401 = "AppGwSslPolicy20170401"
+    APP_GW_SSL_POLICY20170401_S = "AppGwSslPolicy20170401S"
+    APP_GW_SSL_POLICY20220101 = "AppGwSslPolicy20220101"
+    APP_GW_SSL_POLICY20220101_S = "AppGwSslPolicy20220101S"
+
+
+class ApplicationGatewaySslPolicyType(str, Enum):
+    """
+    Type of Ssl Policy.
+    """
+    PREDEFINED = "Predefined"
+    CUSTOM = "Custom"
+    CUSTOM_V2 = "CustomV2"
+
+
+class ApplicationGatewaySslProtocol(str, Enum):
+    """
+    Minimum version of Ssl protocol to be supported on application gateway.
+    """
+    TL_SV1_0 = "TLSv1_0"
+    TL_SV1_1 = "TLSv1_1"
+    TL_SV1_2 = "TLSv1_2"
+    TL_SV1_3 = "TLSv1_3"
+
+
+class ApplicationGatewayTier(str, Enum):
+    """
+    Tier of an application gateway.
+    """
+    STANDARD = "Standard"
+    WAF = "WAF"
+    STANDARD_V2 = "Standard_v2"
+    WA_F_V2 = "WAF_v2"
+
+
+class DdosSettingsProtectionMode(str, Enum):
+    """
+    The DDoS protection mode of the public IP
+    """
+    VIRTUAL_NETWORK_INHERITED = "VirtualNetworkInherited"
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class DeleteOptions(str, Enum):
+    """
+    Specify what happens to the public IP address when the VM using it is deleted
+    """
+    DELETE = "Delete"
+    DETACH = "Detach"
+
+
+class DhGroup(str, Enum):
+    """
+    The DH Group used in IKE Phase 1 for initial SA.
+    """
+    NONE = "None"
+    DH_GROUP1 = "DHGroup1"
+    DH_GROUP2 = "DHGroup2"
+    DH_GROUP14 = "DHGroup14"
+    DH_GROUP2048 = "DHGroup2048"
+    ECP256 = "ECP256"
+    ECP384 = "ECP384"
+    DH_GROUP24 = "DHGroup24"
+
+
+class ExtendedLocationTypes(str, Enum):
+    """
+    The type of the extended location.
+    """
+    EDGE_ZONE = "EdgeZone"
+
+
+class FirewallPolicyFilterRuleCollectionActionType(str, Enum):
+    """
+    The type of action.
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
+
+
+class FirewallPolicyNatRuleCollectionActionType(str, Enum):
+    """
+    The type of action.
+    """
+    DNAT = "DNAT"
+
+
+class FirewallPolicyRuleApplicationProtocolType(str, Enum):
+    """
+    Protocol type.
+    """
+    HTTP = "Http"
+    HTTPS = "Https"
+
+
+class FirewallPolicyRuleCollectionType(str, Enum):
+    """
+    The type of the rule collection.
+    """
+    FIREWALL_POLICY_NAT_RULE_COLLECTION = "FirewallPolicyNatRuleCollection"
+    FIREWALL_POLICY_FILTER_RULE_COLLECTION = "FirewallPolicyFilterRuleCollection"
+
+
+class FirewallPolicyRuleNetworkProtocol(str, Enum):
+    """
+    The Network protocol of a Rule.
+    """
+    TCP = "TCP"
+    UDP = "UDP"
+    ANY = "Any"
+    ICMP = "ICMP"
+
+
+class FirewallPolicyRuleType(str, Enum):
+    """
+    Rule Type.
+    """
+    APPLICATION_RULE = "ApplicationRule"
+    NETWORK_RULE = "NetworkRule"
+    NAT_RULE = "NatRule"
 
 
 class ForwardingRuleState(str, Enum):
@@ -24,12 +320,139 @@ class ForwardingRuleState(str, Enum):
     DISABLED = "Disabled"
 
 
+class IPAllocationMethod(str, Enum):
+    """
+    The private IP address allocation method.
+    """
+    STATIC = "Static"
+    DYNAMIC = "Dynamic"
+
+
+class IPVersion(str, Enum):
+    """
+    The public IP address version.
+    """
+    I_PV4 = "IPv4"
+    I_PV6 = "IPv6"
+
+
+class IkeEncryption(str, Enum):
+    """
+    The IKE encryption algorithm (IKE phase 2).
+    """
+    DES = "DES"
+    DES3 = "DES3"
+    AES128 = "AES128"
+    AES192 = "AES192"
+    AES256 = "AES256"
+    GCMAES256 = "GCMAES256"
+    GCMAES128 = "GCMAES128"
+
+
+class IkeIntegrity(str, Enum):
+    """
+    The IKE integrity algorithm (IKE phase 2).
+    """
+    MD5 = "MD5"
+    SHA1 = "SHA1"
+    SHA256 = "SHA256"
+    SHA384 = "SHA384"
+    GCMAES256 = "GCMAES256"
+    GCMAES128 = "GCMAES128"
+
+
 class IpAllocationMethod(str, Enum):
     """
     Private IP address allocation method.
     """
     STATIC = "Static"
     DYNAMIC = "Dynamic"
+
+
+class IpsecEncryption(str, Enum):
+    """
+    The IPSec encryption algorithm (IKE phase 1).
+    """
+    NONE = "None"
+    DES = "DES"
+    DES3 = "DES3"
+    AES128 = "AES128"
+    AES192 = "AES192"
+    AES256 = "AES256"
+    GCMAES128 = "GCMAES128"
+    GCMAES192 = "GCMAES192"
+    GCMAES256 = "GCMAES256"
+
+
+class IpsecIntegrity(str, Enum):
+    """
+    The IPSec integrity algorithm (IKE phase 1).
+    """
+    MD5 = "MD5"
+    SHA1 = "SHA1"
+    SHA256 = "SHA256"
+    GCMAES128 = "GCMAES128"
+    GCMAES192 = "GCMAES192"
+    GCMAES256 = "GCMAES256"
+
+
+class NatGatewaySkuName(str, Enum):
+    """
+    Name of Nat Gateway SKU.
+    """
+    STANDARD = "Standard"
+
+
+class PfsGroup(str, Enum):
+    """
+    The Pfs Group used in IKE Phase 2 for new child SA.
+    """
+    NONE = "None"
+    PFS1 = "PFS1"
+    PFS2 = "PFS2"
+    PFS2048 = "PFS2048"
+    ECP256 = "ECP256"
+    ECP384 = "ECP384"
+    PFS24 = "PFS24"
+    PFS14 = "PFS14"
+    PFSMM = "PFSMM"
+
+
+class PublicIPAddressMigrationPhase(str, Enum):
+    """
+    Migration phase of Public IP Address.
+    """
+    NONE = "None"
+    PREPARE = "Prepare"
+    COMMIT = "Commit"
+    ABORT = "Abort"
+    COMMITTED = "Committed"
+
+
+class PublicIPAddressSkuName(str, Enum):
+    """
+    Name of a public IP address SKU.
+    """
+    BASIC = "Basic"
+    STANDARD = "Standard"
+
+
+class PublicIPAddressSkuTier(str, Enum):
+    """
+    Tier of a public IP address SKU.
+    """
+    REGIONAL = "Regional"
+    GLOBAL_ = "Global"
+
+
+class ResourceIdentityType(str, Enum):
+    """
+    The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
 
 
 class RouteNextHopType(str, Enum):
@@ -71,6 +494,115 @@ class SecurityRuleProtocol(str, Enum):
     AH = "Ah"
 
 
+class VirtualNetworkEncryptionEnforcement(str, Enum):
+    """
+    If the encrypted VNet allows VM that does not support encryption
+    """
+    DROP_UNENCRYPTED = "DropUnencrypted"
+    ALLOW_UNENCRYPTED = "AllowUnencrypted"
+
+
+class VirtualNetworkGatewayConnectionMode(str, Enum):
+    """
+    The connection mode for this connection.
+    """
+    DEFAULT = "Default"
+    RESPONDER_ONLY = "ResponderOnly"
+    INITIATOR_ONLY = "InitiatorOnly"
+
+
+class VirtualNetworkGatewayConnectionProtocol(str, Enum):
+    """
+    Connection protocol used for this connection.
+    """
+    IK_EV2 = "IKEv2"
+    IK_EV1 = "IKEv1"
+
+
+class VirtualNetworkGatewayConnectionType(str, Enum):
+    """
+    Gateway connection type.
+    """
+    IPSEC = "IPsec"
+    VNET2_VNET = "Vnet2Vnet"
+    EXPRESS_ROUTE = "ExpressRoute"
+    VPN_CLIENT = "VPNClient"
+
+
+class VirtualNetworkGatewaySkuName(str, Enum):
+    """
+    Gateway SKU name.
+    """
+    BASIC = "Basic"
+    HIGH_PERFORMANCE = "HighPerformance"
+    STANDARD = "Standard"
+    ULTRA_PERFORMANCE = "UltraPerformance"
+    VPN_GW1 = "VpnGw1"
+    VPN_GW2 = "VpnGw2"
+    VPN_GW3 = "VpnGw3"
+    VPN_GW4 = "VpnGw4"
+    VPN_GW5 = "VpnGw5"
+    VPN_GW1_AZ = "VpnGw1AZ"
+    VPN_GW2_AZ = "VpnGw2AZ"
+    VPN_GW3_AZ = "VpnGw3AZ"
+    VPN_GW4_AZ = "VpnGw4AZ"
+    VPN_GW5_AZ = "VpnGw5AZ"
+    ER_GW1_AZ = "ErGw1AZ"
+    ER_GW2_AZ = "ErGw2AZ"
+    ER_GW3_AZ = "ErGw3AZ"
+
+
+class VirtualNetworkGatewaySkuTier(str, Enum):
+    """
+    Gateway SKU tier.
+    """
+    BASIC = "Basic"
+    HIGH_PERFORMANCE = "HighPerformance"
+    STANDARD = "Standard"
+    ULTRA_PERFORMANCE = "UltraPerformance"
+    VPN_GW1 = "VpnGw1"
+    VPN_GW2 = "VpnGw2"
+    VPN_GW3 = "VpnGw3"
+    VPN_GW4 = "VpnGw4"
+    VPN_GW5 = "VpnGw5"
+    VPN_GW1_AZ = "VpnGw1AZ"
+    VPN_GW2_AZ = "VpnGw2AZ"
+    VPN_GW3_AZ = "VpnGw3AZ"
+    VPN_GW4_AZ = "VpnGw4AZ"
+    VPN_GW5_AZ = "VpnGw5AZ"
+    ER_GW1_AZ = "ErGw1AZ"
+    ER_GW2_AZ = "ErGw2AZ"
+    ER_GW3_AZ = "ErGw3AZ"
+
+
+class VirtualNetworkGatewayType(str, Enum):
+    """
+    The type of this virtual network gateway.
+    """
+    VPN = "Vpn"
+    EXPRESS_ROUTE = "ExpressRoute"
+    LOCAL_GATEWAY = "LocalGateway"
+
+
+class VirtualNetworkPeeringLevel(str, Enum):
+    """
+    The peering sync status of the virtual network peering.
+    """
+    FULLY_IN_SYNC = "FullyInSync"
+    REMOTE_NOT_IN_SYNC = "RemoteNotInSync"
+    LOCAL_NOT_IN_SYNC = "LocalNotInSync"
+    LOCAL_AND_REMOTE_NOT_IN_SYNC = "LocalAndRemoteNotInSync"
+
+
+class VirtualNetworkPeeringState(str, Enum):
+    """
+    The status of the virtual network peering.
+    """
+    INITIATED = "Initiated"
+    CONNECTED = "Connected"
+    DISCONNECTED = "Disconnected"
+
+
 class VirtualNetworkPrivateEndpointNetworkPolicies(str, Enum):
     """
     Enable or Disable apply network policies on private end point in the subnet.
@@ -85,3 +617,63 @@ class VirtualNetworkPrivateLinkServiceNetworkPolicies(str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+class VpnAuthenticationType(str, Enum):
+    """
+    VPN authentication types enabled for the virtual network gateway.
+    """
+    CERTIFICATE = "Certificate"
+    RADIUS = "Radius"
+    AAD = "AAD"
+
+
+class VpnClientProtocol(str, Enum):
+    """
+    VPN client protocol enabled for the virtual network gateway.
+    """
+    IKE_V2 = "IkeV2"
+    SSTP = "SSTP"
+    OPEN_VPN = "OpenVPN"
+
+
+class VpnGatewayGeneration(str, Enum):
+    """
+    The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
+    """
+    NONE = "None"
+    GENERATION1 = "Generation1"
+    GENERATION2 = "Generation2"
+
+
+class VpnNatRuleMode(str, Enum):
+    """
+    The Source NAT direction of a VPN NAT.
+    """
+    EGRESS_SNAT = "EgressSnat"
+    INGRESS_SNAT = "IngressSnat"
+
+
+class VpnNatRuleType(str, Enum):
+    """
+    The type of NAT rule for VPN NAT.
+    """
+    STATIC = "Static"
+    DYNAMIC = "Dynamic"
+
+
+class VpnPolicyMemberAttributeType(str, Enum):
+    """
+    The Vpn Policy member attribute type.
+    """
+    CERTIFICATE_GROUP_ID = "CertificateGroupId"
+    AAD_GROUP_ID = "AADGroupId"
+    RADIUS_AZURE_GROUP_ID = "RadiusAzureGroupId"
+
+
+class VpnType(str, Enum):
+    """
+    The type of this virtual network gateway.
+    """
+    POLICY_BASED = "PolicyBased"
+    ROUTE_BASED = "RouteBased"

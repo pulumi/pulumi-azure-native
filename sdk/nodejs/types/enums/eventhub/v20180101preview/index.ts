@@ -11,6 +11,16 @@ export const ClusterSkuName = {
  */
 export type ClusterSkuName = (typeof ClusterSkuName)[keyof typeof ClusterSkuName];
 
+export const DefaultAction = {
+    Allow: "Allow",
+    Deny: "Deny",
+} as const;
+
+/**
+ * Default Action for Network Rule Set
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
+
 export const EndPointProvisioningState = {
     Creating: "Creating",
     Updating: "Updating",
@@ -34,6 +44,15 @@ export const IPAction = {
  * The IP Filter Action
  */
 export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+
+export const NetworkRuleIPAction = {
+    Allow: "Allow",
+} as const;
+
+/**
+ * The IP Filter Action
+ */
+export type NetworkRuleIPAction = (typeof NetworkRuleIPAction)[keyof typeof NetworkRuleIPAction];
 
 export const PrivateLinkConnectionStatus = {
     Pending: "Pending",

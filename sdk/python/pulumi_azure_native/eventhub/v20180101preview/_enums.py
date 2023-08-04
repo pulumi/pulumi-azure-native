@@ -6,8 +6,10 @@ from enum import Enum
 
 __all__ = [
     'ClusterSkuName',
+    'DefaultAction',
     'EndPointProvisioningState',
     'IPAction',
+    'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
 ]
 
@@ -17,6 +19,14 @@ class ClusterSkuName(str, Enum):
     Name of this SKU.
     """
     DEDICATED = "Dedicated"
+
+
+class DefaultAction(str, Enum):
+    """
+    Default Action for Network Rule Set
+    """
+    ALLOW = "Allow"
+    DENY = "Deny"
 
 
 class EndPointProvisioningState(str, Enum):
@@ -37,6 +47,13 @@ class IPAction(str, Enum):
     """
     ACCEPT = "Accept"
     REJECT = "Reject"
+
+
+class NetworkRuleIPAction(str, Enum):
+    """
+    The IP Filter Action
+    """
+    ALLOW = "Allow"
 
 
 class PrivateLinkConnectionStatus(str, Enum):

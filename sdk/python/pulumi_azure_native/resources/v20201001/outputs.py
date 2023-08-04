@@ -17,6 +17,7 @@ __all__ = [
     'ErrorAdditionalInfoResponse',
     'ErrorResponseResponse',
     'ManagedServiceIdentityResponse',
+    'ResourceGroupPropertiesResponse',
     'ScriptStatusResponse',
     'StorageAccountConfigurationResponse',
     'SystemDataResponse',
@@ -305,6 +306,45 @@ class ManagedServiceIdentityResponse(dict):
         The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ResourceGroupPropertiesResponse(dict):
+    """
+    The resource group properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: str):
+        """
+        The resource group properties.
+        :param str provisioning_state: The provisioning state. 
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        The provisioning state. 
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

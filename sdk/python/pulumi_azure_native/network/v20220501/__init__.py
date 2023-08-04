@@ -10,7 +10,13 @@ from .ddos_protection_plan import *
 from .get_ddos_protection_plan import *
 from .get_network_watcher import *
 from .get_policy import *
+from .get_private_dns_zone_group import *
+from .get_private_endpoint import *
+from .get_web_application_firewall_policy import *
 from .network_watcher import *
 from .policy import *
+from .private_dns_zone_group import *
+from .private_endpoint import *
+from .web_application_firewall_policy import *
 from ._inputs import *
 from . import outputs

@@ -156,6 +156,39 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
     }
 
     /// <summary>
+    /// The identity type. Set this to 'SystemAssigned' in order to automatically create and assign an Azure Active Directory principal for the resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IdentityType None { get; } = new IdentityType("None");
+        public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        public static IdentityType SystemAssigned_UserAssigned { get; } = new IdentityType("SystemAssigned,UserAssigned");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The name of the sample schema to apply when creating this database.
     /// </summary>
     [EnumType]
@@ -211,6 +244,37 @@ namespace Pulumi.AzureNative.Sql.V20200801Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SecondaryType other && Equals(other);
         public bool Equals(SecondaryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+    /// </summary>
+    [EnumType]
+    public readonly struct ServerPublicNetworkAccess : IEquatable<ServerPublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private ServerPublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServerPublicNetworkAccess Enabled { get; } = new ServerPublicNetworkAccess("Enabled");
+        public static ServerPublicNetworkAccess Disabled { get; } = new ServerPublicNetworkAccess("Disabled");
+
+        public static bool operator ==(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(ServerPublicNetworkAccess left, ServerPublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(ServerPublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServerPublicNetworkAccess other && Equals(other);
+        public bool Equals(ServerPublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

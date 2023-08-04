@@ -10,6 +10,7 @@ import * as v20200301preview from "./v20200301preview";
 import * as v20200401preview from "./v20200401preview";
 import * as v20200501 from "./v20200501";
 import * as v20200701preview from "./v20200701preview";
+import * as v20200801preview from "./v20200801preview";
 import * as v20200901 from "./v20200901";
 import * as v20201001preview from "./v20201001preview";
 import * as v20210301preview from "./v20210301preview";
@@ -29,6 +30,7 @@ export {
     v20200401preview,
     v20200501,
     v20200701preview,
+    v20200801preview,
     v20200901,
     v20201001preview,
     v20210301preview,

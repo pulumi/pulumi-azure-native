@@ -20,6 +20,16 @@ export type ApiManagementService = import("./apiManagementService").ApiManagemen
 export const ApiManagementService: typeof import("./apiManagementService").ApiManagementService = null as any;
 utilities.lazyLoad(exports, ["ApiManagementService"], () => require("./apiManagementService"));
 
+export { ApiOperationPolicyArgs } from "./apiOperationPolicy";
+export type ApiOperationPolicy = import("./apiOperationPolicy").ApiOperationPolicy;
+export const ApiOperationPolicy: typeof import("./apiOperationPolicy").ApiOperationPolicy = null as any;
+utilities.lazyLoad(exports, ["ApiOperationPolicy"], () => require("./apiOperationPolicy"));
+
+export { ApiPolicyArgs } from "./apiPolicy";
+export type ApiPolicy = import("./apiPolicy").ApiPolicy;
+export const ApiPolicy: typeof import("./apiPolicy").ApiPolicy = null as any;
+utilities.lazyLoad(exports, ["ApiPolicy"], () => require("./apiPolicy"));
+
 export { DiagnosticLoggerArgs } from "./diagnosticLogger";
 export type DiagnosticLogger = import("./diagnosticLogger").DiagnosticLogger;
 export const DiagnosticLogger: typeof import("./diagnosticLogger").DiagnosticLogger = null as any;
@@ -39,6 +49,16 @@ export { GetApiManagementServiceSsoTokenArgs, GetApiManagementServiceSsoTokenRes
 export const getApiManagementServiceSsoToken: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoToken = null as any;
 export const getApiManagementServiceSsoTokenOutput: typeof import("./getApiManagementServiceSsoToken").getApiManagementServiceSsoTokenOutput = null as any;
 utilities.lazyLoad(exports, ["getApiManagementServiceSsoToken","getApiManagementServiceSsoTokenOutput"], () => require("./getApiManagementServiceSsoToken"));
+
+export { GetApiOperationPolicyArgs, GetApiOperationPolicyResult, GetApiOperationPolicyOutputArgs } from "./getApiOperationPolicy";
+export const getApiOperationPolicy: typeof import("./getApiOperationPolicy").getApiOperationPolicy = null as any;
+export const getApiOperationPolicyOutput: typeof import("./getApiOperationPolicy").getApiOperationPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiOperationPolicy","getApiOperationPolicyOutput"], () => require("./getApiOperationPolicy"));
+
+export { GetApiPolicyArgs, GetApiPolicyResult, GetApiPolicyOutputArgs } from "./getApiPolicy";
+export const getApiPolicy: typeof import("./getApiPolicy").getApiPolicy = null as any;
+export const getApiPolicyOutput: typeof import("./getApiPolicy").getApiPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiPolicy","getApiPolicyOutput"], () => require("./getApiPolicy"));
 
 export { GetLoggerArgs, GetLoggerResult, GetLoggerOutputArgs } from "./getLogger";
 export const getLogger: typeof import("./getLogger").getLogger = null as any;
@@ -89,6 +109,10 @@ const _module = {
                 return new ApiDiagnosticLogger(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:ApiManagementService":
                 return new ApiManagementService(name, <any>undefined, { urn })
+            case "azure-native:apimanagement/v20170301:ApiOperationPolicy":
+                return new ApiOperationPolicy(name, <any>undefined, { urn })
+            case "azure-native:apimanagement/v20170301:ApiPolicy":
+                return new ApiPolicy(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:DiagnosticLogger":
                 return new DiagnosticLogger(name, <any>undefined, { urn })
             case "azure-native:apimanagement/v20170301:GroupUser":

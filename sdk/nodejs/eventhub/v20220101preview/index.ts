@@ -10,15 +10,45 @@ export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
 export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
 utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
 
+export { ConsumerGroupArgs } from "./consumerGroup";
+export type ConsumerGroup = import("./consumerGroup").ConsumerGroup;
+export const ConsumerGroup: typeof import("./consumerGroup").ConsumerGroup = null as any;
+utilities.lazyLoad(exports, ["ConsumerGroup"], () => require("./consumerGroup"));
+
+export { EventHubArgs } from "./eventHub";
+export type EventHub = import("./eventHub").EventHub;
+export const EventHub: typeof import("./eventHub").EventHub = null as any;
+utilities.lazyLoad(exports, ["EventHub"], () => require("./eventHub"));
+
 export { GetApplicationGroupArgs, GetApplicationGroupResult, GetApplicationGroupOutputArgs } from "./getApplicationGroup";
 export const getApplicationGroup: typeof import("./getApplicationGroup").getApplicationGroup = null as any;
 export const getApplicationGroupOutput: typeof import("./getApplicationGroup").getApplicationGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getApplicationGroup","getApplicationGroupOutput"], () => require("./getApplicationGroup"));
 
+export { GetConsumerGroupArgs, GetConsumerGroupResult, GetConsumerGroupOutputArgs } from "./getConsumerGroup";
+export const getConsumerGroup: typeof import("./getConsumerGroup").getConsumerGroup = null as any;
+export const getConsumerGroupOutput: typeof import("./getConsumerGroup").getConsumerGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getConsumerGroup","getConsumerGroupOutput"], () => require("./getConsumerGroup"));
+
+export { GetEventHubArgs, GetEventHubResult, GetEventHubOutputArgs } from "./getEventHub";
+export const getEventHub: typeof import("./getEventHub").getEventHub = null as any;
+export const getEventHubOutput: typeof import("./getEventHub").getEventHubOutput = null as any;
+utilities.lazyLoad(exports, ["getEventHub","getEventHubOutput"], () => require("./getEventHub"));
+
+export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
+export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
+export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
+
 export { GetSchemaRegistryArgs, GetSchemaRegistryResult, GetSchemaRegistryOutputArgs } from "./getSchemaRegistry";
 export const getSchemaRegistry: typeof import("./getSchemaRegistry").getSchemaRegistry = null as any;
 export const getSchemaRegistryOutput: typeof import("./getSchemaRegistry").getSchemaRegistryOutput = null as any;
 utilities.lazyLoad(exports, ["getSchemaRegistry","getSchemaRegistryOutput"], () => require("./getSchemaRegistry"));
+
+export { NamespaceArgs } from "./namespace";
+export type Namespace = import("./namespace").Namespace;
+export const Namespace: typeof import("./namespace").Namespace = null as any;
+utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
 export { SchemaRegistryArgs } from "./schemaRegistry";
 export type SchemaRegistry = import("./schemaRegistry").SchemaRegistry;
@@ -35,6 +65,12 @@ const _module = {
         switch (type) {
             case "azure-native:eventhub/v20220101preview:ApplicationGroup":
                 return new ApplicationGroup(name, <any>undefined, { urn })
+            case "azure-native:eventhub/v20220101preview:ConsumerGroup":
+                return new ConsumerGroup(name, <any>undefined, { urn })
+            case "azure-native:eventhub/v20220101preview:EventHub":
+                return new EventHub(name, <any>undefined, { urn })
+            case "azure-native:eventhub/v20220101preview:Namespace":
+                return new Namespace(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20220101preview:SchemaRegistry":
                 return new SchemaRegistry(name, <any>undefined, { urn })
             default:

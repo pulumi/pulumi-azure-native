@@ -47,8 +47,14 @@ if typing.TYPE_CHECKING:
     v20201005privatepreview = __v20201005privatepreview
     import pulumi_azure_native.dbforpostgresql.v20210410privatepreview as __v20210410privatepreview
     v20210410privatepreview = __v20210410privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20210601 as __v20210601
+    v20210601 = __v20210601
+    import pulumi_azure_native.dbforpostgresql.v20210601preview as __v20210601preview
+    v20210601preview = __v20210601preview
     import pulumi_azure_native.dbforpostgresql.v20210615privatepreview as __v20210615privatepreview
     v20210615privatepreview = __v20210615privatepreview
+    import pulumi_azure_native.dbforpostgresql.v20220120preview as __v20220120preview
+    v20220120preview = __v20220120preview
     import pulumi_azure_native.dbforpostgresql.v20220308preview as __v20220308preview
     v20220308preview = __v20220308preview
     import pulumi_azure_native.dbforpostgresql.v20220308privatepreview as __v20220308privatepreview
@@ -71,7 +77,10 @@ else:
     v20200214privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20200214privatepreview')
     v20201005privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20201005privatepreview')
     v20210410privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210410privatepreview')
+    v20210601 = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210601')
+    v20210601preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210601preview')
     v20210615privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20210615privatepreview')
+    v20220120preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220120preview')
     v20220308preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220308preview')
     v20220308privatepreview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220308privatepreview')
     v20220501preview = _utilities.lazy_import('pulumi_azure_native.dbforpostgresql.v20220501preview')

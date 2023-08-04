@@ -20,11 +20,10 @@ namespace Pulumi.AzureNative.Network.V20220501
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static ActionType AnomalyScoring { get; } = new ActionType("AnomalyScoring");
         public static ActionType Allow { get; } = new ActionType("Allow");
         public static ActionType Block { get; } = new ActionType("Block");
         public static ActionType Log { get; } = new ActionType("Log");
-        public static ActionType Redirect { get; } = new ActionType("Redirect");
-        public static ActionType AnomalyScoring { get; } = new ActionType("AnomalyScoring");
 
         public static bool operator ==(ActionType left, ActionType right) => left.Equals(right);
         public static bool operator !=(ActionType left, ActionType right) => !left.Equals(right);
@@ -73,6 +72,36 @@ namespace Pulumi.AzureNative.Network.V20220501
     }
 
     /// <summary>
+    /// The type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationTypes : IEquatable<ExtendedLocationTypes>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationTypes EdgeZone { get; } = new ExtendedLocationTypes("EdgeZone");
+
+        public static bool operator ==(ExtendedLocationTypes left, ExtendedLocationTypes right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationTypes left, ExtendedLocationTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
+        public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Request variable to compare with.
     /// </summary>
     [EnumType]
@@ -111,7 +140,7 @@ namespace Pulumi.AzureNative.Network.V20220501
     }
 
     /// <summary>
-    /// Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+    /// The state of the managed rule. Defaults to Disabled if not specified.
     /// </summary>
     [EnumType]
     public readonly struct ManagedRuleEnabledState : IEquatable<ManagedRuleEnabledState>
@@ -283,6 +312,78 @@ namespace Pulumi.AzureNative.Network.V20220501
     }
 
     /// <summary>
+    /// The variable to be excluded.
+    /// </summary>
+    [EnumType]
+    public readonly struct OwaspCrsExclusionEntryMatchVariable : IEquatable<OwaspCrsExclusionEntryMatchVariable>
+    {
+        private readonly string _value;
+
+        private OwaspCrsExclusionEntryMatchVariable(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OwaspCrsExclusionEntryMatchVariable RequestHeaderNames { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestHeaderNames");
+        public static OwaspCrsExclusionEntryMatchVariable RequestCookieNames { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestCookieNames");
+        public static OwaspCrsExclusionEntryMatchVariable RequestArgNames { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestArgNames");
+        public static OwaspCrsExclusionEntryMatchVariable RequestHeaderKeys { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestHeaderKeys");
+        public static OwaspCrsExclusionEntryMatchVariable RequestHeaderValues { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestHeaderValues");
+        public static OwaspCrsExclusionEntryMatchVariable RequestCookieKeys { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestCookieKeys");
+        public static OwaspCrsExclusionEntryMatchVariable RequestCookieValues { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestCookieValues");
+        public static OwaspCrsExclusionEntryMatchVariable RequestArgKeys { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestArgKeys");
+        public static OwaspCrsExclusionEntryMatchVariable RequestArgValues { get; } = new OwaspCrsExclusionEntryMatchVariable("RequestArgValues");
+
+        public static bool operator ==(OwaspCrsExclusionEntryMatchVariable left, OwaspCrsExclusionEntryMatchVariable right) => left.Equals(right);
+        public static bool operator !=(OwaspCrsExclusionEntryMatchVariable left, OwaspCrsExclusionEntryMatchVariable right) => !left.Equals(right);
+
+        public static explicit operator string(OwaspCrsExclusionEntryMatchVariable value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OwaspCrsExclusionEntryMatchVariable other && Equals(other);
+        public bool Equals(OwaspCrsExclusionEntryMatchVariable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct OwaspCrsExclusionEntrySelectorMatchOperator : IEquatable<OwaspCrsExclusionEntrySelectorMatchOperator>
+    {
+        private readonly string _value;
+
+        private OwaspCrsExclusionEntrySelectorMatchOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OwaspCrsExclusionEntrySelectorMatchOperator EqualsValue { get; } = new OwaspCrsExclusionEntrySelectorMatchOperator("Equals");
+        public static OwaspCrsExclusionEntrySelectorMatchOperator Contains { get; } = new OwaspCrsExclusionEntrySelectorMatchOperator("Contains");
+        public static OwaspCrsExclusionEntrySelectorMatchOperator StartsWith { get; } = new OwaspCrsExclusionEntrySelectorMatchOperator("StartsWith");
+        public static OwaspCrsExclusionEntrySelectorMatchOperator EndsWith { get; } = new OwaspCrsExclusionEntrySelectorMatchOperator("EndsWith");
+        public static OwaspCrsExclusionEntrySelectorMatchOperator EqualsAny { get; } = new OwaspCrsExclusionEntrySelectorMatchOperator("EqualsAny");
+
+        public static bool operator ==(OwaspCrsExclusionEntrySelectorMatchOperator left, OwaspCrsExclusionEntrySelectorMatchOperator right) => left.Equals(right);
+        public static bool operator !=(OwaspCrsExclusionEntrySelectorMatchOperator left, OwaspCrsExclusionEntrySelectorMatchOperator right) => !left.Equals(right);
+
+        public static explicit operator string(OwaspCrsExclusionEntrySelectorMatchOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OwaspCrsExclusionEntrySelectorMatchOperator other && Equals(other);
+        public bool Equals(OwaspCrsExclusionEntrySelectorMatchOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
     /// </summary>
     [EnumType]
@@ -376,6 +477,40 @@ namespace Pulumi.AzureNative.Network.V20220501
     }
 
     /// <summary>
+    /// The type of Azure hop the packet should be sent to.
+    /// </summary>
+    [EnumType]
+    public readonly struct RouteNextHopType : IEquatable<RouteNextHopType>
+    {
+        private readonly string _value;
+
+        private RouteNextHopType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouteNextHopType VirtualNetworkGateway { get; } = new RouteNextHopType("VirtualNetworkGateway");
+        public static RouteNextHopType VnetLocal { get; } = new RouteNextHopType("VnetLocal");
+        public static RouteNextHopType Internet { get; } = new RouteNextHopType("Internet");
+        public static RouteNextHopType VirtualAppliance { get; } = new RouteNextHopType("VirtualAppliance");
+        public static RouteNextHopType None { get; } = new RouteNextHopType("None");
+
+        public static bool operator ==(RouteNextHopType left, RouteNextHopType right) => left.Equals(right);
+        public static bool operator !=(RouteNextHopType left, RouteNextHopType right) => !left.Equals(right);
+
+        public static explicit operator string(RouteNextHopType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouteNextHopType other && Equals(other);
+        public bool Equals(RouteNextHopType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes type of rule.
     /// </summary>
     [EnumType]
@@ -399,6 +534,103 @@ namespace Pulumi.AzureNative.Network.V20220501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RuleType other && Equals(other);
         public bool Equals(RuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network traffic is allowed or denied.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleAccess : IEquatable<SecurityRuleAccess>
+    {
+        private readonly string _value;
+
+        private SecurityRuleAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityRuleAccess Allow { get; } = new SecurityRuleAccess("Allow");
+        public static SecurityRuleAccess Deny { get; } = new SecurityRuleAccess("Deny");
+
+        public static bool operator ==(SecurityRuleAccess left, SecurityRuleAccess right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleAccess left, SecurityRuleAccess right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleAccess other && Equals(other);
+        public bool Equals(SecurityRuleAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleDirection : IEquatable<SecurityRuleDirection>
+    {
+        private readonly string _value;
+
+        private SecurityRuleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityRuleDirection Inbound { get; } = new SecurityRuleDirection("Inbound");
+        public static SecurityRuleDirection Outbound { get; } = new SecurityRuleDirection("Outbound");
+
+        public static bool operator ==(SecurityRuleDirection left, SecurityRuleDirection right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleDirection left, SecurityRuleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleDirection other && Equals(other);
+        public bool Equals(SecurityRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network protocol this rule applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleProtocol : IEquatable<SecurityRuleProtocol>
+    {
+        private readonly string _value;
+
+        private SecurityRuleProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityRuleProtocol Tcp { get; } = new SecurityRuleProtocol("Tcp");
+        public static SecurityRuleProtocol Udp { get; } = new SecurityRuleProtocol("Udp");
+        public static SecurityRuleProtocol Icmp { get; } = new SecurityRuleProtocol("Icmp");
+        public static SecurityRuleProtocol Esp { get; } = new SecurityRuleProtocol("Esp");
+        public static SecurityRuleProtocol Asterisk { get; } = new SecurityRuleProtocol("*");
+        public static SecurityRuleProtocol Ah { get; } = new SecurityRuleProtocol("Ah");
+
+        public static bool operator ==(SecurityRuleProtocol left, SecurityRuleProtocol right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleProtocol left, SecurityRuleProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleProtocol other && Equals(other);
+        public bool Equals(SecurityRuleProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -466,6 +698,307 @@ namespace Pulumi.AzureNative.Network.V20220501
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TransformType other && Equals(other);
         public bool Equals(TransformType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable or Disable apply network policies on private end point in the subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkPrivateEndpointNetworkPolicies : IEquatable<VirtualNetworkPrivateEndpointNetworkPolicies>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkPrivateEndpointNetworkPolicies(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkPrivateEndpointNetworkPolicies Enabled { get; } = new VirtualNetworkPrivateEndpointNetworkPolicies("Enabled");
+        public static VirtualNetworkPrivateEndpointNetworkPolicies Disabled { get; } = new VirtualNetworkPrivateEndpointNetworkPolicies("Disabled");
+
+        public static bool operator ==(VirtualNetworkPrivateEndpointNetworkPolicies left, VirtualNetworkPrivateEndpointNetworkPolicies right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkPrivateEndpointNetworkPolicies left, VirtualNetworkPrivateEndpointNetworkPolicies right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkPrivateEndpointNetworkPolicies value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkPrivateEndpointNetworkPolicies other && Equals(other);
+        public bool Equals(VirtualNetworkPrivateEndpointNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable or Disable apply network policies on private link service in the subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkPrivateLinkServiceNetworkPolicies : IEquatable<VirtualNetworkPrivateLinkServiceNetworkPolicies>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkPrivateLinkServiceNetworkPolicies(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkPrivateLinkServiceNetworkPolicies Enabled { get; } = new VirtualNetworkPrivateLinkServiceNetworkPolicies("Enabled");
+        public static VirtualNetworkPrivateLinkServiceNetworkPolicies Disabled { get; } = new VirtualNetworkPrivateLinkServiceNetworkPolicies("Disabled");
+
+        public static bool operator ==(VirtualNetworkPrivateLinkServiceNetworkPolicies left, VirtualNetworkPrivateLinkServiceNetworkPolicies right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkPrivateLinkServiceNetworkPolicies left, VirtualNetworkPrivateLinkServiceNetworkPolicies right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkPrivateLinkServiceNetworkPolicies value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkPrivateLinkServiceNetworkPolicies other && Equals(other);
+        public bool Equals(VirtualNetworkPrivateLinkServiceNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of Actions.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebApplicationFirewallAction : IEquatable<WebApplicationFirewallAction>
+    {
+        private readonly string _value;
+
+        private WebApplicationFirewallAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebApplicationFirewallAction Allow { get; } = new WebApplicationFirewallAction("Allow");
+        public static WebApplicationFirewallAction Block { get; } = new WebApplicationFirewallAction("Block");
+        public static WebApplicationFirewallAction Log { get; } = new WebApplicationFirewallAction("Log");
+
+        public static bool operator ==(WebApplicationFirewallAction left, WebApplicationFirewallAction right) => left.Equals(right);
+        public static bool operator !=(WebApplicationFirewallAction left, WebApplicationFirewallAction right) => !left.Equals(right);
+
+        public static explicit operator string(WebApplicationFirewallAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebApplicationFirewallAction other && Equals(other);
+        public bool Equals(WebApplicationFirewallAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The state of the policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebApplicationFirewallEnabledState : IEquatable<WebApplicationFirewallEnabledState>
+    {
+        private readonly string _value;
+
+        private WebApplicationFirewallEnabledState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebApplicationFirewallEnabledState Disabled { get; } = new WebApplicationFirewallEnabledState("Disabled");
+        public static WebApplicationFirewallEnabledState Enabled { get; } = new WebApplicationFirewallEnabledState("Enabled");
+
+        public static bool operator ==(WebApplicationFirewallEnabledState left, WebApplicationFirewallEnabledState right) => left.Equals(right);
+        public static bool operator !=(WebApplicationFirewallEnabledState left, WebApplicationFirewallEnabledState right) => !left.Equals(right);
+
+        public static explicit operator string(WebApplicationFirewallEnabledState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebApplicationFirewallEnabledState other && Equals(other);
+        public bool Equals(WebApplicationFirewallEnabledState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Match Variable.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebApplicationFirewallMatchVariable : IEquatable<WebApplicationFirewallMatchVariable>
+    {
+        private readonly string _value;
+
+        private WebApplicationFirewallMatchVariable(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebApplicationFirewallMatchVariable RemoteAddr { get; } = new WebApplicationFirewallMatchVariable("RemoteAddr");
+        public static WebApplicationFirewallMatchVariable RequestMethod { get; } = new WebApplicationFirewallMatchVariable("RequestMethod");
+        public static WebApplicationFirewallMatchVariable QueryString { get; } = new WebApplicationFirewallMatchVariable("QueryString");
+        public static WebApplicationFirewallMatchVariable PostArgs { get; } = new WebApplicationFirewallMatchVariable("PostArgs");
+        public static WebApplicationFirewallMatchVariable RequestUri { get; } = new WebApplicationFirewallMatchVariable("RequestUri");
+        public static WebApplicationFirewallMatchVariable RequestHeaders { get; } = new WebApplicationFirewallMatchVariable("RequestHeaders");
+        public static WebApplicationFirewallMatchVariable RequestBody { get; } = new WebApplicationFirewallMatchVariable("RequestBody");
+        public static WebApplicationFirewallMatchVariable RequestCookies { get; } = new WebApplicationFirewallMatchVariable("RequestCookies");
+
+        public static bool operator ==(WebApplicationFirewallMatchVariable left, WebApplicationFirewallMatchVariable right) => left.Equals(right);
+        public static bool operator !=(WebApplicationFirewallMatchVariable left, WebApplicationFirewallMatchVariable right) => !left.Equals(right);
+
+        public static explicit operator string(WebApplicationFirewallMatchVariable value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebApplicationFirewallMatchVariable other && Equals(other);
+        public bool Equals(WebApplicationFirewallMatchVariable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The mode of the policy.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebApplicationFirewallMode : IEquatable<WebApplicationFirewallMode>
+    {
+        private readonly string _value;
+
+        private WebApplicationFirewallMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebApplicationFirewallMode Prevention { get; } = new WebApplicationFirewallMode("Prevention");
+        public static WebApplicationFirewallMode Detection { get; } = new WebApplicationFirewallMode("Detection");
+
+        public static bool operator ==(WebApplicationFirewallMode left, WebApplicationFirewallMode right) => left.Equals(right);
+        public static bool operator !=(WebApplicationFirewallMode left, WebApplicationFirewallMode right) => !left.Equals(right);
+
+        public static explicit operator string(WebApplicationFirewallMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebApplicationFirewallMode other && Equals(other);
+        public bool Equals(WebApplicationFirewallMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operator to be matched.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebApplicationFirewallOperator : IEquatable<WebApplicationFirewallOperator>
+    {
+        private readonly string _value;
+
+        private WebApplicationFirewallOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebApplicationFirewallOperator IPMatch { get; } = new WebApplicationFirewallOperator("IPMatch");
+        public static WebApplicationFirewallOperator Equal { get; } = new WebApplicationFirewallOperator("Equal");
+        public static WebApplicationFirewallOperator Contains { get; } = new WebApplicationFirewallOperator("Contains");
+        public static WebApplicationFirewallOperator LessThan { get; } = new WebApplicationFirewallOperator("LessThan");
+        public static WebApplicationFirewallOperator GreaterThan { get; } = new WebApplicationFirewallOperator("GreaterThan");
+        public static WebApplicationFirewallOperator LessThanOrEqual { get; } = new WebApplicationFirewallOperator("LessThanOrEqual");
+        public static WebApplicationFirewallOperator GreaterThanOrEqual { get; } = new WebApplicationFirewallOperator("GreaterThanOrEqual");
+        public static WebApplicationFirewallOperator BeginsWith { get; } = new WebApplicationFirewallOperator("BeginsWith");
+        public static WebApplicationFirewallOperator EndsWith { get; } = new WebApplicationFirewallOperator("EndsWith");
+        public static WebApplicationFirewallOperator Regex { get; } = new WebApplicationFirewallOperator("Regex");
+        public static WebApplicationFirewallOperator GeoMatch { get; } = new WebApplicationFirewallOperator("GeoMatch");
+        public static WebApplicationFirewallOperator Any { get; } = new WebApplicationFirewallOperator("Any");
+
+        public static bool operator ==(WebApplicationFirewallOperator left, WebApplicationFirewallOperator right) => left.Equals(right);
+        public static bool operator !=(WebApplicationFirewallOperator left, WebApplicationFirewallOperator right) => !left.Equals(right);
+
+        public static explicit operator string(WebApplicationFirewallOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebApplicationFirewallOperator other && Equals(other);
+        public bool Equals(WebApplicationFirewallOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The rule type.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebApplicationFirewallRuleType : IEquatable<WebApplicationFirewallRuleType>
+    {
+        private readonly string _value;
+
+        private WebApplicationFirewallRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebApplicationFirewallRuleType MatchRule { get; } = new WebApplicationFirewallRuleType("MatchRule");
+        public static WebApplicationFirewallRuleType Invalid { get; } = new WebApplicationFirewallRuleType("Invalid");
+
+        public static bool operator ==(WebApplicationFirewallRuleType left, WebApplicationFirewallRuleType right) => left.Equals(right);
+        public static bool operator !=(WebApplicationFirewallRuleType left, WebApplicationFirewallRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(WebApplicationFirewallRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebApplicationFirewallRuleType other && Equals(other);
+        public bool Equals(WebApplicationFirewallRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Transforms applied before matching.
+    /// </summary>
+    [EnumType]
+    public readonly struct WebApplicationFirewallTransform : IEquatable<WebApplicationFirewallTransform>
+    {
+        private readonly string _value;
+
+        private WebApplicationFirewallTransform(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WebApplicationFirewallTransform Uppercase { get; } = new WebApplicationFirewallTransform("Uppercase");
+        public static WebApplicationFirewallTransform Lowercase { get; } = new WebApplicationFirewallTransform("Lowercase");
+        public static WebApplicationFirewallTransform Trim { get; } = new WebApplicationFirewallTransform("Trim");
+        public static WebApplicationFirewallTransform UrlDecode { get; } = new WebApplicationFirewallTransform("UrlDecode");
+        public static WebApplicationFirewallTransform UrlEncode { get; } = new WebApplicationFirewallTransform("UrlEncode");
+        public static WebApplicationFirewallTransform RemoveNulls { get; } = new WebApplicationFirewallTransform("RemoveNulls");
+        public static WebApplicationFirewallTransform HtmlEntityDecode { get; } = new WebApplicationFirewallTransform("HtmlEntityDecode");
+
+        public static bool operator ==(WebApplicationFirewallTransform left, WebApplicationFirewallTransform right) => left.Equals(right);
+        public static bool operator !=(WebApplicationFirewallTransform left, WebApplicationFirewallTransform right) => !left.Equals(right);
+
+        public static explicit operator string(WebApplicationFirewallTransform value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WebApplicationFirewallTransform other && Equals(other);
+        public bool Equals(WebApplicationFirewallTransform other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

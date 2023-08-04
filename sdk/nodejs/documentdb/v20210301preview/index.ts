@@ -15,6 +15,11 @@ export type CassandraDataCenter = import("./cassandraDataCenter").CassandraDataC
 export const CassandraDataCenter: typeof import("./cassandraDataCenter").CassandraDataCenter = null as any;
 utilities.lazyLoad(exports, ["CassandraDataCenter"], () => require("./cassandraDataCenter"));
 
+export { DatabaseAccountArgs } from "./databaseAccount";
+export type DatabaseAccount = import("./databaseAccount").DatabaseAccount;
+export const DatabaseAccount: typeof import("./databaseAccount").DatabaseAccount = null as any;
+utilities.lazyLoad(exports, ["DatabaseAccount"], () => require("./databaseAccount"));
+
 export { GetCassandraClusterArgs, GetCassandraClusterResult, GetCassandraClusterOutputArgs } from "./getCassandraCluster";
 export const getCassandraCluster: typeof import("./getCassandraCluster").getCassandraCluster = null as any;
 export const getCassandraClusterOutput: typeof import("./getCassandraCluster").getCassandraClusterOutput = null as any;
@@ -25,6 +30,16 @@ export const getCassandraDataCenter: typeof import("./getCassandraDataCenter").g
 export const getCassandraDataCenterOutput: typeof import("./getCassandraDataCenter").getCassandraDataCenterOutput = null as any;
 utilities.lazyLoad(exports, ["getCassandraDataCenter","getCassandraDataCenterOutput"], () => require("./getCassandraDataCenter"));
 
+export { GetDatabaseAccountArgs, GetDatabaseAccountResult, GetDatabaseAccountOutputArgs } from "./getDatabaseAccount";
+export const getDatabaseAccount: typeof import("./getDatabaseAccount").getDatabaseAccount = null as any;
+export const getDatabaseAccountOutput: typeof import("./getDatabaseAccount").getDatabaseAccountOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseAccount","getDatabaseAccountOutput"], () => require("./getDatabaseAccount"));
+
+export { GetSqlResourceSqlDatabaseArgs, GetSqlResourceSqlDatabaseResult, GetSqlResourceSqlDatabaseOutputArgs } from "./getSqlResourceSqlDatabase";
+export const getSqlResourceSqlDatabase: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabase = null as any;
+export const getSqlResourceSqlDatabaseOutput: typeof import("./getSqlResourceSqlDatabase").getSqlResourceSqlDatabaseOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlResourceSqlDatabase","getSqlResourceSqlDatabaseOutput"], () => require("./getSqlResourceSqlDatabase"));
+
 export { GetSqlResourceSqlRoleAssignmentArgs, GetSqlResourceSqlRoleAssignmentResult, GetSqlResourceSqlRoleAssignmentOutputArgs } from "./getSqlResourceSqlRoleAssignment";
 export const getSqlResourceSqlRoleAssignment: typeof import("./getSqlResourceSqlRoleAssignment").getSqlResourceSqlRoleAssignment = null as any;
 export const getSqlResourceSqlRoleAssignmentOutput: typeof import("./getSqlResourceSqlRoleAssignment").getSqlResourceSqlRoleAssignmentOutput = null as any;
@@ -34,6 +49,11 @@ export { GetSqlResourceSqlRoleDefinitionArgs, GetSqlResourceSqlRoleDefinitionRes
 export const getSqlResourceSqlRoleDefinition: typeof import("./getSqlResourceSqlRoleDefinition").getSqlResourceSqlRoleDefinition = null as any;
 export const getSqlResourceSqlRoleDefinitionOutput: typeof import("./getSqlResourceSqlRoleDefinition").getSqlResourceSqlRoleDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlResourceSqlRoleDefinition","getSqlResourceSqlRoleDefinitionOutput"], () => require("./getSqlResourceSqlRoleDefinition"));
+
+export { SqlResourceSqlDatabaseArgs } from "./sqlResourceSqlDatabase";
+export type SqlResourceSqlDatabase = import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase;
+export const SqlResourceSqlDatabase: typeof import("./sqlResourceSqlDatabase").SqlResourceSqlDatabase = null as any;
+utilities.lazyLoad(exports, ["SqlResourceSqlDatabase"], () => require("./sqlResourceSqlDatabase"));
 
 export { SqlResourceSqlRoleAssignmentArgs } from "./sqlResourceSqlRoleAssignment";
 export type SqlResourceSqlRoleAssignment = import("./sqlResourceSqlRoleAssignment").SqlResourceSqlRoleAssignment;
@@ -57,6 +77,10 @@ const _module = {
                 return new CassandraCluster(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20210301preview:CassandraDataCenter":
                 return new CassandraDataCenter(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20210301preview:DatabaseAccount":
+                return new DatabaseAccount(name, <any>undefined, { urn })
+            case "azure-native:documentdb/v20210301preview:SqlResourceSqlDatabase":
+                return new SqlResourceSqlDatabase(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleAssignment":
                 return new SqlResourceSqlRoleAssignment(name, <any>undefined, { urn })
             case "azure-native:documentdb/v20210301preview:SqlResourceSqlRoleDefinition":

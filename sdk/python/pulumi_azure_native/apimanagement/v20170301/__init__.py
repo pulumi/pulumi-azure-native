@@ -9,10 +9,14 @@ from ._enums import *
 from .api import *
 from .api_diagnostic_logger import *
 from .api_management_service import *
+from .api_operation_policy import *
+from .api_policy import *
 from .diagnostic_logger import *
 from .get_api import *
 from .get_api_management_service import *
 from .get_api_management_service_sso_token import *
+from .get_api_operation_policy import *
+from .get_api_policy import *
 from .get_logger import *
 from .get_user import *
 from .get_user_shared_access_token import *

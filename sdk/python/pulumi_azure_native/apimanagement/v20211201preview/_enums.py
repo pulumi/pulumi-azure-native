@@ -5,8 +5,56 @@
 from enum import Enum
 
 __all__ = [
+    'ApimIdentityType',
+    'CertificateSource',
+    'CertificateStatus',
+    'HostnameType',
     'PolicyFragmentContentFormat',
+    'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
+    'SkuType',
+    'VirtualNetworkType',
 ]
+
+
+class ApimIdentityType(str, Enum):
+    """
+    The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    NONE = "None"
+
+
+class CertificateSource(str, Enum):
+    """
+    Certificate Source.
+    """
+    MANAGED = "Managed"
+    KEY_VAULT = "KeyVault"
+    CUSTOM = "Custom"
+    BUILT_IN = "BuiltIn"
+
+
+class CertificateStatus(str, Enum):
+    """
+    Certificate Status.
+    """
+    COMPLETED = "Completed"
+    FAILED = "Failed"
+    IN_PROGRESS = "InProgress"
+
+
+class HostnameType(str, Enum):
+    """
+    Hostname type.
+    """
+    PROXY = "Proxy"
+    PORTAL = "Portal"
+    MANAGEMENT = "Management"
+    SCM = "Scm"
+    DEVELOPER_PORTAL = "DeveloperPortal"
 
 
 class PolicyFragmentContentFormat(str, Enum):
@@ -20,4 +68,69 @@ class PolicyFragmentContentFormat(str, Enum):
     RAWXML = "rawxml"
     """
     The contents are inline and Content type is a non XML encoded policy document.
+    """
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
+
+
+class SkuType(str, Enum):
+    """
+    Name of the Sku.
+    """
+    DEVELOPER = "Developer"
+    """
+    Developer SKU of Api Management.
+    """
+    STANDARD = "Standard"
+    """
+    Standard SKU of Api Management.
+    """
+    PREMIUM = "Premium"
+    """
+    Premium SKU of Api Management.
+    """
+    BASIC = "Basic"
+    """
+    Basic SKU of Api Management.
+    """
+    CONSUMPTION = "Consumption"
+    """
+    Consumption SKU of Api Management.
+    """
+    ISOLATED = "Isolated"
+    """
+    Isolated SKU of Api Management.
+    """
+
+
+class VirtualNetworkType(str, Enum):
+    """
+    The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+    """
+    NONE = "None"
+    """
+    The service is not part of any Virtual Network.
+    """
+    EXTERNAL = "External"
+    """
+    The service is part of Virtual Network and it is accessible from Internet.
+    """
+    INTERNAL = "Internal"
+    """
+    The service is part of Virtual Network and it is only accessible from within the virtual network.
     """

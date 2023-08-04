@@ -40,6 +40,67 @@ namespace Pulumi.AzureNative.Network.V20210801
     }
 
     /// <summary>
+    /// The name of this Bastion Host.
+    /// </summary>
+    [EnumType]
+    public readonly struct BastionHostSkuName : IEquatable<BastionHostSkuName>
+    {
+        private readonly string _value;
+
+        private BastionHostSkuName(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BastionHostSkuName Basic { get; } = new BastionHostSkuName("Basic");
+        public static BastionHostSkuName Standard { get; } = new BastionHostSkuName("Standard");
+
+        public static bool operator ==(BastionHostSkuName left, BastionHostSkuName right) => left.Equals(right);
+        public static bool operator !=(BastionHostSkuName left, BastionHostSkuName right) => !left.Equals(right);
+
+        public static explicit operator string(BastionHostSkuName value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BastionHostSkuName other && Equals(other);
+        public bool Equals(BastionHostSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the extended location.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExtendedLocationTypes : IEquatable<ExtendedLocationTypes>
+    {
+        private readonly string _value;
+
+        private ExtendedLocationTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExtendedLocationTypes EdgeZone { get; } = new ExtendedLocationTypes("EdgeZone");
+
+        public static bool operator ==(ExtendedLocationTypes left, ExtendedLocationTypes right) => left.Equals(right);
+        public static bool operator !=(ExtendedLocationTypes left, ExtendedLocationTypes right) => !left.Equals(right);
+
+        public static explicit operator string(ExtendedLocationTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
+        public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Describes if results should be in ascending/descending order
     /// </summary>
     [EnumType]
@@ -168,6 +229,37 @@ namespace Pulumi.AzureNative.Network.V20210801
     }
 
     /// <summary>
+    /// Private IP allocation method.
+    /// </summary>
+    [EnumType]
+    public readonly struct IPAllocationMethod : IEquatable<IPAllocationMethod>
+    {
+        private readonly string _value;
+
+        private IPAllocationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IPAllocationMethod Static { get; } = new IPAllocationMethod("Static");
+        public static IPAllocationMethod Dynamic { get; } = new IPAllocationMethod("Dynamic");
+
+        public static bool operator ==(IPAllocationMethod left, IPAllocationMethod right) => left.Equals(right);
+        public static bool operator !=(IPAllocationMethod left, IPAllocationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(IPAllocationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IPAllocationMethod other && Equals(other);
+        public bool Equals(IPAllocationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
     /// </summary>
     [EnumType]
@@ -193,6 +285,199 @@ namespace Pulumi.AzureNative.Network.V20210801
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of Azure hop the packet should be sent to.
+    /// </summary>
+    [EnumType]
+    public readonly struct RouteNextHopType : IEquatable<RouteNextHopType>
+    {
+        private readonly string _value;
+
+        private RouteNextHopType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouteNextHopType VirtualNetworkGateway { get; } = new RouteNextHopType("VirtualNetworkGateway");
+        public static RouteNextHopType VnetLocal { get; } = new RouteNextHopType("VnetLocal");
+        public static RouteNextHopType Internet { get; } = new RouteNextHopType("Internet");
+        public static RouteNextHopType VirtualAppliance { get; } = new RouteNextHopType("VirtualAppliance");
+        public static RouteNextHopType None { get; } = new RouteNextHopType("None");
+
+        public static bool operator ==(RouteNextHopType left, RouteNextHopType right) => left.Equals(right);
+        public static bool operator !=(RouteNextHopType left, RouteNextHopType right) => !left.Equals(right);
+
+        public static explicit operator string(RouteNextHopType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouteNextHopType other && Equals(other);
+        public bool Equals(RouteNextHopType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network traffic is allowed or denied.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleAccess : IEquatable<SecurityRuleAccess>
+    {
+        private readonly string _value;
+
+        private SecurityRuleAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityRuleAccess Allow { get; } = new SecurityRuleAccess("Allow");
+        public static SecurityRuleAccess Deny { get; } = new SecurityRuleAccess("Deny");
+
+        public static bool operator ==(SecurityRuleAccess left, SecurityRuleAccess right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleAccess left, SecurityRuleAccess right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleAccess other && Equals(other);
+        public bool Equals(SecurityRuleAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleDirection : IEquatable<SecurityRuleDirection>
+    {
+        private readonly string _value;
+
+        private SecurityRuleDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityRuleDirection Inbound { get; } = new SecurityRuleDirection("Inbound");
+        public static SecurityRuleDirection Outbound { get; } = new SecurityRuleDirection("Outbound");
+
+        public static bool operator ==(SecurityRuleDirection left, SecurityRuleDirection right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleDirection left, SecurityRuleDirection right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleDirection other && Equals(other);
+        public bool Equals(SecurityRuleDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Network protocol this rule applies to.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityRuleProtocol : IEquatable<SecurityRuleProtocol>
+    {
+        private readonly string _value;
+
+        private SecurityRuleProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityRuleProtocol Tcp { get; } = new SecurityRuleProtocol("Tcp");
+        public static SecurityRuleProtocol Udp { get; } = new SecurityRuleProtocol("Udp");
+        public static SecurityRuleProtocol Icmp { get; } = new SecurityRuleProtocol("Icmp");
+        public static SecurityRuleProtocol Esp { get; } = new SecurityRuleProtocol("Esp");
+        public static SecurityRuleProtocol Asterisk { get; } = new SecurityRuleProtocol("*");
+        public static SecurityRuleProtocol Ah { get; } = new SecurityRuleProtocol("Ah");
+
+        public static bool operator ==(SecurityRuleProtocol left, SecurityRuleProtocol right) => left.Equals(right);
+        public static bool operator !=(SecurityRuleProtocol left, SecurityRuleProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityRuleProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityRuleProtocol other && Equals(other);
+        public bool Equals(SecurityRuleProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable or Disable apply network policies on private end point in the subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkPrivateEndpointNetworkPolicies : IEquatable<VirtualNetworkPrivateEndpointNetworkPolicies>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkPrivateEndpointNetworkPolicies(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkPrivateEndpointNetworkPolicies Enabled { get; } = new VirtualNetworkPrivateEndpointNetworkPolicies("Enabled");
+        public static VirtualNetworkPrivateEndpointNetworkPolicies Disabled { get; } = new VirtualNetworkPrivateEndpointNetworkPolicies("Disabled");
+
+        public static bool operator ==(VirtualNetworkPrivateEndpointNetworkPolicies left, VirtualNetworkPrivateEndpointNetworkPolicies right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkPrivateEndpointNetworkPolicies left, VirtualNetworkPrivateEndpointNetworkPolicies right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkPrivateEndpointNetworkPolicies value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkPrivateEndpointNetworkPolicies other && Equals(other);
+        public bool Equals(VirtualNetworkPrivateEndpointNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enable or Disable apply network policies on private link service in the subnet.
+    /// </summary>
+    [EnumType]
+    public readonly struct VirtualNetworkPrivateLinkServiceNetworkPolicies : IEquatable<VirtualNetworkPrivateLinkServiceNetworkPolicies>
+    {
+        private readonly string _value;
+
+        private VirtualNetworkPrivateLinkServiceNetworkPolicies(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VirtualNetworkPrivateLinkServiceNetworkPolicies Enabled { get; } = new VirtualNetworkPrivateLinkServiceNetworkPolicies("Enabled");
+        public static VirtualNetworkPrivateLinkServiceNetworkPolicies Disabled { get; } = new VirtualNetworkPrivateLinkServiceNetworkPolicies("Disabled");
+
+        public static bool operator ==(VirtualNetworkPrivateLinkServiceNetworkPolicies left, VirtualNetworkPrivateLinkServiceNetworkPolicies right) => left.Equals(right);
+        public static bool operator !=(VirtualNetworkPrivateLinkServiceNetworkPolicies left, VirtualNetworkPrivateLinkServiceNetworkPolicies right) => !left.Equals(right);
+
+        public static explicit operator string(VirtualNetworkPrivateLinkServiceNetworkPolicies value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VirtualNetworkPrivateLinkServiceNetworkPolicies other && Equals(other);
+        public bool Equals(VirtualNetworkPrivateLinkServiceNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

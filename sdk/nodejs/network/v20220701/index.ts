@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { ApplicationGatewayArgs } from "./applicationGateway";
+export type ApplicationGateway = import("./applicationGateway").ApplicationGateway;
+export const ApplicationGateway: typeof import("./applicationGateway").ApplicationGateway = null as any;
+utilities.lazyLoad(exports, ["ApplicationGateway"], () => require("./applicationGateway"));
+
 export { DnsForwardingRulesetArgs } from "./dnsForwardingRuleset";
 export type DnsForwardingRuleset = import("./dnsForwardingRuleset").DnsForwardingRuleset;
 export const DnsForwardingRuleset: typeof import("./dnsForwardingRuleset").DnsForwardingRuleset = null as any;
@@ -15,10 +20,20 @@ export type DnsResolver = import("./dnsResolver").DnsResolver;
 export const DnsResolver: typeof import("./dnsResolver").DnsResolver = null as any;
 utilities.lazyLoad(exports, ["DnsResolver"], () => require("./dnsResolver"));
 
+export { FirewallPolicyRuleCollectionGroupArgs } from "./firewallPolicyRuleCollectionGroup";
+export type FirewallPolicyRuleCollectionGroup = import("./firewallPolicyRuleCollectionGroup").FirewallPolicyRuleCollectionGroup;
+export const FirewallPolicyRuleCollectionGroup: typeof import("./firewallPolicyRuleCollectionGroup").FirewallPolicyRuleCollectionGroup = null as any;
+utilities.lazyLoad(exports, ["FirewallPolicyRuleCollectionGroup"], () => require("./firewallPolicyRuleCollectionGroup"));
+
 export { ForwardingRuleArgs } from "./forwardingRule";
 export type ForwardingRule = import("./forwardingRule").ForwardingRule;
 export const ForwardingRule: typeof import("./forwardingRule").ForwardingRule = null as any;
 utilities.lazyLoad(exports, ["ForwardingRule"], () => require("./forwardingRule"));
+
+export { GetApplicationGatewayArgs, GetApplicationGatewayResult, GetApplicationGatewayOutputArgs } from "./getApplicationGateway";
+export const getApplicationGateway: typeof import("./getApplicationGateway").getApplicationGateway = null as any;
+export const getApplicationGatewayOutput: typeof import("./getApplicationGateway").getApplicationGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationGateway","getApplicationGatewayOutput"], () => require("./getApplicationGateway"));
 
 export { GetDnsForwardingRulesetArgs, GetDnsForwardingRulesetResult, GetDnsForwardingRulesetOutputArgs } from "./getDnsForwardingRuleset";
 export const getDnsForwardingRuleset: typeof import("./getDnsForwardingRuleset").getDnsForwardingRuleset = null as any;
@@ -29,6 +44,11 @@ export { GetDnsResolverArgs, GetDnsResolverResult, GetDnsResolverOutputArgs } fr
 export const getDnsResolver: typeof import("./getDnsResolver").getDnsResolver = null as any;
 export const getDnsResolverOutput: typeof import("./getDnsResolver").getDnsResolverOutput = null as any;
 utilities.lazyLoad(exports, ["getDnsResolver","getDnsResolverOutput"], () => require("./getDnsResolver"));
+
+export { GetFirewallPolicyRuleCollectionGroupArgs, GetFirewallPolicyRuleCollectionGroupResult, GetFirewallPolicyRuleCollectionGroupOutputArgs } from "./getFirewallPolicyRuleCollectionGroup";
+export const getFirewallPolicyRuleCollectionGroup: typeof import("./getFirewallPolicyRuleCollectionGroup").getFirewallPolicyRuleCollectionGroup = null as any;
+export const getFirewallPolicyRuleCollectionGroupOutput: typeof import("./getFirewallPolicyRuleCollectionGroup").getFirewallPolicyRuleCollectionGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getFirewallPolicyRuleCollectionGroup","getFirewallPolicyRuleCollectionGroupOutput"], () => require("./getFirewallPolicyRuleCollectionGroup"));
 
 export { GetForwardingRuleArgs, GetForwardingRuleResult, GetForwardingRuleOutputArgs } from "./getForwardingRule";
 export const getForwardingRule: typeof import("./getForwardingRule").getForwardingRule = null as any;
@@ -45,10 +65,25 @@ export const getOutboundEndpoint: typeof import("./getOutboundEndpoint").getOutb
 export const getOutboundEndpointOutput: typeof import("./getOutboundEndpoint").getOutboundEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getOutboundEndpoint","getOutboundEndpointOutput"], () => require("./getOutboundEndpoint"));
 
+export { GetPrivateDnsZoneGroupArgs, GetPrivateDnsZoneGroupResult, GetPrivateDnsZoneGroupOutputArgs } from "./getPrivateDnsZoneGroup";
+export const getPrivateDnsZoneGroup: typeof import("./getPrivateDnsZoneGroup").getPrivateDnsZoneGroup = null as any;
+export const getPrivateDnsZoneGroupOutput: typeof import("./getPrivateDnsZoneGroup").getPrivateDnsZoneGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateDnsZoneGroup","getPrivateDnsZoneGroupOutput"], () => require("./getPrivateDnsZoneGroup"));
+
+export { GetPrivateEndpointArgs, GetPrivateEndpointResult, GetPrivateEndpointOutputArgs } from "./getPrivateEndpoint";
+export const getPrivateEndpoint: typeof import("./getPrivateEndpoint").getPrivateEndpoint = null as any;
+export const getPrivateEndpointOutput: typeof import("./getPrivateEndpoint").getPrivateEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateEndpoint","getPrivateEndpointOutput"], () => require("./getPrivateEndpoint"));
+
 export { GetPrivateResolverVirtualNetworkLinkArgs, GetPrivateResolverVirtualNetworkLinkResult, GetPrivateResolverVirtualNetworkLinkOutputArgs } from "./getPrivateResolverVirtualNetworkLink";
 export const getPrivateResolverVirtualNetworkLink: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLink = null as any;
 export const getPrivateResolverVirtualNetworkLinkOutput: typeof import("./getPrivateResolverVirtualNetworkLink").getPrivateResolverVirtualNetworkLinkOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateResolverVirtualNetworkLink","getPrivateResolverVirtualNetworkLinkOutput"], () => require("./getPrivateResolverVirtualNetworkLink"));
+
+export { GetPublicIPAddressArgs, GetPublicIPAddressResult, GetPublicIPAddressOutputArgs } from "./getPublicIPAddress";
+export const getPublicIPAddress: typeof import("./getPublicIPAddress").getPublicIPAddress = null as any;
+export const getPublicIPAddressOutput: typeof import("./getPublicIPAddress").getPublicIPAddressOutput = null as any;
+utilities.lazyLoad(exports, ["getPublicIPAddress","getPublicIPAddressOutput"], () => require("./getPublicIPAddress"));
 
 export { GetSecurityRuleArgs, GetSecurityRuleResult, GetSecurityRuleOutputArgs } from "./getSecurityRule";
 export const getSecurityRule: typeof import("./getSecurityRule").getSecurityRule = null as any;
@@ -59,6 +94,21 @@ export { GetSubnetArgs, GetSubnetResult, GetSubnetOutputArgs } from "./getSubnet
 export const getSubnet: typeof import("./getSubnet").getSubnet = null as any;
 export const getSubnetOutput: typeof import("./getSubnet").getSubnetOutput = null as any;
 utilities.lazyLoad(exports, ["getSubnet","getSubnetOutput"], () => require("./getSubnet"));
+
+export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
+export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
+export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetwork","getVirtualNetworkOutput"], () => require("./getVirtualNetwork"));
+
+export { GetVirtualNetworkGatewayConnectionArgs, GetVirtualNetworkGatewayConnectionResult, GetVirtualNetworkGatewayConnectionOutputArgs } from "./getVirtualNetworkGatewayConnection";
+export const getVirtualNetworkGatewayConnection: typeof import("./getVirtualNetworkGatewayConnection").getVirtualNetworkGatewayConnection = null as any;
+export const getVirtualNetworkGatewayConnectionOutput: typeof import("./getVirtualNetworkGatewayConnection").getVirtualNetworkGatewayConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkGatewayConnection","getVirtualNetworkGatewayConnectionOutput"], () => require("./getVirtualNetworkGatewayConnection"));
+
+export { GetVirtualNetworkPeeringArgs, GetVirtualNetworkPeeringResult, GetVirtualNetworkPeeringOutputArgs } from "./getVirtualNetworkPeering";
+export const getVirtualNetworkPeering: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeering = null as any;
+export const getVirtualNetworkPeeringOutput: typeof import("./getVirtualNetworkPeering").getVirtualNetworkPeeringOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualNetworkPeering","getVirtualNetworkPeeringOutput"], () => require("./getVirtualNetworkPeering"));
 
 export { InboundEndpointArgs } from "./inboundEndpoint";
 export type InboundEndpoint = import("./inboundEndpoint").InboundEndpoint;
@@ -80,10 +130,25 @@ export type OutboundEndpoint = import("./outboundEndpoint").OutboundEndpoint;
 export const OutboundEndpoint: typeof import("./outboundEndpoint").OutboundEndpoint = null as any;
 utilities.lazyLoad(exports, ["OutboundEndpoint"], () => require("./outboundEndpoint"));
 
+export { PrivateDnsZoneGroupArgs } from "./privateDnsZoneGroup";
+export type PrivateDnsZoneGroup = import("./privateDnsZoneGroup").PrivateDnsZoneGroup;
+export const PrivateDnsZoneGroup: typeof import("./privateDnsZoneGroup").PrivateDnsZoneGroup = null as any;
+utilities.lazyLoad(exports, ["PrivateDnsZoneGroup"], () => require("./privateDnsZoneGroup"));
+
+export { PrivateEndpointArgs } from "./privateEndpoint";
+export type PrivateEndpoint = import("./privateEndpoint").PrivateEndpoint;
+export const PrivateEndpoint: typeof import("./privateEndpoint").PrivateEndpoint = null as any;
+utilities.lazyLoad(exports, ["PrivateEndpoint"], () => require("./privateEndpoint"));
+
 export { PrivateResolverVirtualNetworkLinkArgs } from "./privateResolverVirtualNetworkLink";
 export type PrivateResolverVirtualNetworkLink = import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink;
 export const PrivateResolverVirtualNetworkLink: typeof import("./privateResolverVirtualNetworkLink").PrivateResolverVirtualNetworkLink = null as any;
 utilities.lazyLoad(exports, ["PrivateResolverVirtualNetworkLink"], () => require("./privateResolverVirtualNetworkLink"));
+
+export { PublicIPAddressArgs } from "./publicIPAddress";
+export type PublicIPAddress = import("./publicIPAddress").PublicIPAddress;
+export const PublicIPAddress: typeof import("./publicIPAddress").PublicIPAddress = null as any;
+utilities.lazyLoad(exports, ["PublicIPAddress"], () => require("./publicIPAddress"));
 
 export { SecurityRuleArgs } from "./securityRule";
 export type SecurityRule = import("./securityRule").SecurityRule;
@@ -95,6 +160,21 @@ export type Subnet = import("./subnet").Subnet;
 export const Subnet: typeof import("./subnet").Subnet = null as any;
 utilities.lazyLoad(exports, ["Subnet"], () => require("./subnet"));
 
+export { VirtualNetworkArgs } from "./virtualNetwork";
+export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
+export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
+utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
+
+export { VirtualNetworkGatewayConnectionArgs } from "./virtualNetworkGatewayConnection";
+export type VirtualNetworkGatewayConnection = import("./virtualNetworkGatewayConnection").VirtualNetworkGatewayConnection;
+export const VirtualNetworkGatewayConnection: typeof import("./virtualNetworkGatewayConnection").VirtualNetworkGatewayConnection = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkGatewayConnection"], () => require("./virtualNetworkGatewayConnection"));
+
+export { VirtualNetworkPeeringArgs } from "./virtualNetworkPeering";
+export type VirtualNetworkPeering = import("./virtualNetworkPeering").VirtualNetworkPeering;
+export const VirtualNetworkPeering: typeof import("./virtualNetworkPeering").VirtualNetworkPeering = null as any;
+utilities.lazyLoad(exports, ["VirtualNetworkPeering"], () => require("./virtualNetworkPeering"));
+
 
 // Export enums:
 export * from "../../types/enums/network/v20220701";
@@ -103,22 +183,38 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:network/v20220701:ApplicationGateway":
+                return new ApplicationGateway(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:DnsForwardingRuleset":
                 return new DnsForwardingRuleset(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:DnsResolver":
                 return new DnsResolver(name, <any>undefined, { urn })
+            case "azure-native:network/v20220701:FirewallPolicyRuleCollectionGroup":
+                return new FirewallPolicyRuleCollectionGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:ForwardingRule":
                 return new ForwardingRule(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:InboundEndpoint":
                 return new InboundEndpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:OutboundEndpoint":
                 return new OutboundEndpoint(name, <any>undefined, { urn })
+            case "azure-native:network/v20220701:PrivateDnsZoneGroup":
+                return new PrivateDnsZoneGroup(name, <any>undefined, { urn })
+            case "azure-native:network/v20220701:PrivateEndpoint":
+                return new PrivateEndpoint(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:PrivateResolverVirtualNetworkLink":
                 return new PrivateResolverVirtualNetworkLink(name, <any>undefined, { urn })
+            case "azure-native:network/v20220701:PublicIPAddress":
+                return new PublicIPAddress(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:SecurityRule":
                 return new SecurityRule(name, <any>undefined, { urn })
             case "azure-native:network/v20220701:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
+            case "azure-native:network/v20220701:VirtualNetwork":
+                return new VirtualNetwork(name, <any>undefined, { urn })
+            case "azure-native:network/v20220701:VirtualNetworkGatewayConnection":
+                return new VirtualNetworkGatewayConnection(name, <any>undefined, { urn })
+            case "azure-native:network/v20220701:VirtualNetworkPeering":
+                return new VirtualNetworkPeering(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
