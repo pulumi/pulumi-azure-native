@@ -47,6 +47,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.databoxedge.v20201201 as __v20201201
+    v20201201 = __v20201201
     import pulumi_azure_native.databoxedge.v20210201 as __v20210201
     v20210201 = __v20210201
     import pulumi_azure_native.databoxedge.v20210201preview as __v20210201preview
@@ -60,6 +62,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.databoxedge.v20230701 as __v20230701
     v20230701 = __v20230701
 else:
+    v20201201 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20201201')
     v20210201 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20210201')
     v20210201preview = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20210201preview')
     v20220301 = _utilities.lazy_import('pulumi_azure_native.databoxedge.v20220301')

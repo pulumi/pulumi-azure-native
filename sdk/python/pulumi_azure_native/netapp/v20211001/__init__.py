@@ -6,8 +6,11 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_subvolume import *
+from .get_subvolume_metadata import *
 from .get_volume import *
 from .get_volume_group import *
+from .subvolume import *
 from .volume import *
 from .volume_group import *
 from ._inputs import *

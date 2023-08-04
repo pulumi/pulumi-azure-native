@@ -5,8 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'PrivateEndpointServiceConnectionStatus',
     'SchemaType',
 ]
+
+
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
 
 
 class SchemaType(str, Enum):

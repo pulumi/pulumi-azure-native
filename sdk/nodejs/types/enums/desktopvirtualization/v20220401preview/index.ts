@@ -22,9 +22,6 @@ export const DayOfWeek = {
     Sunday: "Sunday",
 } as const;
 
-/**
- * Day of the week.
- */
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
 export const HostPoolType = {
@@ -167,6 +164,16 @@ export const SessionHostComponentUpdateType = {
  */
 export type SessionHostComponentUpdateType = (typeof SessionHostComponentUpdateType)[keyof typeof SessionHostComponentUpdateType];
 
+export const SessionHostLoadBalancingAlgorithm = {
+    BreadthFirst: "BreadthFirst",
+    DepthFirst: "DepthFirst",
+} as const;
+
+/**
+ * Load balancing algorithm for ramp up period.
+ */
+export type SessionHostLoadBalancingAlgorithm = (typeof SessionHostLoadBalancingAlgorithm)[keyof typeof SessionHostLoadBalancingAlgorithm];
+
 export const SkuTier = {
     Free: "Free",
     Basic: "Basic",
@@ -178,3 +185,13 @@ export const SkuTier = {
  * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const StopHostsWhen = {
+    ZeroSessions: "ZeroSessions",
+    ZeroActiveSessions: "ZeroActiveSessions",
+} as const;
+
+/**
+ * Specifies when to stop hosts during ramp down period.
+ */
+export type StopHostsWhen = (typeof StopHostsWhen)[keyof typeof StopHostsWhen];

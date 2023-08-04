@@ -23,8 +23,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.storagesync.v20200301 as __v20200301
+    v20200301 = __v20200301
     import pulumi_azure_native.storagesync.v20220601 as __v20220601
     v20220601 = __v20220601
 else:
+    v20200301 = _utilities.lazy_import('pulumi_azure_native.storagesync.v20200301')
     v20220601 = _utilities.lazy_import('pulumi_azure_native.storagesync.v20220601')
 

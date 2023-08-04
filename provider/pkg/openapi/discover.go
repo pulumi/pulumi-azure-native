@@ -51,7 +51,16 @@ type VersionResources struct {
 type ProviderVersionList = map[ProviderName][]ApiVersion
 
 // DefaultVersionLock is an amalgamation of multiple API versions
-type DefaultVersionLock = map[ProviderName]map[DefinitionName]ApiVersion
+type DefaultVersionLock map[ProviderName]map[DefinitionName]ApiVersion
+
+func (l DefaultVersionLock) Get(providerName, definitionName string) (ApiVersion, bool) {
+	if providerVersions, ok := l[providerName]; ok {
+		if version, ok := providerVersions[definitionName]; ok {
+			return version, true
+		}
+	}
+	return "", false
+}
 
 func (v VersionResources) All() map[string]*ResourceSpec {
 	specs := map[string]*ResourceSpec{}

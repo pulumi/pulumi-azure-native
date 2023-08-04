@@ -446,6 +446,7 @@ export * from "../types/enums/securityinsights";
 
 // Export sub-modules:
 import * as v20190101preview from "./v20190101preview";
+import * as v20200101 from "./v20200101";
 import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
 import * as v20210901preview from "./v20210901preview";
@@ -470,6 +471,7 @@ import * as v20230701preview from "./v20230701preview";
 
 export {
     v20190101preview,
+    v20200101,
     v20210301preview,
     v20210401,
     v20210901preview,

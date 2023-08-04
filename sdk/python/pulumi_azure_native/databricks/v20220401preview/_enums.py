@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'IdentityType',
+    'PrivateLinkServiceConnectionStatus',
 ]
 
 
@@ -15,3 +16,13 @@ class IdentityType(str, Enum):
     """
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class PrivateLinkServiceConnectionStatus(str, Enum):
+    """
+    The status of a private endpoint connection
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+    DISCONNECTED = "Disconnected"

@@ -196,14 +196,18 @@ export * from "../types/enums/avs";
 
 // Export sub-modules:
 import * as v20200320 from "./v20200320";
+import * as v20200717preview from "./v20200717preview";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210601 from "./v20210601";
+import * as v20211201 from "./v20211201";
 import * as v20220501 from "./v20220501";
 
 export {
     v20200320,
+    v20200717preview,
     v20210101preview,
     v20210601,
+    v20211201,
     v20220501,
 };
 

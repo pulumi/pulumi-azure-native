@@ -6,9 +6,23 @@ from enum import Enum
 
 __all__ = [
     'AdvancedFilterOperatorType',
+    'ChannelProvisioningState',
+    'ChannelType',
+    'DeadLetterEndPointType',
+    'DeliveryAttributeMappingType',
+    'EndpointType',
+    'EventDefinitionKind',
+    'EventDeliverySchema',
+    'EventSubscriptionIdentityType',
+    'IdentityType',
+    'PartnerClientAuthenticationType',
+    'PartnerConfigurationProvisioningState',
     'PartnerDestinationActivationState',
     'PartnerDestinationProvisioningState',
+    'PartnerEndpointType',
     'PartnerRegistrationVisibilityState',
+    'PartnerTopicActivationState',
+    'ReadinessState',
 ]
 
 
@@ -37,6 +51,108 @@ class AdvancedFilterOperatorType(str, Enum):
     IS_NOT_NULL = "IsNotNull"
 
 
+class ChannelProvisioningState(str, Enum):
+    """
+    Provisioning state of the channel.
+    """
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    SUCCEEDED = "Succeeded"
+    CANCELED = "Canceled"
+    FAILED = "Failed"
+
+
+class ChannelType(str, Enum):
+    """
+    The type of the event channel which represents the  direction flow of events.
+    """
+    PARTNER_TOPIC = "PartnerTopic"
+    PARTNER_DESTINATION = "PartnerDestination"
+
+
+class DeadLetterEndPointType(str, Enum):
+    """
+    Type of the endpoint for the dead letter destination
+    """
+    STORAGE_BLOB = "StorageBlob"
+
+
+class DeliveryAttributeMappingType(str, Enum):
+    """
+    Type of the delivery attribute or header name.
+    """
+    STATIC = "Static"
+    DYNAMIC = "Dynamic"
+
+
+class EndpointType(str, Enum):
+    """
+    Type of the endpoint for the event subscription destination.
+    """
+    WEB_HOOK = "WebHook"
+    EVENT_HUB = "EventHub"
+    STORAGE_QUEUE = "StorageQueue"
+    HYBRID_CONNECTION = "HybridConnection"
+    SERVICE_BUS_QUEUE = "ServiceBusQueue"
+    SERVICE_BUS_TOPIC = "ServiceBusTopic"
+    AZURE_FUNCTION = "AzureFunction"
+    PARTNER_DESTINATION = "PartnerDestination"
+
+
+class EventDefinitionKind(str, Enum):
+    """
+    The kind of event type used.
+    """
+    INLINE = "Inline"
+
+
+class EventDeliverySchema(str, Enum):
+    """
+    The event delivery schema for the event subscription.
+    """
+    EVENT_GRID_SCHEMA = "EventGridSchema"
+    CUSTOM_INPUT_SCHEMA = "CustomInputSchema"
+    CLOUD_EVENT_SCHEMA_V1_0 = "CloudEventSchemaV1_0"
+
+
+class EventSubscriptionIdentityType(str, Enum):
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    """
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+
+
+class IdentityType(str, Enum):
+    """
+    The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identity.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+
+
+class PartnerClientAuthenticationType(str, Enum):
+    """
+    Type of client authentication
+    """
+    AZURE_AD = "AzureAD"
+
+
+class PartnerConfigurationProvisioningState(str, Enum):
+    """
+    Provisioning state of the partner configuration.
+    """
+    CREATING = "Creating"
+    UPDATING = "Updating"
+    DELETING = "Deleting"
+    SUCCEEDED = "Succeeded"
+    CANCELED = "Canceled"
+    FAILED = "Failed"
+
+
 class PartnerDestinationActivationState(str, Enum):
     """
     Activation state of the partner destination.
@@ -57,6 +173,13 @@ class PartnerDestinationProvisioningState(str, Enum):
     FAILED = "Failed"
 
 
+class PartnerEndpointType(str, Enum):
+    """
+    Type of the endpoint for the partner destination
+    """
+    WEB_HOOK = "WebHook"
+
+
 class PartnerRegistrationVisibilityState(str, Enum):
     """
     Visibility state of the partner registration.
@@ -64,3 +187,20 @@ class PartnerRegistrationVisibilityState(str, Enum):
     HIDDEN = "Hidden"
     PUBLIC_PREVIEW = "PublicPreview"
     GENERALLY_AVAILABLE = "GenerallyAvailable"
+
+
+class PartnerTopicActivationState(str, Enum):
+    """
+    Activation state of the partner topic.
+    """
+    NEVER_ACTIVATED = "NeverActivated"
+    ACTIVATED = "Activated"
+    DEACTIVATED = "Deactivated"
+
+
+class ReadinessState(str, Enum):
+    """
+    The readiness state of the corresponding partner topic.
+    """
+    NEVER_ACTIVATED = "NeverActivated"
+    ACTIVATED = "Activated"

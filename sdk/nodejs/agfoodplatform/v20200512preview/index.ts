@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { ExtensionArgs } from "./extension";
+export type Extension = import("./extension").Extension;
+export const Extension: typeof import("./extension").Extension = null as any;
+utilities.lazyLoad(exports, ["Extension"], () => require("./extension"));
+
 export { FarmBeatsModelArgs } from "./farmBeatsModel";
 export type FarmBeatsModel = import("./farmBeatsModel").FarmBeatsModel;
 export const FarmBeatsModel: typeof import("./farmBeatsModel").FarmBeatsModel = null as any;
 utilities.lazyLoad(exports, ["FarmBeatsModel"], () => require("./farmBeatsModel"));
+
+export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
+export const getExtension: typeof import("./getExtension").getExtension = null as any;
+export const getExtensionOutput: typeof import("./getExtension").getExtensionOutput = null as any;
+utilities.lazyLoad(exports, ["getExtension","getExtensionOutput"], () => require("./getExtension"));
 
 export { GetFarmBeatsModelArgs, GetFarmBeatsModelResult, GetFarmBeatsModelOutputArgs } from "./getFarmBeatsModel";
 export const getFarmBeatsModel: typeof import("./getFarmBeatsModel").getFarmBeatsModel = null as any;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:agfoodplatform/v20200512preview:Extension":
+                return new Extension(name, <any>undefined, { urn })
             case "azure-native:agfoodplatform/v20200512preview:FarmBeatsModel":
                 return new FarmBeatsModel(name, <any>undefined, { urn })
             default:

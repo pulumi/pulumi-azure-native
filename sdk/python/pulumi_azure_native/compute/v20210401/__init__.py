@@ -6,6 +6,11 @@ from ... import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .capacity_reservation import *
+from .capacity_reservation_group import *
+from .get_capacity_reservation import *
+from .get_capacity_reservation_group import *
 from .get_log_analytic_export_request_rate_by_interval import *
 from .get_log_analytic_export_throttled_requests import *
+from ._inputs import *
 from . import outputs

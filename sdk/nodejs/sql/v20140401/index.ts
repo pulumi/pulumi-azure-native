@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { DataMaskingPolicyArgs } from "./dataMaskingPolicy";
+export type DataMaskingPolicy = import("./dataMaskingPolicy").DataMaskingPolicy;
+export const DataMaskingPolicy: typeof import("./dataMaskingPolicy").DataMaskingPolicy = null as any;
+utilities.lazyLoad(exports, ["DataMaskingPolicy"], () => require("./dataMaskingPolicy"));
+
 export { DatabaseArgs } from "./database";
 export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
@@ -35,6 +40,16 @@ export type FirewallRule = import("./firewallRule").FirewallRule;
 export const FirewallRule: typeof import("./firewallRule").FirewallRule = null as any;
 utilities.lazyLoad(exports, ["FirewallRule"], () => require("./firewallRule"));
 
+export { GeoBackupPolicyArgs } from "./geoBackupPolicy";
+export type GeoBackupPolicy = import("./geoBackupPolicy").GeoBackupPolicy;
+export const GeoBackupPolicy: typeof import("./geoBackupPolicy").GeoBackupPolicy = null as any;
+utilities.lazyLoad(exports, ["GeoBackupPolicy"], () => require("./geoBackupPolicy"));
+
+export { GetDataMaskingPolicyArgs, GetDataMaskingPolicyResult, GetDataMaskingPolicyOutputArgs } from "./getDataMaskingPolicy";
+export const getDataMaskingPolicy: typeof import("./getDataMaskingPolicy").getDataMaskingPolicy = null as any;
+export const getDataMaskingPolicyOutput: typeof import("./getDataMaskingPolicy").getDataMaskingPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getDataMaskingPolicy","getDataMaskingPolicyOutput"], () => require("./getDataMaskingPolicy"));
+
 export { GetDatabaseArgs, GetDatabaseResult, GetDatabaseOutputArgs } from "./getDatabase";
 export const getDatabase: typeof import("./getDatabase").getDatabase = null as any;
 export const getDatabaseOutput: typeof import("./getDatabase").getDatabaseOutput = null as any;
@@ -64,6 +79,11 @@ export { GetFirewallRuleArgs, GetFirewallRuleResult, GetFirewallRuleOutputArgs }
 export const getFirewallRule: typeof import("./getFirewallRule").getFirewallRule = null as any;
 export const getFirewallRuleOutput: typeof import("./getFirewallRule").getFirewallRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getFirewallRule","getFirewallRuleOutput"], () => require("./getFirewallRule"));
+
+export { GetGeoBackupPolicyArgs, GetGeoBackupPolicyResult, GetGeoBackupPolicyOutputArgs } from "./getGeoBackupPolicy";
+export const getGeoBackupPolicy: typeof import("./getGeoBackupPolicy").getGeoBackupPolicy = null as any;
+export const getGeoBackupPolicyOutput: typeof import("./getGeoBackupPolicy").getGeoBackupPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getGeoBackupPolicy","getGeoBackupPolicyOutput"], () => require("./getGeoBackupPolicy"));
 
 export { GetServerArgs, GetServerResult, GetServerOutputArgs } from "./getServer";
 export const getServer: typeof import("./getServer").getServer = null as any;
@@ -123,6 +143,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:sql/v20140401:DataMaskingPolicy":
+                return new DataMaskingPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:Database":
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:DatabaseAdvisor":
@@ -135,6 +157,8 @@ const _module = {
                 return new ElasticPool(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure-native:sql/v20140401:GeoBackupPolicy":
+                return new GeoBackupPolicy(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:Server":
                 return new Server(name, <any>undefined, { urn })
             case "azure-native:sql/v20140401:ServerAdvisor":

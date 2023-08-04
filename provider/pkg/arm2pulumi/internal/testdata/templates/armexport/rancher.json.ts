@@ -4,7 +4,7 @@ import * as azure_native from "@pulumi/azure-native";
 const config = new pulumi.Config();
 const availabilitySetsPulumirancherAvsetNameParam = config.get("availabilitySetsPulumirancherAvsetNameParam") || "pulumirancher-avset";
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const availabilitySetResource = new azure_native.compute.v20230301.AvailabilitySet("availabilitySetResource", {
+const availabilitySetResource = new azure_native.compute.v20201201.AvailabilitySet("availabilitySetResource", {
     availabilitySetName: availabilitySetsPulumirancherAvsetNameParam,
     location: "westus2",
     platformFaultDomainCount: 1,
@@ -21,7 +21,7 @@ const extensionsDockerExtensionCaParam = config.require("extensionsDockerExtensi
 const extensionsDockerExtensionCertParam = config.require("extensionsDockerExtensionCertParam");
 const extensionsDockerExtensionKeyParam = config.require("extensionsDockerExtensionKeyParam");
 const virtualMachinesPulumirancherNameParam = config.get("virtualMachinesPulumirancherNameParam") || "pulumirancher";
-const extensionResource = new azure_native.compute.v20211101.VirtualMachineExtension("extensionResource", {
+const extensionResource = new azure_native.compute.v20210301.VirtualMachineExtension("extensionResource", {
     autoUpgradeMinorVersion: true,
     location: "westus2",
     protectedSettings: {
@@ -48,7 +48,7 @@ const extensionsEnablevmaccessRemoveUserParam = config.require("extensionsEnable
 const extensionsEnablevmaccessResetSshParam = config.require("extensionsEnablevmaccessResetSshParam");
 const extensionsEnablevmaccessSshKeyParam = config.require("extensionsEnablevmaccessSshKeyParam");
 const extensionsEnablevmaccessUsernameParam = config.require("extensionsEnablevmaccessUsernameParam");
-const extensionResource0 = new azure_native.compute.v20211101.VirtualMachineExtension("extensionResource0", {
+const extensionResource0 = new azure_native.compute.v20210301.VirtualMachineExtension("extensionResource0", {
     autoUpgradeMinorVersion: true,
     location: "westus2",
     protectedSettings: {
@@ -67,7 +67,7 @@ const extensionResource0 = new azure_native.compute.v20211101.VirtualMachineExte
     vmExtensionName: `${virtualMachinesPulumirancherNameParam}/enablevmaccess`,
 });
 const networkInterfacesPulumirancherNicNameParam = config.get("networkInterfacesPulumirancherNicNameParam") || "pulumirancher-nic";
-const networkInterfaceResource = new azure_native.network.v20230201.NetworkInterface("networkInterfaceResource", {
+const networkInterfaceResource = new azure_native.network.v20201101.NetworkInterface("networkInterfaceResource", {
     dnsSettings: {
         dnsServers: [],
     },
@@ -91,7 +91,7 @@ const networkInterfaceResource = new azure_native.network.v20230201.NetworkInter
     resourceGroupName: resourceGroupNameParam,
 });
 const networkSecurityGroupsPulumirancherNsgNameParam = config.get("networkSecurityGroupsPulumirancherNsgNameParam") || "pulumirancher-nsg";
-const networkSecurityGroupResource = new azure_native.network.v20230201.NetworkSecurityGroup("networkSecurityGroupResource", {
+const networkSecurityGroupResource = new azure_native.network.v20201101.NetworkSecurityGroup("networkSecurityGroupResource", {
     location: "westus2",
     networkSecurityGroupName: networkSecurityGroupsPulumirancherNsgNameParam,
     resourceGroupName: resourceGroupNameParam,
@@ -147,7 +147,7 @@ const networkSecurityGroupResource = new azure_native.network.v20230201.NetworkS
     ],
 });
 const publicIPAddressesPulumirancherPip1NameParam = config.get("publicIPAddressesPulumirancherPip1NameParam") || "pulumirancher-pip1";
-const publicIPAddressResource = new azure_native.network.v20230201.PublicIPAddress("publicIPAddressResource", {
+const publicIPAddressResource = new azure_native.network.v20201101.PublicIPAddress("publicIPAddressResource", {
     dnsSettings: {
         domainNameLabel: "pulumirancher",
         fqdn: "pulumirancher.westus2.cloudapp.azure.com",
@@ -164,7 +164,7 @@ const publicIPAddressResource = new azure_native.network.v20230201.PublicIPAddre
         name: "Basic",
     },
 });
-const securityRuleResource = new azure_native.network.v20220701.SecurityRule("securityRuleResource", {
+const securityRuleResource = new azure_native.network.v20201101.SecurityRule("securityRuleResource", {
     access: "Allow",
     description: "Docker",
     destinationAddressPrefix: "*",
@@ -181,7 +181,7 @@ const securityRuleResource = new azure_native.network.v20220701.SecurityRule("se
     sourcePortRange: "*",
     sourcePortRanges: [],
 });
-const securityRuleResource0 = new azure_native.network.v20220701.SecurityRule("securityRuleResource0", {
+const securityRuleResource0 = new azure_native.network.v20201101.SecurityRule("securityRuleResource0", {
     access: "Allow",
     description: "Rancher-HTTPS",
     destinationAddressPrefix: "*",
@@ -198,7 +198,7 @@ const securityRuleResource0 = new azure_native.network.v20220701.SecurityRule("s
     sourcePortRange: "*",
     sourcePortRanges: [],
 });
-const securityRuleResource1 = new azure_native.network.v20220701.SecurityRule("securityRuleResource1", {
+const securityRuleResource1 = new azure_native.network.v20201101.SecurityRule("securityRuleResource1", {
     access: "Allow",
     description: "SSH",
     destinationAddressPrefix: "*",
@@ -227,7 +227,7 @@ const subnetResource = new azure_native.network.v20200601.Subnet("subnetResource
     resourceGroupName: resourceGroupNameParam,
     subnetName: `${virtualNetworksPulumirancherVnetNameParam}/pulumirancher-subnet`,
 });
-const virtualMachineResource = new azure_native.compute.v20230301.VirtualMachine("virtualMachineResource", {
+const virtualMachineResource = new azure_native.compute.v20210301.VirtualMachine("virtualMachineResource", {
     availabilitySet: {
         id: "[resourceId('Microsoft.Compute/availabilitySets', parameters('availabilitySets_pulumirancher_avset_name'))]",
     },
@@ -258,7 +258,7 @@ const virtualMachineResource = new azure_native.compute.v20230301.VirtualMachine
             version: "latest",
         },
         osDisk: {
-            caching: azure_native.compute.v20230301.CachingTypes.ReadWrite,
+            caching: azure_native.compute.v20210301.CachingTypes.ReadWrite,
             createOption: "FromImage",
             diskSizeGB: 30,
             managedDisk: {
@@ -266,12 +266,12 @@ const virtualMachineResource = new azure_native.compute.v20230301.VirtualMachine
                 storageAccountType: "Standard_LRS",
             },
             name: `${virtualMachinesPulumirancherNameParam}_Os_Disk_1`,
-            osType: azure_native.compute.v20230301.OperatingSystemTypes.Linux,
+            osType: azure_native.compute.v20210301.OperatingSystemTypes.Linux,
         },
     },
     vmName: virtualMachinesPulumirancherNameParam,
 });
-const virtualNetworkResource = new azure_native.network.v20230201.VirtualNetwork("virtualNetworkResource", {
+const virtualNetworkResource = new azure_native.network.v20201101.VirtualNetwork("virtualNetworkResource", {
     addressSpace: {
         addressPrefixes: ["192.168.254.0/24"],
     },

@@ -10,10 +10,30 @@ export const getProject: typeof import("./getProject").getProject = null as any;
 export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
 
+export { GetSqlMigrationServiceArgs, GetSqlMigrationServiceResult, GetSqlMigrationServiceOutputArgs } from "./getSqlMigrationService";
+export const getSqlMigrationService: typeof import("./getSqlMigrationService").getSqlMigrationService = null as any;
+export const getSqlMigrationServiceOutput: typeof import("./getSqlMigrationService").getSqlMigrationServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getSqlMigrationService","getSqlMigrationServiceOutput"], () => require("./getSqlMigrationService"));
+
+export { ListSqlMigrationServiceAuthKeysArgs, ListSqlMigrationServiceAuthKeysResult, ListSqlMigrationServiceAuthKeysOutputArgs } from "./listSqlMigrationServiceAuthKeys";
+export const listSqlMigrationServiceAuthKeys: typeof import("./listSqlMigrationServiceAuthKeys").listSqlMigrationServiceAuthKeys = null as any;
+export const listSqlMigrationServiceAuthKeysOutput: typeof import("./listSqlMigrationServiceAuthKeys").listSqlMigrationServiceAuthKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listSqlMigrationServiceAuthKeys","listSqlMigrationServiceAuthKeysOutput"], () => require("./listSqlMigrationServiceAuthKeys"));
+
+export { ListSqlMigrationServiceMonitoringDataArgs, ListSqlMigrationServiceMonitoringDataResult, ListSqlMigrationServiceMonitoringDataOutputArgs } from "./listSqlMigrationServiceMonitoringData";
+export const listSqlMigrationServiceMonitoringData: typeof import("./listSqlMigrationServiceMonitoringData").listSqlMigrationServiceMonitoringData = null as any;
+export const listSqlMigrationServiceMonitoringDataOutput: typeof import("./listSqlMigrationServiceMonitoringData").listSqlMigrationServiceMonitoringDataOutput = null as any;
+utilities.lazyLoad(exports, ["listSqlMigrationServiceMonitoringData","listSqlMigrationServiceMonitoringDataOutput"], () => require("./listSqlMigrationServiceMonitoringData"));
+
 export { ProjectArgs } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
 utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+
+export { SqlMigrationServiceArgs } from "./sqlMigrationService";
+export type SqlMigrationService = import("./sqlMigrationService").SqlMigrationService;
+export const SqlMigrationService: typeof import("./sqlMigrationService").SqlMigrationService = null as any;
+utilities.lazyLoad(exports, ["SqlMigrationService"], () => require("./sqlMigrationService"));
 
 
 // Export enums:
@@ -25,6 +45,8 @@ const _module = {
         switch (type) {
             case "azure-native:datamigration/v20211030preview:Project":
                 return new Project(name, <any>undefined, { urn })
+            case "azure-native:datamigration/v20211030preview:SqlMigrationService":
+                return new SqlMigrationService(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

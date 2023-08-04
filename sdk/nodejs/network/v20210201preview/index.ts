@@ -70,6 +70,21 @@ export const getNspProfile: typeof import("./getNspProfile").getNspProfile = nul
 export const getNspProfileOutput: typeof import("./getNspProfile").getNspProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getNspProfile","getNspProfileOutput"], () => require("./getNspProfile"));
 
+export { GetSecurityAdminConfigurationArgs, GetSecurityAdminConfigurationResult, GetSecurityAdminConfigurationOutputArgs } from "./getSecurityAdminConfiguration";
+export const getSecurityAdminConfiguration: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfiguration = null as any;
+export const getSecurityAdminConfigurationOutput: typeof import("./getSecurityAdminConfiguration").getSecurityAdminConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityAdminConfiguration","getSecurityAdminConfigurationOutput"], () => require("./getSecurityAdminConfiguration"));
+
+export { GetSecurityUserConfigurationArgs, GetSecurityUserConfigurationResult, GetSecurityUserConfigurationOutputArgs } from "./getSecurityUserConfiguration";
+export const getSecurityUserConfiguration: typeof import("./getSecurityUserConfiguration").getSecurityUserConfiguration = null as any;
+export const getSecurityUserConfigurationOutput: typeof import("./getSecurityUserConfiguration").getSecurityUserConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getSecurityUserConfiguration","getSecurityUserConfigurationOutput"], () => require("./getSecurityUserConfiguration"));
+
+export { GetUserRuleArgs, GetUserRuleResult, GetUserRuleOutputArgs } from "./getUserRule";
+export const getUserRule: typeof import("./getUserRule").getUserRule = null as any;
+export const getUserRuleOutput: typeof import("./getUserRule").getUserRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getUserRule","getUserRuleOutput"], () => require("./getUserRule"));
+
 export { GetUserRuleCollectionArgs, GetUserRuleCollectionResult, GetUserRuleCollectionOutputArgs } from "./getUserRuleCollection";
 export const getUserRuleCollection: typeof import("./getUserRuleCollection").getUserRuleCollection = null as any;
 export const getUserRuleCollectionOutput: typeof import("./getUserRuleCollection").getUserRuleCollectionOutput = null as any;
@@ -150,6 +165,21 @@ export type NspProfile = import("./nspProfile").NspProfile;
 export const NspProfile: typeof import("./nspProfile").NspProfile = null as any;
 utilities.lazyLoad(exports, ["NspProfile"], () => require("./nspProfile"));
 
+export { SecurityAdminConfigurationArgs } from "./securityAdminConfiguration";
+export type SecurityAdminConfiguration = import("./securityAdminConfiguration").SecurityAdminConfiguration;
+export const SecurityAdminConfiguration: typeof import("./securityAdminConfiguration").SecurityAdminConfiguration = null as any;
+utilities.lazyLoad(exports, ["SecurityAdminConfiguration"], () => require("./securityAdminConfiguration"));
+
+export { SecurityUserConfigurationArgs } from "./securityUserConfiguration";
+export type SecurityUserConfiguration = import("./securityUserConfiguration").SecurityUserConfiguration;
+export const SecurityUserConfiguration: typeof import("./securityUserConfiguration").SecurityUserConfiguration = null as any;
+utilities.lazyLoad(exports, ["SecurityUserConfiguration"], () => require("./securityUserConfiguration"));
+
+export { UserRuleArgs } from "./userRule";
+export type UserRule = import("./userRule").UserRule;
+export const UserRule: typeof import("./userRule").UserRule = null as any;
+utilities.lazyLoad(exports, ["UserRule"], () => require("./userRule"));
+
 export { UserRuleCollectionArgs } from "./userRuleCollection";
 export type UserRuleCollection = import("./userRuleCollection").UserRuleCollection;
 export const UserRuleCollection: typeof import("./userRuleCollection").UserRuleCollection = null as any;
@@ -183,6 +213,12 @@ const _module = {
                 return new NspLink(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:NspProfile":
                 return new NspProfile(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:SecurityAdminConfiguration":
+                return new SecurityAdminConfiguration(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:SecurityUserConfiguration":
+                return new SecurityUserConfiguration(name, <any>undefined, { urn })
+            case "azure-native:network/v20210201preview:UserRule":
+                return new UserRule(name, <any>undefined, { urn })
             case "azure-native:network/v20210201preview:UserRuleCollection":
                 return new UserRuleCollection(name, <any>undefined, { urn })
             default:

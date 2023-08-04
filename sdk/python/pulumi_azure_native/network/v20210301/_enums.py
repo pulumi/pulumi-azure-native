@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'CommissionedState',
     'ExtendedLocationTypes',
+    'VpnNatRuleMode',
+    'VpnNatRuleType',
 ]
 
 
@@ -27,3 +29,19 @@ class ExtendedLocationTypes(str, Enum):
     The type of the extended location.
     """
     EDGE_ZONE = "EdgeZone"
+
+
+class VpnNatRuleMode(str, Enum):
+    """
+    The Source NAT direction of a VPN NAT.
+    """
+    EGRESS_SNAT = "EgressSnat"
+    INGRESS_SNAT = "IngressSnat"
+
+
+class VpnNatRuleType(str, Enum):
+    """
+    The type of NAT rule for VPN NAT.
+    """
+    STATIC = "Static"
+    DYNAMIC = "Dynamic"

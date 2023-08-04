@@ -11,11 +11,52 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
+    'CollectorPolicyArgs',
     'EmissionPoliciesPropertiesFormatArgs',
     'EmissionPolicyDestinationArgs',
     'IngestionPolicyPropertiesFormatArgs',
     'IngestionSourcesPropertiesFormatArgs',
 ]
+
+@pulumi.input_type
+class CollectorPolicyArgs:
+    def __init__(__self__, *,
+                 emission_policies: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]] = None,
+                 ingestion_policy: Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']] = None):
+        """
+        Collector policy resource.
+        :param pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]] emission_policies: Emission policies.
+        :param pulumi.Input['IngestionPolicyPropertiesFormatArgs'] ingestion_policy: Ingestion policies.
+        """
+        if emission_policies is not None:
+            pulumi.set(__self__, "emission_policies", emission_policies)
+        if ingestion_policy is not None:
+            pulumi.set(__self__, "ingestion_policy", ingestion_policy)
+
+    @property
+    @pulumi.getter(name="emissionPolicies")
+    def emission_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]]:
+        """
+        Emission policies.
+        """
+        return pulumi.get(self, "emission_policies")
+
+    @emission_policies.setter
+    def emission_policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]]):
+        pulumi.set(self, "emission_policies", value)
+
+    @property
+    @pulumi.getter(name="ingestionPolicy")
+    def ingestion_policy(self) -> Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']]:
+        """
+        Ingestion policies.
+        """
+        return pulumi.get(self, "ingestion_policy")
+
+    @ingestion_policy.setter
+    def ingestion_policy(self, value: Optional[pulumi.Input['IngestionPolicyPropertiesFormatArgs']]):
+        pulumi.set(self, "ingestion_policy", value)
+
 
 @pulumi.input_type
 class EmissionPoliciesPropertiesFormatArgs:

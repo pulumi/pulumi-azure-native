@@ -9,6 +9,8 @@ from ._enums import *
 from .database_principal_assignment import *
 from .get_database_principal_assignment import *
 from .get_kusto_pool import *
+from .get_kusto_pool_principal_assignment import *
 from .kusto_pool import *
+from .kusto_pool_principal_assignment import *
 from ._inputs import *
 from . import outputs

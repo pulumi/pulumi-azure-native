@@ -13,8 +13,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.quantum.v20191104preview as __v20191104preview
+    v20191104preview = __v20191104preview
     import pulumi_azure_native.quantum.v20220110preview as __v20220110preview
     v20220110preview = __v20220110preview
 else:
+    v20191104preview = _utilities.lazy_import('pulumi_azure_native.quantum.v20191104preview')
     v20220110preview = _utilities.lazy_import('pulumi_azure_native.quantum.v20220110preview')
 

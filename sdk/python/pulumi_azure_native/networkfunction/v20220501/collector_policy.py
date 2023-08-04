@@ -12,10 +12,10 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['CollectorPolicyArgs', 'CollectorPolicy']
+__all__ = ['CollectorPolicyInitArgs', 'CollectorPolicy']
 
 @pulumi.input_type
-class CollectorPolicyArgs:
+class CollectorPolicyInitArgs:
     def __init__(__self__, *,
                  azure_traffic_collector_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
@@ -126,18 +126,18 @@ class CollectorPolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CollectorPolicyArgs,
+                 args: CollectorPolicyInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Collector policy resource.
 
         :param str resource_name: The name of the resource.
-        :param CollectorPolicyArgs args: The arguments to use to populate this resource's properties.
+        :param CollectorPolicyInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(CollectorPolicyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(CollectorPolicyInitArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -158,7 +158,7 @@ class CollectorPolicy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = CollectorPolicyArgs.__new__(CollectorPolicyArgs)
+            __props__ = CollectorPolicyInitArgs.__new__(CollectorPolicyInitArgs)
 
             if azure_traffic_collector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_traffic_collector_name'")
@@ -196,7 +196,7 @@ class CollectorPolicy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = CollectorPolicyArgs.__new__(CollectorPolicyArgs)
+        __props__ = CollectorPolicyInitArgs.__new__(CollectorPolicyInitArgs)
 
         __props__.__dict__["emission_policies"] = None
         __props__.__dict__["etag"] = None

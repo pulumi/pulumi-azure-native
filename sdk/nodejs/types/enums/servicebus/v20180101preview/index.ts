@@ -2,6 +2,20 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const EndPointProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Canceled: "Canceled",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Provisioning state of the Private Endpoint Connection.
+ */
+export type EndPointProvisioningState = (typeof EndPointProvisioningState)[keyof typeof EndPointProvisioningState];
+
 export const IPAction = {
     Accept: "Accept",
     Reject: "Reject",
@@ -11,3 +25,15 @@ export const IPAction = {
  * The IP Filter Action
  */
 export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+
+export const PrivateLinkConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+    Disconnected: "Disconnected",
+} as const;
+
+/**
+ * Status of the connection.
+ */
+export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];

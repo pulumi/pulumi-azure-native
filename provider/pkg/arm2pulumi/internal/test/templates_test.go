@@ -4,7 +4,7 @@ package test
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 	"path/filepath"
 	"testing"
@@ -24,7 +24,7 @@ var renderOptionsOverride = map[string][]arm2pulumi.RenderOption{
 }
 
 func loadMetadata(t *testing.T) *resources.AzureAPIMetadata {
-	bytes, err := ioutil.ReadFile("../../../../../bin/metadata-compact.json")
+	bytes, err := os.ReadFile("../../../../../bin/metadata-compact.json")
 	require.NoError(t, err)
 	var metadata resources.AzureAPIMetadata
 	require.NoError(t, json.Unmarshal(bytes, &metadata))
@@ -32,7 +32,7 @@ func loadMetadata(t *testing.T) *resources.AzureAPIMetadata {
 }
 
 func loadSchema(t *testing.T) *schema.PackageSpec {
-	bytes, err := ioutil.ReadFile("../../../../../bin/schema-full.json")
+	bytes, err := os.ReadFile("../../../../../bin/schema-full.json")
 	require.NoError(t, err)
 	var pkgSpec schema.PackageSpec
 	require.NoError(t, json.Unmarshal(bytes, &pkgSpec))
@@ -43,9 +43,11 @@ func TestTemplateCoverage(t *testing.T) {
 	matches, err := filepath.Glob(testdataPath)
 	require.NoError(t, err)
 	renderer := arm2pulumi.NewRenderer(loadSchema(t), loadMetadata(t))
-	for _, match := range matches {
-		t.Run(match, func(t *testing.T) {
-			body, diags, err := renderer.RenderFileIR(match, renderOptionsOverride[match]...)
+	// To update all snapshots, set WRITE_SNAPSHOTS=true
+	writeSnapshots := os.Getenv("WRITE_SNAPSHOTS") == "true"
+	for _, filePath := range matches {
+		t.Run(filePath, func(t *testing.T) {
+			body, diags, err := renderer.RenderFileIR(filePath, renderOptionsOverride[filePath]...)
 			if err != nil {
 				t.Logf("%+v", err)
 			}
@@ -67,17 +69,17 @@ func TestTemplateCoverage(t *testing.T) {
 			sorted := []string{"nodejs", "dotnet", "python", "go"}
 			for _, lang := range sorted {
 				extension := extensions[lang]
-				_, err := os.Stat(fmt.Sprintf("%s%s", match, extension))
+				_, err := os.Stat(fmt.Sprintf("%s%s", filePath, extension))
 				if err != nil {
 					if !os.IsNotExist(err) {
 						t.Fatalf("Unexpected error: %+v", err)
 					}
 					continue
 				}
-				f, err := os.Open(fmt.Sprintf("%s%s", match, extension))
+				f, err := os.Open(fmt.Sprintf("%s%s", filePath, extension))
 				require.NoError(t, err)
 				defer func() { _ = f.Close() }()
-				exp, err := ioutil.ReadAll(f)
+				exp, err := io.ReadAll(f)
 				require.NoError(t, err)
 				expected = append(expected, string(exp))
 				langs = append(langs, lang)
@@ -85,7 +87,11 @@ func TestTemplateCoverage(t *testing.T) {
 			rendered, _, err := renderer.RenderPrograms(body, langs)
 			require.NoError(t, err)
 			for i, lang := range langs {
-				assert.Equal(t, expected[i], rendered[lang], match)
+				assert.Equal(t, expected[i], rendered[lang], filePath)
+				if writeSnapshots {
+					err := os.WriteFile(fmt.Sprintf("%s%s", filePath, extensions[lang]), []byte(rendered[lang]), 0644)
+					require.NoError(t, err)
+				}
 			}
 		})
 	}

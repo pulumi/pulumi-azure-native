@@ -24,3 +24,23 @@ export const ExtendedLocationTypes = {
  * The type of the extended location.
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
+export const VpnNatRuleMode = {
+    EgressSnat: "EgressSnat",
+    IngressSnat: "IngressSnat",
+} as const;
+
+/**
+ * The Source NAT direction of a VPN NAT.
+ */
+export type VpnNatRuleMode = (typeof VpnNatRuleMode)[keyof typeof VpnNatRuleMode];
+
+export const VpnNatRuleType = {
+    Static: "Static",
+    Dynamic: "Dynamic",
+} as const;
+
+/**
+ * The type of NAT rule for VPN NAT.
+ */
+export type VpnNatRuleType = (typeof VpnNatRuleType)[keyof typeof VpnNatRuleType];

@@ -51,3 +51,23 @@ export const TrustPolicyType = {
  * The type of trust policy.
  */
 export type TrustPolicyType = (typeof TrustPolicyType)[keyof typeof TrustPolicyType];
+
+export const WebhookAction = {
+    Push: "push",
+    Delete: "delete",
+    Quarantine: "quarantine",
+    Chart_push: "chart_push",
+    Chart_delete: "chart_delete",
+} as const;
+
+export type WebhookAction = (typeof WebhookAction)[keyof typeof WebhookAction];
+
+export const WebhookStatus = {
+    Enabled: "enabled",
+    Disabled: "disabled",
+} as const;
+
+/**
+ * The status of the webhook at the time the operation was called.
+ */
+export type WebhookStatus = (typeof WebhookStatus)[keyof typeof WebhookStatus];

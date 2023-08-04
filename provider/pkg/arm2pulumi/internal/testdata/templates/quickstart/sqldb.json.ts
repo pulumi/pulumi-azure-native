@@ -11,7 +11,7 @@ const resourceGroupVar = azure_native.resources.getResourceGroup({
 const locationParam = config.get("locationParam") || resourceGroupVar.then(resourceGroupVar => resourceGroupVar.location);
 const serverNameParam = config.get("serverNameParam") || "[uniqueString('sql', resourceGroup().id)]";
 const sqlDBNameParam = config.get("sqlDBNameParam") || "SampleDB";
-const serverResource = new azure_native.sql.v20221101preview.Server("serverResource", {
+const serverResource = new azure_native.sql.v20201101preview.Server("serverResource", {
     administratorLogin: administratorLoginParam,
     administratorLoginPassword: administratorLoginPasswordParam,
     location: locationParam,

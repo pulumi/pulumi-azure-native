@@ -15,6 +15,7 @@ __all__ = [
     'InboundEndpointIPConfigurationResponse',
     'SubResourceResponse',
     'SystemDataResponse',
+    'TargetDnsServerResponse',
     'VirtualNetworkDnsForwardingRulesetResponse',
 ]
 
@@ -217,6 +218,60 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TargetDnsServerResponse(dict):
+    """
+    Describes a server to forward the DNS queries to.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetDnsServerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetDnsServerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetDnsServerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: Optional[str] = None,
+                 port: Optional[int] = None):
+        """
+        Describes a server to forward the DNS queries to.
+        :param str ip_address: DNS server IP address.
+        :param int port: DNS server port.
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if port is None:
+            port = 53
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[str]:
+        """
+        DNS server IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        DNS server port.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type

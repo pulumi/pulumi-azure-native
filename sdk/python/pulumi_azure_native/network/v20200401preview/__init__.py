@@ -7,7 +7,11 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .dns_forwarding_ruleset import *
+from .dns_resolver import *
+from .forwarding_rule import *
 from .get_dns_forwarding_ruleset import *
+from .get_dns_resolver import *
+from .get_forwarding_rule import *
 from .get_inbound_endpoint import *
 from .get_outbound_endpoint import *
 from .get_private_resolver_virtual_network_link import *

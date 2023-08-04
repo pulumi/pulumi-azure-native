@@ -5,9 +5,18 @@
 from ... import _utilities
 import typing
 # Export this package's modules as members:
+from .app_service_environment_ase_custom_dns_suffix_configuration import *
+from .get_app_service_environment_ase_custom_dns_suffix_configuration import *
+from .get_static_site_linked_backend import *
+from .get_static_site_linked_backend_for_build import *
 from .get_web_app_ftp_allowed import *
 from .get_web_app_scm_allowed import *
 from .list_site_identifiers_assigned_to_host_name import *
+from .list_workflow_run_action_expression_traces import *
+from .list_workflow_run_action_repetition_expression_traces import *
+from .list_workflow_trigger_callback_url import *
+from .static_site_linked_backend import *
+from .static_site_linked_backend_for_build import *
 from .web_app_ftp_allowed import *
 from .web_app_scm_allowed import *
 from . import outputs

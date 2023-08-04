@@ -50,6 +50,11 @@ export const getIPSyncer: typeof import("./getIPSyncer").getIPSyncer = null as a
 export const getIPSyncerOutput: typeof import("./getIPSyncer").getIPSyncerOutput = null as any;
 utilities.lazyLoad(exports, ["getIPSyncer","getIPSyncerOutput"], () => require("./getIPSyncer"));
 
+export { GetThreatIntelligenceIndicatorArgs, GetThreatIntelligenceIndicatorResult, GetThreatIntelligenceIndicatorOutputArgs } from "./getThreatIntelligenceIndicator";
+export const getThreatIntelligenceIndicator: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicator = null as any;
+export const getThreatIntelligenceIndicatorOutput: typeof import("./getThreatIntelligenceIndicator").getThreatIntelligenceIndicatorOutput = null as any;
+utilities.lazyLoad(exports, ["getThreatIntelligenceIndicator","getThreatIntelligenceIndicatorOutput"], () => require("./getThreatIntelligenceIndicator"));
+
 export { GetWatchlistArgs, GetWatchlistResult, GetWatchlistOutputArgs } from "./getWatchlist";
 export const getWatchlist: typeof import("./getWatchlist").getWatchlist = null as any;
 export const getWatchlistOutput: typeof import("./getWatchlist").getWatchlistOutput = null as any;
@@ -59,6 +64,11 @@ export { IPSyncerArgs } from "./ipsyncer";
 export type IPSyncer = import("./ipsyncer").IPSyncer;
 export const IPSyncer: typeof import("./ipsyncer").IPSyncer = null as any;
 utilities.lazyLoad(exports, ["IPSyncer"], () => require("./ipsyncer"));
+
+export { ThreatIntelligenceIndicatorArgs } from "./threatIntelligenceIndicator";
+export type ThreatIntelligenceIndicator = import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator;
+export const ThreatIntelligenceIndicator: typeof import("./threatIntelligenceIndicator").ThreatIntelligenceIndicator = null as any;
+utilities.lazyLoad(exports, ["ThreatIntelligenceIndicator"], () => require("./threatIntelligenceIndicator"));
 
 export { WatchlistArgs } from "./watchlist";
 export type Watchlist = import("./watchlist").Watchlist;
@@ -81,6 +91,8 @@ const _module = {
                 return new BookmarkRelation(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:IPSyncer":
                 return new IPSyncer(name, <any>undefined, { urn })
+            case "azure-native:securityinsights/v20190101preview:ThreatIntelligenceIndicator":
+                return new ThreatIntelligenceIndicator(name, <any>undefined, { urn })
             case "azure-native:securityinsights/v20190101preview:Watchlist":
                 return new Watchlist(name, <any>undefined, { urn })
             default:

@@ -71,6 +71,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_azure_native.compute.v20200930 as __v20200930
+    v20200930 = __v20200930
     import pulumi_azure_native.compute.v20201201 as __v20201201
     v20201201 = __v20201201
     import pulumi_azure_native.compute.v20210301 as __v20210301
@@ -98,6 +100,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.compute.v20230301 as __v20230301
     v20230301 = __v20230301
 else:
+    v20200930 = _utilities.lazy_import('pulumi_azure_native.compute.v20200930')
     v20201201 = _utilities.lazy_import('pulumi_azure_native.compute.v20201201')
     v20210301 = _utilities.lazy_import('pulumi_azure_native.compute.v20210301')
     v20210401 = _utilities.lazy_import('pulumi_azure_native.compute.v20210401')

@@ -120,10 +120,20 @@ export const getOnlineDeployment: typeof import("./getOnlineDeployment").getOnli
 export const getOnlineDeploymentOutput: typeof import("./getOnlineDeployment").getOnlineDeploymentOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineDeployment","getOnlineDeploymentOutput"], () => require("./getOnlineDeployment"));
 
+export { GetOnlineDeploymentLogsArgs, GetOnlineDeploymentLogsResult, GetOnlineDeploymentLogsOutputArgs } from "./getOnlineDeploymentLogs";
+export const getOnlineDeploymentLogs: typeof import("./getOnlineDeploymentLogs").getOnlineDeploymentLogs = null as any;
+export const getOnlineDeploymentLogsOutput: typeof import("./getOnlineDeploymentLogs").getOnlineDeploymentLogsOutput = null as any;
+utilities.lazyLoad(exports, ["getOnlineDeploymentLogs","getOnlineDeploymentLogsOutput"], () => require("./getOnlineDeploymentLogs"));
+
 export { GetOnlineEndpointArgs, GetOnlineEndpointResult, GetOnlineEndpointOutputArgs } from "./getOnlineEndpoint";
 export const getOnlineEndpoint: typeof import("./getOnlineEndpoint").getOnlineEndpoint = null as any;
 export const getOnlineEndpointOutput: typeof import("./getOnlineEndpoint").getOnlineEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getOnlineEndpoint","getOnlineEndpointOutput"], () => require("./getOnlineEndpoint"));
+
+export { GetOnlineEndpointTokenArgs, GetOnlineEndpointTokenResult, GetOnlineEndpointTokenOutputArgs } from "./getOnlineEndpointToken";
+export const getOnlineEndpointToken: typeof import("./getOnlineEndpointToken").getOnlineEndpointToken = null as any;
+export const getOnlineEndpointTokenOutput: typeof import("./getOnlineEndpointToken").getOnlineEndpointTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getOnlineEndpointToken","getOnlineEndpointTokenOutput"], () => require("./getOnlineEndpointToken"));
 
 export { JobArgs } from "./job";
 export type Job = import("./job").Job;
@@ -134,6 +144,21 @@ export { LabelingJobArgs } from "./labelingJob";
 export type LabelingJob = import("./labelingJob").LabelingJob;
 export const LabelingJob: typeof import("./labelingJob").LabelingJob = null as any;
 utilities.lazyLoad(exports, ["LabelingJob"], () => require("./labelingJob"));
+
+export { ListBatchEndpointKeysArgs, ListBatchEndpointKeysResult, ListBatchEndpointKeysOutputArgs } from "./listBatchEndpointKeys";
+export const listBatchEndpointKeys: typeof import("./listBatchEndpointKeys").listBatchEndpointKeys = null as any;
+export const listBatchEndpointKeysOutput: typeof import("./listBatchEndpointKeys").listBatchEndpointKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listBatchEndpointKeys","listBatchEndpointKeysOutput"], () => require("./listBatchEndpointKeys"));
+
+export { ListDatastoreSecretsArgs, ListDatastoreSecretsResult, ListDatastoreSecretsOutputArgs } from "./listDatastoreSecrets";
+export const listDatastoreSecrets: typeof import("./listDatastoreSecrets").listDatastoreSecrets = null as any;
+export const listDatastoreSecretsOutput: typeof import("./listDatastoreSecrets").listDatastoreSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listDatastoreSecrets","listDatastoreSecretsOutput"], () => require("./listDatastoreSecrets"));
+
+export { ListOnlineEndpointKeysArgs, ListOnlineEndpointKeysResult, ListOnlineEndpointKeysOutputArgs } from "./listOnlineEndpointKeys";
+export const listOnlineEndpointKeys: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeys = null as any;
+export const listOnlineEndpointKeysOutput: typeof import("./listOnlineEndpointKeys").listOnlineEndpointKeysOutput = null as any;
+utilities.lazyLoad(exports, ["listOnlineEndpointKeys","listOnlineEndpointKeysOutput"], () => require("./listOnlineEndpointKeys"));
 
 export { ModelContainerArgs } from "./modelContainer";
 export type ModelContainer = import("./modelContainer").ModelContainer;

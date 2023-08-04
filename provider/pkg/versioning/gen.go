@@ -30,13 +30,15 @@ type VersionMetadata struct {
 
 func (v VersionMetadata) ShouldInclude(provider string, version string, typeName, token string) bool {
 	// Keep any resources in the default version lock
-	if resources, ok := v.Lock[provider]; ok {
-		if defaultResourceVersion, ok := resources[typeName]; ok {
-			if openapi.ApiToSdkVersion(defaultResourceVersion) == version {
-				return true
-			}
-		}
+	if lockVersion, found := v.Lock.Get(provider, typeName); found && openapi.ApiToSdkVersion(lockVersion) == version {
+		return true
 	}
+
+	// Keep any resources in the previous default version lock
+	if lockVersion, found := v.PreviousLock.Get(provider, typeName); found && openapi.ApiToSdkVersion(lockVersion) == version {
+		return true
+	}
+
 	// Exclude versions from removed versions
 	if versions, ok := v.RemovedVersions[provider]; ok {
 		for _, removedVersion := range versions {

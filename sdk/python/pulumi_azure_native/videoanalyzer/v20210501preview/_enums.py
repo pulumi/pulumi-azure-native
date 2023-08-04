@@ -5,8 +5,57 @@
 from enum import Enum
 
 __all__ = [
+    'AccessPolicyEccAlgo',
+    'AccessPolicyRole',
+    'AccessPolicyRsaAlgo',
     'AccountEncryptionKeyType',
 ]
+
+
+class AccessPolicyEccAlgo(str, Enum):
+    """
+    Elliptical curve algorithm to be used: ES256, ES384 or ES512.
+    """
+    ES256 = "ES256"
+    """
+    ES265
+    """
+    ES384 = "ES384"
+    """
+    ES384
+    """
+    ES512 = "ES512"
+    """
+    ES512
+    """
+
+
+class AccessPolicyRole(str, Enum):
+    """
+    Defines the access level granted by this policy.
+    """
+    READER = "Reader"
+    """
+    Reader role allows for read-only operations to be performed through the client APIs.
+    """
+
+
+class AccessPolicyRsaAlgo(str, Enum):
+    """
+    RSA algorithm to be used: RS256, RS384 or RS512.
+    """
+    RS256 = "RS256"
+    """
+    RS256
+    """
+    RS384 = "RS384"
+    """
+    RS384
+    """
+    RS512 = "RS512"
+    """
+    RS512
+    """
 
 
 class AccountEncryptionKeyType(str, Enum):

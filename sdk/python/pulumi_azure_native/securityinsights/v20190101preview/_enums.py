@@ -16,6 +16,7 @@ __all__ = [
     'IncidentStatus',
     'SettingKind',
     'Source',
+    'ThreatIntelligenceResourceKind',
     'TriggersOn',
     'TriggersWhen',
 ]
@@ -415,6 +416,16 @@ class Source(str, Enum):
     """
     LOCAL_FILE = "Local file"
     REMOTE_STORAGE = "Remote storage"
+
+
+class ThreatIntelligenceResourceKind(str, Enum):
+    """
+    The kind of the entity.
+    """
+    INDICATOR = "indicator"
+    """
+    Entity represents threat intelligence indicator in the system.
+    """
 
 
 class TriggersOn(str, Enum):

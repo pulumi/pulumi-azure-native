@@ -24,3 +24,24 @@ export const DdosCustomPolicyTriggerSensitivityOverride = {
  * The customized DDoS protection trigger rate sensitivity degrees. High: Trigger rate set with most sensitivity w.r.t. normal traffic. Default: Trigger rate set with moderate sensitivity w.r.t. normal traffic. Low: Trigger rate set with less sensitivity w.r.t. normal traffic. Relaxed: Trigger rate set with least sensitivity w.r.t. normal traffic.
  */
 export type DdosCustomPolicyTriggerSensitivityOverride = (typeof DdosCustomPolicyTriggerSensitivityOverride)[keyof typeof DdosCustomPolicyTriggerSensitivityOverride];
+
+export const FirewallPolicyIDPSQuerySortOrder = {
+    Ascending: "Ascending",
+    Descending: "Descending",
+} as const;
+
+/**
+ * Describes if results should be in ascending/descending order
+ */
+export type FirewallPolicyIDPSQuerySortOrder = (typeof FirewallPolicyIDPSQuerySortOrder)[keyof typeof FirewallPolicyIDPSQuerySortOrder];
+
+export const VpnPolicyMemberAttributeType = {
+    CertificateGroupId: "CertificateGroupId",
+    AADGroupId: "AADGroupId",
+    RadiusAzureGroupId: "RadiusAzureGroupId",
+} as const;
+
+/**
+ * The Vpn Policy member attribute type.
+ */
+export type VpnPolicyMemberAttributeType = (typeof VpnPolicyMemberAttributeType)[keyof typeof VpnPolicyMemberAttributeType];
