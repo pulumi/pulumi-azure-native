@@ -4588,10 +4588,10 @@
     ]
   },
   "ContainerStorage": {
-    "2023-03-01-preview": [
+    "2023-07-01-preview": [
       "Pool",
-      "Volume",
-      "VolumeSnapshot"
+      "Snapshot",
+      "Volume"
     ]
   },
   "CostManagement": {
@@ -5031,6 +5031,10 @@
       "listJobCredentials"
     ],
     "2022-12-01": [
+      "Job",
+      "listJobCredentials"
+    ],
+    "2023-03-01": [
       "Job",
       "listJobCredentials"
     ]
@@ -7899,6 +7903,10 @@
       "PrivateEndpointConnection",
       "getClusterGatewaySettings",
       "listVirtualMachineHosts"
+    ],
+    "2023-06-01-preview": [
+      "Cluster",
+      "ClusterPool"
     ]
   },
   "HanaOnAzure": {
@@ -9926,6 +9934,12 @@
       "listAccountKeys"
     ],
     "2021-12-01-preview": [
+      "Account",
+      "Creator",
+      "listAccountKeys",
+      "listAccountSas"
+    ],
+    "2023-06-01": [
       "Account",
       "Creator",
       "listAccountKeys",
@@ -17617,6 +17631,11 @@
       "ServerEndpoint",
       "StorageSyncService",
       "SyncGroup"
+    ]
+  },
+  "StorageTasks": {
+    "2023-01-01": [
+      "StorageTask"
     ]
   },
   "StreamAnalytics": {
