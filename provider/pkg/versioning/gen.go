@@ -3,6 +3,7 @@ package versioning
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"log"
 	"os"
@@ -14,6 +15,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"gopkg.in/yaml.v3"
 )
 
@@ -36,6 +38,11 @@ func (v VersionMetadata) ShouldInclude(provider string, version string, typeName
 
 	// Keep any resources in the previous default version lock
 	if lockVersion, found := v.PreviousLock.Get(provider, typeName); found && openapi.ApiToSdkVersion(lockVersion) == version {
+		return true
+	}
+
+	// Keep any resources that we know have usage
+	if v.requiredExplicitResources.Has(token) {
 		return true
 	}
 
@@ -131,7 +138,7 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 type VersionSources struct {
 	MajorVersion              int
 	activePathVersions        providerlist.ProviderPathVersions
-	requiredExplicitResources []string
+	requiredExplicitResources codegen.StringSet
 	PreviousLock              openapi.DefaultVersionLock
 	RemovedVersions           openapi.ProviderVersionList
 	Spec                      Spec
@@ -185,7 +192,7 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 	return VersionSources{
 		MajorVersion:              majorVersion,
 		activePathVersions:        activePathVersions,
-		requiredExplicitResources: knownExplicitResources,
+		requiredExplicitResources: codegen.NewStringSet(knownExplicitResources...),
 		PreviousLock:              previousLock,
 		RemovedVersions:           removed,
 		Spec:                      spec,
@@ -239,13 +246,13 @@ func ReadRequiredExplicitResources(path string) ([]string, error) {
 	}
 	defer txtFile.Close()
 	// Read each line into an array
-	bytes, err := ioutil.ReadAll(txtFile)
+	bytes, err := io.ReadAll(txtFile)
 	if err != nil {
 		return nil, err
 	}
 
 	// Split on new line
-	lines := strings.Split(string(bytes), "\r")
+	lines := strings.Split(string(bytes), "\n")
 	return lines, nil
 }
 

@@ -91,7 +91,7 @@ const networkInterfaceResource = new azure_native.network.v20201101.NetworkInter
     resourceGroupName: resourceGroupNameParam,
 });
 const networkSecurityGroupsPulumirancherNsgNameParam = config.get("networkSecurityGroupsPulumirancherNsgNameParam") || "pulumirancher-nsg";
-const networkSecurityGroupResource = new azure_native.network.v20201101.NetworkSecurityGroup("networkSecurityGroupResource", {
+const networkSecurityGroupResource = new azure_native.network.v20200501.NetworkSecurityGroup("networkSecurityGroupResource", {
     location: "westus2",
     networkSecurityGroupName: networkSecurityGroupsPulumirancherNsgNameParam,
     resourceGroupName: resourceGroupNameParam,
@@ -216,7 +216,7 @@ const securityRuleResource1 = new azure_native.network.v20201101.SecurityRule("s
     sourcePortRanges: [],
 });
 const virtualNetworksPulumirancherVnetNameParam = config.get("virtualNetworksPulumirancherVnetNameParam") || "pulumirancher-vnet";
-const subnetResource = new azure_native.network.v20200601.Subnet("subnetResource", {
+const subnetResource = new azure_native.network.v20200501.Subnet("subnetResource", {
     addressPrefix: "192.168.254.0/24",
     delegations: [],
     networkSecurityGroup: {
@@ -271,7 +271,7 @@ const virtualMachineResource = new azure_native.compute.v20210301.VirtualMachine
     },
     vmName: virtualMachinesPulumirancherNameParam,
 });
-const virtualNetworkResource = new azure_native.network.v20201101.VirtualNetwork("virtualNetworkResource", {
+const virtualNetworkResource = new azure_native.network.v20200501.VirtualNetwork("virtualNetworkResource", {
     addressSpace: {
         addressPrefixes: ["192.168.254.0/24"],
     },

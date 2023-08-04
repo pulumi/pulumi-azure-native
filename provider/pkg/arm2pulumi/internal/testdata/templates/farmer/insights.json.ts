@@ -3,7 +3,7 @@ import * as azure_native from "@pulumi/azure-native";
 
 const config = new pulumi.Config();
 const resourceGroupNameParam = config.require("resourceGroupNameParam");
-const farmerpulumi2 = new azure_native.storage.v20210201.StorageAccount("farmerpulumi2", {
+const farmerpulumi2 = new azure_native.storage.v20210101.StorageAccount("farmerpulumi2", {
     accountName: "farmerpulumi2",
     kind: "StorageV2",
     location: "northeurope",
