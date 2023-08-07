@@ -1,6 +1,8 @@
 {
   "ADHybridHealthService": [],
-  "AVS": [],
+  "AVS": [
+    "2023-03-01"
+  ],
   "Aad": [],
   "AadIam": [
     "2017-04-01-preview",
@@ -242,7 +244,9 @@
     "2023-03-01-preview"
   ],
   "Dashboard": [],
-  "DataBox": [],
+  "DataBox": [
+    "2023-03-01"
+  ],
   "DataBoxEdge": [
     "2022-04-01-preview",
     "2022-12-01-preview",
@@ -325,7 +329,8 @@
   "GraphServices": [],
   "GuestConfiguration": [],
   "HDInsight": [
-    "2023-04-15-preview"
+    "2023-04-15-preview",
+    "2023-06-01-preview"
   ],
   "HanaOnAzure": [],
   "HardwareSecurityModules": [
@@ -502,7 +507,8 @@
   "Maps": [
     "2021-02-01",
     "2021-07-01-preview",
-    "2021-12-01-preview"
+    "2021-12-01-preview",
+    "2023-06-01"
   ],
   "Marketplace": [],
   "MarketplaceNotifications": [],
@@ -748,6 +754,7 @@
   ],
   "StoragePool": [],
   "StorageSync": [],
+  "StorageTasks": [],
   "StreamAnalytics": [
     "2020-03-01-preview",
     "2021-10-01-preview"

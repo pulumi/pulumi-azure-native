@@ -573,9 +573,9 @@
     "listManagedClusterUserCredentials": "2023-04-01"
   },
   "ContainerStorage": {
-    "Pool": "2023-03-01-preview",
-    "Volume": "2023-03-01-preview",
-    "VolumeSnapshot": "2023-03-01-preview"
+    "Pool": "2023-07-01-preview",
+    "Snapshot": "2023-07-01-preview",
+    "Volume": "2023-07-01-preview"
   },
   "CostManagement": {
     "Budget": "2023-04-01-preview",
@@ -1030,6 +1030,7 @@
   "HDInsight": {
     "Application": "2021-06-01",
     "Cluster": "2021-06-01",
+    "ClusterPool": "2023-06-01-preview",
     "Extension": "2021-06-01",
     "ExtensionAzureMonitorStatus": "2021-06-01",
     "ExtensionMonitoringStatus": "2021-06-01",
@@ -2215,6 +2216,9 @@
     "ServerEndpoint": "2022-06-01",
     "StorageSyncService": "2022-06-01",
     "SyncGroup": "2022-06-01"
+  },
+  "StorageTasks": {
+    "StorageTask": "2023-01-01"
   },
   "StreamAnalytics": {
     "Cluster": "2020-03-01",
