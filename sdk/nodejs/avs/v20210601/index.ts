@@ -5,67 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { CloudLinkArgs } from "./cloudLink";
-export type CloudLink = import("./cloudLink").CloudLink;
-export const CloudLink: typeof import("./cloudLink").CloudLink = null as any;
-utilities.lazyLoad(exports, ["CloudLink"], () => require("./cloudLink"));
-
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-
-export { GetCloudLinkArgs, GetCloudLinkResult, GetCloudLinkOutputArgs } from "./getCloudLink";
-export const getCloudLink: typeof import("./getCloudLink").getCloudLink = null as any;
-export const getCloudLinkOutput: typeof import("./getCloudLink").getCloudLinkOutput = null as any;
-utilities.lazyLoad(exports, ["getCloudLink","getCloudLinkOutput"], () => require("./getCloudLink"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
-export { GetScriptExecutionArgs, GetScriptExecutionResult, GetScriptExecutionOutputArgs } from "./getScriptExecution";
-export const getScriptExecution: typeof import("./getScriptExecution").getScriptExecution = null as any;
-export const getScriptExecutionOutput: typeof import("./getScriptExecution").getScriptExecutionOutput = null as any;
-utilities.lazyLoad(exports, ["getScriptExecution","getScriptExecutionOutput"], () => require("./getScriptExecution"));
-
-export { GetScriptExecutionLogsArgs, GetScriptExecutionLogsResult, GetScriptExecutionLogsOutputArgs } from "./getScriptExecutionLogs";
-export const getScriptExecutionLogs: typeof import("./getScriptExecutionLogs").getScriptExecutionLogs = null as any;
-export const getScriptExecutionLogsOutput: typeof import("./getScriptExecutionLogs").getScriptExecutionLogsOutput = null as any;
-utilities.lazyLoad(exports, ["getScriptExecutionLogs","getScriptExecutionLogsOutput"], () => require("./getScriptExecutionLogs"));
-
-export { GetWorkloadNetworkPublicIPArgs, GetWorkloadNetworkPublicIPResult, GetWorkloadNetworkPublicIPOutputArgs } from "./getWorkloadNetworkPublicIP";
-export const getWorkloadNetworkPublicIP: typeof import("./getWorkloadNetworkPublicIP").getWorkloadNetworkPublicIP = null as any;
-export const getWorkloadNetworkPublicIPOutput: typeof import("./getWorkloadNetworkPublicIP").getWorkloadNetworkPublicIPOutput = null as any;
-utilities.lazyLoad(exports, ["getWorkloadNetworkPublicIP","getWorkloadNetworkPublicIPOutput"], () => require("./getWorkloadNetworkPublicIP"));
-
-export { ScriptExecutionArgs } from "./scriptExecution";
-export type ScriptExecution = import("./scriptExecution").ScriptExecution;
-export const ScriptExecution: typeof import("./scriptExecution").ScriptExecution = null as any;
-utilities.lazyLoad(exports, ["ScriptExecution"], () => require("./scriptExecution"));
-
-export { WorkloadNetworkPublicIPArgs } from "./workloadNetworkPublicIP";
-export type WorkloadNetworkPublicIP = import("./workloadNetworkPublicIP").WorkloadNetworkPublicIP;
-export const WorkloadNetworkPublicIP: typeof import("./workloadNetworkPublicIP").WorkloadNetworkPublicIP = null as any;
-utilities.lazyLoad(exports, ["WorkloadNetworkPublicIP"], () => require("./workloadNetworkPublicIP"));
-
-
-// Export enums:
-export * from "../../types/enums/avs/v20210601";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:avs/v20210601:CloudLink":
-                return new CloudLink(name, <any>undefined, { urn })
             case "azure-native:avs/v20210601:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
-            case "azure-native:avs/v20210601:ScriptExecution":
-                return new ScriptExecution(name, <any>undefined, { urn })
-            case "azure-native:avs/v20210601:WorkloadNetworkPublicIP":
-                return new WorkloadNetworkPublicIP(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

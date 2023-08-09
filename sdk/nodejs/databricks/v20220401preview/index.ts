@@ -15,16 +15,6 @@ export const getAccessConnector: typeof import("./getAccessConnector").getAccess
 export const getAccessConnectorOutput: typeof import("./getAccessConnector").getAccessConnectorOutput = null as any;
 utilities.lazyLoad(exports, ["getAccessConnector","getAccessConnectorOutput"], () => require("./getAccessConnector"));
 
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
-
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
 
 // Export enums:
 export * from "../../types/enums/databricks/v20220401preview";
@@ -35,8 +25,6 @@ const _module = {
         switch (type) {
             case "azure-native:databricks/v20220401preview:AccessConnector":
                 return new AccessConnector(name, <any>undefined, { urn })
-            case "azure-native:databricks/v20220401preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

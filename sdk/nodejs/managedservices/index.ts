@@ -30,11 +30,9 @@ utilities.lazyLoad(exports, ["RegistrationDefinition"], () => require("./registr
 export * from "../types/enums/managedservices";
 
 // Export sub-modules:
-import * as v20190901 from "./v20190901";
 import * as v20221001 from "./v20221001";
 
 export {
-    v20190901,
     v20221001,
 };
 

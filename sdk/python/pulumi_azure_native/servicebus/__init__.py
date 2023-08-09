@@ -43,8 +43,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.servicebus.v20170401 as __v20170401
-    v20170401 = __v20170401
     import pulumi_azure_native.servicebus.v20180101preview as __v20180101preview
     v20180101preview = __v20180101preview
     import pulumi_azure_native.servicebus.v20220101preview as __v20220101preview
@@ -52,7 +50,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.servicebus.v20221001preview as __v20221001preview
     v20221001preview = __v20221001preview
 else:
-    v20170401 = _utilities.lazy_import('pulumi_azure_native.servicebus.v20170401')
     v20180101preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20180101preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20220101preview')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.servicebus.v20221001preview')

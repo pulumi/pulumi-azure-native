@@ -153,18 +153,6 @@ export const ScaleSetPriority = {
  */
 export type ScaleSetPriority = (typeof ScaleSetPriority)[keyof typeof ScaleSetPriority];
 
-export const SnapshotType = {
-    /**
-     * The snapshot is a snapshot of a node pool.
-     */
-    NodePool: "NodePool",
-} as const;
-
-/**
- * The type of a snapshot. The default is NodePool.
- */
-export type SnapshotType = (typeof SnapshotType)[keyof typeof SnapshotType];
-
 export const WorkloadRuntime = {
     /**
      * Nodes will use Kubelet to run standard OCI container workloads.

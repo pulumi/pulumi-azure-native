@@ -123,37 +123,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
     }
 
     /// <summary>
-    /// The state of the data masking policy.
-    /// </summary>
-    [EnumType]
-    public readonly struct DataMaskingState : IEquatable<DataMaskingState>
-    {
-        private readonly string _value;
-
-        private DataMaskingState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DataMaskingState Disabled { get; } = new DataMaskingState("Disabled");
-        public static DataMaskingState Enabled { get; } = new DataMaskingState("Enabled");
-
-        public static bool operator ==(DataMaskingState left, DataMaskingState right) => left.Equals(right);
-        public static bool operator !=(DataMaskingState left, DataMaskingState right) => !left.Equals(right);
-
-        public static explicit operator string(DataMaskingState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DataMaskingState other && Equals(other);
-        public bool Equals(DataMaskingState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// The edition of the database. The DatabaseEditions enumeration contains all the valid editions. If createMode is NonReadableSecondary or OnlineSecondary, this value is ignored.
     /// 
     /// The list of SKUs may vary by region and support offer. To determine the SKUs (including the SKU name, tier/edition, family, and capacity) that are available to your subscription in an Azure region, use the `Capabilities_ListByLocation` REST API or one of the following commands:
@@ -233,37 +202,6 @@ namespace Pulumi.AzureNative.Sql.V20140401
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ElasticPoolEdition other && Equals(other);
         public bool Equals(ElasticPoolEdition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The state of the geo backup policy.
-    /// </summary>
-    [EnumType]
-    public readonly struct GeoBackupPolicyState : IEquatable<GeoBackupPolicyState>
-    {
-        private readonly string _value;
-
-        private GeoBackupPolicyState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static GeoBackupPolicyState Disabled { get; } = new GeoBackupPolicyState("Disabled");
-        public static GeoBackupPolicyState Enabled { get; } = new GeoBackupPolicyState("Enabled");
-
-        public static bool operator ==(GeoBackupPolicyState left, GeoBackupPolicyState right) => left.Equals(right);
-        public static bool operator !=(GeoBackupPolicyState left, GeoBackupPolicyState right) => !left.Equals(right);
-
-        public static explicit operator string(GeoBackupPolicyState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is GeoBackupPolicyState other && Equals(other);
-        public bool Equals(GeoBackupPolicyState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

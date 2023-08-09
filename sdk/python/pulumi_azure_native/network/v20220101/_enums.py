@@ -7,8 +7,6 @@ from enum import Enum
 __all__ = [
     'DdosCustomPolicyProtocol',
     'DdosCustomPolicyTriggerSensitivityOverride',
-    'FirewallPolicyIDPSQuerySortOrder',
-    'VpnPolicyMemberAttributeType',
 ]
 
 
@@ -29,20 +27,3 @@ class DdosCustomPolicyTriggerSensitivityOverride(str, Enum):
     LOW = "Low"
     DEFAULT = "Default"
     HIGH = "High"
-
-
-class FirewallPolicyIDPSQuerySortOrder(str, Enum):
-    """
-    Describes if results should be in ascending/descending order
-    """
-    ASCENDING = "Ascending"
-    DESCENDING = "Descending"
-
-
-class VpnPolicyMemberAttributeType(str, Enum):
-    """
-    The Vpn Policy member attribute type.
-    """
-    CERTIFICATE_GROUP_ID = "CertificateGroupId"
-    AAD_GROUP_ID = "AADGroupId"
-    RADIUS_AZURE_GROUP_ID = "RadiusAzureGroupId"

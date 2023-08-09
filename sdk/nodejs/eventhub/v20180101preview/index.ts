@@ -5,16 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { ClusterArgs } from "./cluster";
-export type Cluster = import("./cluster").Cluster;
-export const Cluster: typeof import("./cluster").Cluster = null as any;
-utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
-
-export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
-export const getCluster: typeof import("./getCluster").getCluster = null as any;
-export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
-utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
-
 export { GetNamespaceIpFilterRuleArgs, GetNamespaceIpFilterRuleResult, GetNamespaceIpFilterRuleOutputArgs } from "./getNamespaceIpFilterRule";
 export const getNamespaceIpFilterRule: typeof import("./getNamespaceIpFilterRule").getNamespaceIpFilterRule = null as any;
 export const getNamespaceIpFilterRuleOutput: typeof import("./getNamespaceIpFilterRule").getNamespaceIpFilterRuleOutput = null as any;
@@ -24,11 +14,6 @@ export { GetNamespaceVirtualNetworkRuleArgs, GetNamespaceVirtualNetworkRuleResul
 export const getNamespaceVirtualNetworkRule: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRule = null as any;
 export const getNamespaceVirtualNetworkRuleOutput: typeof import("./getNamespaceVirtualNetworkRule").getNamespaceVirtualNetworkRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespaceVirtualNetworkRule","getNamespaceVirtualNetworkRuleOutput"], () => require("./getNamespaceVirtualNetworkRule"));
-
-export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
-export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
-export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getPrivateEndpointConnection","getPrivateEndpointConnectionOutput"], () => require("./getPrivateEndpointConnection"));
 
 export { NamespaceIpFilterRuleArgs } from "./namespaceIpFilterRule";
 export type NamespaceIpFilterRule = import("./namespaceIpFilterRule").NamespaceIpFilterRule;
@@ -40,11 +25,6 @@ export type NamespaceVirtualNetworkRule = import("./namespaceVirtualNetworkRule"
 export const NamespaceVirtualNetworkRule: typeof import("./namespaceVirtualNetworkRule").NamespaceVirtualNetworkRule = null as any;
 utilities.lazyLoad(exports, ["NamespaceVirtualNetworkRule"], () => require("./namespaceVirtualNetworkRule"));
 
-export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
-export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
-export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
-utilities.lazyLoad(exports, ["PrivateEndpointConnection"], () => require("./privateEndpointConnection"));
-
 
 // Export enums:
 export * from "../../types/enums/eventhub/v20180101preview";
@@ -53,14 +33,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:eventhub/v20180101preview:Cluster":
-                return new Cluster(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20180101preview:NamespaceIpFilterRule":
                 return new NamespaceIpFilterRule(name, <any>undefined, { urn })
             case "azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule":
                 return new NamespaceVirtualNetworkRule(name, <any>undefined, { urn })
-            case "azure-native:eventhub/v20180101preview:PrivateEndpointConnection":
-                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

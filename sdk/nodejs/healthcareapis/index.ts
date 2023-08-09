@@ -100,12 +100,10 @@ utilities.lazyLoad(exports, ["WorkspacePrivateEndpointConnection"], () => requir
 export * from "../types/enums/healthcareapis";
 
 // Export sub-modules:
-import * as v20220515 from "./v20220515";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230228 from "./v20230228";
 
 export {
-    v20220515,
     v20221001preview,
     v20230228,
 };

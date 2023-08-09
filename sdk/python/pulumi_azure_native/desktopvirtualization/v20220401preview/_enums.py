@@ -17,9 +17,7 @@ __all__ = [
     'ResourceIdentityType',
     'SSOSecretType',
     'SessionHostComponentUpdateType',
-    'SessionHostLoadBalancingAlgorithm',
     'SkuTier',
-    'StopHostsWhen',
 ]
 
 
@@ -32,6 +30,9 @@ class ApplicationGroupType(str, Enum):
 
 
 class DayOfWeek(str, Enum):
+    """
+    Day of the week.
+    """
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
     WEDNESDAY = "Wednesday"
@@ -161,14 +162,6 @@ class SessionHostComponentUpdateType(str, Enum):
     """
 
 
-class SessionHostLoadBalancingAlgorithm(str, Enum):
-    """
-    Load balancing algorithm for ramp up period.
-    """
-    BREADTH_FIRST = "BreadthFirst"
-    DEPTH_FIRST = "DepthFirst"
-
-
 class SkuTier(str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
@@ -177,11 +170,3 @@ class SkuTier(str, Enum):
     BASIC = "Basic"
     STANDARD = "Standard"
     PREMIUM = "Premium"
-
-
-class StopHostsWhen(str, Enum):
-    """
-    Specifies when to stop hosts during ramp down period.
-    """
-    ZERO_SESSIONS = "ZeroSessions"
-    ZERO_ACTIVE_SESSIONS = "ZeroActiveSessions"

@@ -21,14 +21,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.storagemover.v20220701preview as __v20220701preview
-    v20220701preview = __v20220701preview
     import pulumi_azure_native.storagemover.v20230301 as __v20230301
     v20230301 = __v20230301
     import pulumi_azure_native.storagemover.v20230701preview as __v20230701preview
     v20230701preview = __v20230701preview
 else:
-    v20220701preview = _utilities.lazy_import('pulumi_azure_native.storagemover.v20220701preview')
     v20230301 = _utilities.lazy_import('pulumi_azure_native.storagemover.v20230301')
     v20230701preview = _utilities.lazy_import('pulumi_azure_native.storagemover.v20230701preview')
 

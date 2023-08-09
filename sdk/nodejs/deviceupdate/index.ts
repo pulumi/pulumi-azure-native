@@ -50,11 +50,9 @@ utilities.lazyLoad(exports, ["PrivateEndpointConnectionProxy"], () => require(".
 export * from "../types/enums/deviceupdate";
 
 // Export sub-modules:
-import * as v20200301preview from "./v20200301preview";
 import * as v20230701 from "./v20230701";
 
 export {
-    v20200301preview,
     v20230701,
 };
 

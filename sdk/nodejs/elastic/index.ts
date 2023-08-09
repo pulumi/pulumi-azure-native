@@ -79,8 +79,6 @@ utilities.lazyLoad(exports, ["TagRule"], () => require("./tagRule"));
 export * from "../types/enums/elastic";
 
 // Export sub-modules:
-import * as v20200701 from "./v20200701";
-import * as v20211001preview from "./v20211001preview";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230501preview from "./v20230501preview";
 import * as v20230601 from "./v20230601";
@@ -88,8 +86,6 @@ import * as v20230615preview from "./v20230615preview";
 import * as v20230701preview from "./v20230701preview";
 
 export {
-    v20200701,
-    v20211001preview,
     v20230201preview,
     v20230501preview,
     v20230601,

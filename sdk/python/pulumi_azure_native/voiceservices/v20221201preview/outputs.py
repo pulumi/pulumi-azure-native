@@ -8,117 +8,11 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
-from . import outputs
 from ._enums import *
 
 __all__ = [
-    'PrimaryRegionPropertiesResponse',
-    'ServiceRegionPropertiesResponse',
     'SystemDataResponse',
 ]
-
-@pulumi.output_type
-class PrimaryRegionPropertiesResponse(dict):
-    """
-    The configuration used in this region as primary, and other regions as backup.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "operatorAddresses":
-            suggest = "operator_addresses"
-        elif key == "esrpAddresses":
-            suggest = "esrp_addresses"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in PrimaryRegionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        PrimaryRegionPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        PrimaryRegionPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 operator_addresses: Sequence[str],
-                 esrp_addresses: Optional[Sequence[str]] = None):
-        """
-        The configuration used in this region as primary, and other regions as backup.
-        :param Sequence[str] operator_addresses: IP address to use to contact the operator network from this region
-        :param Sequence[str] esrp_addresses: IP address to use to contact the ESRP from this region
-        """
-        pulumi.set(__self__, "operator_addresses", operator_addresses)
-        if esrp_addresses is not None:
-            pulumi.set(__self__, "esrp_addresses", esrp_addresses)
-
-    @property
-    @pulumi.getter(name="operatorAddresses")
-    def operator_addresses(self) -> Sequence[str]:
-        """
-        IP address to use to contact the operator network from this region
-        """
-        return pulumi.get(self, "operator_addresses")
-
-    @property
-    @pulumi.getter(name="esrpAddresses")
-    def esrp_addresses(self) -> Optional[Sequence[str]]:
-        """
-        IP address to use to contact the ESRP from this region
-        """
-        return pulumi.get(self, "esrp_addresses")
-
-
-@pulumi.output_type
-class ServiceRegionPropertiesResponse(dict):
-    """
-    The service region configuration needed for Teams Callings.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "primaryRegionProperties":
-            suggest = "primary_region_properties"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceRegionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServiceRegionPropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServiceRegionPropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 name: str,
-                 primary_region_properties: 'outputs.PrimaryRegionPropertiesResponse'):
-        """
-        The service region configuration needed for Teams Callings.
-        :param str name: The name of the region in which the resources needed for Teams Calling will be deployed.
-        :param 'PrimaryRegionPropertiesResponse' primary_region_properties: The configuration used in this region as primary, and other regions as backup.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "primary_region_properties", primary_region_properties)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        The name of the region in which the resources needed for Teams Calling will be deployed.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="primaryRegionProperties")
-    def primary_region_properties(self) -> 'outputs.PrimaryRegionPropertiesResponse':
-        """
-        The configuration used in this region as primary, and other regions as backup.
-        """
-        return pulumi.get(self, "primary_region_properties")
-
 
 @pulumi.output_type
 class SystemDataResponse(dict):

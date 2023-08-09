@@ -88,7 +88,6 @@ export * from "../types/enums/webpubsub";
 import * as v20210401preview from "./v20210401preview";
 import * as v20210601preview from "./v20210601preview";
 import * as v20210901preview from "./v20210901preview";
-import * as v20211001 from "./v20211001";
 import * as v20230201 from "./v20230201";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230601preview from "./v20230601preview";
@@ -97,7 +96,6 @@ export {
     v20210401preview,
     v20210601preview,
     v20210901preview,
-    v20211001,
     v20230201,
     v20230301preview,
     v20230601preview,

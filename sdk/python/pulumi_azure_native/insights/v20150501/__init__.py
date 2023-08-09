@@ -7,20 +7,16 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .analytics_item import *
-from .component import *
 from .component_current_billing_feature import *
 from .export_configuration import *
 from .favorite import *
 from .get_analytics_item import *
-from .get_component import *
 from .get_component_current_billing_feature import *
 from .get_export_configuration import *
 from .get_favorite import *
 from .get_proactive_detection_configuration import *
-from .get_web_test import *
 from .get_workbook import *
 from .proactive_detection_configuration import *
-from .web_test import *
 from .workbook import *
 from ._inputs import *
 from . import outputs

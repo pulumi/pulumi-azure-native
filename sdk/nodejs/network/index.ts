@@ -1357,7 +1357,6 @@ export * from "../types/enums/network";
 import * as v20180501 from "./v20180501";
 import * as v20180601 from "./v20180601";
 import * as v20180701 from "./v20180701";
-import * as v20180801 from "./v20180801";
 import * as v20181201 from "./v20181201";
 import * as v20190201 from "./v20190201";
 import * as v20190601 from "./v20190601";
@@ -1367,9 +1366,7 @@ import * as v20190901 from "./v20190901";
 import * as v20191101 from "./v20191101";
 import * as v20200401 from "./v20200401";
 import * as v20200401preview from "./v20200401preview";
-import * as v20200501 from "./v20200501";
 import * as v20200601 from "./v20200601";
-import * as v20201101 from "./v20201101";
 import * as v20210201 from "./v20210201";
 import * as v20210201preview from "./v20210201preview";
 import * as v20210301 from "./v20210301";
@@ -1391,7 +1388,6 @@ export {
     v20180501,
     v20180601,
     v20180701,
-    v20180801,
     v20181201,
     v20190201,
     v20190601,
@@ -1401,9 +1397,7 @@ export {
     v20191101,
     v20200401,
     v20200401preview,
-    v20200501,
     v20200601,
-    v20201101,
     v20210201,
     v20210201preview,
     v20210301,

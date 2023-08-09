@@ -20,20 +20,10 @@ export const getKustoPool: typeof import("./getKustoPool").getKustoPool = null a
 export const getKustoPoolOutput: typeof import("./getKustoPool").getKustoPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getKustoPool","getKustoPoolOutput"], () => require("./getKustoPool"));
 
-export { GetKustoPoolPrincipalAssignmentArgs, GetKustoPoolPrincipalAssignmentResult, GetKustoPoolPrincipalAssignmentOutputArgs } from "./getKustoPoolPrincipalAssignment";
-export const getKustoPoolPrincipalAssignment: typeof import("./getKustoPoolPrincipalAssignment").getKustoPoolPrincipalAssignment = null as any;
-export const getKustoPoolPrincipalAssignmentOutput: typeof import("./getKustoPoolPrincipalAssignment").getKustoPoolPrincipalAssignmentOutput = null as any;
-utilities.lazyLoad(exports, ["getKustoPoolPrincipalAssignment","getKustoPoolPrincipalAssignmentOutput"], () => require("./getKustoPoolPrincipalAssignment"));
-
 export { KustoPoolArgs } from "./kustoPool";
 export type KustoPool = import("./kustoPool").KustoPool;
 export const KustoPool: typeof import("./kustoPool").KustoPool = null as any;
 utilities.lazyLoad(exports, ["KustoPool"], () => require("./kustoPool"));
-
-export { KustoPoolPrincipalAssignmentArgs } from "./kustoPoolPrincipalAssignment";
-export type KustoPoolPrincipalAssignment = import("./kustoPoolPrincipalAssignment").KustoPoolPrincipalAssignment;
-export const KustoPoolPrincipalAssignment: typeof import("./kustoPoolPrincipalAssignment").KustoPoolPrincipalAssignment = null as any;
-utilities.lazyLoad(exports, ["KustoPoolPrincipalAssignment"], () => require("./kustoPoolPrincipalAssignment"));
 
 
 // Export enums:
@@ -47,8 +37,6 @@ const _module = {
                 return new DatabasePrincipalAssignment(name, <any>undefined, { urn })
             case "azure-native:synapse/v20210401preview:KustoPool":
                 return new KustoPool(name, <any>undefined, { urn })
-            case "azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment":
-                return new KustoPoolPrincipalAssignment(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

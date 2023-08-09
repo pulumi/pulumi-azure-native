@@ -8,7 +8,5 @@ import typing
 from ._enums import *
 from .agent_pool import *
 from .get_agent_pool import *
-from .get_trusted_access_role_binding import *
-from .trusted_access_role_binding import *
 from ._inputs import *
 from . import outputs

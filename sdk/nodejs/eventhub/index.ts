@@ -155,15 +155,11 @@ utilities.lazyLoad(exports, ["SchemaRegistry"], () => require("./schemaRegistry"
 export * from "../types/enums/eventhub";
 
 // Export sub-modules:
-import * as v20170401 from "./v20170401";
 import * as v20180101preview from "./v20180101preview";
-import * as v20220101preview from "./v20220101preview";
 import * as v20221001preview from "./v20221001preview";
 
 export {
-    v20170401,
     v20180101preview,
-    v20220101preview,
     v20221001preview,
 };
 

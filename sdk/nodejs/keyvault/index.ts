@@ -70,13 +70,9 @@ utilities.lazyLoad(exports, ["Vault"], () => require("./vault"));
 export * from "../types/enums/keyvault";
 
 // Export sub-modules:
-import * as v20190901 from "./v20190901";
-import * as v20210601preview from "./v20210601preview";
 import * as v20230201 from "./v20230201";
 
 export {
-    v20190901,
-    v20210601preview,
     v20230201,
 };
 

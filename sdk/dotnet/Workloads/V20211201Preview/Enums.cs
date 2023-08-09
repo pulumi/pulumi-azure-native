@@ -39,38 +39,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     }
 
     /// <summary>
-    /// The type of file share config.
-    /// </summary>
-    [EnumType]
-    public readonly struct ConfigurationType : IEquatable<ConfigurationType>
-    {
-        private readonly string _value;
-
-        private ConfigurationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ConfigurationType Skip { get; } = new ConfigurationType("Skip");
-        public static ConfigurationType CreateAndMount { get; } = new ConfigurationType("CreateAndMount");
-        public static ConfigurationType Mount { get; } = new ConfigurationType("Mount");
-
-        public static bool operator ==(ConfigurationType left, ConfigurationType right) => left.Equals(right);
-        public static bool operator !=(ConfigurationType left, ConfigurationType right) => !left.Equals(right);
-
-        public static explicit operator string(ConfigurationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ConfigurationType other && Equals(other);
-        public bool Equals(ConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Tier of the server SKU
     /// </summary>
     [EnumType]
@@ -125,42 +93,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DatabaseType other && Equals(other);
         public bool Equals(DatabaseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Defines the disk sku name.
-    /// </summary>
-    [EnumType]
-    public readonly struct DiskSkuName : IEquatable<DiskSkuName>
-    {
-        private readonly string _value;
-
-        private DiskSkuName(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DiskSkuName Standard_LRS { get; } = new DiskSkuName("Standard_LRS");
-        public static DiskSkuName Premium_LRS { get; } = new DiskSkuName("Premium_LRS");
-        public static DiskSkuName StandardSSD_LRS { get; } = new DiskSkuName("StandardSSD_LRS");
-        public static DiskSkuName UltraSSD_LRS { get; } = new DiskSkuName("UltraSSD_LRS");
-        public static DiskSkuName Premium_ZRS { get; } = new DiskSkuName("Premium_ZRS");
-        public static DiskSkuName StandardSSD_ZRS { get; } = new DiskSkuName("StandardSSD_ZRS");
-        public static DiskSkuName PremiumV2_LRS { get; } = new DiskSkuName("PremiumV2_LRS");
-
-        public static bool operator ==(DiskSkuName left, DiskSkuName right) => left.Equals(right);
-        public static bool operator !=(DiskSkuName left, DiskSkuName right) => !left.Equals(right);
-
-        public static explicit operator string(DiskSkuName value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DiskSkuName other && Equals(other);
-        public bool Equals(DiskSkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -541,37 +473,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     }
 
     /// <summary>
-    /// The OS Type
-    /// </summary>
-    [EnumType]
-    public readonly struct OSType : IEquatable<OSType>
-    {
-        private readonly string _value;
-
-        private OSType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static OSType Linux { get; } = new OSType("Linux");
-        public static OSType Windows { get; } = new OSType("Windows");
-
-        public static bool operator ==(OSType left, OSType right) => left.Equals(right);
-        public static bool operator !=(OSType left, OSType right) => !left.Equals(right);
-
-        public static explicit operator string(OSType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is OSType other && Equals(other);
-        public bool Equals(OSType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// PHP version
     /// </summary>
     [EnumType]
@@ -627,38 +528,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RedisCacheFamily other && Equals(other);
         public bool Equals(RedisCacheFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// The configuration Type.
-    /// </summary>
-    [EnumType]
-    public readonly struct SAPConfigurationType : IEquatable<SAPConfigurationType>
-    {
-        private readonly string _value;
-
-        private SAPConfigurationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SAPConfigurationType Deployment { get; } = new SAPConfigurationType("Deployment");
-        public static SAPConfigurationType Discovery { get; } = new SAPConfigurationType("Discovery");
-        public static SAPConfigurationType DeploymentWithOSConfig { get; } = new SAPConfigurationType("DeploymentWithOSConfig");
-
-        public static bool operator ==(SAPConfigurationType left, SAPConfigurationType right) => left.Equals(right);
-        public static bool operator !=(SAPConfigurationType left, SAPConfigurationType right) => !left.Equals(right);
-
-        public static explicit operator string(SAPConfigurationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SAPConfigurationType other && Equals(other);
-        public bool Equals(SAPConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -853,38 +722,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
     }
 
     /// <summary>
-    /// The SAP software installation Type.
-    /// </summary>
-    [EnumType]
-    public readonly struct SAPSoftwareInstallationType : IEquatable<SAPSoftwareInstallationType>
-    {
-        private readonly string _value;
-
-        private SAPSoftwareInstallationType(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SAPSoftwareInstallationType ServiceInitiated { get; } = new SAPSoftwareInstallationType("ServiceInitiated");
-        public static SAPSoftwareInstallationType SAPInstallWithoutOSConfig { get; } = new SAPSoftwareInstallationType("SAPInstallWithoutOSConfig");
-        public static SAPSoftwareInstallationType External { get; } = new SAPSoftwareInstallationType("External");
-
-        public static bool operator ==(SAPSoftwareInstallationType left, SAPSoftwareInstallationType right) => left.Equals(right);
-        public static bool operator !=(SAPSoftwareInstallationType left, SAPSoftwareInstallationType right) => !left.Equals(right);
-
-        public static explicit operator string(SAPSoftwareInstallationType value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SAPSoftwareInstallationType other && Equals(other);
-        public bool Equals(SAPSoftwareInstallationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Search type
     /// </summary>
     [EnumType]
@@ -940,38 +777,6 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Gets or sets certificate preference if secure communication is enabled.
-    /// </summary>
-    [EnumType]
-    public readonly struct SslPreference : IEquatable<SslPreference>
-    {
-        private readonly string _value;
-
-        private SslPreference(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SslPreference Disabled { get; } = new SslPreference("Disabled");
-        public static SslPreference RootCertificate { get; } = new SslPreference("RootCertificate");
-        public static SslPreference ServerCertificate { get; } = new SslPreference("ServerCertificate");
-
-        public static bool operator ==(SslPreference left, SslPreference right) => left.Equals(right);
-        public static bool operator !=(SslPreference left, SslPreference right) => !left.Equals(right);
-
-        public static explicit operator string(SslPreference value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SslPreference other && Equals(other);
-        public bool Equals(SslPreference other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

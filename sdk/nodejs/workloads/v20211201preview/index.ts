@@ -10,11 +10,6 @@ export const getPhpWorkload: typeof import("./getPhpWorkload").getPhpWorkload = 
 export const getPhpWorkloadOutput: typeof import("./getPhpWorkload").getPhpWorkloadOutput = null as any;
 utilities.lazyLoad(exports, ["getPhpWorkload","getPhpWorkloadOutput"], () => require("./getPhpWorkload"));
 
-export { GetProviderInstanceArgs, GetProviderInstanceResult, GetProviderInstanceOutputArgs } from "./getProviderInstance";
-export const getProviderInstance: typeof import("./getProviderInstance").getProviderInstance = null as any;
-export const getProviderInstanceOutput: typeof import("./getProviderInstance").getProviderInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getProviderInstance","getProviderInstanceOutput"], () => require("./getProviderInstance"));
-
 export { GetSAPApplicationServerInstanceArgs, GetSAPApplicationServerInstanceResult, GetSAPApplicationServerInstanceOutputArgs } from "./getSAPApplicationServerInstance";
 export const getSAPApplicationServerInstance: typeof import("./getSAPApplicationServerInstance").getSAPApplicationServerInstance = null as any;
 export const getSAPApplicationServerInstanceOutput: typeof import("./getSAPApplicationServerInstance").getSAPApplicationServerInstanceOutput = null as any;
@@ -24,16 +19,6 @@ export { GetSAPAvailabilityZoneDetailsArgs, GetSAPAvailabilityZoneDetailsResult,
 export const getSAPAvailabilityZoneDetails: typeof import("./getSAPAvailabilityZoneDetails").getSAPAvailabilityZoneDetails = null as any;
 export const getSAPAvailabilityZoneDetailsOutput: typeof import("./getSAPAvailabilityZoneDetails").getSAPAvailabilityZoneDetailsOutput = null as any;
 utilities.lazyLoad(exports, ["getSAPAvailabilityZoneDetails","getSAPAvailabilityZoneDetailsOutput"], () => require("./getSAPAvailabilityZoneDetails"));
-
-export { GetSAPCentralInstanceArgs, GetSAPCentralInstanceResult, GetSAPCentralInstanceOutputArgs } from "./getSAPCentralInstance";
-export const getSAPCentralInstance: typeof import("./getSAPCentralInstance").getSAPCentralInstance = null as any;
-export const getSAPCentralInstanceOutput: typeof import("./getSAPCentralInstance").getSAPCentralInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getSAPCentralInstance","getSAPCentralInstanceOutput"], () => require("./getSAPCentralInstance"));
-
-export { GetSAPDatabaseInstanceArgs, GetSAPDatabaseInstanceResult, GetSAPDatabaseInstanceOutputArgs } from "./getSAPDatabaseInstance";
-export const getSAPDatabaseInstance: typeof import("./getSAPDatabaseInstance").getSAPDatabaseInstance = null as any;
-export const getSAPDatabaseInstanceOutput: typeof import("./getSAPDatabaseInstance").getSAPDatabaseInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getSAPDatabaseInstance","getSAPDatabaseInstanceOutput"], () => require("./getSAPDatabaseInstance"));
 
 export { GetSAPDiskConfigurationsArgs, GetSAPDiskConfigurationsResult, GetSAPDiskConfigurationsOutputArgs } from "./getSAPDiskConfigurations";
 export const getSAPDiskConfigurations: typeof import("./getSAPDiskConfigurations").getSAPDiskConfigurations = null as any;
@@ -50,11 +35,6 @@ export const getSAPSupportedSku: typeof import("./getSAPSupportedSku").getSAPSup
 export const getSAPSupportedSkuOutput: typeof import("./getSAPSupportedSku").getSAPSupportedSkuOutput = null as any;
 utilities.lazyLoad(exports, ["getSAPSupportedSku","getSAPSupportedSkuOutput"], () => require("./getSAPSupportedSku"));
 
-export { GetSAPVirtualInstanceArgs, GetSAPVirtualInstanceResult, GetSAPVirtualInstanceOutputArgs } from "./getSAPVirtualInstance";
-export const getSAPVirtualInstance: typeof import("./getSAPVirtualInstance").getSAPVirtualInstance = null as any;
-export const getSAPVirtualInstanceOutput: typeof import("./getSAPVirtualInstance").getSAPVirtualInstanceOutput = null as any;
-utilities.lazyLoad(exports, ["getSAPVirtualInstance","getSAPVirtualInstanceOutput"], () => require("./getSAPVirtualInstance"));
-
 export { GetWordpressInstanceArgs, GetWordpressInstanceResult, GetWordpressInstanceOutputArgs } from "./getWordpressInstance";
 export const getWordpressInstance: typeof import("./getWordpressInstance").getWordpressInstance = null as any;
 export const getWordpressInstanceOutput: typeof import("./getWordpressInstance").getWordpressInstanceOutput = null as any;
@@ -65,30 +45,10 @@ export type PhpWorkload = import("./phpWorkload").PhpWorkload;
 export const PhpWorkload: typeof import("./phpWorkload").PhpWorkload = null as any;
 utilities.lazyLoad(exports, ["PhpWorkload"], () => require("./phpWorkload"));
 
-export { ProviderInstanceArgs } from "./providerInstance";
-export type ProviderInstance = import("./providerInstance").ProviderInstance;
-export const ProviderInstance: typeof import("./providerInstance").ProviderInstance = null as any;
-utilities.lazyLoad(exports, ["ProviderInstance"], () => require("./providerInstance"));
-
 export { SAPApplicationServerInstanceArgs } from "./sapapplicationServerInstance";
 export type SAPApplicationServerInstance = import("./sapapplicationServerInstance").SAPApplicationServerInstance;
 export const SAPApplicationServerInstance: typeof import("./sapapplicationServerInstance").SAPApplicationServerInstance = null as any;
 utilities.lazyLoad(exports, ["SAPApplicationServerInstance"], () => require("./sapapplicationServerInstance"));
-
-export { SAPCentralInstanceArgs } from "./sapcentralInstance";
-export type SAPCentralInstance = import("./sapcentralInstance").SAPCentralInstance;
-export const SAPCentralInstance: typeof import("./sapcentralInstance").SAPCentralInstance = null as any;
-utilities.lazyLoad(exports, ["SAPCentralInstance"], () => require("./sapcentralInstance"));
-
-export { SAPDatabaseInstanceArgs } from "./sapdatabaseInstance";
-export type SAPDatabaseInstance = import("./sapdatabaseInstance").SAPDatabaseInstance;
-export const SAPDatabaseInstance: typeof import("./sapdatabaseInstance").SAPDatabaseInstance = null as any;
-utilities.lazyLoad(exports, ["SAPDatabaseInstance"], () => require("./sapdatabaseInstance"));
-
-export { SAPVirtualInstanceArgs } from "./sapvirtualInstance";
-export type SAPVirtualInstance = import("./sapvirtualInstance").SAPVirtualInstance;
-export const SAPVirtualInstance: typeof import("./sapvirtualInstance").SAPVirtualInstance = null as any;
-utilities.lazyLoad(exports, ["SAPVirtualInstance"], () => require("./sapvirtualInstance"));
 
 export { WordpressInstanceArgs } from "./wordpressInstance";
 export type WordpressInstance = import("./wordpressInstance").WordpressInstance;
@@ -105,16 +65,8 @@ const _module = {
         switch (type) {
             case "azure-native:workloads/v20211201preview:PhpWorkload":
                 return new PhpWorkload(name, <any>undefined, { urn })
-            case "azure-native:workloads/v20211201preview:ProviderInstance":
-                return new ProviderInstance(name, <any>undefined, { urn })
             case "azure-native:workloads/v20211201preview:SAPApplicationServerInstance":
                 return new SAPApplicationServerInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads/v20211201preview:SAPCentralInstance":
-                return new SAPCentralInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads/v20211201preview:SAPDatabaseInstance":
-                return new SAPDatabaseInstance(name, <any>undefined, { urn })
-            case "azure-native:workloads/v20211201preview:SAPVirtualInstance":
-                return new SAPVirtualInstance(name, <any>undefined, { urn })
             case "azure-native:workloads/v20211201preview:WordpressInstance":
                 return new WordpressInstance(name, <any>undefined, { urn })
             default:

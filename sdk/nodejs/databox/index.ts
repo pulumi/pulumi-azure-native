@@ -25,11 +25,9 @@ utilities.lazyLoad(exports, ["listJobCredentials","listJobCredentialsOutput"], (
 export * from "../types/enums/databox";
 
 // Export sub-modules:
-import * as v20201101 from "./v20201101";
 import * as v20221201 from "./v20221201";
 
 export {
-    v20201101,
     v20221201,
 };
 

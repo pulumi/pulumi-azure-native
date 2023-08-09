@@ -12,11 +12,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.graphservices.v20220922preview as __v20220922preview
-    v20220922preview = __v20220922preview
     import pulumi_azure_native.graphservices.v20230413 as __v20230413
     v20230413 = __v20230413
 else:
-    v20220922preview = _utilities.lazy_import('pulumi_azure_native.graphservices.v20220922preview')
     v20230413 = _utilities.lazy_import('pulumi_azure_native.graphservices.v20230413')
 

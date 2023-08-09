@@ -70,11 +70,9 @@ utilities.lazyLoad(exports, ["VendorSkus"], () => require("./vendorSkus"));
 export * from "../types/enums/hybridnetwork";
 
 // Export sub-modules:
-import * as v20200101preview from "./v20200101preview";
 import * as v20220101preview from "./v20220101preview";
 
 export {
-    v20200101preview,
     v20220101preview,
 };
 

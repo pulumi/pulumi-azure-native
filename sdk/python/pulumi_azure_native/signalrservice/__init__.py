@@ -24,12 +24,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.signalrservice.v20200501 as __v20200501
-    v20200501 = __v20200501
-    import pulumi_azure_native.signalrservice.v20210401preview as __v20210401preview
-    v20210401preview = __v20210401preview
-    import pulumi_azure_native.signalrservice.v20220201 as __v20220201
-    v20220201 = __v20220201
     import pulumi_azure_native.signalrservice.v20230201 as __v20230201
     v20230201 = __v20230201
     import pulumi_azure_native.signalrservice.v20230301preview as __v20230301preview
@@ -37,9 +31,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.signalrservice.v20230601preview as __v20230601preview
     v20230601preview = __v20230601preview
 else:
-    v20200501 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20200501')
-    v20210401preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20210401preview')
-    v20220201 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20220201')
     v20230201 = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20230201')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20230301preview')
     v20230601preview = _utilities.lazy_import('pulumi_azure_native.signalrservice.v20230601preview')
