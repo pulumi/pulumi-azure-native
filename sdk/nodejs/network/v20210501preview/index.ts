@@ -55,11 +55,6 @@ export const getDefaultUserRule: typeof import("./getDefaultUserRule").getDefaul
 export const getDefaultUserRuleOutput: typeof import("./getDefaultUserRule").getDefaultUserRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getDefaultUserRule","getDefaultUserRuleOutput"], () => require("./getDefaultUserRule"));
 
-export { GetManagementGroupNetworkManagerConnectionArgs, GetManagementGroupNetworkManagerConnectionResult, GetManagementGroupNetworkManagerConnectionOutputArgs } from "./getManagementGroupNetworkManagerConnection";
-export const getManagementGroupNetworkManagerConnection: typeof import("./getManagementGroupNetworkManagerConnection").getManagementGroupNetworkManagerConnection = null as any;
-export const getManagementGroupNetworkManagerConnectionOutput: typeof import("./getManagementGroupNetworkManagerConnection").getManagementGroupNetworkManagerConnectionOutput = null as any;
-utilities.lazyLoad(exports, ["getManagementGroupNetworkManagerConnection","getManagementGroupNetworkManagerConnectionOutput"], () => require("./getManagementGroupNetworkManagerConnection"));
-
 export { GetNetworkGroupArgs, GetNetworkGroupResult, GetNetworkGroupOutputArgs } from "./getNetworkGroup";
 export const getNetworkGroup: typeof import("./getNetworkGroup").getNetworkGroup = null as any;
 export const getNetworkGroupOutput: typeof import("./getNetworkGroup").getNetworkGroupOutput = null as any;
@@ -130,11 +125,6 @@ export const listNetworkManagerEffectiveSecurityAdminRules: typeof import("./lis
 export const listNetworkManagerEffectiveSecurityAdminRulesOutput: typeof import("./listNetworkManagerEffectiveSecurityAdminRules").listNetworkManagerEffectiveSecurityAdminRulesOutput = null as any;
 utilities.lazyLoad(exports, ["listNetworkManagerEffectiveSecurityAdminRules","listNetworkManagerEffectiveSecurityAdminRulesOutput"], () => require("./listNetworkManagerEffectiveSecurityAdminRules"));
 
-export { ManagementGroupNetworkManagerConnectionArgs } from "./managementGroupNetworkManagerConnection";
-export type ManagementGroupNetworkManagerConnection = import("./managementGroupNetworkManagerConnection").ManagementGroupNetworkManagerConnection;
-export const ManagementGroupNetworkManagerConnection: typeof import("./managementGroupNetworkManagerConnection").ManagementGroupNetworkManagerConnection = null as any;
-utilities.lazyLoad(exports, ["ManagementGroupNetworkManagerConnection"], () => require("./managementGroupNetworkManagerConnection"));
-
 export { NetworkGroupArgs } from "./networkGroup";
 export type NetworkGroup = import("./networkGroup").NetworkGroup;
 export const NetworkGroup: typeof import("./networkGroup").NetworkGroup = null as any;
@@ -183,8 +173,6 @@ const _module = {
                 return new DefaultAdminRule(name, <any>undefined, { urn })
             case "azure-native:network/v20210501preview:DefaultUserRule":
                 return new DefaultUserRule(name, <any>undefined, { urn })
-            case "azure-native:network/v20210501preview:ManagementGroupNetworkManagerConnection":
-                return new ManagementGroupNetworkManagerConnection(name, <any>undefined, { urn })
             case "azure-native:network/v20210501preview:NetworkGroup":
                 return new NetworkGroup(name, <any>undefined, { urn })
             case "azure-native:network/v20210501preview:NetworkManager":

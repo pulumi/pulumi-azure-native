@@ -71,8 +71,6 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.synapse.v20210301 as __v20210301
-    v20210301 = __v20210301
     import pulumi_azure_native.synapse.v20210401preview as __v20210401preview
     v20210401preview = __v20210401preview
     import pulumi_azure_native.synapse.v20210501 as __v20210501
@@ -82,7 +80,6 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.synapse.v20210601preview as __v20210601preview
     v20210601preview = __v20210601preview
 else:
-    v20210301 = _utilities.lazy_import('pulumi_azure_native.synapse.v20210301')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.synapse.v20210401preview')
     v20210501 = _utilities.lazy_import('pulumi_azure_native.synapse.v20210501')
     v20210601 = _utilities.lazy_import('pulumi_azure_native.synapse.v20210601')

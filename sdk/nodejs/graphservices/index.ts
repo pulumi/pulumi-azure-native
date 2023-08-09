@@ -17,11 +17,9 @@ utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./
 
 
 // Export sub-modules:
-import * as v20220922preview from "./v20220922preview";
 import * as v20230413 from "./v20230413";
 
 export {
-    v20220922preview,
     v20230413,
 };
 

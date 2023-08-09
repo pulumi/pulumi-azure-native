@@ -15,7 +15,6 @@ __all__ = [
     'ScaleDownMode',
     'ScaleSetEvictionPolicy',
     'ScaleSetPriority',
-    'SnapshotType',
     'WorkloadRuntime',
 ]
 
@@ -148,16 +147,6 @@ class ScaleSetPriority(str, Enum):
     REGULAR = "Regular"
     """
     Regular VMs will be used.
-    """
-
-
-class SnapshotType(str, Enum):
-    """
-    The type of a snapshot. The default is NodePool.
-    """
-    NODE_POOL = "NodePool"
-    """
-    The snapshot is a snapshot of a node pool.
     """
 
 

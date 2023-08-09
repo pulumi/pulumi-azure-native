@@ -7,7 +7,6 @@ from enum import Enum
 __all__ = [
     'BatchLoggingLevel',
     'BatchOutputAction',
-    'ContainerType',
     'ContentsType',
     'CredentialsType',
     'DataBindingMode',
@@ -48,14 +47,6 @@ class BatchOutputAction(str, Enum):
     """
     SUMMARY_ONLY = "SummaryOnly"
     APPEND_ROW = "AppendRow"
-
-
-class ContainerType(str, Enum):
-    """
-    The type of container to retrieve logs from.
-    """
-    STORAGE_INITIALIZER = "StorageInitializer"
-    INFERENCE_SERVER = "InferenceServer"
 
 
 class ContentsType(str, Enum):

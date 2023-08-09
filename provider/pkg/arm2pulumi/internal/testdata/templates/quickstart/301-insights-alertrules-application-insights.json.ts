@@ -27,7 +27,7 @@ const componentResource = new azure_native.insights.v20200202preview.Component("
 }, {
     dependsOn: [workspaceResource],
 });
-const emailActionGroup = new azure_native.insights.v20190601.ActionGroup("emailActionGroup", {
+const emailActionGroup = new azure_native.insights.v20230101.ActionGroup("emailActionGroup", {
     actionGroupName: "emailActionGroup",
     emailReceivers: [{
         emailAddress: "example@test.com",

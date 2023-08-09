@@ -29,14 +29,9 @@ from .get_labeling_job import *
 from .get_model_container import *
 from .get_model_version import *
 from .get_online_deployment import *
-from .get_online_deployment_logs import *
 from .get_online_endpoint import *
-from .get_online_endpoint_token import *
 from .job import *
 from .labeling_job import *
-from .list_batch_endpoint_keys import *
-from .list_datastore_secrets import *
-from .list_online_endpoint_keys import *
 from .model_container import *
 from .model_version import *
 from .online_deployment import *

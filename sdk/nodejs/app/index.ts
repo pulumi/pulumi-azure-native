@@ -176,14 +176,12 @@ export * from "../types/enums/app";
 
 // Export sub-modules:
 import * as v20220101preview from "./v20220101preview";
-import * as v20220301 from "./v20220301";
 import * as v20221001 from "./v20221001";
 import * as v20230401preview from "./v20230401preview";
 import * as v20230501 from "./v20230501";
 
 export {
     v20220101preview,
-    v20220301,
     v20221001,
     v20230401preview,
     v20230501,

@@ -36,15 +36,12 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.labservices.v20181015 as __v20181015
     v20181015 = __v20181015
-    import pulumi_azure_native.labservices.v20211001preview as __v20211001preview
-    v20211001preview = __v20211001preview
     import pulumi_azure_native.labservices.v20220801 as __v20220801
     v20220801 = __v20220801
     import pulumi_azure_native.labservices.v20230607 as __v20230607
     v20230607 = __v20230607
 else:
     v20181015 = _utilities.lazy_import('pulumi_azure_native.labservices.v20181015')
-    v20211001preview = _utilities.lazy_import('pulumi_azure_native.labservices.v20211001preview')
     v20220801 = _utilities.lazy_import('pulumi_azure_native.labservices.v20220801')
     v20230607 = _utilities.lazy_import('pulumi_azure_native.labservices.v20230607')
 

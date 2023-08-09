@@ -201,8 +201,6 @@ if typing.TYPE_CHECKING:
     v20180601preview = __v20180601preview
     import pulumi_azure_native.apimanagement.v20190101 as __v20190101
     v20190101 = __v20190101
-    import pulumi_azure_native.apimanagement.v20191201 as __v20191201
-    v20191201 = __v20191201
     import pulumi_azure_native.apimanagement.v20191201preview as __v20191201preview
     v20191201preview = __v20191201preview
     import pulumi_azure_native.apimanagement.v20200601preview as __v20200601preview
@@ -231,7 +229,6 @@ else:
     v20180101 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20180101')
     v20180601preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20180601preview')
     v20190101 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20190101')
-    v20191201 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20191201')
     v20191201preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20191201preview')
     v20200601preview = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20200601preview')
     v20201201 = _utilities.lazy_import('pulumi_azure_native.apimanagement.v20201201')

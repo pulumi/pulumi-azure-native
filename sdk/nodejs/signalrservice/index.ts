@@ -75,17 +75,11 @@ utilities.lazyLoad(exports, ["SignalRSharedPrivateLinkResource"], () => require(
 export * from "../types/enums/signalrservice";
 
 // Export sub-modules:
-import * as v20200501 from "./v20200501";
-import * as v20210401preview from "./v20210401preview";
-import * as v20220201 from "./v20220201";
 import * as v20230201 from "./v20230201";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230601preview from "./v20230601preview";
 
 export {
-    v20200501,
-    v20210401preview,
-    v20220201,
     v20230201,
     v20230301preview,
     v20230601preview,

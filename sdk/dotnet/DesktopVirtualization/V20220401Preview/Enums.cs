@@ -38,6 +38,9 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Day of the week.
+    /// </summary>
     [EnumType]
     public readonly struct DayOfWeek : IEquatable<DayOfWeek>
     {
@@ -422,37 +425,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
     }
 
     /// <summary>
-    /// Load balancing algorithm for ramp up period.
-    /// </summary>
-    [EnumType]
-    public readonly struct SessionHostLoadBalancingAlgorithm : IEquatable<SessionHostLoadBalancingAlgorithm>
-    {
-        private readonly string _value;
-
-        private SessionHostLoadBalancingAlgorithm(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static SessionHostLoadBalancingAlgorithm BreadthFirst { get; } = new SessionHostLoadBalancingAlgorithm("BreadthFirst");
-        public static SessionHostLoadBalancingAlgorithm DepthFirst { get; } = new SessionHostLoadBalancingAlgorithm("DepthFirst");
-
-        public static bool operator ==(SessionHostLoadBalancingAlgorithm left, SessionHostLoadBalancingAlgorithm right) => left.Equals(right);
-        public static bool operator !=(SessionHostLoadBalancingAlgorithm left, SessionHostLoadBalancingAlgorithm right) => !left.Equals(right);
-
-        public static explicit operator string(SessionHostLoadBalancingAlgorithm value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is SessionHostLoadBalancingAlgorithm other && Equals(other);
-        public bool Equals(SessionHostLoadBalancingAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     /// </summary>
     [EnumType]
@@ -478,37 +450,6 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Specifies when to stop hosts during ramp down period.
-    /// </summary>
-    [EnumType]
-    public readonly struct StopHostsWhen : IEquatable<StopHostsWhen>
-    {
-        private readonly string _value;
-
-        private StopHostsWhen(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static StopHostsWhen ZeroSessions { get; } = new StopHostsWhen("ZeroSessions");
-        public static StopHostsWhen ZeroActiveSessions { get; } = new StopHostsWhen("ZeroActiveSessions");
-
-        public static bool operator ==(StopHostsWhen left, StopHostsWhen right) => left.Equals(right);
-        public static bool operator !=(StopHostsWhen left, StopHostsWhen right) => !left.Equals(right);
-
-        public static explicit operator string(StopHostsWhen value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is StopHostsWhen other && Equals(other);
-        public bool Equals(StopHostsWhen other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

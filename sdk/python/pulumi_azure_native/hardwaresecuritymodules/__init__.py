@@ -17,14 +17,11 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.hardwaresecuritymodules.v20181031preview as __v20181031preview
-    v20181031preview = __v20181031preview
     import pulumi_azure_native.hardwaresecuritymodules.v20211130 as __v20211130
     v20211130 = __v20211130
     import pulumi_azure_native.hardwaresecuritymodules.v20220831preview as __v20220831preview
     v20220831preview = __v20220831preview
 else:
-    v20181031preview = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20181031preview')
     v20211130 = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20211130')
     v20220831preview = _utilities.lazy_import('pulumi_azure_native.hardwaresecuritymodules.v20220831preview')
 

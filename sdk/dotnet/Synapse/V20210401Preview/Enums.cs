@@ -93,37 +93,6 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
     }
 
     /// <summary>
-    /// Cluster principal role.
-    /// </summary>
-    [EnumType]
-    public readonly struct ClusterPrincipalRole : IEquatable<ClusterPrincipalRole>
-    {
-        private readonly string _value;
-
-        private ClusterPrincipalRole(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static ClusterPrincipalRole AllDatabasesAdmin { get; } = new ClusterPrincipalRole("AllDatabasesAdmin");
-        public static ClusterPrincipalRole AllDatabasesViewer { get; } = new ClusterPrincipalRole("AllDatabasesViewer");
-
-        public static bool operator ==(ClusterPrincipalRole left, ClusterPrincipalRole right) => left.Equals(right);
-        public static bool operator !=(ClusterPrincipalRole left, ClusterPrincipalRole right) => !left.Equals(right);
-
-        public static explicit operator string(ClusterPrincipalRole value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is ClusterPrincipalRole other && Equals(other);
-        public bool Equals(ClusterPrincipalRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// Database principal role.
     /// </summary>
     [EnumType]

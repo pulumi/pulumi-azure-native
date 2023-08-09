@@ -15,10 +15,8 @@ from .get_bookmark_relation import *
 from .get_entities_get_timeline import *
 from .get_entity_insights import *
 from .get_ip_syncer import *
-from .get_threat_intelligence_indicator import *
 from .get_watchlist import *
 from .ip_syncer import *
-from .threat_intelligence_indicator import *
 from .watchlist import *
 from ._inputs import *
 from . import outputs

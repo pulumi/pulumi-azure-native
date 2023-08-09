@@ -13,15 +13,11 @@ from ._enums import *
 
 __all__ = [
     'AccountEncryptionResponse',
-    'EccTokenKeyResponse',
     'EndpointResponse',
-    'JwtAuthenticationResponse',
     'KeyVaultPropertiesResponse',
     'ResourceIdentityResponse',
-    'RsaTokenKeyResponse',
     'StorageAccountResponse',
     'SystemDataResponse',
-    'TokenClaimResponse',
     'UserAssignedManagedIdentityResponse',
     'VideoAnalyzerIdentityResponse',
     'VideoFlagsResponse',
@@ -104,74 +100,6 @@ class AccountEncryptionResponse(dict):
 
 
 @pulumi.output_type
-class EccTokenKeyResponse(dict):
-    """
-    Required validation properties for tokens generated with Elliptical Curve algorithm.
-    """
-    def __init__(__self__, *,
-                 alg: str,
-                 kid: str,
-                 type: str,
-                 x: str,
-                 y: str):
-        """
-        Required validation properties for tokens generated with Elliptical Curve algorithm.
-        :param str alg: Elliptical curve algorithm to be used: ES256, ES384 or ES512.
-        :param str kid: JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-        :param str type: The discriminator for derived types.
-               Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
-        :param str x: X coordinate.
-        :param str y: Y coordinate.
-        """
-        pulumi.set(__self__, "alg", alg)
-        pulumi.set(__self__, "kid", kid)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.EccTokenKey')
-        pulumi.set(__self__, "x", x)
-        pulumi.set(__self__, "y", y)
-
-    @property
-    @pulumi.getter
-    def alg(self) -> str:
-        """
-        Elliptical curve algorithm to be used: ES256, ES384 or ES512.
-        """
-        return pulumi.get(self, "alg")
-
-    @property
-    @pulumi.getter
-    def kid(self) -> str:
-        """
-        JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-        """
-        return pulumi.get(self, "kid")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.VideoAnalyzer.EccTokenKey'.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def x(self) -> str:
-        """
-        X coordinate.
-        """
-        return pulumi.get(self, "x")
-
-    @property
-    @pulumi.getter
-    def y(self) -> str:
-        """
-        Y coordinate.
-        """
-        return pulumi.get(self, "y")
-
-
-@pulumi.output_type
 class EndpointResponse(dict):
     """
     The endpoint details.
@@ -220,78 +148,6 @@ class EndpointResponse(dict):
         The URL of the endpoint.
         """
         return pulumi.get(self, "endpoint_url")
-
-
-@pulumi.output_type
-class JwtAuthenticationResponse(dict):
-    """
-    Properties for access validation based on JSON Web Tokens (JWT).
-    """
-    def __init__(__self__, *,
-                 type: str,
-                 audiences: Optional[Sequence[str]] = None,
-                 claims: Optional[Sequence['outputs.TokenClaimResponse']] = None,
-                 issuers: Optional[Sequence[str]] = None,
-                 keys: Optional[Sequence[Any]] = None):
-        """
-        Properties for access validation based on JSON Web Tokens (JWT).
-        :param str type: The discriminator for derived types.
-               Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
-        :param Sequence[str] audiences: List of expected token audiences. Token audience is valid if it matches at least one of the given values.
-        :param Sequence['TokenClaimResponse'] claims: List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
-        :param Sequence[str] issuers: List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
-        :param Sequence[Union['EccTokenKeyResponse', 'RsaTokenKeyResponse']] keys: List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
-        """
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.JwtAuthentication')
-        if audiences is not None:
-            pulumi.set(__self__, "audiences", audiences)
-        if claims is not None:
-            pulumi.set(__self__, "claims", claims)
-        if issuers is not None:
-            pulumi.set(__self__, "issuers", issuers)
-        if keys is not None:
-            pulumi.set(__self__, "keys", keys)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.VideoAnalyzer.JwtAuthentication'.
-        """
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def audiences(self) -> Optional[Sequence[str]]:
-        """
-        List of expected token audiences. Token audience is valid if it matches at least one of the given values.
-        """
-        return pulumi.get(self, "audiences")
-
-    @property
-    @pulumi.getter
-    def claims(self) -> Optional[Sequence['outputs.TokenClaimResponse']]:
-        """
-        List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid.
-        """
-        return pulumi.get(self, "claims")
-
-    @property
-    @pulumi.getter
-    def issuers(self) -> Optional[Sequence[str]]:
-        """
-        List of expected token issuers. Token issuer is valid if it matches at least one of the given values.
-        """
-        return pulumi.get(self, "issuers")
-
-    @property
-    @pulumi.getter
-    def keys(self) -> Optional[Sequence[Any]]:
-        """
-        List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key.
-        """
-        return pulumi.get(self, "keys")
 
 
 @pulumi.output_type
@@ -383,74 +239,6 @@ class ResourceIdentityResponse(dict):
         The user assigned managed identity's resource identifier to use when accessing a resource.
         """
         return pulumi.get(self, "user_assigned_identity")
-
-
-@pulumi.output_type
-class RsaTokenKeyResponse(dict):
-    """
-    Required validation properties for tokens generated with RSA algorithm.
-    """
-    def __init__(__self__, *,
-                 alg: str,
-                 e: str,
-                 kid: str,
-                 n: str,
-                 type: str):
-        """
-        Required validation properties for tokens generated with RSA algorithm.
-        :param str alg: RSA algorithm to be used: RS256, RS384 or RS512.
-        :param str e: RSA public key exponent.
-        :param str kid: JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-        :param str n: RSA public key modulus.
-        :param str type: The discriminator for derived types.
-               Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
-        """
-        pulumi.set(__self__, "alg", alg)
-        pulumi.set(__self__, "e", e)
-        pulumi.set(__self__, "kid", kid)
-        pulumi.set(__self__, "n", n)
-        pulumi.set(__self__, "type", '#Microsoft.VideoAnalyzer.RsaTokenKey')
-
-    @property
-    @pulumi.getter
-    def alg(self) -> str:
-        """
-        RSA algorithm to be used: RS256, RS384 or RS512.
-        """
-        return pulumi.get(self, "alg")
-
-    @property
-    @pulumi.getter
-    def e(self) -> str:
-        """
-        RSA public key exponent.
-        """
-        return pulumi.get(self, "e")
-
-    @property
-    @pulumi.getter
-    def kid(self) -> str:
-        """
-        JWT token key id. Validation keys are looked up based on the key id present on the JWT token header.
-        """
-        return pulumi.get(self, "kid")
-
-    @property
-    @pulumi.getter
-    def n(self) -> str:
-        """
-        RSA public key modulus.
-        """
-        return pulumi.get(self, "n")
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        """
-        The discriminator for derived types.
-        Expected value is '#Microsoft.VideoAnalyzer.RsaTokenKey'.
-        """
-        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -607,39 +395,6 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
-
-
-@pulumi.output_type
-class TokenClaimResponse(dict):
-    """
-    Properties for expected token claims.
-    """
-    def __init__(__self__, *,
-                 name: str,
-                 value: str):
-        """
-        Properties for expected token claims.
-        :param str name: Name of the claim which must be present on the token.
-        :param str value: Expected value of the claim to be present on the token.
-        """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the claim which must be present on the token.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def value(self) -> str:
-        """
-        Expected value of the claim to be present on the token.
-        """
-        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

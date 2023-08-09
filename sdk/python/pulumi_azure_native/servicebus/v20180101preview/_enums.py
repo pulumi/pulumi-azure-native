@@ -5,22 +5,8 @@
 from enum import Enum
 
 __all__ = [
-    'EndPointProvisioningState',
     'IPAction',
-    'PrivateLinkConnectionStatus',
 ]
-
-
-class EndPointProvisioningState(str, Enum):
-    """
-    Provisioning state of the Private Endpoint Connection.
-    """
-    CREATING = "Creating"
-    UPDATING = "Updating"
-    DELETING = "Deleting"
-    SUCCEEDED = "Succeeded"
-    CANCELED = "Canceled"
-    FAILED = "Failed"
 
 
 class IPAction(str, Enum):
@@ -29,13 +15,3 @@ class IPAction(str, Enum):
     """
     ACCEPT = "Accept"
     REJECT = "Reject"
-
-
-class PrivateLinkConnectionStatus(str, Enum):
-    """
-    Status of the connection.
-    """
-    PENDING = "Pending"
-    APPROVED = "Approved"
-    REJECTED = "Rejected"
-    DISCONNECTED = "Disconnected"

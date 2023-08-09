@@ -29,12 +29,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.devices.v20200301 as __v20200301
-    v20200301 = __v20200301
     import pulumi_azure_native.devices.v20200401 as __v20200401
     v20200401 = __v20200401
-    import pulumi_azure_native.devices.v20200831 as __v20200831
-    v20200831 = __v20200831
     import pulumi_azure_native.devices.v20200901preview as __v20200901preview
     v20200901preview = __v20200901preview
     import pulumi_azure_native.devices.v20210303preview as __v20210303preview
@@ -50,9 +46,7 @@ if typing.TYPE_CHECKING:
     import pulumi_azure_native.devices.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
 else:
-    v20200301 = _utilities.lazy_import('pulumi_azure_native.devices.v20200301')
     v20200401 = _utilities.lazy_import('pulumi_azure_native.devices.v20200401')
-    v20200831 = _utilities.lazy_import('pulumi_azure_native.devices.v20200831')
     v20200901preview = _utilities.lazy_import('pulumi_azure_native.devices.v20200901preview')
     v20210303preview = _utilities.lazy_import('pulumi_azure_native.devices.v20210303preview')
     v20211015 = _utilities.lazy_import('pulumi_azure_native.devices.v20211015')

@@ -95,11 +95,9 @@ utilities.lazyLoad(exports, ["TagRule"], () => require("./tagRule"));
 export * from "../types/enums/logz";
 
 // Export sub-modules:
-import * as v20201001 from "./v20201001";
 import * as v20220101preview from "./v20220101preview";
 
 export {
-    v20201001,
     v20220101preview,
 };
 

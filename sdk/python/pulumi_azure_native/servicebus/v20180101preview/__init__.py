@@ -8,9 +8,5 @@ import typing
 from ._enums import *
 from .get_namespace_ip_filter_rule import *
 from .get_namespace_virtual_network_rule import *
-from .get_private_endpoint_connection import *
 from .namespace_ip_filter_rule import *
 from .namespace_virtual_network_rule import *
-from .private_endpoint_connection import *
-from ._inputs import *
-from . import outputs

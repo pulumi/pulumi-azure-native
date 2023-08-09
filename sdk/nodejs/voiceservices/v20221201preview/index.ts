@@ -5,20 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
-export { CommunicationsGatewayArgs } from "./communicationsGateway";
-export type CommunicationsGateway = import("./communicationsGateway").CommunicationsGateway;
-export const CommunicationsGateway: typeof import("./communicationsGateway").CommunicationsGateway = null as any;
-utilities.lazyLoad(exports, ["CommunicationsGateway"], () => require("./communicationsGateway"));
-
 export { ContactArgs } from "./contact";
 export type Contact = import("./contact").Contact;
 export const Contact: typeof import("./contact").Contact = null as any;
 utilities.lazyLoad(exports, ["Contact"], () => require("./contact"));
-
-export { GetCommunicationsGatewayArgs, GetCommunicationsGatewayResult, GetCommunicationsGatewayOutputArgs } from "./getCommunicationsGateway";
-export const getCommunicationsGateway: typeof import("./getCommunicationsGateway").getCommunicationsGateway = null as any;
-export const getCommunicationsGatewayOutput: typeof import("./getCommunicationsGateway").getCommunicationsGatewayOutput = null as any;
-utilities.lazyLoad(exports, ["getCommunicationsGateway","getCommunicationsGatewayOutput"], () => require("./getCommunicationsGateway"));
 
 export { GetContactArgs, GetContactResult, GetContactOutputArgs } from "./getContact";
 export const getContact: typeof import("./getContact").getContact = null as any;
@@ -43,8 +33,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:voiceservices/v20221201preview:CommunicationsGateway":
-                return new CommunicationsGateway(name, <any>undefined, { urn })
             case "azure-native:voiceservices/v20221201preview:Contact":
                 return new Contact(name, <any>undefined, { urn })
             case "azure-native:voiceservices/v20221201preview:TestLine":

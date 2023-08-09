@@ -13,19 +13,6 @@ export const PublicNetworkAccess = {
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
-export const Status = {
-    Unknown: "Unknown",
-    Pending: "Pending",
-    Approved: "Approved",
-    Rejected: "Rejected",
-    Disconnected: "Disconnected",
-} as const;
-
-/**
- * The status.
- */
-export type Status = (typeof Status)[keyof typeof Status];
-
 export const Type = {
     SystemAssigned: "SystemAssigned",
 } as const;

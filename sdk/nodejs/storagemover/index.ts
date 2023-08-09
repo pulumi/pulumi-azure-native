@@ -60,12 +60,10 @@ utilities.lazyLoad(exports, ["StorageMover"], () => require("./storageMover"));
 export * from "../types/enums/storagemover";
 
 // Export sub-modules:
-import * as v20220701preview from "./v20220701preview";
 import * as v20230301 from "./v20230301";
 import * as v20230701preview from "./v20230701preview";
 
 export {
-    v20220701preview,
     v20230301,
     v20230701preview,
 };

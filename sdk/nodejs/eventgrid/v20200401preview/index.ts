@@ -15,16 +15,6 @@ export const getDomain: typeof import("./getDomain").getDomain = null as any;
 export const getDomainOutput: typeof import("./getDomain").getDomainOutput = null as any;
 utilities.lazyLoad(exports, ["getDomain","getDomainOutput"], () => require("./getDomain"));
 
-export { GetPartnerTopicEventSubscriptionArgs, GetPartnerTopicEventSubscriptionResult, GetPartnerTopicEventSubscriptionOutputArgs } from "./getPartnerTopicEventSubscription";
-export const getPartnerTopicEventSubscription: typeof import("./getPartnerTopicEventSubscription").getPartnerTopicEventSubscription = null as any;
-export const getPartnerTopicEventSubscriptionOutput: typeof import("./getPartnerTopicEventSubscription").getPartnerTopicEventSubscriptionOutput = null as any;
-utilities.lazyLoad(exports, ["getPartnerTopicEventSubscription","getPartnerTopicEventSubscriptionOutput"], () => require("./getPartnerTopicEventSubscription"));
-
-export { GetSystemTopicEventSubscriptionArgs, GetSystemTopicEventSubscriptionResult, GetSystemTopicEventSubscriptionOutputArgs } from "./getSystemTopicEventSubscription";
-export const getSystemTopicEventSubscription: typeof import("./getSystemTopicEventSubscription").getSystemTopicEventSubscription = null as any;
-export const getSystemTopicEventSubscriptionOutput: typeof import("./getSystemTopicEventSubscription").getSystemTopicEventSubscriptionOutput = null as any;
-utilities.lazyLoad(exports, ["getSystemTopicEventSubscription","getSystemTopicEventSubscriptionOutput"], () => require("./getSystemTopicEventSubscription"));
-
 export { GetTopicArgs, GetTopicResult, GetTopicOutputArgs } from "./getTopic";
 export const getTopic: typeof import("./getTopic").getTopic = null as any;
 export const getTopicOutput: typeof import("./getTopic").getTopicOutput = null as any;
@@ -39,16 +29,6 @@ export { ListTopicSharedAccessKeysArgs, ListTopicSharedAccessKeysResult, ListTop
 export const listTopicSharedAccessKeys: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeys = null as any;
 export const listTopicSharedAccessKeysOutput: typeof import("./listTopicSharedAccessKeys").listTopicSharedAccessKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listTopicSharedAccessKeys","listTopicSharedAccessKeysOutput"], () => require("./listTopicSharedAccessKeys"));
-
-export { PartnerTopicEventSubscriptionArgs } from "./partnerTopicEventSubscription";
-export type PartnerTopicEventSubscription = import("./partnerTopicEventSubscription").PartnerTopicEventSubscription;
-export const PartnerTopicEventSubscription: typeof import("./partnerTopicEventSubscription").PartnerTopicEventSubscription = null as any;
-utilities.lazyLoad(exports, ["PartnerTopicEventSubscription"], () => require("./partnerTopicEventSubscription"));
-
-export { SystemTopicEventSubscriptionArgs } from "./systemTopicEventSubscription";
-export type SystemTopicEventSubscription = import("./systemTopicEventSubscription").SystemTopicEventSubscription;
-export const SystemTopicEventSubscription: typeof import("./systemTopicEventSubscription").SystemTopicEventSubscription = null as any;
-utilities.lazyLoad(exports, ["SystemTopicEventSubscription"], () => require("./systemTopicEventSubscription"));
 
 export { TopicArgs } from "./topic";
 export type Topic = import("./topic").Topic;
@@ -65,10 +45,6 @@ const _module = {
         switch (type) {
             case "azure-native:eventgrid/v20200401preview:Domain":
                 return new Domain(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription":
-                return new PartnerTopicEventSubscription(name, <any>undefined, { urn })
-            case "azure-native:eventgrid/v20200401preview:SystemTopicEventSubscription":
-                return new SystemTopicEventSubscription(name, <any>undefined, { urn })
             case "azure-native:eventgrid/v20200401preview:Topic":
                 return new Topic(name, <any>undefined, { urn })
             default:

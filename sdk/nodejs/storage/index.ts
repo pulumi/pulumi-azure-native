@@ -200,14 +200,10 @@ utilities.lazyLoad(exports, ["TableServiceProperties"], () => require("./tableSe
 export * from "../types/enums/storage";
 
 // Export sub-modules:
-import * as v20210201 from "./v20210201";
-import * as v20210801 from "./v20210801";
 import * as v20220901 from "./v20220901";
 import * as v20230101 from "./v20230101";
 
 export {
-    v20210201,
-    v20210801,
     v20220901,
     v20230101,
 };

@@ -20,11 +20,9 @@ utilities.lazyLoad(exports, ["getAccount","getAccountOutput"], () => require("./
 export * from "../types/enums/videoindexer";
 
 // Export sub-modules:
-import * as v20211018preview from "./v20211018preview";
 import * as v20220801 from "./v20220801";
 
 export {
-    v20211018preview,
     v20220801,
 };
 

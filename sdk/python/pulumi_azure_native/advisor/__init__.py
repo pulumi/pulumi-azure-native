@@ -11,11 +11,8 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azure_native.advisor.v20200101 as __v20200101
-    v20200101 = __v20200101
     import pulumi_azure_native.advisor.v20230101 as __v20230101
     v20230101 = __v20230101
 else:
-    v20200101 = _utilities.lazy_import('pulumi_azure_native.advisor.v20200101')
     v20230101 = _utilities.lazy_import('pulumi_azure_native.advisor.v20230101')
 
