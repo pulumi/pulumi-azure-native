@@ -267,6 +267,10 @@ ContainerService:
         listManagedClusterAccessProfile: "2020-03-01"
 ContainerStorage:
     tracking: 2023-03-01-preview
+    additions:
+        Pool: 2023-07-01-preview
+        Snapshot: 2023-07-01-preview
+        Volume: 2023-07-01-preview
 CostManagement:
     tracking: "2023-03-01"
     additions:
@@ -435,6 +439,8 @@ GuestConfiguration:
     tracking: "2022-01-25"
 HDInsight:
     tracking: "2021-06-01"
+    additions:
+        ClusterPool: 2023-06-01-preview
 HanaOnAzure:
     tracking: 2020-02-07-preview
 HardwareSecurityModules:
@@ -454,7 +460,6 @@ HybridCloud:
 HybridCompute:
     tracking: "2022-12-27"
     additions:
-        MachineRunCommand: 2023-04-25-preview
         PrivateLinkScopedResource: 2020-08-15-preview
 HybridConnectivity:
     tracking: "2023-03-15"
@@ -678,6 +683,8 @@ MobileNetwork:
     tracking: "2023-06-01"
     additions:
         listMobileNetworkSimIds: 2022-04-01-preview
+MobilePacketCore:
+    tracking: 2023-05-15-preview
 Monitor:
     tracking: "2023-04-03"
 NetApp:
@@ -1059,6 +1066,8 @@ StoragePool:
     tracking: "2021-08-01"
 StorageSync:
     tracking: "2022-06-01"
+StorageTasks:
+    tracking: "2023-01-01"
 StreamAnalytics:
     tracking: "2020-03-01"
 Subscription:
