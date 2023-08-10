@@ -74,8 +74,8 @@ def list_object_anchors_account_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mixedreality:listObjectAnchorsAccountKeys', __args__, opts=opts, typ=ListObjectAnchorsAccountKeysResult).value
 
     return AwaitableListObjectAnchorsAccountKeysResult(
-        primary_key=__ret__.primary_key,
-        secondary_key=__ret__.secondary_key)
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_object_anchors_account_keys)

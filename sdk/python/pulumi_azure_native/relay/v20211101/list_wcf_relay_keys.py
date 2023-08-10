@@ -115,11 +115,11 @@ def list_wcf_relay_keys(authorization_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:relay/v20211101:listWCFRelayKeys', __args__, opts=opts, typ=ListWCFRelayKeysResult).value
 
     return AwaitableListWCFRelayKeysResult(
-        key_name=__ret__.key_name,
-        primary_connection_string=__ret__.primary_connection_string,
-        primary_key=__ret__.primary_key,
-        secondary_connection_string=__ret__.secondary_connection_string,
-        secondary_key=__ret__.secondary_key)
+        key_name=pulumi.get(__ret__, 'key_name'),
+        primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_wcf_relay_keys)

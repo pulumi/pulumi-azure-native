@@ -63,7 +63,7 @@ def list_job_secrets(job_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:listJobSecrets', __args__, opts=opts, typ=ListJobSecretsResult).value
 
     return AwaitableListJobSecretsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_job_secrets)

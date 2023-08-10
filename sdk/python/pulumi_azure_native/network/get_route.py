@@ -161,15 +161,15 @@ def get_route(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
-        address_prefix=__ret__.address_prefix,
-        etag=__ret__.etag,
-        has_bgp_override=__ret__.has_bgp_override,
-        id=__ret__.id,
-        name=__ret__.name,
-        next_hop_ip_address=__ret__.next_hop_ip_address,
-        next_hop_type=__ret__.next_hop_type,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        address_prefix=pulumi.get(__ret__, 'address_prefix'),
+        etag=pulumi.get(__ret__, 'etag'),
+        has_bgp_override=pulumi.get(__ret__, 'has_bgp_override'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        next_hop_ip_address=pulumi.get(__ret__, 'next_hop_ip_address'),
+        next_hop_type=pulumi.get(__ret__, 'next_hop_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_route)

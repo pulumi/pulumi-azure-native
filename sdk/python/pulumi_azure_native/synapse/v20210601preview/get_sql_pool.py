@@ -233,21 +233,21 @@ def get_sql_pool(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getSqlPool', __args__, opts=opts, typ=GetSqlPoolResult).value
 
     return AwaitableGetSqlPoolResult(
-        collation=__ret__.collation,
-        creation_date=__ret__.creation_date,
-        id=__ret__.id,
-        location=__ret__.location,
-        max_size_bytes=__ret__.max_size_bytes,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        recoverable_database_id=__ret__.recoverable_database_id,
-        restore_point_in_time=__ret__.restore_point_in_time,
-        sku=__ret__.sku,
-        source_database_deletion_date=__ret__.source_database_deletion_date,
-        status=__ret__.status,
-        storage_account_type=__ret__.storage_account_type,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        collation=pulumi.get(__ret__, 'collation'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        max_size_bytes=pulumi.get(__ret__, 'max_size_bytes'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        recoverable_database_id=pulumi.get(__ret__, 'recoverable_database_id'),
+        restore_point_in_time=pulumi.get(__ret__, 'restore_point_in_time'),
+        sku=pulumi.get(__ret__, 'sku'),
+        source_database_deletion_date=pulumi.get(__ret__, 'source_database_deletion_date'),
+        status=pulumi.get(__ret__, 'status'),
+        storage_account_type=pulumi.get(__ret__, 'storage_account_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sql_pool)

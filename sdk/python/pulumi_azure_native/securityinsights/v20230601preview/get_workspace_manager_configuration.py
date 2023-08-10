@@ -125,12 +125,12 @@ def get_workspace_manager_configuration(resource_group_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230601preview:getWorkspaceManagerConfiguration', __args__, opts=opts, typ=GetWorkspaceManagerConfigurationResult).value
 
     return AwaitableGetWorkspaceManagerConfigurationResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        mode=__ret__.mode,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        mode=pulumi.get(__ret__, 'mode'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace_manager_configuration)

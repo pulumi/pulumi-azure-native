@@ -267,24 +267,24 @@ def get_metric_alert(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getMetricAlert', __args__, opts=opts, typ=GetMetricAlertResult).value
 
     return AwaitableGetMetricAlertResult(
-        actions=__ret__.actions,
-        auto_mitigate=__ret__.auto_mitigate,
-        criteria=__ret__.criteria,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        evaluation_frequency=__ret__.evaluation_frequency,
-        id=__ret__.id,
-        is_migrated=__ret__.is_migrated,
-        last_updated_time=__ret__.last_updated_time,
-        location=__ret__.location,
-        name=__ret__.name,
-        scopes=__ret__.scopes,
-        severity=__ret__.severity,
-        tags=__ret__.tags,
-        target_resource_region=__ret__.target_resource_region,
-        target_resource_type=__ret__.target_resource_type,
-        type=__ret__.type,
-        window_size=__ret__.window_size)
+        actions=pulumi.get(__ret__, 'actions'),
+        auto_mitigate=pulumi.get(__ret__, 'auto_mitigate'),
+        criteria=pulumi.get(__ret__, 'criteria'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        evaluation_frequency=pulumi.get(__ret__, 'evaluation_frequency'),
+        id=pulumi.get(__ret__, 'id'),
+        is_migrated=pulumi.get(__ret__, 'is_migrated'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        scopes=pulumi.get(__ret__, 'scopes'),
+        severity=pulumi.get(__ret__, 'severity'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_resource_region=pulumi.get(__ret__, 'target_resource_region'),
+        target_resource_type=pulumi.get(__ret__, 'target_resource_type'),
+        type=pulumi.get(__ret__, 'type'),
+        window_size=pulumi.get(__ret__, 'window_size'))
 
 
 @_utilities.lift_output_func(get_metric_alert)

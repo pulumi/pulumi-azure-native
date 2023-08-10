@@ -104,10 +104,10 @@ def get_job_target_group(job_agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20221101preview:getJobTargetGroup', __args__, opts=opts, typ=GetJobTargetGroupResult).value
 
     return AwaitableGetJobTargetGroupResult(
-        id=__ret__.id,
-        members=__ret__.members,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        members=pulumi.get(__ret__, 'members'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_job_target_group)

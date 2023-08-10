@@ -230,21 +230,21 @@ def get_vmm_server(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:scvmm/v20220521preview:getVmmServer', __args__, opts=opts, typ=GetVmmServerResult).value
 
     return AwaitableGetVmmServerResult(
-        connection_status=__ret__.connection_status,
-        credentials=__ret__.credentials,
-        error_message=__ret__.error_message,
-        extended_location=__ret__.extended_location,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        port=__ret__.port,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        uuid=__ret__.uuid,
-        version=__ret__.version)
+        connection_status=pulumi.get(__ret__, 'connection_status'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        port=pulumi.get(__ret__, 'port'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        uuid=pulumi.get(__ret__, 'uuid'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_vmm_server)

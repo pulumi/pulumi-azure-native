@@ -173,16 +173,16 @@ def get_hybrid_connection(hybrid_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:relay/v20211101:getHybridConnection', __args__, opts=opts, typ=GetHybridConnectionResult).value
 
     return AwaitableGetHybridConnectionResult(
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        listener_count=__ret__.listener_count,
-        location=__ret__.location,
-        name=__ret__.name,
-        requires_client_authorization=__ret__.requires_client_authorization,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        updated_at=__ret__.updated_at,
-        user_metadata=__ret__.user_metadata)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        listener_count=pulumi.get(__ret__, 'listener_count'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        requires_client_authorization=pulumi.get(__ret__, 'requires_client_authorization'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        user_metadata=pulumi.get(__ret__, 'user_metadata'))
 
 
 @_utilities.lift_output_func(get_hybrid_connection)

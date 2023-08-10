@@ -175,16 +175,16 @@ def get_customizable_connector_definition(data_connector_definition_name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getCustomizableConnectorDefinition', __args__, opts=opts, typ=GetCustomizableConnectorDefinitionResult).value
 
     return AwaitableGetCustomizableConnectorDefinitionResult(
-        connections_config=__ret__.connections_config,
-        connector_ui_config=__ret__.connector_ui_config,
-        created_time_utc=__ret__.created_time_utc,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_modified_utc=__ret__.last_modified_utc,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        connections_config=pulumi.get(__ret__, 'connections_config'),
+        connector_ui_config=pulumi.get(__ret__, 'connector_ui_config'),
+        created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_modified_utc=pulumi.get(__ret__, 'last_modified_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_customizable_connector_definition)

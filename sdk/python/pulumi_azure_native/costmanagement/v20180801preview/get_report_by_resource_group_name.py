@@ -146,14 +146,14 @@ def get_report_by_resource_group_name(report_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement/v20180801preview:getReportByResourceGroupName', __args__, opts=opts, typ=GetReportByResourceGroupNameResult).value
 
     return AwaitableGetReportByResourceGroupNameResult(
-        definition=__ret__.definition,
-        delivery_info=__ret__.delivery_info,
-        format=__ret__.format,
-        id=__ret__.id,
-        name=__ret__.name,
-        schedule=__ret__.schedule,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        definition=pulumi.get(__ret__, 'definition'),
+        delivery_info=pulumi.get(__ret__, 'delivery_info'),
+        format=pulumi.get(__ret__, 'format'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_report_by_resource_group_name)

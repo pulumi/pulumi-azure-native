@@ -170,16 +170,16 @@ def get_hub(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights/v20170426:getHub', __args__, opts=opts, typ=GetHubResult).value
 
     return AwaitableGetHubResult(
-        api_endpoint=__ret__.api_endpoint,
-        hub_billing_info=__ret__.hub_billing_info,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        tenant_features=__ret__.tenant_features,
-        type=__ret__.type,
-        web_endpoint=__ret__.web_endpoint)
+        api_endpoint=pulumi.get(__ret__, 'api_endpoint'),
+        hub_billing_info=pulumi.get(__ret__, 'hub_billing_info'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_features=pulumi.get(__ret__, 'tenant_features'),
+        type=pulumi.get(__ret__, 'type'),
+        web_endpoint=pulumi.get(__ret__, 'web_endpoint'))
 
 
 @_utilities.lift_output_func(get_hub)

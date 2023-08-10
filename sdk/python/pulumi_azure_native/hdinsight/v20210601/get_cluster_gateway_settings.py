@@ -85,9 +85,9 @@ def get_cluster_gateway_settings(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hdinsight/v20210601:getClusterGatewaySettings', __args__, opts=opts, typ=GetClusterGatewaySettingsResult).value
 
     return AwaitableGetClusterGatewaySettingsResult(
-        is_credential_enabled=__ret__.is_credential_enabled,
-        password=__ret__.password,
-        user_name=__ret__.user_name)
+        is_credential_enabled=pulumi.get(__ret__, 'is_credential_enabled'),
+        password=pulumi.get(__ret__, 'password'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_cluster_gateway_settings)

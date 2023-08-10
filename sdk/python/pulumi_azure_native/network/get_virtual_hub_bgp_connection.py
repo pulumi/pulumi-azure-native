@@ -162,15 +162,15 @@ def get_virtual_hub_bgp_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getVirtualHubBgpConnection', __args__, opts=opts, typ=GetVirtualHubBgpConnectionResult).value
 
     return AwaitableGetVirtualHubBgpConnectionResult(
-        connection_state=__ret__.connection_state,
-        etag=__ret__.etag,
-        hub_virtual_network_connection=__ret__.hub_virtual_network_connection,
-        id=__ret__.id,
-        name=__ret__.name,
-        peer_asn=__ret__.peer_asn,
-        peer_ip=__ret__.peer_ip,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        connection_state=pulumi.get(__ret__, 'connection_state'),
+        etag=pulumi.get(__ret__, 'etag'),
+        hub_virtual_network_connection=pulumi.get(__ret__, 'hub_virtual_network_connection'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        peer_asn=pulumi.get(__ret__, 'peer_asn'),
+        peer_ip=pulumi.get(__ret__, 'peer_ip'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_virtual_hub_bgp_connection)

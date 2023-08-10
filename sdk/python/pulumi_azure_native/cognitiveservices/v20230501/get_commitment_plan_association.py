@@ -125,12 +125,12 @@ def get_commitment_plan_association(commitment_plan_association_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:cognitiveservices/v20230501:getCommitmentPlanAssociation', __args__, opts=opts, typ=GetCommitmentPlanAssociationResult).value
 
     return AwaitableGetCommitmentPlanAssociationResult(
-        account_id=__ret__.account_id,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_commitment_plan_association)

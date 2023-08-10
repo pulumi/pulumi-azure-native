@@ -125,12 +125,12 @@ def get_routing_intent(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getRoutingIntent', __args__, opts=opts, typ=GetRoutingIntentResult).value
 
     return AwaitableGetRoutingIntentResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        routing_policies=__ret__.routing_policies,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        routing_policies=pulumi.get(__ret__, 'routing_policies'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_routing_intent)

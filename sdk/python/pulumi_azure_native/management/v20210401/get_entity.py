@@ -110,9 +110,9 @@ def get_entity(filter: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:management/v20210401:getEntity', __args__, opts=opts, typ=GetEntityResult).value
 
     return AwaitableGetEntityResult(
-        count=__ret__.count,
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        count=pulumi.get(__ret__, 'count'),
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_entity)

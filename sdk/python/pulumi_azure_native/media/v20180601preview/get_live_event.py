@@ -245,22 +245,22 @@ def get_live_event(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20180601preview:getLiveEvent', __args__, opts=opts, typ=GetLiveEventResult).value
 
     return AwaitableGetLiveEventResult(
-        created=__ret__.created,
-        cross_site_access_policies=__ret__.cross_site_access_policies,
-        description=__ret__.description,
-        encoding=__ret__.encoding,
-        id=__ret__.id,
-        input=__ret__.input,
-        last_modified=__ret__.last_modified,
-        location=__ret__.location,
-        name=__ret__.name,
-        preview=__ret__.preview,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        stream_options=__ret__.stream_options,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vanity_url=__ret__.vanity_url)
+        created=pulumi.get(__ret__, 'created'),
+        cross_site_access_policies=pulumi.get(__ret__, 'cross_site_access_policies'),
+        description=pulumi.get(__ret__, 'description'),
+        encoding=pulumi.get(__ret__, 'encoding'),
+        id=pulumi.get(__ret__, 'id'),
+        input=pulumi.get(__ret__, 'input'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        preview=pulumi.get(__ret__, 'preview'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        stream_options=pulumi.get(__ret__, 'stream_options'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vanity_url=pulumi.get(__ret__, 'vanity_url'))
 
 
 @_utilities.lift_output_func(get_live_event)

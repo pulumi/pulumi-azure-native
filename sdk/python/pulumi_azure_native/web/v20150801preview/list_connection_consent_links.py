@@ -85,7 +85,7 @@ def list_connection_consent_links(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20150801preview:listConnectionConsentLinks', __args__, opts=opts, typ=ListConnectionConsentLinksResult).value
 
     return AwaitableListConnectionConsentLinksResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_connection_consent_links)

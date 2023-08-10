@@ -184,17 +184,17 @@ def get_server_security_alert_policy(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20170301preview:getServerSecurityAlertPolicy', __args__, opts=opts, typ=GetServerSecurityAlertPolicyResult).value
 
     return AwaitableGetServerSecurityAlertPolicyResult(
-        creation_time=__ret__.creation_time,
-        disabled_alerts=__ret__.disabled_alerts,
-        email_account_admins=__ret__.email_account_admins,
-        email_addresses=__ret__.email_addresses,
-        id=__ret__.id,
-        name=__ret__.name,
-        retention_days=__ret__.retention_days,
-        state=__ret__.state,
-        storage_account_access_key=__ret__.storage_account_access_key,
-        storage_endpoint=__ret__.storage_endpoint,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        disabled_alerts=pulumi.get(__ret__, 'disabled_alerts'),
+        email_account_admins=pulumi.get(__ret__, 'email_account_admins'),
+        email_addresses=pulumi.get(__ret__, 'email_addresses'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        retention_days=pulumi.get(__ret__, 'retention_days'),
+        state=pulumi.get(__ret__, 'state'),
+        storage_account_access_key=pulumi.get(__ret__, 'storage_account_access_key'),
+        storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_security_alert_policy)

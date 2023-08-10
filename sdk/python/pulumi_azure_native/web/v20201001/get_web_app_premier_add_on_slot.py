@@ -200,18 +200,18 @@ def get_web_app_premier_add_on_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20201001:getWebAppPremierAddOnSlot', __args__, opts=opts, typ=GetWebAppPremierAddOnSlotResult).value
 
     return AwaitableGetWebAppPremierAddOnSlotResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        marketplace_offer=__ret__.marketplace_offer,
-        marketplace_publisher=__ret__.marketplace_publisher,
-        name=__ret__.name,
-        product=__ret__.product,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vendor=__ret__.vendor)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        marketplace_offer=pulumi.get(__ret__, 'marketplace_offer'),
+        marketplace_publisher=pulumi.get(__ret__, 'marketplace_publisher'),
+        name=pulumi.get(__ret__, 'name'),
+        product=pulumi.get(__ret__, 'product'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vendor=pulumi.get(__ret__, 'vendor'))
 
 
 @_utilities.lift_output_func(get_web_app_premier_add_on_slot)

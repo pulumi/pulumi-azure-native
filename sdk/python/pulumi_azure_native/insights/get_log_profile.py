@@ -168,16 +168,16 @@ def get_log_profile(log_profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getLogProfile', __args__, opts=opts, typ=GetLogProfileResult).value
 
     return AwaitableGetLogProfileResult(
-        categories=__ret__.categories,
-        id=__ret__.id,
-        location=__ret__.location,
-        locations=__ret__.locations,
-        name=__ret__.name,
-        retention_policy=__ret__.retention_policy,
-        service_bus_rule_id=__ret__.service_bus_rule_id,
-        storage_account_id=__ret__.storage_account_id,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        categories=pulumi.get(__ret__, 'categories'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        locations=pulumi.get(__ret__, 'locations'),
+        name=pulumi.get(__ret__, 'name'),
+        retention_policy=pulumi.get(__ret__, 'retention_policy'),
+        service_bus_rule_id=pulumi.get(__ret__, 'service_bus_rule_id'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_log_profile)

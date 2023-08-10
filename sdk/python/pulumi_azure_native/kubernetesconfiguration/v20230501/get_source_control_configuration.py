@@ -263,23 +263,23 @@ def get_source_control_configuration(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kubernetesconfiguration/v20230501:getSourceControlConfiguration', __args__, opts=opts, typ=GetSourceControlConfigurationResult).value
 
     return AwaitableGetSourceControlConfigurationResult(
-        compliance_status=__ret__.compliance_status,
-        configuration_protected_settings=__ret__.configuration_protected_settings,
-        enable_helm_operator=__ret__.enable_helm_operator,
-        helm_operator_properties=__ret__.helm_operator_properties,
-        id=__ret__.id,
-        name=__ret__.name,
-        operator_instance_name=__ret__.operator_instance_name,
-        operator_namespace=__ret__.operator_namespace,
-        operator_params=__ret__.operator_params,
-        operator_scope=__ret__.operator_scope,
-        operator_type=__ret__.operator_type,
-        provisioning_state=__ret__.provisioning_state,
-        repository_public_key=__ret__.repository_public_key,
-        repository_url=__ret__.repository_url,
-        ssh_known_hosts_contents=__ret__.ssh_known_hosts_contents,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        compliance_status=pulumi.get(__ret__, 'compliance_status'),
+        configuration_protected_settings=pulumi.get(__ret__, 'configuration_protected_settings'),
+        enable_helm_operator=pulumi.get(__ret__, 'enable_helm_operator'),
+        helm_operator_properties=pulumi.get(__ret__, 'helm_operator_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        operator_instance_name=pulumi.get(__ret__, 'operator_instance_name'),
+        operator_namespace=pulumi.get(__ret__, 'operator_namespace'),
+        operator_params=pulumi.get(__ret__, 'operator_params'),
+        operator_scope=pulumi.get(__ret__, 'operator_scope'),
+        operator_type=pulumi.get(__ret__, 'operator_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        repository_public_key=pulumi.get(__ret__, 'repository_public_key'),
+        repository_url=pulumi.get(__ret__, 'repository_url'),
+        ssh_known_hosts_contents=pulumi.get(__ret__, 'ssh_known_hosts_contents'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_source_control_configuration)

@@ -258,23 +258,23 @@ def get_private_link_service(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getPrivateLinkService', __args__, opts=opts, typ=GetPrivateLinkServiceResult).value
 
     return AwaitableGetPrivateLinkServiceResult(
-        alias=__ret__.alias,
-        auto_approval=__ret__.auto_approval,
-        enable_proxy_protocol=__ret__.enable_proxy_protocol,
-        etag=__ret__.etag,
-        extended_location=__ret__.extended_location,
-        fqdns=__ret__.fqdns,
-        id=__ret__.id,
-        ip_configurations=__ret__.ip_configurations,
-        load_balancer_frontend_ip_configurations=__ret__.load_balancer_frontend_ip_configurations,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_interfaces=__ret__.network_interfaces,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        visibility=__ret__.visibility)
+        alias=pulumi.get(__ret__, 'alias'),
+        auto_approval=pulumi.get(__ret__, 'auto_approval'),
+        enable_proxy_protocol=pulumi.get(__ret__, 'enable_proxy_protocol'),
+        etag=pulumi.get(__ret__, 'etag'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        fqdns=pulumi.get(__ret__, 'fqdns'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        load_balancer_frontend_ip_configurations=pulumi.get(__ret__, 'load_balancer_frontend_ip_configurations'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        visibility=pulumi.get(__ret__, 'visibility'))
 
 
 @_utilities.lift_output_func(get_private_link_service)

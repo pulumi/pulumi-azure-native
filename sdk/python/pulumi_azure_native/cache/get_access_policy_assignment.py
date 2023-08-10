@@ -137,13 +137,13 @@ def get_access_policy_assignment(access_policy_assignment_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:cache:getAccessPolicyAssignment', __args__, opts=opts, typ=GetAccessPolicyAssignmentResult).value
 
     return AwaitableGetAccessPolicyAssignmentResult(
-        access_policy_name=__ret__.access_policy_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        object_id=__ret__.object_id,
-        object_id_alias=__ret__.object_id_alias,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        access_policy_name=pulumi.get(__ret__, 'access_policy_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        object_id=pulumi.get(__ret__, 'object_id'),
+        object_id_alias=pulumi.get(__ret__, 'object_id_alias'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_access_policy_assignment)

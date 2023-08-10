@@ -221,20 +221,20 @@ def get_arc_setting(arc_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20230301:getArcSetting', __args__, opts=opts, typ=GetArcSettingResult).value
 
     return AwaitableGetArcSettingResult(
-        aggregate_state=__ret__.aggregate_state,
-        arc_application_client_id=__ret__.arc_application_client_id,
-        arc_application_object_id=__ret__.arc_application_object_id,
-        arc_application_tenant_id=__ret__.arc_application_tenant_id,
-        arc_instance_resource_group=__ret__.arc_instance_resource_group,
-        arc_service_principal_object_id=__ret__.arc_service_principal_object_id,
-        connectivity_properties=__ret__.connectivity_properties,
-        default_extensions=__ret__.default_extensions,
-        id=__ret__.id,
-        name=__ret__.name,
-        per_node_details=__ret__.per_node_details,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        aggregate_state=pulumi.get(__ret__, 'aggregate_state'),
+        arc_application_client_id=pulumi.get(__ret__, 'arc_application_client_id'),
+        arc_application_object_id=pulumi.get(__ret__, 'arc_application_object_id'),
+        arc_application_tenant_id=pulumi.get(__ret__, 'arc_application_tenant_id'),
+        arc_instance_resource_group=pulumi.get(__ret__, 'arc_instance_resource_group'),
+        arc_service_principal_object_id=pulumi.get(__ret__, 'arc_service_principal_object_id'),
+        connectivity_properties=pulumi.get(__ret__, 'connectivity_properties'),
+        default_extensions=pulumi.get(__ret__, 'default_extensions'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        per_node_details=pulumi.get(__ret__, 'per_node_details'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_arc_setting)

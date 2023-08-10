@@ -59,7 +59,7 @@ def list_location_consortiums(location_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blockchain/v20180601preview:listLocationConsortiums', __args__, opts=opts, typ=ListLocationConsortiumsResult).value
 
     return AwaitableListLocationConsortiumsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_location_consortiums)

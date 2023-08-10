@@ -87,7 +87,7 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20211101:getLogAnalyticExportRequestRateByInterval', __args__, opts=opts, typ=GetLogAnalyticExportRequestRateByIntervalResult).value
 
     return AwaitableGetLogAnalyticExportRequestRateByIntervalResult(
-        properties=__ret__.properties)
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_log_analytic_export_request_rate_by_interval)

@@ -71,7 +71,7 @@ def get_user_shared_access_token(expiry: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getUserSharedAccessToken', __args__, opts=opts, typ=GetUserSharedAccessTokenResult).value
 
     return AwaitableGetUserSharedAccessTokenResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_user_shared_access_token)

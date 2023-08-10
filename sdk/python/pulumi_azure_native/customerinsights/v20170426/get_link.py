@@ -245,22 +245,22 @@ def get_link(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights/v20170426:getLink', __args__, opts=opts, typ=GetLinkResult).value
 
     return AwaitableGetLinkResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        link_name=__ret__.link_name,
-        mappings=__ret__.mappings,
-        name=__ret__.name,
-        operation_type=__ret__.operation_type,
-        participant_property_references=__ret__.participant_property_references,
-        provisioning_state=__ret__.provisioning_state,
-        reference_only=__ret__.reference_only,
-        source_entity_type=__ret__.source_entity_type,
-        source_entity_type_name=__ret__.source_entity_type_name,
-        target_entity_type=__ret__.target_entity_type,
-        target_entity_type_name=__ret__.target_entity_type_name,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        link_name=pulumi.get(__ret__, 'link_name'),
+        mappings=pulumi.get(__ret__, 'mappings'),
+        name=pulumi.get(__ret__, 'name'),
+        operation_type=pulumi.get(__ret__, 'operation_type'),
+        participant_property_references=pulumi.get(__ret__, 'participant_property_references'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        reference_only=pulumi.get(__ret__, 'reference_only'),
+        source_entity_type=pulumi.get(__ret__, 'source_entity_type'),
+        source_entity_type_name=pulumi.get(__ret__, 'source_entity_type_name'),
+        target_entity_type=pulumi.get(__ret__, 'target_entity_type'),
+        target_entity_type_name=pulumi.get(__ret__, 'target_entity_type_name'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_link)

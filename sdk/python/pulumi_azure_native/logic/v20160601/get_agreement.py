@@ -221,20 +221,20 @@ def get_agreement(agreement_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20160601:getAgreement', __args__, opts=opts, typ=GetAgreementResult).value
 
     return AwaitableGetAgreementResult(
-        agreement_type=__ret__.agreement_type,
-        changed_time=__ret__.changed_time,
-        content=__ret__.content,
-        created_time=__ret__.created_time,
-        guest_identity=__ret__.guest_identity,
-        guest_partner=__ret__.guest_partner,
-        host_identity=__ret__.host_identity,
-        host_partner=__ret__.host_partner,
-        id=__ret__.id,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        agreement_type=pulumi.get(__ret__, 'agreement_type'),
+        changed_time=pulumi.get(__ret__, 'changed_time'),
+        content=pulumi.get(__ret__, 'content'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        guest_identity=pulumi.get(__ret__, 'guest_identity'),
+        guest_partner=pulumi.get(__ret__, 'guest_partner'),
+        host_identity=pulumi.get(__ret__, 'host_identity'),
+        host_partner=pulumi.get(__ret__, 'host_partner'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_agreement)

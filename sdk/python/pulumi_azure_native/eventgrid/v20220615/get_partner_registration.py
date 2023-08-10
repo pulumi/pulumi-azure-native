@@ -147,14 +147,14 @@ def get_partner_registration(partner_registration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20220615:getPartnerRegistration', __args__, opts=opts, typ=GetPartnerRegistrationResult).value
 
     return AwaitableGetPartnerRegistrationResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        partner_registration_immutable_id=__ret__.partner_registration_immutable_id,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_registration_immutable_id=pulumi.get(__ret__, 'partner_registration_immutable_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_partner_registration)

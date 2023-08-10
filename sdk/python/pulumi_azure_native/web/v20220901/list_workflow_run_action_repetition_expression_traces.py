@@ -92,9 +92,9 @@ def list_workflow_run_action_repetition_expression_traces(action_name: Optional[
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:listWorkflowRunActionRepetitionExpressionTraces', __args__, opts=opts, typ=ListWorkflowRunActionRepetitionExpressionTracesResult).value
 
     return AwaitableListWorkflowRunActionRepetitionExpressionTracesResult(
-        inputs=__ret__.inputs,
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        inputs=pulumi.get(__ret__, 'inputs'),
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_workflow_run_action_repetition_expression_traces)

@@ -130,12 +130,12 @@ def get_api_issue_attachment(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getApiIssueAttachment', __args__, opts=opts, typ=GetApiIssueAttachmentResult).value
 
     return AwaitableGetApiIssueAttachmentResult(
-        content=__ret__.content,
-        content_format=__ret__.content_format,
-        id=__ret__.id,
-        name=__ret__.name,
-        title=__ret__.title,
-        type=__ret__.type)
+        content=pulumi.get(__ret__, 'content'),
+        content_format=pulumi.get(__ret__, 'content_format'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        title=pulumi.get(__ret__, 'title'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_api_issue_attachment)

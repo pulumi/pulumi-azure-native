@@ -200,18 +200,18 @@ def get_database_threat_detection_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getDatabaseThreatDetectionPolicy', __args__, opts=opts, typ=GetDatabaseThreatDetectionPolicyResult).value
 
     return AwaitableGetDatabaseThreatDetectionPolicyResult(
-        disabled_alerts=__ret__.disabled_alerts,
-        email_account_admins=__ret__.email_account_admins,
-        email_addresses=__ret__.email_addresses,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        retention_days=__ret__.retention_days,
-        state=__ret__.state,
-        storage_endpoint=__ret__.storage_endpoint,
-        type=__ret__.type,
-        use_server_default=__ret__.use_server_default)
+        disabled_alerts=pulumi.get(__ret__, 'disabled_alerts'),
+        email_account_admins=pulumi.get(__ret__, 'email_account_admins'),
+        email_addresses=pulumi.get(__ret__, 'email_addresses'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        retention_days=pulumi.get(__ret__, 'retention_days'),
+        state=pulumi.get(__ret__, 'state'),
+        storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
+        type=pulumi.get(__ret__, 'type'),
+        use_server_default=pulumi.get(__ret__, 'use_server_default'))
 
 
 @_utilities.lift_output_func(get_database_threat_detection_policy)

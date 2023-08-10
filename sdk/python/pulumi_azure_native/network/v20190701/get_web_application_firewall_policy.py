@@ -182,17 +182,17 @@ def get_web_application_firewall_policy(policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20190701:getWebApplicationFirewallPolicy', __args__, opts=opts, typ=GetWebApplicationFirewallPolicyResult).value
 
     return AwaitableGetWebApplicationFirewallPolicyResult(
-        application_gateways=__ret__.application_gateways,
-        custom_rules=__ret__.custom_rules,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        policy_settings=__ret__.policy_settings,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        application_gateways=pulumi.get(__ret__, 'application_gateways'),
+        custom_rules=pulumi.get(__ret__, 'custom_rules'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_settings=pulumi.get(__ret__, 'policy_settings'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_application_firewall_policy)

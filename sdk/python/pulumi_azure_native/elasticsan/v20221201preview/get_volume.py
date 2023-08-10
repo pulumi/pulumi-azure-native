@@ -152,14 +152,14 @@ def get_volume(elastic_san_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elasticsan/v20221201preview:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        creation_data=__ret__.creation_data,
-        id=__ret__.id,
-        name=__ret__.name,
-        size_gi_b=__ret__.size_gi_b,
-        storage_target=__ret__.storage_target,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        volume_id=__ret__.volume_id)
+        creation_data=pulumi.get(__ret__, 'creation_data'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        size_gi_b=pulumi.get(__ret__, 'size_gi_b'),
+        storage_target=pulumi.get(__ret__, 'storage_target'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_id=pulumi.get(__ret__, 'volume_id'))
 
 
 @_utilities.lift_output_func(get_volume)

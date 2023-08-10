@@ -219,20 +219,20 @@ def get_network_device(network_device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric:getNetworkDevice', __args__, opts=opts, typ=GetNetworkDeviceResult).value
 
     return AwaitableGetNetworkDeviceResult(
-        annotation=__ret__.annotation,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_device_role=__ret__.network_device_role,
-        network_device_sku=__ret__.network_device_sku,
-        network_rack_id=__ret__.network_rack_id,
-        provisioning_state=__ret__.provisioning_state,
-        serial_number=__ret__.serial_number,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        annotation=pulumi.get(__ret__, 'annotation'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_device_role=pulumi.get(__ret__, 'network_device_role'),
+        network_device_sku=pulumi.get(__ret__, 'network_device_sku'),
+        network_rack_id=pulumi.get(__ret__, 'network_rack_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        serial_number=pulumi.get(__ret__, 'serial_number'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_network_device)

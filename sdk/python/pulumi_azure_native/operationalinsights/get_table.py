@@ -246,22 +246,22 @@ def get_table(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getTable', __args__, opts=opts, typ=GetTableResult).value
 
     return AwaitableGetTableResult(
-        archive_retention_in_days=__ret__.archive_retention_in_days,
-        id=__ret__.id,
-        last_plan_modified_date=__ret__.last_plan_modified_date,
-        name=__ret__.name,
-        plan=__ret__.plan,
-        provisioning_state=__ret__.provisioning_state,
-        restored_logs=__ret__.restored_logs,
-        result_statistics=__ret__.result_statistics,
-        retention_in_days=__ret__.retention_in_days,
-        retention_in_days_as_default=__ret__.retention_in_days_as_default,
-        schema=__ret__.schema,
-        search_results=__ret__.search_results,
-        system_data=__ret__.system_data,
-        total_retention_in_days=__ret__.total_retention_in_days,
-        total_retention_in_days_as_default=__ret__.total_retention_in_days_as_default,
-        type=__ret__.type)
+        archive_retention_in_days=pulumi.get(__ret__, 'archive_retention_in_days'),
+        id=pulumi.get(__ret__, 'id'),
+        last_plan_modified_date=pulumi.get(__ret__, 'last_plan_modified_date'),
+        name=pulumi.get(__ret__, 'name'),
+        plan=pulumi.get(__ret__, 'plan'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        restored_logs=pulumi.get(__ret__, 'restored_logs'),
+        result_statistics=pulumi.get(__ret__, 'result_statistics'),
+        retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
+        retention_in_days_as_default=pulumi.get(__ret__, 'retention_in_days_as_default'),
+        schema=pulumi.get(__ret__, 'schema'),
+        search_results=pulumi.get(__ret__, 'search_results'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        total_retention_in_days=pulumi.get(__ret__, 'total_retention_in_days'),
+        total_retention_in_days_as_default=pulumi.get(__ret__, 'total_retention_in_days_as_default'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_table)

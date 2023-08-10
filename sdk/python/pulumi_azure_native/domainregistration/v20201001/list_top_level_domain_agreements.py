@@ -77,8 +77,8 @@ def list_top_level_domain_agreements(for_transfer: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:domainregistration/v20201001:listTopLevelDomainAgreements', __args__, opts=opts, typ=ListTopLevelDomainAgreementsResult).value
 
     return AwaitableListTopLevelDomainAgreementsResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_top_level_domain_agreements)

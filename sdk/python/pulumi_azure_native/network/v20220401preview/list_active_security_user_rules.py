@@ -80,8 +80,8 @@ def list_active_security_user_rules(network_manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220401preview:listActiveSecurityUserRules', __args__, opts=opts, typ=ListActiveSecurityUserRulesResult).value
 
     return AwaitableListActiveSecurityUserRulesResult(
-        skip_token=__ret__.skip_token,
-        value=__ret__.value)
+        skip_token=pulumi.get(__ret__, 'skip_token'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_active_security_user_rules)

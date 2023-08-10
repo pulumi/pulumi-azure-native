@@ -130,12 +130,12 @@ def get_api_issue_comment(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getApiIssueComment', __args__, opts=opts, typ=GetApiIssueCommentResult).value
 
     return AwaitableGetApiIssueCommentResult(
-        created_date=__ret__.created_date,
-        id=__ret__.id,
-        name=__ret__.name,
-        text=__ret__.text,
-        type=__ret__.type,
-        user_id=__ret__.user_id)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        text=pulumi.get(__ret__, 'text'),
+        type=pulumi.get(__ret__, 'type'),
+        user_id=pulumi.get(__ret__, 'user_id'))
 
 
 @_utilities.lift_output_func(get_api_issue_comment)

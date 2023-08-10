@@ -258,23 +258,23 @@ def get_gen2_environment(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights/v20210331preview:getGen2Environment', __args__, opts=opts, typ=GetGen2EnvironmentResult).value
 
     return AwaitableGetGen2EnvironmentResult(
-        creation_time=__ret__.creation_time,
-        data_access_fqdn=__ret__.data_access_fqdn,
-        data_access_id=__ret__.data_access_id,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        sku=__ret__.sku,
-        status=__ret__.status,
-        storage_configuration=__ret__.storage_configuration,
-        tags=__ret__.tags,
-        time_series_id_properties=__ret__.time_series_id_properties,
-        type=__ret__.type,
-        warm_store_configuration=__ret__.warm_store_configuration)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        data_access_fqdn=pulumi.get(__ret__, 'data_access_fqdn'),
+        data_access_id=pulumi.get(__ret__, 'data_access_id'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        sku=pulumi.get(__ret__, 'sku'),
+        status=pulumi.get(__ret__, 'status'),
+        storage_configuration=pulumi.get(__ret__, 'storage_configuration'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_series_id_properties=pulumi.get(__ret__, 'time_series_id_properties'),
+        type=pulumi.get(__ret__, 'type'),
+        warm_store_configuration=pulumi.get(__ret__, 'warm_store_configuration'))
 
 
 @_utilities.lift_output_func(get_gen2_environment)

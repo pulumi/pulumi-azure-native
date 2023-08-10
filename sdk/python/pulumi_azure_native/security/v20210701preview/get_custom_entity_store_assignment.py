@@ -122,12 +122,12 @@ def get_custom_entity_store_assignment(custom_entity_store_assignment_name: Opti
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20210701preview:getCustomEntityStoreAssignment', __args__, opts=opts, typ=GetCustomEntityStoreAssignmentResult).value
 
     return AwaitableGetCustomEntityStoreAssignmentResult(
-        entity_store_database_link=__ret__.entity_store_database_link,
-        id=__ret__.id,
-        name=__ret__.name,
-        principal=__ret__.principal,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        entity_store_database_link=pulumi.get(__ret__, 'entity_store_database_link'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        principal=pulumi.get(__ret__, 'principal'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_custom_entity_store_assignment)

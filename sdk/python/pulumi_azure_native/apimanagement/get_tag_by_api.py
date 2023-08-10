@@ -104,10 +104,10 @@ def get_tag_by_api(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getTagByApi', __args__, opts=opts, typ=GetTagByApiResult).value
 
     return AwaitableGetTagByApiResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_tag_by_api)

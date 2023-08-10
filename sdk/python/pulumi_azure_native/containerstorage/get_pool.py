@@ -219,20 +219,20 @@ def get_pool(pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerstorage:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
-        assignments=__ret__.assignments,
-        disk_pool_properties=__ret__.disk_pool_properties,
-        elastic_san_pool_properties=__ret__.elastic_san_pool_properties,
-        ephemeral_pool_properties=__ret__.ephemeral_pool_properties,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        pool_capacity_gi_b=__ret__.pool_capacity_gi_b,
-        pool_type=__ret__.pool_type,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        assignments=pulumi.get(__ret__, 'assignments'),
+        disk_pool_properties=pulumi.get(__ret__, 'disk_pool_properties'),
+        elastic_san_pool_properties=pulumi.get(__ret__, 'elastic_san_pool_properties'),
+        ephemeral_pool_properties=pulumi.get(__ret__, 'ephemeral_pool_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        pool_capacity_gi_b=pulumi.get(__ret__, 'pool_capacity_gi_b'),
+        pool_type=pulumi.get(__ret__, 'pool_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_pool)

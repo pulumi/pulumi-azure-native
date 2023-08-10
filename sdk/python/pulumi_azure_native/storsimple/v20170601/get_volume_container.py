@@ -200,18 +200,18 @@ def get_volume_container(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple/v20170601:getVolumeContainer', __args__, opts=opts, typ=GetVolumeContainerResult).value
 
     return AwaitableGetVolumeContainerResult(
-        band_width_rate_in_mbps=__ret__.band_width_rate_in_mbps,
-        bandwidth_setting_id=__ret__.bandwidth_setting_id,
-        encryption_key=__ret__.encryption_key,
-        encryption_status=__ret__.encryption_status,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        owner_ship_status=__ret__.owner_ship_status,
-        storage_account_credential_id=__ret__.storage_account_credential_id,
-        total_cloud_storage_usage_in_bytes=__ret__.total_cloud_storage_usage_in_bytes,
-        type=__ret__.type,
-        volume_count=__ret__.volume_count)
+        band_width_rate_in_mbps=pulumi.get(__ret__, 'band_width_rate_in_mbps'),
+        bandwidth_setting_id=pulumi.get(__ret__, 'bandwidth_setting_id'),
+        encryption_key=pulumi.get(__ret__, 'encryption_key'),
+        encryption_status=pulumi.get(__ret__, 'encryption_status'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_ship_status=pulumi.get(__ret__, 'owner_ship_status'),
+        storage_account_credential_id=pulumi.get(__ret__, 'storage_account_credential_id'),
+        total_cloud_storage_usage_in_bytes=pulumi.get(__ret__, 'total_cloud_storage_usage_in_bytes'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_count=pulumi.get(__ret__, 'volume_count'))
 
 
 @_utilities.lift_output_func(get_volume_container)

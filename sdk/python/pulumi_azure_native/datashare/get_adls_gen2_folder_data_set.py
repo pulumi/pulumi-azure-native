@@ -190,17 +190,17 @@ def get_adls_gen2_folder_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getADLSGen2FolderDataSet', __args__, opts=opts, typ=GetADLSGen2FolderDataSetResult).value
 
     return AwaitableGetADLSGen2FolderDataSetResult(
-        data_set_id=__ret__.data_set_id,
-        file_system=__ret__.file_system,
-        folder_path=__ret__.folder_path,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        resource_group=__ret__.resource_group,
-        storage_account_name=__ret__.storage_account_name,
-        subscription_id=__ret__.subscription_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        file_system=pulumi.get(__ret__, 'file_system'),
+        folder_path=pulumi.get(__ret__, 'folder_path'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group=pulumi.get(__ret__, 'resource_group'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_adls_gen2_folder_data_set)

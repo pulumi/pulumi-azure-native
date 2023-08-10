@@ -170,16 +170,16 @@ def get_access_control_list(access_control_list_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230201preview:getAccessControlList', __args__, opts=opts, typ=GetAccessControlListResult).value
 
     return AwaitableGetAccessControlListResult(
-        address_family=__ret__.address_family,
-        annotation=__ret__.annotation,
-        conditions=__ret__.conditions,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        address_family=pulumi.get(__ret__, 'address_family'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        conditions=pulumi.get(__ret__, 'conditions'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_access_control_list)

@@ -58,7 +58,7 @@ def get_live_token(resource_uri: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20200602preview:getLiveToken', __args__, opts=opts, typ=GetLiveTokenResult).value
 
     return AwaitableGetLiveTokenResult(
-        live_token=__ret__.live_token)
+        live_token=pulumi.get(__ret__, 'live_token'))
 
 
 @_utilities.lift_output_func(get_live_token)

@@ -222,20 +222,20 @@ def get_relationship_link(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights:getRelationshipLink', __args__, opts=opts, typ=GetRelationshipLinkResult).value
 
     return AwaitableGetRelationshipLinkResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        interaction_type=__ret__.interaction_type,
-        link_name=__ret__.link_name,
-        mappings=__ret__.mappings,
-        name=__ret__.name,
-        profile_property_references=__ret__.profile_property_references,
-        provisioning_state=__ret__.provisioning_state,
-        related_profile_property_references=__ret__.related_profile_property_references,
-        relationship_guid_id=__ret__.relationship_guid_id,
-        relationship_name=__ret__.relationship_name,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        interaction_type=pulumi.get(__ret__, 'interaction_type'),
+        link_name=pulumi.get(__ret__, 'link_name'),
+        mappings=pulumi.get(__ret__, 'mappings'),
+        name=pulumi.get(__ret__, 'name'),
+        profile_property_references=pulumi.get(__ret__, 'profile_property_references'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        related_profile_property_references=pulumi.get(__ret__, 'related_profile_property_references'),
+        relationship_guid_id=pulumi.get(__ret__, 'relationship_guid_id'),
+        relationship_name=pulumi.get(__ret__, 'relationship_name'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_relationship_link)

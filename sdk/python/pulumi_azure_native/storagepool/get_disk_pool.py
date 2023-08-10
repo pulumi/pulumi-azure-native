@@ -231,21 +231,21 @@ def get_disk_pool(disk_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagepool:getDiskPool', __args__, opts=opts, typ=GetDiskPoolResult).value
 
     return AwaitableGetDiskPoolResult(
-        additional_capabilities=__ret__.additional_capabilities,
-        availability_zones=__ret__.availability_zones,
-        disks=__ret__.disks,
-        id=__ret__.id,
-        location=__ret__.location,
-        managed_by=__ret__.managed_by,
-        managed_by_extended=__ret__.managed_by_extended,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        subnet_id=__ret__.subnet_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        tier=__ret__.tier,
-        type=__ret__.type)
+        additional_capabilities=pulumi.get(__ret__, 'additional_capabilities'),
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        disks=pulumi.get(__ret__, 'disks'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
+        managed_by_extended=pulumi.get(__ret__, 'managed_by_extended'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tier=pulumi.get(__ret__, 'tier'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_disk_pool)

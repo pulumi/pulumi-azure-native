@@ -255,23 +255,23 @@ def get_governance_rule(rule_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getGovernanceRule', __args__, opts=opts, typ=GetGovernanceRuleResult).value
 
     return AwaitableGetGovernanceRuleResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        excluded_scopes=__ret__.excluded_scopes,
-        governance_email_notification=__ret__.governance_email_notification,
-        id=__ret__.id,
-        include_member_scopes=__ret__.include_member_scopes,
-        is_disabled=__ret__.is_disabled,
-        is_grace_period=__ret__.is_grace_period,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        owner_source=__ret__.owner_source,
-        remediation_timeframe=__ret__.remediation_timeframe,
-        rule_priority=__ret__.rule_priority,
-        rule_type=__ret__.rule_type,
-        source_resource_type=__ret__.source_resource_type,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        excluded_scopes=pulumi.get(__ret__, 'excluded_scopes'),
+        governance_email_notification=pulumi.get(__ret__, 'governance_email_notification'),
+        id=pulumi.get(__ret__, 'id'),
+        include_member_scopes=pulumi.get(__ret__, 'include_member_scopes'),
+        is_disabled=pulumi.get(__ret__, 'is_disabled'),
+        is_grace_period=pulumi.get(__ret__, 'is_grace_period'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_source=pulumi.get(__ret__, 'owner_source'),
+        remediation_timeframe=pulumi.get(__ret__, 'remediation_timeframe'),
+        rule_priority=pulumi.get(__ret__, 'rule_priority'),
+        rule_type=pulumi.get(__ret__, 'rule_type'),
+        source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_governance_rule)

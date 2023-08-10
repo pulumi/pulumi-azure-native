@@ -112,11 +112,11 @@ def get_i_pv6_firewall_rule(firewall_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20211101:getIPv6FirewallRule', __args__, opts=opts, typ=GetIPv6FirewallRuleResult).value
 
     return AwaitableGetIPv6FirewallRuleResult(
-        end_i_pv6_address=__ret__.end_i_pv6_address,
-        id=__ret__.id,
-        name=__ret__.name,
-        start_i_pv6_address=__ret__.start_i_pv6_address,
-        type=__ret__.type)
+        end_i_pv6_address=pulumi.get(__ret__, 'end_i_pv6_address'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        start_i_pv6_address=pulumi.get(__ret__, 'start_i_pv6_address'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_i_pv6_firewall_rule)

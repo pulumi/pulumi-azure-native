@@ -73,8 +73,8 @@ def list_sql_migration_service_auth_keys(resource_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:datamigration/v20220330preview:listSqlMigrationServiceAuthKeys', __args__, opts=opts, typ=ListSqlMigrationServiceAuthKeysResult).value
 
     return AwaitableListSqlMigrationServiceAuthKeysResult(
-        auth_key1=__ret__.auth_key1,
-        auth_key2=__ret__.auth_key2)
+        auth_key1=pulumi.get(__ret__, 'auth_key1'),
+        auth_key2=pulumi.get(__ret__, 'auth_key2'))
 
 
 @_utilities.lift_output_func(list_sql_migration_service_auth_keys)

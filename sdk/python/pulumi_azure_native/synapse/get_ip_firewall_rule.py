@@ -125,12 +125,12 @@ def get_ip_firewall_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getIpFirewallRule', __args__, opts=opts, typ=GetIpFirewallRuleResult).value
 
     return AwaitableGetIpFirewallRuleResult(
-        end_ip_address=__ret__.end_ip_address,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        start_ip_address=__ret__.start_ip_address,
-        type=__ret__.type)
+        end_ip_address=pulumi.get(__ret__, 'end_ip_address'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_ip_firewall_rule)

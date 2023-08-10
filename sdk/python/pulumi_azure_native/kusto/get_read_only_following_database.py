@@ -235,21 +235,21 @@ def get_read_only_following_database(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getReadOnlyFollowingDatabase', __args__, opts=opts, typ=GetReadOnlyFollowingDatabaseResult).value
 
     return AwaitableGetReadOnlyFollowingDatabaseResult(
-        attached_database_configuration_name=__ret__.attached_database_configuration_name,
-        database_share_origin=__ret__.database_share_origin,
-        hot_cache_period=__ret__.hot_cache_period,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        leader_cluster_resource_id=__ret__.leader_cluster_resource_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        original_database_name=__ret__.original_database_name,
-        principals_modification_kind=__ret__.principals_modification_kind,
-        provisioning_state=__ret__.provisioning_state,
-        soft_delete_period=__ret__.soft_delete_period,
-        statistics=__ret__.statistics,
-        table_level_sharing_properties=__ret__.table_level_sharing_properties,
-        type=__ret__.type)
+        attached_database_configuration_name=pulumi.get(__ret__, 'attached_database_configuration_name'),
+        database_share_origin=pulumi.get(__ret__, 'database_share_origin'),
+        hot_cache_period=pulumi.get(__ret__, 'hot_cache_period'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        leader_cluster_resource_id=pulumi.get(__ret__, 'leader_cluster_resource_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        original_database_name=pulumi.get(__ret__, 'original_database_name'),
+        principals_modification_kind=pulumi.get(__ret__, 'principals_modification_kind'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        soft_delete_period=pulumi.get(__ret__, 'soft_delete_period'),
+        statistics=pulumi.get(__ret__, 'statistics'),
+        table_level_sharing_properties=pulumi.get(__ret__, 'table_level_sharing_properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_read_only_following_database)

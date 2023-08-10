@@ -219,20 +219,20 @@ def get_gateway(gateway_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabricmesh:getGateway', __args__, opts=opts, typ=GetGatewayResult).value
 
     return AwaitableGetGatewayResult(
-        description=__ret__.description,
-        destination_network=__ret__.destination_network,
-        http=__ret__.http,
-        id=__ret__.id,
-        ip_address=__ret__.ip_address,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        source_network=__ret__.source_network,
-        status=__ret__.status,
-        status_details=__ret__.status_details,
-        tags=__ret__.tags,
-        tcp=__ret__.tcp,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        destination_network=pulumi.get(__ret__, 'destination_network'),
+        http=pulumi.get(__ret__, 'http'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_network=pulumi.get(__ret__, 'source_network'),
+        status=pulumi.get(__ret__, 'status'),
+        status_details=pulumi.get(__ret__, 'status_details'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tcp=pulumi.get(__ret__, 'tcp'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_gateway)

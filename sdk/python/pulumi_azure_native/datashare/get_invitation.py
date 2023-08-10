@@ -227,20 +227,20 @@ def get_invitation(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare:getInvitation', __args__, opts=opts, typ=GetInvitationResult).value
 
     return AwaitableGetInvitationResult(
-        expiration_date=__ret__.expiration_date,
-        id=__ret__.id,
-        invitation_id=__ret__.invitation_id,
-        invitation_status=__ret__.invitation_status,
-        name=__ret__.name,
-        responded_at=__ret__.responded_at,
-        sent_at=__ret__.sent_at,
-        system_data=__ret__.system_data,
-        target_active_directory_id=__ret__.target_active_directory_id,
-        target_email=__ret__.target_email,
-        target_object_id=__ret__.target_object_id,
-        type=__ret__.type,
-        user_email=__ret__.user_email,
-        user_name=__ret__.user_name)
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        id=pulumi.get(__ret__, 'id'),
+        invitation_id=pulumi.get(__ret__, 'invitation_id'),
+        invitation_status=pulumi.get(__ret__, 'invitation_status'),
+        name=pulumi.get(__ret__, 'name'),
+        responded_at=pulumi.get(__ret__, 'responded_at'),
+        sent_at=pulumi.get(__ret__, 'sent_at'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_active_directory_id=pulumi.get(__ret__, 'target_active_directory_id'),
+        target_email=pulumi.get(__ret__, 'target_email'),
+        target_object_id=pulumi.get(__ret__, 'target_object_id'),
+        type=pulumi.get(__ret__, 'type'),
+        user_email=pulumi.get(__ret__, 'user_email'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_invitation)

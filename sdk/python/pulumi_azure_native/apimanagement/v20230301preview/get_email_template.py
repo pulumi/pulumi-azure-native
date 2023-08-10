@@ -161,15 +161,15 @@ def get_email_template(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getEmailTemplate', __args__, opts=opts, typ=GetEmailTemplateResult).value
 
     return AwaitableGetEmailTemplateResult(
-        body=__ret__.body,
-        description=__ret__.description,
-        id=__ret__.id,
-        is_default=__ret__.is_default,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        subject=__ret__.subject,
-        title=__ret__.title,
-        type=__ret__.type)
+        body=pulumi.get(__ret__, 'body'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        is_default=pulumi.get(__ret__, 'is_default'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        subject=pulumi.get(__ret__, 'subject'),
+        title=pulumi.get(__ret__, 'title'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_email_template)

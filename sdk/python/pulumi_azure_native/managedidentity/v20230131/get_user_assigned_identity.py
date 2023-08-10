@@ -158,15 +158,15 @@ def get_user_assigned_identity(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managedidentity/v20230131:getUserAssignedIdentity', __args__, opts=opts, typ=GetUserAssignedIdentityResult).value
 
     return AwaitableGetUserAssignedIdentityResult(
-        client_id=__ret__.client_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        principal_id=__ret__.principal_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        client_id=pulumi.get(__ret__, 'client_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_user_assigned_identity)

@@ -169,15 +169,15 @@ def get_machine_group(end_time: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getMachineGroup', __args__, opts=opts, typ=GetMachineGroupResult).value
 
     return AwaitableGetMachineGroupResult(
-        count=__ret__.count,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        group_type=__ret__.group_type,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        machines=__ret__.machines,
-        name=__ret__.name,
-        type=__ret__.type)
+        count=pulumi.get(__ret__, 'count'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        group_type=pulumi.get(__ret__, 'group_type'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        machines=pulumi.get(__ret__, 'machines'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_machine_group)

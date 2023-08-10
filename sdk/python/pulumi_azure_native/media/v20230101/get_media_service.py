@@ -239,22 +239,22 @@ def get_media_service(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20230101:getMediaService', __args__, opts=opts, typ=GetMediaServiceResult).value
 
     return AwaitableGetMediaServiceResult(
-        encryption=__ret__.encryption,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        key_delivery=__ret__.key_delivery,
-        location=__ret__.location,
-        media_service_id=__ret__.media_service_id,
-        minimum_tls_version=__ret__.minimum_tls_version,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        storage_accounts=__ret__.storage_accounts,
-        storage_authentication=__ret__.storage_authentication,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        encryption=pulumi.get(__ret__, 'encryption'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        key_delivery=pulumi.get(__ret__, 'key_delivery'),
+        location=pulumi.get(__ret__, 'location'),
+        media_service_id=pulumi.get(__ret__, 'media_service_id'),
+        minimum_tls_version=pulumi.get(__ret__, 'minimum_tls_version'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        storage_accounts=pulumi.get(__ret__, 'storage_accounts'),
+        storage_authentication=pulumi.get(__ret__, 'storage_authentication'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_media_service)

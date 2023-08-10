@@ -62,7 +62,7 @@ def get_event_subscription_full_url(event_subscription_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getEventSubscriptionFullUrl', __args__, opts=opts, typ=GetEventSubscriptionFullUrlResult).value
 
     return AwaitableGetEventSubscriptionFullUrlResult(
-        endpoint_url=__ret__.endpoint_url)
+        endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
 
 
 @_utilities.lift_output_func(get_event_subscription_full_url)

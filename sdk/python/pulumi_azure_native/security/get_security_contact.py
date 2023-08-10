@@ -132,13 +132,13 @@ def get_security_contact(security_contact_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getSecurityContact', __args__, opts=opts, typ=GetSecurityContactResult).value
 
     return AwaitableGetSecurityContactResult(
-        alert_notifications=__ret__.alert_notifications,
-        emails=__ret__.emails,
-        id=__ret__.id,
-        name=__ret__.name,
-        notifications_by_role=__ret__.notifications_by_role,
-        phone=__ret__.phone,
-        type=__ret__.type)
+        alert_notifications=pulumi.get(__ret__, 'alert_notifications'),
+        emails=pulumi.get(__ret__, 'emails'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        notifications_by_role=pulumi.get(__ret__, 'notifications_by_role'),
+        phone=pulumi.get(__ret__, 'phone'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_security_contact)

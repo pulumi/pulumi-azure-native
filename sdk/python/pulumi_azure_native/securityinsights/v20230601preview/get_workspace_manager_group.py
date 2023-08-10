@@ -149,14 +149,14 @@ def get_workspace_manager_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230601preview:getWorkspaceManagerGroup', __args__, opts=opts, typ=GetWorkspaceManagerGroupResult).value
 
     return AwaitableGetWorkspaceManagerGroupResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        member_resource_names=__ret__.member_resource_names,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        member_resource_names=pulumi.get(__ret__, 'member_resource_names'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace_manager_group)

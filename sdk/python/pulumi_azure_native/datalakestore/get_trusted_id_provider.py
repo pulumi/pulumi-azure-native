@@ -101,10 +101,10 @@ def get_trusted_id_provider(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datalakestore:getTrustedIdProvider', __args__, opts=opts, typ=GetTrustedIdProviderResult).value
 
     return AwaitableGetTrustedIdProviderResult(
-        id=__ret__.id,
-        id_provider=__ret__.id_provider,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        id_provider=pulumi.get(__ret__, 'id_provider'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_trusted_id_provider)

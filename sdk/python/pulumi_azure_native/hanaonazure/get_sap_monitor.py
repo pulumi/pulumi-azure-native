@@ -206,19 +206,19 @@ def get_sap_monitor(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hanaonazure:getSapMonitor', __args__, opts=opts, typ=GetSapMonitorResult).value
 
     return AwaitableGetSapMonitorResult(
-        enable_customer_analytics=__ret__.enable_customer_analytics,
-        id=__ret__.id,
-        location=__ret__.location,
-        log_analytics_workspace_arm_id=__ret__.log_analytics_workspace_arm_id,
-        log_analytics_workspace_id=__ret__.log_analytics_workspace_id,
-        log_analytics_workspace_shared_key=__ret__.log_analytics_workspace_shared_key,
-        managed_resource_group_name=__ret__.managed_resource_group_name,
-        monitor_subnet=__ret__.monitor_subnet,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sap_monitor_collector_version=__ret__.sap_monitor_collector_version,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        enable_customer_analytics=pulumi.get(__ret__, 'enable_customer_analytics'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        log_analytics_workspace_arm_id=pulumi.get(__ret__, 'log_analytics_workspace_arm_id'),
+        log_analytics_workspace_id=pulumi.get(__ret__, 'log_analytics_workspace_id'),
+        log_analytics_workspace_shared_key=pulumi.get(__ret__, 'log_analytics_workspace_shared_key'),
+        managed_resource_group_name=pulumi.get(__ret__, 'managed_resource_group_name'),
+        monitor_subnet=pulumi.get(__ret__, 'monitor_subnet'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sap_monitor_collector_version=pulumi.get(__ret__, 'sap_monitor_collector_version'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sap_monitor)

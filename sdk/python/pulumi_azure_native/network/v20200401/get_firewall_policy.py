@@ -209,19 +209,19 @@ def get_firewall_policy(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20200401:getFirewallPolicy', __args__, opts=opts, typ=GetFirewallPolicyResult).value
 
     return AwaitableGetFirewallPolicyResult(
-        base_policy=__ret__.base_policy,
-        child_policies=__ret__.child_policies,
-        etag=__ret__.etag,
-        firewalls=__ret__.firewalls,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        rule_groups=__ret__.rule_groups,
-        tags=__ret__.tags,
-        threat_intel_mode=__ret__.threat_intel_mode,
-        threat_intel_whitelist=__ret__.threat_intel_whitelist,
-        type=__ret__.type)
+        base_policy=pulumi.get(__ret__, 'base_policy'),
+        child_policies=pulumi.get(__ret__, 'child_policies'),
+        etag=pulumi.get(__ret__, 'etag'),
+        firewalls=pulumi.get(__ret__, 'firewalls'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        rule_groups=pulumi.get(__ret__, 'rule_groups'),
+        tags=pulumi.get(__ret__, 'tags'),
+        threat_intel_mode=pulumi.get(__ret__, 'threat_intel_mode'),
+        threat_intel_whitelist=pulumi.get(__ret__, 'threat_intel_whitelist'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_firewall_policy)

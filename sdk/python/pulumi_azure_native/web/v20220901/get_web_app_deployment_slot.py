@@ -211,19 +211,19 @@ def get_web_app_deployment_slot(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getWebAppDeploymentSlot', __args__, opts=opts, typ=GetWebAppDeploymentSlotResult).value
 
     return AwaitableGetWebAppDeploymentSlotResult(
-        active=__ret__.active,
-        author=__ret__.author,
-        author_email=__ret__.author_email,
-        deployer=__ret__.deployer,
-        details=__ret__.details,
-        end_time=__ret__.end_time,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        message=__ret__.message,
-        name=__ret__.name,
-        start_time=__ret__.start_time,
-        status=__ret__.status,
-        type=__ret__.type)
+        active=pulumi.get(__ret__, 'active'),
+        author=pulumi.get(__ret__, 'author'),
+        author_email=pulumi.get(__ret__, 'author_email'),
+        deployer=pulumi.get(__ret__, 'deployer'),
+        details=pulumi.get(__ret__, 'details'),
+        end_time=pulumi.get(__ret__, 'end_time'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        message=pulumi.get(__ret__, 'message'),
+        name=pulumi.get(__ret__, 'name'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_deployment_slot)

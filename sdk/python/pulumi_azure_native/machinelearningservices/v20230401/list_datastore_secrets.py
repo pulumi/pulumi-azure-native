@@ -64,7 +64,7 @@ def list_datastore_secrets(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230401:listDatastoreSecrets', __args__, opts=opts, typ=ListDatastoreSecretsResult).value
 
     return AwaitableListDatastoreSecretsResult(
-        secrets_type=__ret__.secrets_type)
+        secrets_type=pulumi.get(__ret__, 'secrets_type'))
 
 
 @_utilities.lift_output_func(list_datastore_secrets)

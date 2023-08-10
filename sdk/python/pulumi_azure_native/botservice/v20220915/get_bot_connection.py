@@ -173,16 +173,16 @@ def get_bot_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:botservice/v20220915:getBotConnection', __args__, opts=opts, typ=GetBotConnectionResult).value
 
     return AwaitableGetBotConnectionResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_bot_connection)

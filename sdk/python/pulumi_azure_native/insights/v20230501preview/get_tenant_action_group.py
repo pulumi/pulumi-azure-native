@@ -194,18 +194,18 @@ def get_tenant_action_group(management_group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20230501preview:getTenantActionGroup', __args__, opts=opts, typ=GetTenantActionGroupResult).value
 
     return AwaitableGetTenantActionGroupResult(
-        azure_app_push_receivers=__ret__.azure_app_push_receivers,
-        email_receivers=__ret__.email_receivers,
-        enabled=__ret__.enabled,
-        group_short_name=__ret__.group_short_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        sms_receivers=__ret__.sms_receivers,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        voice_receivers=__ret__.voice_receivers,
-        webhook_receivers=__ret__.webhook_receivers)
+        azure_app_push_receivers=pulumi.get(__ret__, 'azure_app_push_receivers'),
+        email_receivers=pulumi.get(__ret__, 'email_receivers'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        group_short_name=pulumi.get(__ret__, 'group_short_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        sms_receivers=pulumi.get(__ret__, 'sms_receivers'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
+        webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
 
 
 @_utilities.lift_output_func(get_tenant_action_group)

@@ -266,24 +266,24 @@ def get_open_shift_managed_cluster(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20191027preview:getOpenShiftManagedCluster', __args__, opts=opts, typ=GetOpenShiftManagedClusterResult).value
 
     return AwaitableGetOpenShiftManagedClusterResult(
-        agent_pool_profiles=__ret__.agent_pool_profiles,
-        auth_profile=__ret__.auth_profile,
-        cluster_version=__ret__.cluster_version,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        location=__ret__.location,
-        master_pool_profile=__ret__.master_pool_profile,
-        monitor_profile=__ret__.monitor_profile,
-        name=__ret__.name,
-        network_profile=__ret__.network_profile,
-        open_shift_version=__ret__.open_shift_version,
-        plan=__ret__.plan,
-        provisioning_state=__ret__.provisioning_state,
-        public_hostname=__ret__.public_hostname,
-        refresh_cluster=__ret__.refresh_cluster,
-        router_profiles=__ret__.router_profiles,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        agent_pool_profiles=pulumi.get(__ret__, 'agent_pool_profiles'),
+        auth_profile=pulumi.get(__ret__, 'auth_profile'),
+        cluster_version=pulumi.get(__ret__, 'cluster_version'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        master_pool_profile=pulumi.get(__ret__, 'master_pool_profile'),
+        monitor_profile=pulumi.get(__ret__, 'monitor_profile'),
+        name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
+        open_shift_version=pulumi.get(__ret__, 'open_shift_version'),
+        plan=pulumi.get(__ret__, 'plan'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_hostname=pulumi.get(__ret__, 'public_hostname'),
+        refresh_cluster=pulumi.get(__ret__, 'refresh_cluster'),
+        router_profiles=pulumi.get(__ret__, 'router_profiles'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_open_shift_managed_cluster)

@@ -63,7 +63,7 @@ def list_blockchain_member_api_keys(blockchain_member_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:blockchain:listBlockchainMemberApiKeys', __args__, opts=opts, typ=ListBlockchainMemberApiKeysResult).value
 
     return AwaitableListBlockchainMemberApiKeysResult(
-        keys=__ret__.keys)
+        keys=pulumi.get(__ret__, 'keys'))
 
 
 @_utilities.lift_output_func(list_blockchain_member_api_keys)

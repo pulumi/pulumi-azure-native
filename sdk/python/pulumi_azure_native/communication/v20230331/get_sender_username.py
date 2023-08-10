@@ -152,14 +152,14 @@ def get_sender_username(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:communication/v20230331:getSenderUsername', __args__, opts=opts, typ=GetSenderUsernameResult).value
 
     return AwaitableGetSenderUsernameResult(
-        data_location=__ret__.data_location,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        username=__ret__.username)
+        data_location=pulumi.get(__ret__, 'data_location'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(get_sender_username)

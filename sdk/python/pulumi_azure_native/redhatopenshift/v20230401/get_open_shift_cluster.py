@@ -230,21 +230,21 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:redhatopenshift/v20230401:getOpenShiftCluster', __args__, opts=opts, typ=GetOpenShiftClusterResult).value
 
     return AwaitableGetOpenShiftClusterResult(
-        apiserver_profile=__ret__.apiserver_profile,
-        cluster_profile=__ret__.cluster_profile,
-        console_profile=__ret__.console_profile,
-        id=__ret__.id,
-        ingress_profiles=__ret__.ingress_profiles,
-        location=__ret__.location,
-        master_profile=__ret__.master_profile,
-        name=__ret__.name,
-        network_profile=__ret__.network_profile,
-        provisioning_state=__ret__.provisioning_state,
-        service_principal_profile=__ret__.service_principal_profile,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        worker_profiles=__ret__.worker_profiles)
+        apiserver_profile=pulumi.get(__ret__, 'apiserver_profile'),
+        cluster_profile=pulumi.get(__ret__, 'cluster_profile'),
+        console_profile=pulumi.get(__ret__, 'console_profile'),
+        id=pulumi.get(__ret__, 'id'),
+        ingress_profiles=pulumi.get(__ret__, 'ingress_profiles'),
+        location=pulumi.get(__ret__, 'location'),
+        master_profile=pulumi.get(__ret__, 'master_profile'),
+        name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service_principal_profile=pulumi.get(__ret__, 'service_principal_profile'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        worker_profiles=pulumi.get(__ret__, 'worker_profiles'))
 
 
 @_utilities.lift_output_func(get_open_shift_cluster)

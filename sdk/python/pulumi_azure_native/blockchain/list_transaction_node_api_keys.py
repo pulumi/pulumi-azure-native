@@ -66,7 +66,7 @@ def list_transaction_node_api_keys(blockchain_member_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blockchain:listTransactionNodeApiKeys', __args__, opts=opts, typ=ListTransactionNodeApiKeysResult).value
 
     return AwaitableListTransactionNodeApiKeysResult(
-        keys=__ret__.keys)
+        keys=pulumi.get(__ret__, 'keys'))
 
 
 @_utilities.lift_output_func(list_transaction_node_api_keys)

@@ -198,18 +198,18 @@ def get_managed_cluster_application(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabric/v20230301preview:getManagedClusterApplication', __args__, opts=opts, typ=GetManagedClusterApplicationResult).value
 
     return AwaitableGetManagedClusterApplicationResult(
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        managed_identities=__ret__.managed_identities,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        upgrade_policy=__ret__.upgrade_policy,
-        version=__ret__.version)
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_identities=pulumi.get(__ret__, 'managed_identities'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_managed_cluster_application)

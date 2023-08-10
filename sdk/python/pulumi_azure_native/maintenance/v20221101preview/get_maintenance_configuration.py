@@ -254,23 +254,23 @@ def get_maintenance_configuration(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:maintenance/v20221101preview:getMaintenanceConfiguration', __args__, opts=opts, typ=GetMaintenanceConfigurationResult).value
 
     return AwaitableGetMaintenanceConfigurationResult(
-        duration=__ret__.duration,
-        expiration_date_time=__ret__.expiration_date_time,
-        extension_properties=__ret__.extension_properties,
-        id=__ret__.id,
-        install_patches=__ret__.install_patches,
-        location=__ret__.location,
-        maintenance_scope=__ret__.maintenance_scope,
-        name=__ret__.name,
-        namespace=__ret__.namespace,
-        overrides=__ret__.overrides,
-        recur_every=__ret__.recur_every,
-        start_date_time=__ret__.start_date_time,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        time_zone=__ret__.time_zone,
-        type=__ret__.type,
-        visibility=__ret__.visibility)
+        duration=pulumi.get(__ret__, 'duration'),
+        expiration_date_time=pulumi.get(__ret__, 'expiration_date_time'),
+        extension_properties=pulumi.get(__ret__, 'extension_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        install_patches=pulumi.get(__ret__, 'install_patches'),
+        location=pulumi.get(__ret__, 'location'),
+        maintenance_scope=pulumi.get(__ret__, 'maintenance_scope'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace=pulumi.get(__ret__, 'namespace'),
+        overrides=pulumi.get(__ret__, 'overrides'),
+        recur_every=pulumi.get(__ret__, 'recur_every'),
+        start_date_time=pulumi.get(__ret__, 'start_date_time'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_zone=pulumi.get(__ret__, 'time_zone'),
+        type=pulumi.get(__ret__, 'type'),
+        visibility=pulumi.get(__ret__, 'visibility'))
 
 
 @_utilities.lift_output_func(get_maintenance_configuration)

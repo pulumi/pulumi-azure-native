@@ -194,18 +194,18 @@ def get_workspace(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20151101preview:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult).value
 
     return AwaitableGetWorkspaceResult(
-        customer_id=__ret__.customer_id,
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        portal_url=__ret__.portal_url,
-        provisioning_state=__ret__.provisioning_state,
-        retention_in_days=__ret__.retention_in_days,
-        sku=__ret__.sku,
-        source=__ret__.source,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        customer_id=pulumi.get(__ret__, 'customer_id'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        portal_url=pulumi.get(__ret__, 'portal_url'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        retention_in_days=pulumi.get(__ret__, 'retention_in_days'),
+        sku=pulumi.get(__ret__, 'sku'),
+        source=pulumi.get(__ret__, 'source'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace)

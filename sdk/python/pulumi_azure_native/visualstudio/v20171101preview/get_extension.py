@@ -137,13 +137,13 @@ def get_extension(account_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:visualstudio/v20171101preview:getExtension', __args__, opts=opts, typ=GetExtensionResult).value
 
     return AwaitableGetExtensionResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        plan=__ret__.plan,
-        properties=__ret__.properties,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        plan=pulumi.get(__ret__, 'plan'),
+        properties=pulumi.get(__ret__, 'properties'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_extension)

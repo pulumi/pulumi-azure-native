@@ -78,8 +78,8 @@ def list_streaming_locator_paths(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media:listStreamingLocatorPaths', __args__, opts=opts, typ=ListStreamingLocatorPathsResult).value
 
     return AwaitableListStreamingLocatorPathsResult(
-        download_paths=__ret__.download_paths,
-        streaming_paths=__ret__.streaming_paths)
+        download_paths=pulumi.get(__ret__, 'download_paths'),
+        streaming_paths=pulumi.get(__ret__, 'streaming_paths'))
 
 
 @_utilities.lift_output_func(list_streaming_locator_paths)

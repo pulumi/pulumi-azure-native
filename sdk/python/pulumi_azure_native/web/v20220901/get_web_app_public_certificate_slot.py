@@ -139,13 +139,13 @@ def get_web_app_public_certificate_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getWebAppPublicCertificateSlot', __args__, opts=opts, typ=GetWebAppPublicCertificateSlotResult).value
 
     return AwaitableGetWebAppPublicCertificateSlotResult(
-        blob=__ret__.blob,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        public_certificate_location=__ret__.public_certificate_location,
-        thumbprint=__ret__.thumbprint,
-        type=__ret__.type)
+        blob=pulumi.get(__ret__, 'blob'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        public_certificate_location=pulumi.get(__ret__, 'public_certificate_location'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_public_certificate_slot)

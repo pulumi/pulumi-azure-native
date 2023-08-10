@@ -63,7 +63,7 @@ def get_global_user_operation_batch_status(urls: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices:getGlobalUserOperationBatchStatus', __args__, opts=opts, typ=GetGlobalUserOperationBatchStatusResult).value
 
     return AwaitableGetGlobalUserOperationBatchStatusResult(
-        items=__ret__.items)
+        items=pulumi.get(__ret__, 'items'))
 
 
 @_utilities.lift_output_func(get_global_user_operation_batch_status)

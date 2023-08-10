@@ -185,17 +185,17 @@ def get_dapr_component(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app/v20220101preview:getDaprComponent', __args__, opts=opts, typ=GetDaprComponentResult).value
 
     return AwaitableGetDaprComponentResult(
-        component_type=__ret__.component_type,
-        id=__ret__.id,
-        ignore_errors=__ret__.ignore_errors,
-        init_timeout=__ret__.init_timeout,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        scopes=__ret__.scopes,
-        secrets=__ret__.secrets,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        component_type=pulumi.get(__ret__, 'component_type'),
+        id=pulumi.get(__ret__, 'id'),
+        ignore_errors=pulumi.get(__ret__, 'ignore_errors'),
+        init_timeout=pulumi.get(__ret__, 'init_timeout'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        scopes=pulumi.get(__ret__, 'scopes'),
+        secrets=pulumi.get(__ret__, 'secrets'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_dapr_component)

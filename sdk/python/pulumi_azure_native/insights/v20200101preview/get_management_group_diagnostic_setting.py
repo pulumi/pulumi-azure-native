@@ -170,16 +170,16 @@ def get_management_group_diagnostic_setting(management_group_id: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20200101preview:getManagementGroupDiagnosticSetting', __args__, opts=opts, typ=GetManagementGroupDiagnosticSettingResult).value
 
     return AwaitableGetManagementGroupDiagnosticSettingResult(
-        event_hub_authorization_rule_id=__ret__.event_hub_authorization_rule_id,
-        event_hub_name=__ret__.event_hub_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        logs=__ret__.logs,
-        name=__ret__.name,
-        service_bus_rule_id=__ret__.service_bus_rule_id,
-        storage_account_id=__ret__.storage_account_id,
-        type=__ret__.type,
-        workspace_id=__ret__.workspace_id)
+        event_hub_authorization_rule_id=pulumi.get(__ret__, 'event_hub_authorization_rule_id'),
+        event_hub_name=pulumi.get(__ret__, 'event_hub_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        logs=pulumi.get(__ret__, 'logs'),
+        name=pulumi.get(__ret__, 'name'),
+        service_bus_rule_id=pulumi.get(__ret__, 'service_bus_rule_id'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
+        type=pulumi.get(__ret__, 'type'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_management_group_diagnostic_setting)

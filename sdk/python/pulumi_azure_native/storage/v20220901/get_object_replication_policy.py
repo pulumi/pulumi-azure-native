@@ -149,14 +149,14 @@ def get_object_replication_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage/v20220901:getObjectReplicationPolicy', __args__, opts=opts, typ=GetObjectReplicationPolicyResult).value
 
     return AwaitableGetObjectReplicationPolicyResult(
-        destination_account=__ret__.destination_account,
-        enabled_time=__ret__.enabled_time,
-        id=__ret__.id,
-        name=__ret__.name,
-        policy_id=__ret__.policy_id,
-        rules=__ret__.rules,
-        source_account=__ret__.source_account,
-        type=__ret__.type)
+        destination_account=pulumi.get(__ret__, 'destination_account'),
+        enabled_time=pulumi.get(__ret__, 'enabled_time'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_id=pulumi.get(__ret__, 'policy_id'),
+        rules=pulumi.get(__ret__, 'rules'),
+        source_account=pulumi.get(__ret__, 'source_account'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_object_replication_policy)

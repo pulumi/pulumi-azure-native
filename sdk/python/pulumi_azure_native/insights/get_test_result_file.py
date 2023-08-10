@@ -89,8 +89,8 @@ def get_test_result_file(continuation_token: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getTestResultFile', __args__, opts=opts, typ=GetTestResultFileResult).value
 
     return AwaitableGetTestResultFileResult(
-        data=__ret__.data,
-        next_link=__ret__.next_link)
+        data=pulumi.get(__ret__, 'data'),
+        next_link=pulumi.get(__ret__, 'next_link'))
 
 
 @_utilities.lift_output_func(get_test_result_file)

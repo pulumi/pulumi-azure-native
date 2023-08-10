@@ -185,17 +185,17 @@ def get_streaming_locator(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20180330preview:getStreamingLocator', __args__, opts=opts, typ=GetStreamingLocatorResult).value
 
     return AwaitableGetStreamingLocatorResult(
-        asset_name=__ret__.asset_name,
-        content_keys=__ret__.content_keys,
-        created=__ret__.created,
-        default_content_key_policy_name=__ret__.default_content_key_policy_name,
-        end_time=__ret__.end_time,
-        id=__ret__.id,
-        name=__ret__.name,
-        start_time=__ret__.start_time,
-        streaming_locator_id=__ret__.streaming_locator_id,
-        streaming_policy_name=__ret__.streaming_policy_name,
-        type=__ret__.type)
+        asset_name=pulumi.get(__ret__, 'asset_name'),
+        content_keys=pulumi.get(__ret__, 'content_keys'),
+        created=pulumi.get(__ret__, 'created'),
+        default_content_key_policy_name=pulumi.get(__ret__, 'default_content_key_policy_name'),
+        end_time=pulumi.get(__ret__, 'end_time'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        streaming_locator_id=pulumi.get(__ret__, 'streaming_locator_id'),
+        streaming_policy_name=pulumi.get(__ret__, 'streaming_policy_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_streaming_locator)

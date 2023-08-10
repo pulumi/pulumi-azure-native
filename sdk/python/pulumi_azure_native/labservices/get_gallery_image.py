@@ -261,23 +261,23 @@ def get_gallery_image(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices:getGalleryImage', __args__, opts=opts, typ=GetGalleryImageResult).value
 
     return AwaitableGetGalleryImageResult(
-        author=__ret__.author,
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        icon=__ret__.icon,
-        id=__ret__.id,
-        image_reference=__ret__.image_reference,
-        is_enabled=__ret__.is_enabled,
-        is_override=__ret__.is_override,
-        is_plan_authorized=__ret__.is_plan_authorized,
-        latest_operation_result=__ret__.latest_operation_result,
-        location=__ret__.location,
-        name=__ret__.name,
-        plan_id=__ret__.plan_id,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        author=pulumi.get(__ret__, 'author'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        icon=pulumi.get(__ret__, 'icon'),
+        id=pulumi.get(__ret__, 'id'),
+        image_reference=pulumi.get(__ret__, 'image_reference'),
+        is_enabled=pulumi.get(__ret__, 'is_enabled'),
+        is_override=pulumi.get(__ret__, 'is_override'),
+        is_plan_authorized=pulumi.get(__ret__, 'is_plan_authorized'),
+        latest_operation_result=pulumi.get(__ret__, 'latest_operation_result'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        plan_id=pulumi.get(__ret__, 'plan_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_gallery_image)
