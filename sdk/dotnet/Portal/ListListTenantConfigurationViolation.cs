@@ -17,6 +17,13 @@ namespace Pulumi.AzureNative.Portal
         /// </summary>
         public static Task<ListListTenantConfigurationViolationResult> InvokeAsync(ListListTenantConfigurationViolationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListListTenantConfigurationViolationResult>("azure-native:portal:listListTenantConfigurationViolation", args ?? new ListListTenantConfigurationViolationArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets list of items that violate tenant's configuration.
+        /// Azure REST API version: 2020-09-01-preview.
+        /// </summary>
+        public static Output<ListListTenantConfigurationViolationResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<ListListTenantConfigurationViolationResult>("azure-native:portal:listListTenantConfigurationViolation", InvokeArgs.Empty, options.WithDefaults());
     }
 
 
