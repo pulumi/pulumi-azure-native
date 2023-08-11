@@ -1,6 +1,8 @@
 {
   "ADHybridHealthService": [],
-  "AVS": [],
+  "AVS": [
+    "2023-03-01"
+  ],
   "Aad": [],
   "AadIam": [
     "2017-04-01-preview",
@@ -119,7 +121,9 @@
     "2022-09-04",
     "2022-11-01",
     "2023-01-02",
-    "2023-03-01"
+    "2023-03-01",
+    "2023-04-02",
+    "2023-07-01"
   ],
   "ConfidentialLedger": [
     "2022-09-08-preview",
@@ -201,7 +205,8 @@
     "2023-05-01",
     "2023-05-02-preview",
     "2023-06-01",
-    "2023-06-02-preview"
+    "2023-06-02-preview",
+    "2023-07-01"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -242,7 +247,9 @@
     "2023-03-01-preview"
   ],
   "Dashboard": [],
-  "DataBox": [],
+  "DataBox": [
+    "2023-03-01"
+  ],
   "DataBoxEdge": [
     "2022-04-01-preview",
     "2022-12-01-preview",
@@ -272,7 +279,8 @@
   ],
   "DeploymentManager": [],
   "DesktopVirtualization": [
-    "2022-10-14-preview"
+    "2022-10-14-preview",
+    "2023-07-07-preview"
   ],
   "DevCenter": [],
   "DevHub": [],
@@ -325,7 +333,8 @@
   "GraphServices": [],
   "GuestConfiguration": [],
   "HDInsight": [
-    "2023-04-15-preview"
+    "2023-04-15-preview",
+    "2023-06-01-preview"
   ],
   "HanaOnAzure": [],
   "HardwareSecurityModules": [
@@ -352,8 +361,7 @@
     "2022-11-10",
     "2022-12-27",
     "2022-12-27-preview",
-    "2023-03-15-preview",
-    "2023-04-25-preview"
+    "2023-03-15-preview"
   ],
   "HybridConnectivity": [],
   "HybridContainerService": [],
@@ -502,7 +510,8 @@
   "Maps": [
     "2021-02-01",
     "2021-07-01-preview",
-    "2021-12-01-preview"
+    "2021-12-01-preview",
+    "2023-06-01"
   ],
   "Marketplace": [],
   "MarketplaceNotifications": [],
@@ -541,6 +550,7 @@
     "2022-11-01",
     "2023-06-01"
   ],
+  "MobilePacketCore": [],
   "Monitor": [],
   "NetApp": [],
   "Network": [
@@ -748,6 +758,7 @@
   ],
   "StoragePool": [],
   "StorageSync": [],
+  "StorageTasks": [],
   "StreamAnalytics": [
     "2020-03-01-preview",
     "2021-10-01-preview"

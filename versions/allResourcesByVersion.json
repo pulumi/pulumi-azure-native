@@ -103,6 +103,28 @@
       "getScriptExecutionLogs",
       "listClusterZones",
       "listPrivateCloudAdminCredentials"
+    ],
+    "2023-03-01": [
+      "Addon",
+      "Authorization",
+      "CloudLink",
+      "Cluster",
+      "Datastore",
+      "GlobalReachConnection",
+      "HcxEnterpriseSite",
+      "PlacementPolicy",
+      "PrivateCloud",
+      "ScriptExecution",
+      "WorkloadNetworkDhcp",
+      "WorkloadNetworkDnsService",
+      "WorkloadNetworkDnsZone",
+      "WorkloadNetworkPortMirroring",
+      "WorkloadNetworkPublicIP",
+      "WorkloadNetworkSegment",
+      "WorkloadNetworkVMGroup",
+      "getScriptExecutionLogs",
+      "listClusterZones",
+      "listPrivateCloudAdminCredentials"
     ]
   },
   "Aad": {
@@ -3574,6 +3596,35 @@
       "VirtualMachineScaleSetVMRunCommand",
       "getLogAnalyticExportRequestRateByInterval",
       "getLogAnalyticExportThrottledRequests"
+    ],
+    "2023-04-02": [
+      "Disk",
+      "DiskAccess",
+      "DiskAccessAPrivateEndpointConnection",
+      "DiskEncryptionSet",
+      "Snapshot"
+    ],
+    "2023-07-01": [
+      "AvailabilitySet",
+      "CapacityReservation",
+      "CapacityReservationGroup",
+      "DedicatedHost",
+      "DedicatedHostGroup",
+      "Image",
+      "ProximityPlacementGroup",
+      "RestorePoint",
+      "RestorePointCollection",
+      "SshPublicKey",
+      "VirtualMachine",
+      "VirtualMachineExtension",
+      "VirtualMachineRunCommandByVirtualMachine",
+      "VirtualMachineScaleSet",
+      "VirtualMachineScaleSetExtension",
+      "VirtualMachineScaleSetVM",
+      "VirtualMachineScaleSetVMExtension",
+      "VirtualMachineScaleSetVMRunCommand",
+      "getLogAnalyticExportRequestRateByInterval",
+      "getLogAnalyticExportThrottledRequests"
     ]
   },
   "ConfidentialLedger": {
@@ -4585,13 +4636,23 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2023-07-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
-    "2023-03-01-preview": [
+    "2023-07-01-preview": [
       "Pool",
-      "Volume",
-      "VolumeSnapshot"
+      "Snapshot",
+      "Volume"
     ]
   },
   "CostManagement": {
@@ -5031,6 +5092,10 @@
       "listJobCredentials"
     ],
     "2022-12-01": [
+      "Job",
+      "listJobCredentials"
+    ],
+    "2023-03-01": [
       "Job",
       "listJobCredentials"
     ]
@@ -5845,6 +5910,18 @@
       "PrivateEndpointConnectionByHostPool",
       "PrivateEndpointConnectionByWorkspace",
       "ScalingPlan",
+      "ScalingPlanPooledSchedule",
+      "Workspace"
+    ],
+    "2023-07-07-preview": [
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
       "Workspace"
     ]
@@ -7899,6 +7976,10 @@
       "PrivateEndpointConnection",
       "getClusterGatewaySettings",
       "listVirtualMachineHosts"
+    ],
+    "2023-06-01-preview": [
+      "Cluster",
+      "ClusterPool"
     ]
   },
   "HanaOnAzure": {
@@ -8166,13 +8247,6 @@
     "2023-03-15-preview": [
       "Machine",
       "MachineExtension",
-      "PrivateEndpointConnection",
-      "PrivateLinkScope"
-    ],
-    "2023-04-25-preview": [
-      "Machine",
-      "MachineExtension",
-      "MachineRunCommand",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
     ]
@@ -9930,6 +10004,12 @@
       "Creator",
       "listAccountKeys",
       "listAccountSas"
+    ],
+    "2023-06-01": [
+      "Account",
+      "Creator",
+      "listAccountKeys",
+      "listAccountSas"
     ]
   },
   "Marketplace": {
@@ -10320,6 +10400,11 @@
       "SimPolicy",
       "Site",
       "Slice"
+    ]
+  },
+  "MobilePacketCore": {
+    "2023-05-15-preview": [
+      "NetworkFunction"
     ]
   },
   "Monitor": {
@@ -17617,6 +17702,11 @@
       "ServerEndpoint",
       "StorageSyncService",
       "SyncGroup"
+    ]
+  },
+  "StorageTasks": {
+    "2023-01-01": [
+      "StorageTask"
     ]
   },
   "StreamAnalytics": {
