@@ -180,6 +180,7 @@
     "ManagedEnvironment": "2022-10-01",
     "ManagedEnvironmentsStorage": "2022-10-01",
     "getContainerAppAuthToken": "2022-10-01",
+    "getCustomDomainVerificationId": "2023-05-02-preview",
     "getManagedEnvironmentAuthToken": "2022-10-01",
     "listConnectedEnvironmentsDaprComponentSecrets": "2022-10-01",
     "listContainerAppCustomHostNameAnalysis": "2022-10-01",
@@ -511,7 +512,9 @@
     "MachineExtension": "2022-07-15-preview",
     "ResourcePool": "2022-07-15-preview",
     "VCenter": "2022-07-15-preview",
+    "VMInstanceGuestAgent": "2023-03-01-preview",
     "VirtualMachine": "2022-07-15-preview",
+    "VirtualMachineInstance": "2023-03-01-preview",
     "VirtualMachineTemplate": "2022-07-15-preview",
     "VirtualNetwork": "2022-07-15-preview"
   },

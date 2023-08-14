@@ -1419,6 +1419,29 @@
       "listContainerAppSecrets",
       "listDaprComponentSecrets",
       "listJobSecrets"
+    ],
+    "2023-05-02-preview": [
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "Job",
+      "ManagedCertificate",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getCustomDomainVerificationId",
+      "getManagedEnvironmentAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets",
+      "listJobSecrets"
     ]
   },
   "AppComplianceAutomation": {
@@ -3705,6 +3728,22 @@
       "VirtualMachine",
       "VirtualMachineTemplate",
       "VirtualNetwork"
+    ],
+    "2023-03-01-preview": [
+      "Cluster",
+      "Datastore",
+      "GuestAgent",
+      "Host",
+      "HybridIdentityMetadatum",
+      "InventoryItem",
+      "MachineExtension",
+      "ResourcePool",
+      "VCenter",
+      "VMInstanceGuestAgent",
+      "VirtualMachine",
+      "VirtualMachineInstance",
+      "VirtualMachineTemplate",
+      "VirtualNetwork"
     ]
   },
   "Consumption": {
@@ -4748,6 +4787,14 @@
       "ViewByScope"
     ],
     "2023-04-01-preview": [
+      "Budget",
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
+      "View",
+      "ViewByScope"
+    ],
+    "2023-08-01": [
       "Budget",
       "Export",
       "ScheduledAction",

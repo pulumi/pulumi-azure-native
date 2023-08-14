@@ -71,6 +71,7 @@ App:
     additions:
         Job: 2023-04-01-preview
         ManagedCertificate: 2023-04-01-preview
+        getCustomDomainVerificationId: 2023-05-02-preview
         listJobSecrets: 2023-04-01-preview
 AppComplianceAutomation:
     tracking: 2022-11-16-preview
@@ -225,6 +226,9 @@ Confluent:
     tracking: "2021-12-01"
 ConnectedVMwarevSphere:
     tracking: 2022-07-15-preview
+    additions:
+        VMInstanceGuestAgent: 2023-03-01-preview
+        VirtualMachineInstance: 2023-03-01-preview
 Consumption:
     tracking: "2023-05-01"
 ContainerInstance:
