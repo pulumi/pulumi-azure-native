@@ -38,7 +38,8 @@
   "App": [
     "2022-11-01-preview",
     "2023-04-01-preview",
-    "2023-05-01"
+    "2023-05-01",
+    "2023-05-02-preview"
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [],
@@ -89,7 +90,8 @@
   ],
   "AzureStackHCI": [
     "2023-02-01",
-    "2023-03-01"
+    "2023-03-01",
+    "2023-07-01-preview"
   ],
   "BareMetalInfrastructure": [],
   "Batch": [],
@@ -130,8 +132,12 @@
     "2023-01-26-preview"
   ],
   "Confluent": [],
-  "ConnectedVMwarevSphere": [],
-  "Consumption": [],
+  "ConnectedVMwarevSphere": [
+    "2023-03-01-preview"
+  ],
+  "Consumption": [
+    "2023-11-01"
+  ],
   "ContainerInstance": [],
   "ContainerRegistry": [
     "2017-03-01",
@@ -228,7 +234,8 @@
     "2022-10-01-preview",
     "2022-10-05-preview",
     "2023-03-01",
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-08-01"
   ],
   "CustomProviders": [],
   "CustomerInsights": [],
