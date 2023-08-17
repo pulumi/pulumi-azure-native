@@ -147,14 +147,14 @@ def get_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:powerplatform:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        system_id=__ret__.system_id,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        system_id=pulumi.get(__ret__, 'system_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_account)

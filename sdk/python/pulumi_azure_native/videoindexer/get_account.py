@@ -207,19 +207,19 @@ def get_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoindexer:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        account_id=__ret__.account_id,
-        account_name=__ret__.account_name,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        media_services=__ret__.media_services,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
-        total_seconds_indexed=__ret__.total_seconds_indexed,
-        type=__ret__.type)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        account_name=pulumi.get(__ret__, 'account_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        media_services=pulumi.get(__ret__, 'media_services'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        total_seconds_indexed=pulumi.get(__ret__, 'total_seconds_indexed'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_account)

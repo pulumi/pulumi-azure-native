@@ -185,17 +185,17 @@ def get_security_user_configuration(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210501preview:getSecurityUserConfiguration', __args__, opts=opts, typ=GetSecurityUserConfigurationResult).value
 
     return AwaitableGetSecurityUserConfigurationResult(
-        apply_on_network_intent_policy_based_services=__ret__.apply_on_network_intent_policy_based_services,
-        delete_existing_nsgs=__ret__.delete_existing_nsgs,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        security_type=__ret__.security_type,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        apply_on_network_intent_policy_based_services=pulumi.get(__ret__, 'apply_on_network_intent_policy_based_services'),
+        delete_existing_nsgs=pulumi.get(__ret__, 'delete_existing_nsgs'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        security_type=pulumi.get(__ret__, 'security_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_security_user_configuration)

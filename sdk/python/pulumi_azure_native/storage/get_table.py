@@ -114,11 +114,11 @@ def get_table(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage:getTable', __args__, opts=opts, typ=GetTableResult).value
 
     return AwaitableGetTableResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        signed_identifiers=__ret__.signed_identifiers,
-        table_name=__ret__.table_name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        signed_identifiers=pulumi.get(__ret__, 'signed_identifiers'),
+        table_name=pulumi.get(__ret__, 'table_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_table)

@@ -270,24 +270,24 @@ def get_cloud_services_network(cloud_services_network_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getCloudServicesNetwork', __args__, opts=opts, typ=GetCloudServicesNetworkResult).value
 
     return AwaitableGetCloudServicesNetworkResult(
-        additional_egress_endpoints=__ret__.additional_egress_endpoints,
-        associated_resource_ids=__ret__.associated_resource_ids,
-        cluster_id=__ret__.cluster_id,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
-        enable_default_egress_endpoints=__ret__.enable_default_egress_endpoints,
-        enabled_egress_endpoints=__ret__.enabled_egress_endpoints,
-        extended_location=__ret__.extended_location,
-        hybrid_aks_clusters_associated_ids=__ret__.hybrid_aks_clusters_associated_ids,
-        id=__ret__.id,
-        interface_name=__ret__.interface_name,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_machines_associated_ids=__ret__.virtual_machines_associated_ids)
+        additional_egress_endpoints=pulumi.get(__ret__, 'additional_egress_endpoints'),
+        associated_resource_ids=pulumi.get(__ret__, 'associated_resource_ids'),
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        detailed_status=pulumi.get(__ret__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        enable_default_egress_endpoints=pulumi.get(__ret__, 'enable_default_egress_endpoints'),
+        enabled_egress_endpoints=pulumi.get(__ret__, 'enabled_egress_endpoints'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        hybrid_aks_clusters_associated_ids=pulumi.get(__ret__, 'hybrid_aks_clusters_associated_ids'),
+        id=pulumi.get(__ret__, 'id'),
+        interface_name=pulumi.get(__ret__, 'interface_name'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
 
 
 @_utilities.lift_output_func(get_cloud_services_network)

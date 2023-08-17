@@ -125,12 +125,12 @@ def get_sql_resource_sql_role_assignment(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb:getSqlResourceSqlRoleAssignment', __args__, opts=opts, typ=GetSqlResourceSqlRoleAssignmentResult).value
 
     return AwaitableGetSqlResourceSqlRoleAssignmentResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        principal_id=__ret__.principal_id,
-        role_definition_id=__ret__.role_definition_id,
-        scope=__ret__.scope,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
+        scope=pulumi.get(__ret__, 'scope'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sql_resource_sql_role_assignment)

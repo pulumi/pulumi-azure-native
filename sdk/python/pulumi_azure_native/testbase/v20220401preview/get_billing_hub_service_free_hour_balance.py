@@ -64,8 +64,8 @@ def get_billing_hub_service_free_hour_balance(resource_group_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:testbase/v20220401preview:getBillingHubServiceFreeHourBalance', __args__, opts=opts, typ=GetBillingHubServiceFreeHourBalanceResult).value
 
     return AwaitableGetBillingHubServiceFreeHourBalanceResult(
-        increment_entries=__ret__.increment_entries,
-        total_remaining_free_hours=__ret__.total_remaining_free_hours)
+        increment_entries=pulumi.get(__ret__, 'increment_entries'),
+        total_remaining_free_hours=pulumi.get(__ret__, 'total_remaining_free_hours'))
 
 
 @_utilities.lift_output_func(get_billing_hub_service_free_hour_balance)

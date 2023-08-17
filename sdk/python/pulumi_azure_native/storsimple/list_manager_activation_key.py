@@ -62,7 +62,7 @@ def list_manager_activation_key(manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:listManagerActivationKey', __args__, opts=opts, typ=ListManagerActivationKeyResult).value
 
     return AwaitableListManagerActivationKeyResult(
-        activation_key=__ret__.activation_key)
+        activation_key=pulumi.get(__ret__, 'activation_key'))
 
 
 @_utilities.lift_output_func(list_manager_activation_key)

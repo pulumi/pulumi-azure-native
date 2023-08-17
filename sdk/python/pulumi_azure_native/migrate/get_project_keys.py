@@ -74,8 +74,8 @@ def get_project_keys(project_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:migrate:getProjectKeys', __args__, opts=opts, typ=GetProjectKeysResult).value
 
     return AwaitableGetProjectKeysResult(
-        workspace_id=__ret__.workspace_id,
-        workspace_key=__ret__.workspace_key)
+        workspace_id=pulumi.get(__ret__, 'workspace_id'),
+        workspace_key=pulumi.get(__ret__, 'workspace_key'))
 
 
 @_utilities.lift_output_func(get_project_keys)

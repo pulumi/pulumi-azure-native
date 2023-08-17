@@ -114,11 +114,11 @@ def get_secret(child_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:redhatopenshift:getSecret', __args__, opts=opts, typ=GetSecretResult).value
 
     return AwaitableGetSecretResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        secret_resources=__ret__.secret_resources,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        secret_resources=pulumi.get(__ret__, 'secret_resources'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_secret)

@@ -265,24 +265,24 @@ def get_project(project_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:migrate/v20180202:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        created_timestamp=__ret__.created_timestamp,
-        customer_workspace_id=__ret__.customer_workspace_id,
-        customer_workspace_location=__ret__.customer_workspace_location,
-        discovery_status=__ret__.discovery_status,
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        last_assessment_timestamp=__ret__.last_assessment_timestamp,
-        last_discovery_session_id=__ret__.last_discovery_session_id,
-        last_discovery_timestamp=__ret__.last_discovery_timestamp,
-        location=__ret__.location,
-        name=__ret__.name,
-        number_of_assessments=__ret__.number_of_assessments,
-        number_of_groups=__ret__.number_of_groups,
-        number_of_machines=__ret__.number_of_machines,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        updated_timestamp=__ret__.updated_timestamp)
+        created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
+        customer_workspace_id=pulumi.get(__ret__, 'customer_workspace_id'),
+        customer_workspace_location=pulumi.get(__ret__, 'customer_workspace_location'),
+        discovery_status=pulumi.get(__ret__, 'discovery_status'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        last_assessment_timestamp=pulumi.get(__ret__, 'last_assessment_timestamp'),
+        last_discovery_session_id=pulumi.get(__ret__, 'last_discovery_session_id'),
+        last_discovery_timestamp=pulumi.get(__ret__, 'last_discovery_timestamp'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        number_of_assessments=pulumi.get(__ret__, 'number_of_assessments'),
+        number_of_groups=pulumi.get(__ret__, 'number_of_groups'),
+        number_of_machines=pulumi.get(__ret__, 'number_of_machines'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
 
 
 @_utilities.lift_output_func(get_project)

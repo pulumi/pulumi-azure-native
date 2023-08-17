@@ -78,8 +78,8 @@ def list_configuration_store_keys(config_store_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appconfiguration:listConfigurationStoreKeys', __args__, opts=opts, typ=ListConfigurationStoreKeysResult).value
 
     return AwaitableListConfigurationStoreKeysResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_configuration_store_keys)

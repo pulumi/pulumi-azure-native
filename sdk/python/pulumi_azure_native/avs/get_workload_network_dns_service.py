@@ -185,17 +185,17 @@ def get_workload_network_dns_service(dns_service_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:getWorkloadNetworkDnsService', __args__, opts=opts, typ=GetWorkloadNetworkDnsServiceResult).value
 
     return AwaitableGetWorkloadNetworkDnsServiceResult(
-        default_dns_zone=__ret__.default_dns_zone,
-        display_name=__ret__.display_name,
-        dns_service_ip=__ret__.dns_service_ip,
-        fqdn_zones=__ret__.fqdn_zones,
-        id=__ret__.id,
-        log_level=__ret__.log_level,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        revision=__ret__.revision,
-        status=__ret__.status,
-        type=__ret__.type)
+        default_dns_zone=pulumi.get(__ret__, 'default_dns_zone'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        dns_service_ip=pulumi.get(__ret__, 'dns_service_ip'),
+        fqdn_zones=pulumi.get(__ret__, 'fqdn_zones'),
+        id=pulumi.get(__ret__, 'id'),
+        log_level=pulumi.get(__ret__, 'log_level'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        revision=pulumi.get(__ret__, 'revision'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workload_network_dns_service)

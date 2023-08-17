@@ -56,7 +56,7 @@ def list_private_store_subscriptions_context(private_store_id: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:marketplace:listPrivateStoreSubscriptionsContext', __args__, opts=opts, typ=ListPrivateStoreSubscriptionsContextResult).value
 
     return AwaitableListPrivateStoreSubscriptionsContextResult(
-        subscriptions_ids=__ret__.subscriptions_ids)
+        subscriptions_ids=pulumi.get(__ret__, 'subscriptions_ids'))
 
 
 @_utilities.lift_output_func(list_private_store_subscriptions_context)

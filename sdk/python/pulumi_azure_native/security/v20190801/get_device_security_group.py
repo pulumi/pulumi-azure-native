@@ -134,13 +134,13 @@ def get_device_security_group(device_security_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20190801:getDeviceSecurityGroup', __args__, opts=opts, typ=GetDeviceSecurityGroupResult).value
 
     return AwaitableGetDeviceSecurityGroupResult(
-        allowlist_rules=__ret__.allowlist_rules,
-        denylist_rules=__ret__.denylist_rules,
-        id=__ret__.id,
-        name=__ret__.name,
-        threshold_rules=__ret__.threshold_rules,
-        time_window_rules=__ret__.time_window_rules,
-        type=__ret__.type)
+        allowlist_rules=pulumi.get(__ret__, 'allowlist_rules'),
+        denylist_rules=pulumi.get(__ret__, 'denylist_rules'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        threshold_rules=pulumi.get(__ret__, 'threshold_rules'),
+        time_window_rules=pulumi.get(__ret__, 'time_window_rules'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_device_security_group)

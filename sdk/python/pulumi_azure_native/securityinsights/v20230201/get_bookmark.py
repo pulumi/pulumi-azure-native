@@ -269,24 +269,24 @@ def get_bookmark(bookmark_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230201:getBookmark', __args__, opts=opts, typ=GetBookmarkResult).value
 
     return AwaitableGetBookmarkResult(
-        created=__ret__.created,
-        created_by=__ret__.created_by,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        event_time=__ret__.event_time,
-        id=__ret__.id,
-        incident_info=__ret__.incident_info,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        notes=__ret__.notes,
-        query=__ret__.query,
-        query_end_time=__ret__.query_end_time,
-        query_result=__ret__.query_result,
-        query_start_time=__ret__.query_start_time,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        updated=__ret__.updated,
-        updated_by=__ret__.updated_by)
+        created=pulumi.get(__ret__, 'created'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        event_time=pulumi.get(__ret__, 'event_time'),
+        id=pulumi.get(__ret__, 'id'),
+        incident_info=pulumi.get(__ret__, 'incident_info'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        notes=pulumi.get(__ret__, 'notes'),
+        query=pulumi.get(__ret__, 'query'),
+        query_end_time=pulumi.get(__ret__, 'query_end_time'),
+        query_result=pulumi.get(__ret__, 'query_result'),
+        query_start_time=pulumi.get(__ret__, 'query_start_time'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        updated=pulumi.get(__ret__, 'updated'),
+        updated_by=pulumi.get(__ret__, 'updated_by'))
 
 
 @_utilities.lift_output_func(get_bookmark)

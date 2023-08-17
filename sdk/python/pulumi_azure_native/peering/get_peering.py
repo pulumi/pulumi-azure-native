@@ -183,17 +183,17 @@ def get_peering(peering_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:peering:getPeering', __args__, opts=opts, typ=GetPeeringResult).value
 
     return AwaitableGetPeeringResult(
-        direct=__ret__.direct,
-        exchange=__ret__.exchange,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        peering_location=__ret__.peering_location,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        direct=pulumi.get(__ret__, 'direct'),
+        exchange=pulumi.get(__ret__, 'exchange'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        peering_location=pulumi.get(__ret__, 'peering_location'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_peering)

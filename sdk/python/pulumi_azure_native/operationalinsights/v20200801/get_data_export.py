@@ -172,16 +172,16 @@ def get_data_export(data_export_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20200801:getDataExport', __args__, opts=opts, typ=GetDataExportResult).value
 
     return AwaitableGetDataExportResult(
-        created_date=__ret__.created_date,
-        data_export_id=__ret__.data_export_id,
-        enable=__ret__.enable,
-        event_hub_name=__ret__.event_hub_name,
-        id=__ret__.id,
-        last_modified_date=__ret__.last_modified_date,
-        name=__ret__.name,
-        resource_id=__ret__.resource_id,
-        table_names=__ret__.table_names,
-        type=__ret__.type)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        data_export_id=pulumi.get(__ret__, 'data_export_id'),
+        enable=pulumi.get(__ret__, 'enable'),
+        event_hub_name=pulumi.get(__ret__, 'event_hub_name'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_date=pulumi.get(__ret__, 'last_modified_date'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        table_names=pulumi.get(__ret__, 'table_names'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_export)

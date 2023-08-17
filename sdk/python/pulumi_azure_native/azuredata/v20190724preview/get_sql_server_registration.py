@@ -158,15 +158,15 @@ def get_sql_server_registration(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuredata/v20190724preview:getSqlServerRegistration', __args__, opts=opts, typ=GetSqlServerRegistrationResult).value
 
     return AwaitableGetSqlServerRegistrationResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        property_bag=__ret__.property_bag,
-        resource_group=__ret__.resource_group,
-        subscription_id=__ret__.subscription_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        property_bag=pulumi.get(__ret__, 'property_bag'),
+        resource_group=pulumi.get(__ret__, 'resource_group'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sql_server_registration)

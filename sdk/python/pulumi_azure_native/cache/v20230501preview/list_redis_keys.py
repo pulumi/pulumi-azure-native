@@ -73,8 +73,8 @@ def list_redis_keys(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache/v20230501preview:listRedisKeys', __args__, opts=opts, typ=ListRedisKeysResult).value
 
     return AwaitableListRedisKeysResult(
-        primary_key=__ret__.primary_key,
-        secondary_key=__ret__.secondary_key)
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_redis_keys)

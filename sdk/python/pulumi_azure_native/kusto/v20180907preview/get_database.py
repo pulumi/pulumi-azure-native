@@ -173,16 +173,16 @@ def get_database(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto/v20180907preview:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        etag=__ret__.etag,
-        hot_cache_period_in_days=__ret__.hot_cache_period_in_days,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        soft_delete_period_in_days=__ret__.soft_delete_period_in_days,
-        statistics=__ret__.statistics,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        hot_cache_period_in_days=pulumi.get(__ret__, 'hot_cache_period_in_days'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        soft_delete_period_in_days=pulumi.get(__ret__, 'soft_delete_period_in_days'),
+        statistics=pulumi.get(__ret__, 'statistics'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_database)

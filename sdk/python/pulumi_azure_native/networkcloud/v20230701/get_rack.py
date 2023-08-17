@@ -227,21 +227,21 @@ def get_rack(rack_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud/v20230701:getRack', __args__, opts=opts, typ=GetRackResult).value
 
     return AwaitableGetRackResult(
-        availability_zone=__ret__.availability_zone,
-        cluster_id=__ret__.cluster_id,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        rack_location=__ret__.rack_location,
-        rack_serial_number=__ret__.rack_serial_number,
-        rack_sku_id=__ret__.rack_sku_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        detailed_status=pulumi.get(__ret__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        rack_location=pulumi.get(__ret__, 'rack_location'),
+        rack_serial_number=pulumi.get(__ret__, 'rack_serial_number'),
+        rack_sku_id=pulumi.get(__ret__, 'rack_sku_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_rack)

@@ -143,13 +143,13 @@ def get_action(action_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20210301preview:getAction', __args__, opts=opts, typ=GetActionResult).value
 
     return AwaitableGetActionResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        logic_app_resource_id=__ret__.logic_app_resource_id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        workflow_id=__ret__.workflow_id)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        logic_app_resource_id=pulumi.get(__ret__, 'logic_app_resource_id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        workflow_id=pulumi.get(__ret__, 'workflow_id'))
 
 
 @_utilities.lift_output_func(get_action)

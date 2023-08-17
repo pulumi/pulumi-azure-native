@@ -173,16 +173,16 @@ def get_schedule(lab_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20220801:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        notes=__ret__.notes,
-        provisioning_state=__ret__.provisioning_state,
-        recurrence_pattern=__ret__.recurrence_pattern,
-        start_at=__ret__.start_at,
-        stop_at=__ret__.stop_at,
-        system_data=__ret__.system_data,
-        time_zone_id=__ret__.time_zone_id,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        notes=pulumi.get(__ret__, 'notes'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        recurrence_pattern=pulumi.get(__ret__, 'recurrence_pattern'),
+        start_at=pulumi.get(__ret__, 'start_at'),
+        stop_at=pulumi.get(__ret__, 'stop_at'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        time_zone_id=pulumi.get(__ret__, 'time_zone_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_schedule)

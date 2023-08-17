@@ -196,18 +196,18 @@ def get_identity_provider(identity_provider_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20190101:getIdentityProvider', __args__, opts=opts, typ=GetIdentityProviderResult).value
 
     return AwaitableGetIdentityProviderResult(
-        allowed_tenants=__ret__.allowed_tenants,
-        authority=__ret__.authority,
-        client_id=__ret__.client_id,
-        client_secret=__ret__.client_secret,
-        id=__ret__.id,
-        name=__ret__.name,
-        password_reset_policy_name=__ret__.password_reset_policy_name,
-        profile_editing_policy_name=__ret__.profile_editing_policy_name,
-        signin_policy_name=__ret__.signin_policy_name,
-        signin_tenant=__ret__.signin_tenant,
-        signup_policy_name=__ret__.signup_policy_name,
-        type=__ret__.type)
+        allowed_tenants=pulumi.get(__ret__, 'allowed_tenants'),
+        authority=pulumi.get(__ret__, 'authority'),
+        client_id=pulumi.get(__ret__, 'client_id'),
+        client_secret=pulumi.get(__ret__, 'client_secret'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        password_reset_policy_name=pulumi.get(__ret__, 'password_reset_policy_name'),
+        profile_editing_policy_name=pulumi.get(__ret__, 'profile_editing_policy_name'),
+        signin_policy_name=pulumi.get(__ret__, 'signin_policy_name'),
+        signin_tenant=pulumi.get(__ret__, 'signin_tenant'),
+        signup_policy_name=pulumi.get(__ret__, 'signup_policy_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_identity_provider)

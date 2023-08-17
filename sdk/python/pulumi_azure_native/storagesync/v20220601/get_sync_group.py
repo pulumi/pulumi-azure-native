@@ -125,12 +125,12 @@ def get_sync_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagesync/v20220601:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult).value
 
     return AwaitableGetSyncGroupResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        sync_group_status=__ret__.sync_group_status,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        unique_id=__ret__.unique_id)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        sync_group_status=pulumi.get(__ret__, 'sync_group_status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_id=pulumi.get(__ret__, 'unique_id'))
 
 
 @_utilities.lift_output_func(get_sync_group)

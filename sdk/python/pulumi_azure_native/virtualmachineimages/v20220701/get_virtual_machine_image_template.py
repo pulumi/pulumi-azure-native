@@ -278,25 +278,25 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:virtualmachineimages/v20220701:getVirtualMachineImageTemplate', __args__, opts=opts, typ=GetVirtualMachineImageTemplateResult).value
 
     return AwaitableGetVirtualMachineImageTemplateResult(
-        build_timeout_in_minutes=__ret__.build_timeout_in_minutes,
-        customize=__ret__.customize,
-        distribute=__ret__.distribute,
-        exact_staging_resource_group=__ret__.exact_staging_resource_group,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        last_run_status=__ret__.last_run_status,
-        location=__ret__.location,
-        name=__ret__.name,
-        optimize=__ret__.optimize,
-        provisioning_error=__ret__.provisioning_error,
-        provisioning_state=__ret__.provisioning_state,
-        source=__ret__.source,
-        staging_resource_group=__ret__.staging_resource_group,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        validate=__ret__.validate,
-        vm_profile=__ret__.vm_profile)
+        build_timeout_in_minutes=pulumi.get(__ret__, 'build_timeout_in_minutes'),
+        customize=pulumi.get(__ret__, 'customize'),
+        distribute=pulumi.get(__ret__, 'distribute'),
+        exact_staging_resource_group=pulumi.get(__ret__, 'exact_staging_resource_group'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        last_run_status=pulumi.get(__ret__, 'last_run_status'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        optimize=pulumi.get(__ret__, 'optimize'),
+        provisioning_error=pulumi.get(__ret__, 'provisioning_error'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source=pulumi.get(__ret__, 'source'),
+        staging_resource_group=pulumi.get(__ret__, 'staging_resource_group'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        validate=pulumi.get(__ret__, 'validate'),
+        vm_profile=pulumi.get(__ret__, 'vm_profile'))
 
 
 @_utilities.lift_output_func(get_virtual_machine_image_template)

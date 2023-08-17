@@ -213,19 +213,19 @@ def get_adls_gen2_storage_account_data_set_mapping(account_name: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20201001preview:getADLSGen2StorageAccountDataSetMapping', __args__, opts=opts, typ=GetADLSGen2StorageAccountDataSetMappingResult).value
 
     return AwaitableGetADLSGen2StorageAccountDataSetMappingResult(
-        container_name=__ret__.container_name,
-        data_set_id=__ret__.data_set_id,
-        data_set_mapping_status=__ret__.data_set_mapping_status,
-        folder=__ret__.folder,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        mount_path=__ret__.mount_path,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        storage_account_resource_id=__ret__.storage_account_resource_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        container_name=pulumi.get(__ret__, 'container_name'),
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        data_set_mapping_status=pulumi.get(__ret__, 'data_set_mapping_status'),
+        folder=pulumi.get(__ret__, 'folder'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        mount_path=pulumi.get(__ret__, 'mount_path'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        storage_account_resource_id=pulumi.get(__ret__, 'storage_account_resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_adls_gen2_storage_account_data_set_mapping)

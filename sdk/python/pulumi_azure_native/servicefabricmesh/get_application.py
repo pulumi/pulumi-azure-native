@@ -231,21 +231,21 @@ def get_application(application_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabricmesh:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        debug_params=__ret__.debug_params,
-        description=__ret__.description,
-        diagnostics=__ret__.diagnostics,
-        health_state=__ret__.health_state,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        service_names=__ret__.service_names,
-        services=__ret__.services,
-        status=__ret__.status,
-        status_details=__ret__.status_details,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unhealthy_evaluation=__ret__.unhealthy_evaluation)
+        debug_params=pulumi.get(__ret__, 'debug_params'),
+        description=pulumi.get(__ret__, 'description'),
+        diagnostics=pulumi.get(__ret__, 'diagnostics'),
+        health_state=pulumi.get(__ret__, 'health_state'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service_names=pulumi.get(__ret__, 'service_names'),
+        services=pulumi.get(__ret__, 'services'),
+        status=pulumi.get(__ret__, 'status'),
+        status_details=pulumi.get(__ret__, 'status_details'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unhealthy_evaluation=pulumi.get(__ret__, 'unhealthy_evaluation'))
 
 
 @_utilities.lift_output_func(get_application)

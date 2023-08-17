@@ -219,20 +219,20 @@ def get_profile(profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getProfile', __args__, opts=opts, typ=GetProfileResult).value
 
     return AwaitableGetProfileResult(
-        extended_properties=__ret__.extended_properties,
-        front_door_id=__ret__.front_door_id,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        origin_response_timeout_seconds=__ret__.origin_response_timeout_seconds,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        extended_properties=pulumi.get(__ret__, 'extended_properties'),
+        front_door_id=pulumi.get(__ret__, 'front_door_id'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        origin_response_timeout_seconds=pulumi.get(__ret__, 'origin_response_timeout_seconds'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_profile)

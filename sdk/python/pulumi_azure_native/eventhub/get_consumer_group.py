@@ -153,14 +153,14 @@ def get_consumer_group(consumer_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub:getConsumerGroup', __args__, opts=opts, typ=GetConsumerGroupResult).value
 
     return AwaitableGetConsumerGroupResult(
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        updated_at=__ret__.updated_at,
-        user_metadata=__ret__.user_metadata)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        user_metadata=pulumi.get(__ret__, 'user_metadata'))
 
 
 @_utilities.lift_output_func(get_consumer_group)

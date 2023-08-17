@@ -73,8 +73,8 @@ def list_account_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:purview/v20201201preview:listAccountKeys', __args__, opts=opts, typ=ListAccountKeysResult).value
 
     return AwaitableListAccountKeysResult(
-        atlas_kafka_primary_endpoint=__ret__.atlas_kafka_primary_endpoint,
-        atlas_kafka_secondary_endpoint=__ret__.atlas_kafka_secondary_endpoint)
+        atlas_kafka_primary_endpoint=pulumi.get(__ret__, 'atlas_kafka_primary_endpoint'),
+        atlas_kafka_secondary_endpoint=pulumi.get(__ret__, 'atlas_kafka_secondary_endpoint'))
 
 
 @_utilities.lift_output_func(list_account_keys)

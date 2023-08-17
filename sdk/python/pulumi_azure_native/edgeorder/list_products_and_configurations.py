@@ -80,8 +80,8 @@ def list_products_and_configurations(configuration_filter: Optional[pulumi.Input
     __ret__ = pulumi.runtime.invoke('azure-native:edgeorder:listProductsAndConfigurations', __args__, opts=opts, typ=ListProductsAndConfigurationsResult).value
 
     return AwaitableListProductsAndConfigurationsResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_products_and_configurations)

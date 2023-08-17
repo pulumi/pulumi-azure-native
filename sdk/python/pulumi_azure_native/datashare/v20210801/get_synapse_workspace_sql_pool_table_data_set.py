@@ -141,13 +141,13 @@ def get_synapse_workspace_sql_pool_table_data_set(account_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20210801:getSynapseWorkspaceSqlPoolTableDataSet', __args__, opts=opts, typ=GetSynapseWorkspaceSqlPoolTableDataSetResult).value
 
     return AwaitableGetSynapseWorkspaceSqlPoolTableDataSetResult(
-        data_set_id=__ret__.data_set_id,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        synapse_workspace_sql_pool_table_resource_id=__ret__.synapse_workspace_sql_pool_table_resource_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        synapse_workspace_sql_pool_table_resource_id=pulumi.get(__ret__, 'synapse_workspace_sql_pool_table_resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_synapse_workspace_sql_pool_table_data_set)

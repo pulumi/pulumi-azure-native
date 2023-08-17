@@ -210,19 +210,19 @@ def get_v_net_peering(peering_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databricks:getVNetPeering', __args__, opts=opts, typ=GetVNetPeeringResult).value
 
     return AwaitableGetVNetPeeringResult(
-        allow_forwarded_traffic=__ret__.allow_forwarded_traffic,
-        allow_gateway_transit=__ret__.allow_gateway_transit,
-        allow_virtual_network_access=__ret__.allow_virtual_network_access,
-        databricks_address_space=__ret__.databricks_address_space,
-        databricks_virtual_network=__ret__.databricks_virtual_network,
-        id=__ret__.id,
-        name=__ret__.name,
-        peering_state=__ret__.peering_state,
-        provisioning_state=__ret__.provisioning_state,
-        remote_address_space=__ret__.remote_address_space,
-        remote_virtual_network=__ret__.remote_virtual_network,
-        type=__ret__.type,
-        use_remote_gateways=__ret__.use_remote_gateways)
+        allow_forwarded_traffic=pulumi.get(__ret__, 'allow_forwarded_traffic'),
+        allow_gateway_transit=pulumi.get(__ret__, 'allow_gateway_transit'),
+        allow_virtual_network_access=pulumi.get(__ret__, 'allow_virtual_network_access'),
+        databricks_address_space=pulumi.get(__ret__, 'databricks_address_space'),
+        databricks_virtual_network=pulumi.get(__ret__, 'databricks_virtual_network'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        peering_state=pulumi.get(__ret__, 'peering_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        remote_address_space=pulumi.get(__ret__, 'remote_address_space'),
+        remote_virtual_network=pulumi.get(__ret__, 'remote_virtual_network'),
+        type=pulumi.get(__ret__, 'type'),
+        use_remote_gateways=pulumi.get(__ret__, 'use_remote_gateways'))
 
 
 @_utilities.lift_output_func(get_v_net_peering)

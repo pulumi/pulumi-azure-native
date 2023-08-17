@@ -152,14 +152,14 @@ def get_authorization(authorization_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getAuthorization', __args__, opts=opts, typ=GetAuthorizationResult).value
 
     return AwaitableGetAuthorizationResult(
-        authorization_type=__ret__.authorization_type,
-        error=__ret__.error,
-        id=__ret__.id,
-        name=__ret__.name,
-        o_auth2_grant_type=__ret__.o_auth2_grant_type,
-        parameters=__ret__.parameters,
-        status=__ret__.status,
-        type=__ret__.type)
+        authorization_type=pulumi.get(__ret__, 'authorization_type'),
+        error=pulumi.get(__ret__, 'error'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        o_auth2_grant_type=pulumi.get(__ret__, 'o_auth2_grant_type'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_authorization)

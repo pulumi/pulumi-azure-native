@@ -65,7 +65,7 @@ def get_live_event_stream_events(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20221101:getLiveEventStreamEvents', __args__, opts=opts, typ=GetLiveEventStreamEventsResult).value
 
     return AwaitableGetLiveEventStreamEventsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_live_event_stream_events)

@@ -210,19 +210,19 @@ def get_query(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights:getQuery', __args__, opts=opts, typ=GetQueryResult).value
 
     return AwaitableGetQueryResult(
-        author=__ret__.author,
-        body=__ret__.body,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        related=__ret__.related,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        time_created=__ret__.time_created,
-        time_modified=__ret__.time_modified,
-        type=__ret__.type)
+        author=pulumi.get(__ret__, 'author'),
+        body=pulumi.get(__ret__, 'body'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        related=pulumi.get(__ret__, 'related'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        time_modified=pulumi.get(__ret__, 'time_modified'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_query)

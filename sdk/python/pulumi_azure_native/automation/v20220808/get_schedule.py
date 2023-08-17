@@ -257,23 +257,23 @@ def get_schedule(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation/v20220808:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
-        advanced_schedule=__ret__.advanced_schedule,
-        creation_time=__ret__.creation_time,
-        description=__ret__.description,
-        expiry_time=__ret__.expiry_time,
-        expiry_time_offset_minutes=__ret__.expiry_time_offset_minutes,
-        frequency=__ret__.frequency,
-        id=__ret__.id,
-        interval=__ret__.interval,
-        is_enabled=__ret__.is_enabled,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        next_run=__ret__.next_run,
-        next_run_offset_minutes=__ret__.next_run_offset_minutes,
-        start_time=__ret__.start_time,
-        start_time_offset_minutes=__ret__.start_time_offset_minutes,
-        time_zone=__ret__.time_zone,
-        type=__ret__.type)
+        advanced_schedule=pulumi.get(__ret__, 'advanced_schedule'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        description=pulumi.get(__ret__, 'description'),
+        expiry_time=pulumi.get(__ret__, 'expiry_time'),
+        expiry_time_offset_minutes=pulumi.get(__ret__, 'expiry_time_offset_minutes'),
+        frequency=pulumi.get(__ret__, 'frequency'),
+        id=pulumi.get(__ret__, 'id'),
+        interval=pulumi.get(__ret__, 'interval'),
+        is_enabled=pulumi.get(__ret__, 'is_enabled'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        next_run=pulumi.get(__ret__, 'next_run'),
+        next_run_offset_minutes=pulumi.get(__ret__, 'next_run_offset_minutes'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        start_time_offset_minutes=pulumi.get(__ret__, 'start_time_offset_minutes'),
+        time_zone=pulumi.get(__ret__, 'time_zone'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_schedule)

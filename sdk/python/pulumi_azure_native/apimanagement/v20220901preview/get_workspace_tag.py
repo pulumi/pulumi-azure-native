@@ -103,10 +103,10 @@ def get_workspace_tag(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getWorkspaceTag', __args__, opts=opts, typ=GetWorkspaceTagResult).value
 
     return AwaitableGetWorkspaceTagResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace_tag)

@@ -275,24 +275,24 @@ def get_flux_configuration(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kubernetesconfiguration/v20211101preview:getFluxConfiguration', __args__, opts=opts, typ=GetFluxConfigurationResult).value
 
     return AwaitableGetFluxConfigurationResult(
-        compliance_state=__ret__.compliance_state,
-        configuration_protected_settings=__ret__.configuration_protected_settings,
-        error_message=__ret__.error_message,
-        git_repository=__ret__.git_repository,
-        id=__ret__.id,
-        kustomizations=__ret__.kustomizations,
-        last_source_synced_at=__ret__.last_source_synced_at,
-        last_source_synced_commit_id=__ret__.last_source_synced_commit_id,
-        name=__ret__.name,
-        namespace=__ret__.namespace,
-        provisioning_state=__ret__.provisioning_state,
-        repository_public_key=__ret__.repository_public_key,
-        scope=__ret__.scope,
-        source_kind=__ret__.source_kind,
-        statuses=__ret__.statuses,
-        suspend=__ret__.suspend,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        compliance_state=pulumi.get(__ret__, 'compliance_state'),
+        configuration_protected_settings=pulumi.get(__ret__, 'configuration_protected_settings'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        git_repository=pulumi.get(__ret__, 'git_repository'),
+        id=pulumi.get(__ret__, 'id'),
+        kustomizations=pulumi.get(__ret__, 'kustomizations'),
+        last_source_synced_at=pulumi.get(__ret__, 'last_source_synced_at'),
+        last_source_synced_commit_id=pulumi.get(__ret__, 'last_source_synced_commit_id'),
+        name=pulumi.get(__ret__, 'name'),
+        namespace=pulumi.get(__ret__, 'namespace'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        repository_public_key=pulumi.get(__ret__, 'repository_public_key'),
+        scope=pulumi.get(__ret__, 'scope'),
+        source_kind=pulumi.get(__ret__, 'source_kind'),
+        statuses=pulumi.get(__ret__, 'statuses'),
+        suspend=pulumi.get(__ret__, 'suspend'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_flux_configuration)

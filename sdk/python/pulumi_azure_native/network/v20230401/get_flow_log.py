@@ -221,20 +221,20 @@ def get_flow_log(flow_log_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getFlowLog', __args__, opts=opts, typ=GetFlowLogResult).value
 
     return AwaitableGetFlowLogResult(
-        enabled=__ret__.enabled,
-        etag=__ret__.etag,
-        flow_analytics_configuration=__ret__.flow_analytics_configuration,
-        format=__ret__.format,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        retention_policy=__ret__.retention_policy,
-        storage_id=__ret__.storage_id,
-        tags=__ret__.tags,
-        target_resource_guid=__ret__.target_resource_guid,
-        target_resource_id=__ret__.target_resource_id,
-        type=__ret__.type)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        etag=pulumi.get(__ret__, 'etag'),
+        flow_analytics_configuration=pulumi.get(__ret__, 'flow_analytics_configuration'),
+        format=pulumi.get(__ret__, 'format'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        retention_policy=pulumi.get(__ret__, 'retention_policy'),
+        storage_id=pulumi.get(__ret__, 'storage_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_resource_guid=pulumi.get(__ret__, 'target_resource_guid'),
+        target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_flow_log)

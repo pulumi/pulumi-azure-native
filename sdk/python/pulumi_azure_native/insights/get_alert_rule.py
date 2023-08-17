@@ -195,18 +195,18 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights:getAlertRule', __args__, opts=opts, typ=GetAlertRuleResult).value
 
     return AwaitableGetAlertRuleResult(
-        action=__ret__.action,
-        actions=__ret__.actions,
-        condition=__ret__.condition,
-        description=__ret__.description,
-        id=__ret__.id,
-        is_enabled=__ret__.is_enabled,
-        last_updated_time=__ret__.last_updated_time,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        action=pulumi.get(__ret__, 'action'),
+        actions=pulumi.get(__ret__, 'actions'),
+        condition=pulumi.get(__ret__, 'condition'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        is_enabled=pulumi.get(__ret__, 'is_enabled'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_alert_rule)

@@ -104,10 +104,10 @@ def get_tag_api_link(api_link_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getTagApiLink', __args__, opts=opts, typ=GetTagApiLinkResult).value
 
     return AwaitableGetTagApiLinkResult(
-        api_id=__ret__.api_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        api_id=pulumi.get(__ret__, 'api_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_tag_api_link)

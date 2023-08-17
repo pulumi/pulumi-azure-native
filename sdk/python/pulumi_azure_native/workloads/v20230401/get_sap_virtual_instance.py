@@ -242,22 +242,22 @@ def get_sap_virtual_instance(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads/v20230401:getSAPVirtualInstance', __args__, opts=opts, typ=GetSAPVirtualInstanceResult).value
 
     return AwaitableGetSAPVirtualInstanceResult(
-        configuration=__ret__.configuration,
-        environment=__ret__.environment,
-        errors=__ret__.errors,
-        health=__ret__.health,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        managed_resource_group_configuration=__ret__.managed_resource_group_configuration,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sap_product=__ret__.sap_product,
-        state=__ret__.state,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        configuration=pulumi.get(__ret__, 'configuration'),
+        environment=pulumi.get(__ret__, 'environment'),
+        errors=pulumi.get(__ret__, 'errors'),
+        health=pulumi.get(__ret__, 'health'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_resource_group_configuration=pulumi.get(__ret__, 'managed_resource_group_configuration'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sap_product=pulumi.get(__ret__, 'sap_product'),
+        state=pulumi.get(__ret__, 'state'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sap_virtual_instance)

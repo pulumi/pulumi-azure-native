@@ -133,13 +133,13 @@ def get_network_security_perimeter(network_security_perimeter_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210201preview:getNetworkSecurityPerimeter', __args__, opts=opts, typ=GetNetworkSecurityPerimeterResult).value
 
     return AwaitableGetNetworkSecurityPerimeterResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        perimeter_guid=__ret__.perimeter_guid,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        perimeter_guid=pulumi.get(__ret__, 'perimeter_guid'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_security_perimeter)

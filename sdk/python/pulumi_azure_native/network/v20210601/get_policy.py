@@ -239,22 +239,22 @@ def get_policy(policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210601:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        custom_rules=__ret__.custom_rules,
-        etag=__ret__.etag,
-        extended_properties=__ret__.extended_properties,
-        frontend_endpoint_links=__ret__.frontend_endpoint_links,
-        id=__ret__.id,
-        location=__ret__.location,
-        managed_rules=__ret__.managed_rules,
-        name=__ret__.name,
-        policy_settings=__ret__.policy_settings,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        routing_rule_links=__ret__.routing_rule_links,
-        security_policy_links=__ret__.security_policy_links,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        custom_rules=pulumi.get(__ret__, 'custom_rules'),
+        etag=pulumi.get(__ret__, 'etag'),
+        extended_properties=pulumi.get(__ret__, 'extended_properties'),
+        frontend_endpoint_links=pulumi.get(__ret__, 'frontend_endpoint_links'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_rules=pulumi.get(__ret__, 'managed_rules'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_settings=pulumi.get(__ret__, 'policy_settings'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        routing_rule_links=pulumi.get(__ret__, 'routing_rule_links'),
+        security_policy_links=pulumi.get(__ret__, 'security_policy_links'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_policy)

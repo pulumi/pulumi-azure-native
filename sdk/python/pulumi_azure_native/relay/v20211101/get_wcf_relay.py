@@ -209,19 +209,19 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:relay/v20211101:getWCFRelay', __args__, opts=opts, typ=GetWCFRelayResult).value
 
     return AwaitableGetWCFRelayResult(
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        is_dynamic=__ret__.is_dynamic,
-        listener_count=__ret__.listener_count,
-        location=__ret__.location,
-        name=__ret__.name,
-        relay_type=__ret__.relay_type,
-        requires_client_authorization=__ret__.requires_client_authorization,
-        requires_transport_security=__ret__.requires_transport_security,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        updated_at=__ret__.updated_at,
-        user_metadata=__ret__.user_metadata)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        is_dynamic=pulumi.get(__ret__, 'is_dynamic'),
+        listener_count=pulumi.get(__ret__, 'listener_count'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        relay_type=pulumi.get(__ret__, 'relay_type'),
+        requires_client_authorization=pulumi.get(__ret__, 'requires_client_authorization'),
+        requires_transport_security=pulumi.get(__ret__, 'requires_transport_security'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_at=pulumi.get(__ret__, 'updated_at'),
+        user_metadata=pulumi.get(__ret__, 'user_metadata'))
 
 
 @_utilities.lift_output_func(get_wcf_relay)

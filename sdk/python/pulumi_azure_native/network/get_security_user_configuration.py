@@ -150,14 +150,14 @@ def get_security_user_configuration(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getSecurityUserConfiguration', __args__, opts=opts, typ=GetSecurityUserConfigurationResult).value
 
     return AwaitableGetSecurityUserConfigurationResult(
-        delete_existing_nsgs=__ret__.delete_existing_nsgs,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        delete_existing_nsgs=pulumi.get(__ret__, 'delete_existing_nsgs'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_security_user_configuration)

@@ -137,13 +137,13 @@ def get_certificate(certificate_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        expiration_date=__ret__.expiration_date,
-        id=__ret__.id,
-        key_vault=__ret__.key_vault,
-        name=__ret__.name,
-        subject=__ret__.subject,
-        thumbprint=__ret__.thumbprint,
-        type=__ret__.type)
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault=pulumi.get(__ret__, 'key_vault'),
+        name=pulumi.get(__ret__, 'name'),
+        subject=pulumi.get(__ret__, 'subject'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_certificate)

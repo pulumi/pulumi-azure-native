@@ -212,19 +212,19 @@ def get_project(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningexperimentation:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        account_id=__ret__.account_id,
-        creation_date=__ret__.creation_date,
-        description=__ret__.description,
-        friendly_name=__ret__.friendly_name,
-        gitrepo=__ret__.gitrepo,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        project_id=__ret__.project_id,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        workspace_id=__ret__.workspace_id)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        description=pulumi.get(__ret__, 'description'),
+        friendly_name=pulumi.get(__ret__, 'friendly_name'),
+        gitrepo=pulumi.get(__ret__, 'gitrepo'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_project)

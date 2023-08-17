@@ -182,17 +182,17 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:orbital/v20221101:getSpacecraft', __args__, opts=opts, typ=GetSpacecraftResult).value
 
     return AwaitableGetSpacecraftResult(
-        id=__ret__.id,
-        links=__ret__.links,
-        location=__ret__.location,
-        name=__ret__.name,
-        norad_id=__ret__.norad_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        title_line=__ret__.title_line,
-        tle_line1=__ret__.tle_line1,
-        tle_line2=__ret__.tle_line2,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        links=pulumi.get(__ret__, 'links'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        norad_id=pulumi.get(__ret__, 'norad_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        title_line=pulumi.get(__ret__, 'title_line'),
+        tle_line1=pulumi.get(__ret__, 'tle_line1'),
+        tle_line2=pulumi.get(__ret__, 'tle_line2'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_spacecraft)

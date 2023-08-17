@@ -162,15 +162,15 @@ def get_workspace_manager_assignment(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getWorkspaceManagerAssignment', __args__, opts=opts, typ=GetWorkspaceManagerAssignmentResult).value
 
     return AwaitableGetWorkspaceManagerAssignmentResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        items=__ret__.items,
-        last_job_end_time=__ret__.last_job_end_time,
-        last_job_provisioning_state=__ret__.last_job_provisioning_state,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        target_resource_name=__ret__.target_resource_name,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        items=pulumi.get(__ret__, 'items'),
+        last_job_end_time=pulumi.get(__ret__, 'last_job_end_time'),
+        last_job_provisioning_state=pulumi.get(__ret__, 'last_job_provisioning_state'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_resource_name=pulumi.get(__ret__, 'target_resource_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace_manager_assignment)

@@ -193,18 +193,18 @@ def get_server(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20140401:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        administrator_login=__ret__.administrator_login,
-        external_administrator_login=__ret__.external_administrator_login,
-        external_administrator_sid=__ret__.external_administrator_sid,
-        fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        administrator_login=pulumi.get(__ret__, 'administrator_login'),
+        external_administrator_login=pulumi.get(__ret__, 'external_administrator_login'),
+        external_administrator_sid=pulumi.get(__ret__, 'external_administrator_sid'),
+        fully_qualified_domain_name=pulumi.get(__ret__, 'fully_qualified_domain_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_server)

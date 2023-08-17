@@ -77,8 +77,8 @@ def get_integration_runtime_status(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory/v20180601:getIntegrationRuntimeStatus', __args__, opts=opts, typ=GetIntegrationRuntimeStatusResult).value
 
     return AwaitableGetIntegrationRuntimeStatusResult(
-        name=__ret__.name,
-        properties=__ret__.properties)
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_integration_runtime_status)

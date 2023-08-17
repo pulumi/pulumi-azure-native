@@ -58,7 +58,7 @@ def get_client_token(endpoint: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getClientToken', __args__, opts=opts, typ=GetClientTokenResult).value
 
     return AwaitableGetClientTokenResult(
-        token=__ret__.token)
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(get_client_token)

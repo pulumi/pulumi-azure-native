@@ -109,11 +109,11 @@ def get_association(association_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customproviders/v20180901preview:getAssociation', __args__, opts=opts, typ=GetAssociationResult).value
 
     return AwaitableGetAssociationResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        target_resource_id=__ret__.target_resource_id,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_association)

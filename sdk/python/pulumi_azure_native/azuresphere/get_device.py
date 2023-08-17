@@ -192,17 +192,17 @@ def get_device(catalog_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azuresphere:getDevice', __args__, opts=opts, typ=GetDeviceResult).value
 
     return AwaitableGetDeviceResult(
-        chip_sku=__ret__.chip_sku,
-        device_id=__ret__.device_id,
-        id=__ret__.id,
-        last_available_os_version=__ret__.last_available_os_version,
-        last_installed_os_version=__ret__.last_installed_os_version,
-        last_os_update_utc=__ret__.last_os_update_utc,
-        last_update_request_utc=__ret__.last_update_request_utc,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        chip_sku=pulumi.get(__ret__, 'chip_sku'),
+        device_id=pulumi.get(__ret__, 'device_id'),
+        id=pulumi.get(__ret__, 'id'),
+        last_available_os_version=pulumi.get(__ret__, 'last_available_os_version'),
+        last_installed_os_version=pulumi.get(__ret__, 'last_installed_os_version'),
+        last_os_update_utc=pulumi.get(__ret__, 'last_os_update_utc'),
+        last_update_request_utc=pulumi.get(__ret__, 'last_update_request_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_device)

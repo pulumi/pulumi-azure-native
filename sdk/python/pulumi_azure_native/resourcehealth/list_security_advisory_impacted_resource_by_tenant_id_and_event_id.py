@@ -75,8 +75,8 @@ def list_security_advisory_impacted_resource_by_tenant_id_and_event_id(event_tra
     __ret__ = pulumi.runtime.invoke('azure-native:resourcehealth:listSecurityAdvisoryImpactedResourceByTenantIdAndEventId', __args__, opts=opts, typ=ListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult).value
 
     return AwaitableListSecurityAdvisoryImpactedResourceByTenantIdAndEventIdResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_security_advisory_impacted_resource_by_tenant_id_and_event_id)

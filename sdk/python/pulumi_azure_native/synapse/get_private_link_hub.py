@@ -135,13 +135,13 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getPrivateLinkHub', __args__, opts=opts, typ=GetPrivateLinkHubResult).value
 
     return AwaitableGetPrivateLinkHubResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_link_hub)

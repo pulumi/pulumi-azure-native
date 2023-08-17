@@ -210,19 +210,19 @@ def get_firmware(firmware_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotfirmwaredefense:getFirmware', __args__, opts=opts, typ=GetFirmwareResult).value
 
     return AwaitableGetFirmwareResult(
-        description=__ret__.description,
-        file_name=__ret__.file_name,
-        file_size=__ret__.file_size,
-        id=__ret__.id,
-        model=__ret__.model,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        status_messages=__ret__.status_messages,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        vendor=__ret__.vendor,
-        version=__ret__.version)
+        description=pulumi.get(__ret__, 'description'),
+        file_name=pulumi.get(__ret__, 'file_name'),
+        file_size=pulumi.get(__ret__, 'file_size'),
+        id=pulumi.get(__ret__, 'id'),
+        model=pulumi.get(__ret__, 'model'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        status_messages=pulumi.get(__ret__, 'status_messages'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        vendor=pulumi.get(__ret__, 'vendor'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_firmware)

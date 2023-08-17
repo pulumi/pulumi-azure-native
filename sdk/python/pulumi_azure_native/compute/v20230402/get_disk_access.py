@@ -158,15 +158,15 @@ def get_disk_access(disk_access_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230402:getDiskAccess', __args__, opts=opts, typ=GetDiskAccessResult).value
 
     return AwaitableGetDiskAccessResult(
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        time_created=__ret__.time_created,
-        type=__ret__.type)
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_disk_access)

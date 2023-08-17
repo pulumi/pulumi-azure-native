@@ -188,17 +188,17 @@ def get_availability_group_listener(availability_group_listener_name: Optional[s
     __ret__ = pulumi.runtime.invoke('azure-native:sqlvirtualmachine/v20220201:getAvailabilityGroupListener', __args__, opts=opts, typ=GetAvailabilityGroupListenerResult).value
 
     return AwaitableGetAvailabilityGroupListenerResult(
-        availability_group_configuration=__ret__.availability_group_configuration,
-        availability_group_name=__ret__.availability_group_name,
-        create_default_availability_group_if_not_exist=__ret__.create_default_availability_group_if_not_exist,
-        id=__ret__.id,
-        load_balancer_configurations=__ret__.load_balancer_configurations,
-        multi_subnet_ip_configurations=__ret__.multi_subnet_ip_configurations,
-        name=__ret__.name,
-        port=__ret__.port,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        availability_group_configuration=pulumi.get(__ret__, 'availability_group_configuration'),
+        availability_group_name=pulumi.get(__ret__, 'availability_group_name'),
+        create_default_availability_group_if_not_exist=pulumi.get(__ret__, 'create_default_availability_group_if_not_exist'),
+        id=pulumi.get(__ret__, 'id'),
+        load_balancer_configurations=pulumi.get(__ret__, 'load_balancer_configurations'),
+        multi_subnet_ip_configurations=pulumi.get(__ret__, 'multi_subnet_ip_configurations'),
+        name=pulumi.get(__ret__, 'name'),
+        port=pulumi.get(__ret__, 'port'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_availability_group_listener)

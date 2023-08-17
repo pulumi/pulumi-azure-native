@@ -173,16 +173,16 @@ def get_workload_network_segment(private_cloud_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20220501:getWorkloadNetworkSegment', __args__, opts=opts, typ=GetWorkloadNetworkSegmentResult).value
 
     return AwaitableGetWorkloadNetworkSegmentResult(
-        connected_gateway=__ret__.connected_gateway,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        port_vif=__ret__.port_vif,
-        provisioning_state=__ret__.provisioning_state,
-        revision=__ret__.revision,
-        status=__ret__.status,
-        subnet=__ret__.subnet,
-        type=__ret__.type)
+        connected_gateway=pulumi.get(__ret__, 'connected_gateway'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        port_vif=pulumi.get(__ret__, 'port_vif'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        revision=pulumi.get(__ret__, 'revision'),
+        status=pulumi.get(__ret__, 'status'),
+        subnet=pulumi.get(__ret__, 'subnet'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workload_network_segment)

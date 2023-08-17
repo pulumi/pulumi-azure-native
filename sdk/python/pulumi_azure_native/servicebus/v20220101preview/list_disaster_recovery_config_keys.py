@@ -139,13 +139,13 @@ def list_disaster_recovery_config_keys(alias: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicebus/v20220101preview:listDisasterRecoveryConfigKeys', __args__, opts=opts, typ=ListDisasterRecoveryConfigKeysResult).value
 
     return AwaitableListDisasterRecoveryConfigKeysResult(
-        alias_primary_connection_string=__ret__.alias_primary_connection_string,
-        alias_secondary_connection_string=__ret__.alias_secondary_connection_string,
-        key_name=__ret__.key_name,
-        primary_connection_string=__ret__.primary_connection_string,
-        primary_key=__ret__.primary_key,
-        secondary_connection_string=__ret__.secondary_connection_string,
-        secondary_key=__ret__.secondary_key)
+        alias_primary_connection_string=pulumi.get(__ret__, 'alias_primary_connection_string'),
+        alias_secondary_connection_string=pulumi.get(__ret__, 'alias_secondary_connection_string'),
+        key_name=pulumi.get(__ret__, 'key_name'),
+        primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_disaster_recovery_config_keys)

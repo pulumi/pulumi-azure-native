@@ -134,13 +134,13 @@ def get_migrate_projects_controller_migrate_project(migrate_project_name: Option
     __ret__ = pulumi.runtime.invoke('azure-native:migrate/v20200501:getMigrateProjectsControllerMigrateProject', __args__, opts=opts, typ=GetMigrateProjectsControllerMigrateProjectResult).value
 
     return AwaitableGetMigrateProjectsControllerMigrateProjectResult(
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_migrate_projects_controller_migrate_project)

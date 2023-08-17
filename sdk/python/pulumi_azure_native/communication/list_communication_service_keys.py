@@ -98,10 +98,10 @@ def list_communication_service_keys(communication_service_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:communication:listCommunicationServiceKeys', __args__, opts=opts, typ=ListCommunicationServiceKeysResult).value
 
     return AwaitableListCommunicationServiceKeysResult(
-        primary_connection_string=__ret__.primary_connection_string,
-        primary_key=__ret__.primary_key,
-        secondary_connection_string=__ret__.secondary_connection_string,
-        secondary_key=__ret__.secondary_key)
+        primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_communication_service_keys)

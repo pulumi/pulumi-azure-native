@@ -160,15 +160,15 @@ def get_linked_server(linked_server_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache/v20230401:getLinkedServer', __args__, opts=opts, typ=GetLinkedServerResult).value
 
     return AwaitableGetLinkedServerResult(
-        geo_replicated_primary_host_name=__ret__.geo_replicated_primary_host_name,
-        id=__ret__.id,
-        linked_redis_cache_id=__ret__.linked_redis_cache_id,
-        linked_redis_cache_location=__ret__.linked_redis_cache_location,
-        name=__ret__.name,
-        primary_host_name=__ret__.primary_host_name,
-        provisioning_state=__ret__.provisioning_state,
-        server_role=__ret__.server_role,
-        type=__ret__.type)
+        geo_replicated_primary_host_name=pulumi.get(__ret__, 'geo_replicated_primary_host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        linked_redis_cache_id=pulumi.get(__ret__, 'linked_redis_cache_id'),
+        linked_redis_cache_location=pulumi.get(__ret__, 'linked_redis_cache_location'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_host_name=pulumi.get(__ret__, 'primary_host_name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        server_role=pulumi.get(__ret__, 'server_role'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_linked_server)

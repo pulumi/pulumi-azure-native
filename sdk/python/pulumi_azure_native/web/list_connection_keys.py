@@ -92,8 +92,8 @@ def list_connection_keys(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:listConnectionKeys', __args__, opts=opts, typ=ListConnectionKeysResult).value
 
     return AwaitableListConnectionKeysResult(
-        connection_key=__ret__.connection_key,
-        parameter_values=__ret__.parameter_values)
+        connection_key=pulumi.get(__ret__, 'connection_key'),
+        parameter_values=pulumi.get(__ret__, 'parameter_values'))
 
 
 @_utilities.lift_output_func(list_connection_keys)

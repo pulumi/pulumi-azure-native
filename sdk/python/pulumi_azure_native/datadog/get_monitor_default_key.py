@@ -94,10 +94,10 @@ def get_monitor_default_key(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datadog:getMonitorDefaultKey', __args__, opts=opts, typ=GetMonitorDefaultKeyResult).value
 
     return AwaitableGetMonitorDefaultKeyResult(
-        created=__ret__.created,
-        created_by=__ret__.created_by,
-        key=__ret__.key,
-        name=__ret__.name)
+        created=pulumi.get(__ret__, 'created'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        key=pulumi.get(__ret__, 'key'),
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_monitor_default_key)

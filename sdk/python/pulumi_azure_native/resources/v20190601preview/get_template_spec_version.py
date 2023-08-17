@@ -161,15 +161,15 @@ def get_template_spec_version(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resources/v20190601preview:getTemplateSpecVersion', __args__, opts=opts, typ=GetTemplateSpecVersionResult).value
 
     return AwaitableGetTemplateSpecVersionResult(
-        artifacts=__ret__.artifacts,
-        description=__ret__.description,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        template=__ret__.template,
-        type=__ret__.type)
+        artifacts=pulumi.get(__ret__, 'artifacts'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template=pulumi.get(__ret__, 'template'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_template_spec_version)

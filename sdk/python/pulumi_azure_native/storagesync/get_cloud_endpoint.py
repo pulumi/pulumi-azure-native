@@ -225,20 +225,20 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagesync:getCloudEndpoint', __args__, opts=opts, typ=GetCloudEndpointResult).value
 
     return AwaitableGetCloudEndpointResult(
-        azure_file_share_name=__ret__.azure_file_share_name,
-        backup_enabled=__ret__.backup_enabled,
-        change_enumeration_status=__ret__.change_enumeration_status,
-        friendly_name=__ret__.friendly_name,
-        id=__ret__.id,
-        last_operation_name=__ret__.last_operation_name,
-        last_workflow_id=__ret__.last_workflow_id,
-        name=__ret__.name,
-        partnership_id=__ret__.partnership_id,
-        provisioning_state=__ret__.provisioning_state,
-        storage_account_resource_id=__ret__.storage_account_resource_id,
-        storage_account_tenant_id=__ret__.storage_account_tenant_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        azure_file_share_name=pulumi.get(__ret__, 'azure_file_share_name'),
+        backup_enabled=pulumi.get(__ret__, 'backup_enabled'),
+        change_enumeration_status=pulumi.get(__ret__, 'change_enumeration_status'),
+        friendly_name=pulumi.get(__ret__, 'friendly_name'),
+        id=pulumi.get(__ret__, 'id'),
+        last_operation_name=pulumi.get(__ret__, 'last_operation_name'),
+        last_workflow_id=pulumi.get(__ret__, 'last_workflow_id'),
+        name=pulumi.get(__ret__, 'name'),
+        partnership_id=pulumi.get(__ret__, 'partnership_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        storage_account_resource_id=pulumi.get(__ret__, 'storage_account_resource_id'),
+        storage_account_tenant_id=pulumi.get(__ret__, 'storage_account_tenant_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cloud_endpoint)

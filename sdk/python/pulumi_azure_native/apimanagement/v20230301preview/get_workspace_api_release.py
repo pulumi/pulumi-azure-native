@@ -142,13 +142,13 @@ def get_workspace_api_release(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getWorkspaceApiRelease', __args__, opts=opts, typ=GetWorkspaceApiReleaseResult).value
 
     return AwaitableGetWorkspaceApiReleaseResult(
-        api_id=__ret__.api_id,
-        created_date_time=__ret__.created_date_time,
-        id=__ret__.id,
-        name=__ret__.name,
-        notes=__ret__.notes,
-        type=__ret__.type,
-        updated_date_time=__ret__.updated_date_time)
+        api_id=pulumi.get(__ret__, 'api_id'),
+        created_date_time=pulumi.get(__ret__, 'created_date_time'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        notes=pulumi.get(__ret__, 'notes'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_date_time=pulumi.get(__ret__, 'updated_date_time'))
 
 
 @_utilities.lift_output_func(get_workspace_api_release)

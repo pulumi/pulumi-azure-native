@@ -177,16 +177,16 @@ def get_hunt_relation(hunt_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getHuntRelation', __args__, opts=opts, typ=GetHuntRelationResult).value
 
     return AwaitableGetHuntRelationResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        related_resource_id=__ret__.related_resource_id,
-        related_resource_kind=__ret__.related_resource_kind,
-        related_resource_name=__ret__.related_resource_name,
-        relation_type=__ret__.relation_type,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        related_resource_id=pulumi.get(__ret__, 'related_resource_id'),
+        related_resource_kind=pulumi.get(__ret__, 'related_resource_kind'),
+        related_resource_name=pulumi.get(__ret__, 'related_resource_name'),
+        relation_type=pulumi.get(__ret__, 'relation_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hunt_relation)

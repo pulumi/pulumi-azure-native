@@ -254,23 +254,23 @@ def get_galleryimage_retrieve(galleryimages_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20210901preview:getGalleryimageRetrieve', __args__, opts=opts, typ=GetGalleryimageRetrieveResult).value
 
     return AwaitableGetGalleryimageRetrieveResult(
-        cloud_init_data_source=__ret__.cloud_init_data_source,
-        container_name=__ret__.container_name,
-        extended_location=__ret__.extended_location,
-        hyper_v_generation=__ret__.hyper_v_generation,
-        id=__ret__.id,
-        identifier=__ret__.identifier,
-        image_path=__ret__.image_path,
-        location=__ret__.location,
-        name=__ret__.name,
-        os_type=__ret__.os_type,
-        provisioning_state=__ret__.provisioning_state,
-        resource_name=__ret__.resource_name,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        cloud_init_data_source=pulumi.get(__ret__, 'cloud_init_data_source'),
+        container_name=pulumi.get(__ret__, 'container_name'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
+        id=pulumi.get(__ret__, 'id'),
+        identifier=pulumi.get(__ret__, 'identifier'),
+        image_path=pulumi.get(__ret__, 'image_path'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        os_type=pulumi.get(__ret__, 'os_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_name=pulumi.get(__ret__, 'resource_name'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_galleryimage_retrieve)

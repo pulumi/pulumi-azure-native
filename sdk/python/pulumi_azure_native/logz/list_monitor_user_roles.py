@@ -78,8 +78,8 @@ def list_monitor_user_roles(email_address: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logz:listMonitorUserRoles', __args__, opts=opts, typ=ListMonitorUserRolesResult).value
 
     return AwaitableListMonitorUserRolesResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_monitor_user_roles)

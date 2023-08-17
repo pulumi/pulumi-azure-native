@@ -150,14 +150,14 @@ def get_administrator(object_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbforpostgresql:getAdministrator', __args__, opts=opts, typ=GetAdministratorResult).value
 
     return AwaitableGetAdministratorResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        object_id=__ret__.object_id,
-        principal_name=__ret__.principal_name,
-        principal_type=__ret__.principal_type,
-        system_data=__ret__.system_data,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        object_id=pulumi.get(__ret__, 'object_id'),
+        principal_name=pulumi.get(__ret__, 'principal_name'),
+        principal_type=pulumi.get(__ret__, 'principal_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_administrator)

@@ -160,15 +160,15 @@ def get_server_advisor(advisor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20140401:getServerAdvisor', __args__, opts=opts, typ=GetServerAdvisorResult).value
 
     return AwaitableGetServerAdvisorResult(
-        advisor_status=__ret__.advisor_status,
-        auto_execute_value=__ret__.auto_execute_value,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_checked=__ret__.last_checked,
-        location=__ret__.location,
-        name=__ret__.name,
-        recommendations_status=__ret__.recommendations_status,
-        type=__ret__.type)
+        advisor_status=pulumi.get(__ret__, 'advisor_status'),
+        auto_execute_value=pulumi.get(__ret__, 'auto_execute_value'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_checked=pulumi.get(__ret__, 'last_checked'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        recommendations_status=pulumi.get(__ret__, 'recommendations_status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_advisor)

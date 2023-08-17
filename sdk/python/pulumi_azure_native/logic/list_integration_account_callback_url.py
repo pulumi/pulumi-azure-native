@@ -69,7 +69,7 @@ def list_integration_account_callback_url(integration_account_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:logic:listIntegrationAccountCallbackUrl', __args__, opts=opts, typ=ListIntegrationAccountCallbackUrlResult).value
 
     return AwaitableListIntegrationAccountCallbackUrlResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_integration_account_callback_url)

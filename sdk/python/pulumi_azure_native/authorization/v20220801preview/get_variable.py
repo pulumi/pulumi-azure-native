@@ -107,11 +107,11 @@ def get_variable(variable_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20220801preview:getVariable', __args__, opts=opts, typ=GetVariableResult).value
 
     return AwaitableGetVariableResult(
-        columns=__ret__.columns,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        columns=pulumi.get(__ret__, 'columns'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_variable)

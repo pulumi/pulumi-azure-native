@@ -164,15 +164,15 @@ def get_application_package(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:batch:getApplicationPackage', __args__, opts=opts, typ=GetApplicationPackageResult).value
 
     return AwaitableGetApplicationPackageResult(
-        etag=__ret__.etag,
-        format=__ret__.format,
-        id=__ret__.id,
-        last_activation_time=__ret__.last_activation_time,
-        name=__ret__.name,
-        state=__ret__.state,
-        storage_url=__ret__.storage_url,
-        storage_url_expiry=__ret__.storage_url_expiry,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        format=pulumi.get(__ret__, 'format'),
+        id=pulumi.get(__ret__, 'id'),
+        last_activation_time=pulumi.get(__ret__, 'last_activation_time'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        storage_url=pulumi.get(__ret__, 'storage_url'),
+        storage_url_expiry=pulumi.get(__ret__, 'storage_url_expiry'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_application_package)

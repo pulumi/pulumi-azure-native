@@ -100,10 +100,10 @@ def get_server_azure_ad_only_authentication(authentication_name: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20221101preview:getServerAzureADOnlyAuthentication', __args__, opts=opts, typ=GetServerAzureADOnlyAuthenticationResult).value
 
     return AwaitableGetServerAzureADOnlyAuthenticationResult(
-        azure_ad_only_authentication=__ret__.azure_ad_only_authentication,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        azure_ad_only_authentication=pulumi.get(__ret__, 'azure_ad_only_authentication'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_azure_ad_only_authentication)

@@ -185,17 +185,17 @@ def get_virtual_network_peering(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20190601:getVirtualNetworkPeering', __args__, opts=opts, typ=GetVirtualNetworkPeeringResult).value
 
     return AwaitableGetVirtualNetworkPeeringResult(
-        allow_forwarded_traffic=__ret__.allow_forwarded_traffic,
-        allow_gateway_transit=__ret__.allow_gateway_transit,
-        allow_virtual_network_access=__ret__.allow_virtual_network_access,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        peering_state=__ret__.peering_state,
-        provisioning_state=__ret__.provisioning_state,
-        remote_address_space=__ret__.remote_address_space,
-        remote_virtual_network=__ret__.remote_virtual_network,
-        use_remote_gateways=__ret__.use_remote_gateways)
+        allow_forwarded_traffic=pulumi.get(__ret__, 'allow_forwarded_traffic'),
+        allow_gateway_transit=pulumi.get(__ret__, 'allow_gateway_transit'),
+        allow_virtual_network_access=pulumi.get(__ret__, 'allow_virtual_network_access'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        peering_state=pulumi.get(__ret__, 'peering_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        remote_address_space=pulumi.get(__ret__, 'remote_address_space'),
+        remote_virtual_network=pulumi.get(__ret__, 'remote_virtual_network'),
+        use_remote_gateways=pulumi.get(__ret__, 'use_remote_gateways'))
 
 
 @_utilities.lift_output_func(get_virtual_network_peering)

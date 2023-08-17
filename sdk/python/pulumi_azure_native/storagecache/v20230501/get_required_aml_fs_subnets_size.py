@@ -62,7 +62,7 @@ def get_required_aml_fs_subnets_size(sku: Optional[pulumi.InputType['SkuName']] 
     __ret__ = pulumi.runtime.invoke('azure-native:storagecache/v20230501:getRequiredAmlFSSubnetsSize', __args__, opts=opts, typ=GetRequiredAmlFSSubnetsSizeResult).value
 
     return AwaitableGetRequiredAmlFSSubnetsSizeResult(
-        filesystem_subnet_size=__ret__.filesystem_subnet_size)
+        filesystem_subnet_size=pulumi.get(__ret__, 'filesystem_subnet_size'))
 
 
 @_utilities.lift_output_func(get_required_aml_fs_subnets_size)

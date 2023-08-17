@@ -59,7 +59,7 @@ def list_media_service_edge_policies(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20230101:listMediaServiceEdgePolicies', __args__, opts=opts, typ=ListMediaServiceEdgePoliciesResult).value
 
     return AwaitableListMediaServiceEdgePoliciesResult(
-        usage_data_collection_policy=__ret__.usage_data_collection_policy)
+        usage_data_collection_policy=pulumi.get(__ret__, 'usage_data_collection_policy'))
 
 
 @_utilities.lift_output_func(list_media_service_edge_policies)

@@ -161,15 +161,15 @@ def get_dsc_node_configuration(automation_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:automation/v20220808:getDscNodeConfiguration', __args__, opts=opts, typ=GetDscNodeConfigurationResult).value
 
     return AwaitableGetDscNodeConfigurationResult(
-        configuration=__ret__.configuration,
-        creation_time=__ret__.creation_time,
-        id=__ret__.id,
-        increment_node_configuration_build=__ret__.increment_node_configuration_build,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        node_count=__ret__.node_count,
-        source=__ret__.source,
-        type=__ret__.type)
+        configuration=pulumi.get(__ret__, 'configuration'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        id=pulumi.get(__ret__, 'id'),
+        increment_node_configuration_build=pulumi.get(__ret__, 'increment_node_configuration_build'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        node_count=pulumi.get(__ret__, 'node_count'),
+        source=pulumi.get(__ret__, 'source'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dsc_node_configuration)

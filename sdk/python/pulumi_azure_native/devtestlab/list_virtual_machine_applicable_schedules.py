@@ -138,13 +138,13 @@ def list_virtual_machine_applicable_schedules(lab_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:listVirtualMachineApplicableSchedules', __args__, opts=opts, typ=ListVirtualMachineApplicableSchedulesResult).value
 
     return AwaitableListVirtualMachineApplicableSchedulesResult(
-        id=__ret__.id,
-        lab_vms_shutdown=__ret__.lab_vms_shutdown,
-        lab_vms_startup=__ret__.lab_vms_startup,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        lab_vms_shutdown=pulumi.get(__ret__, 'lab_vms_shutdown'),
+        lab_vms_startup=pulumi.get(__ret__, 'lab_vms_startup'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_virtual_machine_applicable_schedules)

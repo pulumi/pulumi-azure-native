@@ -158,15 +158,15 @@ def get_farm_beats_model(farm_beats_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:agfoodplatform/v20200512preview:getFarmBeatsModel', __args__, opts=opts, typ=GetFarmBeatsModelResult).value
 
     return AwaitableGetFarmBeatsModelResult(
-        id=__ret__.id,
-        instance_uri=__ret__.instance_uri,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        instance_uri=pulumi.get(__ret__, 'instance_uri'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_farm_beats_model)

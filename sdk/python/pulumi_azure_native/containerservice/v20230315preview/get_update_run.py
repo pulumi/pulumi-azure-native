@@ -163,15 +163,15 @@ def get_update_run(fleet_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20230315preview:getUpdateRun', __args__, opts=opts, typ=GetUpdateRunResult).value
 
     return AwaitableGetUpdateRunResult(
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        managed_cluster_update=__ret__.managed_cluster_update,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        strategy=__ret__.strategy,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        managed_cluster_update=pulumi.get(__ret__, 'managed_cluster_update'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        strategy=pulumi.get(__ret__, 'strategy'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_update_run)

@@ -207,19 +207,19 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:powerplatform:getEnterprisePolicy', __args__, opts=opts, typ=GetEnterprisePolicyResult).value
 
     return AwaitableGetEnterprisePolicyResult(
-        encryption=__ret__.encryption,
-        health_status=__ret__.health_status,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        lockbox=__ret__.lockbox,
-        name=__ret__.name,
-        network_injection=__ret__.network_injection,
-        system_data=__ret__.system_data,
-        system_id=__ret__.system_id,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        encryption=pulumi.get(__ret__, 'encryption'),
+        health_status=pulumi.get(__ret__, 'health_status'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        lockbox=pulumi.get(__ret__, 'lockbox'),
+        name=pulumi.get(__ret__, 'name'),
+        network_injection=pulumi.get(__ret__, 'network_injection'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        system_id=pulumi.get(__ret__, 'system_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_enterprise_policy)

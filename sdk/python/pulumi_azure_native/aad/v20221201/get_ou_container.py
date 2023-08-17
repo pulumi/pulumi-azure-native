@@ -233,21 +233,21 @@ def get_ou_container(domain_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:aad/v20221201:getOuContainer', __args__, opts=opts, typ=GetOuContainerResult).value
 
     return AwaitableGetOuContainerResult(
-        accounts=__ret__.accounts,
-        container_id=__ret__.container_id,
-        deployment_id=__ret__.deployment_id,
-        distinguished_name=__ret__.distinguished_name,
-        domain_name=__ret__.domain_name,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        service_status=__ret__.service_status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        accounts=pulumi.get(__ret__, 'accounts'),
+        container_id=pulumi.get(__ret__, 'container_id'),
+        deployment_id=pulumi.get(__ret__, 'deployment_id'),
+        distinguished_name=pulumi.get(__ret__, 'distinguished_name'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service_status=pulumi.get(__ret__, 'service_status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_ou_container)

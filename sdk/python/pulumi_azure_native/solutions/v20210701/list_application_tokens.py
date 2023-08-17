@@ -68,7 +68,7 @@ def list_application_tokens(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:solutions/v20210701:listApplicationTokens', __args__, opts=opts, typ=ListApplicationTokensResult).value
 
     return AwaitableListApplicationTokensResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_application_tokens)

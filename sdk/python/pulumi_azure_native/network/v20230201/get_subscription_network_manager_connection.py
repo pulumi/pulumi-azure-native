@@ -131,13 +131,13 @@ def get_subscription_network_manager_connection(network_manager_connection_name:
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getSubscriptionNetworkManagerConnection', __args__, opts=opts, typ=GetSubscriptionNetworkManagerConnectionResult).value
 
     return AwaitableGetSubscriptionNetworkManagerConnectionResult(
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        network_manager_id=__ret__.network_manager_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        network_manager_id=pulumi.get(__ret__, 'network_manager_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_subscription_network_manager_connection)

@@ -149,14 +149,14 @@ def get_job_agent(job_agent_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20221101preview:getJobAgent', __args__, opts=opts, typ=GetJobAgentResult).value
 
     return AwaitableGetJobAgentResult(
-        database_id=__ret__.database_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        sku=__ret__.sku,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        database_id=pulumi.get(__ret__, 'database_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_job_agent)

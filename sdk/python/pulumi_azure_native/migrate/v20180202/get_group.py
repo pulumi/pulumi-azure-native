@@ -148,14 +148,14 @@ def get_group(group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:migrate/v20180202:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        assessments=__ret__.assessments,
-        created_timestamp=__ret__.created_timestamp,
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        machines=__ret__.machines,
-        name=__ret__.name,
-        type=__ret__.type,
-        updated_timestamp=__ret__.updated_timestamp)
+        assessments=pulumi.get(__ret__, 'assessments'),
+        created_timestamp=pulumi.get(__ret__, 'created_timestamp'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        machines=pulumi.get(__ret__, 'machines'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
 
 
 @_utilities.lift_output_func(get_group)

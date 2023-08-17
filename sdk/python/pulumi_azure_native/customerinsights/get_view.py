@@ -176,16 +176,16 @@ def get_view(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights:getView', __args__, opts=opts, typ=GetViewResult).value
 
     return AwaitableGetViewResult(
-        changed=__ret__.changed,
-        created=__ret__.created,
-        definition=__ret__.definition,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type,
-        user_id=__ret__.user_id,
-        view_name=__ret__.view_name)
+        changed=pulumi.get(__ret__, 'changed'),
+        created=pulumi.get(__ret__, 'created'),
+        definition=pulumi.get(__ret__, 'definition'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'),
+        user_id=pulumi.get(__ret__, 'user_id'),
+        view_name=pulumi.get(__ret__, 'view_name'))
 
 
 @_utilities.lift_output_func(get_view)

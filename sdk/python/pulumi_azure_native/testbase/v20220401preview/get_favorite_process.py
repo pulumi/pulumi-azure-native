@@ -116,11 +116,11 @@ def get_favorite_process(favorite_process_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase/v20220401preview:getFavoriteProcess', __args__, opts=opts, typ=GetFavoriteProcessResult).value
 
     return AwaitableGetFavoriteProcessResult(
-        actual_process_name=__ret__.actual_process_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        actual_process_name=pulumi.get(__ret__, 'actual_process_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_favorite_process)

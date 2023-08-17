@@ -150,14 +150,14 @@ def get_scope_connection(network_manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getScopeConnection', __args__, opts=opts, typ=GetScopeConnectionResult).value
 
     return AwaitableGetScopeConnectionResult(
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_id=__ret__.resource_id,
-        system_data=__ret__.system_data,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_scope_connection)

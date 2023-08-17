@@ -195,18 +195,18 @@ def get_prometheus_rule_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:alertsmanagement:getPrometheusRuleGroup', __args__, opts=opts, typ=GetPrometheusRuleGroupResult).value
 
     return AwaitableGetPrometheusRuleGroupResult(
-        cluster_name=__ret__.cluster_name,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        interval=__ret__.interval,
-        location=__ret__.location,
-        name=__ret__.name,
-        rules=__ret__.rules,
-        scopes=__ret__.scopes,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        cluster_name=pulumi.get(__ret__, 'cluster_name'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        interval=pulumi.get(__ret__, 'interval'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        rules=pulumi.get(__ret__, 'rules'),
+        scopes=pulumi.get(__ret__, 'scopes'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_prometheus_rule_group)

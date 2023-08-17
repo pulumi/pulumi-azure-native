@@ -197,18 +197,18 @@ def get_notification_hub_pns_credentials(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:notificationhubs/v20170401:getNotificationHubPnsCredentials', __args__, opts=opts, typ=GetNotificationHubPnsCredentialsResult).value
 
     return AwaitableGetNotificationHubPnsCredentialsResult(
-        adm_credential=__ret__.adm_credential,
-        apns_credential=__ret__.apns_credential,
-        baidu_credential=__ret__.baidu_credential,
-        gcm_credential=__ret__.gcm_credential,
-        id=__ret__.id,
-        location=__ret__.location,
-        mpns_credential=__ret__.mpns_credential,
-        name=__ret__.name,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        wns_credential=__ret__.wns_credential)
+        adm_credential=pulumi.get(__ret__, 'adm_credential'),
+        apns_credential=pulumi.get(__ret__, 'apns_credential'),
+        baidu_credential=pulumi.get(__ret__, 'baidu_credential'),
+        gcm_credential=pulumi.get(__ret__, 'gcm_credential'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mpns_credential=pulumi.get(__ret__, 'mpns_credential'),
+        name=pulumi.get(__ret__, 'name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        wns_credential=pulumi.get(__ret__, 'wns_credential'))
 
 
 @_utilities.lift_output_func(get_notification_hub_pns_credentials)

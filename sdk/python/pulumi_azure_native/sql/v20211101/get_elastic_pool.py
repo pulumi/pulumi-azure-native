@@ -251,22 +251,22 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20211101:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult).value
 
     return AwaitableGetElasticPoolResult(
-        creation_date=__ret__.creation_date,
-        high_availability_replica_count=__ret__.high_availability_replica_count,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        license_type=__ret__.license_type,
-        location=__ret__.location,
-        maintenance_configuration_id=__ret__.maintenance_configuration_id,
-        max_size_bytes=__ret__.max_size_bytes,
-        min_capacity=__ret__.min_capacity,
-        name=__ret__.name,
-        per_database_settings=__ret__.per_database_settings,
-        sku=__ret__.sku,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zone_redundant=__ret__.zone_redundant)
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        high_availability_replica_count=pulumi.get(__ret__, 'high_availability_replica_count'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        license_type=pulumi.get(__ret__, 'license_type'),
+        location=pulumi.get(__ret__, 'location'),
+        maintenance_configuration_id=pulumi.get(__ret__, 'maintenance_configuration_id'),
+        max_size_bytes=pulumi.get(__ret__, 'max_size_bytes'),
+        min_capacity=pulumi.get(__ret__, 'min_capacity'),
+        name=pulumi.get(__ret__, 'name'),
+        per_database_settings=pulumi.get(__ret__, 'per_database_settings'),
+        sku=pulumi.get(__ret__, 'sku'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 
 
 @_utilities.lift_output_func(get_elastic_pool)

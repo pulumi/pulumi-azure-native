@@ -152,14 +152,14 @@ def get_static_site_linked_backend_for_build(environment_name: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:web:getStaticSiteLinkedBackendForBuild', __args__, opts=opts, typ=GetStaticSiteLinkedBackendForBuildResult).value
 
     return AwaitableGetStaticSiteLinkedBackendForBuildResult(
-        backend_resource_id=__ret__.backend_resource_id,
-        created_on=__ret__.created_on,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        region=__ret__.region,
-        type=__ret__.type)
+        backend_resource_id=pulumi.get(__ret__, 'backend_resource_id'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        region=pulumi.get(__ret__, 'region'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_static_site_linked_backend_for_build)

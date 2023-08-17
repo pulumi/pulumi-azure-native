@@ -118,14 +118,14 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20220101preview:listWorkspaceNotebookAccessToken', __args__, opts=opts, typ=ListWorkspaceNotebookAccessTokenResult).value
 
     return AwaitableListWorkspaceNotebookAccessTokenResult(
-        access_token=__ret__.access_token,
-        expires_in=__ret__.expires_in,
-        host_name=__ret__.host_name,
-        notebook_resource_id=__ret__.notebook_resource_id,
-        public_dns=__ret__.public_dns,
-        refresh_token=__ret__.refresh_token,
-        scope=__ret__.scope,
-        token_type=__ret__.token_type)
+        access_token=pulumi.get(__ret__, 'access_token'),
+        expires_in=pulumi.get(__ret__, 'expires_in'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        notebook_resource_id=pulumi.get(__ret__, 'notebook_resource_id'),
+        public_dns=pulumi.get(__ret__, 'public_dns'),
+        refresh_token=pulumi.get(__ret__, 'refresh_token'),
+        scope=pulumi.get(__ret__, 'scope'),
+        token_type=pulumi.get(__ret__, 'token_type'))
 
 
 @_utilities.lift_output_func(list_workspace_notebook_access_token)

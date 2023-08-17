@@ -159,15 +159,15 @@ def get_managed_network(managed_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetwork:getManagedNetwork', __args__, opts=opts, typ=GetManagedNetworkResult).value
 
     return AwaitableGetManagedNetworkResult(
-        connectivity=__ret__.connectivity,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        scope=__ret__.scope,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        connectivity=pulumi.get(__ret__, 'connectivity'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        scope=pulumi.get(__ret__, 'scope'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_managed_network)

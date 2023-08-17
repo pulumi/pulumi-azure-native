@@ -179,18 +179,18 @@ def get_web_app_relay_service_connection_slot(entity_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20201001:getWebAppRelayServiceConnectionSlot', __args__, opts=opts, typ=GetWebAppRelayServiceConnectionSlotResult).value
 
     return AwaitableGetWebAppRelayServiceConnectionSlotResult(
-        biztalk_uri=__ret__.biztalk_uri,
-        entity_connection_string=__ret__.entity_connection_string,
-        entity_name=__ret__.entity_name,
-        hostname=__ret__.hostname,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        port=__ret__.port,
-        resource_connection_string=__ret__.resource_connection_string,
-        resource_type=__ret__.resource_type,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        biztalk_uri=pulumi.get(__ret__, 'biztalk_uri'),
+        entity_connection_string=pulumi.get(__ret__, 'entity_connection_string'),
+        entity_name=pulumi.get(__ret__, 'entity_name'),
+        hostname=pulumi.get(__ret__, 'hostname'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        port=pulumi.get(__ret__, 'port'),
+        resource_connection_string=pulumi.get(__ret__, 'resource_connection_string'),
+        resource_type=pulumi.get(__ret__, 'resource_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_relay_service_connection_slot)

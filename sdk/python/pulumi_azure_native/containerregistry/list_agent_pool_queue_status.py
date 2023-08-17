@@ -65,7 +65,7 @@ def list_agent_pool_queue_status(agent_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:listAgentPoolQueueStatus', __args__, opts=opts, typ=ListAgentPoolQueueStatusResult).value
 
     return AwaitableListAgentPoolQueueStatusResult(
-        count=__ret__.count)
+        count=pulumi.get(__ret__, 'count'))
 
 
 @_utilities.lift_output_func(list_agent_pool_queue_status)

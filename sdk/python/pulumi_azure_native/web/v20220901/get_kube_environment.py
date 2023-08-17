@@ -255,23 +255,23 @@ def get_kube_environment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getKubeEnvironment', __args__, opts=opts, typ=GetKubeEnvironmentResult).value
 
     return AwaitableGetKubeEnvironmentResult(
-        aks_resource_id=__ret__.aks_resource_id,
-        app_logs_configuration=__ret__.app_logs_configuration,
-        arc_configuration=__ret__.arc_configuration,
-        container_apps_configuration=__ret__.container_apps_configuration,
-        default_domain=__ret__.default_domain,
-        deployment_errors=__ret__.deployment_errors,
-        environment_type=__ret__.environment_type,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        internal_load_balancer_enabled=__ret__.internal_load_balancer_enabled,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        static_ip=__ret__.static_ip,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        aks_resource_id=pulumi.get(__ret__, 'aks_resource_id'),
+        app_logs_configuration=pulumi.get(__ret__, 'app_logs_configuration'),
+        arc_configuration=pulumi.get(__ret__, 'arc_configuration'),
+        container_apps_configuration=pulumi.get(__ret__, 'container_apps_configuration'),
+        default_domain=pulumi.get(__ret__, 'default_domain'),
+        deployment_errors=pulumi.get(__ret__, 'deployment_errors'),
+        environment_type=pulumi.get(__ret__, 'environment_type'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        internal_load_balancer_enabled=pulumi.get(__ret__, 'internal_load_balancer_enabled'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        static_ip=pulumi.get(__ret__, 'static_ip'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_kube_environment)

@@ -288,19 +288,19 @@ def get_server_blob_auditing_policy(blob_auditing_policy_name: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20221101preview:getServerBlobAuditingPolicy', __args__, opts=opts, typ=GetServerBlobAuditingPolicyResult).value
 
     return AwaitableGetServerBlobAuditingPolicyResult(
-        audit_actions_and_groups=__ret__.audit_actions_and_groups,
-        id=__ret__.id,
-        is_azure_monitor_target_enabled=__ret__.is_azure_monitor_target_enabled,
-        is_devops_audit_enabled=__ret__.is_devops_audit_enabled,
-        is_managed_identity_in_use=__ret__.is_managed_identity_in_use,
-        is_storage_secondary_key_in_use=__ret__.is_storage_secondary_key_in_use,
-        name=__ret__.name,
-        queue_delay_ms=__ret__.queue_delay_ms,
-        retention_days=__ret__.retention_days,
-        state=__ret__.state,
-        storage_account_subscription_id=__ret__.storage_account_subscription_id,
-        storage_endpoint=__ret__.storage_endpoint,
-        type=__ret__.type)
+        audit_actions_and_groups=pulumi.get(__ret__, 'audit_actions_and_groups'),
+        id=pulumi.get(__ret__, 'id'),
+        is_azure_monitor_target_enabled=pulumi.get(__ret__, 'is_azure_monitor_target_enabled'),
+        is_devops_audit_enabled=pulumi.get(__ret__, 'is_devops_audit_enabled'),
+        is_managed_identity_in_use=pulumi.get(__ret__, 'is_managed_identity_in_use'),
+        is_storage_secondary_key_in_use=pulumi.get(__ret__, 'is_storage_secondary_key_in_use'),
+        name=pulumi.get(__ret__, 'name'),
+        queue_delay_ms=pulumi.get(__ret__, 'queue_delay_ms'),
+        retention_days=pulumi.get(__ret__, 'retention_days'),
+        state=pulumi.get(__ret__, 'state'),
+        storage_account_subscription_id=pulumi.get(__ret__, 'storage_account_subscription_id'),
+        storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_blob_auditing_policy)

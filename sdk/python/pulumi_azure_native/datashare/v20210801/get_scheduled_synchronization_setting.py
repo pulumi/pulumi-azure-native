@@ -177,16 +177,16 @@ def get_scheduled_synchronization_setting(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20210801:getScheduledSynchronizationSetting', __args__, opts=opts, typ=GetScheduledSynchronizationSettingResult).value
 
     return AwaitableGetScheduledSynchronizationSettingResult(
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        recurrence_interval=__ret__.recurrence_interval,
-        synchronization_time=__ret__.synchronization_time,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        user_name=__ret__.user_name)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        recurrence_interval=pulumi.get(__ret__, 'recurrence_interval'),
+        synchronization_time=pulumi.get(__ret__, 'synchronization_time'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_scheduled_synchronization_setting)

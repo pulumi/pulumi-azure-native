@@ -209,19 +209,19 @@ def get_map(integration_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20160601:getMap', __args__, opts=opts, typ=GetMapResult).value
 
     return AwaitableGetMapResult(
-        changed_time=__ret__.changed_time,
-        content=__ret__.content,
-        content_link=__ret__.content_link,
-        content_type=__ret__.content_type,
-        created_time=__ret__.created_time,
-        id=__ret__.id,
-        location=__ret__.location,
-        map_type=__ret__.map_type,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        parameters_schema=__ret__.parameters_schema,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        changed_time=pulumi.get(__ret__, 'changed_time'),
+        content=pulumi.get(__ret__, 'content'),
+        content_link=pulumi.get(__ret__, 'content_link'),
+        content_type=pulumi.get(__ret__, 'content_type'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        map_type=pulumi.get(__ret__, 'map_type'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters_schema=pulumi.get(__ret__, 'parameters_schema'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_map)

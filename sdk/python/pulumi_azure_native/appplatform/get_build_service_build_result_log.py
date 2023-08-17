@@ -71,7 +71,7 @@ def get_build_service_build_result_log(build_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform:getBuildServiceBuildResultLog', __args__, opts=opts, typ=GetBuildServiceBuildResultLogResult).value
 
     return AwaitableGetBuildServiceBuildResultLogResult(
-        blob_url=__ret__.blob_url)
+        blob_url=pulumi.get(__ret__, 'blob_url'))
 
 
 @_utilities.lift_output_func(get_build_service_build_result_log)

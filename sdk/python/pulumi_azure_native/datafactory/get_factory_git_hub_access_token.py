@@ -75,7 +75,7 @@ def get_factory_git_hub_access_token(factory_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory:getFactoryGitHubAccessToken', __args__, opts=opts, typ=GetFactoryGitHubAccessTokenResult).value
 
     return AwaitableGetFactoryGitHubAccessTokenResult(
-        git_hub_access_token=__ret__.git_hub_access_token)
+        git_hub_access_token=pulumi.get(__ret__, 'git_hub_access_token'))
 
 
 @_utilities.lift_output_func(get_factory_git_hub_access_token)

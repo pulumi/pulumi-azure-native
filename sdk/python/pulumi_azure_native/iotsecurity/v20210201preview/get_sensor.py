@@ -218,20 +218,20 @@ def get_sensor(scope: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotsecurity/v20210201preview:getSensor', __args__, opts=opts, typ=GetSensorResult).value
 
     return AwaitableGetSensorResult(
-        connectivity_time=__ret__.connectivity_time,
-        dynamic_learning=__ret__.dynamic_learning,
-        id=__ret__.id,
-        learning_mode=__ret__.learning_mode,
-        name=__ret__.name,
-        sensor_status=__ret__.sensor_status,
-        sensor_type=__ret__.sensor_type,
-        sensor_version=__ret__.sensor_version,
-        system_data=__ret__.system_data,
-        ti_automatic_updates=__ret__.ti_automatic_updates,
-        ti_status=__ret__.ti_status,
-        ti_version=__ret__.ti_version,
-        type=__ret__.type,
-        zone=__ret__.zone)
+        connectivity_time=pulumi.get(__ret__, 'connectivity_time'),
+        dynamic_learning=pulumi.get(__ret__, 'dynamic_learning'),
+        id=pulumi.get(__ret__, 'id'),
+        learning_mode=pulumi.get(__ret__, 'learning_mode'),
+        name=pulumi.get(__ret__, 'name'),
+        sensor_status=pulumi.get(__ret__, 'sensor_status'),
+        sensor_type=pulumi.get(__ret__, 'sensor_type'),
+        sensor_version=pulumi.get(__ret__, 'sensor_version'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        ti_automatic_updates=pulumi.get(__ret__, 'ti_automatic_updates'),
+        ti_status=pulumi.get(__ret__, 'ti_status'),
+        ti_version=pulumi.get(__ret__, 'ti_version'),
+        type=pulumi.get(__ret__, 'type'),
+        zone=pulumi.get(__ret__, 'zone'))
 
 
 @_utilities.lift_output_func(get_sensor)

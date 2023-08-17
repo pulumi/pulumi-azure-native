@@ -253,23 +253,23 @@ def get_topic(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getTopic', __args__, opts=opts, typ=GetTopicResult).value
 
     return AwaitableGetTopicResult(
-        data_residency_boundary=__ret__.data_residency_boundary,
-        disable_local_auth=__ret__.disable_local_auth,
-        endpoint=__ret__.endpoint,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        inbound_ip_rules=__ret__.inbound_ip_rules,
-        input_schema=__ret__.input_schema,
-        input_schema_mapping=__ret__.input_schema_mapping,
-        location=__ret__.location,
-        metric_resource_id=__ret__.metric_resource_id,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        data_residency_boundary=pulumi.get(__ret__, 'data_residency_boundary'),
+        disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
+        input_schema=pulumi.get(__ret__, 'input_schema'),
+        input_schema_mapping=pulumi.get(__ret__, 'input_schema_mapping'),
+        location=pulumi.get(__ret__, 'location'),
+        metric_resource_id=pulumi.get(__ret__, 'metric_resource_id'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_topic)

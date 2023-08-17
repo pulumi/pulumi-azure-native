@@ -125,12 +125,12 @@ def get_access_control_record(access_control_record_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getAccessControlRecord', __args__, opts=opts, typ=GetAccessControlRecordResult).value
 
     return AwaitableGetAccessControlRecordResult(
-        id=__ret__.id,
-        initiator_name=__ret__.initiator_name,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        type=__ret__.type,
-        volume_count=__ret__.volume_count)
+        id=pulumi.get(__ret__, 'id'),
+        initiator_name=pulumi.get(__ret__, 'initiator_name'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_count=pulumi.get(__ret__, 'volume_count'))
 
 
 @_utilities.lift_output_func(get_access_control_record)

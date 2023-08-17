@@ -184,17 +184,17 @@ def get_favorite(favorite_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20150501:getFavorite', __args__, opts=opts, typ=GetFavoriteResult).value
 
     return AwaitableGetFavoriteResult(
-        category=__ret__.category,
-        config=__ret__.config,
-        favorite_id=__ret__.favorite_id,
-        favorite_type=__ret__.favorite_type,
-        is_generated_from_template=__ret__.is_generated_from_template,
-        name=__ret__.name,
-        source_type=__ret__.source_type,
-        tags=__ret__.tags,
-        time_modified=__ret__.time_modified,
-        user_id=__ret__.user_id,
-        version=__ret__.version)
+        category=pulumi.get(__ret__, 'category'),
+        config=pulumi.get(__ret__, 'config'),
+        favorite_id=pulumi.get(__ret__, 'favorite_id'),
+        favorite_type=pulumi.get(__ret__, 'favorite_type'),
+        is_generated_from_template=pulumi.get(__ret__, 'is_generated_from_template'),
+        name=pulumi.get(__ret__, 'name'),
+        source_type=pulumi.get(__ret__, 'source_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_modified=pulumi.get(__ret__, 'time_modified'),
+        user_id=pulumi.get(__ret__, 'user_id'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_favorite)

@@ -182,17 +182,17 @@ def get_afd_endpoint(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20200901:getAFDEndpoint', __args__, opts=opts, typ=GetAFDEndpointResult).value
 
     return AwaitableGetAFDEndpointResult(
-        deployment_status=__ret__.deployment_status,
-        enabled_state=__ret__.enabled_state,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        origin_response_timeout_seconds=__ret__.origin_response_timeout_seconds,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        enabled_state=pulumi.get(__ret__, 'enabled_state'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        origin_response_timeout_seconds=pulumi.get(__ret__, 'origin_response_timeout_seconds'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_afd_endpoint)

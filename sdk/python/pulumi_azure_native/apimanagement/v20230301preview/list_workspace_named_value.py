@@ -67,7 +67,7 @@ def list_workspace_named_value(named_value_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:listWorkspaceNamedValue', __args__, opts=opts, typ=ListWorkspaceNamedValueResult).value
 
     return AwaitableListWorkspaceNamedValueResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_workspace_named_value)

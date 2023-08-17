@@ -109,11 +109,11 @@ def get_web_app_ftp_allowed(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20200601:getWebAppFtpAllowed', __args__, opts=opts, typ=GetWebAppFtpAllowedResult).value
 
     return AwaitableGetWebAppFtpAllowedResult(
-        allow=__ret__.allow,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        type=__ret__.type)
+        allow=pulumi.get(__ret__, 'allow'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_ftp_allowed)

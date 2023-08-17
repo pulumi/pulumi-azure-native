@@ -65,7 +65,7 @@ def get_solution_config(migrate_project_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:migrate:getSolutionConfig', __args__, opts=opts, typ=GetSolutionConfigResult).value
 
     return AwaitableGetSolutionConfigResult(
-        publisher_sas_uri=__ret__.publisher_sas_uri)
+        publisher_sas_uri=pulumi.get(__ret__, 'publisher_sas_uri'))
 
 
 @_utilities.lift_output_func(get_solution_config)
