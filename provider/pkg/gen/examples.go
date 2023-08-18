@@ -313,6 +313,8 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 }
 
 func recoverableProgramGen(name string, program *hcl2.Program, fn programGenFn) (files map[string][]byte, err error) {
+	const timeout = 3 * time.Minute
+
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic recovered during generation: %v", r)
@@ -344,8 +346,10 @@ func recoverableProgramGen(name string, program *hcl2.Program, fn programGenFn) 
 				log.Printf("failed to write diagnostics: %v", err)
 			}
 		}
-	case <-time.After(3 * time.Minute):
-		log.Printf("%s timed out after 3m", name)
+	case <-time.After(timeout):
+		msg := fmt.Sprintf("%s timed out after %v", name, timeout)
+		log.Println(msg) // caller doesn't print error due to verbosity
+		err = fmt.Errorf(msg)
 		break
 	}
 
