@@ -1419,6 +1419,29 @@
       "listContainerAppSecrets",
       "listDaprComponentSecrets",
       "listJobSecrets"
+    ],
+    "2023-05-02-preview": [
+      "Certificate",
+      "ConnectedEnvironment",
+      "ConnectedEnvironmentsCertificate",
+      "ConnectedEnvironmentsDaprComponent",
+      "ConnectedEnvironmentsStorage",
+      "ContainerApp",
+      "ContainerAppsAuthConfig",
+      "ContainerAppsSourceControl",
+      "DaprComponent",
+      "Job",
+      "ManagedCertificate",
+      "ManagedEnvironment",
+      "ManagedEnvironmentsStorage",
+      "getContainerAppAuthToken",
+      "getCustomDomainVerificationId",
+      "getManagedEnvironmentAuthToken",
+      "listConnectedEnvironmentsDaprComponentSecrets",
+      "listContainerAppCustomHostNameAnalysis",
+      "listContainerAppSecrets",
+      "listDaprComponentSecrets",
+      "listJobSecrets"
     ]
   },
   "AppComplianceAutomation": {
@@ -2385,6 +2408,16 @@
       "Update",
       "UpdateRun",
       "UpdateSummary"
+    ],
+    "2023-07-01-preview": [
+      "GalleryImage",
+      "GuestAgent",
+      "MarketplaceGalleryImage",
+      "NetworkInterface",
+      "StorageContainer",
+      "VirtualHardDisk",
+      "VirtualMachineInstance",
+      "VirtualNetwork"
     ]
   },
   "BareMetalInfrastructure": {
@@ -2755,6 +2788,12 @@
       "PrivateEndpointConnection",
       "Redis",
       "listRedisKeys"
+    ],
+    "2023-07-01": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
     ]
   },
   "Capacity": {
@@ -3705,6 +3744,22 @@
       "VirtualMachine",
       "VirtualMachineTemplate",
       "VirtualNetwork"
+    ],
+    "2023-03-01-preview": [
+      "Cluster",
+      "Datastore",
+      "GuestAgent",
+      "Host",
+      "HybridIdentityMetadatum",
+      "InventoryItem",
+      "MachineExtension",
+      "ResourcePool",
+      "VCenter",
+      "VMInstanceGuestAgent",
+      "VirtualMachine",
+      "VirtualMachineInstance",
+      "VirtualMachineTemplate",
+      "VirtualNetwork"
     ]
   },
   "Consumption": {
@@ -3766,6 +3821,9 @@
       "Budget"
     ],
     "2023-05-01": [
+      "Budget"
+    ],
+    "2023-11-01": [
       "Budget"
     ]
   },
@@ -4025,6 +4083,19 @@
       "ExportPipeline",
       "ImportPipeline",
       "PipelineRun",
+      "PrivateEndpointConnection",
+      "Registry",
+      "Replication",
+      "ScopeMap",
+      "Token",
+      "Webhook",
+      "getWebhookCallbackConfig",
+      "listRegistryCredentials",
+      "listWebhookEvents"
+    ],
+    "2023-07-01": [
+      "CacheRule",
+      "CredentialSet",
       "PrivateEndpointConnection",
       "Registry",
       "Replication",
@@ -4748,6 +4819,14 @@
       "ViewByScope"
     ],
     "2023-04-01-preview": [
+      "Budget",
+      "Export",
+      "ScheduledAction",
+      "ScheduledActionByScope",
+      "View",
+      "ViewByScope"
+    ],
+    "2023-08-01": [
       "Budget",
       "Export",
       "ScheduledAction",
@@ -5752,6 +5831,11 @@
       "ControllerDetails",
       "DelegatedSubnetServiceDetails",
       "OrchestratorInstanceServiceDetails"
+    ],
+    "2023-06-27-preview": [
+      "ControllerDetails",
+      "DelegatedSubnetServiceDetails",
+      "OrchestratorInstanceServiceDetails"
     ]
   },
   "DeploymentManager": {
@@ -6374,6 +6458,22 @@
       "IotDpsResourcePrivateEndpointConnection",
       "listIotDpsResourceKeys",
       "listIotDpsResourceKeysForKeyName"
+    ],
+    "2023-06-30": [
+      "Certificate",
+      "IotHubResource",
+      "IotHubResourceEventHubConsumerGroup",
+      "PrivateEndpointConnection",
+      "listIotHubResourceKeys",
+      "listIotHubResourceKeysForKeyName"
+    ],
+    "2023-06-30-preview": [
+      "Certificate",
+      "IotHubResource",
+      "IotHubResourceEventHubConsumerGroup",
+      "PrivateEndpointConnection",
+      "listIotHubResourceKeys",
+      "listIotHubResourceKeysForKeyName"
     ]
   },
   "DigitalTwins": {
@@ -7830,6 +7930,22 @@
       "listNamespaceKeys"
     ],
     "2022-10-01-preview": [
+      "ApplicationGroup",
+      "Cluster",
+      "ConsumerGroup",
+      "DisasterRecoveryConfig",
+      "EventHub",
+      "EventHubAuthorizationRule",
+      "Namespace",
+      "NamespaceAuthorizationRule",
+      "NamespaceNetworkRuleSet",
+      "PrivateEndpointConnection",
+      "SchemaRegistry",
+      "listDisasterRecoveryConfigKeys",
+      "listEventHubKeys",
+      "listNamespaceKeys"
+    ],
+    "2023-01-01-preview": [
       "ApplicationGroup",
       "Cluster",
       "ConsumerGroup",
