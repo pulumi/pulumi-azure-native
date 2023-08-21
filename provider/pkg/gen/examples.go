@@ -312,44 +312,47 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 	return languageExample, nil
 }
 
-// Panic after 3 minutes, unless cancel is called.
-func makeTimeout(timer string) (cancel func()) {
-	timeout := make(chan struct{})
-	go func() {
-		for {
-			select {
-			case <-timeout:
-				return
-			case <-time.After(3 * time.Minute):
-				log.Printf("%s timed out", timer)
-				panic("timeout")
-			}
-		}
-	}()
-	return func() { timeout <- struct{}{} }
-}
-
 func recoverableProgramGen(name string, program *hcl2.Program, fn programGenFn) (files map[string][]byte, err error) {
+	const timeout = 3 * time.Minute
+
 	defer func() {
 		if r := recover(); r != nil {
 			err = fmt.Errorf("panic recovered during generation: %v", r)
 		}
 	}()
 
-	var d hcl.Diagnostics
-	cancel := makeTimeout(name)
-	defer cancel()
-	files, d, err = fn(program)
+	type programGenResult struct {
+		files map[string][]byte
+		d     hcl.Diagnostics
+		err   error
+	}
 
-	if err != nil {
-		return nil, err
-	}
-	if d.HasErrors() {
-		err := program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(d)
-		if err != nil {
-			log.Printf("failed to write diagnostics: %v", err)
+	c := make(chan programGenResult, 1)
+	go func() {
+		var d hcl.Diagnostics
+		files, d, err = fn(program)
+		c <- programGenResult{files, d, err}
+	}()
+
+	select {
+	case res := <-c:
+		if res.err != nil {
+			return nil, res.err
 		}
+		files = res.files
+		if res.d.HasErrors() {
+			err = program.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(res.d)
+			if err != nil {
+				log.Printf("failed to write diagnostics: %v", err)
+			}
+		}
+	case <-time.After(timeout):
+		msg := fmt.Sprintf("%s timed out after %v", name, timeout)
+		log.Println(msg) // caller doesn't print error due to verbosity
+		err = fmt.Errorf(msg)
+		break
 	}
+
 	return
 }
 
