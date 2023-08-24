@@ -105,7 +105,7 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:delegatednetwork:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20200808preview:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails" }, { type: "azure-native:delegatednetwork/v20230627preview:DelegatedSubnetServiceDetails" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DelegatedSubnetServiceDetails.__pulumiType, name, resourceInputs, opts);
     }

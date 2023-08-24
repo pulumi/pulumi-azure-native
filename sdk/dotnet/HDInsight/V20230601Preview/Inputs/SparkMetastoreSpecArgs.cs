@@ -18,8 +18,8 @@ namespace Pulumi.AzureNative.HDInsight.V20230601Preview.Inputs
         /// <summary>
         /// The database name.
         /// </summary>
-        [Input("dbName")]
-        public Input<string>? DbName { get; set; }
+        [Input("dbName", required: true)]
+        public Input<string> DbName { get; set; } = null!;
 
         /// <summary>
         /// The secret name which contains the database user password.

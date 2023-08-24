@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:DatabaseSecurityAlertPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:DatabaseSecurityAlertPolicy"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:DatabaseSecurityAlertPolicy"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:DatabaseSecurityAlertPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

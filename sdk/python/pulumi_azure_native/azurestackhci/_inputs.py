@@ -25,8 +25,23 @@ __all__ = [
     'IdentityArgs',
     'InterfaceDNSSettingsArgs',
     'SoftwareAssurancePropertiesArgs',
+    'SshConfigurationArgs',
+    'SshPublicKeyArgs',
     'StepArgs',
     'UpdatePrerequisiteArgs',
+    'VirtualMachineInstancePropertiesDataDisksArgs',
+    'VirtualMachineInstancePropertiesDynamicMemoryConfigArgs',
+    'VirtualMachineInstancePropertiesHardwareProfileArgs',
+    'VirtualMachineInstancePropertiesImageReferenceArgs',
+    'VirtualMachineInstancePropertiesLinuxConfigurationArgs',
+    'VirtualMachineInstancePropertiesNetworkInterfacesArgs',
+    'VirtualMachineInstancePropertiesNetworkProfileArgs',
+    'VirtualMachineInstancePropertiesOsDiskArgs',
+    'VirtualMachineInstancePropertiesOsProfileArgs',
+    'VirtualMachineInstancePropertiesSecurityProfileArgs',
+    'VirtualMachineInstancePropertiesStorageProfileArgs',
+    'VirtualMachineInstancePropertiesUefiSettingsArgs',
+    'VirtualMachineInstancePropertiesWindowsConfigurationArgs',
     'VirtualMachinePropertiesDataDisksArgs',
     'VirtualMachinePropertiesDynamicMemoryConfigArgs',
     'VirtualMachinePropertiesHardwareProfileArgs',
@@ -575,6 +590,70 @@ class SoftwareAssurancePropertiesArgs:
 
 
 @pulumi.input_type
+class SshConfigurationArgs:
+    def __init__(__self__, *,
+                 public_keys: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
+        """
+        SSH configuration for Linux based VMs running on Azure
+        :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] public_keys: The list of SSH public keys used to authenticate with linux based VMs.
+        """
+        if public_keys is not None:
+            pulumi.set(__self__, "public_keys", public_keys)
+
+    @property
+    @pulumi.getter(name="publicKeys")
+    def public_keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]:
+        """
+        The list of SSH public keys used to authenticate with linux based VMs.
+        """
+        return pulumi.get(self, "public_keys")
+
+    @public_keys.setter
+    def public_keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
+        pulumi.set(self, "public_keys", value)
+
+
+@pulumi.input_type
+class SshPublicKeyArgs:
+    def __init__(__self__, *,
+                 key_data: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None):
+        """
+        Contains information about SSH certificate public key and the path on the Linux VM where the public key is placed.
+        :param pulumi.Input[str] key_data: SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        :param pulumi.Input[str] path: Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+        """
+        if key_data is not None:
+            pulumi.set(__self__, "key_data", key_data)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @property
+    @pulumi.getter(name="keyData")
+    def key_data(self) -> Optional[pulumi.Input[str]]:
+        """
+        SSH public key certificate used to authenticate with the VM through ssh. The key needs to be at least 2048-bit and in ssh-rsa format. <br><br> For creating ssh keys, see [Create SSH keys on Linux and Mac for Linux VMs in Azure]https://docs.microsoft.com/azure/virtual-machines/linux/create-ssh-keys-detailed).
+        """
+        return pulumi.get(self, "key_data")
+
+    @key_data.setter
+    def key_data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_data", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the full path on the created VM where ssh public key is stored. If the file already exists, the specified key is appended to the file. Example: /home/user/.ssh/authorized_keys
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+
+@pulumi.input_type
 class StepArgs:
     def __init__(__self__, *,
                  description: Optional[pulumi.Input[str]] = None,
@@ -764,6 +843,656 @@ class UpdatePrerequisiteArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesDataDisksArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Resource ID of the data disk
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of the data disk
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesDynamicMemoryConfigArgs:
+    def __init__(__self__, *,
+                 maximum_memory_mb: Optional[pulumi.Input[float]] = None,
+                 minimum_memory_mb: Optional[pulumi.Input[float]] = None,
+                 target_memory_buffer: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] target_memory_buffer: Defines the amount of extra memory that should be reserved for a virtual machine instance at runtime, as a percentage of the total memory that the virtual machine instance is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000.
+        """
+        if maximum_memory_mb is not None:
+            pulumi.set(__self__, "maximum_memory_mb", maximum_memory_mb)
+        if minimum_memory_mb is not None:
+            pulumi.set(__self__, "minimum_memory_mb", minimum_memory_mb)
+        if target_memory_buffer is not None:
+            pulumi.set(__self__, "target_memory_buffer", target_memory_buffer)
+
+    @property
+    @pulumi.getter(name="maximumMemoryMB")
+    def maximum_memory_mb(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "maximum_memory_mb")
+
+    @maximum_memory_mb.setter
+    def maximum_memory_mb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "maximum_memory_mb", value)
+
+    @property
+    @pulumi.getter(name="minimumMemoryMB")
+    def minimum_memory_mb(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "minimum_memory_mb")
+
+    @minimum_memory_mb.setter
+    def minimum_memory_mb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "minimum_memory_mb", value)
+
+    @property
+    @pulumi.getter(name="targetMemoryBuffer")
+    def target_memory_buffer(self) -> Optional[pulumi.Input[int]]:
+        """
+        Defines the amount of extra memory that should be reserved for a virtual machine instance at runtime, as a percentage of the total memory that the virtual machine instance is thought to need. This only applies to virtual systems with dynamic memory enabled. This property can be in the range of 5 to 2000.
+        """
+        return pulumi.get(self, "target_memory_buffer")
+
+    @target_memory_buffer.setter
+    def target_memory_buffer(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "target_memory_buffer", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesHardwareProfileArgs:
+    def __init__(__self__, *,
+                 dynamic_memory_config: Optional[pulumi.Input['VirtualMachineInstancePropertiesDynamicMemoryConfigArgs']] = None,
+                 memory_mb: Optional[pulumi.Input[float]] = None,
+                 processors: Optional[pulumi.Input[int]] = None,
+                 vm_size: Optional[pulumi.Input[Union[str, 'VmSizeEnum']]] = None):
+        """
+        HardwareProfile - Specifies the hardware settings for the virtual machine instance.
+        :param pulumi.Input[float] memory_mb: RAM in MB for the virtual machine instance
+        :param pulumi.Input[int] processors: number of processors for the virtual machine instance
+        """
+        if dynamic_memory_config is not None:
+            pulumi.set(__self__, "dynamic_memory_config", dynamic_memory_config)
+        if memory_mb is not None:
+            pulumi.set(__self__, "memory_mb", memory_mb)
+        if processors is not None:
+            pulumi.set(__self__, "processors", processors)
+        if vm_size is None:
+            vm_size = 'Default'
+        if vm_size is not None:
+            pulumi.set(__self__, "vm_size", vm_size)
+
+    @property
+    @pulumi.getter(name="dynamicMemoryConfig")
+    def dynamic_memory_config(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesDynamicMemoryConfigArgs']]:
+        return pulumi.get(self, "dynamic_memory_config")
+
+    @dynamic_memory_config.setter
+    def dynamic_memory_config(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesDynamicMemoryConfigArgs']]):
+        pulumi.set(self, "dynamic_memory_config", value)
+
+    @property
+    @pulumi.getter(name="memoryMB")
+    def memory_mb(self) -> Optional[pulumi.Input[float]]:
+        """
+        RAM in MB for the virtual machine instance
+        """
+        return pulumi.get(self, "memory_mb")
+
+    @memory_mb.setter
+    def memory_mb(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "memory_mb", value)
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Optional[pulumi.Input[int]]:
+        """
+        number of processors for the virtual machine instance
+        """
+        return pulumi.get(self, "processors")
+
+    @processors.setter
+    def processors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "processors", value)
+
+    @property
+    @pulumi.getter(name="vmSize")
+    def vm_size(self) -> Optional[pulumi.Input[Union[str, 'VmSizeEnum']]]:
+        return pulumi.get(self, "vm_size")
+
+    @vm_size.setter
+    def vm_size(self, value: Optional[pulumi.Input[Union[str, 'VmSizeEnum']]]):
+        pulumi.set(self, "vm_size", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesImageReferenceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        Which Image to use for the virtual machine instance
+        :param pulumi.Input[str] id: Resource ID of the image
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of the image
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesLinuxConfigurationArgs:
+    def __init__(__self__, *,
+                 disable_password_authentication: Optional[pulumi.Input[bool]] = None,
+                 provision_vm_agent: Optional[pulumi.Input[bool]] = None,
+                 provision_vm_config_agent: Optional[pulumi.Input[bool]] = None,
+                 ssh: Optional[pulumi.Input['SshConfigurationArgs']] = None):
+        """
+        LinuxConfiguration - linux specific configuration values for the virtual machine instance
+        :param pulumi.Input[bool] disable_password_authentication: DisablePasswordAuthentication - whether password authentication should be disabled
+        :param pulumi.Input[bool] provision_vm_agent: Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine instance creation process.
+        :param pulumi.Input[bool] provision_vm_config_agent: Used to indicate whether the VM Config Agent should be installed during the virtual machine creation process.
+        :param pulumi.Input['SshConfigurationArgs'] ssh: Specifies the ssh key configuration for a Linux OS.
+        """
+        if disable_password_authentication is not None:
+            pulumi.set(__self__, "disable_password_authentication", disable_password_authentication)
+        if provision_vm_agent is None:
+            provision_vm_agent = True
+        if provision_vm_agent is not None:
+            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+        if provision_vm_config_agent is None:
+            provision_vm_config_agent = True
+        if provision_vm_config_agent is not None:
+            pulumi.set(__self__, "provision_vm_config_agent", provision_vm_config_agent)
+        if ssh is not None:
+            pulumi.set(__self__, "ssh", ssh)
+
+    @property
+    @pulumi.getter(name="disablePasswordAuthentication")
+    def disable_password_authentication(self) -> Optional[pulumi.Input[bool]]:
+        """
+        DisablePasswordAuthentication - whether password authentication should be disabled
+        """
+        return pulumi.get(self, "disable_password_authentication")
+
+    @disable_password_authentication.setter
+    def disable_password_authentication(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_password_authentication", value)
+
+    @property
+    @pulumi.getter(name="provisionVMAgent")
+    def provision_vm_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine instance creation process.
+        """
+        return pulumi.get(self, "provision_vm_agent")
+
+    @provision_vm_agent.setter
+    def provision_vm_agent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "provision_vm_agent", value)
+
+    @property
+    @pulumi.getter(name="provisionVMConfigAgent")
+    def provision_vm_config_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to indicate whether the VM Config Agent should be installed during the virtual machine creation process.
+        """
+        return pulumi.get(self, "provision_vm_config_agent")
+
+    @provision_vm_config_agent.setter
+    def provision_vm_config_agent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "provision_vm_config_agent", value)
+
+    @property
+    @pulumi.getter
+    def ssh(self) -> Optional[pulumi.Input['SshConfigurationArgs']]:
+        """
+        Specifies the ssh key configuration for a Linux OS.
+        """
+        return pulumi.get(self, "ssh")
+
+    @ssh.setter
+    def ssh(self, value: Optional[pulumi.Input['SshConfigurationArgs']]):
+        pulumi.set(self, "ssh", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesNetworkInterfacesArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: ID - Resource Id of the network interface
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID - Resource Id of the network interface
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesNetworkProfileArgs:
+    def __init__(__self__, *,
+                 network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesNetworkInterfacesArgs']]]] = None):
+        """
+        NetworkProfile - describes the network configuration the virtual machine instance
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesNetworkInterfacesArgs']]] network_interfaces: NetworkInterfaces - list of network interfaces to be attached to the virtual machine instance
+        """
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesNetworkInterfacesArgs']]]]:
+        """
+        NetworkInterfaces - list of network interfaces to be attached to the virtual machine instance
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @network_interfaces.setter
+    def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesNetworkInterfacesArgs']]]]):
+        pulumi.set(self, "network_interfaces", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesOsDiskArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None):
+        """
+        VHD to attach as OS disk
+        :param pulumi.Input[str] id: Resource ID of the OS disk
+        :param pulumi.Input['OperatingSystemTypes'] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID of the OS disk
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input['OperatingSystemTypes']]:
+        """
+        This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input['OperatingSystemTypes']]):
+        pulumi.set(self, "os_type", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesOsProfileArgs:
+    def __init__(__self__, *,
+                 admin_password: Optional[pulumi.Input[str]] = None,
+                 admin_username: Optional[pulumi.Input[str]] = None,
+                 computer_name: Optional[pulumi.Input[str]] = None,
+                 linux_configuration: Optional[pulumi.Input['VirtualMachineInstancePropertiesLinuxConfigurationArgs']] = None,
+                 windows_configuration: Optional[pulumi.Input['VirtualMachineInstancePropertiesWindowsConfigurationArgs']] = None):
+        """
+        OsProfile - describes the configuration of the operating system and sets login data
+        :param pulumi.Input[str] admin_password: AdminPassword - admin password
+        :param pulumi.Input[str] admin_username: AdminUsername - admin username
+        :param pulumi.Input[str] computer_name: ComputerName - name of the compute
+        :param pulumi.Input['VirtualMachineInstancePropertiesLinuxConfigurationArgs'] linux_configuration: LinuxConfiguration - linux specific configuration values for the virtual machine instance
+        :param pulumi.Input['VirtualMachineInstancePropertiesWindowsConfigurationArgs'] windows_configuration: Windows Configuration for the virtual machine instance 
+        """
+        if admin_password is not None:
+            pulumi.set(__self__, "admin_password", admin_password)
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+        if computer_name is not None:
+            pulumi.set(__self__, "computer_name", computer_name)
+        if linux_configuration is not None:
+            pulumi.set(__self__, "linux_configuration", linux_configuration)
+        if windows_configuration is not None:
+            pulumi.set(__self__, "windows_configuration", windows_configuration)
+
+    @property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        AdminPassword - admin password
+        """
+        return pulumi.get(self, "admin_password")
+
+    @admin_password.setter
+    def admin_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_password", value)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        AdminUsername - admin username
+        """
+        return pulumi.get(self, "admin_username")
+
+    @admin_username.setter
+    def admin_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_username", value)
+
+    @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        ComputerName - name of the compute
+        """
+        return pulumi.get(self, "computer_name")
+
+    @computer_name.setter
+    def computer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "computer_name", value)
+
+    @property
+    @pulumi.getter(name="linuxConfiguration")
+    def linux_configuration(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesLinuxConfigurationArgs']]:
+        """
+        LinuxConfiguration - linux specific configuration values for the virtual machine instance
+        """
+        return pulumi.get(self, "linux_configuration")
+
+    @linux_configuration.setter
+    def linux_configuration(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesLinuxConfigurationArgs']]):
+        pulumi.set(self, "linux_configuration", value)
+
+    @property
+    @pulumi.getter(name="windowsConfiguration")
+    def windows_configuration(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesWindowsConfigurationArgs']]:
+        """
+        Windows Configuration for the virtual machine instance 
+        """
+        return pulumi.get(self, "windows_configuration")
+
+    @windows_configuration.setter
+    def windows_configuration(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesWindowsConfigurationArgs']]):
+        pulumi.set(self, "windows_configuration", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesSecurityProfileArgs:
+    def __init__(__self__, *,
+                 enable_tpm: Optional[pulumi.Input[bool]] = None,
+                 security_type: Optional[pulumi.Input[Union[str, 'SecurityTypes']]] = None,
+                 uefi_settings: Optional[pulumi.Input['VirtualMachineInstancePropertiesUefiSettingsArgs']] = None):
+        """
+        SecurityProfile - Specifies the security settings for the virtual machine instance.
+        :param pulumi.Input[Union[str, 'SecurityTypes']] security_type: Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
+        """
+        if enable_tpm is None:
+            enable_tpm = False
+        if enable_tpm is not None:
+            pulumi.set(__self__, "enable_tpm", enable_tpm)
+        if security_type is not None:
+            pulumi.set(__self__, "security_type", security_type)
+        if uefi_settings is not None:
+            pulumi.set(__self__, "uefi_settings", uefi_settings)
+
+    @property
+    @pulumi.getter(name="enableTPM")
+    def enable_tpm(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_tpm")
+
+    @enable_tpm.setter
+    def enable_tpm(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_tpm", value)
+
+    @property
+    @pulumi.getter(name="securityType")
+    def security_type(self) -> Optional[pulumi.Input[Union[str, 'SecurityTypes']]]:
+        """
+        Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
+        """
+        return pulumi.get(self, "security_type")
+
+    @security_type.setter
+    def security_type(self, value: Optional[pulumi.Input[Union[str, 'SecurityTypes']]]):
+        pulumi.set(self, "security_type", value)
+
+    @property
+    @pulumi.getter(name="uefiSettings")
+    def uefi_settings(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesUefiSettingsArgs']]:
+        return pulumi.get(self, "uefi_settings")
+
+    @uefi_settings.setter
+    def uefi_settings(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesUefiSettingsArgs']]):
+        pulumi.set(self, "uefi_settings", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesStorageProfileArgs:
+    def __init__(__self__, *,
+                 data_disks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesDataDisksArgs']]]] = None,
+                 image_reference: Optional[pulumi.Input['VirtualMachineInstancePropertiesImageReferenceArgs']] = None,
+                 os_disk: Optional[pulumi.Input['VirtualMachineInstancePropertiesOsDiskArgs']] = None,
+                 vm_config_storage_path_id: Optional[pulumi.Input[str]] = None):
+        """
+        StorageProfile - contains information about the disks and storage information for the virtual machine instance
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesDataDisksArgs']]] data_disks: adds data disks to the virtual machine instance
+        :param pulumi.Input['VirtualMachineInstancePropertiesImageReferenceArgs'] image_reference: Which Image to use for the virtual machine instance
+        :param pulumi.Input['VirtualMachineInstancePropertiesOsDiskArgs'] os_disk: VHD to attach as OS disk
+        :param pulumi.Input[str] vm_config_storage_path_id: Id of the storage container that hosts the VM configuration file
+        """
+        if data_disks is not None:
+            pulumi.set(__self__, "data_disks", data_disks)
+        if image_reference is not None:
+            pulumi.set(__self__, "image_reference", image_reference)
+        if os_disk is not None:
+            pulumi.set(__self__, "os_disk", os_disk)
+        if vm_config_storage_path_id is not None:
+            pulumi.set(__self__, "vm_config_storage_path_id", vm_config_storage_path_id)
+
+    @property
+    @pulumi.getter(name="dataDisks")
+    def data_disks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesDataDisksArgs']]]]:
+        """
+        adds data disks to the virtual machine instance
+        """
+        return pulumi.get(self, "data_disks")
+
+    @data_disks.setter
+    def data_disks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualMachineInstancePropertiesDataDisksArgs']]]]):
+        pulumi.set(self, "data_disks", value)
+
+    @property
+    @pulumi.getter(name="imageReference")
+    def image_reference(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesImageReferenceArgs']]:
+        """
+        Which Image to use for the virtual machine instance
+        """
+        return pulumi.get(self, "image_reference")
+
+    @image_reference.setter
+    def image_reference(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesImageReferenceArgs']]):
+        pulumi.set(self, "image_reference", value)
+
+    @property
+    @pulumi.getter(name="osDisk")
+    def os_disk(self) -> Optional[pulumi.Input['VirtualMachineInstancePropertiesOsDiskArgs']]:
+        """
+        VHD to attach as OS disk
+        """
+        return pulumi.get(self, "os_disk")
+
+    @os_disk.setter
+    def os_disk(self, value: Optional[pulumi.Input['VirtualMachineInstancePropertiesOsDiskArgs']]):
+        pulumi.set(self, "os_disk", value)
+
+    @property
+    @pulumi.getter(name="vmConfigStoragePathId")
+    def vm_config_storage_path_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Id of the storage container that hosts the VM configuration file
+        """
+        return pulumi.get(self, "vm_config_storage_path_id")
+
+    @vm_config_storage_path_id.setter
+    def vm_config_storage_path_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_config_storage_path_id", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesUefiSettingsArgs:
+    def __init__(__self__, *,
+                 secure_boot_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine instance.
+        """
+        if secure_boot_enabled is None:
+            secure_boot_enabled = False
+        if secure_boot_enabled is not None:
+            pulumi.set(__self__, "secure_boot_enabled", secure_boot_enabled)
+
+    @property
+    @pulumi.getter(name="secureBootEnabled")
+    def secure_boot_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether secure boot should be enabled on the virtual machine instance.
+        """
+        return pulumi.get(self, "secure_boot_enabled")
+
+    @secure_boot_enabled.setter
+    def secure_boot_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "secure_boot_enabled", value)
+
+
+@pulumi.input_type
+class VirtualMachineInstancePropertiesWindowsConfigurationArgs:
+    def __init__(__self__, *,
+                 enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
+                 provision_vm_agent: Optional[pulumi.Input[bool]] = None,
+                 provision_vm_config_agent: Optional[pulumi.Input[bool]] = None,
+                 ssh: Optional[pulumi.Input['SshConfigurationArgs']] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        Windows Configuration for the virtual machine instance 
+        :param pulumi.Input[bool] enable_automatic_updates: Whether to EnableAutomaticUpdates on the machine
+        :param pulumi.Input[bool] provision_vm_agent: Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine instance creation process.
+        :param pulumi.Input[bool] provision_vm_config_agent: Used to indicate whether the VM Config Agent should be installed during the virtual machine creation process.
+        :param pulumi.Input['SshConfigurationArgs'] ssh: Specifies the ssh key configuration for Windows OS.
+        :param pulumi.Input[str] time_zone: TimeZone for the virtual machine instance
+        """
+        if enable_automatic_updates is not None:
+            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
+        if provision_vm_agent is None:
+            provision_vm_agent = True
+        if provision_vm_agent is not None:
+            pulumi.set(__self__, "provision_vm_agent", provision_vm_agent)
+        if provision_vm_config_agent is None:
+            provision_vm_config_agent = True
+        if provision_vm_config_agent is not None:
+            pulumi.set(__self__, "provision_vm_config_agent", provision_vm_config_agent)
+        if ssh is not None:
+            pulumi.set(__self__, "ssh", ssh)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="enableAutomaticUpdates")
+    def enable_automatic_updates(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to EnableAutomaticUpdates on the machine
+        """
+        return pulumi.get(self, "enable_automatic_updates")
+
+    @enable_automatic_updates.setter
+    def enable_automatic_updates(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_automatic_updates", value)
+
+    @property
+    @pulumi.getter(name="provisionVMAgent")
+    def provision_vm_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to indicate whether Arc for Servers agent onboarding should be triggered during the virtual machine instance creation process.
+        """
+        return pulumi.get(self, "provision_vm_agent")
+
+    @provision_vm_agent.setter
+    def provision_vm_agent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "provision_vm_agent", value)
+
+    @property
+    @pulumi.getter(name="provisionVMConfigAgent")
+    def provision_vm_config_agent(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Used to indicate whether the VM Config Agent should be installed during the virtual machine creation process.
+        """
+        return pulumi.get(self, "provision_vm_config_agent")
+
+    @provision_vm_config_agent.setter
+    def provision_vm_config_agent(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "provision_vm_config_agent", value)
+
+    @property
+    @pulumi.getter
+    def ssh(self) -> Optional[pulumi.Input['SshConfigurationArgs']]:
+        """
+        Specifies the ssh key configuration for Windows OS.
+        """
+        return pulumi.get(self, "ssh")
+
+    @ssh.setter
+    def ssh(self, value: Optional[pulumi.Input['SshConfigurationArgs']]):
+        pulumi.set(self, "ssh", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        TimeZone for the virtual machine instance
+        """
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
 
 
 @pulumi.input_type

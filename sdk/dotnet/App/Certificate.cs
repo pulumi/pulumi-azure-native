@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.App
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:Certificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230501:Certificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:Certificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

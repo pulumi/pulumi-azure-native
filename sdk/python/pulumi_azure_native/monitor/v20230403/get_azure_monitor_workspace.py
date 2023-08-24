@@ -67,7 +67,7 @@ class GetAzureMonitorWorkspaceResult:
     @pulumi.getter(name="accountId")
     def account_id(self) -> str:
         """
-        The immutable ID of the Azure Monitor workspace. This property is read-only.
+        The immutable Id of the Azure Monitor Workspace. This property is read-only.
         """
         return pulumi.get(self, "account_id")
 
@@ -107,7 +107,7 @@ class GetAzureMonitorWorkspaceResult:
     @pulumi.getter
     def metrics(self) -> 'outputs.AzureMonitorWorkspaceResponseMetrics':
         """
-        Information about metrics for the Azure Monitor workspace
+        Properties related to the metrics container in the Azure Monitor Workspace
         """
         return pulumi.get(self, "metrics")
 
@@ -131,7 +131,7 @@ class GetAzureMonitorWorkspaceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
+        The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -139,7 +139,7 @@ class GetAzureMonitorWorkspaceResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> str:
         """
-        Gets or sets allow or disallow public network access to workspace
+        Gets or sets allow or disallow public network access to Azure Monitor Workspace
         """
         return pulumi.get(self, "public_network_access")
 
@@ -193,10 +193,10 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAzureMonitorWorkspaceResult:
     """
-    Returns the specific Azure Monitor workspace
+    Returns the specified Azure Monitor Workspace
 
 
-    :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
+    :param str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -226,10 +226,10 @@ def get_azure_monitor_workspace_output(azure_monitor_workspace_name: Optional[pu
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureMonitorWorkspaceResult]:
     """
-    Returns the specific Azure Monitor workspace
+    Returns the specified Azure Monitor Workspace
 
 
-    :param str azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
+    :param str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

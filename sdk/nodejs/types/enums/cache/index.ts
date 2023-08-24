@@ -7,6 +7,7 @@ import * as v20201001preview from "./v20201001preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230401 from "./v20230401";
 import * as v20230501preview from "./v20230501preview";
+import * as v20230701 from "./v20230701";
 
 export {
     v20200601,
@@ -14,6 +15,7 @@ export {
     v20230301preview,
     v20230401,
     v20230501preview,
+    v20230701,
 };
 
 export const AofFrequency = {
@@ -118,7 +120,7 @@ export const PublicNetworkAccess = {
 } as const;
 
 /**
- * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+ * Whether or not public endpoint access is allowed for this cache.  Value is optional, but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'. Note: This setting is important for caches with private endpoints. It has *no effect* on caches that are joined to, or injected into, a virtual network subnet.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 

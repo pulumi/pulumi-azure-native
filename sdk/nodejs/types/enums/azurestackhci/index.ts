@@ -7,6 +7,7 @@ import * as v20220101 from "./v20220101";
 import * as v20220901 from "./v20220901";
 import * as v20221215preview from "./v20221215preview";
 import * as v20230301 from "./v20230301";
+import * as v20230701preview from "./v20230701preview";
 
 export {
     v20210901preview,
@@ -14,6 +15,7 @@ export {
     v20220901,
     v20221215preview,
     v20230301,
+    v20230701preview,
 };
 
 export const AvailabilityType = {
@@ -127,12 +129,12 @@ export const NetworkTypeEnum = {
 export type NetworkTypeEnum = (typeof NetworkTypeEnum)[keyof typeof NetworkTypeEnum];
 
 export const OperatingSystemTypes = {
-    Windows: "Windows",
     Linux: "Linux",
+    Windows: "Windows",
 } as const;
 
 /**
- * Operating system type that the gallery image uses [Windows, Linux]
+ * This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
  */
 export type OperatingSystemTypes = (typeof OperatingSystemTypes)[keyof typeof OperatingSystemTypes];
 
@@ -175,6 +177,16 @@ export const ResourceIdentityType = {
  * The identity type.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
+
+export const SecurityTypes = {
+    TrustedLaunch: "TrustedLaunch",
+    ConfidentialVM: "ConfidentialVM",
+} as const;
+
+/**
+ * Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
+ */
+export type SecurityTypes = (typeof SecurityTypes)[keyof typeof SecurityTypes];
 
 export const SoftwareAssuranceIntent = {
     Enable: "Enable",

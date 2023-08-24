@@ -7,6 +7,7 @@ import * as v20191001preview from "./v20191001preview";
 import * as v20201001 from "./v20201001";
 import * as v20220801preview from "./v20220801preview";
 import * as v20220901 from "./v20220901";
+import * as v20230701 from "./v20230701";
 
 export {
     v20190601preview,
@@ -14,6 +15,7 @@ export {
     v20201001,
     v20220801preview,
     v20220901,
+    v20230701,
 };
 
 export const CleanupOptions = {

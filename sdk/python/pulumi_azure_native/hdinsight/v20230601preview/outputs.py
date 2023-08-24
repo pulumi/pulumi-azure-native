@@ -2324,7 +2324,9 @@ class SparkMetastoreSpecResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dbPasswordSecretName":
+        if key == "dbName":
+            suggest = "db_name"
+        elif key == "dbPasswordSecretName":
             suggest = "db_password_secret_name"
         elif key == "dbServerHost":
             suggest = "db_server_host"
@@ -2332,8 +2334,6 @@ class SparkMetastoreSpecResponse(dict):
             suggest = "db_user_name"
         elif key == "keyVaultId":
             suggest = "key_vault_id"
-        elif key == "dbName":
-            suggest = "db_name"
         elif key == "thriftUrl":
             suggest = "thrift_url"
 
@@ -2349,29 +2349,36 @@ class SparkMetastoreSpecResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 db_name: str,
                  db_password_secret_name: str,
                  db_server_host: str,
                  db_user_name: str,
                  key_vault_id: str,
-                 db_name: Optional[str] = None,
                  thrift_url: Optional[str] = None):
         """
         The metastore specification for Spark cluster.
+        :param str db_name: The database name.
         :param str db_password_secret_name: The secret name which contains the database user password.
         :param str db_server_host: The database server host.
         :param str db_user_name: The database user name.
         :param str key_vault_id: The key vault resource id.
-        :param str db_name: The database name.
         :param str thrift_url: The thrift url.
         """
+        pulumi.set(__self__, "db_name", db_name)
         pulumi.set(__self__, "db_password_secret_name", db_password_secret_name)
         pulumi.set(__self__, "db_server_host", db_server_host)
         pulumi.set(__self__, "db_user_name", db_user_name)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
-        if db_name is not None:
-            pulumi.set(__self__, "db_name", db_name)
         if thrift_url is not None:
             pulumi.set(__self__, "thrift_url", thrift_url)
+
+    @property
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> str:
+        """
+        The database name.
+        """
+        return pulumi.get(self, "db_name")
 
     @property
     @pulumi.getter(name="dbPasswordSecretName")
@@ -2404,14 +2411,6 @@ class SparkMetastoreSpecResponse(dict):
         The key vault resource id.
         """
         return pulumi.get(self, "key_vault_id")
-
-    @property
-    @pulumi.getter(name="dbName")
-    def db_name(self) -> Optional[str]:
-        """
-        The database name.
-        """
-        return pulumi.get(self, "db_name")
 
     @property
     @pulumi.getter(name="thriftUrl")

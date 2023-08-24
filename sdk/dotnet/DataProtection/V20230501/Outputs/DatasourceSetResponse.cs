@@ -39,7 +39,7 @@ namespace Pulumi.AzureNative.DataProtection.V20230501.Outputs
         /// <summary>
         /// Properties specific to data source set
         /// </summary>
-        public readonly Outputs.BaseResourcePropertiesResponse? ResourceProperties;
+        public readonly Outputs.DefaultResourcePropertiesResponse? ResourceProperties;
         /// <summary>
         /// Resource Type of Datasource.
         /// </summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.DataProtection.V20230501.Outputs
 
             string? resourceName,
 
-            Outputs.BaseResourcePropertiesResponse? resourceProperties,
+            Outputs.DefaultResourcePropertiesResponse? resourceProperties,
 
             string? resourceType,
 

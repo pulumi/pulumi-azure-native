@@ -188,6 +188,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:AzureFirewall"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230201:AzureFirewall"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:AzureFirewall"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230501:AzureFirewall"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

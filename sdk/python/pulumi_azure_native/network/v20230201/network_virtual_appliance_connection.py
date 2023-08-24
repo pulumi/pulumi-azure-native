@@ -269,7 +269,7 @@ class NetworkVirtualApplianceConnection(pulumi.CustomResource):
             __props__.__dict__["routing_configuration"] = routing_configuration
             __props__.__dict__["tunnel_identifier"] = tunnel_identifier
             __props__.__dict__["provisioning_state"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20230401:NetworkVirtualApplianceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20221101:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20230401:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20230501:NetworkVirtualApplianceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkVirtualApplianceConnection, __self__).__init__(
             'azure-native:network/v20230201:NetworkVirtualApplianceConnection',

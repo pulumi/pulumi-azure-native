@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
     public partial class AzureMonitorWorkspace : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The immutable ID of the Azure Monitor workspace. This property is read-only.
+        /// The immutable Id of the Azure Monitor Workspace. This property is read-only.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Information about metrics for the Azure Monitor workspace
+        /// Properties related to the metrics container in the Azure Monitor Workspace
         /// </summary>
         [Output("metrics")]
         public Output<Outputs.AzureMonitorWorkspaceResponseMetrics> Metrics { get; private set; } = null!;
@@ -58,13 +58,13 @@ namespace Pulumi.AzureNative.Monitor.V20230403
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
+        /// The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Gets or sets allow or disallow public network access to workspace
+        /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string> PublicNetworkAccess { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
     public sealed class AzureMonitorWorkspaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Azure Monitor workspace.  The name is case insensitive
+        /// The name of the Azure Monitor Workspace. The name is case insensitive
         /// </summary>
         [Input("azureMonitorWorkspaceName")]
         public Input<string>? AzureMonitorWorkspaceName { get; set; }

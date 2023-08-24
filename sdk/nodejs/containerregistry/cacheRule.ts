@@ -111,7 +111,7 @@ export class CacheRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230101preview:CacheRule" }, { type: "azure-native:containerregistry/v20230601preview:CacheRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230101preview:CacheRule" }, { type: "azure-native:containerregistry/v20230601preview:CacheRule" }, { type: "azure-native:containerregistry/v20230701:CacheRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CacheRule.__pulumiType, name, resourceInputs, opts);
     }

@@ -83,7 +83,7 @@ export class MachinePool extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:MachinePool" }, { type: "azure-native:redhatopenshift/v20230401:MachinePool" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift/v20220904:MachinePool" }, { type: "azure-native:redhatopenshift/v20230401:MachinePool" }, { type: "azure-native:redhatopenshift/v20230701preview:MachinePool" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MachinePool.__pulumiType, name, resourceInputs, opts);
     }

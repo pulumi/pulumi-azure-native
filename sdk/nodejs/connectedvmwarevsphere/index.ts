@@ -60,10 +60,20 @@ export const getVCenter: typeof import("./getVCenter").getVCenter = null as any;
 export const getVCenterOutput: typeof import("./getVCenter").getVCenterOutput = null as any;
 utilities.lazyLoad(exports, ["getVCenter","getVCenterOutput"], () => require("./getVCenter"));
 
+export { GetVMInstanceGuestAgentArgs, GetVMInstanceGuestAgentResult, GetVMInstanceGuestAgentOutputArgs } from "./getVMInstanceGuestAgent";
+export const getVMInstanceGuestAgent: typeof import("./getVMInstanceGuestAgent").getVMInstanceGuestAgent = null as any;
+export const getVMInstanceGuestAgentOutput: typeof import("./getVMInstanceGuestAgent").getVMInstanceGuestAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getVMInstanceGuestAgent","getVMInstanceGuestAgentOutput"], () => require("./getVMInstanceGuestAgent"));
+
 export { GetVirtualMachineArgs, GetVirtualMachineResult, GetVirtualMachineOutputArgs } from "./getVirtualMachine";
 export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualMachine = null as any;
 export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
+
+export { GetVirtualMachineInstanceArgs, GetVirtualMachineInstanceResult, GetVirtualMachineInstanceOutputArgs } from "./getVirtualMachineInstance";
+export const getVirtualMachineInstance: typeof import("./getVirtualMachineInstance").getVirtualMachineInstance = null as any;
+export const getVirtualMachineInstanceOutput: typeof import("./getVirtualMachineInstance").getVirtualMachineInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineInstance","getVirtualMachineInstanceOutput"], () => require("./getVirtualMachineInstance"));
 
 export { GetVirtualMachineTemplateArgs, GetVirtualMachineTemplateResult, GetVirtualMachineTemplateOutputArgs } from "./getVirtualMachineTemplate";
 export const getVirtualMachineTemplate: typeof import("./getVirtualMachineTemplate").getVirtualMachineTemplate = null as any;
@@ -115,6 +125,11 @@ export type VirtualMachine = import("./virtualMachine").VirtualMachine;
 export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
 utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
 
+export { VirtualMachineInstanceArgs } from "./virtualMachineInstance";
+export type VirtualMachineInstance = import("./virtualMachineInstance").VirtualMachineInstance;
+export const VirtualMachineInstance: typeof import("./virtualMachineInstance").VirtualMachineInstance = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineInstance"], () => require("./virtualMachineInstance"));
+
 export { VirtualMachineTemplateArgs } from "./virtualMachineTemplate";
 export type VirtualMachineTemplate = import("./virtualMachineTemplate").VirtualMachineTemplate;
 export const VirtualMachineTemplate: typeof import("./virtualMachineTemplate").VirtualMachineTemplate = null as any;
@@ -125,6 +140,11 @@ export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
 export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
 utilities.lazyLoad(exports, ["VirtualNetwork"], () => require("./virtualNetwork"));
 
+export { VMInstanceGuestAgentArgs } from "./vminstanceGuestAgent";
+export type VMInstanceGuestAgent = import("./vminstanceGuestAgent").VMInstanceGuestAgent;
+export const VMInstanceGuestAgent: typeof import("./vminstanceGuestAgent").VMInstanceGuestAgent = null as any;
+utilities.lazyLoad(exports, ["VMInstanceGuestAgent"], () => require("./vminstanceGuestAgent"));
+
 
 // Export enums:
 export * from "../types/enums/connectedvmwarevsphere";
@@ -132,10 +152,12 @@ export * from "../types/enums/connectedvmwarevsphere";
 // Export sub-modules:
 import * as v20220110preview from "./v20220110preview";
 import * as v20220715preview from "./v20220715preview";
+import * as v20230301preview from "./v20230301preview";
 
 export {
     v20220110preview,
     v20220715preview,
+    v20230301preview,
 };
 
 const _module = {
@@ -160,8 +182,12 @@ const _module = {
                 return new ResourcePool(name, <any>undefined, { urn })
             case "azure-native:connectedvmwarevsphere:VCenter":
                 return new VCenter(name, <any>undefined, { urn })
+            case "azure-native:connectedvmwarevsphere:VMInstanceGuestAgent":
+                return new VMInstanceGuestAgent(name, <any>undefined, { urn })
             case "azure-native:connectedvmwarevsphere:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
+            case "azure-native:connectedvmwarevsphere:VirtualMachineInstance":
+                return new VirtualMachineInstance(name, <any>undefined, { urn })
             case "azure-native:connectedvmwarevsphere:VirtualMachineTemplate":
                 return new VirtualMachineTemplate(name, <any>undefined, { urn })
             case "azure-native:connectedvmwarevsphere:VirtualNetwork":

@@ -75,6 +75,11 @@ export type CustomEntityStoreAssignment = import("./customEntityStoreAssignment"
 export const CustomEntityStoreAssignment: typeof import("./customEntityStoreAssignment").CustomEntityStoreAssignment = null as any;
 utilities.lazyLoad(exports, ["CustomEntityStoreAssignment"], () => require("./customEntityStoreAssignment"));
 
+export { DevOpsConfigurationArgs } from "./devOpsConfiguration";
+export type DevOpsConfiguration = import("./devOpsConfiguration").DevOpsConfiguration;
+export const DevOpsConfiguration: typeof import("./devOpsConfiguration").DevOpsConfiguration = null as any;
+utilities.lazyLoad(exports, ["DevOpsConfiguration"], () => require("./devOpsConfiguration"));
+
 export { DeviceSecurityGroupArgs } from "./deviceSecurityGroup";
 export type DeviceSecurityGroup = import("./deviceSecurityGroup").DeviceSecurityGroup;
 export const DeviceSecurityGroup: typeof import("./deviceSecurityGroup").DeviceSecurityGroup = null as any;
@@ -149,6 +154,11 @@ export { GetCustomEntityStoreAssignmentArgs, GetCustomEntityStoreAssignmentResul
 export const getCustomEntityStoreAssignment: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignment = null as any;
 export const getCustomEntityStoreAssignmentOutput: typeof import("./getCustomEntityStoreAssignment").getCustomEntityStoreAssignmentOutput = null as any;
 utilities.lazyLoad(exports, ["getCustomEntityStoreAssignment","getCustomEntityStoreAssignmentOutput"], () => require("./getCustomEntityStoreAssignment"));
+
+export { GetDevOpsConfigurationArgs, GetDevOpsConfigurationResult, GetDevOpsConfigurationOutputArgs } from "./getDevOpsConfiguration";
+export const getDevOpsConfiguration: typeof import("./getDevOpsConfiguration").getDevOpsConfiguration = null as any;
+export const getDevOpsConfigurationOutput: typeof import("./getDevOpsConfiguration").getDevOpsConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getDevOpsConfiguration","getDevOpsConfigurationOutput"], () => require("./getDevOpsConfiguration"));
 
 export { GetDeviceSecurityGroupArgs, GetDeviceSecurityGroupResult, GetDeviceSecurityGroupOutputArgs } from "./getDeviceSecurityGroup";
 export const getDeviceSecurityGroup: typeof import("./getDeviceSecurityGroup").getDeviceSecurityGroup = null as any;
@@ -245,6 +255,26 @@ export type JitNetworkAccessPolicy = import("./jitNetworkAccessPolicy").JitNetwo
 export const JitNetworkAccessPolicy: typeof import("./jitNetworkAccessPolicy").JitNetworkAccessPolicy = null as any;
 utilities.lazyLoad(exports, ["JitNetworkAccessPolicy"], () => require("./jitNetworkAccessPolicy"));
 
+export { ListAzureDevOpsOrgAvailableArgs, ListAzureDevOpsOrgAvailableResult, ListAzureDevOpsOrgAvailableOutputArgs } from "./listAzureDevOpsOrgAvailable";
+export const listAzureDevOpsOrgAvailable: typeof import("./listAzureDevOpsOrgAvailable").listAzureDevOpsOrgAvailable = null as any;
+export const listAzureDevOpsOrgAvailableOutput: typeof import("./listAzureDevOpsOrgAvailable").listAzureDevOpsOrgAvailableOutput = null as any;
+utilities.lazyLoad(exports, ["listAzureDevOpsOrgAvailable","listAzureDevOpsOrgAvailableOutput"], () => require("./listAzureDevOpsOrgAvailable"));
+
+export { ListGitHubOwnerAvailableArgs, ListGitHubOwnerAvailableResult, ListGitHubOwnerAvailableOutputArgs } from "./listGitHubOwnerAvailable";
+export const listGitHubOwnerAvailable: typeof import("./listGitHubOwnerAvailable").listGitHubOwnerAvailable = null as any;
+export const listGitHubOwnerAvailableOutput: typeof import("./listGitHubOwnerAvailable").listGitHubOwnerAvailableOutput = null as any;
+utilities.lazyLoad(exports, ["listGitHubOwnerAvailable","listGitHubOwnerAvailableOutput"], () => require("./listGitHubOwnerAvailable"));
+
+export { ListGitLabGroupAvailableArgs, ListGitLabGroupAvailableResult, ListGitLabGroupAvailableOutputArgs } from "./listGitLabGroupAvailable";
+export const listGitLabGroupAvailable: typeof import("./listGitLabGroupAvailable").listGitLabGroupAvailable = null as any;
+export const listGitLabGroupAvailableOutput: typeof import("./listGitLabGroupAvailable").listGitLabGroupAvailableOutput = null as any;
+utilities.lazyLoad(exports, ["listGitLabGroupAvailable","listGitLabGroupAvailableOutput"], () => require("./listGitLabGroupAvailable"));
+
+export { ListGitLabSubgroupArgs, ListGitLabSubgroupResult, ListGitLabSubgroupOutputArgs } from "./listGitLabSubgroup";
+export const listGitLabSubgroup: typeof import("./listGitLabSubgroup").listGitLabSubgroup = null as any;
+export const listGitLabSubgroupOutput: typeof import("./listGitLabSubgroup").listGitLabSubgroupOutput = null as any;
+utilities.lazyLoad(exports, ["listGitLabSubgroup","listGitLabSubgroupOutput"], () => require("./listGitLabSubgroup"));
+
 export { ListIngestionSettingConnectionStringsArgs, ListIngestionSettingConnectionStringsResult, ListIngestionSettingConnectionStringsOutputArgs } from "./listIngestionSettingConnectionStrings";
 export const listIngestionSettingConnectionStrings: typeof import("./listIngestionSettingConnectionStrings").listIngestionSettingConnectionStrings = null as any;
 export const listIngestionSettingConnectionStringsOutput: typeof import("./listIngestionSettingConnectionStrings").listIngestionSettingConnectionStringsOutput = null as any;
@@ -317,6 +347,7 @@ import * as v20230101preview from "./v20230101preview";
 import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501 from "./v20230501";
+import * as v20230901preview from "./v20230901preview";
 
 export {
     v20170801preview,
@@ -336,6 +367,7 @@ export {
     v20230201preview,
     v20230301preview,
     v20230501,
+    v20230901preview,
 };
 
 const _module = {
@@ -370,6 +402,8 @@ const _module = {
                 return new CustomAssessmentAutomation(name, <any>undefined, { urn })
             case "azure-native:security:CustomEntityStoreAssignment":
                 return new CustomEntityStoreAssignment(name, <any>undefined, { urn })
+            case "azure-native:security:DevOpsConfiguration":
+                return new DevOpsConfiguration(name, <any>undefined, { urn })
             case "azure-native:security:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
             case "azure-native:security:GovernanceAssignment":

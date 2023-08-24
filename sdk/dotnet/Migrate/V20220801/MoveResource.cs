@@ -68,6 +68,7 @@ namespace Pulumi.AzureNative.Migrate.V20220801
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20191001preview:MoveResource"},
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20210101:MoveResource"},
                     new global::Pulumi.Alias { Type = "azure-native:migrate/v20210801:MoveResource"},
+                    new global::Pulumi.Alias { Type = "azure-native:migrate/v20230801:MoveResource"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

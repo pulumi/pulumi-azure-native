@@ -333,7 +333,7 @@ class MachineExtension(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:MachineExtension"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:MachineExtension")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:MachineExtension"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:MachineExtension"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:MachineExtension"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:MachineExtension")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MachineExtension, __self__).__init__(
             'azure-native:connectedvmwarevsphere:MachineExtension',

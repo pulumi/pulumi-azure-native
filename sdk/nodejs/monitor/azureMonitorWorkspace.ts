@@ -39,7 +39,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
     }
 
     /**
-     * The immutable ID of the Azure Monitor workspace. This property is read-only.
+     * The immutable Id of the Azure Monitor Workspace. This property is read-only.
      */
     public /*out*/ readonly accountId!: pulumi.Output<string>;
     /**
@@ -55,7 +55,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Information about metrics for the Azure Monitor workspace
+     * Properties related to the metrics container in the Azure Monitor Workspace
      */
     public /*out*/ readonly metrics!: pulumi.Output<outputs.monitor.AzureMonitorWorkspaceResponseMetrics>;
     /**
@@ -67,11 +67,11 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.monitor.PrivateEndpointConnectionResponse[]>;
     /**
-     * The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
+     * The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Gets or sets allow or disallow public network access to workspace
+     * Gets or sets allow or disallow public network access to Azure Monitor Workspace
      */
     public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
  */
 export interface AzureMonitorWorkspaceArgs {
     /**
-     * The name of the Azure Monitor workspace.  The name is case insensitive
+     * The name of the Azure Monitor Workspace. The name is case insensitive
      */
     azureMonitorWorkspaceName?: pulumi.Input<string>;
     /**

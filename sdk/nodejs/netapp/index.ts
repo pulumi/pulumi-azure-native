@@ -20,6 +20,11 @@ export type BackupPolicy = import("./backupPolicy").BackupPolicy;
 export const BackupPolicy: typeof import("./backupPolicy").BackupPolicy = null as any;
 utilities.lazyLoad(exports, ["BackupPolicy"], () => require("./backupPolicy"));
 
+export { BackupVaultArgs } from "./backupVault";
+export type BackupVault = import("./backupVault").BackupVault;
+export const BackupVault: typeof import("./backupVault").BackupVault = null as any;
+utilities.lazyLoad(exports, ["BackupVault"], () => require("./backupVault"));
+
 export { GetAccountArgs, GetAccountResult, GetAccountOutputArgs } from "./getAccount";
 export const getAccount: typeof import("./getAccount").getAccount = null as any;
 export const getAccountOutput: typeof import("./getAccount").getAccountOutput = null as any;
@@ -34,6 +39,11 @@ export { GetBackupPolicyArgs, GetBackupPolicyResult, GetBackupPolicyOutputArgs }
 export const getBackupPolicy: typeof import("./getBackupPolicy").getBackupPolicy = null as any;
 export const getBackupPolicyOutput: typeof import("./getBackupPolicy").getBackupPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getBackupPolicy","getBackupPolicyOutput"], () => require("./getBackupPolicy"));
+
+export { GetBackupVaultArgs, GetBackupVaultResult, GetBackupVaultOutputArgs } from "./getBackupVault";
+export const getBackupVault: typeof import("./getBackupVault").getBackupVault = null as any;
+export const getBackupVaultOutput: typeof import("./getBackupVault").getBackupVaultOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupVault","getBackupVaultOutput"], () => require("./getBackupVault"));
 
 export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
 export const getPool: typeof import("./getPool").getPool = null as any;
@@ -130,6 +140,7 @@ import * as v20210401preview from "./v20210401preview";
 import * as v20211001 from "./v20211001";
 import * as v20220501 from "./v20220501";
 import * as v20221101 from "./v20221101";
+import * as v20221101preview from "./v20221101preview";
 
 export {
     v20210401,
@@ -137,6 +148,7 @@ export {
     v20211001,
     v20220501,
     v20221101,
+    v20221101preview,
 };
 
 const _module = {
@@ -149,6 +161,8 @@ const _module = {
                 return new Backup(name, <any>undefined, { urn })
             case "azure-native:netapp:BackupPolicy":
                 return new BackupPolicy(name, <any>undefined, { urn })
+            case "azure-native:netapp:BackupVault":
+                return new BackupVault(name, <any>undefined, { urn })
             case "azure-native:netapp:Pool":
                 return new Pool(name, <any>undefined, { urn })
             case "azure-native:netapp:Snapshot":

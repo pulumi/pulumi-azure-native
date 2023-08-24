@@ -23,7 +23,6 @@ __all__ = [
     'BackupPolicyArgs',
     'BackupScheduleArgs',
     'BackupVaultArgs',
-    'BaseResourcePropertiesArgs',
     'BlobBackupDatasourceParametersArgs',
     'CopyOnExpiryOptionArgs',
     'CrossRegionRestoreSettingsArgs',
@@ -33,6 +32,7 @@ __all__ = [
     'DatasourceSetArgs',
     'DatasourceArgs',
     'DayArgs',
+    'DefaultResourcePropertiesArgs',
     'DppIdentityDetailsArgs',
     'FeatureSettingsArgs',
     'IdentityDetailsArgs',
@@ -717,29 +717,6 @@ class BackupVaultArgs:
 
 
 @pulumi.input_type
-class BaseResourcePropertiesArgs:
-    def __init__(__self__, *,
-                 object_type: pulumi.Input[str]):
-        """
-        Properties which are specific to datasource/datasourceSets
-        :param pulumi.Input[str] object_type: Type of the specific object - used for deserializing
-        """
-        pulumi.set(__self__, "object_type", object_type)
-
-    @property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> pulumi.Input[str]:
-        """
-        Type of the specific object - used for deserializing
-        """
-        return pulumi.get(self, "object_type")
-
-    @object_type.setter
-    def object_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "object_type", value)
-
-
-@pulumi.input_type
 class BlobBackupDatasourceParametersArgs:
     def __init__(__self__, *,
                  containers_list: pulumi.Input[Sequence[pulumi.Input[str]]],
@@ -938,7 +915,7 @@ class DatasourceSetArgs:
                  object_type: Optional[pulumi.Input[str]] = None,
                  resource_location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
-                 resource_properties: Optional[pulumi.Input['BaseResourcePropertiesArgs']] = None,
+                 resource_properties: Optional[pulumi.Input['DefaultResourcePropertiesArgs']] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -948,7 +925,7 @@ class DatasourceSetArgs:
         :param pulumi.Input[str] object_type: Type of Datasource object, used to initialize the right inherited type
         :param pulumi.Input[str] resource_location: Location of datasource.
         :param pulumi.Input[str] resource_name: Unique identifier of the resource in the context of parent.
-        :param pulumi.Input['BaseResourcePropertiesArgs'] resource_properties: Properties specific to data source set
+        :param pulumi.Input['DefaultResourcePropertiesArgs'] resource_properties: Properties specific to data source set
         :param pulumi.Input[str] resource_type: Resource Type of Datasource.
         :param pulumi.Input[str] resource_uri: Uri of the resource.
         """
@@ -1030,14 +1007,14 @@ class DatasourceSetArgs:
 
     @property
     @pulumi.getter(name="resourceProperties")
-    def resource_properties(self) -> Optional[pulumi.Input['BaseResourcePropertiesArgs']]:
+    def resource_properties(self) -> Optional[pulumi.Input['DefaultResourcePropertiesArgs']]:
         """
         Properties specific to data source set
         """
         return pulumi.get(self, "resource_properties")
 
     @resource_properties.setter
-    def resource_properties(self, value: Optional[pulumi.Input['BaseResourcePropertiesArgs']]):
+    def resource_properties(self, value: Optional[pulumi.Input['DefaultResourcePropertiesArgs']]):
         pulumi.set(self, "resource_properties", value)
 
     @property
@@ -1073,7 +1050,7 @@ class DatasourceArgs:
                  object_type: Optional[pulumi.Input[str]] = None,
                  resource_location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
-                 resource_properties: Optional[pulumi.Input['BaseResourcePropertiesArgs']] = None,
+                 resource_properties: Optional[pulumi.Input['DefaultResourcePropertiesArgs']] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_uri: Optional[pulumi.Input[str]] = None):
         """
@@ -1083,7 +1060,7 @@ class DatasourceArgs:
         :param pulumi.Input[str] object_type: Type of Datasource object, used to initialize the right inherited type
         :param pulumi.Input[str] resource_location: Location of datasource.
         :param pulumi.Input[str] resource_name: Unique identifier of the resource in the context of parent.
-        :param pulumi.Input['BaseResourcePropertiesArgs'] resource_properties: Properties specific to data source
+        :param pulumi.Input['DefaultResourcePropertiesArgs'] resource_properties: Properties specific to data source
         :param pulumi.Input[str] resource_type: Resource Type of Datasource.
         :param pulumi.Input[str] resource_uri: Uri of the resource.
         """
@@ -1165,14 +1142,14 @@ class DatasourceArgs:
 
     @property
     @pulumi.getter(name="resourceProperties")
-    def resource_properties(self) -> Optional[pulumi.Input['BaseResourcePropertiesArgs']]:
+    def resource_properties(self) -> Optional[pulumi.Input['DefaultResourcePropertiesArgs']]:
         """
         Properties specific to data source
         """
         return pulumi.get(self, "resource_properties")
 
     @resource_properties.setter
-    def resource_properties(self, value: Optional[pulumi.Input['BaseResourcePropertiesArgs']]):
+    def resource_properties(self, value: Optional[pulumi.Input['DefaultResourcePropertiesArgs']]):
         pulumi.set(self, "resource_properties", value)
 
     @property
@@ -1238,6 +1215,31 @@ class DayArgs:
     @is_last.setter
     def is_last(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "is_last", value)
+
+
+@pulumi.input_type
+class DefaultResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 object_type: pulumi.Input[str]):
+        """
+        Default source properties
+        :param pulumi.Input[str] object_type: Type of the specific object - used for deserializing
+               Expected value is 'DefaultResourceProperties'.
+        """
+        pulumi.set(__self__, "object_type", 'DefaultResourceProperties')
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> pulumi.Input[str]:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'DefaultResourceProperties'.
+        """
+        return pulumi.get(self, "object_type")
+
+    @object_type.setter
+    def object_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "object_type", value)
 
 
 @pulumi.input_type

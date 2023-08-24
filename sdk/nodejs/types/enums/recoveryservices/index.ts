@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20200202 from "./v20200202";
 import * as v20230401 from "./v20230401";
+import * as v20230601 from "./v20230601";
 
 export {
     v20200202,
     v20230401,
+    v20230601,
 };
 
 export const AcquireStorageAccountLock = {

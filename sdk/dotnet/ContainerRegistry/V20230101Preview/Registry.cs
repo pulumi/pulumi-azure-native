@@ -187,6 +187,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20221201:Registry"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:Registry"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230701:Registry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

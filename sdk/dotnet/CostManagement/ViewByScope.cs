@@ -159,6 +159,7 @@ namespace Pulumi.AzureNative.CostManagement
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20221005preview:ViewByScope"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230301:ViewByScope"},
                     new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230401preview:ViewByScope"},
+                    new global::Pulumi.Alias { Type = "azure-native:costmanagement/v20230801:ViewByScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

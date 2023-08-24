@@ -17,9 +17,11 @@ __all__ = [
     'HardwareProfileArgs',
     'HttpProxyConfigurationArgs',
     'IdentityArgs',
+    'InfrastructureProfileArgs',
     'NetworkInterfaceArgs',
     'NetworkProfileArgs',
     'NicIPSettingsArgs',
+    'OsProfileForVMInstanceArgs',
     'OsProfileLinuxConfigurationArgs',
     'OsProfileWindowsConfigurationArgs',
     'OsProfileArgs',
@@ -239,6 +241,94 @@ class IdentityArgs:
 
 
 @pulumi.input_type
+class InfrastructureProfileArgs:
+    def __init__(__self__, *,
+                 firmware_type: Optional[pulumi.Input[Union[str, 'FirmwareType']]] = None,
+                 inventory_item_id: Optional[pulumi.Input[str]] = None,
+                 smbios_uuid: Optional[pulumi.Input[str]] = None,
+                 template_id: Optional[pulumi.Input[str]] = None,
+                 v_center_id: Optional[pulumi.Input[str]] = None):
+        """
+        Specifies the vCenter infrastructure specific settings for the virtual machine.
+        :param pulumi.Input[Union[str, 'FirmwareType']] firmware_type: Firmware type
+        :param pulumi.Input[str] inventory_item_id: Gets or sets the inventory Item ID for the virtual machine.
+        :param pulumi.Input[str] smbios_uuid: Gets or sets the SMBIOS UUID of the vm.
+        :param pulumi.Input[str] template_id: Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+        :param pulumi.Input[str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        if firmware_type is not None:
+            pulumi.set(__self__, "firmware_type", firmware_type)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if smbios_uuid is not None:
+            pulumi.set(__self__, "smbios_uuid", smbios_uuid)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="firmwareType")
+    def firmware_type(self) -> Optional[pulumi.Input[Union[str, 'FirmwareType']]]:
+        """
+        Firmware type
+        """
+        return pulumi.get(self, "firmware_type")
+
+    @firmware_type.setter
+    def firmware_type(self, value: Optional[pulumi.Input[Union[str, 'FirmwareType']]]):
+        pulumi.set(self, "firmware_type", value)
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the inventory Item ID for the virtual machine.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @inventory_item_id.setter
+    def inventory_item_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inventory_item_id", value)
+
+    @property
+    @pulumi.getter(name="smbiosUuid")
+    def smbios_uuid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the SMBIOS UUID of the vm.
+        """
+        return pulumi.get(self, "smbios_uuid")
+
+    @smbios_uuid.setter
+    def smbios_uuid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "smbios_uuid", value)
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+        """
+        return pulumi.get(self, "template_id")
+
+    @template_id.setter
+    def template_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_id", value)
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        return pulumi.get(self, "v_center_id")
+
+    @v_center_id.setter
+    def v_center_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "v_center_id", value)
+
+
+@pulumi.input_type
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  device_key: Optional[pulumi.Input[int]] = None,
@@ -452,6 +542,94 @@ class NicIPSettingsArgs:
     @subnet_mask.setter
     def subnet_mask(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "subnet_mask", value)
+
+
+@pulumi.input_type
+class OsProfileForVMInstanceArgs:
+    def __init__(__self__, *,
+                 admin_password: Optional[pulumi.Input[str]] = None,
+                 admin_username: Optional[pulumi.Input[str]] = None,
+                 computer_name: Optional[pulumi.Input[str]] = None,
+                 guest_id: Optional[pulumi.Input[str]] = None,
+                 os_type: Optional[pulumi.Input[Union[str, 'OsType']]] = None):
+        """
+        Specifies the operating system settings for the virtual machine.
+        :param pulumi.Input[str] admin_password: Sets administrator password.
+        :param pulumi.Input[str] admin_username: Gets or sets administrator username.
+        :param pulumi.Input[str] computer_name: Gets or sets computer name.
+        :param pulumi.Input[str] guest_id: Gets or sets the guestId.
+        :param pulumi.Input[Union[str, 'OsType']] os_type: Gets or sets the type of the os.
+        """
+        if admin_password is not None:
+            pulumi.set(__self__, "admin_password", admin_password)
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+        if computer_name is not None:
+            pulumi.set(__self__, "computer_name", computer_name)
+        if guest_id is not None:
+            pulumi.set(__self__, "guest_id", guest_id)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+
+    @property
+    @pulumi.getter(name="adminPassword")
+    def admin_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Sets administrator password.
+        """
+        return pulumi.get(self, "admin_password")
+
+    @admin_password.setter
+    def admin_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_password", value)
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets administrator username.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @admin_username.setter
+    def admin_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "admin_username", value)
+
+    @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets computer name.
+        """
+        return pulumi.get(self, "computer_name")
+
+    @computer_name.setter
+    def computer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "computer_name", value)
+
+    @property
+    @pulumi.getter(name="guestId")
+    def guest_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Gets or sets the guestId.
+        """
+        return pulumi.get(self, "guest_id")
+
+    @guest_id.setter
+    def guest_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "guest_id", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[pulumi.Input[Union[str, 'OsType']]]:
+        """
+        Gets or sets the type of the os.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: Optional[pulumi.Input[Union[str, 'OsType']]]):
+        pulumi.set(self, "os_type", value)
 
 
 @pulumi.input_type

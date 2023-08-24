@@ -104,7 +104,7 @@ export class NetworkVirtualApplianceConnection extends pulumi.CustomResource {
             resourceInputs["tunnelIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20221101:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20230201:NetworkVirtualApplianceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20221101:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20230201:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20230501:NetworkVirtualApplianceConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkVirtualApplianceConnection.__pulumiType, name, resourceInputs, opts);
     }

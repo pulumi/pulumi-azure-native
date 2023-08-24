@@ -205,7 +205,7 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
             __props__.__dict__["next_run_action"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule"), pulumi.Alias(type_="azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule"), pulumi.Alias(type_="azure-native:sql/v20221101preview:StartStopManagedInstanceSchedule"), pulumi.Alias(type_="azure-native:sql/v20230201preview:StartStopManagedInstanceSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(StartStopManagedInstanceSchedule, __self__).__init__(
             'azure-native:sql:StartStopManagedInstanceSchedule',

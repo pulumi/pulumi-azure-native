@@ -8,6 +8,7 @@ import * as v20191001 from "./v20191001";
 import * as v20200501 from "./v20200501";
 import * as v20220501preview from "./v20220501preview";
 import * as v20220801 from "./v20220801";
+import * as v20230801 from "./v20230801";
 
 export {
     v20180202,
@@ -16,6 +17,7 @@ export {
     v20200501,
     v20220501preview,
     v20220801,
+    v20230801,
 };
 
 export const AssessmentSizingCriterion = {

@@ -22,7 +22,7 @@ class AzureMonitorWorkspaceArgs:
         """
         The set of arguments for constructing a AzureMonitorWorkspace resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
+        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -50,7 +50,7 @@ class AzureMonitorWorkspaceArgs:
     @pulumi.getter(name="azureMonitorWorkspaceName")
     def azure_monitor_workspace_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the Azure Monitor workspace.  The name is case insensitive
+        The name of the Azure Monitor Workspace. The name is case insensitive
         """
         return pulumi.get(self, "azure_monitor_workspace_name")
 
@@ -98,7 +98,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
+        :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -198,7 +198,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         """
-        The immutable ID of the Azure Monitor workspace. This property is read-only.
+        The immutable Id of the Azure Monitor Workspace. This property is read-only.
         """
         return pulumi.get(self, "account_id")
 
@@ -230,7 +230,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
     @pulumi.getter
     def metrics(self) -> pulumi.Output['outputs.AzureMonitorWorkspaceResponseMetrics']:
         """
-        Information about metrics for the Azure Monitor workspace
+        Properties related to the metrics container in the Azure Monitor Workspace
         """
         return pulumi.get(self, "metrics")
 
@@ -254,7 +254,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
+        The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -262,7 +262,7 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[str]:
         """
-        Gets or sets allow or disallow public network access to workspace
+        Gets or sets allow or disallow public network access to Azure Monitor Workspace
         """
         return pulumi.get(self, "public_network_access")
 

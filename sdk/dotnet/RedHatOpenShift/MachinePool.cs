@@ -64,6 +64,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
                 {
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220904:MachinePool"},
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230401:MachinePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230701preview:MachinePool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

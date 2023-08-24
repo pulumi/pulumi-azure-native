@@ -14,6 +14,7 @@ import * as v20220101preview from "./v20220101preview";
 import * as v20220701preview from "./v20220701preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501 from "./v20230501";
+import * as v20230901preview from "./v20230901preview";
 
 export {
     v20170801preview,
@@ -28,6 +29,7 @@ export {
     v20220701preview,
     v20230301preview,
     v20230501,
+    v20230901preview,
 };
 
 export const ActionType = {
@@ -132,6 +134,17 @@ export const AuthenticationType = {
  */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
+export const AutoDiscovery = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+    NotApplicable: "NotApplicable",
+} as const;
+
+/**
+ * AutoDiscovery states.
+ */
+export type AutoDiscovery = (typeof AutoDiscovery)[keyof typeof AutoDiscovery];
+
 export const AutoProvision = {
     /**
      * Install missing Azure Arc agents on machines automatically
@@ -183,6 +196,29 @@ export const DataSource = {
 } as const;
 
 export type DataSource = (typeof DataSource)[keyof typeof DataSource];
+
+export const DevOpsProvisioningState = {
+    Succeeded: "Succeeded",
+    Failed: "Failed",
+    Canceled: "Canceled",
+    Pending: "Pending",
+    PendingDeletion: "PendingDeletion",
+    DeletionSuccess: "DeletionSuccess",
+    DeletionFailure: "DeletionFailure",
+} as const;
+
+/**
+ * The provisioning state of the resource.
+ * 
+ * Pending - Provisioning pending.
+ * Failed - Provisioning failed.
+ * Succeeded - Successful provisioning.
+ * Canceled - Provisioning canceled.
+ * PendingDeletion - Deletion pending.
+ * DeletionSuccess - Deletion successful.
+ * DeletionFailure - Deletion failure.
+ */
+export type DevOpsProvisioningState = (typeof DevOpsProvisioningState)[keyof typeof DevOpsProvisioningState];
 
 export const EnvironmentType = {
     AwsAccount: "AwsAccount",

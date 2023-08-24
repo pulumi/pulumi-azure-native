@@ -100,6 +100,11 @@ export const getVirtualMachine: typeof import("./getVirtualMachine").getVirtualM
 export const getVirtualMachineOutput: typeof import("./getVirtualMachine").getVirtualMachineOutput = null as any;
 utilities.lazyLoad(exports, ["getVirtualMachine","getVirtualMachineOutput"], () => require("./getVirtualMachine"));
 
+export { GetVirtualMachineInstanceArgs, GetVirtualMachineInstanceResult, GetVirtualMachineInstanceOutputArgs } from "./getVirtualMachineInstance";
+export const getVirtualMachineInstance: typeof import("./getVirtualMachineInstance").getVirtualMachineInstance = null as any;
+export const getVirtualMachineInstanceOutput: typeof import("./getVirtualMachineInstance").getVirtualMachineInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getVirtualMachineInstance","getVirtualMachineInstanceOutput"], () => require("./getVirtualMachineInstance"));
+
 export { GetVirtualNetworkArgs, GetVirtualNetworkResult, GetVirtualNetworkOutputArgs } from "./getVirtualNetwork";
 export const getVirtualNetwork: typeof import("./getVirtualNetwork").getVirtualNetwork = null as any;
 export const getVirtualNetworkOutput: typeof import("./getVirtualNetwork").getVirtualNetworkOutput = null as any;
@@ -160,6 +165,11 @@ export type VirtualMachine = import("./virtualMachine").VirtualMachine;
 export const VirtualMachine: typeof import("./virtualMachine").VirtualMachine = null as any;
 utilities.lazyLoad(exports, ["VirtualMachine"], () => require("./virtualMachine"));
 
+export { VirtualMachineInstanceArgs } from "./virtualMachineInstance";
+export type VirtualMachineInstance = import("./virtualMachineInstance").VirtualMachineInstance;
+export const VirtualMachineInstance: typeof import("./virtualMachineInstance").VirtualMachineInstance = null as any;
+utilities.lazyLoad(exports, ["VirtualMachineInstance"], () => require("./virtualMachineInstance"));
+
 export { VirtualNetworkArgs } from "./virtualNetwork";
 export type VirtualNetwork = import("./virtualNetwork").VirtualNetwork;
 export const VirtualNetwork: typeof import("./virtualNetwork").VirtualNetwork = null as any;
@@ -175,6 +185,7 @@ import * as v20220101 from "./v20220101";
 import * as v20220901 from "./v20220901";
 import * as v20221215preview from "./v20221215preview";
 import * as v20230301 from "./v20230301";
+import * as v20230701preview from "./v20230701preview";
 
 export {
     v20210901preview,
@@ -182,6 +193,7 @@ export {
     v20220901,
     v20221215preview,
     v20230301,
+    v20230701preview,
 };
 
 const _module = {
@@ -218,6 +230,8 @@ const _module = {
                 return new VirtualHardDisk(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:VirtualMachine":
                 return new VirtualMachine(name, <any>undefined, { urn })
+            case "azure-native:azurestackhci:VirtualMachineInstance":
+                return new VirtualMachineInstance(name, <any>undefined, { urn })
             case "azure-native:azurestackhci:VirtualNetwork":
                 return new VirtualNetwork(name, <any>undefined, { urn })
             default:

@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20230501 from "./v20230501";
+import * as v20231101 from "./v20231101";
 
 export {
     v20230501,
+    v20231101,
 };
 
 export const BudgetOperatorType = {

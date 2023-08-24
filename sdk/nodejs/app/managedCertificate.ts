@@ -98,7 +98,7 @@ export class ManagedCertificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app/v20221101preview:ManagedCertificate" }, { type: "azure-native:app/v20230401preview:ManagedCertificate" }, { type: "azure-native:app/v20230501:ManagedCertificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app/v20221101preview:ManagedCertificate" }, { type: "azure-native:app/v20230401preview:ManagedCertificate" }, { type: "azure-native:app/v20230501:ManagedCertificate" }, { type: "azure-native:app/v20230502preview:ManagedCertificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedCertificate.__pulumiType, name, resourceInputs, opts);
     }

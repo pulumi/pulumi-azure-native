@@ -111,7 +111,7 @@ export class CredentialSet extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230101preview:CredentialSet" }, { type: "azure-native:containerregistry/v20230601preview:CredentialSet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry/v20230101preview:CredentialSet" }, { type: "azure-native:containerregistry/v20230601preview:CredentialSet" }, { type: "azure-native:containerregistry/v20230701:CredentialSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CredentialSet.__pulumiType, name, resourceInputs, opts);
     }

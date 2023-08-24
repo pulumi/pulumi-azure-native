@@ -20,12 +20,14 @@ __all__ = [
     'HardwareProfileResponse',
     'HttpProxyConfigurationResponse',
     'IdentityResponse',
+    'InfrastructureProfileResponse',
     'MachineExtensionInstanceViewResponseStatus',
     'MachineExtensionPropertiesResponseInstanceView',
     'NetworkInterfaceResponse',
     'NetworkProfileResponse',
     'NicIPAddressSettingsResponse',
     'NicIPSettingsResponse',
+    'OsProfileForVMInstanceResponse',
     'OsProfileResponse',
     'OsProfileResponseLinuxConfiguration',
     'OsProfileResponseWindowsConfiguration',
@@ -538,6 +540,167 @@ class IdentityResponse(dict):
         The type of managed service identity.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class InfrastructureProfileResponse(dict):
+    """
+    Specifies the vCenter infrastructure specific settings for the virtual machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customResourceName":
+            suggest = "custom_resource_name"
+        elif key == "folderPath":
+            suggest = "folder_path"
+        elif key == "instanceUuid":
+            suggest = "instance_uuid"
+        elif key == "moName":
+            suggest = "mo_name"
+        elif key == "moRefId":
+            suggest = "mo_ref_id"
+        elif key == "firmwareType":
+            suggest = "firmware_type"
+        elif key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "smbiosUuid":
+            suggest = "smbios_uuid"
+        elif key == "templateId":
+            suggest = "template_id"
+        elif key == "vCenterId":
+            suggest = "v_center_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_resource_name: str,
+                 folder_path: str,
+                 instance_uuid: str,
+                 mo_name: str,
+                 mo_ref_id: str,
+                 firmware_type: Optional[str] = None,
+                 inventory_item_id: Optional[str] = None,
+                 smbios_uuid: Optional[str] = None,
+                 template_id: Optional[str] = None,
+                 v_center_id: Optional[str] = None):
+        """
+        Specifies the vCenter infrastructure specific settings for the virtual machine.
+        :param str custom_resource_name: Gets the name of the corresponding resource in Kubernetes.
+        :param str folder_path: Gets or sets the folder path of the vm.
+        :param str instance_uuid: Gets or sets the instance uuid of the vm.
+        :param str mo_name: Gets or sets the vCenter Managed Object name for the virtual machine.
+        :param str mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+        :param str firmware_type: Firmware type
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the virtual machine.
+        :param str smbios_uuid: Gets or sets the SMBIOS UUID of the vm.
+        :param str template_id: Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+        :param str v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        pulumi.set(__self__, "custom_resource_name", custom_resource_name)
+        pulumi.set(__self__, "folder_path", folder_path)
+        pulumi.set(__self__, "instance_uuid", instance_uuid)
+        pulumi.set(__self__, "mo_name", mo_name)
+        pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if firmware_type is not None:
+            pulumi.set(__self__, "firmware_type", firmware_type)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if smbios_uuid is not None:
+            pulumi.set(__self__, "smbios_uuid", smbios_uuid)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if v_center_id is not None:
+            pulumi.set(__self__, "v_center_id", v_center_id)
+
+    @property
+    @pulumi.getter(name="customResourceName")
+    def custom_resource_name(self) -> str:
+        """
+        Gets the name of the corresponding resource in Kubernetes.
+        """
+        return pulumi.get(self, "custom_resource_name")
+
+    @property
+    @pulumi.getter(name="folderPath")
+    def folder_path(self) -> str:
+        """
+        Gets or sets the folder path of the vm.
+        """
+        return pulumi.get(self, "folder_path")
+
+    @property
+    @pulumi.getter(name="instanceUuid")
+    def instance_uuid(self) -> str:
+        """
+        Gets or sets the instance uuid of the vm.
+        """
+        return pulumi.get(self, "instance_uuid")
+
+    @property
+    @pulumi.getter(name="moName")
+    def mo_name(self) -> str:
+        """
+        Gets or sets the vCenter Managed Object name for the virtual machine.
+        """
+        return pulumi.get(self, "mo_name")
+
+    @property
+    @pulumi.getter(name="moRefId")
+    def mo_ref_id(self) -> str:
+        """
+        Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
+        """
+        return pulumi.get(self, "mo_ref_id")
+
+    @property
+    @pulumi.getter(name="firmwareType")
+    def firmware_type(self) -> Optional[str]:
+        """
+        Firmware type
+        """
+        return pulumi.get(self, "firmware_type")
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the virtual machine.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="smbiosUuid")
+    def smbios_uuid(self) -> Optional[str]:
+        """
+        Gets or sets the SMBIOS UUID of the vm.
+        """
+        return pulumi.get(self, "smbios_uuid")
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the template resource to deploy the virtual machine.
+        """
+        return pulumi.get(self, "template_id")
+
+    @property
+    @pulumi.getter(name="vCenterId")
+    def v_center_id(self) -> Optional[str]:
+        """
+        Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
+        """
+        return pulumi.get(self, "v_center_id")
 
 
 @pulumi.output_type
@@ -1105,6 +1268,140 @@ class NicIPSettingsResponse(dict):
         Gets or sets the mask.
         """
         return pulumi.get(self, "subnet_mask")
+
+
+@pulumi.output_type
+class OsProfileForVMInstanceResponse(dict):
+    """
+    Specifies the operating system settings for the virtual machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osSku":
+            suggest = "os_sku"
+        elif key == "toolsRunningStatus":
+            suggest = "tools_running_status"
+        elif key == "toolsVersion":
+            suggest = "tools_version"
+        elif key == "toolsVersionStatus":
+            suggest = "tools_version_status"
+        elif key == "adminUsername":
+            suggest = "admin_username"
+        elif key == "computerName":
+            suggest = "computer_name"
+        elif key == "guestId":
+            suggest = "guest_id"
+        elif key == "osType":
+            suggest = "os_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OsProfileForVMInstanceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OsProfileForVMInstanceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OsProfileForVMInstanceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 os_sku: str,
+                 tools_running_status: str,
+                 tools_version: str,
+                 tools_version_status: str,
+                 admin_username: Optional[str] = None,
+                 computer_name: Optional[str] = None,
+                 guest_id: Optional[str] = None,
+                 os_type: Optional[str] = None):
+        """
+        Specifies the operating system settings for the virtual machine.
+        :param str os_sku: Gets or sets os sku.
+        :param str tools_running_status: Gets or sets the current running status of VMware Tools running in the guest operating system.
+        :param str tools_version: Gets or sets the current version of VMware Tools.
+        :param str tools_version_status: Gets or sets the current version status of VMware Tools installed in the guest operating system.
+        :param str admin_username: Gets or sets administrator username.
+        :param str computer_name: Gets or sets computer name.
+        :param str guest_id: Gets or sets the guestId.
+        :param str os_type: Gets or sets the type of the os.
+        """
+        pulumi.set(__self__, "os_sku", os_sku)
+        pulumi.set(__self__, "tools_running_status", tools_running_status)
+        pulumi.set(__self__, "tools_version", tools_version)
+        pulumi.set(__self__, "tools_version_status", tools_version_status)
+        if admin_username is not None:
+            pulumi.set(__self__, "admin_username", admin_username)
+        if computer_name is not None:
+            pulumi.set(__self__, "computer_name", computer_name)
+        if guest_id is not None:
+            pulumi.set(__self__, "guest_id", guest_id)
+        if os_type is not None:
+            pulumi.set(__self__, "os_type", os_type)
+
+    @property
+    @pulumi.getter(name="osSku")
+    def os_sku(self) -> str:
+        """
+        Gets or sets os sku.
+        """
+        return pulumi.get(self, "os_sku")
+
+    @property
+    @pulumi.getter(name="toolsRunningStatus")
+    def tools_running_status(self) -> str:
+        """
+        Gets or sets the current running status of VMware Tools running in the guest operating system.
+        """
+        return pulumi.get(self, "tools_running_status")
+
+    @property
+    @pulumi.getter(name="toolsVersion")
+    def tools_version(self) -> str:
+        """
+        Gets or sets the current version of VMware Tools.
+        """
+        return pulumi.get(self, "tools_version")
+
+    @property
+    @pulumi.getter(name="toolsVersionStatus")
+    def tools_version_status(self) -> str:
+        """
+        Gets or sets the current version status of VMware Tools installed in the guest operating system.
+        """
+        return pulumi.get(self, "tools_version_status")
+
+    @property
+    @pulumi.getter(name="adminUsername")
+    def admin_username(self) -> Optional[str]:
+        """
+        Gets or sets administrator username.
+        """
+        return pulumi.get(self, "admin_username")
+
+    @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> Optional[str]:
+        """
+        Gets or sets computer name.
+        """
+        return pulumi.get(self, "computer_name")
+
+    @property
+    @pulumi.getter(name="guestId")
+    def guest_id(self) -> Optional[str]:
+        """
+        Gets or sets the guestId.
+        """
+        return pulumi.get(self, "guest_id")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> Optional[str]:
+        """
+        Gets or sets the type of the os.
+        """
+        return pulumi.get(self, "os_type")
 
 
 @pulumi.output_type

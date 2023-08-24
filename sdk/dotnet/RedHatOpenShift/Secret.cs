@@ -67,6 +67,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
                 {
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220904:Secret"},
                     new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230401:Secret"},
+                    new global::Pulumi.Alias { Type = "azure-native:redhatopenshift/v20230701preview:Secret"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

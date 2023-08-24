@@ -9,9 +9,11 @@ from ._enums import *
 from .account import *
 from .backup import *
 from .backup_policy import *
+from .backup_vault import *
 from .get_account import *
 from .get_backup import *
 from .get_backup_policy import *
+from .get_backup_vault import *
 from .get_pool import *
 from .get_snapshot import *
 from .get_snapshot_policy import *
@@ -44,10 +46,13 @@ if typing.TYPE_CHECKING:
     v20220501 = __v20220501
     import pulumi_azure_native.netapp.v20221101 as __v20221101
     v20221101 = __v20221101
+    import pulumi_azure_native.netapp.v20221101preview as __v20221101preview
+    v20221101preview = __v20221101preview
 else:
     v20210401 = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401preview')
     v20211001 = _utilities.lazy_import('pulumi_azure_native.netapp.v20211001')
     v20220501 = _utilities.lazy_import('pulumi_azure_native.netapp.v20220501')
     v20221101 = _utilities.lazy_import('pulumi_azure_native.netapp.v20221101')
+    v20221101preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20221101preview')
 

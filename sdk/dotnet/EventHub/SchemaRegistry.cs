@@ -98,6 +98,7 @@ namespace Pulumi.AzureNative.EventHub
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:SchemaRegistry"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:SchemaRegistry"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:SchemaRegistry"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:SchemaRegistry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

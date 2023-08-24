@@ -257,6 +257,38 @@ namespace Pulumi.AzureNative.Security
     }
 
     /// <summary>
+    /// AutoDiscovery states.
+    /// </summary>
+    [EnumType]
+    public readonly struct AutoDiscovery : IEquatable<AutoDiscovery>
+    {
+        private readonly string _value;
+
+        private AutoDiscovery(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoDiscovery Disabled { get; } = new AutoDiscovery("Disabled");
+        public static AutoDiscovery Enabled { get; } = new AutoDiscovery("Enabled");
+        public static AutoDiscovery NotApplicable { get; } = new AutoDiscovery("NotApplicable");
+
+        public static bool operator ==(AutoDiscovery left, AutoDiscovery right) => left.Equals(right);
+        public static bool operator !=(AutoDiscovery left, AutoDiscovery right) => !left.Equals(right);
+
+        public static explicit operator string(AutoDiscovery value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoDiscovery other && Equals(other);
+        public bool Equals(AutoDiscovery other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
     /// </summary>
     [EnumType]
@@ -385,6 +417,50 @@ namespace Pulumi.AzureNative.Security
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSource other && Equals(other);
         public bool Equals(DataSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The provisioning state of the resource.
+    /// 
+    /// Pending - Provisioning pending.
+    /// Failed - Provisioning failed.
+    /// Succeeded - Successful provisioning.
+    /// Canceled - Provisioning canceled.
+    /// PendingDeletion - Deletion pending.
+    /// DeletionSuccess - Deletion successful.
+    /// DeletionFailure - Deletion failure.
+    /// </summary>
+    [EnumType]
+    public readonly struct DevOpsProvisioningState : IEquatable<DevOpsProvisioningState>
+    {
+        private readonly string _value;
+
+        private DevOpsProvisioningState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DevOpsProvisioningState Succeeded { get; } = new DevOpsProvisioningState("Succeeded");
+        public static DevOpsProvisioningState Failed { get; } = new DevOpsProvisioningState("Failed");
+        public static DevOpsProvisioningState Canceled { get; } = new DevOpsProvisioningState("Canceled");
+        public static DevOpsProvisioningState Pending { get; } = new DevOpsProvisioningState("Pending");
+        public static DevOpsProvisioningState PendingDeletion { get; } = new DevOpsProvisioningState("PendingDeletion");
+        public static DevOpsProvisioningState DeletionSuccess { get; } = new DevOpsProvisioningState("DeletionSuccess");
+        public static DevOpsProvisioningState DeletionFailure { get; } = new DevOpsProvisioningState("DeletionFailure");
+
+        public static bool operator ==(DevOpsProvisioningState left, DevOpsProvisioningState right) => left.Equals(right);
+        public static bool operator !=(DevOpsProvisioningState left, DevOpsProvisioningState right) => !left.Equals(right);
+
+        public static explicit operator string(DevOpsProvisioningState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DevOpsProvisioningState other && Equals(other);
+        public bool Equals(DevOpsProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

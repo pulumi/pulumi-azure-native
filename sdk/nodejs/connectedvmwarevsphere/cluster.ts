@@ -160,7 +160,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vCenterId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:Cluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere/v20201001preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20220715preview:Cluster" }, { type: "azure-native:connectedvmwarevsphere/v20230301preview:Cluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

@@ -5,11 +5,13 @@
 import * as v20211001 from "./v20211001";
 import * as v20220501 from "./v20220501";
 import * as v20221101 from "./v20221101";
+import * as v20221101preview from "./v20221101preview";
 
 export {
     v20211001,
     v20220501,
     v20221101,
+    v20221101preview,
 };
 
 export const ApplicationType = {

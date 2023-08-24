@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.EventHub
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:EventHubAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:EventHubAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:EventHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:EventHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

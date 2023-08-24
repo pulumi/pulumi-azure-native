@@ -12,6 +12,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ActionableRemediationResponse',
     'AdaptiveApplicationControlIssueSummaryResponse',
     'AdditionalWorkspacesPropertiesResponse',
     'AllowlistCustomAlertRuleResponse',
@@ -20,6 +21,7 @@ __all__ = [
     'AssignedComponentItemResponse',
     'AssignedStandardItemResponse',
     'AssignmentPropertiesResponseAdditionalData',
+    'AuthorizationResponse',
     'AutomationActionEventHubResponse',
     'AutomationActionLogicAppResponse',
     'AutomationActionWorkspaceResponse',
@@ -32,8 +34,11 @@ __all__ = [
     'AwsEnvironmentDataResponse',
     'AwsOrganizationalDataMasterResponse',
     'AwsOrganizationalDataMemberResponse',
+    'AzureDevOpsOrgPropertiesResponse',
+    'AzureDevOpsOrgResponse',
     'AzureDevOpsScopeEnvironmentDataResponse',
     'AzureResourceDetailsResponse',
+    'CategoryConfigurationResponse',
     'CspmMonitorAwsOfferingResponse',
     'CspmMonitorAwsOfferingResponseNativeCloudConnection',
     'CspmMonitorAzureDevOpsOfferingResponse',
@@ -90,11 +95,16 @@ __all__ = [
     'DefenderForServersGcpOfferingResponseVaAutoProvisioning',
     'DefenderForServersGcpOfferingResponseVmScanners',
     'DenylistCustomAlertRuleResponse',
+    'DevOpsConfigurationPropertiesResponse',
     'GcpCredentialsDetailsPropertiesResponse',
     'GcpOrganizationalDataMemberResponse',
     'GcpOrganizationalDataOrganizationResponse',
     'GcpProjectDetailsResponse',
     'GcpProjectEnvironmentDataResponse',
+    'GitHubOwnerPropertiesResponse',
+    'GitHubOwnerResponse',
+    'GitLabGroupPropertiesResponse',
+    'GitLabGroupResponse',
     'GithubScopeEnvironmentDataResponse',
     'GitlabScopeEnvironmentDataResponse',
     'GovernanceAssignmentAdditionalDataResponse',
@@ -132,12 +142,84 @@ __all__ = [
     'StandardComponentPropertiesResponse',
     'SuppressionAlertsScopeResponse',
     'SystemDataResponse',
+    'TargetBranchConfigurationResponse',
     'ThresholdCustomAlertRuleResponse',
     'TimeWindowCustomAlertRuleResponse',
     'UserDefinedResourcesPropertiesResponse',
     'UserRecommendationResponse',
     'VmRecommendationResponse',
 ]
+
+@pulumi.output_type
+class ActionableRemediationResponse(dict):
+    """
+    Configuration payload for PR Annotations.
+    """
+    def __init__(__self__, *,
+                 branch_configuration: Optional['outputs.TargetBranchConfigurationResponse'] = None,
+                 category_configurations: Optional[Sequence['outputs.CategoryConfigurationResponse']] = None,
+                 inherit_from_parent_state: Optional[str] = None,
+                 state: Optional[str] = None):
+        """
+        Configuration payload for PR Annotations.
+        :param 'TargetBranchConfigurationResponse' branch_configuration: Repository branch configuration for PR Annotations.
+        :param Sequence['CategoryConfigurationResponse'] category_configurations: Gets or sets list of categories and severity levels.
+        :param str inherit_from_parent_state: Update Settings.
+               
+               Enabled - Resource should inherit configurations from parent.
+               Disabled - Resource should not inherit configurations from parent.
+        :param str state: ActionableRemediation Setting.
+               None - the setting was never set.
+               Enabled - ActionableRemediation is enabled.
+               Disabled - ActionableRemediation is disabled.
+        """
+        if branch_configuration is not None:
+            pulumi.set(__self__, "branch_configuration", branch_configuration)
+        if category_configurations is not None:
+            pulumi.set(__self__, "category_configurations", category_configurations)
+        if inherit_from_parent_state is not None:
+            pulumi.set(__self__, "inherit_from_parent_state", inherit_from_parent_state)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter(name="branchConfiguration")
+    def branch_configuration(self) -> Optional['outputs.TargetBranchConfigurationResponse']:
+        """
+        Repository branch configuration for PR Annotations.
+        """
+        return pulumi.get(self, "branch_configuration")
+
+    @property
+    @pulumi.getter(name="categoryConfigurations")
+    def category_configurations(self) -> Optional[Sequence['outputs.CategoryConfigurationResponse']]:
+        """
+        Gets or sets list of categories and severity levels.
+        """
+        return pulumi.get(self, "category_configurations")
+
+    @property
+    @pulumi.getter(name="inheritFromParentState")
+    def inherit_from_parent_state(self) -> Optional[str]:
+        """
+        Update Settings.
+        
+        Enabled - Resource should inherit configurations from parent.
+        Disabled - Resource should not inherit configurations from parent.
+        """
+        return pulumi.get(self, "inherit_from_parent_state")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        ActionableRemediation Setting.
+        None - the setting was never set.
+        Enabled - ActionableRemediation is enabled.
+        Disabled - ActionableRemediation is disabled.
+        """
+        return pulumi.get(self, "state")
+
 
 @pulumi.output_type
 class AdaptiveApplicationControlIssueSummaryResponse(dict):
@@ -571,6 +653,33 @@ class AssignmentPropertiesResponseAdditionalData(dict):
         Exemption category of this assignment
         """
         return pulumi.get(self, "exemption_category")
+
+
+@pulumi.output_type
+class AuthorizationResponse(dict):
+    """
+    Authorization payload.
+    """
+    def __init__(__self__, *,
+                 code: Optional[str] = None):
+        """
+        Authorization payload.
+        :param str code: Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+               
+               Only used during PUT/PATCH operations. The secret is cleared during GET.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+
+    @property
+    @pulumi.getter
+    def code(self) -> Optional[str]:
+        """
+        Gets or sets one-time OAuth code to exchange for refresh and access tokens.
+        
+        Only used during PUT/PATCH operations. The secret is cleared during GET.
+        """
+        return pulumi.get(self, "code")
 
 
 @pulumi.output_type
@@ -1399,6 +1508,168 @@ class AwsOrganizationalDataMemberResponse(dict):
 
 
 @pulumi.output_type
+class AzureDevOpsOrgPropertiesResponse(dict):
+    """
+    Azure DevOps Organization properties.
+    """
+    def __init__(__self__, *,
+                 provisioning_status_message: str,
+                 provisioning_status_update_time_utc: str,
+                 actionable_remediation: Optional['outputs.ActionableRemediationResponse'] = None,
+                 onboarding_state: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        Azure DevOps Organization properties.
+        :param str provisioning_status_message: Gets or sets resource status message.
+        :param str provisioning_status_update_time_utc: Gets or sets time when resource was last checked.
+        :param 'ActionableRemediationResponse' actionable_remediation: Configuration payload for PR Annotations.
+        :param str onboarding_state: Details about resource onboarding status across all connectors.
+               
+               OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
+               Onboarded - this resource has already been onboarded by the specified connector.
+               NotOnboarded - this resource has not been onboarded to any connector.
+               NotApplicable - the onboarding state is not applicable to the current endpoint.
+        :param str provisioning_state: The provisioning state of the resource.
+               
+               Pending - Provisioning pending.
+               Failed - Provisioning failed.
+               Succeeded - Successful provisioning.
+               Canceled - Provisioning canceled.
+               PendingDeletion - Deletion pending.
+               DeletionSuccess - Deletion successful.
+               DeletionFailure - Deletion failure.
+        """
+        pulumi.set(__self__, "provisioning_status_message", provisioning_status_message)
+        pulumi.set(__self__, "provisioning_status_update_time_utc", provisioning_status_update_time_utc)
+        if actionable_remediation is not None:
+            pulumi.set(__self__, "actionable_remediation", actionable_remediation)
+        if onboarding_state is not None:
+            pulumi.set(__self__, "onboarding_state", onboarding_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="provisioningStatusMessage")
+    def provisioning_status_message(self) -> str:
+        """
+        Gets or sets resource status message.
+        """
+        return pulumi.get(self, "provisioning_status_message")
+
+    @property
+    @pulumi.getter(name="provisioningStatusUpdateTimeUtc")
+    def provisioning_status_update_time_utc(self) -> str:
+        """
+        Gets or sets time when resource was last checked.
+        """
+        return pulumi.get(self, "provisioning_status_update_time_utc")
+
+    @property
+    @pulumi.getter(name="actionableRemediation")
+    def actionable_remediation(self) -> Optional['outputs.ActionableRemediationResponse']:
+        """
+        Configuration payload for PR Annotations.
+        """
+        return pulumi.get(self, "actionable_remediation")
+
+    @property
+    @pulumi.getter(name="onboardingState")
+    def onboarding_state(self) -> Optional[str]:
+        """
+        Details about resource onboarding status across all connectors.
+        
+        OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
+        Onboarded - this resource has already been onboarded by the specified connector.
+        NotOnboarded - this resource has not been onboarded to any connector.
+        NotApplicable - the onboarding state is not applicable to the current endpoint.
+        """
+        return pulumi.get(self, "onboarding_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the resource.
+        
+        Pending - Provisioning pending.
+        Failed - Provisioning failed.
+        Succeeded - Successful provisioning.
+        Canceled - Provisioning canceled.
+        PendingDeletion - Deletion pending.
+        DeletionSuccess - Deletion successful.
+        DeletionFailure - Deletion failure.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class AzureDevOpsOrgResponse(dict):
+    """
+    Azure DevOps Organization resource.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 properties: Optional['outputs.AzureDevOpsOrgPropertiesResponse'] = None):
+        """
+        Azure DevOps Organization resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'AzureDevOpsOrgPropertiesResponse' properties: Azure DevOps Organization properties.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.AzureDevOpsOrgPropertiesResponse']:
+        """
+        Azure DevOps Organization properties.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
 class AzureDevOpsScopeEnvironmentDataResponse(dict):
     """
     The AzureDevOps scope connector's environment data
@@ -1472,6 +1743,53 @@ class AzureResourceDetailsResponse(dict):
         Expected value is 'Azure'.
         """
         return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class CategoryConfigurationResponse(dict):
+    """
+    Severity level per category configuration for PR Annotations.
+    """
+    def __init__(__self__, *,
+                 category: Optional[str] = None,
+                 minimum_severity_level: Optional[str] = None):
+        """
+        Severity level per category configuration for PR Annotations.
+        :param str category: Rule categories.
+               Code - code scanning results.
+               Artifact scanning results.
+               Dependencies scanning results.
+               IaC results.
+               Secrets scanning results.
+               Container scanning results.
+        :param str minimum_severity_level: Gets or sets minimum severity level for a given category.
+        """
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if minimum_severity_level is not None:
+            pulumi.set(__self__, "minimum_severity_level", minimum_severity_level)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[str]:
+        """
+        Rule categories.
+        Code - code scanning results.
+        Artifact scanning results.
+        Dependencies scanning results.
+        IaC results.
+        Secrets scanning results.
+        Container scanning results.
+        """
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter(name="minimumSeverityLevel")
+    def minimum_severity_level(self) -> Optional[str]:
+        """
+        Gets or sets minimum severity level for a given category.
+        """
+        return pulumi.get(self, "minimum_severity_level")
 
 
 @pulumi.output_type
@@ -4658,6 +4976,130 @@ class DenylistCustomAlertRuleResponse(dict):
 
 
 @pulumi.output_type
+class DevOpsConfigurationPropertiesResponse(dict):
+    """
+    DevOps Configuration properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningStatusMessage":
+            suggest = "provisioning_status_message"
+        elif key == "provisioningStatusUpdateTimeUtc":
+            suggest = "provisioning_status_update_time_utc"
+        elif key == "autoDiscovery":
+            suggest = "auto_discovery"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "topLevelInventoryList":
+            suggest = "top_level_inventory_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DevOpsConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DevOpsConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DevOpsConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_status_message: str,
+                 provisioning_status_update_time_utc: str,
+                 authorization: Optional['outputs.AuthorizationResponse'] = None,
+                 auto_discovery: Optional[str] = None,
+                 provisioning_state: Optional[str] = None,
+                 top_level_inventory_list: Optional[Sequence[str]] = None):
+        """
+        DevOps Configuration properties.
+        :param str provisioning_status_message: Gets or sets resource status message.
+        :param str provisioning_status_update_time_utc: Gets or sets time when resource was last checked.
+        :param 'AuthorizationResponse' authorization: Authorization payload.
+        :param str auto_discovery: AutoDiscovery states.
+        :param str provisioning_state: The provisioning state of the resource.
+               
+               Pending - Provisioning pending.
+               Failed - Provisioning failed.
+               Succeeded - Successful provisioning.
+               Canceled - Provisioning canceled.
+               PendingDeletion - Deletion pending.
+               DeletionSuccess - Deletion successful.
+               DeletionFailure - Deletion failure.
+        :param Sequence[str] top_level_inventory_list: List of top-level inventory to select when AutoDiscovery is disabled.
+               This field is ignored when AutoDiscovery is enabled.
+        """
+        pulumi.set(__self__, "provisioning_status_message", provisioning_status_message)
+        pulumi.set(__self__, "provisioning_status_update_time_utc", provisioning_status_update_time_utc)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if auto_discovery is not None:
+            pulumi.set(__self__, "auto_discovery", auto_discovery)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if top_level_inventory_list is not None:
+            pulumi.set(__self__, "top_level_inventory_list", top_level_inventory_list)
+
+    @property
+    @pulumi.getter(name="provisioningStatusMessage")
+    def provisioning_status_message(self) -> str:
+        """
+        Gets or sets resource status message.
+        """
+        return pulumi.get(self, "provisioning_status_message")
+
+    @property
+    @pulumi.getter(name="provisioningStatusUpdateTimeUtc")
+    def provisioning_status_update_time_utc(self) -> str:
+        """
+        Gets or sets time when resource was last checked.
+        """
+        return pulumi.get(self, "provisioning_status_update_time_utc")
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional['outputs.AuthorizationResponse']:
+        """
+        Authorization payload.
+        """
+        return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter(name="autoDiscovery")
+    def auto_discovery(self) -> Optional[str]:
+        """
+        AutoDiscovery states.
+        """
+        return pulumi.get(self, "auto_discovery")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the resource.
+        
+        Pending - Provisioning pending.
+        Failed - Provisioning failed.
+        Succeeded - Successful provisioning.
+        Canceled - Provisioning canceled.
+        PendingDeletion - Deletion pending.
+        DeletionSuccess - Deletion successful.
+        DeletionFailure - Deletion failure.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="topLevelInventoryList")
+    def top_level_inventory_list(self) -> Optional[Sequence[str]]:
+        """
+        List of top-level inventory to select when AutoDiscovery is disabled.
+        This field is ignored when AutoDiscovery is enabled.
+        """
+        return pulumi.get(self, "top_level_inventory_list")
+
+
+@pulumi.output_type
 class GcpCredentialsDetailsPropertiesResponse(dict):
     """
     GCP cloud account connector based service to service credentials, the credentials are composed of the organization ID and a JSON API key (write only)
@@ -5177,6 +5619,369 @@ class GcpProjectEnvironmentDataResponse(dict):
         The Gcp project's details
         """
         return pulumi.get(self, "project_details")
+
+
+@pulumi.output_type
+class GitHubOwnerPropertiesResponse(dict):
+    """
+    GitHub Owner properties.
+    """
+    def __init__(__self__, *,
+                 git_hub_internal_id: str,
+                 owner_url: str,
+                 provisioning_status_message: str,
+                 provisioning_status_update_time_utc: str,
+                 onboarding_state: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        GitHub Owner properties.
+        :param str git_hub_internal_id: Gets or sets internal GitHub id.
+        :param str owner_url: Gets or sets GitHub Owner url.
+        :param str provisioning_status_message: Gets or sets resource status message.
+        :param str provisioning_status_update_time_utc: Gets or sets time when resource was last checked.
+        :param str onboarding_state: Details about resource onboarding status across all connectors.
+               
+               OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
+               Onboarded - this resource has already been onboarded by the specified connector.
+               NotOnboarded - this resource has not been onboarded to any connector.
+               NotApplicable - the onboarding state is not applicable to the current endpoint.
+        :param str provisioning_state: The provisioning state of the resource.
+               
+               Pending - Provisioning pending.
+               Failed - Provisioning failed.
+               Succeeded - Successful provisioning.
+               Canceled - Provisioning canceled.
+               PendingDeletion - Deletion pending.
+               DeletionSuccess - Deletion successful.
+               DeletionFailure - Deletion failure.
+        """
+        pulumi.set(__self__, "git_hub_internal_id", git_hub_internal_id)
+        pulumi.set(__self__, "owner_url", owner_url)
+        pulumi.set(__self__, "provisioning_status_message", provisioning_status_message)
+        pulumi.set(__self__, "provisioning_status_update_time_utc", provisioning_status_update_time_utc)
+        if onboarding_state is not None:
+            pulumi.set(__self__, "onboarding_state", onboarding_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="gitHubInternalId")
+    def git_hub_internal_id(self) -> str:
+        """
+        Gets or sets internal GitHub id.
+        """
+        return pulumi.get(self, "git_hub_internal_id")
+
+    @property
+    @pulumi.getter(name="ownerUrl")
+    def owner_url(self) -> str:
+        """
+        Gets or sets GitHub Owner url.
+        """
+        return pulumi.get(self, "owner_url")
+
+    @property
+    @pulumi.getter(name="provisioningStatusMessage")
+    def provisioning_status_message(self) -> str:
+        """
+        Gets or sets resource status message.
+        """
+        return pulumi.get(self, "provisioning_status_message")
+
+    @property
+    @pulumi.getter(name="provisioningStatusUpdateTimeUtc")
+    def provisioning_status_update_time_utc(self) -> str:
+        """
+        Gets or sets time when resource was last checked.
+        """
+        return pulumi.get(self, "provisioning_status_update_time_utc")
+
+    @property
+    @pulumi.getter(name="onboardingState")
+    def onboarding_state(self) -> Optional[str]:
+        """
+        Details about resource onboarding status across all connectors.
+        
+        OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
+        Onboarded - this resource has already been onboarded by the specified connector.
+        NotOnboarded - this resource has not been onboarded to any connector.
+        NotApplicable - the onboarding state is not applicable to the current endpoint.
+        """
+        return pulumi.get(self, "onboarding_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the resource.
+        
+        Pending - Provisioning pending.
+        Failed - Provisioning failed.
+        Succeeded - Successful provisioning.
+        Canceled - Provisioning canceled.
+        PendingDeletion - Deletion pending.
+        DeletionSuccess - Deletion successful.
+        DeletionFailure - Deletion failure.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class GitHubOwnerResponse(dict):
+    """
+    GitHub Owner resource.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 properties: Optional['outputs.GitHubOwnerPropertiesResponse'] = None):
+        """
+        GitHub Owner resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'GitHubOwnerPropertiesResponse' properties: GitHub Owner properties.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.GitHubOwnerPropertiesResponse']:
+        """
+        GitHub Owner properties.
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class GitLabGroupPropertiesResponse(dict):
+    """
+    GitLab Group properties.
+    """
+    def __init__(__self__, *,
+                 fully_qualified_friendly_name: str,
+                 fully_qualified_name: str,
+                 provisioning_status_message: str,
+                 provisioning_status_update_time_utc: str,
+                 url: str,
+                 onboarding_state: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        GitLab Group properties.
+        :param str fully_qualified_friendly_name: Gets or sets the human readable fully-qualified name of the Group object.
+               
+               This contains the entire namespace hierarchy as seen on GitLab UI where namespaces are separated by the '/' character.
+        :param str fully_qualified_name: Gets or sets the fully-qualified name of the Group object.
+               
+               This contains the entire namespace hierarchy where namespaces are separated by the '$' character.
+        :param str provisioning_status_message: Gets or sets resource status message.
+        :param str provisioning_status_update_time_utc: Gets or sets time when resource was last checked.
+        :param str url: Gets or sets the url of the GitLab Group.
+        :param str onboarding_state: Details about resource onboarding status across all connectors.
+               
+               OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
+               Onboarded - this resource has already been onboarded by the specified connector.
+               NotOnboarded - this resource has not been onboarded to any connector.
+               NotApplicable - the onboarding state is not applicable to the current endpoint.
+        :param str provisioning_state: The provisioning state of the resource.
+               
+               Pending - Provisioning pending.
+               Failed - Provisioning failed.
+               Succeeded - Successful provisioning.
+               Canceled - Provisioning canceled.
+               PendingDeletion - Deletion pending.
+               DeletionSuccess - Deletion successful.
+               DeletionFailure - Deletion failure.
+        """
+        pulumi.set(__self__, "fully_qualified_friendly_name", fully_qualified_friendly_name)
+        pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
+        pulumi.set(__self__, "provisioning_status_message", provisioning_status_message)
+        pulumi.set(__self__, "provisioning_status_update_time_utc", provisioning_status_update_time_utc)
+        pulumi.set(__self__, "url", url)
+        if onboarding_state is not None:
+            pulumi.set(__self__, "onboarding_state", onboarding_state)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="fullyQualifiedFriendlyName")
+    def fully_qualified_friendly_name(self) -> str:
+        """
+        Gets or sets the human readable fully-qualified name of the Group object.
+        
+        This contains the entire namespace hierarchy as seen on GitLab UI where namespaces are separated by the '/' character.
+        """
+        return pulumi.get(self, "fully_qualified_friendly_name")
+
+    @property
+    @pulumi.getter(name="fullyQualifiedName")
+    def fully_qualified_name(self) -> str:
+        """
+        Gets or sets the fully-qualified name of the Group object.
+        
+        This contains the entire namespace hierarchy where namespaces are separated by the '$' character.
+        """
+        return pulumi.get(self, "fully_qualified_name")
+
+    @property
+    @pulumi.getter(name="provisioningStatusMessage")
+    def provisioning_status_message(self) -> str:
+        """
+        Gets or sets resource status message.
+        """
+        return pulumi.get(self, "provisioning_status_message")
+
+    @property
+    @pulumi.getter(name="provisioningStatusUpdateTimeUtc")
+    def provisioning_status_update_time_utc(self) -> str:
+        """
+        Gets or sets time when resource was last checked.
+        """
+        return pulumi.get(self, "provisioning_status_update_time_utc")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        Gets or sets the url of the GitLab Group.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="onboardingState")
+    def onboarding_state(self) -> Optional[str]:
+        """
+        Details about resource onboarding status across all connectors.
+        
+        OnboardedByOtherConnector - this resource has already been onboarded to another connector. This is only applicable to top-level resources.
+        Onboarded - this resource has already been onboarded by the specified connector.
+        NotOnboarded - this resource has not been onboarded to any connector.
+        NotApplicable - the onboarding state is not applicable to the current endpoint.
+        """
+        return pulumi.get(self, "onboarding_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        The provisioning state of the resource.
+        
+        Pending - Provisioning pending.
+        Failed - Provisioning failed.
+        Succeeded - Successful provisioning.
+        Canceled - Provisioning canceled.
+        PendingDeletion - Deletion pending.
+        DeletionSuccess - Deletion successful.
+        DeletionFailure - Deletion failure.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class GitLabGroupResponse(dict):
+    """
+    GitLab Group resource.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 properties: Optional['outputs.GitLabGroupPropertiesResponse'] = None):
+        """
+        GitLab Group resource.
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Metadata pertaining to creation and last modification of the resource.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'GitLabGroupPropertiesResponse' properties: GitLab Group properties.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.GitLabGroupPropertiesResponse']:
+        """
+        GitLab Group properties.
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -7476,6 +8281,47 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TargetBranchConfigurationResponse(dict):
+    """
+    Repository branch configuration for PR Annotations.
+    """
+    def __init__(__self__, *,
+                 annotate_default_branch: Optional[str] = None,
+                 branch_names: Optional[Sequence[str]] = None):
+        """
+        Repository branch configuration for PR Annotations.
+        :param str annotate_default_branch: Configuration of PR Annotations on default branch.
+               
+               Enabled - PR Annotations are enabled on the resource's default branch.
+               Disabled - PR Annotations are disabled on the resource's default branch.
+        :param Sequence[str] branch_names: Gets or sets branches that should have annotations.
+        """
+        if annotate_default_branch is not None:
+            pulumi.set(__self__, "annotate_default_branch", annotate_default_branch)
+        if branch_names is not None:
+            pulumi.set(__self__, "branch_names", branch_names)
+
+    @property
+    @pulumi.getter(name="annotateDefaultBranch")
+    def annotate_default_branch(self) -> Optional[str]:
+        """
+        Configuration of PR Annotations on default branch.
+        
+        Enabled - PR Annotations are enabled on the resource's default branch.
+        Disabled - PR Annotations are disabled on the resource's default branch.
+        """
+        return pulumi.get(self, "annotate_default_branch")
+
+    @property
+    @pulumi.getter(name="branchNames")
+    def branch_names(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets branches that should have annotations.
+        """
+        return pulumi.get(self, "branch_names")
 
 
 @pulumi.output_type

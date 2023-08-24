@@ -256,7 +256,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20221101preview:Job"), pulumi.Alias(type_="azure-native:app/v20230401preview:Job"), pulumi.Alias(type_="azure-native:app/v20230501:Job")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20221101preview:Job"), pulumi.Alias(type_="azure-native:app/v20230401preview:Job"), pulumi.Alias(type_="azure-native:app/v20230501:Job"), pulumi.Alias(type_="azure-native:app/v20230502preview:Job")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Job, __self__).__init__(
             'azure-native:app:Job',

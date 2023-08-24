@@ -265,6 +265,36 @@ namespace Pulumi.AzureNative.DataProtection.V20230501
     }
 
     /// <summary>
+    /// Type of the specific object - used for deserializing
+    /// </summary>
+    [EnumType]
+    public readonly struct ResourcePropertiesObjectType : IEquatable<ResourcePropertiesObjectType>
+    {
+        private readonly string _value;
+
+        private ResourcePropertiesObjectType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourcePropertiesObjectType DefaultResourceProperties { get; } = new ResourcePropertiesObjectType("DefaultResourceProperties");
+
+        public static bool operator ==(ResourcePropertiesObjectType left, ResourcePropertiesObjectType right) => left.Equals(right);
+        public static bool operator !=(ResourcePropertiesObjectType left, ResourcePropertiesObjectType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourcePropertiesObjectType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourcePropertiesObjectType other && Equals(other);
+        public bool Equals(ResourcePropertiesObjectType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Gets or sets the type of secret store
     /// </summary>
     [EnumType]

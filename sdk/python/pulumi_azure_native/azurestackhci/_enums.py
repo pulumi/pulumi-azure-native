@@ -20,6 +20,7 @@ __all__ = [
     'PrivateIPAllocationMethodEnum',
     'ProvisioningAction',
     'ResourceIdentityType',
+    'SecurityTypes',
     'SoftwareAssuranceIntent',
     'SoftwareAssuranceStatus',
     'State',
@@ -122,10 +123,10 @@ class NetworkTypeEnum(str, Enum):
 
 class OperatingSystemTypes(str, Enum):
     """
-    Operating system type that the gallery image uses [Windows, Linux]
+    This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
     """
-    WINDOWS = "Windows"
     LINUX = "Linux"
+    WINDOWS = "Windows"
 
 
 class OsTypeEnum(str, Enum):
@@ -158,6 +159,14 @@ class ResourceIdentityType(str, Enum):
     The identity type.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
+
+
+class SecurityTypes(str, Enum):
+    """
+    Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
+    """
+    TRUSTED_LAUNCH = "TrustedLaunch"
+    CONFIDENTIAL_VM = "ConfidentialVM"
 
 
 class SoftwareAssuranceIntent(str, Enum):

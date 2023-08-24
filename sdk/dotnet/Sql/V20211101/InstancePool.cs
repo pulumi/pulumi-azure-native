@@ -101,6 +101,7 @@ namespace Pulumi.AzureNative.Sql.V20211101
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220501preview:InstancePool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20220801preview:InstancePool"},
                     new global::Pulumi.Alias { Type = "azure-native:sql/v20221101preview:InstancePool"},
+                    new global::Pulumi.Alias { Type = "azure-native:sql/v20230201preview:InstancePool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

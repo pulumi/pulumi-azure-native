@@ -24,7 +24,6 @@ __all__ = [
     'BackupPolicyResponse',
     'BackupScheduleResponse',
     'BackupVaultResponse',
-    'BaseResourcePropertiesResponse',
     'BlobBackupDatasourceParametersResponse',
     'CopyOnExpiryOptionResponse',
     'CrossRegionRestoreSettingsResponse',
@@ -34,6 +33,7 @@ __all__ = [
     'DatasourceResponse',
     'DatasourceSetResponse',
     'DayResponse',
+    'DefaultResourcePropertiesResponse',
     'DppIdentityDetailsResponse',
     'FeatureSettingsResponse',
     'IdentityDetailsResponse',
@@ -974,45 +974,6 @@ class BackupVaultResponse(dict):
 
 
 @pulumi.output_type
-class BaseResourcePropertiesResponse(dict):
-    """
-    Properties which are specific to datasource/datasourceSets
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "objectType":
-            suggest = "object_type"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in BaseResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        BaseResourcePropertiesResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        BaseResourcePropertiesResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 object_type: str):
-        """
-        Properties which are specific to datasource/datasourceSets
-        :param str object_type: Type of the specific object - used for deserializing
-        """
-        pulumi.set(__self__, "object_type", object_type)
-
-    @property
-    @pulumi.getter(name="objectType")
-    def object_type(self) -> str:
-        """
-        Type of the specific object - used for deserializing
-        """
-        return pulumi.get(self, "object_type")
-
-
-@pulumi.output_type
 class BlobBackupDatasourceParametersResponse(dict):
     """
     Parameters to be used during configuration of backup of blobs
@@ -1296,7 +1257,7 @@ class DatasourceResponse(dict):
                  object_type: Optional[str] = None,
                  resource_location: Optional[str] = None,
                  resource_name: Optional[str] = None,
-                 resource_properties: Optional['outputs.BaseResourcePropertiesResponse'] = None,
+                 resource_properties: Optional['outputs.DefaultResourcePropertiesResponse'] = None,
                  resource_type: Optional[str] = None,
                  resource_uri: Optional[str] = None):
         """
@@ -1306,7 +1267,7 @@ class DatasourceResponse(dict):
         :param str object_type: Type of Datasource object, used to initialize the right inherited type
         :param str resource_location: Location of datasource.
         :param str resource_name: Unique identifier of the resource in the context of parent.
-        :param 'BaseResourcePropertiesResponse' resource_properties: Properties specific to data source
+        :param 'DefaultResourcePropertiesResponse' resource_properties: Properties specific to data source
         :param str resource_type: Resource Type of Datasource.
         :param str resource_uri: Uri of the resource.
         """
@@ -1368,7 +1329,7 @@ class DatasourceResponse(dict):
 
     @property
     @pulumi.getter(name="resourceProperties")
-    def resource_properties(self) -> Optional['outputs.BaseResourcePropertiesResponse']:
+    def resource_properties(self) -> Optional['outputs.DefaultResourcePropertiesResponse']:
         """
         Properties specific to data source
         """
@@ -1433,7 +1394,7 @@ class DatasourceSetResponse(dict):
                  object_type: Optional[str] = None,
                  resource_location: Optional[str] = None,
                  resource_name: Optional[str] = None,
-                 resource_properties: Optional['outputs.BaseResourcePropertiesResponse'] = None,
+                 resource_properties: Optional['outputs.DefaultResourcePropertiesResponse'] = None,
                  resource_type: Optional[str] = None,
                  resource_uri: Optional[str] = None):
         """
@@ -1443,7 +1404,7 @@ class DatasourceSetResponse(dict):
         :param str object_type: Type of Datasource object, used to initialize the right inherited type
         :param str resource_location: Location of datasource.
         :param str resource_name: Unique identifier of the resource in the context of parent.
-        :param 'BaseResourcePropertiesResponse' resource_properties: Properties specific to data source set
+        :param 'DefaultResourcePropertiesResponse' resource_properties: Properties specific to data source set
         :param str resource_type: Resource Type of Datasource.
         :param str resource_uri: Uri of the resource.
         """
@@ -1505,7 +1466,7 @@ class DatasourceSetResponse(dict):
 
     @property
     @pulumi.getter(name="resourceProperties")
-    def resource_properties(self) -> Optional['outputs.BaseResourcePropertiesResponse']:
+    def resource_properties(self) -> Optional['outputs.DefaultResourcePropertiesResponse']:
         """
         Properties specific to data source set
         """
@@ -1578,6 +1539,47 @@ class DayResponse(dict):
         Whether Date is last date of month
         """
         return pulumi.get(self, "is_last")
+
+
+@pulumi.output_type
+class DefaultResourcePropertiesResponse(dict):
+    """
+    Default source properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DefaultResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DefaultResourcePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DefaultResourcePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_type: str):
+        """
+        Default source properties
+        :param str object_type: Type of the specific object - used for deserializing
+               Expected value is 'DefaultResourceProperties'.
+        """
+        pulumi.set(__self__, "object_type", 'DefaultResourceProperties')
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> str:
+        """
+        Type of the specific object - used for deserializing
+        Expected value is 'DefaultResourceProperties'.
+        """
+        return pulumi.get(self, "object_type")
 
 
 @pulumi.output_type

@@ -12,10 +12,12 @@ __all__ = [
     'AssessmentStatusCode',
     'AssessmentType',
     'AuthenticationType',
+    'AutoDiscovery',
     'AutoProvision',
     'Categories',
     'CloudName',
     'DataSource',
+    'DevOpsProvisioningState',
     'EnvironmentType',
     'EventSource',
     'ExportData',
@@ -143,6 +145,15 @@ class AuthenticationType(str, Enum):
     """
 
 
+class AutoDiscovery(str, Enum):
+    """
+    AutoDiscovery states.
+    """
+    DISABLED = "Disabled"
+    ENABLED = "Enabled"
+    NOT_APPLICABLE = "NotApplicable"
+
+
 class AutoProvision(str, Enum):
     """
     Whether or not to automatically install Azure Arc (hybrid compute) agents on machines
@@ -185,6 +196,27 @@ class DataSource(str, Enum):
     """
     Devices twin data
     """
+
+
+class DevOpsProvisioningState(str, Enum):
+    """
+    The provisioning state of the resource.
+    
+    Pending - Provisioning pending.
+    Failed - Provisioning failed.
+    Succeeded - Successful provisioning.
+    Canceled - Provisioning canceled.
+    PendingDeletion - Deletion pending.
+    DeletionSuccess - Deletion successful.
+    DeletionFailure - Deletion failure.
+    """
+    SUCCEEDED = "Succeeded"
+    FAILED = "Failed"
+    CANCELED = "Canceled"
+    PENDING = "Pending"
+    PENDING_DELETION = "PendingDeletion"
+    DELETION_SUCCESS = "DeletionSuccess"
+    DELETION_FAILURE = "DeletionFailure"
 
 
 class EnvironmentType(str, Enum):

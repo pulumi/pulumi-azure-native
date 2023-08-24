@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.DataProtection.V20230501.Inputs
         /// Properties specific to data source
         /// </summary>
         [Input("resourceProperties")]
-        public Input<Inputs.BaseResourcePropertiesArgs>? ResourceProperties { get; set; }
+        public Input<Inputs.DefaultResourcePropertiesArgs>? ResourceProperties { get; set; }
 
         /// <summary>
         /// Resource Type of Datasource.

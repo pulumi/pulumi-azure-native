@@ -191,7 +191,7 @@ export class ManagedEnvironment extends pulumi.CustomResource {
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:app:ManagedEnvironment" }, { type: "azure-native:app/v20220101preview:ManagedEnvironment" }, { type: "azure-native:app/v20220301:ManagedEnvironment" }, { type: "azure-native:app/v20220601preview:ManagedEnvironment" }, { type: "azure-native:app/v20221001:ManagedEnvironment" }, { type: "azure-native:app/v20221101preview:ManagedEnvironment" }, { type: "azure-native:app/v20230501:ManagedEnvironment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:app:ManagedEnvironment" }, { type: "azure-native:app/v20220101preview:ManagedEnvironment" }, { type: "azure-native:app/v20220301:ManagedEnvironment" }, { type: "azure-native:app/v20220601preview:ManagedEnvironment" }, { type: "azure-native:app/v20221001:ManagedEnvironment" }, { type: "azure-native:app/v20221101preview:ManagedEnvironment" }, { type: "azure-native:app/v20230501:ManagedEnvironment" }, { type: "azure-native:app/v20230502preview:ManagedEnvironment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagedEnvironment.__pulumiType, name, resourceInputs, opts);
     }

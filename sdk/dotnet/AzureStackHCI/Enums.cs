@@ -328,7 +328,7 @@ namespace Pulumi.AzureNative.AzureStackHCI
     }
 
     /// <summary>
-    /// Operating system type that the gallery image uses [Windows, Linux]
+    /// This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
     /// </summary>
     [EnumType]
     public readonly struct OperatingSystemTypes : IEquatable<OperatingSystemTypes>
@@ -340,8 +340,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static OperatingSystemTypes Windows { get; } = new OperatingSystemTypes("Windows");
         public static OperatingSystemTypes Linux { get; } = new OperatingSystemTypes("Linux");
+        public static OperatingSystemTypes Windows { get; } = new OperatingSystemTypes("Windows");
 
         public static bool operator ==(OperatingSystemTypes left, OperatingSystemTypes right) => left.Equals(right);
         public static bool operator !=(OperatingSystemTypes left, OperatingSystemTypes right) => !left.Equals(right);
@@ -475,6 +475,37 @@ namespace Pulumi.AzureNative.AzureStackHCI
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ResourceIdentityType other && Equals(other);
         public bool Equals(ResourceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the SecurityType of the virtual machine. EnableTPM and SecureBootEnabled must be set to true for SecurityType to function.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityTypes : IEquatable<SecurityTypes>
+    {
+        private readonly string _value;
+
+        private SecurityTypes(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityTypes TrustedLaunch { get; } = new SecurityTypes("TrustedLaunch");
+        public static SecurityTypes ConfidentialVM { get; } = new SecurityTypes("ConfidentialVM");
+
+        public static bool operator ==(SecurityTypes left, SecurityTypes right) => left.Equals(right);
+        public static bool operator !=(SecurityTypes left, SecurityTypes right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityTypes value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityTypes other && Equals(other);
+        public bool Equals(SecurityTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

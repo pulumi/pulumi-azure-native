@@ -90,7 +90,7 @@ export class TagInheritanceSetting extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:TagInheritanceSetting" }, { type: "azure-native:costmanagement/v20221001preview:TagInheritanceSetting" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:costmanagement:TagInheritanceSetting" }, { type: "azure-native:costmanagement/v20221001preview:TagInheritanceSetting" }, { type: "azure-native:costmanagement/v20230801:TagInheritanceSetting" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TagInheritanceSetting.__pulumiType, name, resourceInputs, opts);
     }

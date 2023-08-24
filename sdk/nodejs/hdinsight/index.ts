@@ -58,11 +58,13 @@ export * from "../types/enums/hdinsight";
 import * as v20210601 from "./v20210601";
 import * as v20230415preview from "./v20230415preview";
 import * as v20230601preview from "./v20230601preview";
+import * as v20230815preview from "./v20230815preview";
 
 export {
     v20210601,
     v20230415preview,
     v20230601preview,
+    v20230815preview,
 };
 
 const _module = {

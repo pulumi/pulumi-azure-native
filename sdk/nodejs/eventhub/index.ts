@@ -157,10 +157,12 @@ export * from "../types/enums/eventhub";
 // Export sub-modules:
 import * as v20180101preview from "./v20180101preview";
 import * as v20221001preview from "./v20221001preview";
+import * as v20230101preview from "./v20230101preview";
 
 export {
     v20180101preview,
     v20221001preview,
+    v20230101preview,
 };
 
 const _module = {

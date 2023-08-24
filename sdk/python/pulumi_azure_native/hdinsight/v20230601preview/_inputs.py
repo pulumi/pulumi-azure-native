@@ -1884,29 +1884,40 @@ class SecretsProfileArgs:
 @pulumi.input_type
 class SparkMetastoreSpecArgs:
     def __init__(__self__, *,
+                 db_name: pulumi.Input[str],
                  db_password_secret_name: pulumi.Input[str],
                  db_server_host: pulumi.Input[str],
                  db_user_name: pulumi.Input[str],
                  key_vault_id: pulumi.Input[str],
-                 db_name: Optional[pulumi.Input[str]] = None,
                  thrift_url: Optional[pulumi.Input[str]] = None):
         """
         The metastore specification for Spark cluster.
+        :param pulumi.Input[str] db_name: The database name.
         :param pulumi.Input[str] db_password_secret_name: The secret name which contains the database user password.
         :param pulumi.Input[str] db_server_host: The database server host.
         :param pulumi.Input[str] db_user_name: The database user name.
         :param pulumi.Input[str] key_vault_id: The key vault resource id.
-        :param pulumi.Input[str] db_name: The database name.
         :param pulumi.Input[str] thrift_url: The thrift url.
         """
+        pulumi.set(__self__, "db_name", db_name)
         pulumi.set(__self__, "db_password_secret_name", db_password_secret_name)
         pulumi.set(__self__, "db_server_host", db_server_host)
         pulumi.set(__self__, "db_user_name", db_user_name)
         pulumi.set(__self__, "key_vault_id", key_vault_id)
-        if db_name is not None:
-            pulumi.set(__self__, "db_name", db_name)
         if thrift_url is not None:
             pulumi.set(__self__, "thrift_url", thrift_url)
+
+    @property
+    @pulumi.getter(name="dbName")
+    def db_name(self) -> pulumi.Input[str]:
+        """
+        The database name.
+        """
+        return pulumi.get(self, "db_name")
+
+    @db_name.setter
+    def db_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "db_name", value)
 
     @property
     @pulumi.getter(name="dbPasswordSecretName")
@@ -1955,18 +1966,6 @@ class SparkMetastoreSpecArgs:
     @key_vault_id.setter
     def key_vault_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "key_vault_id", value)
-
-    @property
-    @pulumi.getter(name="dbName")
-    def db_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The database name.
-        """
-        return pulumi.get(self, "db_name")
-
-    @db_name.setter
-    def db_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "db_name", value)
 
     @property
     @pulumi.getter(name="thriftUrl")

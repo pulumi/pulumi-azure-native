@@ -170,6 +170,7 @@ import * as professionalservice from "./professionalservice";
 import * as providerhub from "./providerhub";
 import * as purview from "./purview";
 import * as quantum from "./quantum";
+import * as quota from "./quota";
 import * as recommendationsservice from "./recommendationsservice";
 import * as recoveryservices from "./recoveryservices";
 import * as redhatopenshift from "./redhatopenshift";
@@ -382,6 +383,7 @@ export {
     providerhub,
     purview,
     quantum,
+    quota,
     recommendationsservice,
     recoveryservices,
     redhatopenshift,

@@ -18,8 +18,10 @@ from .get_machine_extension import *
 from .get_resource_pool import *
 from .get_v_center import *
 from .get_virtual_machine import *
+from .get_virtual_machine_instance import *
 from .get_virtual_machine_template import *
 from .get_virtual_network import *
+from .get_vm_instance_guest_agent import *
 from .guest_agent import *
 from .host import *
 from .hybrid_identity_metadatum import *
@@ -28,8 +30,10 @@ from .machine_extension import *
 from .resource_pool import *
 from .v_center import *
 from .virtual_machine import *
+from .virtual_machine_instance import *
 from .virtual_machine_template import *
 from .virtual_network import *
+from .vm_instance_guest_agent import *
 from ._inputs import *
 from . import outputs
 
@@ -39,7 +43,10 @@ if typing.TYPE_CHECKING:
     v20220110preview = __v20220110preview
     import pulumi_azure_native.connectedvmwarevsphere.v20220715preview as __v20220715preview
     v20220715preview = __v20220715preview
+    import pulumi_azure_native.connectedvmwarevsphere.v20230301preview as __v20230301preview
+    v20230301preview = __v20230301preview
 else:
     v20220110preview = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20220110preview')
     v20220715preview = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20220715preview')
+    v20230301preview = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20230301preview')
 

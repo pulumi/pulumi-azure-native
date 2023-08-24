@@ -112,7 +112,7 @@ export class StartStopManagedInstanceSchedule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sql:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sql:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule" }, { type: "azure-native:sql/v20230201preview:StartStopManagedInstanceSchedule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StartStopManagedInstanceSchedule.__pulumiType, name, resourceInputs, opts);
     }

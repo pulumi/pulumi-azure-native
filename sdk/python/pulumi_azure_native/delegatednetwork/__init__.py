@@ -21,7 +21,10 @@ if typing.TYPE_CHECKING:
     v20210315 = __v20210315
     import pulumi_azure_native.delegatednetwork.v20230518preview as __v20230518preview
     v20230518preview = __v20230518preview
+    import pulumi_azure_native.delegatednetwork.v20230627preview as __v20230627preview
+    v20230627preview = __v20230627preview
 else:
     v20210315 = _utilities.lazy_import('pulumi_azure_native.delegatednetwork.v20210315')
     v20230518preview = _utilities.lazy_import('pulumi_azure_native.delegatednetwork.v20230518preview')
+    v20230627preview = _utilities.lazy_import('pulumi_azure_native.delegatednetwork.v20230627preview')
 

@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Network.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ConnectivityConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ConnectivityConfiguration"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:ConnectivityConfiguration"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230501:ConnectivityConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -81,6 +81,7 @@ namespace Pulumi.AzureNative.App.V20230501
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221001:ConnectedEnvironmentsCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate"},
                     new global::Pulumi.Alias { Type = "azure-native:app/v20230401preview:ConnectedEnvironmentsCertificate"},
+                    new global::Pulumi.Alias { Type = "azure-native:app/v20230502preview:ConnectedEnvironmentsCertificate"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

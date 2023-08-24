@@ -44,7 +44,10 @@ if typing.TYPE_CHECKING:
     v20180101preview = __v20180101preview
     import pulumi_azure_native.eventhub.v20221001preview as __v20221001preview
     v20221001preview = __v20221001preview
+    import pulumi_azure_native.eventhub.v20230101preview as __v20230101preview
+    v20230101preview = __v20230101preview
 else:
     v20180101preview = _utilities.lazy_import('pulumi_azure_native.eventhub.v20180101preview')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.eventhub.v20221001preview')
+    v20230101preview = _utilities.lazy_import('pulumi_azure_native.eventhub.v20230101preview')
 

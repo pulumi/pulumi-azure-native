@@ -146,6 +146,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:Cluster"},
                     new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220715preview:Cluster"},
+                    new global::Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20230301preview:Cluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -12,13 +12,13 @@ namespace Pulumi.AzureNative.Monitor.V20230403
     public static class GetAzureMonitorWorkspace
     {
         /// <summary>
-        /// Returns the specific Azure Monitor workspace
+        /// Returns the specified Azure Monitor Workspace
         /// </summary>
         public static Task<GetAzureMonitorWorkspaceResult> InvokeAsync(GetAzureMonitorWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureMonitorWorkspaceResult>("azure-native:monitor/v20230403:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Returns the specific Azure Monitor workspace
+        /// Returns the specified Azure Monitor Workspace
         /// </summary>
         public static Output<GetAzureMonitorWorkspaceResult> Invoke(GetAzureMonitorWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureMonitorWorkspaceResult>("azure-native:monitor/v20230403:getAzureMonitorWorkspace", args ?? new GetAzureMonitorWorkspaceInvokeArgs(), options.WithDefaults());
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
     public sealed class GetAzureMonitorWorkspaceArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Azure Monitor workspace.  The name is case insensitive
+        /// The name of the Azure Monitor Workspace. The name is case insensitive
         /// </summary>
         [Input("azureMonitorWorkspaceName", required: true)]
         public string AzureMonitorWorkspaceName { get; set; } = null!;
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
     public sealed class GetAzureMonitorWorkspaceInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Azure Monitor workspace.  The name is case insensitive
+        /// The name of the Azure Monitor Workspace. The name is case insensitive
         /// </summary>
         [Input("azureMonitorWorkspaceName", required: true)]
         public Input<string> AzureMonitorWorkspaceName { get; set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
     public sealed class GetAzureMonitorWorkspaceResult
     {
         /// <summary>
-        /// The immutable ID of the Azure Monitor workspace. This property is read-only.
+        /// The immutable Id of the Azure Monitor Workspace. This property is read-only.
         /// </summary>
         public readonly string AccountId;
         /// <summary>
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Monitor.V20230403
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Information about metrics for the Azure Monitor workspace
+        /// Properties related to the metrics container in the Azure Monitor Workspace
         /// </summary>
         public readonly Outputs.AzureMonitorWorkspaceResponseMetrics Metrics;
         /// <summary>
@@ -102,11 +102,11 @@ namespace Pulumi.AzureNative.Monitor.V20230403
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
-        /// The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
+        /// The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Gets or sets allow or disallow public network access to workspace
+        /// Gets or sets allow or disallow public network access to Azure Monitor Workspace
         /// </summary>
         public readonly string PublicNetworkAccess;
         /// <summary>

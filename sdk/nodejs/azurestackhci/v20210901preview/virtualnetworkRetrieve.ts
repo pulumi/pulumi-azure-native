@@ -120,7 +120,7 @@ export class VirtualnetworkRetrieve extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve" }, { type: "azure-native:azurestackhci:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci:virtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:virtualnetworkRetrieve" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve" }, { type: "azure-native:azurestackhci:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci:virtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20210701preview:virtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20221215preview:virtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20230701preview:VirtualnetworkRetrieve" }, { type: "azure-native:azurestackhci/v20230701preview:virtualnetworkRetrieve" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualnetworkRetrieve.__pulumiType, name, resourceInputs, opts);
     }

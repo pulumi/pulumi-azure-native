@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns the specific Azure Monitor workspace
+ * Returns the specified Azure Monitor Workspace
  * Azure REST API version: 2023-04-03.
  */
 export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureMonitorWorkspaceResult> {
@@ -22,7 +22,7 @@ export function getAzureMonitorWorkspace(args: GetAzureMonitorWorkspaceArgs, opt
 
 export interface GetAzureMonitorWorkspaceArgs {
     /**
-     * The name of the Azure Monitor workspace.  The name is case insensitive
+     * The name of the Azure Monitor Workspace. The name is case insensitive
      */
     azureMonitorWorkspaceName: string;
     /**
@@ -36,7 +36,7 @@ export interface GetAzureMonitorWorkspaceArgs {
  */
 export interface GetAzureMonitorWorkspaceResult {
     /**
-     * The immutable ID of the Azure Monitor workspace. This property is read-only.
+     * The immutable Id of the Azure Monitor Workspace. This property is read-only.
      */
     readonly accountId: string;
     /**
@@ -56,7 +56,7 @@ export interface GetAzureMonitorWorkspaceResult {
      */
     readonly location: string;
     /**
-     * Information about metrics for the Azure Monitor workspace
+     * Properties related to the metrics container in the Azure Monitor Workspace
      */
     readonly metrics: outputs.monitor.AzureMonitorWorkspaceResponseMetrics;
     /**
@@ -68,11 +68,11 @@ export interface GetAzureMonitorWorkspaceResult {
      */
     readonly privateEndpointConnections: outputs.monitor.PrivateEndpointConnectionResponse[];
     /**
-     * The provisioning state of the Azure Monitor workspace. Set to Succeeded if everything is healthy.
+     * The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
      */
     readonly provisioningState: string;
     /**
-     * Gets or sets allow or disallow public network access to workspace
+     * Gets or sets allow or disallow public network access to Azure Monitor Workspace
      */
     readonly publicNetworkAccess: string;
     /**
@@ -89,7 +89,7 @@ export interface GetAzureMonitorWorkspaceResult {
     readonly type: string;
 }
 /**
- * Returns the specific Azure Monitor workspace
+ * Returns the specified Azure Monitor Workspace
  * Azure REST API version: 2023-04-03.
  */
 export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureMonitorWorkspaceResult> {
@@ -98,7 +98,7 @@ export function getAzureMonitorWorkspaceOutput(args: GetAzureMonitorWorkspaceOut
 
 export interface GetAzureMonitorWorkspaceOutputArgs {
     /**
-     * The name of the Azure Monitor workspace.  The name is case insensitive
+     * The name of the Azure Monitor Workspace. The name is case insensitive
      */
     azureMonitorWorkspaceName: pulumi.Input<string>;
     /**

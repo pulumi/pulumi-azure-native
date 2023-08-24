@@ -91,6 +91,15 @@ export const Month = {
 
 export type Month = (typeof Month)[keyof typeof Month];
 
+export const ResourcePropertiesObjectType = {
+    DefaultResourceProperties: "DefaultResourceProperties",
+} as const;
+
+/**
+ * Type of the specific object - used for deserializing
+ */
+export type ResourcePropertiesObjectType = (typeof ResourcePropertiesObjectType)[keyof typeof ResourcePropertiesObjectType];
+
 export const SecretStoreType = {
     Invalid: "Invalid",
     AzureKeyVault: "AzureKeyVault",

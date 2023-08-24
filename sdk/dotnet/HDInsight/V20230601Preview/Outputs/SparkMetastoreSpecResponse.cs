@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.HDInsight.V20230601Preview.Outputs
         /// <summary>
         /// The database name.
         /// </summary>
-        public readonly string? DbName;
+        public readonly string DbName;
         /// <summary>
         /// The secret name which contains the database user password.
         /// </summary>
@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.HDInsight.V20230601Preview.Outputs
 
         [OutputConstructor]
         private SparkMetastoreSpecResponse(
-            string? dbName,
+            string dbName,
 
             string dbPasswordSecretName,
 

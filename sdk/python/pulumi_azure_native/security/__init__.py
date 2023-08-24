@@ -20,6 +20,7 @@ from .azure_servers_setting import *
 from .connector import *
 from .custom_assessment_automation import *
 from .custom_entity_store_assignment import *
+from .dev_ops_configuration import *
 from .device_security_group import *
 from .get_adaptive_application_control import *
 from .get_advanced_threat_protection import *
@@ -35,6 +36,7 @@ from .get_azure_servers_setting import *
 from .get_connector import *
 from .get_custom_assessment_automation import *
 from .get_custom_entity_store_assignment import *
+from .get_dev_ops_configuration import *
 from .get_device_security_group import *
 from .get_governance_assignment import *
 from .get_governance_rule import *
@@ -54,6 +56,10 @@ from .governance_rule import *
 from .ingestion_setting import *
 from .iot_security_solution import *
 from .jit_network_access_policy import *
+from .list_azure_dev_ops_org_available import *
+from .list_git_hub_owner_available import *
+from .list_git_lab_group_available import *
+from .list_git_lab_subgroup import *
 from .list_ingestion_setting_connection_strings import *
 from .list_ingestion_setting_tokens import *
 from .security_connector import *
@@ -103,6 +109,8 @@ if typing.TYPE_CHECKING:
     v20230301preview = __v20230301preview
     import pulumi_azure_native.security.v20230501 as __v20230501
     v20230501 = __v20230501
+    import pulumi_azure_native.security.v20230901preview as __v20230901preview
+    v20230901preview = __v20230901preview
 else:
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')
     v20190101 = _utilities.lazy_import('pulumi_azure_native.security.v20190101')
@@ -121,4 +129,5 @@ else:
     v20230201preview = _utilities.lazy_import('pulumi_azure_native.security.v20230201preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.security.v20230301preview')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.security.v20230501')
+    v20230901preview = _utilities.lazy_import('pulumi_azure_native.security.v20230901preview')
 

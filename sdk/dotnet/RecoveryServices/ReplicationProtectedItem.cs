@@ -88,6 +88,7 @@ namespace Pulumi.AzureNative.RecoveryServices
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230101:ReplicationProtectedItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230201:ReplicationProtectedItem"},
                     new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230401:ReplicationProtectedItem"},
+                    new global::Pulumi.Alias { Type = "azure-native:recoveryservices/v20230601:ReplicationProtectedItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

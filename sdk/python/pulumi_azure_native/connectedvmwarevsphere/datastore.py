@@ -259,7 +259,7 @@ class Datastore(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:Datastore"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:Datastore"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:Datastore")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20201001preview:Datastore"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220110preview:Datastore"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20220715preview:Datastore"), pulumi.Alias(type_="azure-native:connectedvmwarevsphere/v20230301preview:Datastore")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Datastore, __self__).__init__(
             'azure-native:connectedvmwarevsphere:Datastore',

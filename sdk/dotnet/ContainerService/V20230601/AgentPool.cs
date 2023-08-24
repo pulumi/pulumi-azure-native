@@ -348,6 +348,7 @@ namespace Pulumi.AzureNative.ContainerService.V20230601
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230502preview:AgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230602preview:AgentPool"},
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230701:AgentPool"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230702preview:AgentPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

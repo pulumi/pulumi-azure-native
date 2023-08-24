@@ -25,6 +25,7 @@ from .get_update_run import *
 from .get_update_summary import *
 from .get_virtual_hard_disk import *
 from .get_virtual_machine import *
+from .get_virtual_machine_instance import *
 from .get_virtual_network import *
 from .guest_agent import *
 from .hybrid_identity_metadatum import *
@@ -37,6 +38,7 @@ from .update_run import *
 from .update_summary import *
 from .virtual_hard_disk import *
 from .virtual_machine import *
+from .virtual_machine_instance import *
 from .virtual_network import *
 from ._inputs import *
 from . import outputs
@@ -53,10 +55,13 @@ if typing.TYPE_CHECKING:
     v20221215preview = __v20221215preview
     import pulumi_azure_native.azurestackhci.v20230301 as __v20230301
     v20230301 = __v20230301
+    import pulumi_azure_native.azurestackhci.v20230701preview as __v20230701preview
+    v20230701preview = __v20230701preview
 else:
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20210901preview')
     v20220101 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220101')
     v20220901 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20220901')
     v20221215preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20221215preview')
     v20230301 = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230301')
+    v20230701preview = _utilities.lazy_import('pulumi_azure_native.azurestackhci.v20230701preview')
 

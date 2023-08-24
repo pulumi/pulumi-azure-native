@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.EventHub
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20211101:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet"},
                     new global::Pulumi.Alias { Type = "azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet"},
+                    new global::Pulumi.Alias { Type = "azure-native:eventhub/v20230101preview:NamespaceNetworkRuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

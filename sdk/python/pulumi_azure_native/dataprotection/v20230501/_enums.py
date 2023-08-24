@@ -13,6 +13,7 @@ __all__ = [
     'DayOfWeek',
     'ImmutabilityState',
     'Month',
+    'ResourcePropertiesObjectType',
     'SecretStoreType',
     'SoftDeleteState',
     'StorageSettingStoreTypes',
@@ -93,6 +94,13 @@ class Month(str, Enum):
     NOVEMBER = "November"
     OCTOBER = "October"
     SEPTEMBER = "September"
+
+
+class ResourcePropertiesObjectType(str, Enum):
+    """
+    Type of the specific object - used for deserializing
+    """
+    DEFAULT_RESOURCE_PROPERTIES = "DefaultResourceProperties"
 
 
 class SecretStoreType(str, Enum):

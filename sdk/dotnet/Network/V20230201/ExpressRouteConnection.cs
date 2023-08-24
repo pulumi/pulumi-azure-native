@@ -124,6 +124,7 @@ namespace Pulumi.AzureNative.Network.V20230201
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220901:ExpressRouteConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20221101:ExpressRouteConnection"},
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230401:ExpressRouteConnection"},
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20230501:ExpressRouteConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
