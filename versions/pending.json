@@ -38,7 +38,8 @@
   "App": [
     "2022-11-01-preview",
     "2023-04-01-preview",
-    "2023-05-01"
+    "2023-05-01",
+    "2023-05-02-preview"
   ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [],
@@ -89,7 +90,8 @@
   ],
   "AzureStackHCI": [
     "2023-02-01",
-    "2023-03-01"
+    "2023-03-01",
+    "2023-07-01-preview"
   ],
   "BareMetalInfrastructure": [],
   "Batch": [],
@@ -102,7 +104,8 @@
   "BotService": [],
   "Cache": [
     "2023-04-01",
-    "2023-05-01-preview"
+    "2023-05-01-preview",
+    "2023-07-01"
   ],
   "Capacity": [],
   "Cdn": [],
@@ -130,8 +133,12 @@
     "2023-01-26-preview"
   ],
   "Confluent": [],
-  "ConnectedVMwarevSphere": [],
-  "Consumption": [],
+  "ConnectedVMwarevSphere": [
+    "2023-03-01-preview"
+  ],
+  "Consumption": [
+    "2023-11-01"
+  ],
   "ContainerInstance": [],
   "ContainerRegistry": [
     "2017-03-01",
@@ -152,7 +159,8 @@
     "2022-02-01-preview",
     "2022-12-01",
     "2023-01-01-preview",
-    "2023-06-01-preview"
+    "2023-06-01-preview",
+    "2023-07-01"
   ],
   "ContainerService": [
     "2019-11-01",
@@ -206,7 +214,8 @@
     "2023-05-02-preview",
     "2023-06-01",
     "2023-06-02-preview",
-    "2023-07-01"
+    "2023-07-01",
+    "2023-07-02-preview"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -228,7 +237,8 @@
     "2022-10-01-preview",
     "2022-10-05-preview",
     "2023-03-01",
-    "2023-04-01-preview"
+    "2023-04-01-preview",
+    "2023-08-01"
   ],
   "CustomProviders": [],
   "CustomerInsights": [],
@@ -275,7 +285,8 @@
   ],
   "Datadog": [],
   "DelegatedNetwork": [
-    "2023-05-18-preview"
+    "2023-05-18-preview",
+    "2023-06-27-preview"
   ],
   "DeploymentManager": [],
   "DesktopVirtualization": [
@@ -291,7 +302,9 @@
   "Devices": [
     "2022-11-15-preview",
     "2022-12-12",
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-06-30",
+    "2023-06-30-preview"
   ],
   "DigitalTwins": [],
   "DocumentDB": [
@@ -323,7 +336,8 @@
     "2021-06-01-preview",
     "2021-11-01",
     "2022-01-01-preview",
-    "2022-10-01-preview"
+    "2022-10-01-preview",
+    "2023-01-01-preview"
   ],
   "ExtendedLocation": [
     "2021-08-31-preview"
@@ -334,7 +348,8 @@
   "GuestConfiguration": [],
   "HDInsight": [
     "2023-04-15-preview",
-    "2023-06-01-preview"
+    "2023-06-01-preview",
+    "2023-08-15-preview"
   ],
   "HanaOnAzure": [],
   "HardwareSecurityModules": [
@@ -541,7 +556,8 @@
     "2021-01-01",
     "2021-08-01",
     "2022-05-01-preview",
-    "2022-08-01"
+    "2022-08-01",
+    "2023-08-01"
   ],
   "MixedReality": [
     "2021-03-01-preview"
@@ -552,7 +568,9 @@
   ],
   "MobilePacketCore": [],
   "Monitor": [],
-  "NetApp": [],
+  "NetApp": [
+    "2022-11-01-preview"
+  ],
   "Network": [
     "2018-06-01",
     "2018-07-01",
@@ -599,6 +617,7 @@
     "2022-11-01",
     "2023-02-01",
     "2023-04-01",
+    "2023-05-01",
     "2023-07-01-preview"
   ],
   "NetworkCloud": [
@@ -647,10 +666,12 @@
   ],
   "RecoveryServices": [
     "2023-02-01",
-    "2023-04-01"
+    "2023-04-01",
+    "2023-06-01"
   ],
   "RedHatOpenShift": [
-    "2023-04-01"
+    "2023-04-01",
+    "2023-07-01-preview"
   ],
   "Relay": [],
   "ResourceConnector": [
@@ -667,7 +688,8 @@
     "2021-05-01",
     "2022-02-01",
     "2022-08-01-preview",
-    "2022-09-01"
+    "2022-09-01",
+    "2023-07-01"
   ],
   "SaaS": [],
   "ScVmm": [],
@@ -693,7 +715,8 @@
     "2023-01-01-preview",
     "2023-02-01-preview",
     "2023-03-01-preview",
-    "2023-05-01"
+    "2023-05-01",
+    "2023-09-01-preview"
   ],
   "SecurityAndCompliance": [],
   "SecurityDevOps": [],
@@ -740,7 +763,8 @@
     "2022-02-01-preview",
     "2022-05-01-preview",
     "2022-08-01-preview",
-    "2022-11-01-preview"
+    "2022-11-01-preview",
+    "2023-02-01-preview"
   ],
   "SqlVirtualMachine": [
     "2022-02-01-preview",
