@@ -83,7 +83,7 @@ def get_log_analytic_export_throttled_requests(blob_container_sas_uri: Optional[
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230701:getLogAnalyticExportThrottledRequests', __args__, opts=opts, typ=GetLogAnalyticExportThrottledRequestsResult).value
 
     return AwaitableGetLogAnalyticExportThrottledRequestsResult(
-        properties=__ret__.properties)
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_log_analytic_export_throttled_requests)

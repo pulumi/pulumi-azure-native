@@ -62,7 +62,7 @@ def get_virtual_network_gateway_learned_routes(resource_group_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getVirtualNetworkGatewayLearnedRoutes', __args__, opts=opts, typ=GetVirtualNetworkGatewayLearnedRoutesResult).value
 
     return AwaitableGetVirtualNetworkGatewayLearnedRoutesResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_virtual_network_gateway_learned_routes)

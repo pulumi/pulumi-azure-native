@@ -176,16 +176,16 @@ def get_restore_point(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20221101:getRestorePoint', __args__, opts=opts, typ=GetRestorePointResult).value
 
     return AwaitableGetRestorePointResult(
-        consistency_mode=__ret__.consistency_mode,
-        exclude_disks=__ret__.exclude_disks,
-        id=__ret__.id,
-        instance_view=__ret__.instance_view,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        source_metadata=__ret__.source_metadata,
-        source_restore_point=__ret__.source_restore_point,
-        time_created=__ret__.time_created,
-        type=__ret__.type)
+        consistency_mode=pulumi.get(__ret__, 'consistency_mode'),
+        exclude_disks=pulumi.get(__ret__, 'exclude_disks'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_view=pulumi.get(__ret__, 'instance_view'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_metadata=pulumi.get(__ret__, 'source_metadata'),
+        source_restore_point=pulumi.get(__ret__, 'source_restore_point'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_restore_point)

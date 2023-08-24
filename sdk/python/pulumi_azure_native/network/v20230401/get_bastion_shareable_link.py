@@ -78,8 +78,8 @@ def get_bastion_shareable_link(bastion_host_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getBastionShareableLink', __args__, opts=opts, typ=GetBastionShareableLinkResult).value
 
     return AwaitableGetBastionShareableLinkResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_bastion_shareable_link)

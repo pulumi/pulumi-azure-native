@@ -236,21 +236,21 @@ def get_live_output(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20221101:getLiveOutput', __args__, opts=opts, typ=GetLiveOutputResult).value
 
     return AwaitableGetLiveOutputResult(
-        archive_window_length=__ret__.archive_window_length,
-        asset_name=__ret__.asset_name,
-        created=__ret__.created,
-        description=__ret__.description,
-        hls=__ret__.hls,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        manifest_name=__ret__.manifest_name,
-        name=__ret__.name,
-        output_snap_time=__ret__.output_snap_time,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        rewind_window_length=__ret__.rewind_window_length,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        archive_window_length=pulumi.get(__ret__, 'archive_window_length'),
+        asset_name=pulumi.get(__ret__, 'asset_name'),
+        created=pulumi.get(__ret__, 'created'),
+        description=pulumi.get(__ret__, 'description'),
+        hls=pulumi.get(__ret__, 'hls'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        manifest_name=pulumi.get(__ret__, 'manifest_name'),
+        name=pulumi.get(__ret__, 'name'),
+        output_snap_time=pulumi.get(__ret__, 'output_snap_time'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        rewind_window_length=pulumi.get(__ret__, 'rewind_window_length'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_live_output)

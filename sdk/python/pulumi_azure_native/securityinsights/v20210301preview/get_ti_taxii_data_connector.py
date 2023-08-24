@@ -249,22 +249,22 @@ def get_ti_taxii_data_connector(data_connector_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20210301preview:getTiTaxiiDataConnector', __args__, opts=opts, typ=GetTiTaxiiDataConnectorResult).value
 
     return AwaitableGetTiTaxiiDataConnectorResult(
-        collection_id=__ret__.collection_id,
-        data_types=__ret__.data_types,
-        etag=__ret__.etag,
-        friendly_name=__ret__.friendly_name,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        password=__ret__.password,
-        polling_frequency=__ret__.polling_frequency,
-        system_data=__ret__.system_data,
-        taxii_lookback_period=__ret__.taxii_lookback_period,
-        taxii_server=__ret__.taxii_server,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type,
-        user_name=__ret__.user_name,
-        workspace_id=__ret__.workspace_id)
+        collection_id=pulumi.get(__ret__, 'collection_id'),
+        data_types=pulumi.get(__ret__, 'data_types'),
+        etag=pulumi.get(__ret__, 'etag'),
+        friendly_name=pulumi.get(__ret__, 'friendly_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        password=pulumi.get(__ret__, 'password'),
+        polling_frequency=pulumi.get(__ret__, 'polling_frequency'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        taxii_lookback_period=pulumi.get(__ret__, 'taxii_lookback_period'),
+        taxii_server=pulumi.get(__ret__, 'taxii_server'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'),
+        user_name=pulumi.get(__ret__, 'user_name'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_ti_taxii_data_connector)

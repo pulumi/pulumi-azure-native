@@ -161,15 +161,15 @@ def get_signal_r_shared_private_link_resource(resource_group_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:signalrservice/v20230201:getSignalRSharedPrivateLinkResource', __args__, opts=opts, typ=GetSignalRSharedPrivateLinkResourceResult).value
 
     return AwaitableGetSignalRSharedPrivateLinkResourceResult(
-        group_id=__ret__.group_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        private_link_resource_id=__ret__.private_link_resource_id,
-        provisioning_state=__ret__.provisioning_state,
-        request_message=__ret__.request_message,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        group_id=pulumi.get(__ret__, 'group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        private_link_resource_id=pulumi.get(__ret__, 'private_link_resource_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        request_message=pulumi.get(__ret__, 'request_message'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_signal_r_shared_private_link_resource)

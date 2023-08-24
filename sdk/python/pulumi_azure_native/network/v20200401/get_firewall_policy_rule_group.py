@@ -137,13 +137,13 @@ def get_firewall_policy_rule_group(firewall_policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20200401:getFirewallPolicyRuleGroup', __args__, opts=opts, typ=GetFirewallPolicyRuleGroupResult).value
 
     return AwaitableGetFirewallPolicyRuleGroupResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        priority=__ret__.priority,
-        provisioning_state=__ret__.provisioning_state,
-        rules=__ret__.rules,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        priority=pulumi.get(__ret__, 'priority'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        rules=pulumi.get(__ret__, 'rules'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_firewall_policy_rule_group)

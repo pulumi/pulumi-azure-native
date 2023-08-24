@@ -247,22 +247,22 @@ def get_event_hub_event_source(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights:getEventHubEventSource', __args__, opts=opts, typ=GetEventHubEventSourceResult).value
 
     return AwaitableGetEventHubEventSourceResult(
-        consumer_group_name=__ret__.consumer_group_name,
-        creation_time=__ret__.creation_time,
-        event_hub_name=__ret__.event_hub_name,
-        event_source_resource_id=__ret__.event_source_resource_id,
-        id=__ret__.id,
-        key_name=__ret__.key_name,
-        kind=__ret__.kind,
-        local_timestamp=__ret__.local_timestamp,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        service_bus_namespace=__ret__.service_bus_namespace,
-        tags=__ret__.tags,
-        time=__ret__.time,
-        timestamp_property_name=__ret__.timestamp_property_name,
-        type=__ret__.type)
+        consumer_group_name=pulumi.get(__ret__, 'consumer_group_name'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        event_hub_name=pulumi.get(__ret__, 'event_hub_name'),
+        event_source_resource_id=pulumi.get(__ret__, 'event_source_resource_id'),
+        id=pulumi.get(__ret__, 'id'),
+        key_name=pulumi.get(__ret__, 'key_name'),
+        kind=pulumi.get(__ret__, 'kind'),
+        local_timestamp=pulumi.get(__ret__, 'local_timestamp'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service_bus_namespace=pulumi.get(__ret__, 'service_bus_namespace'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time=pulumi.get(__ret__, 'time'),
+        timestamp_property_name=pulumi.get(__ret__, 'timestamp_property_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_event_hub_event_source)

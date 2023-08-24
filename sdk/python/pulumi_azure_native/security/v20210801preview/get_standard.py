@@ -218,20 +218,20 @@ def get_standard(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20210801preview:getStandard', __args__, opts=opts, typ=GetStandardResult).value
 
     return AwaitableGetStandardResult(
-        category=__ret__.category,
-        components=__ret__.components,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        standard_type=__ret__.standard_type,
-        supported_clouds=__ret__.supported_clouds,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        category=pulumi.get(__ret__, 'category'),
+        components=pulumi.get(__ret__, 'components'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        standard_type=pulumi.get(__ret__, 'standard_type'),
+        supported_clouds=pulumi.get(__ret__, 'supported_clouds'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_standard)

@@ -240,22 +240,22 @@ def get_cluster_manager(cluster_manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getClusterManager', __args__, opts=opts, typ=GetClusterManagerResult).value
 
     return AwaitableGetClusterManagerResult(
-        analytics_workspace_id=__ret__.analytics_workspace_id,
-        availability_zones=__ret__.availability_zones,
-        cluster_versions=__ret__.cluster_versions,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
-        fabric_controller_id=__ret__.fabric_controller_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        managed_resource_group_configuration=__ret__.managed_resource_group_configuration,
-        manager_extended_location=__ret__.manager_extended_location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vm_size=__ret__.vm_size)
+        analytics_workspace_id=pulumi.get(__ret__, 'analytics_workspace_id'),
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
+        cluster_versions=pulumi.get(__ret__, 'cluster_versions'),
+        detailed_status=pulumi.get(__ret__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        fabric_controller_id=pulumi.get(__ret__, 'fabric_controller_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_resource_group_configuration=pulumi.get(__ret__, 'managed_resource_group_configuration'),
+        manager_extended_location=pulumi.get(__ret__, 'manager_extended_location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vm_size=pulumi.get(__ret__, 'vm_size'))
 
 
 @_utilities.lift_output_func(get_cluster_manager)

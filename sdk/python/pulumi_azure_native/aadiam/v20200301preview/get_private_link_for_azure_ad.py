@@ -169,16 +169,16 @@ def get_private_link_for_azure_ad(policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:aadiam/v20200301preview:getPrivateLinkForAzureAd', __args__, opts=opts, typ=GetPrivateLinkForAzureAdResult).value
 
     return AwaitableGetPrivateLinkForAzureAdResult(
-        all_tenants=__ret__.all_tenants,
-        id=__ret__.id,
-        name=__ret__.name,
-        owner_tenant_id=__ret__.owner_tenant_id,
-        resource_group=__ret__.resource_group,
-        resource_name=__ret__.resource_name,
-        subscription_id=__ret__.subscription_id,
-        tags=__ret__.tags,
-        tenants=__ret__.tenants,
-        type=__ret__.type)
+        all_tenants=pulumi.get(__ret__, 'all_tenants'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        owner_tenant_id=pulumi.get(__ret__, 'owner_tenant_id'),
+        resource_group=pulumi.get(__ret__, 'resource_group'),
+        resource_name=pulumi.get(__ret__, 'resource_name'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenants=pulumi.get(__ret__, 'tenants'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_link_for_azure_ad)

@@ -150,14 +150,14 @@ def get_periodic_timer_event_trigger(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20230701:getPeriodicTimerEventTrigger', __args__, opts=opts, typ=GetPeriodicTimerEventTriggerResult).value
 
     return AwaitableGetPeriodicTimerEventTriggerResult(
-        custom_context_tag=__ret__.custom_context_tag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        sink_info=__ret__.sink_info,
-        source_info=__ret__.source_info,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        custom_context_tag=pulumi.get(__ret__, 'custom_context_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        sink_info=pulumi.get(__ret__, 'sink_info'),
+        source_info=pulumi.get(__ret__, 'source_info'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_periodic_timer_event_trigger)

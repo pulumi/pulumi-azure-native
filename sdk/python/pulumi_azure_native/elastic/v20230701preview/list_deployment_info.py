@@ -122,12 +122,12 @@ def list_deployment_info(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elastic/v20230701preview:listDeploymentInfo', __args__, opts=opts, typ=ListDeploymentInfoResult).value
 
     return AwaitableListDeploymentInfoResult(
-        deployment_url=__ret__.deployment_url,
-        disk_capacity=__ret__.disk_capacity,
-        marketplace_saas_info=__ret__.marketplace_saas_info,
-        memory_capacity=__ret__.memory_capacity,
-        status=__ret__.status,
-        version=__ret__.version)
+        deployment_url=pulumi.get(__ret__, 'deployment_url'),
+        disk_capacity=pulumi.get(__ret__, 'disk_capacity'),
+        marketplace_saas_info=pulumi.get(__ret__, 'marketplace_saas_info'),
+        memory_capacity=pulumi.get(__ret__, 'memory_capacity'),
+        status=pulumi.get(__ret__, 'status'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(list_deployment_info)

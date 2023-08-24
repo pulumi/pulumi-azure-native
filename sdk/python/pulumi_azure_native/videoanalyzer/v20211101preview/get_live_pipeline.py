@@ -161,15 +161,15 @@ def get_live_pipeline(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer/v20211101preview:getLivePipeline', __args__, opts=opts, typ=GetLivePipelineResult).value
 
     return AwaitableGetLivePipelineResult(
-        bitrate_kbps=__ret__.bitrate_kbps,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        state=__ret__.state,
-        system_data=__ret__.system_data,
-        topology_name=__ret__.topology_name,
-        type=__ret__.type)
+        bitrate_kbps=pulumi.get(__ret__, 'bitrate_kbps'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        topology_name=pulumi.get(__ret__, 'topology_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_live_pipeline)

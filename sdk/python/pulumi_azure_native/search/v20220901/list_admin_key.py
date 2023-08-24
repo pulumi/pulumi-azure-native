@@ -73,8 +73,8 @@ def list_admin_key(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:search/v20220901:listAdminKey', __args__, opts=opts, typ=ListAdminKeyResult).value
 
     return AwaitableListAdminKeyResult(
-        primary_key=__ret__.primary_key,
-        secondary_key=__ret__.secondary_key)
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_admin_key)

@@ -118,12 +118,12 @@ def get_hierarchy_setting(group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:management/v20230401:getHierarchySetting', __args__, opts=opts, typ=GetHierarchySettingResult).value
 
     return AwaitableGetHierarchySettingResult(
-        default_management_group=__ret__.default_management_group,
-        id=__ret__.id,
-        name=__ret__.name,
-        require_authorization_for_group_creation=__ret__.require_authorization_for_group_creation,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        default_management_group=pulumi.get(__ret__, 'default_management_group'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        require_authorization_for_group_creation=pulumi.get(__ret__, 'require_authorization_for_group_creation'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hierarchy_setting)

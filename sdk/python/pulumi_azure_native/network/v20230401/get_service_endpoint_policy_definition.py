@@ -148,14 +148,14 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getServiceEndpointPolicyDefinition', __args__, opts=opts, typ=GetServiceEndpointPolicyDefinitionResult).value
 
     return AwaitableGetServiceEndpointPolicyDefinitionResult(
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        service=__ret__.service,
-        service_resources=__ret__.service_resources,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service=pulumi.get(__ret__, 'service'),
+        service_resources=pulumi.get(__ret__, 'service_resources'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_service_endpoint_policy_definition)

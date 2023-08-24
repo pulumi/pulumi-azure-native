@@ -195,18 +195,18 @@ def get_data_manager_for_agriculture_resource(data_manager_for_agriculture_resou
     __ret__ = pulumi.runtime.invoke('azure-native:agfoodplatform:getDataManagerForAgricultureResource', __args__, opts=opts, typ=GetDataManagerForAgricultureResourceResult).value
 
     return AwaitableGetDataManagerForAgricultureResourceResult(
-        id=__ret__.id,
-        identity=__ret__.identity,
-        instance_uri=__ret__.instance_uri,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        sensor_integration=__ret__.sensor_integration,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        instance_uri=pulumi.get(__ret__, 'instance_uri'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        sensor_integration=pulumi.get(__ret__, 'sensor_integration'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_manager_for_agriculture_resource)

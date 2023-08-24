@@ -179,17 +179,17 @@ def get_partner(partner_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managementpartner:getPartner', __args__, opts=opts, typ=GetPartnerResult).value
 
     return AwaitableGetPartnerResult(
-        created_time=__ret__.created_time,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        object_id=__ret__.object_id,
-        partner_id=__ret__.partner_id,
-        partner_name=__ret__.partner_name,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type,
-        updated_time=__ret__.updated_time,
-        version=__ret__.version)
+        created_time=pulumi.get(__ret__, 'created_time'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        object_id=pulumi.get(__ret__, 'object_id'),
+        partner_id=pulumi.get(__ret__, 'partner_id'),
+        partner_name=pulumi.get(__ret__, 'partner_name'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_time=pulumi.get(__ret__, 'updated_time'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_partner)

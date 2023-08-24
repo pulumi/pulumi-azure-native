@@ -206,19 +206,19 @@ def get_dedicated_hsm(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hardwaresecuritymodules/v20211130:getDedicatedHsm', __args__, opts=opts, typ=GetDedicatedHsmResult).value
 
     return AwaitableGetDedicatedHsmResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        management_network_profile=__ret__.management_network_profile,
-        name=__ret__.name,
-        network_profile=__ret__.network_profile,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        stamp_id=__ret__.stamp_id,
-        status_message=__ret__.status_message,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        management_network_profile=pulumi.get(__ret__, 'management_network_profile'),
+        name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        stamp_id=pulumi.get(__ret__, 'stamp_id'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_dedicated_hsm)

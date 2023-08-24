@@ -69,7 +69,7 @@ def list_device_failover_tars(manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:listDeviceFailoverTars', __args__, opts=opts, typ=ListDeviceFailoverTarsResult).value
 
     return AwaitableListDeviceFailoverTarsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_device_failover_tars)

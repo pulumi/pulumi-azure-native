@@ -245,22 +245,22 @@ def get_pool(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20221101:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
-        cool_access=__ret__.cool_access,
-        encryption_type=__ret__.encryption_type,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        pool_id=__ret__.pool_id,
-        provisioning_state=__ret__.provisioning_state,
-        qos_type=__ret__.qos_type,
-        service_level=__ret__.service_level,
-        size=__ret__.size,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        total_throughput_mibps=__ret__.total_throughput_mibps,
-        type=__ret__.type,
-        utilized_throughput_mibps=__ret__.utilized_throughput_mibps)
+        cool_access=pulumi.get(__ret__, 'cool_access'),
+        encryption_type=pulumi.get(__ret__, 'encryption_type'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        pool_id=pulumi.get(__ret__, 'pool_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        qos_type=pulumi.get(__ret__, 'qos_type'),
+        service_level=pulumi.get(__ret__, 'service_level'),
+        size=pulumi.get(__ret__, 'size'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        total_throughput_mibps=pulumi.get(__ret__, 'total_throughput_mibps'),
+        type=pulumi.get(__ret__, 'type'),
+        utilized_throughput_mibps=pulumi.get(__ret__, 'utilized_throughput_mibps'))
 
 
 @_utilities.lift_output_func(get_pool)

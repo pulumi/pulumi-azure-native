@@ -174,16 +174,16 @@ def get_order_item_by_name(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:edgeorder:getOrderItemByName', __args__, opts=opts, typ=GetOrderItemByNameResult).value
 
     return AwaitableGetOrderItemByNameResult(
-        address_details=__ret__.address_details,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        order_id=__ret__.order_id,
-        order_item_details=__ret__.order_item_details,
-        start_time=__ret__.start_time,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        address_details=pulumi.get(__ret__, 'address_details'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        order_id=pulumi.get(__ret__, 'order_id'),
+        order_item_details=pulumi.get(__ret__, 'order_item_details'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_order_item_by_name)

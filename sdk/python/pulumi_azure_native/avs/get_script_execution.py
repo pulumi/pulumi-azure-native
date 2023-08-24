@@ -270,24 +270,24 @@ def get_script_execution(private_cloud_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:getScriptExecution', __args__, opts=opts, typ=GetScriptExecutionResult).value
 
     return AwaitableGetScriptExecutionResult(
-        errors=__ret__.errors,
-        failure_reason=__ret__.failure_reason,
-        finished_at=__ret__.finished_at,
-        hidden_parameters=__ret__.hidden_parameters,
-        id=__ret__.id,
-        information=__ret__.information,
-        name=__ret__.name,
-        named_outputs=__ret__.named_outputs,
-        output=__ret__.output,
-        parameters=__ret__.parameters,
-        provisioning_state=__ret__.provisioning_state,
-        retention=__ret__.retention,
-        script_cmdlet_id=__ret__.script_cmdlet_id,
-        started_at=__ret__.started_at,
-        submitted_at=__ret__.submitted_at,
-        timeout=__ret__.timeout,
-        type=__ret__.type,
-        warnings=__ret__.warnings)
+        errors=pulumi.get(__ret__, 'errors'),
+        failure_reason=pulumi.get(__ret__, 'failure_reason'),
+        finished_at=pulumi.get(__ret__, 'finished_at'),
+        hidden_parameters=pulumi.get(__ret__, 'hidden_parameters'),
+        id=pulumi.get(__ret__, 'id'),
+        information=pulumi.get(__ret__, 'information'),
+        name=pulumi.get(__ret__, 'name'),
+        named_outputs=pulumi.get(__ret__, 'named_outputs'),
+        output=pulumi.get(__ret__, 'output'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        retention=pulumi.get(__ret__, 'retention'),
+        script_cmdlet_id=pulumi.get(__ret__, 'script_cmdlet_id'),
+        started_at=pulumi.get(__ret__, 'started_at'),
+        submitted_at=pulumi.get(__ret__, 'submitted_at'),
+        timeout=pulumi.get(__ret__, 'timeout'),
+        type=pulumi.get(__ret__, 'type'),
+        warnings=pulumi.get(__ret__, 'warnings'))
 
 
 @_utilities.lift_output_func(get_script_execution)

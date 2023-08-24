@@ -197,18 +197,18 @@ def get_proximity_placement_group(include_colocation_status: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230701:getProximityPlacementGroup', __args__, opts=opts, typ=GetProximityPlacementGroupResult).value
 
     return AwaitableGetProximityPlacementGroupResult(
-        availability_sets=__ret__.availability_sets,
-        colocation_status=__ret__.colocation_status,
-        id=__ret__.id,
-        intent=__ret__.intent,
-        location=__ret__.location,
-        name=__ret__.name,
-        proximity_placement_group_type=__ret__.proximity_placement_group_type,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_machine_scale_sets=__ret__.virtual_machine_scale_sets,
-        virtual_machines=__ret__.virtual_machines,
-        zones=__ret__.zones)
+        availability_sets=pulumi.get(__ret__, 'availability_sets'),
+        colocation_status=pulumi.get(__ret__, 'colocation_status'),
+        id=pulumi.get(__ret__, 'id'),
+        intent=pulumi.get(__ret__, 'intent'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        proximity_placement_group_type=pulumi.get(__ret__, 'proximity_placement_group_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machine_scale_sets=pulumi.get(__ret__, 'virtual_machine_scale_sets'),
+        virtual_machines=pulumi.get(__ret__, 'virtual_machines'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_proximity_placement_group)

@@ -60,7 +60,7 @@ def get_dns_resource_reference_by_tar_resources(target_resources: Optional[Seque
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230701preview:getDnsResourceReferenceByTarResources', __args__, opts=opts, typ=GetDnsResourceReferenceByTarResourcesResult).value
 
     return AwaitableGetDnsResourceReferenceByTarResourcesResult(
-        dns_resource_references=__ret__.dns_resource_references)
+        dns_resource_references=pulumi.get(__ret__, 'dns_resource_references'))
 
 
 @_utilities.lift_output_func(get_dns_resource_reference_by_tar_resources)

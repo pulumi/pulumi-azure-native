@@ -59,7 +59,7 @@ def list_ingestion_setting_tokens(ingestion_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:listIngestionSettingTokens', __args__, opts=opts, typ=ListIngestionSettingTokensResult).value
 
     return AwaitableListIngestionSettingTokensResult(
-        token=__ret__.token)
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(list_ingestion_setting_tokens)

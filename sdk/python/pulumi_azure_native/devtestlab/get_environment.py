@@ -192,17 +192,17 @@ def get_environment(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devtestlab:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult).value
 
     return AwaitableGetEnvironmentResult(
-        arm_template_display_name=__ret__.arm_template_display_name,
-        created_by_user=__ret__.created_by_user,
-        deployment_properties=__ret__.deployment_properties,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_group_id=__ret__.resource_group_id,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        arm_template_display_name=pulumi.get(__ret__, 'arm_template_display_name'),
+        created_by_user=pulumi.get(__ret__, 'created_by_user'),
+        deployment_properties=pulumi.get(__ret__, 'deployment_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_group_id=pulumi.get(__ret__, 'resource_group_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_environment)

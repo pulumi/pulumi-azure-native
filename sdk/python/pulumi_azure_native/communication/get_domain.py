@@ -222,20 +222,20 @@ def get_domain(domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:communication:getDomain', __args__, opts=opts, typ=GetDomainResult).value
 
     return AwaitableGetDomainResult(
-        data_location=__ret__.data_location,
-        domain_management=__ret__.domain_management,
-        from_sender_domain=__ret__.from_sender_domain,
-        id=__ret__.id,
-        location=__ret__.location,
-        mail_from_sender_domain=__ret__.mail_from_sender_domain,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        user_engagement_tracking=__ret__.user_engagement_tracking,
-        verification_records=__ret__.verification_records,
-        verification_states=__ret__.verification_states)
+        data_location=pulumi.get(__ret__, 'data_location'),
+        domain_management=pulumi.get(__ret__, 'domain_management'),
+        from_sender_domain=pulumi.get(__ret__, 'from_sender_domain'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mail_from_sender_domain=pulumi.get(__ret__, 'mail_from_sender_domain'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        user_engagement_tracking=pulumi.get(__ret__, 'user_engagement_tracking'),
+        verification_records=pulumi.get(__ret__, 'verification_records'),
+        verification_states=pulumi.get(__ret__, 'verification_states'))
 
 
 @_utilities.lift_output_func(get_domain)

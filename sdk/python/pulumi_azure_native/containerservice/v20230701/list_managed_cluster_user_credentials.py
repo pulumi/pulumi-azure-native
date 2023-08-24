@@ -68,7 +68,7 @@ def list_managed_cluster_user_credentials(format: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20230701:listManagedClusterUserCredentials', __args__, opts=opts, typ=ListManagedClusterUserCredentialsResult).value
 
     return AwaitableListManagedClusterUserCredentialsResult(
-        kubeconfigs=__ret__.kubeconfigs)
+        kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
 
 
 @_utilities.lift_output_func(list_managed_cluster_user_credentials)

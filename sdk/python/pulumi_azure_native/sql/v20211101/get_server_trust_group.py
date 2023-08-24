@@ -113,11 +113,11 @@ def get_server_trust_group(location_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20211101:getServerTrustGroup', __args__, opts=opts, typ=GetServerTrustGroupResult).value
 
     return AwaitableGetServerTrustGroupResult(
-        group_members=__ret__.group_members,
-        id=__ret__.id,
-        name=__ret__.name,
-        trust_scopes=__ret__.trust_scopes,
-        type=__ret__.type)
+        group_members=pulumi.get(__ret__, 'group_members'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        trust_scopes=pulumi.get(__ret__, 'trust_scopes'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_trust_group)

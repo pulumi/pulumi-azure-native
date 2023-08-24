@@ -269,24 +269,24 @@ def get_custom_ip_prefix(custom_ip_prefix_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210301:getCustomIPPrefix', __args__, opts=opts, typ=GetCustomIPPrefixResult).value
 
     return AwaitableGetCustomIPPrefixResult(
-        authorization_message=__ret__.authorization_message,
-        child_custom_ip_prefixes=__ret__.child_custom_ip_prefixes,
-        cidr=__ret__.cidr,
-        commissioned_state=__ret__.commissioned_state,
-        custom_ip_prefix_parent=__ret__.custom_ip_prefix_parent,
-        etag=__ret__.etag,
-        extended_location=__ret__.extended_location,
-        failed_reason=__ret__.failed_reason,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_ip_prefixes=__ret__.public_ip_prefixes,
-        resource_guid=__ret__.resource_guid,
-        signed_message=__ret__.signed_message,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        authorization_message=pulumi.get(__ret__, 'authorization_message'),
+        child_custom_ip_prefixes=pulumi.get(__ret__, 'child_custom_ip_prefixes'),
+        cidr=pulumi.get(__ret__, 'cidr'),
+        commissioned_state=pulumi.get(__ret__, 'commissioned_state'),
+        custom_ip_prefix_parent=pulumi.get(__ret__, 'custom_ip_prefix_parent'),
+        etag=pulumi.get(__ret__, 'etag'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        failed_reason=pulumi.get(__ret__, 'failed_reason'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_ip_prefixes=pulumi.get(__ret__, 'public_ip_prefixes'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        signed_message=pulumi.get(__ret__, 'signed_message'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_custom_ip_prefix)

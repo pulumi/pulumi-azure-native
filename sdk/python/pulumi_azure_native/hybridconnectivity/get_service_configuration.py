@@ -222,20 +222,20 @@ def get_service_configuration(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity:getServiceConfiguration', __args__, opts=opts, typ=GetServiceConfigurationResult).value
 
     return AwaitableGetServiceConfigurationResult(
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
-        id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
-        name=__ret__.name,
-        port=__ret__.port,
-        provisioning_state=__ret__.provisioning_state,
-        resource_id=__ret__.resource_id,
-        service_name=__ret__.service_name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_by_type=pulumi.get(__ret__, 'created_by_type'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_at=pulumi.get(__ret__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__ret__, 'last_modified_by_type'),
+        name=pulumi.get(__ret__, 'name'),
+        port=pulumi.get(__ret__, 'port'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        service_name=pulumi.get(__ret__, 'service_name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_service_configuration)

@@ -121,12 +121,12 @@ def get_azure_servers_setting(setting_kind: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getAzureServersSetting', __args__, opts=opts, typ=GetAzureServersSettingResult).value
 
     return AwaitableGetAzureServersSettingResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        selected_provider=__ret__.selected_provider,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        selected_provider=pulumi.get(__ret__, 'selected_provider'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_azure_servers_setting)

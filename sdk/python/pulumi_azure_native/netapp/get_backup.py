@@ -228,20 +228,20 @@ def get_backup(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp:getBackup', __args__, opts=opts, typ=GetBackupResult).value
 
     return AwaitableGetBackupResult(
-        backup_id=__ret__.backup_id,
-        backup_type=__ret__.backup_type,
-        creation_date=__ret__.creation_date,
-        failure_reason=__ret__.failure_reason,
-        id=__ret__.id,
-        label=__ret__.label,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        size=__ret__.size,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        use_existing_snapshot=__ret__.use_existing_snapshot,
-        volume_name=__ret__.volume_name)
+        backup_id=pulumi.get(__ret__, 'backup_id'),
+        backup_type=pulumi.get(__ret__, 'backup_type'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        failure_reason=pulumi.get(__ret__, 'failure_reason'),
+        id=pulumi.get(__ret__, 'id'),
+        label=pulumi.get(__ret__, 'label'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        size=pulumi.get(__ret__, 'size'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        use_existing_snapshot=pulumi.get(__ret__, 'use_existing_snapshot'),
+        volume_name=pulumi.get(__ret__, 'volume_name'))
 
 
 @_utilities.lift_output_func(get_backup)

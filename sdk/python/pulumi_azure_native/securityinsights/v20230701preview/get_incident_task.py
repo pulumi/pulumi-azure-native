@@ -194,18 +194,18 @@ def get_incident_task(incident_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230701preview:getIncidentTask', __args__, opts=opts, typ=GetIncidentTaskResult).value
 
     return AwaitableGetIncidentTaskResult(
-        created_by=__ret__.created_by,
-        created_time_utc=__ret__.created_time_utc,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_time_utc=__ret__.last_modified_time_utc,
-        name=__ret__.name,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        title=__ret__.title,
-        type=__ret__.type)
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_time_utc=pulumi.get(__ret__, 'last_modified_time_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        title=pulumi.get(__ret__, 'title'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_incident_task)

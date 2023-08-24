@@ -84,8 +84,8 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity:listEndpointManagedProxyDetails', __args__, opts=opts, typ=ListEndpointManagedProxyDetailsResult).value
 
     return AwaitableListEndpointManagedProxyDetailsResult(
-        expires_on=__ret__.expires_on,
-        proxy=__ret__.proxy)
+        expires_on=pulumi.get(__ret__, 'expires_on'),
+        proxy=pulumi.get(__ret__, 'proxy'))
 
 
 @_utilities.lift_output_func(list_endpoint_managed_proxy_details)

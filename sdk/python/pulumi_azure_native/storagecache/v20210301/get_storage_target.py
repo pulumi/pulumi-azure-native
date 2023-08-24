@@ -197,18 +197,18 @@ def get_storage_target(cache_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagecache/v20210301:getStorageTarget', __args__, opts=opts, typ=GetStorageTargetResult).value
 
     return AwaitableGetStorageTargetResult(
-        blob_nfs=__ret__.blob_nfs,
-        clfs=__ret__.clfs,
-        id=__ret__.id,
-        junctions=__ret__.junctions,
-        location=__ret__.location,
-        name=__ret__.name,
-        nfs3=__ret__.nfs3,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        target_type=__ret__.target_type,
-        type=__ret__.type,
-        unknown=__ret__.unknown)
+        blob_nfs=pulumi.get(__ret__, 'blob_nfs'),
+        clfs=pulumi.get(__ret__, 'clfs'),
+        id=pulumi.get(__ret__, 'id'),
+        junctions=pulumi.get(__ret__, 'junctions'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        nfs3=pulumi.get(__ret__, 'nfs3'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_type=pulumi.get(__ret__, 'target_type'),
+        type=pulumi.get(__ret__, 'type'),
+        unknown=pulumi.get(__ret__, 'unknown'))
 
 
 @_utilities.lift_output_func(get_storage_target)

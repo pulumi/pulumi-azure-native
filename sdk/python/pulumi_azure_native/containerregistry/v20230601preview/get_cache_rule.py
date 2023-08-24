@@ -162,15 +162,15 @@ def get_cache_rule(cache_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20230601preview:getCacheRule', __args__, opts=opts, typ=GetCacheRuleResult).value
 
     return AwaitableGetCacheRuleResult(
-        creation_date=__ret__.creation_date,
-        credential_set_resource_id=__ret__.credential_set_resource_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        source_repository=__ret__.source_repository,
-        system_data=__ret__.system_data,
-        target_repository=__ret__.target_repository,
-        type=__ret__.type)
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        credential_set_resource_id=pulumi.get(__ret__, 'credential_set_resource_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_repository=pulumi.get(__ret__, 'source_repository'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_repository=pulumi.get(__ret__, 'target_repository'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cache_rule)

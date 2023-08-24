@@ -62,7 +62,7 @@ def get_virtual_network_gateway_vpnclient_connection_health(resource_group_name:
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getVirtualNetworkGatewayVpnclientConnectionHealth', __args__, opts=opts, typ=GetVirtualNetworkGatewayVpnclientConnectionHealthResult).value
 
     return AwaitableGetVirtualNetworkGatewayVpnclientConnectionHealthResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_virtual_network_gateway_vpnclient_connection_health)

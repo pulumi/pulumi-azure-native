@@ -273,24 +273,24 @@ def get_origin(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getOrigin', __args__, opts=opts, typ=GetOriginResult).value
 
     return AwaitableGetOriginResult(
-        enabled=__ret__.enabled,
-        host_name=__ret__.host_name,
-        http_port=__ret__.http_port,
-        https_port=__ret__.https_port,
-        id=__ret__.id,
-        name=__ret__.name,
-        origin_host_header=__ret__.origin_host_header,
-        priority=__ret__.priority,
-        private_endpoint_status=__ret__.private_endpoint_status,
-        private_link_alias=__ret__.private_link_alias,
-        private_link_approval_message=__ret__.private_link_approval_message,
-        private_link_location=__ret__.private_link_location,
-        private_link_resource_id=__ret__.private_link_resource_id,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        weight=__ret__.weight)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        http_port=pulumi.get(__ret__, 'http_port'),
+        https_port=pulumi.get(__ret__, 'https_port'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        origin_host_header=pulumi.get(__ret__, 'origin_host_header'),
+        priority=pulumi.get(__ret__, 'priority'),
+        private_endpoint_status=pulumi.get(__ret__, 'private_endpoint_status'),
+        private_link_alias=pulumi.get(__ret__, 'private_link_alias'),
+        private_link_approval_message=pulumi.get(__ret__, 'private_link_approval_message'),
+        private_link_location=pulumi.get(__ret__, 'private_link_location'),
+        private_link_resource_id=pulumi.get(__ret__, 'private_link_resource_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        weight=pulumi.get(__ret__, 'weight'))
 
 
 @_utilities.lift_output_func(get_origin)

@@ -70,8 +70,8 @@ def get_marketplace_image_sas_token_sas_token(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20230101preview:getMarketplaceImageSasTokenSASToken', __args__, opts=opts, typ=GetMarketplaceImageSasTokenSASTokenResult).value
 
     return AwaitableGetMarketplaceImageSasTokenSASTokenResult(
-        sas_uri=__ret__.sas_uri,
-        status=__ret__.status)
+        sas_uri=pulumi.get(__ret__, 'sas_uri'),
+        status=pulumi.get(__ret__, 'status'))
 
 
 @_utilities.lift_output_func(get_marketplace_image_sas_token_sas_token)

@@ -189,17 +189,17 @@ def get_blob_data_set(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20210801:getBlobDataSet', __args__, opts=opts, typ=GetBlobDataSetResult).value
 
     return AwaitableGetBlobDataSetResult(
-        container_name=__ret__.container_name,
-        data_set_id=__ret__.data_set_id,
-        file_path=__ret__.file_path,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        resource_group=__ret__.resource_group,
-        storage_account_name=__ret__.storage_account_name,
-        subscription_id=__ret__.subscription_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        container_name=pulumi.get(__ret__, 'container_name'),
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        file_path=pulumi.get(__ret__, 'file_path'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_group=pulumi.get(__ret__, 'resource_group'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_blob_data_set)

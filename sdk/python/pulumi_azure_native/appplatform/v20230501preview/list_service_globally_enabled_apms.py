@@ -61,7 +61,7 @@ def list_service_globally_enabled_apms(resource_group_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform/v20230501preview:listServiceGloballyEnabledApms', __args__, opts=opts, typ=ListServiceGloballyEnabledApmsResult).value
 
     return AwaitableListServiceGloballyEnabledApmsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_service_globally_enabled_apms)

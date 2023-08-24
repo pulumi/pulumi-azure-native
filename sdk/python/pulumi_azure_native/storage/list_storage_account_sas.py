@@ -87,7 +87,7 @@ def list_storage_account_sas(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storage:listStorageAccountSAS', __args__, opts=opts, typ=ListStorageAccountSASResult).value
 
     return AwaitableListStorageAccountSASResult(
-        account_sas_token=__ret__.account_sas_token)
+        account_sas_token=pulumi.get(__ret__, 'account_sas_token'))
 
 
 @_utilities.lift_output_func(list_storage_account_sas)

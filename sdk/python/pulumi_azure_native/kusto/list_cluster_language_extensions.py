@@ -63,7 +63,7 @@ def list_cluster_language_extensions(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:listClusterLanguageExtensions', __args__, opts=opts, typ=ListClusterLanguageExtensionsResult).value
 
     return AwaitableListClusterLanguageExtensionsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_cluster_language_extensions)

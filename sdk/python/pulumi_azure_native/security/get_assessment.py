@@ -174,16 +174,16 @@ def get_assessment(assessment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getAssessment', __args__, opts=opts, typ=GetAssessmentResult).value
 
     return AwaitableGetAssessmentResult(
-        additional_data=__ret__.additional_data,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        links=__ret__.links,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        partners_data=__ret__.partners_data,
-        resource_details=__ret__.resource_details,
-        status=__ret__.status,
-        type=__ret__.type)
+        additional_data=pulumi.get(__ret__, 'additional_data'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        links=pulumi.get(__ret__, 'links'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        partners_data=pulumi.get(__ret__, 'partners_data'),
+        resource_details=pulumi.get(__ret__, 'resource_details'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_assessment)

@@ -260,23 +260,23 @@ def get_metadata(metadata_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20210301preview:getMetadata', __args__, opts=opts, typ=GetMetadataResult).value
 
     return AwaitableGetMetadataResult(
-        author=__ret__.author,
-        categories=__ret__.categories,
-        content_id=__ret__.content_id,
-        dependencies=__ret__.dependencies,
-        etag=__ret__.etag,
-        first_publish_date=__ret__.first_publish_date,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_publish_date=__ret__.last_publish_date,
-        name=__ret__.name,
-        parent_id=__ret__.parent_id,
-        providers=__ret__.providers,
-        source=__ret__.source,
-        support=__ret__.support,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        author=pulumi.get(__ret__, 'author'),
+        categories=pulumi.get(__ret__, 'categories'),
+        content_id=pulumi.get(__ret__, 'content_id'),
+        dependencies=pulumi.get(__ret__, 'dependencies'),
+        etag=pulumi.get(__ret__, 'etag'),
+        first_publish_date=pulumi.get(__ret__, 'first_publish_date'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_publish_date=pulumi.get(__ret__, 'last_publish_date'),
+        name=pulumi.get(__ret__, 'name'),
+        parent_id=pulumi.get(__ret__, 'parent_id'),
+        providers=pulumi.get(__ret__, 'providers'),
+        source=pulumi.get(__ret__, 'source'),
+        support=pulumi.get(__ret__, 'support'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_metadata)

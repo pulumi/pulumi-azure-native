@@ -206,19 +206,19 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:orbital/v20221101:getContactProfile', __args__, opts=opts, typ=GetContactProfileResult).value
 
     return AwaitableGetContactProfileResult(
-        auto_tracking_configuration=__ret__.auto_tracking_configuration,
-        event_hub_uri=__ret__.event_hub_uri,
-        id=__ret__.id,
-        links=__ret__.links,
-        location=__ret__.location,
-        minimum_elevation_degrees=__ret__.minimum_elevation_degrees,
-        minimum_viable_contact_duration=__ret__.minimum_viable_contact_duration,
-        name=__ret__.name,
-        network_configuration=__ret__.network_configuration,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        third_party_configurations=__ret__.third_party_configurations,
-        type=__ret__.type)
+        auto_tracking_configuration=pulumi.get(__ret__, 'auto_tracking_configuration'),
+        event_hub_uri=pulumi.get(__ret__, 'event_hub_uri'),
+        id=pulumi.get(__ret__, 'id'),
+        links=pulumi.get(__ret__, 'links'),
+        location=pulumi.get(__ret__, 'location'),
+        minimum_elevation_degrees=pulumi.get(__ret__, 'minimum_elevation_degrees'),
+        minimum_viable_contact_duration=pulumi.get(__ret__, 'minimum_viable_contact_duration'),
+        name=pulumi.get(__ret__, 'name'),
+        network_configuration=pulumi.get(__ret__, 'network_configuration'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        third_party_configurations=pulumi.get(__ret__, 'third_party_configurations'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_contact_profile)

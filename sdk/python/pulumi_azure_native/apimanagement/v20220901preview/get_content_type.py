@@ -124,12 +124,12 @@ def get_content_type(content_type_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getContentType', __args__, opts=opts, typ=GetContentTypeResult).value
 
     return AwaitableGetContentTypeResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        schema=__ret__.schema,
-        type=__ret__.type,
-        version=__ret__.version)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        schema=pulumi.get(__ret__, 'schema'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_content_type)

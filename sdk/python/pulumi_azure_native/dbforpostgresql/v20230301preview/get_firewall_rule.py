@@ -125,12 +125,12 @@ def get_firewall_rule(firewall_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbforpostgresql/v20230301preview:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult).value
 
     return AwaitableGetFirewallRuleResult(
-        end_ip_address=__ret__.end_ip_address,
-        id=__ret__.id,
-        name=__ret__.name,
-        start_ip_address=__ret__.start_ip_address,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        end_ip_address=pulumi.get(__ret__, 'end_ip_address'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_firewall_rule)

@@ -126,12 +126,12 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
     __ret__ = pulumi.runtime.invoke('azure-native:automanage:getConfigurationProfileAssignment', __args__, opts=opts, typ=GetConfigurationProfileAssignmentResult).value
 
     return AwaitableGetConfigurationProfileAssignmentResult(
-        id=__ret__.id,
-        managed_by=__ret__.managed_by,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_configuration_profile_assignment)

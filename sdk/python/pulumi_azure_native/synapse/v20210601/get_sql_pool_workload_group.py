@@ -163,15 +163,15 @@ def get_sql_pool_workload_group(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601:getSqlPoolWorkloadGroup', __args__, opts=opts, typ=GetSqlPoolWorkloadGroupResult).value
 
     return AwaitableGetSqlPoolWorkloadGroupResult(
-        id=__ret__.id,
-        importance=__ret__.importance,
-        max_resource_percent=__ret__.max_resource_percent,
-        max_resource_percent_per_request=__ret__.max_resource_percent_per_request,
-        min_resource_percent=__ret__.min_resource_percent,
-        min_resource_percent_per_request=__ret__.min_resource_percent_per_request,
-        name=__ret__.name,
-        query_execution_timeout=__ret__.query_execution_timeout,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        importance=pulumi.get(__ret__, 'importance'),
+        max_resource_percent=pulumi.get(__ret__, 'max_resource_percent'),
+        max_resource_percent_per_request=pulumi.get(__ret__, 'max_resource_percent_per_request'),
+        min_resource_percent=pulumi.get(__ret__, 'min_resource_percent'),
+        min_resource_percent_per_request=pulumi.get(__ret__, 'min_resource_percent_per_request'),
+        name=pulumi.get(__ret__, 'name'),
+        query_execution_timeout=pulumi.get(__ret__, 'query_execution_timeout'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sql_pool_workload_group)

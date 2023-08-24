@@ -183,17 +183,17 @@ def get_volume(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabricmesh:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        azure_file_parameters=__ret__.azure_file_parameters,
-        description=__ret__.description,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provider=__ret__.provider,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        status_details=__ret__.status_details,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        azure_file_parameters=pulumi.get(__ret__, 'azure_file_parameters'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provider=pulumi.get(__ret__, 'provider'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        status_details=pulumi.get(__ret__, 'status_details'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_volume)

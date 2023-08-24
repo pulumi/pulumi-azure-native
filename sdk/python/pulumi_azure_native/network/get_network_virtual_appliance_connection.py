@@ -150,14 +150,14 @@ def get_network_virtual_appliance_connection(connection_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkVirtualApplianceConnection', __args__, opts=opts, typ=GetNetworkVirtualApplianceConnectionResult).value
 
     return AwaitableGetNetworkVirtualApplianceConnectionResult(
-        asn=__ret__.asn,
-        bgp_peer_address=__ret__.bgp_peer_address,
-        enable_internet_security=__ret__.enable_internet_security,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        routing_configuration=__ret__.routing_configuration,
-        tunnel_identifier=__ret__.tunnel_identifier)
+        asn=pulumi.get(__ret__, 'asn'),
+        bgp_peer_address=pulumi.get(__ret__, 'bgp_peer_address'),
+        enable_internet_security=pulumi.get(__ret__, 'enable_internet_security'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
+        tunnel_identifier=pulumi.get(__ret__, 'tunnel_identifier'))
 
 
 @_utilities.lift_output_func(get_network_virtual_appliance_connection)

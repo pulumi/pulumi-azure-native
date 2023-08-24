@@ -194,18 +194,18 @@ def get_attestation_provider(provider_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:attestation/v20210601:getAttestationProvider', __args__, opts=opts, typ=GetAttestationProviderResult).value
 
     return AwaitableGetAttestationProviderResult(
-        attest_uri=__ret__.attest_uri,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        public_network_access=__ret__.public_network_access,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        tpm_attestation_authentication=__ret__.tpm_attestation_authentication,
-        trust_model=__ret__.trust_model,
-        type=__ret__.type)
+        attest_uri=pulumi.get(__ret__, 'attest_uri'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tpm_attestation_authentication=pulumi.get(__ret__, 'tpm_attestation_authentication'),
+        trust_model=pulumi.get(__ret__, 'trust_model'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_attestation_provider)

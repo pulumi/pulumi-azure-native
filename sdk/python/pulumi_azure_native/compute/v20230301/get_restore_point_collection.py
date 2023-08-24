@@ -161,15 +161,15 @@ def get_restore_point_collection(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230301:getRestorePointCollection', __args__, opts=opts, typ=GetRestorePointCollectionResult).value
 
     return AwaitableGetRestorePointCollectionResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        restore_point_collection_id=__ret__.restore_point_collection_id,
-        restore_points=__ret__.restore_points,
-        source=__ret__.source,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        restore_point_collection_id=pulumi.get(__ret__, 'restore_point_collection_id'),
+        restore_points=pulumi.get(__ret__, 'restore_points'),
+        source=pulumi.get(__ret__, 'source'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_restore_point_collection)

@@ -81,8 +81,8 @@ def list_list_effective_virtual_network_by_network_group(network_group_name: Opt
     __ret__ = pulumi.runtime.invoke('azure-native:network:listListEffectiveVirtualNetworkByNetworkGroup', __args__, opts=opts, typ=ListListEffectiveVirtualNetworkByNetworkGroupResult).value
 
     return AwaitableListListEffectiveVirtualNetworkByNetworkGroupResult(
-        skip_token=__ret__.skip_token,
-        value=__ret__.value)
+        skip_token=pulumi.get(__ret__, 'skip_token'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_list_effective_virtual_network_by_network_group)

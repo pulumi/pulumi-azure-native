@@ -63,7 +63,7 @@ def list_account_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:engagementfabric:listAccountKeys', __args__, opts=opts, typ=ListAccountKeysResult).value
 
     return AwaitableListAccountKeysResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_account_keys)

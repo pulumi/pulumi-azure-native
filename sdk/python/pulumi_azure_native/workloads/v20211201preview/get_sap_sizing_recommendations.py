@@ -86,7 +86,7 @@ def get_sap_sizing_recommendations(app_location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads/v20211201preview:getSAPSizingRecommendations', __args__, opts=opts, typ=GetSAPSizingRecommendationsResult).value
 
     return AwaitableGetSAPSizingRecommendationsResult(
-        deployment_type=__ret__.deployment_type)
+        deployment_type=pulumi.get(__ret__, 'deployment_type'))
 
 
 @_utilities.lift_output_func(get_sap_sizing_recommendations)

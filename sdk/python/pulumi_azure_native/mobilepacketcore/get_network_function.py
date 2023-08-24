@@ -231,21 +231,21 @@ def get_network_function(network_function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilepacketcore:getNetworkFunction', __args__, opts=opts, typ=GetNetworkFunctionResult).value
 
     return AwaitableGetNetworkFunctionResult(
-        capacity=__ret__.capacity,
-        deployment_notes=__ret__.deployment_notes,
-        id=__ret__.id,
-        infrastructure_element_count=__ret__.infrastructure_element_count,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_function_administrative_state=__ret__.network_function_administrative_state,
-        network_function_operational_status=__ret__.network_function_operational_status,
-        network_function_type=__ret__.network_function_type,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        user_description=__ret__.user_description)
+        capacity=pulumi.get(__ret__, 'capacity'),
+        deployment_notes=pulumi.get(__ret__, 'deployment_notes'),
+        id=pulumi.get(__ret__, 'id'),
+        infrastructure_element_count=pulumi.get(__ret__, 'infrastructure_element_count'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_function_administrative_state=pulumi.get(__ret__, 'network_function_administrative_state'),
+        network_function_operational_status=pulumi.get(__ret__, 'network_function_operational_status'),
+        network_function_type=pulumi.get(__ret__, 'network_function_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        user_description=pulumi.get(__ret__, 'user_description'))
 
 
 @_utilities.lift_output_func(get_network_function)

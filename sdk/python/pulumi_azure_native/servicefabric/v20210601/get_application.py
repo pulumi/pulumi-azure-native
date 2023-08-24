@@ -269,24 +269,24 @@ def get_application(application_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabric/v20210601:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        managed_identities=__ret__.managed_identities,
-        maximum_nodes=__ret__.maximum_nodes,
-        metrics=__ret__.metrics,
-        minimum_nodes=__ret__.minimum_nodes,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        provisioning_state=__ret__.provisioning_state,
-        remove_application_capacity=__ret__.remove_application_capacity,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        type_name=__ret__.type_name,
-        type_version=__ret__.type_version,
-        upgrade_policy=__ret__.upgrade_policy)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_identities=pulumi.get(__ret__, 'managed_identities'),
+        maximum_nodes=pulumi.get(__ret__, 'maximum_nodes'),
+        metrics=pulumi.get(__ret__, 'metrics'),
+        minimum_nodes=pulumi.get(__ret__, 'minimum_nodes'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        remove_application_capacity=pulumi.get(__ret__, 'remove_application_capacity'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        type_name=pulumi.get(__ret__, 'type_name'),
+        type_version=pulumi.get(__ret__, 'type_version'),
+        upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'))
 
 
 @_utilities.lift_output_func(get_application)

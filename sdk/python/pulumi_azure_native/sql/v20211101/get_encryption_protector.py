@@ -184,17 +184,17 @@ def get_encryption_protector(encryption_protector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20211101:getEncryptionProtector', __args__, opts=opts, typ=GetEncryptionProtectorResult).value
 
     return AwaitableGetEncryptionProtectorResult(
-        auto_rotation_enabled=__ret__.auto_rotation_enabled,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        server_key_name=__ret__.server_key_name,
-        server_key_type=__ret__.server_key_type,
-        subregion=__ret__.subregion,
-        thumbprint=__ret__.thumbprint,
-        type=__ret__.type,
-        uri=__ret__.uri)
+        auto_rotation_enabled=pulumi.get(__ret__, 'auto_rotation_enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        server_key_name=pulumi.get(__ret__, 'server_key_name'),
+        server_key_type=pulumi.get(__ret__, 'server_key_type'),
+        subregion=pulumi.get(__ret__, 'subregion'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        type=pulumi.get(__ret__, 'type'),
+        uri=pulumi.get(__ret__, 'uri'))
 
 
 @_utilities.lift_output_func(get_encryption_protector)

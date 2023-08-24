@@ -147,14 +147,14 @@ def get_email_service(email_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:communication:getEmailService', __args__, opts=opts, typ=GetEmailServiceResult).value
 
     return AwaitableGetEmailServiceResult(
-        data_location=__ret__.data_location,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        data_location=pulumi.get(__ret__, 'data_location'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_email_service)

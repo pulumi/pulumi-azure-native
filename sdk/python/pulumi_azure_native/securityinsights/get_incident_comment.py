@@ -165,15 +165,15 @@ def get_incident_comment(incident_comment_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getIncidentComment', __args__, opts=opts, typ=GetIncidentCommentResult).value
 
     return AwaitableGetIncidentCommentResult(
-        author=__ret__.author,
-        created_time_utc=__ret__.created_time_utc,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        last_modified_time_utc=__ret__.last_modified_time_utc,
-        message=__ret__.message,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        author=pulumi.get(__ret__, 'author'),
+        created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_time_utc=pulumi.get(__ret__, 'last_modified_time_utc'),
+        message=pulumi.get(__ret__, 'message'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_incident_comment)

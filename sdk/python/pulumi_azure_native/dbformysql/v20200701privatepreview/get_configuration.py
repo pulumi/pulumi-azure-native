@@ -196,18 +196,18 @@ def get_configuration(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbformysql/v20200701privatepreview:getConfiguration', __args__, opts=opts, typ=GetConfigurationResult).value
 
     return AwaitableGetConfigurationResult(
-        allowed_values=__ret__.allowed_values,
-        data_type=__ret__.data_type,
-        default_value=__ret__.default_value,
-        description=__ret__.description,
-        id=__ret__.id,
-        is_config_pending_restart=__ret__.is_config_pending_restart,
-        is_dynamic_config=__ret__.is_dynamic_config,
-        is_read_only=__ret__.is_read_only,
-        name=__ret__.name,
-        source=__ret__.source,
-        type=__ret__.type,
-        value=__ret__.value)
+        allowed_values=pulumi.get(__ret__, 'allowed_values'),
+        data_type=pulumi.get(__ret__, 'data_type'),
+        default_value=pulumi.get(__ret__, 'default_value'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        is_config_pending_restart=pulumi.get(__ret__, 'is_config_pending_restart'),
+        is_dynamic_config=pulumi.get(__ret__, 'is_dynamic_config'),
+        is_read_only=pulumi.get(__ret__, 'is_read_only'),
+        name=pulumi.get(__ret__, 'name'),
+        source=pulumi.get(__ret__, 'source'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_configuration)

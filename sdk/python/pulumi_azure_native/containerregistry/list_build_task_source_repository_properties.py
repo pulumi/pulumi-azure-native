@@ -102,10 +102,10 @@ def list_build_task_source_repository_properties(build_task_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry:listBuildTaskSourceRepositoryProperties', __args__, opts=opts, typ=ListBuildTaskSourceRepositoryPropertiesResult).value
 
     return AwaitableListBuildTaskSourceRepositoryPropertiesResult(
-        is_commit_trigger_enabled=__ret__.is_commit_trigger_enabled,
-        repository_url=__ret__.repository_url,
-        source_control_auth_properties=__ret__.source_control_auth_properties,
-        source_control_type=__ret__.source_control_type)
+        is_commit_trigger_enabled=pulumi.get(__ret__, 'is_commit_trigger_enabled'),
+        repository_url=pulumi.get(__ret__, 'repository_url'),
+        source_control_auth_properties=pulumi.get(__ret__, 'source_control_auth_properties'),
+        source_control_type=pulumi.get(__ret__, 'source_control_type'))
 
 
 @_utilities.lift_output_func(list_build_task_source_repository_properties)

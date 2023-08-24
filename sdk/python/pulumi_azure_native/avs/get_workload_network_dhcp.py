@@ -102,10 +102,10 @@ def get_workload_network_dhcp(dhcp_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:getWorkloadNetworkDhcp', __args__, opts=opts, typ=GetWorkloadNetworkDhcpResult).value
 
     return AwaitableGetWorkloadNetworkDhcpResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workload_network_dhcp)

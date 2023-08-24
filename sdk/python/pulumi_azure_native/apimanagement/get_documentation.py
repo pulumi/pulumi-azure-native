@@ -113,11 +113,11 @@ def get_documentation(documentation_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getDocumentation', __args__, opts=opts, typ=GetDocumentationResult).value
 
     return AwaitableGetDocumentationResult(
-        content=__ret__.content,
-        id=__ret__.id,
-        name=__ret__.name,
-        title=__ret__.title,
-        type=__ret__.type)
+        content=pulumi.get(__ret__, 'content'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        title=pulumi.get(__ret__, 'title'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_documentation)

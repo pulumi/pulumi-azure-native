@@ -146,14 +146,14 @@ def get_commitment_plan(commitment_plan_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearning/v20160501preview:getCommitmentPlan', __args__, opts=opts, typ=GetCommitmentPlanResult).value
 
     return AwaitableGetCommitmentPlanResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_commitment_plan)

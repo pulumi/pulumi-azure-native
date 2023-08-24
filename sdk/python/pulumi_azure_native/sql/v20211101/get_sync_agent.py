@@ -160,15 +160,15 @@ def get_sync_agent(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20211101:getSyncAgent', __args__, opts=opts, typ=GetSyncAgentResult).value
 
     return AwaitableGetSyncAgentResult(
-        expiry_time=__ret__.expiry_time,
-        id=__ret__.id,
-        is_up_to_date=__ret__.is_up_to_date,
-        last_alive_time=__ret__.last_alive_time,
-        name=__ret__.name,
-        state=__ret__.state,
-        sync_database_id=__ret__.sync_database_id,
-        type=__ret__.type,
-        version=__ret__.version)
+        expiry_time=pulumi.get(__ret__, 'expiry_time'),
+        id=pulumi.get(__ret__, 'id'),
+        is_up_to_date=pulumi.get(__ret__, 'is_up_to_date'),
+        last_alive_time=pulumi.get(__ret__, 'last_alive_time'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        sync_database_id=pulumi.get(__ret__, 'sync_database_id'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_sync_agent)

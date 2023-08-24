@@ -137,13 +137,13 @@ def get_enterprise_private_endpoint_connection(cluster_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:cache/v20230301preview:getEnterprisePrivateEndpointConnection', __args__, opts=opts, typ=GetEnterprisePrivateEndpointConnectionResult).value
 
     return AwaitableGetEnterprisePrivateEndpointConnectionResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        private_endpoint=__ret__.private_endpoint,
-        private_link_service_connection_state=__ret__.private_link_service_connection_state,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
+        private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_enterprise_private_endpoint_connection)

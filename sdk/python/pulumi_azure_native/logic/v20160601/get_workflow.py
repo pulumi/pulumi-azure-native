@@ -230,21 +230,21 @@ def get_workflow(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20160601:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
-        access_endpoint=__ret__.access_endpoint,
-        changed_time=__ret__.changed_time,
-        created_time=__ret__.created_time,
-        definition=__ret__.definition,
-        id=__ret__.id,
-        integration_account=__ret__.integration_account,
-        location=__ret__.location,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        state=__ret__.state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        access_endpoint=pulumi.get(__ret__, 'access_endpoint'),
+        changed_time=pulumi.get(__ret__, 'changed_time'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        definition=pulumi.get(__ret__, 'definition'),
+        id=pulumi.get(__ret__, 'id'),
+        integration_account=pulumi.get(__ret__, 'integration_account'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        state=pulumi.get(__ret__, 'state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_workflow)

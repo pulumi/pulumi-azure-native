@@ -182,17 +182,17 @@ def get_availability_set(availability_set_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230701:getAvailabilitySet', __args__, opts=opts, typ=GetAvailabilitySetResult).value
 
     return AwaitableGetAvailabilitySetResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        platform_fault_domain_count=__ret__.platform_fault_domain_count,
-        platform_update_domain_count=__ret__.platform_update_domain_count,
-        proximity_placement_group=__ret__.proximity_placement_group,
-        sku=__ret__.sku,
-        statuses=__ret__.statuses,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_machines=__ret__.virtual_machines)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        platform_fault_domain_count=pulumi.get(__ret__, 'platform_fault_domain_count'),
+        platform_update_domain_count=pulumi.get(__ret__, 'platform_update_domain_count'),
+        proximity_placement_group=pulumi.get(__ret__, 'proximity_placement_group'),
+        sku=pulumi.get(__ret__, 'sku'),
+        statuses=pulumi.get(__ret__, 'statuses'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
 
 
 @_utilities.lift_output_func(get_availability_set)

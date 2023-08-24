@@ -242,22 +242,22 @@ def get_bmc_key_set(bmc_key_set_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud/v20230701:getBmcKeySet', __args__, opts=opts, typ=GetBmcKeySetResult).value
 
     return AwaitableGetBmcKeySetResult(
-        azure_group_id=__ret__.azure_group_id,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
-        expiration=__ret__.expiration,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        last_validation=__ret__.last_validation,
-        location=__ret__.location,
-        name=__ret__.name,
-        privilege_level=__ret__.privilege_level,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        user_list=__ret__.user_list,
-        user_list_status=__ret__.user_list_status)
+        azure_group_id=pulumi.get(__ret__, 'azure_group_id'),
+        detailed_status=pulumi.get(__ret__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        expiration=pulumi.get(__ret__, 'expiration'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        last_validation=pulumi.get(__ret__, 'last_validation'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        privilege_level=pulumi.get(__ret__, 'privilege_level'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        user_list=pulumi.get(__ret__, 'user_list'),
+        user_list_status=pulumi.get(__ret__, 'user_list_status'))
 
 
 @_utilities.lift_output_func(get_bmc_key_set)

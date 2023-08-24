@@ -261,23 +261,23 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getEndpoint', __args__, opts=opts, typ=GetEndpointResult).value
 
     return AwaitableGetEndpointResult(
-        always_serve=__ret__.always_serve,
-        custom_headers=__ret__.custom_headers,
-        endpoint_location=__ret__.endpoint_location,
-        endpoint_monitor_status=__ret__.endpoint_monitor_status,
-        endpoint_status=__ret__.endpoint_status,
-        geo_mapping=__ret__.geo_mapping,
-        id=__ret__.id,
-        min_child_endpoints=__ret__.min_child_endpoints,
-        min_child_endpoints_i_pv4=__ret__.min_child_endpoints_i_pv4,
-        min_child_endpoints_i_pv6=__ret__.min_child_endpoints_i_pv6,
-        name=__ret__.name,
-        priority=__ret__.priority,
-        subnets=__ret__.subnets,
-        target=__ret__.target,
-        target_resource_id=__ret__.target_resource_id,
-        type=__ret__.type,
-        weight=__ret__.weight)
+        always_serve=pulumi.get(__ret__, 'always_serve'),
+        custom_headers=pulumi.get(__ret__, 'custom_headers'),
+        endpoint_location=pulumi.get(__ret__, 'endpoint_location'),
+        endpoint_monitor_status=pulumi.get(__ret__, 'endpoint_monitor_status'),
+        endpoint_status=pulumi.get(__ret__, 'endpoint_status'),
+        geo_mapping=pulumi.get(__ret__, 'geo_mapping'),
+        id=pulumi.get(__ret__, 'id'),
+        min_child_endpoints=pulumi.get(__ret__, 'min_child_endpoints'),
+        min_child_endpoints_i_pv4=pulumi.get(__ret__, 'min_child_endpoints_i_pv4'),
+        min_child_endpoints_i_pv6=pulumi.get(__ret__, 'min_child_endpoints_i_pv6'),
+        name=pulumi.get(__ret__, 'name'),
+        priority=pulumi.get(__ret__, 'priority'),
+        subnets=pulumi.get(__ret__, 'subnets'),
+        target=pulumi.get(__ret__, 'target'),
+        target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
+        type=pulumi.get(__ret__, 'type'),
+        weight=pulumi.get(__ret__, 'weight'))
 
 
 @_utilities.lift_output_func(get_endpoint)

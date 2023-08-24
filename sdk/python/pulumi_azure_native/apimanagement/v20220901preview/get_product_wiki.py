@@ -101,10 +101,10 @@ def get_product_wiki(product_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getProductWiki', __args__, opts=opts, typ=GetProductWikiResult).value
 
     return AwaitableGetProductWikiResult(
-        documents=__ret__.documents,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        documents=pulumi.get(__ret__, 'documents'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_product_wiki)

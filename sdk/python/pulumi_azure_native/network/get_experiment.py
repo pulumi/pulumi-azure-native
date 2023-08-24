@@ -198,18 +198,18 @@ def get_experiment(experiment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getExperiment', __args__, opts=opts, typ=GetExperimentResult).value
 
     return AwaitableGetExperimentResult(
-        description=__ret__.description,
-        enabled_state=__ret__.enabled_state,
-        endpoint_a=__ret__.endpoint_a,
-        endpoint_b=__ret__.endpoint_b,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_state=__ret__.resource_state,
-        script_file_uri=__ret__.script_file_uri,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        enabled_state=pulumi.get(__ret__, 'enabled_state'),
+        endpoint_a=pulumi.get(__ret__, 'endpoint_a'),
+        endpoint_b=pulumi.get(__ret__, 'endpoint_b'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        script_file_uri=pulumi.get(__ret__, 'script_file_uri'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_experiment)

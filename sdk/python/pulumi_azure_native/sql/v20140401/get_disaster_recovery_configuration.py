@@ -184,17 +184,17 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20140401:getDisasterRecoveryConfiguration', __args__, opts=opts, typ=GetDisasterRecoveryConfigurationResult).value
 
     return AwaitableGetDisasterRecoveryConfigurationResult(
-        auto_failover=__ret__.auto_failover,
-        failover_policy=__ret__.failover_policy,
-        id=__ret__.id,
-        location=__ret__.location,
-        logical_server_name=__ret__.logical_server_name,
-        name=__ret__.name,
-        partner_logical_server_name=__ret__.partner_logical_server_name,
-        partner_server_id=__ret__.partner_server_id,
-        role=__ret__.role,
-        status=__ret__.status,
-        type=__ret__.type)
+        auto_failover=pulumi.get(__ret__, 'auto_failover'),
+        failover_policy=pulumi.get(__ret__, 'failover_policy'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        logical_server_name=pulumi.get(__ret__, 'logical_server_name'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_logical_server_name=pulumi.get(__ret__, 'partner_logical_server_name'),
+        partner_server_id=pulumi.get(__ret__, 'partner_server_id'),
+        role=pulumi.get(__ret__, 'role'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_disaster_recovery_configuration)

@@ -205,18 +205,18 @@ def get_attached_data_network(attached_data_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork/v20230601:getAttachedDataNetwork', __args__, opts=opts, typ=GetAttachedDataNetworkResult).value
 
     return AwaitableGetAttachedDataNetworkResult(
-        dns_addresses=__ret__.dns_addresses,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        napt_configuration=__ret__.napt_configuration,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        user_equipment_address_pool_prefix=__ret__.user_equipment_address_pool_prefix,
-        user_equipment_static_address_pool_prefix=__ret__.user_equipment_static_address_pool_prefix,
-        user_plane_data_interface=__ret__.user_plane_data_interface)
+        dns_addresses=pulumi.get(__ret__, 'dns_addresses'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        napt_configuration=pulumi.get(__ret__, 'napt_configuration'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        user_equipment_address_pool_prefix=pulumi.get(__ret__, 'user_equipment_address_pool_prefix'),
+        user_equipment_static_address_pool_prefix=pulumi.get(__ret__, 'user_equipment_static_address_pool_prefix'),
+        user_plane_data_interface=pulumi.get(__ret__, 'user_plane_data_interface'))
 
 
 @_utilities.lift_output_func(get_attached_data_network)

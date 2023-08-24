@@ -207,19 +207,19 @@ def get_storage_task(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagetasks:getStorageTask', __args__, opts=opts, typ=GetStorageTaskResult).value
 
     return AwaitableGetStorageTaskResult(
-        action=__ret__.action,
-        creation_time_in_utc=__ret__.creation_time_in_utc,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        task_version=__ret__.task_version,
-        type=__ret__.type)
+        action=pulumi.get(__ret__, 'action'),
+        creation_time_in_utc=pulumi.get(__ret__, 'creation_time_in_utc'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        task_version=pulumi.get(__ret__, 'task_version'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_storage_task)

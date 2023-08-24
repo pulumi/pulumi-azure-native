@@ -152,14 +152,14 @@ def get_api_tag_description(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getApiTagDescription', __args__, opts=opts, typ=GetApiTagDescriptionResult).value
 
     return AwaitableGetApiTagDescriptionResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        external_docs_description=__ret__.external_docs_description,
-        external_docs_url=__ret__.external_docs_url,
-        id=__ret__.id,
-        name=__ret__.name,
-        tag_id=__ret__.tag_id,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        external_docs_description=pulumi.get(__ret__, 'external_docs_description'),
+        external_docs_url=pulumi.get(__ret__, 'external_docs_url'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        tag_id=pulumi.get(__ret__, 'tag_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_api_tag_description)

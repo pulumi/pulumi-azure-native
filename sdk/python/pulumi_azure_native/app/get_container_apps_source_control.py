@@ -152,14 +152,14 @@ def get_container_apps_source_control(container_app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app:getContainerAppsSourceControl', __args__, opts=opts, typ=GetContainerAppsSourceControlResult).value
 
     return AwaitableGetContainerAppsSourceControlResult(
-        branch=__ret__.branch,
-        github_action_configuration=__ret__.github_action_configuration,
-        id=__ret__.id,
-        name=__ret__.name,
-        operation_state=__ret__.operation_state,
-        repo_url=__ret__.repo_url,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        branch=pulumi.get(__ret__, 'branch'),
+        github_action_configuration=pulumi.get(__ret__, 'github_action_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        operation_state=pulumi.get(__ret__, 'operation_state'),
+        repo_url=pulumi.get(__ret__, 'repo_url'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_container_apps_source_control)

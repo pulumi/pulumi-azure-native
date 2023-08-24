@@ -103,10 +103,10 @@ def get_gateway_certificate_authority(certificate_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getGatewayCertificateAuthority', __args__, opts=opts, typ=GetGatewayCertificateAuthorityResult).value
 
     return AwaitableGetGatewayCertificateAuthorityResult(
-        id=__ret__.id,
-        is_trusted=__ret__.is_trusted,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        is_trusted=pulumi.get(__ret__, 'is_trusted'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_gateway_certificate_authority)

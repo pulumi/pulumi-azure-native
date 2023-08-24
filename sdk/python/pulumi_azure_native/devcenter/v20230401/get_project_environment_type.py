@@ -197,18 +197,18 @@ def get_project_environment_type(environment_type_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter/v20230401:getProjectEnvironmentType', __args__, opts=opts, typ=GetProjectEnvironmentTypeResult).value
 
     return AwaitableGetProjectEnvironmentTypeResult(
-        creator_role_assignment=__ret__.creator_role_assignment,
-        deployment_target_id=__ret__.deployment_target_id,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        user_role_assignments=__ret__.user_role_assignments)
+        creator_role_assignment=pulumi.get(__ret__, 'creator_role_assignment'),
+        deployment_target_id=pulumi.get(__ret__, 'deployment_target_id'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        user_role_assignments=pulumi.get(__ret__, 'user_role_assignments'))
 
 
 @_utilities.lift_output_func(get_project_environment_type)

@@ -137,13 +137,13 @@ def get_mongo_db_resource_mongo_role_definition(account_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20230415:getMongoDBResourceMongoRoleDefinition', __args__, opts=opts, typ=GetMongoDBResourceMongoRoleDefinitionResult).value
 
     return AwaitableGetMongoDBResourceMongoRoleDefinitionResult(
-        database_name=__ret__.database_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        privileges=__ret__.privileges,
-        role_name=__ret__.role_name,
-        roles=__ret__.roles,
-        type=__ret__.type)
+        database_name=pulumi.get(__ret__, 'database_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        privileges=pulumi.get(__ret__, 'privileges'),
+        role_name=pulumi.get(__ret__, 'role_name'),
+        roles=pulumi.get(__ret__, 'roles'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_mongo_db_resource_mongo_role_definition)

@@ -114,11 +114,11 @@ def get_component_container(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getComponentContainer', __args__, opts=opts, typ=GetComponentContainerResult).value
 
     return AwaitableGetComponentContainerResult(
-        component_container_properties=__ret__.component_container_properties,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        component_container_properties=pulumi.get(__ret__, 'component_container_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_component_container)

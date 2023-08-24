@@ -58,7 +58,7 @@ def get_diagnostic_service_token_read_write(resource_uri: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20210303preview:getDiagnosticServiceTokenReadWrite', __args__, opts=opts, typ=GetDiagnosticServiceTokenReadWriteResult).value
 
     return AwaitableGetDiagnosticServiceTokenReadWriteResult(
-        token=__ret__.token)
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(get_diagnostic_service_token_read_write)

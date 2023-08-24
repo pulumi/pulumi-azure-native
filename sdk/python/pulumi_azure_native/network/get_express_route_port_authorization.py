@@ -149,14 +149,14 @@ def get_express_route_port_authorization(authorization_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:network:getExpressRoutePortAuthorization', __args__, opts=opts, typ=GetExpressRoutePortAuthorizationResult).value
 
     return AwaitableGetExpressRoutePortAuthorizationResult(
-        authorization_key=__ret__.authorization_key,
-        authorization_use_status=__ret__.authorization_use_status,
-        circuit_resource_uri=__ret__.circuit_resource_uri,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        authorization_key=pulumi.get(__ret__, 'authorization_key'),
+        authorization_use_status=pulumi.get(__ret__, 'authorization_use_status'),
+        circuit_resource_uri=pulumi.get(__ret__, 'circuit_resource_uri'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_express_route_port_authorization)

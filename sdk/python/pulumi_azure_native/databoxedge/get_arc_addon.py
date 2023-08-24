@@ -214,19 +214,19 @@ def get_arc_addon(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getArcAddon', __args__, opts=opts, typ=GetArcAddonResult).value
 
     return AwaitableGetArcAddonResult(
-        host_platform=__ret__.host_platform,
-        host_platform_type=__ret__.host_platform_type,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_group_name=__ret__.resource_group_name,
-        resource_location=__ret__.resource_location,
-        resource_name=__ret__.resource_name,
-        subscription_id=__ret__.subscription_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        host_platform=pulumi.get(__ret__, 'host_platform'),
+        host_platform_type=pulumi.get(__ret__, 'host_platform_type'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        resource_location=pulumi.get(__ret__, 'resource_location'),
+        resource_name=pulumi.get(__ret__, 'resource_name'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_arc_addon)

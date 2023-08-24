@@ -234,21 +234,21 @@ def list_channel_with_keys(channel_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:botservice:listChannelWithKeys', __args__, opts=opts, typ=ListChannelWithKeysResult).value
 
     return AwaitableListChannelWithKeysResult(
-        changed_time=__ret__.changed_time,
-        entity_tag=__ret__.entity_tag,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        provisioning_state=__ret__.provisioning_state,
-        resource=__ret__.resource,
-        setting=__ret__.setting,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        changed_time=pulumi.get(__ret__, 'changed_time'),
+        entity_tag=pulumi.get(__ret__, 'entity_tag'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource=pulumi.get(__ret__, 'resource'),
+        setting=pulumi.get(__ret__, 'setting'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(list_channel_with_keys)

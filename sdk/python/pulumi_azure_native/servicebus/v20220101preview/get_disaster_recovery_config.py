@@ -173,16 +173,16 @@ def get_disaster_recovery_config(alias: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicebus/v20220101preview:getDisasterRecoveryConfig', __args__, opts=opts, typ=GetDisasterRecoveryConfigResult).value
 
     return AwaitableGetDisasterRecoveryConfigResult(
-        alternate_name=__ret__.alternate_name,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        partner_namespace=__ret__.partner_namespace,
-        pending_replication_operations_count=__ret__.pending_replication_operations_count,
-        provisioning_state=__ret__.provisioning_state,
-        role=__ret__.role,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        alternate_name=pulumi.get(__ret__, 'alternate_name'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_namespace=pulumi.get(__ret__, 'partner_namespace'),
+        pending_replication_operations_count=pulumi.get(__ret__, 'pending_replication_operations_count'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        role=pulumi.get(__ret__, 'role'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_disaster_recovery_config)

@@ -125,12 +125,12 @@ def get_web_app_swift_virtual_network_connection_slot(name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppSwiftVirtualNetworkConnectionSlot', __args__, opts=opts, typ=GetWebAppSwiftVirtualNetworkConnectionSlotResult).value
 
     return AwaitableGetWebAppSwiftVirtualNetworkConnectionSlotResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        subnet_resource_id=__ret__.subnet_resource_id,
-        swift_supported=__ret__.swift_supported,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        subnet_resource_id=pulumi.get(__ret__, 'subnet_resource_id'),
+        swift_supported=pulumi.get(__ret__, 'swift_supported'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_swift_virtual_network_connection_slot)

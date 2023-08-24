@@ -219,20 +219,20 @@ def get_key(key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:keyvault:getKey', __args__, opts=opts, typ=GetKeyResult).value
 
     return AwaitableGetKeyResult(
-        attributes=__ret__.attributes,
-        curve_name=__ret__.curve_name,
-        id=__ret__.id,
-        key_ops=__ret__.key_ops,
-        key_size=__ret__.key_size,
-        key_uri=__ret__.key_uri,
-        key_uri_with_version=__ret__.key_uri_with_version,
-        kty=__ret__.kty,
-        location=__ret__.location,
-        name=__ret__.name,
-        release_policy=__ret__.release_policy,
-        rotation_policy=__ret__.rotation_policy,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        attributes=pulumi.get(__ret__, 'attributes'),
+        curve_name=pulumi.get(__ret__, 'curve_name'),
+        id=pulumi.get(__ret__, 'id'),
+        key_ops=pulumi.get(__ret__, 'key_ops'),
+        key_size=pulumi.get(__ret__, 'key_size'),
+        key_uri=pulumi.get(__ret__, 'key_uri'),
+        key_uri_with_version=pulumi.get(__ret__, 'key_uri_with_version'),
+        kty=pulumi.get(__ret__, 'kty'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        release_policy=pulumi.get(__ret__, 'release_policy'),
+        rotation_policy=pulumi.get(__ret__, 'rotation_policy'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_key)

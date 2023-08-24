@@ -234,21 +234,21 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagepool:getIscsiTarget', __args__, opts=opts, typ=GetIscsiTargetResult).value
 
     return AwaitableGetIscsiTargetResult(
-        acl_mode=__ret__.acl_mode,
-        endpoints=__ret__.endpoints,
-        id=__ret__.id,
-        luns=__ret__.luns,
-        managed_by=__ret__.managed_by,
-        managed_by_extended=__ret__.managed_by_extended,
-        name=__ret__.name,
-        port=__ret__.port,
-        provisioning_state=__ret__.provisioning_state,
-        sessions=__ret__.sessions,
-        static_acls=__ret__.static_acls,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        target_iqn=__ret__.target_iqn,
-        type=__ret__.type)
+        acl_mode=pulumi.get(__ret__, 'acl_mode'),
+        endpoints=pulumi.get(__ret__, 'endpoints'),
+        id=pulumi.get(__ret__, 'id'),
+        luns=pulumi.get(__ret__, 'luns'),
+        managed_by=pulumi.get(__ret__, 'managed_by'),
+        managed_by_extended=pulumi.get(__ret__, 'managed_by_extended'),
+        name=pulumi.get(__ret__, 'name'),
+        port=pulumi.get(__ret__, 'port'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sessions=pulumi.get(__ret__, 'sessions'),
+        static_acls=pulumi.get(__ret__, 'static_acls'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        target_iqn=pulumi.get(__ret__, 'target_iqn'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_iscsi_target)

@@ -124,12 +124,12 @@ def get_namespace_ip_filter_rule(ip_filter_rule_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicebus/v20180101preview:getNamespaceIpFilterRule', __args__, opts=opts, typ=GetNamespaceIpFilterRuleResult).value
 
     return AwaitableGetNamespaceIpFilterRuleResult(
-        action=__ret__.action,
-        filter_name=__ret__.filter_name,
-        id=__ret__.id,
-        ip_mask=__ret__.ip_mask,
-        name=__ret__.name,
-        type=__ret__.type)
+        action=pulumi.get(__ret__, 'action'),
+        filter_name=pulumi.get(__ret__, 'filter_name'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_mask=pulumi.get(__ret__, 'ip_mask'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_namespace_ip_filter_rule)

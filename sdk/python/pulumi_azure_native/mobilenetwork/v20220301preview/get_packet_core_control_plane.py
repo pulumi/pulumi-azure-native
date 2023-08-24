@@ -266,24 +266,24 @@ def get_packet_core_control_plane(packet_core_control_plane_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork/v20220301preview:getPacketCoreControlPlane', __args__, opts=opts, typ=GetPacketCoreControlPlaneResult).value
 
     return AwaitableGetPacketCoreControlPlaneResult(
-        control_plane_access_interface=__ret__.control_plane_access_interface,
-        core_network_technology=__ret__.core_network_technology,
-        created_at=__ret__.created_at,
-        created_by=__ret__.created_by,
-        created_by_type=__ret__.created_by_type,
-        custom_location=__ret__.custom_location,
-        id=__ret__.id,
-        last_modified_at=__ret__.last_modified_at,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_by_type=__ret__.last_modified_by_type,
-        location=__ret__.location,
-        mobile_network=__ret__.mobile_network,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        control_plane_access_interface=pulumi.get(__ret__, 'control_plane_access_interface'),
+        core_network_technology=pulumi.get(__ret__, 'core_network_technology'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_by_type=pulumi.get(__ret__, 'created_by_type'),
+        custom_location=pulumi.get(__ret__, 'custom_location'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_at=pulumi.get(__ret__, 'last_modified_at'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_by_type=pulumi.get(__ret__, 'last_modified_by_type'),
+        location=pulumi.get(__ret__, 'location'),
+        mobile_network=pulumi.get(__ret__, 'mobile_network'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_packet_core_control_plane)

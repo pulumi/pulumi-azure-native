@@ -73,8 +73,8 @@ def get_workspace_shared_keys(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20151101preview:getWorkspaceSharedKeys', __args__, opts=opts, typ=GetWorkspaceSharedKeysResult).value
 
     return AwaitableGetWorkspaceSharedKeysResult(
-        primary_shared_key=__ret__.primary_shared_key,
-        secondary_shared_key=__ret__.secondary_shared_key)
+        primary_shared_key=pulumi.get(__ret__, 'primary_shared_key'),
+        secondary_shared_key=pulumi.get(__ret__, 'secondary_shared_key'))
 
 
 @_utilities.lift_output_func(get_workspace_shared_keys)

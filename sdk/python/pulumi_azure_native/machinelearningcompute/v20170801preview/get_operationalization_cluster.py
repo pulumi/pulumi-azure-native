@@ -242,22 +242,22 @@ def get_operationalization_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningcompute/v20170801preview:getOperationalizationCluster', __args__, opts=opts, typ=GetOperationalizationClusterResult).value
 
     return AwaitableGetOperationalizationClusterResult(
-        app_insights=__ret__.app_insights,
-        cluster_type=__ret__.cluster_type,
-        container_registry=__ret__.container_registry,
-        container_service=__ret__.container_service,
-        created_on=__ret__.created_on,
-        description=__ret__.description,
-        global_service_configuration=__ret__.global_service_configuration,
-        id=__ret__.id,
-        location=__ret__.location,
-        modified_on=__ret__.modified_on,
-        name=__ret__.name,
-        provisioning_errors=__ret__.provisioning_errors,
-        provisioning_state=__ret__.provisioning_state,
-        storage_account=__ret__.storage_account,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        app_insights=pulumi.get(__ret__, 'app_insights'),
+        cluster_type=pulumi.get(__ret__, 'cluster_type'),
+        container_registry=pulumi.get(__ret__, 'container_registry'),
+        container_service=pulumi.get(__ret__, 'container_service'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        description=pulumi.get(__ret__, 'description'),
+        global_service_configuration=pulumi.get(__ret__, 'global_service_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        modified_on=pulumi.get(__ret__, 'modified_on'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_errors=pulumi.get(__ret__, 'provisioning_errors'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        storage_account=pulumi.get(__ret__, 'storage_account'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_operationalization_cluster)

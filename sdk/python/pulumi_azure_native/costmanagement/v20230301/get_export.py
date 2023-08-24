@@ -185,17 +185,17 @@ def get_export(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement/v20230301:getExport', __args__, opts=opts, typ=GetExportResult).value
 
     return AwaitableGetExportResult(
-        definition=__ret__.definition,
-        delivery_info=__ret__.delivery_info,
-        e_tag=__ret__.e_tag,
-        format=__ret__.format,
-        id=__ret__.id,
-        name=__ret__.name,
-        next_run_time_estimate=__ret__.next_run_time_estimate,
-        partition_data=__ret__.partition_data,
-        run_history=__ret__.run_history,
-        schedule=__ret__.schedule,
-        type=__ret__.type)
+        definition=pulumi.get(__ret__, 'definition'),
+        delivery_info=pulumi.get(__ret__, 'delivery_info'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        format=pulumi.get(__ret__, 'format'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        next_run_time_estimate=pulumi.get(__ret__, 'next_run_time_estimate'),
+        partition_data=pulumi.get(__ret__, 'partition_data'),
+        run_history=pulumi.get(__ret__, 'run_history'),
+        schedule=pulumi.get(__ret__, 'schedule'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_export)

@@ -112,11 +112,11 @@ def get_firewall_rule(cache_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache/v20230401:getFirewallRule', __args__, opts=opts, typ=GetFirewallRuleResult).value
 
     return AwaitableGetFirewallRuleResult(
-        end_ip=__ret__.end_ip,
-        id=__ret__.id,
-        name=__ret__.name,
-        start_ip=__ret__.start_ip,
-        type=__ret__.type)
+        end_ip=pulumi.get(__ret__, 'end_ip'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        start_ip=pulumi.get(__ret__, 'start_ip'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_firewall_rule)

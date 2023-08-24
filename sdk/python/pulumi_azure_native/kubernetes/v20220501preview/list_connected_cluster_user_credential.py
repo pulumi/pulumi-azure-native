@@ -81,8 +81,8 @@ def list_connected_cluster_user_credential(authentication_method: Optional[Union
     __ret__ = pulumi.runtime.invoke('azure-native:kubernetes/v20220501preview:listConnectedClusterUserCredential', __args__, opts=opts, typ=ListConnectedClusterUserCredentialResult).value
 
     return AwaitableListConnectedClusterUserCredentialResult(
-        hybrid_connection_config=__ret__.hybrid_connection_config,
-        kubeconfigs=__ret__.kubeconfigs)
+        hybrid_connection_config=pulumi.get(__ret__, 'hybrid_connection_config'),
+        kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
 
 
 @_utilities.lift_output_func(list_connected_cluster_user_credential)

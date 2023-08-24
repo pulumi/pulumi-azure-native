@@ -177,16 +177,16 @@ def get_kusto_cluster_data_set_mapping(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20210801:getKustoClusterDataSetMapping', __args__, opts=opts, typ=GetKustoClusterDataSetMappingResult).value
 
     return AwaitableGetKustoClusterDataSetMappingResult(
-        data_set_id=__ret__.data_set_id,
-        data_set_mapping_status=__ret__.data_set_mapping_status,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        kusto_cluster_resource_id=__ret__.kusto_cluster_resource_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        data_set_mapping_status=pulumi.get(__ret__, 'data_set_mapping_status'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        kusto_cluster_resource_id=pulumi.get(__ret__, 'kusto_cluster_resource_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_kusto_cluster_data_set_mapping)

@@ -218,20 +218,20 @@ def get_job(job_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app/v20230501:getJob', __args__, opts=opts, typ=GetJobResult).value
 
     return AwaitableGetJobResult(
-        configuration=__ret__.configuration,
-        environment_id=__ret__.environment_id,
-        event_stream_endpoint=__ret__.event_stream_endpoint,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        outbound_ip_addresses=__ret__.outbound_ip_addresses,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        template=__ret__.template,
-        type=__ret__.type,
-        workload_profile_name=__ret__.workload_profile_name)
+        configuration=pulumi.get(__ret__, 'configuration'),
+        environment_id=pulumi.get(__ret__, 'environment_id'),
+        event_stream_endpoint=pulumi.get(__ret__, 'event_stream_endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_ip_addresses=pulumi.get(__ret__, 'outbound_ip_addresses'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template=pulumi.get(__ret__, 'template'),
+        type=pulumi.get(__ret__, 'type'),
+        workload_profile_name=pulumi.get(__ret__, 'workload_profile_name'))
 
 
 @_utilities.lift_output_func(get_job)

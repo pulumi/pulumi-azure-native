@@ -138,13 +138,13 @@ def get_federated_identity_credential(federated_identity_credential_resource_nam
     __ret__ = pulumi.runtime.invoke('azure-native:managedidentity:getFederatedIdentityCredential', __args__, opts=opts, typ=GetFederatedIdentityCredentialResult).value
 
     return AwaitableGetFederatedIdentityCredentialResult(
-        audiences=__ret__.audiences,
-        id=__ret__.id,
-        issuer=__ret__.issuer,
-        name=__ret__.name,
-        subject=__ret__.subject,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        audiences=pulumi.get(__ret__, 'audiences'),
+        id=pulumi.get(__ret__, 'id'),
+        issuer=pulumi.get(__ret__, 'issuer'),
+        name=pulumi.get(__ret__, 'name'),
+        subject=pulumi.get(__ret__, 'subject'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_federated_identity_credential)

@@ -174,16 +174,16 @@ def get_aws_s3_data_connector(data_connector_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230601preview:getAwsS3DataConnector', __args__, opts=opts, typ=GetAwsS3DataConnectorResult).value
 
     return AwaitableGetAwsS3DataConnectorResult(
-        data_types=__ret__.data_types,
-        destination_table=__ret__.destination_table,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        role_arn=__ret__.role_arn,
-        sqs_urls=__ret__.sqs_urls,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        data_types=pulumi.get(__ret__, 'data_types'),
+        destination_table=pulumi.get(__ret__, 'destination_table'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        sqs_urls=pulumi.get(__ret__, 'sqs_urls'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_aws_s3_data_connector)

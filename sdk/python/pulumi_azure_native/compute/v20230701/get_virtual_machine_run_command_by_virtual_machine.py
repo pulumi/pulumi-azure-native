@@ -284,25 +284,25 @@ def get_virtual_machine_run_command_by_virtual_machine(expand: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230701:getVirtualMachineRunCommandByVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineRunCommandByVirtualMachineResult).value
 
     return AwaitableGetVirtualMachineRunCommandByVirtualMachineResult(
-        async_execution=__ret__.async_execution,
-        error_blob_managed_identity=__ret__.error_blob_managed_identity,
-        error_blob_uri=__ret__.error_blob_uri,
-        id=__ret__.id,
-        instance_view=__ret__.instance_view,
-        location=__ret__.location,
-        name=__ret__.name,
-        output_blob_managed_identity=__ret__.output_blob_managed_identity,
-        output_blob_uri=__ret__.output_blob_uri,
-        parameters=__ret__.parameters,
-        protected_parameters=__ret__.protected_parameters,
-        provisioning_state=__ret__.provisioning_state,
-        run_as_password=__ret__.run_as_password,
-        run_as_user=__ret__.run_as_user,
-        source=__ret__.source,
-        tags=__ret__.tags,
-        timeout_in_seconds=__ret__.timeout_in_seconds,
-        treat_failure_as_deployment_failure=__ret__.treat_failure_as_deployment_failure,
-        type=__ret__.type)
+        async_execution=pulumi.get(__ret__, 'async_execution'),
+        error_blob_managed_identity=pulumi.get(__ret__, 'error_blob_managed_identity'),
+        error_blob_uri=pulumi.get(__ret__, 'error_blob_uri'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_view=pulumi.get(__ret__, 'instance_view'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        output_blob_managed_identity=pulumi.get(__ret__, 'output_blob_managed_identity'),
+        output_blob_uri=pulumi.get(__ret__, 'output_blob_uri'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        protected_parameters=pulumi.get(__ret__, 'protected_parameters'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        run_as_password=pulumi.get(__ret__, 'run_as_password'),
+        run_as_user=pulumi.get(__ret__, 'run_as_user'),
+        source=pulumi.get(__ret__, 'source'),
+        tags=pulumi.get(__ret__, 'tags'),
+        timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'),
+        treat_failure_as_deployment_failure=pulumi.get(__ret__, 'treat_failure_as_deployment_failure'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_virtual_machine_run_command_by_virtual_machine)

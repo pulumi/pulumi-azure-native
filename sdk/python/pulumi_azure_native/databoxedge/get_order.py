@@ -219,20 +219,20 @@ def get_order(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getOrder', __args__, opts=opts, typ=GetOrderResult).value
 
     return AwaitableGetOrderResult(
-        contact_information=__ret__.contact_information,
-        current_status=__ret__.current_status,
-        delivery_tracking_info=__ret__.delivery_tracking_info,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        order_history=__ret__.order_history,
-        order_id=__ret__.order_id,
-        return_tracking_info=__ret__.return_tracking_info,
-        serial_number=__ret__.serial_number,
-        shipment_type=__ret__.shipment_type,
-        shipping_address=__ret__.shipping_address,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        contact_information=pulumi.get(__ret__, 'contact_information'),
+        current_status=pulumi.get(__ret__, 'current_status'),
+        delivery_tracking_info=pulumi.get(__ret__, 'delivery_tracking_info'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        order_history=pulumi.get(__ret__, 'order_history'),
+        order_id=pulumi.get(__ret__, 'order_id'),
+        return_tracking_info=pulumi.get(__ret__, 'return_tracking_info'),
+        serial_number=pulumi.get(__ret__, 'serial_number'),
+        shipment_type=pulumi.get(__ret__, 'shipment_type'),
+        shipping_address=pulumi.get(__ret__, 'shipping_address'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_order)

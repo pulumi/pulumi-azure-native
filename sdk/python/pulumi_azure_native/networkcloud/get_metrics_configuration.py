@@ -207,19 +207,19 @@ def get_metrics_configuration(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud:getMetricsConfiguration', __args__, opts=opts, typ=GetMetricsConfigurationResult).value
 
     return AwaitableGetMetricsConfigurationResult(
-        collection_interval=__ret__.collection_interval,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
-        disabled_metrics=__ret__.disabled_metrics,
-        enabled_metrics=__ret__.enabled_metrics,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        collection_interval=pulumi.get(__ret__, 'collection_interval'),
+        detailed_status=pulumi.get(__ret__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        disabled_metrics=pulumi.get(__ret__, 'disabled_metrics'),
+        enabled_metrics=pulumi.get(__ret__, 'enabled_metrics'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_metrics_configuration)

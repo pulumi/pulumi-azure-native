@@ -269,24 +269,24 @@ def get_kusto_pool(kusto_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getKustoPool', __args__, opts=opts, typ=GetKustoPoolResult).value
 
     return AwaitableGetKustoPoolResult(
-        data_ingestion_uri=__ret__.data_ingestion_uri,
-        enable_purge=__ret__.enable_purge,
-        enable_streaming_ingest=__ret__.enable_streaming_ingest,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        language_extensions=__ret__.language_extensions,
-        location=__ret__.location,
-        name=__ret__.name,
-        optimized_autoscale=__ret__.optimized_autoscale,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        state=__ret__.state,
-        state_reason=__ret__.state_reason,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        uri=__ret__.uri,
-        workspace_uid=__ret__.workspace_uid)
+        data_ingestion_uri=pulumi.get(__ret__, 'data_ingestion_uri'),
+        enable_purge=pulumi.get(__ret__, 'enable_purge'),
+        enable_streaming_ingest=pulumi.get(__ret__, 'enable_streaming_ingest'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        language_extensions=pulumi.get(__ret__, 'language_extensions'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        optimized_autoscale=pulumi.get(__ret__, 'optimized_autoscale'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        state=pulumi.get(__ret__, 'state'),
+        state_reason=pulumi.get(__ret__, 'state_reason'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        uri=pulumi.get(__ret__, 'uri'),
+        workspace_uid=pulumi.get(__ret__, 'workspace_uid'))
 
 
 @_utilities.lift_output_func(get_kusto_pool)
