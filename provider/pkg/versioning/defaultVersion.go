@@ -315,7 +315,11 @@ func filterCandidateVersions(versions VersionResources, previewPolicy string) []
 		}
 	}
 
-	return candidateVersions.SortedValues()
+	result := candidateVersions.SortedValues()
+	if result == nil {
+		result = []openapi.ApiVersion{}
+	}
+	return result
 }
 
 func isMoreThanOneYearOld(version openapi.ApiVersion) (bool, error) {
@@ -373,7 +377,11 @@ func findMinimalVersionSet(versions VersionResources) []openapi.ApiVersion {
 		minimalVersions.Add(apiVersion)
 	}
 
-	return minimalVersions.SortedValues()
+	result := minimalVersions.SortedValues()
+	if result == nil {
+		result = []openapi.ApiVersion{}
+	}
+	return result
 }
 
 func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err error) {
