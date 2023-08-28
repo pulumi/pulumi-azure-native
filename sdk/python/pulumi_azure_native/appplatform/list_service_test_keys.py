@@ -110,11 +110,11 @@ def list_service_test_keys(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform:listServiceTestKeys', __args__, opts=opts, typ=ListServiceTestKeysResult).value
 
     return AwaitableListServiceTestKeysResult(
-        enabled=__ret__.enabled,
-        primary_key=__ret__.primary_key,
-        primary_test_endpoint=__ret__.primary_test_endpoint,
-        secondary_key=__ret__.secondary_key,
-        secondary_test_endpoint=__ret__.secondary_test_endpoint)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        primary_test_endpoint=pulumi.get(__ret__, 'primary_test_endpoint'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'),
+        secondary_test_endpoint=pulumi.get(__ret__, 'secondary_test_endpoint'))
 
 
 @_utilities.lift_output_func(list_service_test_keys)

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Elastic.V20230701Preview
         /// </summary>
         public static Task<GetOrganizationElasticToAzureSubscriptionMappingResult> InvokeAsync(GetOrganizationElasticToAzureSubscriptionMappingArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationElasticToAzureSubscriptionMappingResult>("azure-native:elastic/v20230701preview:getOrganizationElasticToAzureSubscriptionMapping", args ?? new GetOrganizationElasticToAzureSubscriptionMappingArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Get Elastic Organization To Azure Subscription Mapping details for the logged-in user.
+        /// </summary>
+        public static Output<GetOrganizationElasticToAzureSubscriptionMappingResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationElasticToAzureSubscriptionMappingResult>("azure-native:elastic/v20230701preview:getOrganizationElasticToAzureSubscriptionMapping", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

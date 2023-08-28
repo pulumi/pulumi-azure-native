@@ -149,14 +149,14 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20200320:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        cluster_id=__ret__.cluster_id,
-        cluster_size=__ret__.cluster_size,
-        hosts=__ret__.hosts,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        type=__ret__.type)
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        cluster_size=pulumi.get(__ret__, 'cluster_size'),
+        hosts=pulumi.get(__ret__, 'hosts'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cluster)

@@ -148,14 +148,14 @@ def get_server_azure_ad_administrator(administrator_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getServerAzureADAdministrator', __args__, opts=opts, typ=GetServerAzureADAdministratorResult).value
 
     return AwaitableGetServerAzureADAdministratorResult(
-        administrator_type=__ret__.administrator_type,
-        azure_ad_only_authentication=__ret__.azure_ad_only_authentication,
-        id=__ret__.id,
-        login=__ret__.login,
-        name=__ret__.name,
-        sid=__ret__.sid,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        administrator_type=pulumi.get(__ret__, 'administrator_type'),
+        azure_ad_only_authentication=pulumi.get(__ret__, 'azure_ad_only_authentication'),
+        id=pulumi.get(__ret__, 'id'),
+        login=pulumi.get(__ret__, 'login'),
+        name=pulumi.get(__ret__, 'name'),
+        sid=pulumi.get(__ret__, 'sid'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_azure_ad_administrator)

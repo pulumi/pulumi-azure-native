@@ -155,13 +155,13 @@ def get_recovery_point_access_token(container_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:recoveryservices/v20211115:getRecoveryPointAccessToken', __args__, opts=opts, typ=GetRecoveryPointAccessTokenResult).value
 
     return AwaitableGetRecoveryPointAccessTokenResult(
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_recovery_point_access_token)

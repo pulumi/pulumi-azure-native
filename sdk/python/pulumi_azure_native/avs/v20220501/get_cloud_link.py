@@ -112,11 +112,11 @@ def get_cloud_link(cloud_link_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20220501:getCloudLink', __args__, opts=opts, typ=GetCloudLinkResult).value
 
     return AwaitableGetCloudLinkResult(
-        id=__ret__.id,
-        linked_cloud=__ret__.linked_cloud,
-        name=__ret__.name,
-        status=__ret__.status,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        linked_cloud=pulumi.get(__ret__, 'linked_cloud'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cloud_link)

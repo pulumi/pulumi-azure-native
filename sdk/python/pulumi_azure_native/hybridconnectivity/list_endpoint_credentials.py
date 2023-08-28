@@ -129,12 +129,12 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity:listEndpointCredentials', __args__, opts=opts, typ=ListEndpointCredentialsResult).value
 
     return AwaitableListEndpointCredentialsResult(
-        access_key=__ret__.access_key,
-        expires_on=__ret__.expires_on,
-        hybrid_connection_name=__ret__.hybrid_connection_name,
-        namespace_name=__ret__.namespace_name,
-        namespace_name_suffix=__ret__.namespace_name_suffix,
-        service_configuration_token=__ret__.service_configuration_token)
+        access_key=pulumi.get(__ret__, 'access_key'),
+        expires_on=pulumi.get(__ret__, 'expires_on'),
+        hybrid_connection_name=pulumi.get(__ret__, 'hybrid_connection_name'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        namespace_name_suffix=pulumi.get(__ret__, 'namespace_name_suffix'),
+        service_configuration_token=pulumi.get(__ret__, 'service_configuration_token'))
 
 
 @_utilities.lift_output_func(list_endpoint_credentials)

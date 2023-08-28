@@ -203,18 +203,18 @@ def get_web_app_hybrid_connection_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20220901:getWebAppHybridConnectionSlot', __args__, opts=opts, typ=GetWebAppHybridConnectionSlotResult).value
 
     return AwaitableGetWebAppHybridConnectionSlotResult(
-        hostname=__ret__.hostname,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        port=__ret__.port,
-        relay_arm_uri=__ret__.relay_arm_uri,
-        relay_name=__ret__.relay_name,
-        send_key_name=__ret__.send_key_name,
-        send_key_value=__ret__.send_key_value,
-        service_bus_namespace=__ret__.service_bus_namespace,
-        service_bus_suffix=__ret__.service_bus_suffix,
-        type=__ret__.type)
+        hostname=pulumi.get(__ret__, 'hostname'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        port=pulumi.get(__ret__, 'port'),
+        relay_arm_uri=pulumi.get(__ret__, 'relay_arm_uri'),
+        relay_name=pulumi.get(__ret__, 'relay_name'),
+        send_key_name=pulumi.get(__ret__, 'send_key_name'),
+        send_key_value=pulumi.get(__ret__, 'send_key_value'),
+        service_bus_namespace=pulumi.get(__ret__, 'service_bus_namespace'),
+        service_bus_suffix=pulumi.get(__ret__, 'service_bus_suffix'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_hybrid_connection_slot)

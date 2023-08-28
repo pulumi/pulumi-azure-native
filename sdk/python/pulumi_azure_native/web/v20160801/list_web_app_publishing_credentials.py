@@ -157,15 +157,15 @@ def list_web_app_publishing_credentials(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20160801:listWebAppPublishingCredentials', __args__, opts=opts, typ=ListWebAppPublishingCredentialsResult).value
 
     return AwaitableListWebAppPublishingCredentialsResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        publishing_password=__ret__.publishing_password,
-        publishing_password_hash=__ret__.publishing_password_hash,
-        publishing_password_hash_salt=__ret__.publishing_password_hash_salt,
-        publishing_user_name=__ret__.publishing_user_name,
-        type=__ret__.type,
-        user_name=__ret__.user_name)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        publishing_password=pulumi.get(__ret__, 'publishing_password'),
+        publishing_password_hash=pulumi.get(__ret__, 'publishing_password_hash'),
+        publishing_password_hash_salt=pulumi.get(__ret__, 'publishing_password_hash_salt'),
+        publishing_user_name=pulumi.get(__ret__, 'publishing_user_name'),
+        type=pulumi.get(__ret__, 'type'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(list_web_app_publishing_credentials)

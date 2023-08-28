@@ -221,20 +221,20 @@ def get_network_security_group(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getNetworkSecurityGroup', __args__, opts=opts, typ=GetNetworkSecurityGroupResult).value
 
     return AwaitableGetNetworkSecurityGroupResult(
-        default_security_rules=__ret__.default_security_rules,
-        etag=__ret__.etag,
-        flow_logs=__ret__.flow_logs,
-        flush_connection=__ret__.flush_connection,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_interfaces=__ret__.network_interfaces,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        security_rules=__ret__.security_rules,
-        subnets=__ret__.subnets,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        default_security_rules=pulumi.get(__ret__, 'default_security_rules'),
+        etag=pulumi.get(__ret__, 'etag'),
+        flow_logs=pulumi.get(__ret__, 'flow_logs'),
+        flush_connection=pulumi.get(__ret__, 'flush_connection'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        security_rules=pulumi.get(__ret__, 'security_rules'),
+        subnets=pulumi.get(__ret__, 'subnets'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_security_group)

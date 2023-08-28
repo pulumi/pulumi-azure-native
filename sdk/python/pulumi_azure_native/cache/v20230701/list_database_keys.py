@@ -76,8 +76,8 @@ def list_database_keys(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache/v20230701:listDatabaseKeys', __args__, opts=opts, typ=ListDatabaseKeysResult).value
 
     return AwaitableListDatabaseKeysResult(
-        primary_key=__ret__.primary_key,
-        secondary_key=__ret__.secondary_key)
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_database_keys)

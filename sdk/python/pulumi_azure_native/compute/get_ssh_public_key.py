@@ -122,12 +122,12 @@ def get_ssh_public_key(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute:getSshPublicKey', __args__, opts=opts, typ=GetSshPublicKeyResult).value
 
     return AwaitableGetSshPublicKeyResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        public_key=__ret__.public_key,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_ssh_public_key)

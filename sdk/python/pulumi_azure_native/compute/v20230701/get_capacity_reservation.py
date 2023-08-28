@@ -224,20 +224,20 @@ def get_capacity_reservation(capacity_reservation_group_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230701:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult).value
 
     return AwaitableGetCapacityReservationResult(
-        id=__ret__.id,
-        instance_view=__ret__.instance_view,
-        location=__ret__.location,
-        name=__ret__.name,
-        platform_fault_domain_count=__ret__.platform_fault_domain_count,
-        provisioning_state=__ret__.provisioning_state,
-        provisioning_time=__ret__.provisioning_time,
-        reservation_id=__ret__.reservation_id,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        time_created=__ret__.time_created,
-        type=__ret__.type,
-        virtual_machines_associated=__ret__.virtual_machines_associated,
-        zones=__ret__.zones)
+        id=pulumi.get(__ret__, 'id'),
+        instance_view=pulumi.get(__ret__, 'instance_view'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        platform_fault_domain_count=pulumi.get(__ret__, 'platform_fault_domain_count'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        provisioning_time=pulumi.get(__ret__, 'provisioning_time'),
+        reservation_id=pulumi.get(__ret__, 'reservation_id'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machines_associated=pulumi.get(__ret__, 'virtual_machines_associated'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_capacity_reservation)

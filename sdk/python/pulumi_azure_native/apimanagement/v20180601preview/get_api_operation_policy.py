@@ -118,11 +118,11 @@ def get_api_operation_policy(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20180601preview:getApiOperationPolicy', __args__, opts=opts, typ=GetApiOperationPolicyResult).value
 
     return AwaitableGetApiOperationPolicyResult(
-        content_format=__ret__.content_format,
-        id=__ret__.id,
-        name=__ret__.name,
-        policy_content=__ret__.policy_content,
-        type=__ret__.type)
+        content_format=pulumi.get(__ret__, 'content_format'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_content=pulumi.get(__ret__, 'policy_content'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_api_operation_policy)

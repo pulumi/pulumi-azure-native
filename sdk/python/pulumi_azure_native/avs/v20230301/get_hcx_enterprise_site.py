@@ -112,11 +112,11 @@ def get_hcx_enterprise_site(hcx_enterprise_site_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20230301:getHcxEnterpriseSite', __args__, opts=opts, typ=GetHcxEnterpriseSiteResult).value
 
     return AwaitableGetHcxEnterpriseSiteResult(
-        activation_key=__ret__.activation_key,
-        id=__ret__.id,
-        name=__ret__.name,
-        status=__ret__.status,
-        type=__ret__.type)
+        activation_key=pulumi.get(__ret__, 'activation_key'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hcx_enterprise_site)

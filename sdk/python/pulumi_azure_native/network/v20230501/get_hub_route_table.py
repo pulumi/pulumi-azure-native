@@ -161,15 +161,15 @@ def get_hub_route_table(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getHubRouteTable', __args__, opts=opts, typ=GetHubRouteTableResult).value
 
     return AwaitableGetHubRouteTableResult(
-        associated_connections=__ret__.associated_connections,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        labels=__ret__.labels,
-        name=__ret__.name,
-        propagating_connections=__ret__.propagating_connections,
-        provisioning_state=__ret__.provisioning_state,
-        routes=__ret__.routes,
-        type=__ret__.type)
+        associated_connections=pulumi.get(__ret__, 'associated_connections'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        labels=pulumi.get(__ret__, 'labels'),
+        name=pulumi.get(__ret__, 'name'),
+        propagating_connections=pulumi.get(__ret__, 'propagating_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        routes=pulumi.get(__ret__, 'routes'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hub_route_table)

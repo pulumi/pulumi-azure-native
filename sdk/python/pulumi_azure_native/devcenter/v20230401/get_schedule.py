@@ -167,15 +167,15 @@ def get_schedule(pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter/v20230401:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
-        frequency=__ret__.frequency,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        state=__ret__.state,
-        system_data=__ret__.system_data,
-        time=__ret__.time,
-        time_zone=__ret__.time_zone,
-        type=__ret__.type)
+        frequency=pulumi.get(__ret__, 'frequency'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        time=pulumi.get(__ret__, 'time'),
+        time_zone=pulumi.get(__ret__, 'time_zone'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_schedule)

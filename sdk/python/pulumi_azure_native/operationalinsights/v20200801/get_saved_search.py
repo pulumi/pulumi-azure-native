@@ -185,17 +185,17 @@ def get_saved_search(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:operationalinsights/v20200801:getSavedSearch', __args__, opts=opts, typ=GetSavedSearchResult).value
 
     return AwaitableGetSavedSearchResult(
-        category=__ret__.category,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        function_alias=__ret__.function_alias,
-        function_parameters=__ret__.function_parameters,
-        id=__ret__.id,
-        name=__ret__.name,
-        query=__ret__.query,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        category=pulumi.get(__ret__, 'category'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        function_alias=pulumi.get(__ret__, 'function_alias'),
+        function_parameters=pulumi.get(__ret__, 'function_parameters'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        query=pulumi.get(__ret__, 'query'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_saved_search)

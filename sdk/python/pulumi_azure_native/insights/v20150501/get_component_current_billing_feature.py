@@ -74,8 +74,8 @@ def get_component_current_billing_feature(resource_group_name: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20150501:getComponentCurrentBillingFeature', __args__, opts=opts, typ=GetComponentCurrentBillingFeatureResult).value
 
     return AwaitableGetComponentCurrentBillingFeatureResult(
-        current_billing_features=__ret__.current_billing_features,
-        data_volume_cap=__ret__.data_volume_cap)
+        current_billing_features=pulumi.get(__ret__, 'current_billing_features'),
+        data_volume_cap=pulumi.get(__ret__, 'data_volume_cap'))
 
 
 @_utilities.lift_output_func(get_component_current_billing_feature)

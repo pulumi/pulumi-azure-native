@@ -106,10 +106,10 @@ def get_workspace_product_group_link(group_link_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getWorkspaceProductGroupLink', __args__, opts=opts, typ=GetWorkspaceProductGroupLinkResult).value
 
     return AwaitableGetWorkspaceProductGroupLinkResult(
-        group_id=__ret__.group_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        group_id=pulumi.get(__ret__, 'group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace_product_group_link)

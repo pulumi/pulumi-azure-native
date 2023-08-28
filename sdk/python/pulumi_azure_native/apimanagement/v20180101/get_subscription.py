@@ -232,21 +232,21 @@ def get_subscription(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20180101:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult).value
 
     return AwaitableGetSubscriptionResult(
-        created_date=__ret__.created_date,
-        display_name=__ret__.display_name,
-        end_date=__ret__.end_date,
-        expiration_date=__ret__.expiration_date,
-        id=__ret__.id,
-        name=__ret__.name,
-        notification_date=__ret__.notification_date,
-        primary_key=__ret__.primary_key,
-        product_id=__ret__.product_id,
-        secondary_key=__ret__.secondary_key,
-        start_date=__ret__.start_date,
-        state=__ret__.state,
-        state_comment=__ret__.state_comment,
-        type=__ret__.type,
-        user_id=__ret__.user_id)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        end_date=pulumi.get(__ret__, 'end_date'),
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        notification_date=pulumi.get(__ret__, 'notification_date'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        product_id=pulumi.get(__ret__, 'product_id'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'),
+        start_date=pulumi.get(__ret__, 'start_date'),
+        state=pulumi.get(__ret__, 'state'),
+        state_comment=pulumi.get(__ret__, 'state_comment'),
+        type=pulumi.get(__ret__, 'type'),
+        user_id=pulumi.get(__ret__, 'user_id'))
 
 
 @_utilities.lift_output_func(get_subscription)

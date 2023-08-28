@@ -158,15 +158,15 @@ def get_dedicated_cloud_service(dedicated_cloud_service_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:vmwarecloudsimple:getDedicatedCloudService', __args__, opts=opts, typ=GetDedicatedCloudServiceResult).value
 
     return AwaitableGetDedicatedCloudServiceResult(
-        gateway_subnet=__ret__.gateway_subnet,
-        id=__ret__.id,
-        is_account_onboarded=__ret__.is_account_onboarded,
-        location=__ret__.location,
-        name=__ret__.name,
-        nodes=__ret__.nodes,
-        service_url=__ret__.service_url,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        gateway_subnet=pulumi.get(__ret__, 'gateway_subnet'),
+        id=pulumi.get(__ret__, 'id'),
+        is_account_onboarded=pulumi.get(__ret__, 'is_account_onboarded'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        nodes=pulumi.get(__ret__, 'nodes'),
+        service_url=pulumi.get(__ret__, 'service_url'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dedicated_cloud_service)

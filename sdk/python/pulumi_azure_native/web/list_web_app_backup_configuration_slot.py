@@ -162,15 +162,15 @@ def list_web_app_backup_configuration_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:listWebAppBackupConfigurationSlot', __args__, opts=opts, typ=ListWebAppBackupConfigurationSlotResult).value
 
     return AwaitableListWebAppBackupConfigurationSlotResult(
-        backup_name=__ret__.backup_name,
-        backup_schedule=__ret__.backup_schedule,
-        databases=__ret__.databases,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        storage_account_url=__ret__.storage_account_url,
-        type=__ret__.type)
+        backup_name=pulumi.get(__ret__, 'backup_name'),
+        backup_schedule=pulumi.get(__ret__, 'backup_schedule'),
+        databases=pulumi.get(__ret__, 'databases'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_account_url=pulumi.get(__ret__, 'storage_account_url'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_web_app_backup_configuration_slot)

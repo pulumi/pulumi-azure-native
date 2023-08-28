@@ -194,18 +194,18 @@ def get_app(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:iotcentral/v20210601:getApp', __args__, opts=opts, typ=GetAppResult).value
 
     return AwaitableGetAppResult(
-        application_id=__ret__.application_id,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        sku=__ret__.sku,
-        state=__ret__.state,
-        subdomain=__ret__.subdomain,
-        tags=__ret__.tags,
-        template=__ret__.template,
-        type=__ret__.type)
+        application_id=pulumi.get(__ret__, 'application_id'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        state=pulumi.get(__ret__, 'state'),
+        subdomain=pulumi.get(__ret__, 'subdomain'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template=pulumi.get(__ret__, 'template'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_app)

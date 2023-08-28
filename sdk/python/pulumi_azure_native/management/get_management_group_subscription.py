@@ -136,13 +136,13 @@ def get_management_group_subscription(group_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:management:getManagementGroupSubscription', __args__, opts=opts, typ=GetManagementGroupSubscriptionResult).value
 
     return AwaitableGetManagementGroupSubscriptionResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        name=__ret__.name,
-        parent=__ret__.parent,
-        state=__ret__.state,
-        tenant=__ret__.tenant,
-        type=__ret__.type)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        parent=pulumi.get(__ret__, 'parent'),
+        state=pulumi.get(__ret__, 'state'),
+        tenant=pulumi.get(__ret__, 'tenant'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_management_group_subscription)

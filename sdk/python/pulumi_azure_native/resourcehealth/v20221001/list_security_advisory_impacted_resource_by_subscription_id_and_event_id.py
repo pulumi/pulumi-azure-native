@@ -74,8 +74,8 @@ def list_security_advisory_impacted_resource_by_subscription_id_and_event_id(eve
     __ret__ = pulumi.runtime.invoke('azure-native:resourcehealth/v20221001:listSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventId', __args__, opts=opts, typ=ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult).value
 
     return AwaitableListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_security_advisory_impacted_resource_by_subscription_id_and_event_id)

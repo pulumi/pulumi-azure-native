@@ -186,17 +186,17 @@ def get_user(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getUser', __args__, opts=opts, typ=GetUserResult).value
 
     return AwaitableGetUserResult(
-        email=__ret__.email,
-        first_name=__ret__.first_name,
-        groups=__ret__.groups,
-        id=__ret__.id,
-        identities=__ret__.identities,
-        last_name=__ret__.last_name,
-        name=__ret__.name,
-        note=__ret__.note,
-        registration_date=__ret__.registration_date,
-        state=__ret__.state,
-        type=__ret__.type)
+        email=pulumi.get(__ret__, 'email'),
+        first_name=pulumi.get(__ret__, 'first_name'),
+        groups=pulumi.get(__ret__, 'groups'),
+        id=pulumi.get(__ret__, 'id'),
+        identities=pulumi.get(__ret__, 'identities'),
+        last_name=pulumi.get(__ret__, 'last_name'),
+        name=pulumi.get(__ret__, 'name'),
+        note=pulumi.get(__ret__, 'note'),
+        registration_date=pulumi.get(__ret__, 'registration_date'),
+        state=pulumi.get(__ret__, 'state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_user)

@@ -186,17 +186,17 @@ def list_product_details(product_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestack:listProductDetails', __args__, opts=opts, typ=ListProductDetailsResult).value
 
     return AwaitableListProductDetailsResult(
-        compute_role=__ret__.compute_role,
-        data_disk_images=__ret__.data_disk_images,
-        gallery_package_blob_sas_uri=__ret__.gallery_package_blob_sas_uri,
-        is_system_extension=__ret__.is_system_extension,
-        os_disk_image=__ret__.os_disk_image,
-        product_kind=__ret__.product_kind,
-        support_multiple_extensions=__ret__.support_multiple_extensions,
-        uri=__ret__.uri,
-        version=__ret__.version,
-        vm_os_type=__ret__.vm_os_type,
-        vm_scale_set_enabled=__ret__.vm_scale_set_enabled)
+        compute_role=pulumi.get(__ret__, 'compute_role'),
+        data_disk_images=pulumi.get(__ret__, 'data_disk_images'),
+        gallery_package_blob_sas_uri=pulumi.get(__ret__, 'gallery_package_blob_sas_uri'),
+        is_system_extension=pulumi.get(__ret__, 'is_system_extension'),
+        os_disk_image=pulumi.get(__ret__, 'os_disk_image'),
+        product_kind=pulumi.get(__ret__, 'product_kind'),
+        support_multiple_extensions=pulumi.get(__ret__, 'support_multiple_extensions'),
+        uri=pulumi.get(__ret__, 'uri'),
+        version=pulumi.get(__ret__, 'version'),
+        vm_os_type=pulumi.get(__ret__, 'vm_os_type'),
+        vm_scale_set_enabled=pulumi.get(__ret__, 'vm_scale_set_enabled'))
 
 
 @_utilities.lift_output_func(list_product_details)

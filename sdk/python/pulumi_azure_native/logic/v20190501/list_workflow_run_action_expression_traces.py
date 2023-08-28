@@ -65,7 +65,7 @@ def list_workflow_run_action_expression_traces(action_name: Optional[str] = None
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20190501:listWorkflowRunActionExpressionTraces', __args__, opts=opts, typ=ListWorkflowRunActionExpressionTracesResult).value
 
     return AwaitableListWorkflowRunActionExpressionTracesResult(
-        inputs=__ret__.inputs)
+        inputs=pulumi.get(__ret__, 'inputs'))
 
 
 @_utilities.lift_output_func(list_workflow_run_action_expression_traces)

@@ -118,11 +118,11 @@ def get_authorization_access_policy(authorization_access_policy_id: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220801:getAuthorizationAccessPolicy', __args__, opts=opts, typ=GetAuthorizationAccessPolicyResult).value
 
     return AwaitableGetAuthorizationAccessPolicyResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        object_id=__ret__.object_id,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        object_id=pulumi.get(__ret__, 'object_id'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_authorization_access_policy)

@@ -240,22 +240,22 @@ def get_virtual_machine_instance(resource_uri: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getVirtualMachineInstance', __args__, opts=opts, typ=GetVirtualMachineInstanceResult).value
 
     return AwaitableGetVirtualMachineInstanceResult(
-        extended_location=__ret__.extended_location,
-        hardware_profile=__ret__.hardware_profile,
-        id=__ret__.id,
-        infrastructure_profile=__ret__.infrastructure_profile,
-        name=__ret__.name,
-        network_profile=__ret__.network_profile,
-        os_profile=__ret__.os_profile,
-        placement_profile=__ret__.placement_profile,
-        power_state=__ret__.power_state,
-        provisioning_state=__ret__.provisioning_state,
-        resource_uid=__ret__.resource_uid,
-        security_profile=__ret__.security_profile,
-        statuses=__ret__.statuses,
-        storage_profile=__ret__.storage_profile,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        hardware_profile=pulumi.get(__ret__, 'hardware_profile'),
+        id=pulumi.get(__ret__, 'id'),
+        infrastructure_profile=pulumi.get(__ret__, 'infrastructure_profile'),
+        name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
+        os_profile=pulumi.get(__ret__, 'os_profile'),
+        placement_profile=pulumi.get(__ret__, 'placement_profile'),
+        power_state=pulumi.get(__ret__, 'power_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_uid=pulumi.get(__ret__, 'resource_uid'),
+        security_profile=pulumi.get(__ret__, 'security_profile'),
+        statuses=pulumi.get(__ret__, 'statuses'),
+        storage_profile=pulumi.get(__ret__, 'storage_profile'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_virtual_machine_instance)

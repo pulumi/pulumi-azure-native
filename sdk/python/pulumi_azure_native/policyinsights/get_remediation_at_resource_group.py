@@ -255,23 +255,23 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:policyinsights:getRemediationAtResourceGroup', __args__, opts=opts, typ=GetRemediationAtResourceGroupResult).value
 
     return AwaitableGetRemediationAtResourceGroupResult(
-        correlation_id=__ret__.correlation_id,
-        created_on=__ret__.created_on,
-        deployment_status=__ret__.deployment_status,
-        failure_threshold=__ret__.failure_threshold,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        last_updated_on=__ret__.last_updated_on,
-        name=__ret__.name,
-        parallel_deployments=__ret__.parallel_deployments,
-        policy_assignment_id=__ret__.policy_assignment_id,
-        policy_definition_reference_id=__ret__.policy_definition_reference_id,
-        provisioning_state=__ret__.provisioning_state,
-        resource_count=__ret__.resource_count,
-        resource_discovery_mode=__ret__.resource_discovery_mode,
-        status_message=__ret__.status_message,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        correlation_id=pulumi.get(__ret__, 'correlation_id'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        failure_threshold=pulumi.get(__ret__, 'failure_threshold'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_on=pulumi.get(__ret__, 'last_updated_on'),
+        name=pulumi.get(__ret__, 'name'),
+        parallel_deployments=pulumi.get(__ret__, 'parallel_deployments'),
+        policy_assignment_id=pulumi.get(__ret__, 'policy_assignment_id'),
+        policy_definition_reference_id=pulumi.get(__ret__, 'policy_definition_reference_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_count=pulumi.get(__ret__, 'resource_count'),
+        resource_discovery_mode=pulumi.get(__ret__, 'resource_discovery_mode'),
+        status_message=pulumi.get(__ret__, 'status_message'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_remediation_at_resource_group)

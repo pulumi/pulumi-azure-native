@@ -182,17 +182,17 @@ def get_ip_extended_community(ip_extended_community_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230615:getIpExtendedCommunity', __args__, opts=opts, typ=GetIpExtendedCommunityResult).value
 
     return AwaitableGetIpExtendedCommunityResult(
-        administrative_state=__ret__.administrative_state,
-        annotation=__ret__.annotation,
-        configuration_state=__ret__.configuration_state,
-        id=__ret__.id,
-        ip_extended_community_rules=__ret__.ip_extended_community_rules,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_extended_community_rules=pulumi.get(__ret__, 'ip_extended_community_rules'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_ip_extended_community)

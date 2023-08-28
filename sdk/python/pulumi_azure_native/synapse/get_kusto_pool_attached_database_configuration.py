@@ -189,17 +189,17 @@ def get_kusto_pool_attached_database_configuration(attached_database_configurati
     __ret__ = pulumi.runtime.invoke('azure-native:synapse:getKustoPoolAttachedDatabaseConfiguration', __args__, opts=opts, typ=GetKustoPoolAttachedDatabaseConfigurationResult).value
 
     return AwaitableGetKustoPoolAttachedDatabaseConfigurationResult(
-        attached_database_names=__ret__.attached_database_names,
-        database_name=__ret__.database_name,
-        default_principals_modification_kind=__ret__.default_principals_modification_kind,
-        id=__ret__.id,
-        kusto_pool_resource_id=__ret__.kusto_pool_resource_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        table_level_sharing_properties=__ret__.table_level_sharing_properties,
-        type=__ret__.type)
+        attached_database_names=pulumi.get(__ret__, 'attached_database_names'),
+        database_name=pulumi.get(__ret__, 'database_name'),
+        default_principals_modification_kind=pulumi.get(__ret__, 'default_principals_modification_kind'),
+        id=pulumi.get(__ret__, 'id'),
+        kusto_pool_resource_id=pulumi.get(__ret__, 'kusto_pool_resource_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        table_level_sharing_properties=pulumi.get(__ret__, 'table_level_sharing_properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_kusto_pool_attached_database_configuration)

@@ -59,7 +59,7 @@ def get_console(console_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:portal/v20181001:getConsole', __args__, opts=opts, typ=GetConsoleResult).value
 
     return AwaitableGetConsoleResult(
-        properties=__ret__.properties)
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_console)

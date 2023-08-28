@@ -257,23 +257,23 @@ def get_afd_origin(origin_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20230501:getAFDOrigin', __args__, opts=opts, typ=GetAFDOriginResult).value
 
     return AwaitableGetAFDOriginResult(
-        azure_origin=__ret__.azure_origin,
-        deployment_status=__ret__.deployment_status,
-        enabled_state=__ret__.enabled_state,
-        enforce_certificate_name_check=__ret__.enforce_certificate_name_check,
-        host_name=__ret__.host_name,
-        http_port=__ret__.http_port,
-        https_port=__ret__.https_port,
-        id=__ret__.id,
-        name=__ret__.name,
-        origin_group_name=__ret__.origin_group_name,
-        origin_host_header=__ret__.origin_host_header,
-        priority=__ret__.priority,
-        provisioning_state=__ret__.provisioning_state,
-        shared_private_link_resource=__ret__.shared_private_link_resource,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        weight=__ret__.weight)
+        azure_origin=pulumi.get(__ret__, 'azure_origin'),
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        enabled_state=pulumi.get(__ret__, 'enabled_state'),
+        enforce_certificate_name_check=pulumi.get(__ret__, 'enforce_certificate_name_check'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        http_port=pulumi.get(__ret__, 'http_port'),
+        https_port=pulumi.get(__ret__, 'https_port'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        origin_group_name=pulumi.get(__ret__, 'origin_group_name'),
+        origin_host_header=pulumi.get(__ret__, 'origin_host_header'),
+        priority=pulumi.get(__ret__, 'priority'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        shared_private_link_resource=pulumi.get(__ret__, 'shared_private_link_resource'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        weight=pulumi.get(__ret__, 'weight'))
 
 
 @_utilities.lift_output_func(get_afd_origin)

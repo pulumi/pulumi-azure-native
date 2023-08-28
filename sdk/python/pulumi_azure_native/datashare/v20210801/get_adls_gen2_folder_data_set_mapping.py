@@ -213,19 +213,19 @@ def get_adls_gen2_folder_data_set_mapping(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datashare/v20210801:getADLSGen2FolderDataSetMapping', __args__, opts=opts, typ=GetADLSGen2FolderDataSetMappingResult).value
 
     return AwaitableGetADLSGen2FolderDataSetMappingResult(
-        data_set_id=__ret__.data_set_id,
-        data_set_mapping_status=__ret__.data_set_mapping_status,
-        file_system=__ret__.file_system,
-        folder_path=__ret__.folder_path,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_group=__ret__.resource_group,
-        storage_account_name=__ret__.storage_account_name,
-        subscription_id=__ret__.subscription_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        data_set_id=pulumi.get(__ret__, 'data_set_id'),
+        data_set_mapping_status=pulumi.get(__ret__, 'data_set_mapping_status'),
+        file_system=pulumi.get(__ret__, 'file_system'),
+        folder_path=pulumi.get(__ret__, 'folder_path'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_group=pulumi.get(__ret__, 'resource_group'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        subscription_id=pulumi.get(__ret__, 'subscription_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_adls_gen2_folder_data_set_mapping)

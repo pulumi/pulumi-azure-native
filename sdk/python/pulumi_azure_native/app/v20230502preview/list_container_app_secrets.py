@@ -62,7 +62,7 @@ def list_container_app_secrets(container_app_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app/v20230502preview:listContainerAppSecrets', __args__, opts=opts, typ=ListContainerAppSecretsResult).value
 
     return AwaitableListContainerAppSecretsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_container_app_secrets)

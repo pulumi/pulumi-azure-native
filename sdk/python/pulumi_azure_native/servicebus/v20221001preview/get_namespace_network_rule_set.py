@@ -170,16 +170,16 @@ def get_namespace_network_rule_set(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicebus/v20221001preview:getNamespaceNetworkRuleSet', __args__, opts=opts, typ=GetNamespaceNetworkRuleSetResult).value
 
     return AwaitableGetNamespaceNetworkRuleSetResult(
-        default_action=__ret__.default_action,
-        id=__ret__.id,
-        ip_rules=__ret__.ip_rules,
-        location=__ret__.location,
-        name=__ret__.name,
-        public_network_access=__ret__.public_network_access,
-        system_data=__ret__.system_data,
-        trusted_service_access_enabled=__ret__.trusted_service_access_enabled,
-        type=__ret__.type,
-        virtual_network_rules=__ret__.virtual_network_rules)
+        default_action=pulumi.get(__ret__, 'default_action'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_rules=pulumi.get(__ret__, 'ip_rules'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        trusted_service_access_enabled=pulumi.get(__ret__, 'trusted_service_access_enabled'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network_rules=pulumi.get(__ret__, 'virtual_network_rules'))
 
 
 @_utilities.lift_output_func(get_namespace_network_rule_set)

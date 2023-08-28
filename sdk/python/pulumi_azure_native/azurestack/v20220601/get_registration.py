@@ -157,15 +157,15 @@ def get_registration(registration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestack/v20220601:getRegistration', __args__, opts=opts, typ=GetRegistrationResult).value
 
     return AwaitableGetRegistrationResult(
-        billing_model=__ret__.billing_model,
-        cloud_id=__ret__.cloud_id,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        object_id=__ret__.object_id,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        billing_model=pulumi.get(__ret__, 'billing_model'),
+        cloud_id=pulumi.get(__ret__, 'cloud_id'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        object_id=pulumi.get(__ret__, 'object_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_registration)

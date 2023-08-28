@@ -198,18 +198,18 @@ def get_analytics_connector(analytics_connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:healthcareapis:getAnalyticsConnector', __args__, opts=opts, typ=GetAnalyticsConnectorResult).value
 
     return AwaitableGetAnalyticsConnectorResult(
-        data_destination_configuration=__ret__.data_destination_configuration,
-        data_mapping_configuration=__ret__.data_mapping_configuration,
-        data_source_configuration=__ret__.data_source_configuration,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        data_destination_configuration=pulumi.get(__ret__, 'data_destination_configuration'),
+        data_mapping_configuration=pulumi.get(__ret__, 'data_mapping_configuration'),
+        data_source_configuration=pulumi.get(__ret__, 'data_source_configuration'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_analytics_connector)

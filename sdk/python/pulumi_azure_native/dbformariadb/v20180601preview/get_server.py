@@ -266,24 +266,24 @@ def get_server(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbformariadb/v20180601preview:getServer', __args__, opts=opts, typ=GetServerResult).value
 
     return AwaitableGetServerResult(
-        administrator_login=__ret__.administrator_login,
-        earliest_restore_date=__ret__.earliest_restore_date,
-        fully_qualified_domain_name=__ret__.fully_qualified_domain_name,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        master_server_id=__ret__.master_server_id,
-        minimal_tls_version=__ret__.minimal_tls_version,
-        name=__ret__.name,
-        replica_capacity=__ret__.replica_capacity,
-        replication_role=__ret__.replication_role,
-        sku=__ret__.sku,
-        ssl_enforcement=__ret__.ssl_enforcement,
-        storage_profile=__ret__.storage_profile,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        user_visible_state=__ret__.user_visible_state,
-        version=__ret__.version)
+        administrator_login=pulumi.get(__ret__, 'administrator_login'),
+        earliest_restore_date=pulumi.get(__ret__, 'earliest_restore_date'),
+        fully_qualified_domain_name=pulumi.get(__ret__, 'fully_qualified_domain_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        master_server_id=pulumi.get(__ret__, 'master_server_id'),
+        minimal_tls_version=pulumi.get(__ret__, 'minimal_tls_version'),
+        name=pulumi.get(__ret__, 'name'),
+        replica_capacity=pulumi.get(__ret__, 'replica_capacity'),
+        replication_role=pulumi.get(__ret__, 'replication_role'),
+        sku=pulumi.get(__ret__, 'sku'),
+        ssl_enforcement=pulumi.get(__ret__, 'ssl_enforcement'),
+        storage_profile=pulumi.get(__ret__, 'storage_profile'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        user_visible_state=pulumi.get(__ret__, 'user_visible_state'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_server)

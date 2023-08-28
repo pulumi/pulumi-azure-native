@@ -53,4 +53,4 @@ def get_get_private_dns_zone_suffix_execute(opts: Optional[pulumi.InvokeOptions]
     __ret__ = pulumi.runtime.invoke('azure-native:dbformysql:getGetPrivateDnsZoneSuffixExecute', __args__, opts=opts, typ=GetGetPrivateDnsZoneSuffixExecuteResult).value
 
     return AwaitableGetGetPrivateDnsZoneSuffixExecuteResult(
-        private_dns_zone_suffix=__ret__.private_dns_zone_suffix)
+        private_dns_zone_suffix=pulumi.get(__ret__, 'private_dns_zone_suffix'))

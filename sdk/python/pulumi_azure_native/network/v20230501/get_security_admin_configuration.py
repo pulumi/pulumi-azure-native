@@ -161,15 +161,15 @@ def get_security_admin_configuration(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getSecurityAdminConfiguration', __args__, opts=opts, typ=GetSecurityAdminConfigurationResult).value
 
     return AwaitableGetSecurityAdminConfigurationResult(
-        apply_on_network_intent_policy_based_services=__ret__.apply_on_network_intent_policy_based_services,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        apply_on_network_intent_policy_based_services=pulumi.get(__ret__, 'apply_on_network_intent_policy_based_services'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_security_admin_configuration)

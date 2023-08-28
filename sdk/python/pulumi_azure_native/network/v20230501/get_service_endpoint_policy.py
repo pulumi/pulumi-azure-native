@@ -209,19 +209,19 @@ def get_service_endpoint_policy(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getServiceEndpointPolicy', __args__, opts=opts, typ=GetServiceEndpointPolicyResult).value
 
     return AwaitableGetServiceEndpointPolicyResult(
-        contextual_service_endpoint_policies=__ret__.contextual_service_endpoint_policies,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        service_alias=__ret__.service_alias,
-        service_endpoint_policy_definitions=__ret__.service_endpoint_policy_definitions,
-        subnets=__ret__.subnets,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        contextual_service_endpoint_policies=pulumi.get(__ret__, 'contextual_service_endpoint_policies'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        service_alias=pulumi.get(__ret__, 'service_alias'),
+        service_endpoint_policy_definitions=pulumi.get(__ret__, 'service_endpoint_policy_definitions'),
+        subnets=pulumi.get(__ret__, 'subnets'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_service_endpoint_policy)

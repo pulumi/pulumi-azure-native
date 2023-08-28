@@ -137,13 +137,13 @@ def get_iscsi_target(disk_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storagepool/v20200315preview:getIscsiTarget', __args__, opts=opts, typ=GetIscsiTargetResult).value
 
     return AwaitableGetIscsiTargetResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        target_iqn=__ret__.target_iqn,
-        tpgs=__ret__.tpgs,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        target_iqn=pulumi.get(__ret__, 'target_iqn'),
+        tpgs=pulumi.get(__ret__, 'tpgs'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_iscsi_target)

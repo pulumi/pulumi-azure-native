@@ -67,7 +67,7 @@ def get_domain_topic_event_subscription_full_url(domain_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20230601preview:getDomainTopicEventSubscriptionFullUrl', __args__, opts=opts, typ=GetDomainTopicEventSubscriptionFullUrlResult).value
 
     return AwaitableGetDomainTopicEventSubscriptionFullUrlResult(
-        endpoint_url=__ret__.endpoint_url)
+        endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
 
 
 @_utilities.lift_output_func(get_domain_topic_event_subscription_full_url)

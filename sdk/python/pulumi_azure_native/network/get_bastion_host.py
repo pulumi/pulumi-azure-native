@@ -255,23 +255,23 @@ def get_bastion_host(bastion_host_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getBastionHost', __args__, opts=opts, typ=GetBastionHostResult).value
 
     return AwaitableGetBastionHostResult(
-        disable_copy_paste=__ret__.disable_copy_paste,
-        dns_name=__ret__.dns_name,
-        enable_file_copy=__ret__.enable_file_copy,
-        enable_ip_connect=__ret__.enable_ip_connect,
-        enable_kerberos=__ret__.enable_kerberos,
-        enable_shareable_link=__ret__.enable_shareable_link,
-        enable_tunneling=__ret__.enable_tunneling,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        ip_configurations=__ret__.ip_configurations,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        scale_units=__ret__.scale_units,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        disable_copy_paste=pulumi.get(__ret__, 'disable_copy_paste'),
+        dns_name=pulumi.get(__ret__, 'dns_name'),
+        enable_file_copy=pulumi.get(__ret__, 'enable_file_copy'),
+        enable_ip_connect=pulumi.get(__ret__, 'enable_ip_connect'),
+        enable_kerberos=pulumi.get(__ret__, 'enable_kerberos'),
+        enable_shareable_link=pulumi.get(__ret__, 'enable_shareable_link'),
+        enable_tunneling=pulumi.get(__ret__, 'enable_tunneling'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        scale_units=pulumi.get(__ret__, 'scale_units'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_bastion_host)

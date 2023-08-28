@@ -64,7 +64,7 @@ def list_firewall_policy_idps_signatures_filter_value(filter_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:listFirewallPolicyIdpsSignaturesFilterValue', __args__, opts=opts, typ=ListFirewallPolicyIdpsSignaturesFilterValueResult).value
 
     return AwaitableListFirewallPolicyIdpsSignaturesFilterValueResult(
-        filter_values=__ret__.filter_values)
+        filter_values=pulumi.get(__ret__, 'filter_values'))
 
 
 @_utilities.lift_output_func(list_firewall_policy_idps_signatures_filter_value)

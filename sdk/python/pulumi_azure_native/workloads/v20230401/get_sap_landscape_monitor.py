@@ -134,13 +134,13 @@ def get_sap_landscape_monitor(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads/v20230401:getSapLandscapeMonitor', __args__, opts=opts, typ=GetSapLandscapeMonitorResult).value
 
     return AwaitableGetSapLandscapeMonitorResult(
-        grouping=__ret__.grouping,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        top_metrics_thresholds=__ret__.top_metrics_thresholds,
-        type=__ret__.type)
+        grouping=pulumi.get(__ret__, 'grouping'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        top_metrics_thresholds=pulumi.get(__ret__, 'top_metrics_thresholds'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sap_landscape_monitor)

@@ -64,7 +64,7 @@ def list_compute_keys(compute_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230401:listComputeKeys', __args__, opts=opts, typ=ListComputeKeysResult).value
 
     return AwaitableListComputeKeysResult(
-        compute_type=__ret__.compute_type)
+        compute_type=pulumi.get(__ret__, 'compute_type'))
 
 
 @_utilities.lift_output_func(list_compute_keys)

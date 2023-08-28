@@ -85,9 +85,9 @@ def list_batch_account_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:batch/v20230501:listBatchAccountKeys', __args__, opts=opts, typ=ListBatchAccountKeysResult).value
 
     return AwaitableListBatchAccountKeysResult(
-        account_name=__ret__.account_name,
-        primary=__ret__.primary,
-        secondary=__ret__.secondary)
+        account_name=pulumi.get(__ret__, 'account_name'),
+        primary=pulumi.get(__ret__, 'primary'),
+        secondary=pulumi.get(__ret__, 'secondary'))
 
 
 @_utilities.lift_output_func(list_batch_account_keys)

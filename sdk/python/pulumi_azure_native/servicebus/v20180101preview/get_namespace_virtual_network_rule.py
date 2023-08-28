@@ -100,10 +100,10 @@ def get_namespace_virtual_network_rule(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicebus/v20180101preview:getNamespaceVirtualNetworkRule', __args__, opts=opts, typ=GetNamespaceVirtualNetworkRuleResult).value
 
     return AwaitableGetNamespaceVirtualNetworkRuleResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type,
-        virtual_network_subnet_id=__ret__.virtual_network_subnet_id)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
 
 
 @_utilities.lift_output_func(get_namespace_virtual_network_rule)

@@ -78,7 +78,7 @@ def get_sap_disk_configurations(app_location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads/v20230401:getSAPDiskConfigurations', __args__, opts=opts, typ=GetSAPDiskConfigurationsResult).value
 
     return AwaitableGetSAPDiskConfigurationsResult(
-        volume_configurations=__ret__.volume_configurations)
+        volume_configurations=pulumi.get(__ret__, 'volume_configurations'))
 
 
 @_utilities.lift_output_func(get_sap_disk_configurations)

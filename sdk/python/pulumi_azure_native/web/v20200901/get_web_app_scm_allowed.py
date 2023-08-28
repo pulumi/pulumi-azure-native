@@ -122,12 +122,12 @@ def get_web_app_scm_allowed(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20200901:getWebAppScmAllowed', __args__, opts=opts, typ=GetWebAppScmAllowedResult).value
 
     return AwaitableGetWebAppScmAllowedResult(
-        allow=__ret__.allow,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        allow=pulumi.get(__ret__, 'allow'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_scm_allowed)

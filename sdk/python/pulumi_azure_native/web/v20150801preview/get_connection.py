@@ -260,24 +260,24 @@ def get_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20150801preview:getConnection', __args__, opts=opts, typ=GetConnectionResult).value
 
     return AwaitableGetConnectionResult(
-        api=__ret__.api,
-        changed_time=__ret__.changed_time,
-        created_time=__ret__.created_time,
-        custom_parameter_values=__ret__.custom_parameter_values,
-        display_name=__ret__.display_name,
-        first_expiration_time=__ret__.first_expiration_time,
-        id=__ret__.id,
-        keywords=__ret__.keywords,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        non_secret_parameter_values=__ret__.non_secret_parameter_values,
-        parameter_values=__ret__.parameter_values,
-        statuses=__ret__.statuses,
-        tags=__ret__.tags,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        api=pulumi.get(__ret__, 'api'),
+        changed_time=pulumi.get(__ret__, 'changed_time'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        custom_parameter_values=pulumi.get(__ret__, 'custom_parameter_values'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        first_expiration_time=pulumi.get(__ret__, 'first_expiration_time'),
+        id=pulumi.get(__ret__, 'id'),
+        keywords=pulumi.get(__ret__, 'keywords'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        non_secret_parameter_values=pulumi.get(__ret__, 'non_secret_parameter_values'),
+        parameter_values=pulumi.get(__ret__, 'parameter_values'),
+        statuses=pulumi.get(__ret__, 'statuses'),
+        tags=pulumi.get(__ret__, 'tags'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connection)

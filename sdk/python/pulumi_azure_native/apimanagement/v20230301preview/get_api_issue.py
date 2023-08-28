@@ -166,15 +166,15 @@ def get_api_issue(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20230301preview:getApiIssue', __args__, opts=opts, typ=GetApiIssueResult).value
 
     return AwaitableGetApiIssueResult(
-        api_id=__ret__.api_id,
-        created_date=__ret__.created_date,
-        description=__ret__.description,
-        id=__ret__.id,
-        name=__ret__.name,
-        state=__ret__.state,
-        title=__ret__.title,
-        type=__ret__.type,
-        user_id=__ret__.user_id)
+        api_id=pulumi.get(__ret__, 'api_id'),
+        created_date=pulumi.get(__ret__, 'created_date'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        title=pulumi.get(__ret__, 'title'),
+        type=pulumi.get(__ret__, 'type'),
+        user_id=pulumi.get(__ret__, 'user_id'))
 
 
 @_utilities.lift_output_func(get_api_issue)

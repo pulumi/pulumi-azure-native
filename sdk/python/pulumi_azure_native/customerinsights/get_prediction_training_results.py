@@ -114,11 +114,11 @@ def get_prediction_training_results(hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights:getPredictionTrainingResults', __args__, opts=opts, typ=GetPredictionTrainingResultsResult).value
 
     return AwaitableGetPredictionTrainingResultsResult(
-        canonical_profiles=__ret__.canonical_profiles,
-        prediction_distribution=__ret__.prediction_distribution,
-        primary_profile_instance_count=__ret__.primary_profile_instance_count,
-        score_name=__ret__.score_name,
-        tenant_id=__ret__.tenant_id)
+        canonical_profiles=pulumi.get(__ret__, 'canonical_profiles'),
+        prediction_distribution=pulumi.get(__ret__, 'prediction_distribution'),
+        primary_profile_instance_count=pulumi.get(__ret__, 'primary_profile_instance_count'),
+        score_name=pulumi.get(__ret__, 'score_name'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'))
 
 
 @_utilities.lift_output_func(get_prediction_training_results)

@@ -245,22 +245,22 @@ def get_private_endpoint(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getPrivateEndpoint', __args__, opts=opts, typ=GetPrivateEndpointResult).value
 
     return AwaitableGetPrivateEndpointResult(
-        application_security_groups=__ret__.application_security_groups,
-        custom_dns_configs=__ret__.custom_dns_configs,
-        custom_network_interface_name=__ret__.custom_network_interface_name,
-        etag=__ret__.etag,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        ip_configurations=__ret__.ip_configurations,
-        location=__ret__.location,
-        manual_private_link_service_connections=__ret__.manual_private_link_service_connections,
-        name=__ret__.name,
-        network_interfaces=__ret__.network_interfaces,
-        private_link_service_connections=__ret__.private_link_service_connections,
-        provisioning_state=__ret__.provisioning_state,
-        subnet=__ret__.subnet,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        application_security_groups=pulumi.get(__ret__, 'application_security_groups'),
+        custom_dns_configs=pulumi.get(__ret__, 'custom_dns_configs'),
+        custom_network_interface_name=pulumi.get(__ret__, 'custom_network_interface_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        location=pulumi.get(__ret__, 'location'),
+        manual_private_link_service_connections=pulumi.get(__ret__, 'manual_private_link_service_connections'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        private_link_service_connections=pulumi.get(__ret__, 'private_link_service_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        subnet=pulumi.get(__ret__, 'subnet'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_endpoint)

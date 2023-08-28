@@ -258,23 +258,23 @@ def get_file_import(file_import_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getFileImport', __args__, opts=opts, typ=GetFileImportResult).value
 
     return AwaitableGetFileImportResult(
-        content_type=__ret__.content_type,
-        created_time_utc=__ret__.created_time_utc,
-        error_file=__ret__.error_file,
-        errors_preview=__ret__.errors_preview,
-        files_valid_until_time_utc=__ret__.files_valid_until_time_utc,
-        id=__ret__.id,
-        import_file=__ret__.import_file,
-        import_valid_until_time_utc=__ret__.import_valid_until_time_utc,
-        ingested_record_count=__ret__.ingested_record_count,
-        ingestion_mode=__ret__.ingestion_mode,
-        name=__ret__.name,
-        source=__ret__.source,
-        state=__ret__.state,
-        system_data=__ret__.system_data,
-        total_record_count=__ret__.total_record_count,
-        type=__ret__.type,
-        valid_record_count=__ret__.valid_record_count)
+        content_type=pulumi.get(__ret__, 'content_type'),
+        created_time_utc=pulumi.get(__ret__, 'created_time_utc'),
+        error_file=pulumi.get(__ret__, 'error_file'),
+        errors_preview=pulumi.get(__ret__, 'errors_preview'),
+        files_valid_until_time_utc=pulumi.get(__ret__, 'files_valid_until_time_utc'),
+        id=pulumi.get(__ret__, 'id'),
+        import_file=pulumi.get(__ret__, 'import_file'),
+        import_valid_until_time_utc=pulumi.get(__ret__, 'import_valid_until_time_utc'),
+        ingested_record_count=pulumi.get(__ret__, 'ingested_record_count'),
+        ingestion_mode=pulumi.get(__ret__, 'ingestion_mode'),
+        name=pulumi.get(__ret__, 'name'),
+        source=pulumi.get(__ret__, 'source'),
+        state=pulumi.get(__ret__, 'state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        total_record_count=pulumi.get(__ret__, 'total_record_count'),
+        type=pulumi.get(__ret__, 'type'),
+        valid_record_count=pulumi.get(__ret__, 'valid_record_count'))
 
 
 @_utilities.lift_output_func(get_file_import)

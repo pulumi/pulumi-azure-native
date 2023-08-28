@@ -164,15 +164,15 @@ def get_private_link_service_private_endpoint_connection(expand: Optional[str] =
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getPrivateLinkServicePrivateEndpointConnection', __args__, opts=opts, typ=GetPrivateLinkServicePrivateEndpointConnectionResult).value
 
     return AwaitableGetPrivateLinkServicePrivateEndpointConnectionResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        link_identifier=__ret__.link_identifier,
-        name=__ret__.name,
-        private_endpoint=__ret__.private_endpoint,
-        private_endpoint_location=__ret__.private_endpoint_location,
-        private_link_service_connection_state=__ret__.private_link_service_connection_state,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        link_identifier=pulumi.get(__ret__, 'link_identifier'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
+        private_endpoint_location=pulumi.get(__ret__, 'private_endpoint_location'),
+        private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_link_service_private_endpoint_connection)

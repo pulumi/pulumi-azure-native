@@ -209,19 +209,19 @@ def get_source_control(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230501preview:getSourceControl', __args__, opts=opts, typ=GetSourceControlResult).value
 
     return AwaitableGetSourceControlResult(
-        content_types=__ret__.content_types,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        last_deployment_info=__ret__.last_deployment_info,
-        name=__ret__.name,
-        repo_type=__ret__.repo_type,
-        repository=__ret__.repository,
-        repository_resource_info=__ret__.repository_resource_info,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        content_types=pulumi.get(__ret__, 'content_types'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        last_deployment_info=pulumi.get(__ret__, 'last_deployment_info'),
+        name=pulumi.get(__ret__, 'name'),
+        repo_type=pulumi.get(__ret__, 'repo_type'),
+        repository=pulumi.get(__ret__, 'repository'),
+        repository_resource_info=pulumi.get(__ret__, 'repository_resource_info'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_source_control)

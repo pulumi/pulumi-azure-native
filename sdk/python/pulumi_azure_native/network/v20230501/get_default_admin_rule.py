@@ -276,24 +276,24 @@ def get_default_admin_rule(configuration_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getDefaultAdminRule', __args__, opts=opts, typ=GetDefaultAdminRuleResult).value
 
     return AwaitableGetDefaultAdminRuleResult(
-        access=__ret__.access,
-        description=__ret__.description,
-        destination_port_ranges=__ret__.destination_port_ranges,
-        destinations=__ret__.destinations,
-        direction=__ret__.direction,
-        etag=__ret__.etag,
-        flag=__ret__.flag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        priority=__ret__.priority,
-        protocol=__ret__.protocol,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        source_port_ranges=__ret__.source_port_ranges,
-        sources=__ret__.sources,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        access=pulumi.get(__ret__, 'access'),
+        description=pulumi.get(__ret__, 'description'),
+        destination_port_ranges=pulumi.get(__ret__, 'destination_port_ranges'),
+        destinations=pulumi.get(__ret__, 'destinations'),
+        direction=pulumi.get(__ret__, 'direction'),
+        etag=pulumi.get(__ret__, 'etag'),
+        flag=pulumi.get(__ret__, 'flag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        priority=pulumi.get(__ret__, 'priority'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        source_port_ranges=pulumi.get(__ret__, 'source_port_ranges'),
+        sources=pulumi.get(__ret__, 'sources'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_default_admin_rule)

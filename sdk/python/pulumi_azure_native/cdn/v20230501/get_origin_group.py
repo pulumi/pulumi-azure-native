@@ -176,16 +176,16 @@ def get_origin_group(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20230501:getOriginGroup', __args__, opts=opts, typ=GetOriginGroupResult).value
 
     return AwaitableGetOriginGroupResult(
-        health_probe_settings=__ret__.health_probe_settings,
-        id=__ret__.id,
-        name=__ret__.name,
-        origins=__ret__.origins,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        response_based_origin_error_detection_settings=__ret__.response_based_origin_error_detection_settings,
-        system_data=__ret__.system_data,
-        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=__ret__.traffic_restoration_time_to_healed_or_new_endpoints_in_minutes,
-        type=__ret__.type)
+        health_probe_settings=pulumi.get(__ret__, 'health_probe_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        origins=pulumi.get(__ret__, 'origins'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        response_based_origin_error_detection_settings=pulumi.get(__ret__, 'response_based_origin_error_detection_settings'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=pulumi.get(__ret__, 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_origin_group)

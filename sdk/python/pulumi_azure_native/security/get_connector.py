@@ -108,11 +108,11 @@ def get_connector(connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
-        authentication_details=__ret__.authentication_details,
-        hybrid_compute_settings=__ret__.hybrid_compute_settings,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        authentication_details=pulumi.get(__ret__, 'authentication_details'),
+        hybrid_compute_settings=pulumi.get(__ret__, 'hybrid_compute_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connector)

@@ -115,11 +115,11 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getSqlPoolTransparentDataEncryption', __args__, opts=opts, typ=GetSqlPoolTransparentDataEncryptionResult).value
 
     return AwaitableGetSqlPoolTransparentDataEncryptionResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        status=__ret__.status,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sql_pool_transparent_data_encryption)

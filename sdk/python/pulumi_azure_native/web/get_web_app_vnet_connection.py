@@ -187,17 +187,17 @@ def get_web_app_vnet_connection(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppVnetConnection', __args__, opts=opts, typ=GetWebAppVnetConnectionResult).value
 
     return AwaitableGetWebAppVnetConnectionResult(
-        cert_blob=__ret__.cert_blob,
-        cert_thumbprint=__ret__.cert_thumbprint,
-        dns_servers=__ret__.dns_servers,
-        id=__ret__.id,
-        is_swift=__ret__.is_swift,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        resync_required=__ret__.resync_required,
-        routes=__ret__.routes,
-        type=__ret__.type,
-        vnet_resource_id=__ret__.vnet_resource_id)
+        cert_blob=pulumi.get(__ret__, 'cert_blob'),
+        cert_thumbprint=pulumi.get(__ret__, 'cert_thumbprint'),
+        dns_servers=pulumi.get(__ret__, 'dns_servers'),
+        id=pulumi.get(__ret__, 'id'),
+        is_swift=pulumi.get(__ret__, 'is_swift'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        resync_required=pulumi.get(__ret__, 'resync_required'),
+        routes=pulumi.get(__ret__, 'routes'),
+        type=pulumi.get(__ret__, 'type'),
+        vnet_resource_id=pulumi.get(__ret__, 'vnet_resource_id'))
 
 
 @_utilities.lift_output_func(get_web_app_vnet_connection)

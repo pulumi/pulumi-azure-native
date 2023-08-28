@@ -128,12 +128,12 @@ def get_event_hub_authorization_rule(authorization_rule_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub/v20230101preview:getEventHubAuthorizationRule', __args__, opts=opts, typ=GetEventHubAuthorizationRuleResult).value
 
     return AwaitableGetEventHubAuthorizationRuleResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        rights=__ret__.rights,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        rights=pulumi.get(__ret__, 'rights'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_event_hub_authorization_rule)

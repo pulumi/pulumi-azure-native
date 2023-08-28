@@ -197,18 +197,18 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getDistributedAvailabilityGroup', __args__, opts=opts, typ=GetDistributedAvailabilityGroupResult).value
 
     return AwaitableGetDistributedAvailabilityGroupResult(
-        databases=__ret__.databases,
-        distributed_availability_group_id=__ret__.distributed_availability_group_id,
-        distributed_availability_group_name=__ret__.distributed_availability_group_name,
-        id=__ret__.id,
-        instance_availability_group_name=__ret__.instance_availability_group_name,
-        instance_link_role=__ret__.instance_link_role,
-        name=__ret__.name,
-        partner_availability_group_name=__ret__.partner_availability_group_name,
-        partner_endpoint=__ret__.partner_endpoint,
-        partner_link_role=__ret__.partner_link_role,
-        replication_mode=__ret__.replication_mode,
-        type=__ret__.type)
+        databases=pulumi.get(__ret__, 'databases'),
+        distributed_availability_group_id=pulumi.get(__ret__, 'distributed_availability_group_id'),
+        distributed_availability_group_name=pulumi.get(__ret__, 'distributed_availability_group_name'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_availability_group_name=pulumi.get(__ret__, 'instance_availability_group_name'),
+        instance_link_role=pulumi.get(__ret__, 'instance_link_role'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_availability_group_name=pulumi.get(__ret__, 'partner_availability_group_name'),
+        partner_endpoint=pulumi.get(__ret__, 'partner_endpoint'),
+        partner_link_role=pulumi.get(__ret__, 'partner_link_role'),
+        replication_mode=pulumi.get(__ret__, 'replication_mode'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_distributed_availability_group)

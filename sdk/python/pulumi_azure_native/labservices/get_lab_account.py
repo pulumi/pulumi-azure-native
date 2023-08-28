@@ -174,16 +174,16 @@ def get_lab_account(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices:getLabAccount', __args__, opts=opts, typ=GetLabAccountResult).value
 
     return AwaitableGetLabAccountResult(
-        enabled_region_selection=__ret__.enabled_region_selection,
-        id=__ret__.id,
-        latest_operation_result=__ret__.latest_operation_result,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        size_configuration=__ret__.size_configuration,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        enabled_region_selection=pulumi.get(__ret__, 'enabled_region_selection'),
+        id=pulumi.get(__ret__, 'id'),
+        latest_operation_result=pulumi.get(__ret__, 'latest_operation_result'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        size_configuration=pulumi.get(__ret__, 'size_configuration'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_lab_account)

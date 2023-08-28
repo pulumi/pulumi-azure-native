@@ -76,8 +76,8 @@ def get_webhook_callback_config(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20221201:getWebhookCallbackConfig', __args__, opts=opts, typ=GetWebhookCallbackConfigResult).value
 
     return AwaitableGetWebhookCallbackConfigResult(
-        custom_headers=__ret__.custom_headers,
-        service_uri=__ret__.service_uri)
+        custom_headers=pulumi.get(__ret__, 'custom_headers'),
+        service_uri=pulumi.get(__ret__, 'service_uri'))
 
 
 @_utilities.lift_output_func(get_webhook_callback_config)

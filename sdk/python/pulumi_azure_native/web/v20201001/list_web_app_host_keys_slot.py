@@ -88,9 +88,9 @@ def list_web_app_host_keys_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20201001:listWebAppHostKeysSlot', __args__, opts=opts, typ=ListWebAppHostKeysSlotResult).value
 
     return AwaitableListWebAppHostKeysSlotResult(
-        function_keys=__ret__.function_keys,
-        master_key=__ret__.master_key,
-        system_keys=__ret__.system_keys)
+        function_keys=pulumi.get(__ret__, 'function_keys'),
+        master_key=pulumi.get(__ret__, 'master_key'),
+        system_keys=pulumi.get(__ret__, 'system_keys'))
 
 
 @_utilities.lift_output_func(list_web_app_host_keys_slot)

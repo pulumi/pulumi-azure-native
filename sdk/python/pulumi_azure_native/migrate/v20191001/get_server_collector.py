@@ -95,11 +95,11 @@ def get_server_collector(project_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:migrate/v20191001:getServerCollector', __args__, opts=opts, typ=GetServerCollectorResult).value
 
     return AwaitableGetServerCollectorResult(
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_collector)

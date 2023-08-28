@@ -269,24 +269,24 @@ def get_route(endpoint_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn/v20200901:getRoute', __args__, opts=opts, typ=GetRouteResult).value
 
     return AwaitableGetRouteResult(
-        compression_settings=__ret__.compression_settings,
-        custom_domains=__ret__.custom_domains,
-        deployment_status=__ret__.deployment_status,
-        enabled_state=__ret__.enabled_state,
-        forwarding_protocol=__ret__.forwarding_protocol,
-        https_redirect=__ret__.https_redirect,
-        id=__ret__.id,
-        link_to_default_domain=__ret__.link_to_default_domain,
-        name=__ret__.name,
-        origin_group=__ret__.origin_group,
-        origin_path=__ret__.origin_path,
-        patterns_to_match=__ret__.patterns_to_match,
-        provisioning_state=__ret__.provisioning_state,
-        query_string_caching_behavior=__ret__.query_string_caching_behavior,
-        rule_sets=__ret__.rule_sets,
-        supported_protocols=__ret__.supported_protocols,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        compression_settings=pulumi.get(__ret__, 'compression_settings'),
+        custom_domains=pulumi.get(__ret__, 'custom_domains'),
+        deployment_status=pulumi.get(__ret__, 'deployment_status'),
+        enabled_state=pulumi.get(__ret__, 'enabled_state'),
+        forwarding_protocol=pulumi.get(__ret__, 'forwarding_protocol'),
+        https_redirect=pulumi.get(__ret__, 'https_redirect'),
+        id=pulumi.get(__ret__, 'id'),
+        link_to_default_domain=pulumi.get(__ret__, 'link_to_default_domain'),
+        name=pulumi.get(__ret__, 'name'),
+        origin_group=pulumi.get(__ret__, 'origin_group'),
+        origin_path=pulumi.get(__ret__, 'origin_path'),
+        patterns_to_match=pulumi.get(__ret__, 'patterns_to_match'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        query_string_caching_behavior=pulumi.get(__ret__, 'query_string_caching_behavior'),
+        rule_sets=pulumi.get(__ret__, 'rule_sets'),
+        supported_protocols=pulumi.get(__ret__, 'supported_protocols'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_route)

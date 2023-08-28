@@ -206,19 +206,19 @@ def get_l2_isolation_domain(l2_isolation_domain_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetworkfabric/v20230615:getL2IsolationDomain', __args__, opts=opts, typ=GetL2IsolationDomainResult).value
 
     return AwaitableGetL2IsolationDomainResult(
-        administrative_state=__ret__.administrative_state,
-        annotation=__ret__.annotation,
-        configuration_state=__ret__.configuration_state,
-        id=__ret__.id,
-        location=__ret__.location,
-        mtu=__ret__.mtu,
-        name=__ret__.name,
-        network_fabric_id=__ret__.network_fabric_id,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vlan_id=__ret__.vlan_id)
+        administrative_state=pulumi.get(__ret__, 'administrative_state'),
+        annotation=pulumi.get(__ret__, 'annotation'),
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        mtu=pulumi.get(__ret__, 'mtu'),
+        name=pulumi.get(__ret__, 'name'),
+        network_fabric_id=pulumi.get(__ret__, 'network_fabric_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vlan_id=pulumi.get(__ret__, 'vlan_id'))
 
 
 @_utilities.lift_output_func(get_l2_isolation_domain)

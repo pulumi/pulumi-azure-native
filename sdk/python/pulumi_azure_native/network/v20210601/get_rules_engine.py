@@ -113,11 +113,11 @@ def get_rules_engine(front_door_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210601:getRulesEngine', __args__, opts=opts, typ=GetRulesEngineResult).value
 
     return AwaitableGetRulesEngineResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        resource_state=__ret__.resource_state,
-        rules=__ret__.rules,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        rules=pulumi.get(__ret__, 'rules'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_rules_engine)

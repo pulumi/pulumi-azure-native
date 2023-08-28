@@ -221,20 +221,20 @@ def get_streaming_locator(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20230101:getStreamingLocator', __args__, opts=opts, typ=GetStreamingLocatorResult).value
 
     return AwaitableGetStreamingLocatorResult(
-        alternative_media_id=__ret__.alternative_media_id,
-        asset_name=__ret__.asset_name,
-        content_keys=__ret__.content_keys,
-        created=__ret__.created,
-        default_content_key_policy_name=__ret__.default_content_key_policy_name,
-        end_time=__ret__.end_time,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        name=__ret__.name,
-        start_time=__ret__.start_time,
-        streaming_locator_id=__ret__.streaming_locator_id,
-        streaming_policy_name=__ret__.streaming_policy_name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        alternative_media_id=pulumi.get(__ret__, 'alternative_media_id'),
+        asset_name=pulumi.get(__ret__, 'asset_name'),
+        content_keys=pulumi.get(__ret__, 'content_keys'),
+        created=pulumi.get(__ret__, 'created'),
+        default_content_key_policy_name=pulumi.get(__ret__, 'default_content_key_policy_name'),
+        end_time=pulumi.get(__ret__, 'end_time'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        start_time=pulumi.get(__ret__, 'start_time'),
+        streaming_locator_id=pulumi.get(__ret__, 'streaming_locator_id'),
+        streaming_policy_name=pulumi.get(__ret__, 'streaming_policy_name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_streaming_locator)

@@ -114,11 +114,11 @@ def get_registry_code_container(code_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getRegistryCodeContainer', __args__, opts=opts, typ=GetRegistryCodeContainerResult).value
 
     return AwaitableGetRegistryCodeContainerResult(
-        code_container_properties=__ret__.code_container_properties,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        code_container_properties=pulumi.get(__ret__, 'code_container_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_registry_code_container)

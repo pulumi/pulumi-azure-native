@@ -111,11 +111,11 @@ def get_managed_server_dns_alias(dns_alias_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getManagedServerDnsAlias', __args__, opts=opts, typ=GetManagedServerDnsAliasResult).value
 
     return AwaitableGetManagedServerDnsAliasResult(
-        azure_dns_record=__ret__.azure_dns_record,
-        id=__ret__.id,
-        name=__ret__.name,
-        public_azure_dns_record=__ret__.public_azure_dns_record,
-        type=__ret__.type)
+        azure_dns_record=pulumi.get(__ret__, 'azure_dns_record'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        public_azure_dns_record=pulumi.get(__ret__, 'public_azure_dns_record'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_managed_server_dns_alias)

@@ -186,17 +186,17 @@ def get_channel(channel_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20230601preview:getChannel', __args__, opts=opts, typ=GetChannelResult).value
 
     return AwaitableGetChannelResult(
-        channel_type=__ret__.channel_type,
-        expiration_time_if_not_activated_utc=__ret__.expiration_time_if_not_activated_utc,
-        id=__ret__.id,
-        message_for_activation=__ret__.message_for_activation,
-        name=__ret__.name,
-        partner_destination_info=__ret__.partner_destination_info,
-        partner_topic_info=__ret__.partner_topic_info,
-        provisioning_state=__ret__.provisioning_state,
-        readiness_state=__ret__.readiness_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        channel_type=pulumi.get(__ret__, 'channel_type'),
+        expiration_time_if_not_activated_utc=pulumi.get(__ret__, 'expiration_time_if_not_activated_utc'),
+        id=pulumi.get(__ret__, 'id'),
+        message_for_activation=pulumi.get(__ret__, 'message_for_activation'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_destination_info=pulumi.get(__ret__, 'partner_destination_info'),
+        partner_topic_info=pulumi.get(__ret__, 'partner_topic_info'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        readiness_state=pulumi.get(__ret__, 'readiness_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_channel)

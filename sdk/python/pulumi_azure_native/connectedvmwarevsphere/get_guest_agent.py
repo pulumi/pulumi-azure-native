@@ -198,18 +198,18 @@ def get_guest_agent(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getGuestAgent', __args__, opts=opts, typ=GetGuestAgentResult).value
 
     return AwaitableGetGuestAgentResult(
-        credentials=__ret__.credentials,
-        custom_resource_name=__ret__.custom_resource_name,
-        http_proxy_config=__ret__.http_proxy_config,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_action=__ret__.provisioning_action,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        statuses=__ret__.statuses,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        uuid=__ret__.uuid)
+        credentials=pulumi.get(__ret__, 'credentials'),
+        custom_resource_name=pulumi.get(__ret__, 'custom_resource_name'),
+        http_proxy_config=pulumi.get(__ret__, 'http_proxy_config'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_action=pulumi.get(__ret__, 'provisioning_action'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        statuses=pulumi.get(__ret__, 'statuses'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        uuid=pulumi.get(__ret__, 'uuid'))
 
 
 @_utilities.lift_output_func(get_guest_agent)

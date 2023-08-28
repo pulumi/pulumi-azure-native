@@ -71,7 +71,7 @@ def list_asset_container_sas(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20230101:listAssetContainerSas', __args__, opts=opts, typ=ListAssetContainerSasResult).value
 
     return AwaitableListAssetContainerSasResult(
-        asset_container_sas_urls=__ret__.asset_container_sas_urls)
+        asset_container_sas_urls=pulumi.get(__ret__, 'asset_container_sas_urls'))
 
 
 @_utilities.lift_output_func(list_asset_container_sas)

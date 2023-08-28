@@ -158,15 +158,15 @@ def get_managed_cluster_snapshot(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerservice/v20230702preview:getManagedClusterSnapshot', __args__, opts=opts, typ=GetManagedClusterSnapshotResult).value
 
     return AwaitableGetManagedClusterSnapshotResult(
-        creation_data=__ret__.creation_data,
-        id=__ret__.id,
-        location=__ret__.location,
-        managed_cluster_properties_read_only=__ret__.managed_cluster_properties_read_only,
-        name=__ret__.name,
-        snapshot_type=__ret__.snapshot_type,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        creation_data=pulumi.get(__ret__, 'creation_data'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_cluster_properties_read_only=pulumi.get(__ret__, 'managed_cluster_properties_read_only'),
+        name=pulumi.get(__ret__, 'name'),
+        snapshot_type=pulumi.get(__ret__, 'snapshot_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_managed_cluster_snapshot)

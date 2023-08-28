@@ -226,20 +226,20 @@ def get_sync_member(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getSyncMember', __args__, opts=opts, typ=GetSyncMemberResult).value
 
     return AwaitableGetSyncMemberResult(
-        database_name=__ret__.database_name,
-        database_type=__ret__.database_type,
-        id=__ret__.id,
-        name=__ret__.name,
-        private_endpoint_name=__ret__.private_endpoint_name,
-        server_name=__ret__.server_name,
-        sql_server_database_id=__ret__.sql_server_database_id,
-        sync_agent_id=__ret__.sync_agent_id,
-        sync_direction=__ret__.sync_direction,
-        sync_member_azure_database_resource_id=__ret__.sync_member_azure_database_resource_id,
-        sync_state=__ret__.sync_state,
-        type=__ret__.type,
-        use_private_link_connection=__ret__.use_private_link_connection,
-        user_name=__ret__.user_name)
+        database_name=pulumi.get(__ret__, 'database_name'),
+        database_type=pulumi.get(__ret__, 'database_type'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_name=pulumi.get(__ret__, 'private_endpoint_name'),
+        server_name=pulumi.get(__ret__, 'server_name'),
+        sql_server_database_id=pulumi.get(__ret__, 'sql_server_database_id'),
+        sync_agent_id=pulumi.get(__ret__, 'sync_agent_id'),
+        sync_direction=pulumi.get(__ret__, 'sync_direction'),
+        sync_member_azure_database_resource_id=pulumi.get(__ret__, 'sync_member_azure_database_resource_id'),
+        sync_state=pulumi.get(__ret__, 'sync_state'),
+        type=pulumi.get(__ret__, 'type'),
+        use_private_link_connection=pulumi.get(__ret__, 'use_private_link_connection'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_sync_member)

@@ -67,7 +67,7 @@ def list_build_service_builder_deployments(build_service_name: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform/v20230501preview:listBuildServiceBuilderDeployments', __args__, opts=opts, typ=ListBuildServiceBuilderDeploymentsResult).value
 
     return AwaitableListBuildServiceBuilderDeploymentsResult(
-        deployments=__ret__.deployments)
+        deployments=pulumi.get(__ret__, 'deployments'))
 
 
 @_utilities.lift_output_func(list_build_service_builder_deployments)

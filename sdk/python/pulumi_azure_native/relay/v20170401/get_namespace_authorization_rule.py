@@ -100,10 +100,10 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:relay/v20170401:getNamespaceAuthorizationRule', __args__, opts=opts, typ=GetNamespaceAuthorizationRuleResult).value
 
     return AwaitableGetNamespaceAuthorizationRuleResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        rights=__ret__.rights,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        rights=pulumi.get(__ret__, 'rights'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_namespace_authorization_rule)

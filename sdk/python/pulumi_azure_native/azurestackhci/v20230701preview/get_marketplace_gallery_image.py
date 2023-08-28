@@ -230,21 +230,21 @@ def get_marketplace_gallery_image(marketplace_gallery_image_name: Optional[str] 
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20230701preview:getMarketplaceGalleryImage', __args__, opts=opts, typ=GetMarketplaceGalleryImageResult).value
 
     return AwaitableGetMarketplaceGalleryImageResult(
-        cloud_init_data_source=__ret__.cloud_init_data_source,
-        container_id=__ret__.container_id,
-        extended_location=__ret__.extended_location,
-        hyper_v_generation=__ret__.hyper_v_generation,
-        id=__ret__.id,
-        identifier=__ret__.identifier,
-        location=__ret__.location,
-        name=__ret__.name,
-        os_type=__ret__.os_type,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        cloud_init_data_source=pulumi.get(__ret__, 'cloud_init_data_source'),
+        container_id=pulumi.get(__ret__, 'container_id'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
+        id=pulumi.get(__ret__, 'id'),
+        identifier=pulumi.get(__ret__, 'identifier'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        os_type=pulumi.get(__ret__, 'os_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_marketplace_gallery_image)

@@ -107,10 +107,10 @@ def get_serial_port(parent_resource: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:serialconsole:getSerialPort', __args__, opts=opts, typ=GetSerialPortResult).value
 
     return AwaitableGetSerialPortResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        state=__ret__.state,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_serial_port)

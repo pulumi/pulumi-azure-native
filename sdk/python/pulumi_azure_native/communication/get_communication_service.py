@@ -207,19 +207,19 @@ def get_communication_service(communication_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:communication:getCommunicationService', __args__, opts=opts, typ=GetCommunicationServiceResult).value
 
     return AwaitableGetCommunicationServiceResult(
-        data_location=__ret__.data_location,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        immutable_resource_id=__ret__.immutable_resource_id,
-        linked_domains=__ret__.linked_domains,
-        location=__ret__.location,
-        name=__ret__.name,
-        notification_hub_id=__ret__.notification_hub_id,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        version=__ret__.version)
+        data_location=pulumi.get(__ret__, 'data_location'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        immutable_resource_id=pulumi.get(__ret__, 'immutable_resource_id'),
+        linked_domains=pulumi.get(__ret__, 'linked_domains'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        notification_hub_id=pulumi.get(__ret__, 'notification_hub_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_communication_service)

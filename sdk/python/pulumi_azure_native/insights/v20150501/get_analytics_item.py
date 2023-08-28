@@ -167,15 +167,15 @@ def get_analytics_item(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20150501:getAnalyticsItem', __args__, opts=opts, typ=GetAnalyticsItemResult).value
 
     return AwaitableGetAnalyticsItemResult(
-        content=__ret__.content,
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        scope=__ret__.scope,
-        time_created=__ret__.time_created,
-        time_modified=__ret__.time_modified,
-        type=__ret__.type,
-        version=__ret__.version)
+        content=pulumi.get(__ret__, 'content'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        scope=pulumi.get(__ret__, 'scope'),
+        time_created=pulumi.get(__ret__, 'time_created'),
+        time_modified=pulumi.get(__ret__, 'time_modified'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_analytics_item)

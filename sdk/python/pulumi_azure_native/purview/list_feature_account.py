@@ -65,7 +65,7 @@ def list_feature_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:purview:listFeatureAccount', __args__, opts=opts, typ=ListFeatureAccountResult).value
 
     return AwaitableListFeatureAccountResult(
-        features=__ret__.features)
+        features=pulumi.get(__ret__, 'features'))
 
 
 @_utilities.lift_output_func(list_feature_account)

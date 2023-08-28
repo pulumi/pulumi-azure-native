@@ -225,20 +225,20 @@ def get_lab(billing_account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:education:getLab', __args__, opts=opts, typ=GetLabResult).value
 
     return AwaitableGetLabResult(
-        budget_per_student=__ret__.budget_per_student,
-        currency=__ret__.currency,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        effective_date=__ret__.effective_date,
-        expiration_date=__ret__.expiration_date,
-        id=__ret__.id,
-        invitation_code=__ret__.invitation_code,
-        max_student_count=__ret__.max_student_count,
-        name=__ret__.name,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        value=__ret__.value)
+        budget_per_student=pulumi.get(__ret__, 'budget_per_student'),
+        currency=pulumi.get(__ret__, 'currency'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        effective_date=pulumi.get(__ret__, 'effective_date'),
+        expiration_date=pulumi.get(__ret__, 'expiration_date'),
+        id=pulumi.get(__ret__, 'id'),
+        invitation_code=pulumi.get(__ret__, 'invitation_code'),
+        max_student_count=pulumi.get(__ret__, 'max_student_count'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_lab)

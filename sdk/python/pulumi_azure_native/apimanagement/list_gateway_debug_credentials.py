@@ -75,7 +75,7 @@ def list_gateway_debug_credentials(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:listGatewayDebugCredentials', __args__, opts=opts, typ=ListGatewayDebugCredentialsResult).value
 
     return AwaitableListGatewayDebugCredentialsResult(
-        token=__ret__.token)
+        token=pulumi.get(__ret__, 'token'))
 
 
 @_utilities.lift_output_func(list_gateway_debug_credentials)

@@ -195,18 +195,18 @@ def get_network_manager(network_manager_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getNetworkManager', __args__, opts=opts, typ=GetNetworkManagerResult).value
 
     return AwaitableGetNetworkManagerResult(
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_manager_scope_accesses=__ret__.network_manager_scope_accesses,
-        network_manager_scopes=__ret__.network_manager_scopes,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_manager_scope_accesses=pulumi.get(__ret__, 'network_manager_scope_accesses'),
+        network_manager_scopes=pulumi.get(__ret__, 'network_manager_scopes'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_manager)

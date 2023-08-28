@@ -188,17 +188,17 @@ def get_database_advisor(advisor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getDatabaseAdvisor', __args__, opts=opts, typ=GetDatabaseAdvisorResult).value
 
     return AwaitableGetDatabaseAdvisorResult(
-        advisor_status=__ret__.advisor_status,
-        auto_execute_status=__ret__.auto_execute_status,
-        auto_execute_status_inherited_from=__ret__.auto_execute_status_inherited_from,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_checked=__ret__.last_checked,
-        location=__ret__.location,
-        name=__ret__.name,
-        recommendations_status=__ret__.recommendations_status,
-        recommended_actions=__ret__.recommended_actions,
-        type=__ret__.type)
+        advisor_status=pulumi.get(__ret__, 'advisor_status'),
+        auto_execute_status=pulumi.get(__ret__, 'auto_execute_status'),
+        auto_execute_status_inherited_from=pulumi.get(__ret__, 'auto_execute_status_inherited_from'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_checked=pulumi.get(__ret__, 'last_checked'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        recommendations_status=pulumi.get(__ret__, 'recommendations_status'),
+        recommended_actions=pulumi.get(__ret__, 'recommended_actions'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_database_advisor)

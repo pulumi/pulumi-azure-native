@@ -197,18 +197,18 @@ def get_cluster(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hdinsight/v20230601preview:getCluster', __args__, opts=opts, typ=GetClusterResult).value
 
     return AwaitableGetClusterResult(
-        cluster_profile=__ret__.cluster_profile,
-        cluster_type=__ret__.cluster_type,
-        compute_profile=__ret__.compute_profile,
-        deployment_id=__ret__.deployment_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        cluster_profile=pulumi.get(__ret__, 'cluster_profile'),
+        cluster_type=pulumi.get(__ret__, 'cluster_type'),
+        compute_profile=pulumi.get(__ret__, 'compute_profile'),
+        deployment_id=pulumi.get(__ret__, 'deployment_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cluster)

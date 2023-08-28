@@ -175,16 +175,16 @@ def get_template_artifact(artifact_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:blueprint:getTemplateArtifact', __args__, opts=opts, typ=GetTemplateArtifactResult).value
 
     return AwaitableGetTemplateArtifactResult(
-        depends_on=__ret__.depends_on,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        resource_group=__ret__.resource_group,
-        template=__ret__.template,
-        type=__ret__.type)
+        depends_on=pulumi.get(__ret__, 'depends_on'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        resource_group=pulumi.get(__ret__, 'resource_group'),
+        template=pulumi.get(__ret__, 'template'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_template_artifact)

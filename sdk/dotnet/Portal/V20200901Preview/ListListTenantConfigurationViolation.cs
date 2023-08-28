@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
         /// </summary>
         public static Task<ListListTenantConfigurationViolationResult> InvokeAsync(ListListTenantConfigurationViolationArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListListTenantConfigurationViolationResult>("azure-native:portal/v20200901preview:listListTenantConfigurationViolation", args ?? new ListListTenantConfigurationViolationArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Gets list of items that violate tenant's configuration.
+        /// </summary>
+        public static Output<ListListTenantConfigurationViolationResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<ListListTenantConfigurationViolationResult>("azure-native:portal/v20200901preview:listListTenantConfigurationViolation", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

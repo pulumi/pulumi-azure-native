@@ -160,15 +160,15 @@ def get_global_reach_connection(global_reach_connection_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20230301:getGlobalReachConnection', __args__, opts=opts, typ=GetGlobalReachConnectionResult).value
 
     return AwaitableGetGlobalReachConnectionResult(
-        address_prefix=__ret__.address_prefix,
-        authorization_key=__ret__.authorization_key,
-        circuit_connection_status=__ret__.circuit_connection_status,
-        express_route_id=__ret__.express_route_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        peer_express_route_circuit=__ret__.peer_express_route_circuit,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        address_prefix=pulumi.get(__ret__, 'address_prefix'),
+        authorization_key=pulumi.get(__ret__, 'authorization_key'),
+        circuit_connection_status=pulumi.get(__ret__, 'circuit_connection_status'),
+        express_route_id=pulumi.get(__ret__, 'express_route_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        peer_express_route_circuit=pulumi.get(__ret__, 'peer_express_route_circuit'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_global_reach_connection)

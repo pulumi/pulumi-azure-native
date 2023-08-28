@@ -106,10 +106,10 @@ def get_workspace_tag_product_link(product_link_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:getWorkspaceTagProductLink', __args__, opts=opts, typ=GetWorkspaceTagProductLinkResult).value
 
     return AwaitableGetWorkspaceTagProductLinkResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        product_id=__ret__.product_id,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        product_id=pulumi.get(__ret__, 'product_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace_tag_product_link)

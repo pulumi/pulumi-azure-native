@@ -144,14 +144,14 @@ def get_jit_network_access_policy(asc_location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getJitNetworkAccessPolicy', __args__, opts=opts, typ=GetJitNetworkAccessPolicyResult).value
 
     return AwaitableGetJitNetworkAccessPolicyResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        requests=__ret__.requests,
-        type=__ret__.type,
-        virtual_machines=__ret__.virtual_machines)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        requests=pulumi.get(__ret__, 'requests'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
 
 
 @_utilities.lift_output_func(get_jit_network_access_policy)

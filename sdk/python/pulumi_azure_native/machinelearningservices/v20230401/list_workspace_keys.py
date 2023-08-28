@@ -92,11 +92,11 @@ def list_workspace_keys(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230401:listWorkspaceKeys', __args__, opts=opts, typ=ListWorkspaceKeysResult).value
 
     return AwaitableListWorkspaceKeysResult(
-        app_insights_instrumentation_key=__ret__.app_insights_instrumentation_key,
-        container_registry_credentials=__ret__.container_registry_credentials,
-        notebook_access_keys=__ret__.notebook_access_keys,
-        user_storage_key=__ret__.user_storage_key,
-        user_storage_resource_id=__ret__.user_storage_resource_id)
+        app_insights_instrumentation_key=pulumi.get(__ret__, 'app_insights_instrumentation_key'),
+        container_registry_credentials=pulumi.get(__ret__, 'container_registry_credentials'),
+        notebook_access_keys=pulumi.get(__ret__, 'notebook_access_keys'),
+        user_storage_key=pulumi.get(__ret__, 'user_storage_key'),
+        user_storage_resource_id=pulumi.get(__ret__, 'user_storage_resource_id'))
 
 
 @_utilities.lift_output_func(list_workspace_keys)

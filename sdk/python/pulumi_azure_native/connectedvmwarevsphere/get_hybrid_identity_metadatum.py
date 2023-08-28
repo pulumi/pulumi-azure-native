@@ -150,14 +150,14 @@ def get_hybrid_identity_metadatum(metadata_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getHybridIdentityMetadatum', __args__, opts=opts, typ=GetHybridIdentityMetadatumResult).value
 
     return AwaitableGetHybridIdentityMetadatumResult(
-        id=__ret__.id,
-        identity=__ret__.identity,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_key=__ret__.public_key,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        vm_id=__ret__.vm_id)
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_key=pulumi.get(__ret__, 'public_key'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        vm_id=pulumi.get(__ret__, 'vm_id'))
 
 
 @_utilities.lift_output_func(get_hybrid_identity_metadatum)

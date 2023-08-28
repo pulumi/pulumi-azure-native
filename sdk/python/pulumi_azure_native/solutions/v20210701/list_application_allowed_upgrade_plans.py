@@ -62,7 +62,7 @@ def list_application_allowed_upgrade_plans(application_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:solutions/v20210701:listApplicationAllowedUpgradePlans', __args__, opts=opts, typ=ListApplicationAllowedUpgradePlansResult).value
 
     return AwaitableListApplicationAllowedUpgradePlansResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_application_allowed_upgrade_plans)

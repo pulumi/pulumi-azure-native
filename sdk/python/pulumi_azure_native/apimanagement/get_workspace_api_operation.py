@@ -192,17 +192,17 @@ def get_workspace_api_operation(api_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getWorkspaceApiOperation', __args__, opts=opts, typ=GetWorkspaceApiOperationResult).value
 
     return AwaitableGetWorkspaceApiOperationResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        method=__ret__.method,
-        name=__ret__.name,
-        policies=__ret__.policies,
-        request=__ret__.request,
-        responses=__ret__.responses,
-        template_parameters=__ret__.template_parameters,
-        type=__ret__.type,
-        url_template=__ret__.url_template)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        method=pulumi.get(__ret__, 'method'),
+        name=pulumi.get(__ret__, 'name'),
+        policies=pulumi.get(__ret__, 'policies'),
+        request=pulumi.get(__ret__, 'request'),
+        responses=pulumi.get(__ret__, 'responses'),
+        template_parameters=pulumi.get(__ret__, 'template_parameters'),
+        type=pulumi.get(__ret__, 'type'),
+        url_template=pulumi.get(__ret__, 'url_template'))
 
 
 @_utilities.lift_output_func(get_workspace_api_operation)

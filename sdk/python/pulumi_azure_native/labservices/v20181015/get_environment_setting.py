@@ -239,21 +239,21 @@ def get_environment_setting(environment_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20181015:getEnvironmentSetting', __args__, opts=opts, typ=GetEnvironmentSettingResult).value
 
     return AwaitableGetEnvironmentSettingResult(
-        configuration_state=__ret__.configuration_state,
-        description=__ret__.description,
-        id=__ret__.id,
-        last_changed=__ret__.last_changed,
-        last_published=__ret__.last_published,
-        latest_operation_result=__ret__.latest_operation_result,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        publishing_state=__ret__.publishing_state,
-        resource_settings=__ret__.resource_settings,
-        tags=__ret__.tags,
-        title=__ret__.title,
-        type=__ret__.type,
-        unique_identifier=__ret__.unique_identifier)
+        configuration_state=pulumi.get(__ret__, 'configuration_state'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        last_changed=pulumi.get(__ret__, 'last_changed'),
+        last_published=pulumi.get(__ret__, 'last_published'),
+        latest_operation_result=pulumi.get(__ret__, 'latest_operation_result'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        publishing_state=pulumi.get(__ret__, 'publishing_state'),
+        resource_settings=pulumi.get(__ret__, 'resource_settings'),
+        tags=pulumi.get(__ret__, 'tags'),
+        title=pulumi.get(__ret__, 'title'),
+        type=pulumi.get(__ret__, 'type'),
+        unique_identifier=pulumi.get(__ret__, 'unique_identifier'))
 
 
 @_utilities.lift_output_func(get_environment_setting)

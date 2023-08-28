@@ -124,12 +124,12 @@ def get_registered_asn(peering_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:peering/v20221001:getRegisteredAsn', __args__, opts=opts, typ=GetRegisteredAsnResult).value
 
     return AwaitableGetRegisteredAsnResult(
-        asn=__ret__.asn,
-        id=__ret__.id,
-        name=__ret__.name,
-        peering_service_prefix_key=__ret__.peering_service_prefix_key,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        asn=pulumi.get(__ret__, 'asn'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        peering_service_prefix_key=pulumi.get(__ret__, 'peering_service_prefix_key'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_registered_asn)

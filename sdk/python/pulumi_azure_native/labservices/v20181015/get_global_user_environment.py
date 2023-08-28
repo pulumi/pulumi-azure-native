@@ -65,7 +65,7 @@ def get_global_user_environment(environment_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20181015:getGlobalUserEnvironment', __args__, opts=opts, typ=GetGlobalUserEnvironmentResult).value
 
     return AwaitableGetGlobalUserEnvironmentResult(
-        environment=__ret__.environment)
+        environment=pulumi.get(__ret__, 'environment'))
 
 
 @_utilities.lift_output_func(get_global_user_environment)

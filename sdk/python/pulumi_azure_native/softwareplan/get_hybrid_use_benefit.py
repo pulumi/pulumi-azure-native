@@ -147,14 +147,14 @@ def get_hybrid_use_benefit(plan_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:softwareplan:getHybridUseBenefit', __args__, opts=opts, typ=GetHybridUseBenefitResult).value
 
     return AwaitableGetHybridUseBenefitResult(
-        created_date=__ret__.created_date,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        last_updated_date=__ret__.last_updated_date,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        sku=__ret__.sku,
-        type=__ret__.type)
+        created_date=pulumi.get(__ret__, 'created_date'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_date=pulumi.get(__ret__, 'last_updated_date'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_hybrid_use_benefit)

@@ -98,10 +98,10 @@ def get_support_plan_type(plan_type_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:addons:getSupportPlanType', __args__, opts=opts, typ=GetSupportPlanTypeResult).value
 
     return AwaitableGetSupportPlanTypeResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_support_plan_type)

@@ -73,8 +73,8 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:redhatopenshift/v20220904:listOpenShiftClusterCredentials', __args__, opts=opts, typ=ListOpenShiftClusterCredentialsResult).value
 
     return AwaitableListOpenShiftClusterCredentialsResult(
-        kubeadmin_password=__ret__.kubeadmin_password,
-        kubeadmin_username=__ret__.kubeadmin_username)
+        kubeadmin_password=pulumi.get(__ret__, 'kubeadmin_password'),
+        kubeadmin_username=pulumi.get(__ret__, 'kubeadmin_username'))
 
 
 @_utilities.lift_output_func(list_open_shift_cluster_credentials)

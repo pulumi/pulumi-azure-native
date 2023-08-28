@@ -70,8 +70,8 @@ def list_workspace_collection_access_keys(resource_group_name: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:powerbi/v20160129:listWorkspaceCollectionAccessKeys', __args__, opts=opts, typ=ListWorkspaceCollectionAccessKeysResult).value
 
     return AwaitableListWorkspaceCollectionAccessKeysResult(
-        key1=__ret__.key1,
-        key2=__ret__.key2)
+        key1=pulumi.get(__ret__, 'key1'),
+        key2=pulumi.get(__ret__, 'key2'))
 
 
 @_utilities.lift_output_func(list_workspace_collection_access_keys)

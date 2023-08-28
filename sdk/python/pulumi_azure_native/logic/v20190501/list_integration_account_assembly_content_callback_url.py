@@ -125,12 +125,12 @@ def list_integration_account_assembly_content_callback_url(assembly_artifact_nam
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20190501:listIntegrationAccountAssemblyContentCallbackUrl', __args__, opts=opts, typ=ListIntegrationAccountAssemblyContentCallbackUrlResult).value
 
     return AwaitableListIntegrationAccountAssemblyContentCallbackUrlResult(
-        base_path=__ret__.base_path,
-        method=__ret__.method,
-        queries=__ret__.queries,
-        relative_path=__ret__.relative_path,
-        relative_path_parameters=__ret__.relative_path_parameters,
-        value=__ret__.value)
+        base_path=pulumi.get(__ret__, 'base_path'),
+        method=pulumi.get(__ret__, 'method'),
+        queries=pulumi.get(__ret__, 'queries'),
+        relative_path=pulumi.get(__ret__, 'relative_path'),
+        relative_path_parameters=pulumi.get(__ret__, 'relative_path_parameters'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_integration_account_assembly_content_callback_url)

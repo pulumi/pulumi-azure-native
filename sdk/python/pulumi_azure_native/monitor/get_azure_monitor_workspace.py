@@ -207,19 +207,19 @@ def get_azure_monitor_workspace(azure_monitor_workspace_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:monitor:getAzureMonitorWorkspace', __args__, opts=opts, typ=GetAzureMonitorWorkspaceResult).value
 
     return AwaitableGetAzureMonitorWorkspaceResult(
-        account_id=__ret__.account_id,
-        default_ingestion_settings=__ret__.default_ingestion_settings,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        metrics=__ret__.metrics,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        default_ingestion_settings=pulumi.get(__ret__, 'default_ingestion_settings'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        metrics=pulumi.get(__ret__, 'metrics'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_azure_monitor_workspace)

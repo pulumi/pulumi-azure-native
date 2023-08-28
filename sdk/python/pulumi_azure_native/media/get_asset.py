@@ -210,19 +210,19 @@ def get_asset(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media:getAsset', __args__, opts=opts, typ=GetAssetResult).value
 
     return AwaitableGetAssetResult(
-        alternate_id=__ret__.alternate_id,
-        asset_id=__ret__.asset_id,
-        container=__ret__.container,
-        created=__ret__.created,
-        description=__ret__.description,
-        encryption_scope=__ret__.encryption_scope,
-        id=__ret__.id,
-        last_modified=__ret__.last_modified,
-        name=__ret__.name,
-        storage_account_name=__ret__.storage_account_name,
-        storage_encryption_format=__ret__.storage_encryption_format,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        alternate_id=pulumi.get(__ret__, 'alternate_id'),
+        asset_id=pulumi.get(__ret__, 'asset_id'),
+        container=pulumi.get(__ret__, 'container'),
+        created=pulumi.get(__ret__, 'created'),
+        description=pulumi.get(__ret__, 'description'),
+        encryption_scope=pulumi.get(__ret__, 'encryption_scope'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        storage_encryption_format=pulumi.get(__ret__, 'storage_encryption_format'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_asset)

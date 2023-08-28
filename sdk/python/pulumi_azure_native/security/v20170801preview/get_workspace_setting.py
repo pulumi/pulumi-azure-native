@@ -106,11 +106,11 @@ def get_workspace_setting(workspace_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20170801preview:getWorkspaceSetting', __args__, opts=opts, typ=GetWorkspaceSettingResult).value
 
     return AwaitableGetWorkspaceSettingResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        scope=__ret__.scope,
-        type=__ret__.type,
-        workspace_id=__ret__.workspace_id)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        scope=pulumi.get(__ret__, 'scope'),
+        type=pulumi.get(__ret__, 'type'),
+        workspace_id=pulumi.get(__ret__, 'workspace_id'))
 
 
 @_utilities.lift_output_func(get_workspace_setting)

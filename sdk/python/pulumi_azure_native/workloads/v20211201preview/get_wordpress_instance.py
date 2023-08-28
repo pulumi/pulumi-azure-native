@@ -158,15 +158,15 @@ def get_wordpress_instance(php_workload_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads/v20211201preview:getWordpressInstance', __args__, opts=opts, typ=GetWordpressInstanceResult).value
 
     return AwaitableGetWordpressInstanceResult(
-        database_name=__ret__.database_name,
-        database_user=__ret__.database_user,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        site_url=__ret__.site_url,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        database_name=pulumi.get(__ret__, 'database_name'),
+        database_user=pulumi.get(__ret__, 'database_user'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        site_url=pulumi.get(__ret__, 'site_url'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_wordpress_instance)

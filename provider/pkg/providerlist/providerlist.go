@@ -54,7 +54,11 @@ func FormatProviderPathVersionsJson(activePathVersions ProviderPathVersions) Pro
 	for providerName, paths := range activePathVersions {
 		formattedProvider := map[string][]string{}
 		for resourcePath, versions := range paths {
-			formattedProvider[resourcePath] = versions.SortedValues()
+			sortedVersions := versions.SortedValues()
+			if sortedVersions == nil {
+				sortedVersions = []string{}
+			}
+			formattedProvider[resourcePath] = sortedVersions
 		}
 		formatted[providerName] = formattedProvider
 	}

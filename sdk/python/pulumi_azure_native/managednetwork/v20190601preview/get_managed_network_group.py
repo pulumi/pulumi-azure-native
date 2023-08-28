@@ -185,17 +185,17 @@ def get_managed_network_group(managed_network_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:managednetwork/v20190601preview:getManagedNetworkGroup', __args__, opts=opts, typ=GetManagedNetworkGroupResult).value
 
     return AwaitableGetManagedNetworkGroupResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        management_groups=__ret__.management_groups,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        subnets=__ret__.subnets,
-        subscriptions=__ret__.subscriptions,
-        type=__ret__.type,
-        virtual_networks=__ret__.virtual_networks)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        management_groups=pulumi.get(__ret__, 'management_groups'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        subnets=pulumi.get(__ret__, 'subnets'),
+        subscriptions=pulumi.get(__ret__, 'subscriptions'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_networks=pulumi.get(__ret__, 'virtual_networks'))
 
 
 @_utilities.lift_output_func(get_managed_network_group)

@@ -220,20 +220,20 @@ def get_connector(connector_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:customerinsights/v20170426:getConnector', __args__, opts=opts, typ=GetConnectorResult).value
 
     return AwaitableGetConnectorResult(
-        connector_id=__ret__.connector_id,
-        connector_name=__ret__.connector_name,
-        connector_properties=__ret__.connector_properties,
-        connector_type=__ret__.connector_type,
-        created=__ret__.created,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        is_internal=__ret__.is_internal,
-        last_modified=__ret__.last_modified,
-        name=__ret__.name,
-        state=__ret__.state,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        connector_id=pulumi.get(__ret__, 'connector_id'),
+        connector_name=pulumi.get(__ret__, 'connector_name'),
+        connector_properties=pulumi.get(__ret__, 'connector_properties'),
+        connector_type=pulumi.get(__ret__, 'connector_type'),
+        created=pulumi.get(__ret__, 'created'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        is_internal=pulumi.get(__ret__, 'is_internal'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_connector)

@@ -174,16 +174,16 @@ def get_resource_sync_rule(child_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:extendedlocation:getResourceSyncRule', __args__, opts=opts, typ=GetResourceSyncRuleResult).value
 
     return AwaitableGetResourceSyncRuleResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        priority=__ret__.priority,
-        provisioning_state=__ret__.provisioning_state,
-        selector=__ret__.selector,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        target_resource_group=__ret__.target_resource_group,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        priority=pulumi.get(__ret__, 'priority'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        selector=pulumi.get(__ret__, 'selector'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_resource_group=pulumi.get(__ret__, 'target_resource_group'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_resource_sync_rule)

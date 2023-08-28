@@ -230,21 +230,21 @@ def get_account(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningexperimentation/v20170501preview:getAccount', __args__, opts=opts, typ=GetAccountResult).value
 
     return AwaitableGetAccountResult(
-        account_id=__ret__.account_id,
-        creation_date=__ret__.creation_date,
-        description=__ret__.description,
-        discovery_uri=__ret__.discovery_uri,
-        friendly_name=__ret__.friendly_name,
-        id=__ret__.id,
-        key_vault_id=__ret__.key_vault_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        seats=__ret__.seats,
-        storage_account=__ret__.storage_account,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vso_account_id=__ret__.vso_account_id)
+        account_id=pulumi.get(__ret__, 'account_id'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        description=pulumi.get(__ret__, 'description'),
+        discovery_uri=pulumi.get(__ret__, 'discovery_uri'),
+        friendly_name=pulumi.get(__ret__, 'friendly_name'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vault_id=pulumi.get(__ret__, 'key_vault_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        seats=pulumi.get(__ret__, 'seats'),
+        storage_account=pulumi.get(__ret__, 'storage_account'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vso_account_id=pulumi.get(__ret__, 'vso_account_id'))
 
 
 @_utilities.lift_output_func(get_account)

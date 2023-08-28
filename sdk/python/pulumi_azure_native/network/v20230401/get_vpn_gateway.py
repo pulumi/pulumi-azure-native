@@ -230,21 +230,21 @@ def get_vpn_gateway(gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult).value
 
     return AwaitableGetVpnGatewayResult(
-        bgp_settings=__ret__.bgp_settings,
-        connections=__ret__.connections,
-        enable_bgp_route_translation_for_nat=__ret__.enable_bgp_route_translation_for_nat,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        ip_configurations=__ret__.ip_configurations,
-        is_routing_preference_internet=__ret__.is_routing_preference_internet,
-        location=__ret__.location,
-        name=__ret__.name,
-        nat_rules=__ret__.nat_rules,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_hub=__ret__.virtual_hub,
-        vpn_gateway_scale_unit=__ret__.vpn_gateway_scale_unit)
+        bgp_settings=pulumi.get(__ret__, 'bgp_settings'),
+        connections=pulumi.get(__ret__, 'connections'),
+        enable_bgp_route_translation_for_nat=pulumi.get(__ret__, 'enable_bgp_route_translation_for_nat'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_configurations=pulumi.get(__ret__, 'ip_configurations'),
+        is_routing_preference_internet=pulumi.get(__ret__, 'is_routing_preference_internet'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        nat_rules=pulumi.get(__ret__, 'nat_rules'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_hub=pulumi.get(__ret__, 'virtual_hub'),
+        vpn_gateway_scale_unit=pulumi.get(__ret__, 'vpn_gateway_scale_unit'))
 
 
 @_utilities.lift_output_func(get_vpn_gateway)

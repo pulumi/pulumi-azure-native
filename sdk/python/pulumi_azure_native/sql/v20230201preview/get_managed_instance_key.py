@@ -136,13 +136,13 @@ def get_managed_instance_key(key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getManagedInstanceKey', __args__, opts=opts, typ=GetManagedInstanceKeyResult).value
 
     return AwaitableGetManagedInstanceKeyResult(
-        auto_rotation_enabled=__ret__.auto_rotation_enabled,
-        creation_date=__ret__.creation_date,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        thumbprint=__ret__.thumbprint,
-        type=__ret__.type)
+        auto_rotation_enabled=pulumi.get(__ret__, 'auto_rotation_enabled'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_managed_instance_key)

@@ -173,16 +173,16 @@ def get_integration_account_partner(integration_account_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20190501:getIntegrationAccountPartner', __args__, opts=opts, typ=GetIntegrationAccountPartnerResult).value
 
     return AwaitableGetIntegrationAccountPartnerResult(
-        changed_time=__ret__.changed_time,
-        content=__ret__.content,
-        created_time=__ret__.created_time,
-        id=__ret__.id,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        partner_type=__ret__.partner_type,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        changed_time=pulumi.get(__ret__, 'changed_time'),
+        content=pulumi.get(__ret__, 'content'),
+        created_time=pulumi.get(__ret__, 'created_time'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_type=pulumi.get(__ret__, 'partner_type'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_integration_account_partner)

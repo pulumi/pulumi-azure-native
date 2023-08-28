@@ -137,13 +137,13 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getVirtualApplianceSite', __args__, opts=opts, typ=GetVirtualApplianceSiteResult).value
 
     return AwaitableGetVirtualApplianceSiteResult(
-        address_prefix=__ret__.address_prefix,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        o365_policy=__ret__.o365_policy,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        address_prefix=pulumi.get(__ret__, 'address_prefix'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        o365_policy=pulumi.get(__ret__, 'o365_policy'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_virtual_appliance_site)

@@ -120,11 +120,11 @@ def get_buildpack_binding(build_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform:getBuildpackBinding', __args__, opts=opts, typ=GetBuildpackBindingResult).value
 
     return AwaitableGetBuildpackBindingResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_buildpack_binding)

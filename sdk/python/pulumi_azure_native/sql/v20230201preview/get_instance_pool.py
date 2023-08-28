@@ -158,15 +158,15 @@ def get_instance_pool(instance_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getInstancePool', __args__, opts=opts, typ=GetInstancePoolResult).value
 
     return AwaitableGetInstancePoolResult(
-        id=__ret__.id,
-        license_type=__ret__.license_type,
-        location=__ret__.location,
-        name=__ret__.name,
-        sku=__ret__.sku,
-        subnet_id=__ret__.subnet_id,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        v_cores=__ret__.v_cores)
+        id=pulumi.get(__ret__, 'id'),
+        license_type=pulumi.get(__ret__, 'license_type'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        v_cores=pulumi.get(__ret__, 'v_cores'))
 
 
 @_utilities.lift_output_func(get_instance_pool)

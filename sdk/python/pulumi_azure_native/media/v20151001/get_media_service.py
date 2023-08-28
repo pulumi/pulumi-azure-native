@@ -134,13 +134,13 @@ def get_media_service(media_service_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20151001:getMediaService', __args__, opts=opts, typ=GetMediaServiceResult).value
 
     return AwaitableGetMediaServiceResult(
-        api_endpoints=__ret__.api_endpoints,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        storage_accounts=__ret__.storage_accounts,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        api_endpoints=pulumi.get(__ret__, 'api_endpoints'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        storage_accounts=pulumi.get(__ret__, 'storage_accounts'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_media_service)

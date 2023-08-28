@@ -218,20 +218,20 @@ def get_private_zone(private_zone_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getPrivateZone', __args__, opts=opts, typ=GetPrivateZoneResult).value
 
     return AwaitableGetPrivateZoneResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        internal_id=__ret__.internal_id,
-        location=__ret__.location,
-        max_number_of_record_sets=__ret__.max_number_of_record_sets,
-        max_number_of_virtual_network_links=__ret__.max_number_of_virtual_network_links,
-        max_number_of_virtual_network_links_with_registration=__ret__.max_number_of_virtual_network_links_with_registration,
-        name=__ret__.name,
-        number_of_record_sets=__ret__.number_of_record_sets,
-        number_of_virtual_network_links=__ret__.number_of_virtual_network_links,
-        number_of_virtual_network_links_with_registration=__ret__.number_of_virtual_network_links_with_registration,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        internal_id=pulumi.get(__ret__, 'internal_id'),
+        location=pulumi.get(__ret__, 'location'),
+        max_number_of_record_sets=pulumi.get(__ret__, 'max_number_of_record_sets'),
+        max_number_of_virtual_network_links=pulumi.get(__ret__, 'max_number_of_virtual_network_links'),
+        max_number_of_virtual_network_links_with_registration=pulumi.get(__ret__, 'max_number_of_virtual_network_links_with_registration'),
+        name=pulumi.get(__ret__, 'name'),
+        number_of_record_sets=pulumi.get(__ret__, 'number_of_record_sets'),
+        number_of_virtual_network_links=pulumi.get(__ret__, 'number_of_virtual_network_links'),
+        number_of_virtual_network_links_with_registration=pulumi.get(__ret__, 'number_of_virtual_network_links_with_registration'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_zone)

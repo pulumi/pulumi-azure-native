@@ -248,22 +248,22 @@ def get_private_record_set(private_zone_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20200601:getPrivateRecordSet', __args__, opts=opts, typ=GetPrivateRecordSetResult).value
 
     return AwaitableGetPrivateRecordSetResult(
-        a_records=__ret__.a_records,
-        aaaa_records=__ret__.aaaa_records,
-        cname_record=__ret__.cname_record,
-        etag=__ret__.etag,
-        fqdn=__ret__.fqdn,
-        id=__ret__.id,
-        is_auto_registered=__ret__.is_auto_registered,
-        metadata=__ret__.metadata,
-        mx_records=__ret__.mx_records,
-        name=__ret__.name,
-        ptr_records=__ret__.ptr_records,
-        soa_record=__ret__.soa_record,
-        srv_records=__ret__.srv_records,
-        ttl=__ret__.ttl,
-        txt_records=__ret__.txt_records,
-        type=__ret__.type)
+        a_records=pulumi.get(__ret__, 'a_records'),
+        aaaa_records=pulumi.get(__ret__, 'aaaa_records'),
+        cname_record=pulumi.get(__ret__, 'cname_record'),
+        etag=pulumi.get(__ret__, 'etag'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        id=pulumi.get(__ret__, 'id'),
+        is_auto_registered=pulumi.get(__ret__, 'is_auto_registered'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        mx_records=pulumi.get(__ret__, 'mx_records'),
+        name=pulumi.get(__ret__, 'name'),
+        ptr_records=pulumi.get(__ret__, 'ptr_records'),
+        soa_record=pulumi.get(__ret__, 'soa_record'),
+        srv_records=pulumi.get(__ret__, 'srv_records'),
+        ttl=pulumi.get(__ret__, 'ttl'),
+        txt_records=pulumi.get(__ret__, 'txt_records'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_record_set)

@@ -140,13 +140,13 @@ def get_sql_resource_sql_user_defined_function(account_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20230315preview:getSqlResourceSqlUserDefinedFunction', __args__, opts=opts, typ=GetSqlResourceSqlUserDefinedFunctionResult).value
 
     return AwaitableGetSqlResourceSqlUserDefinedFunctionResult(
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource=__ret__.resource,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource=pulumi.get(__ret__, 'resource'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sql_resource_sql_user_defined_function)

@@ -139,13 +139,13 @@ def get_anomalies(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights:getAnomalies', __args__, opts=opts, typ=GetAnomaliesResult).value
 
     return AwaitableGetAnomaliesResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        is_enabled=__ret__.is_enabled,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        is_enabled=pulumi.get(__ret__, 'is_enabled'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_anomalies)

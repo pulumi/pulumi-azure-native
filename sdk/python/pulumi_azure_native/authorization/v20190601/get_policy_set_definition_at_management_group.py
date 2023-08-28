@@ -158,15 +158,15 @@ def get_policy_set_definition_at_management_group(management_group_id: Optional[
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20190601:getPolicySetDefinitionAtManagementGroup', __args__, opts=opts, typ=GetPolicySetDefinitionAtManagementGroupResult).value
 
     return AwaitableGetPolicySetDefinitionAtManagementGroupResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        parameters=__ret__.parameters,
-        policy_definitions=__ret__.policy_definitions,
-        policy_type=__ret__.policy_type,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        policy_definitions=pulumi.get(__ret__, 'policy_definitions'),
+        policy_type=pulumi.get(__ret__, 'policy_type'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_policy_set_definition_at_management_group)

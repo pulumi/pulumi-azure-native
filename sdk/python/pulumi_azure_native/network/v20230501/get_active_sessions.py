@@ -74,8 +74,8 @@ def get_active_sessions(bastion_host_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getActiveSessions', __args__, opts=opts, typ=GetActiveSessionsResult).value
 
     return AwaitableGetActiveSessionsResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_active_sessions)

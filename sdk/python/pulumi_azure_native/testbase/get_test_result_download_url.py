@@ -80,8 +80,8 @@ def get_test_result_download_url(package_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:testbase:getTestResultDownloadURL', __args__, opts=opts, typ=GetTestResultDownloadURLResult).value
 
     return AwaitableGetTestResultDownloadURLResult(
-        download_url=__ret__.download_url,
-        expiration_time=__ret__.expiration_time)
+        download_url=pulumi.get(__ret__, 'download_url'),
+        expiration_time=pulumi.get(__ret__, 'expiration_time'))
 
 
 @_utilities.lift_output_func(get_test_result_download_url)

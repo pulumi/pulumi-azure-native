@@ -64,7 +64,7 @@ def list_named_value(named_value_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220801:listNamedValue', __args__, opts=opts, typ=ListNamedValueResult).value
 
     return AwaitableListNamedValueResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_named_value)

@@ -234,21 +234,21 @@ def get_sap_database_instance(database_instance_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getSAPDatabaseInstance', __args__, opts=opts, typ=GetSAPDatabaseInstanceResult).value
 
     return AwaitableGetSAPDatabaseInstanceResult(
-        database_sid=__ret__.database_sid,
-        database_type=__ret__.database_type,
-        errors=__ret__.errors,
-        id=__ret__.id,
-        ip_address=__ret__.ip_address,
-        load_balancer_details=__ret__.load_balancer_details,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        subnet=__ret__.subnet,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vm_details=__ret__.vm_details)
+        database_sid=pulumi.get(__ret__, 'database_sid'),
+        database_type=pulumi.get(__ret__, 'database_type'),
+        errors=pulumi.get(__ret__, 'errors'),
+        id=pulumi.get(__ret__, 'id'),
+        ip_address=pulumi.get(__ret__, 'ip_address'),
+        load_balancer_details=pulumi.get(__ret__, 'load_balancer_details'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        subnet=pulumi.get(__ret__, 'subnet'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vm_details=pulumi.get(__ret__, 'vm_details'))
 
 
 @_utilities.lift_output_func(get_sap_database_instance)

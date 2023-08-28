@@ -80,8 +80,8 @@ def get_global_user_personal_preferences(add_remove: Optional[Union[str, 'AddRem
     __ret__ = pulumi.runtime.invoke('azure-native:labservices/v20181015:getGlobalUserPersonalPreferences', __args__, opts=opts, typ=GetGlobalUserPersonalPreferencesResult).value
 
     return AwaitableGetGlobalUserPersonalPreferencesResult(
-        favorite_lab_resource_ids=__ret__.favorite_lab_resource_ids,
-        id=__ret__.id)
+        favorite_lab_resource_ids=pulumi.get(__ret__, 'favorite_lab_resource_ids'),
+        id=pulumi.get(__ret__, 'id'))
 
 
 @_utilities.lift_output_func(get_global_user_personal_preferences)

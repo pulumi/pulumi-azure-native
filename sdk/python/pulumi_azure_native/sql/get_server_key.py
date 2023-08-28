@@ -161,15 +161,15 @@ def get_server_key(key_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getServerKey', __args__, opts=opts, typ=GetServerKeyResult).value
 
     return AwaitableGetServerKeyResult(
-        auto_rotation_enabled=__ret__.auto_rotation_enabled,
-        creation_date=__ret__.creation_date,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        subregion=__ret__.subregion,
-        thumbprint=__ret__.thumbprint,
-        type=__ret__.type)
+        auto_rotation_enabled=pulumi.get(__ret__, 'auto_rotation_enabled'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        subregion=pulumi.get(__ret__, 'subregion'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_key)

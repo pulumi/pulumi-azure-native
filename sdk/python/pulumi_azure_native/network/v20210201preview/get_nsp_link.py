@@ -220,20 +220,20 @@ def get_nsp_link(link_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210201preview:getNspLink', __args__, opts=opts, typ=GetNspLinkResult).value
 
     return AwaitableGetNspLinkResult(
-        auto_approved_remote_perimeter_resource_id=__ret__.auto_approved_remote_perimeter_resource_id,
-        description=__ret__.description,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        local_inbound_profiles=__ret__.local_inbound_profiles,
-        local_outbound_profiles=__ret__.local_outbound_profiles,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        remote_inbound_profiles=__ret__.remote_inbound_profiles,
-        remote_outbound_profiles=__ret__.remote_outbound_profiles,
-        remote_perimeter_guid=__ret__.remote_perimeter_guid,
-        remote_perimeter_location=__ret__.remote_perimeter_location,
-        status=__ret__.status,
-        type=__ret__.type)
+        auto_approved_remote_perimeter_resource_id=pulumi.get(__ret__, 'auto_approved_remote_perimeter_resource_id'),
+        description=pulumi.get(__ret__, 'description'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        local_inbound_profiles=pulumi.get(__ret__, 'local_inbound_profiles'),
+        local_outbound_profiles=pulumi.get(__ret__, 'local_outbound_profiles'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        remote_inbound_profiles=pulumi.get(__ret__, 'remote_inbound_profiles'),
+        remote_outbound_profiles=pulumi.get(__ret__, 'remote_outbound_profiles'),
+        remote_perimeter_guid=pulumi.get(__ret__, 'remote_perimeter_guid'),
+        remote_perimeter_location=pulumi.get(__ret__, 'remote_perimeter_location'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_nsp_link)

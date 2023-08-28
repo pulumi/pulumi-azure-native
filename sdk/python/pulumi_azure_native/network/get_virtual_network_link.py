@@ -174,16 +174,16 @@ def get_virtual_network_link(private_zone_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getVirtualNetworkLink', __args__, opts=opts, typ=GetVirtualNetworkLinkResult).value
 
     return AwaitableGetVirtualNetworkLinkResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        registration_enabled=__ret__.registration_enabled,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_network=__ret__.virtual_network,
-        virtual_network_link_state=__ret__.virtual_network_link_state)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        registration_enabled=pulumi.get(__ret__, 'registration_enabled'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network=pulumi.get(__ret__, 'virtual_network'),
+        virtual_network_link_state=pulumi.get(__ret__, 'virtual_network_link_state'))
 
 
 @_utilities.lift_output_func(get_virtual_network_link)

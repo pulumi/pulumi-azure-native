@@ -74,8 +74,8 @@ def list_query_key_by_search_service(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:search/v20220901:listQueryKeyBySearchService', __args__, opts=opts, typ=ListQueryKeyBySearchServiceResult).value
 
     return AwaitableListQueryKeyBySearchServiceResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_query_key_by_search_service)

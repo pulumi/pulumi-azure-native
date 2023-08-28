@@ -231,21 +231,21 @@ def get_network_connection(network_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter:getNetworkConnection', __args__, opts=opts, typ=GetNetworkConnectionResult).value
 
     return AwaitableGetNetworkConnectionResult(
-        domain_join_type=__ret__.domain_join_type,
-        domain_name=__ret__.domain_name,
-        domain_password=__ret__.domain_password,
-        domain_username=__ret__.domain_username,
-        health_check_status=__ret__.health_check_status,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        networking_resource_group_name=__ret__.networking_resource_group_name,
-        organization_unit=__ret__.organization_unit,
-        provisioning_state=__ret__.provisioning_state,
-        subnet_id=__ret__.subnet_id,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        domain_join_type=pulumi.get(__ret__, 'domain_join_type'),
+        domain_name=pulumi.get(__ret__, 'domain_name'),
+        domain_password=pulumi.get(__ret__, 'domain_password'),
+        domain_username=pulumi.get(__ret__, 'domain_username'),
+        health_check_status=pulumi.get(__ret__, 'health_check_status'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        networking_resource_group_name=pulumi.get(__ret__, 'networking_resource_group_name'),
+        organization_unit=pulumi.get(__ret__, 'organization_unit'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_connection)

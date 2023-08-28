@@ -194,18 +194,18 @@ def get_adc_catalog(catalog_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datacatalog/v20160330:getADCCatalog', __args__, opts=opts, typ=GetADCCatalogResult).value
 
     return AwaitableGetADCCatalogResult(
-        admins=__ret__.admins,
-        enable_automatic_unit_adjustment=__ret__.enable_automatic_unit_adjustment,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        sku=__ret__.sku,
-        successfully_provisioned=__ret__.successfully_provisioned,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        units=__ret__.units,
-        users=__ret__.users)
+        admins=pulumi.get(__ret__, 'admins'),
+        enable_automatic_unit_adjustment=pulumi.get(__ret__, 'enable_automatic_unit_adjustment'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        sku=pulumi.get(__ret__, 'sku'),
+        successfully_provisioned=pulumi.get(__ret__, 'successfully_provisioned'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        units=pulumi.get(__ret__, 'units'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_adc_catalog)

@@ -269,24 +269,24 @@ def get_integration_service_environment_managed_api(api_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:logic/v20190501:getIntegrationServiceEnvironmentManagedApi', __args__, opts=opts, typ=GetIntegrationServiceEnvironmentManagedApiResult).value
 
     return AwaitableGetIntegrationServiceEnvironmentManagedApiResult(
-        api_definition_url=__ret__.api_definition_url,
-        api_definitions=__ret__.api_definitions,
-        backend_service=__ret__.backend_service,
-        capabilities=__ret__.capabilities,
-        category=__ret__.category,
-        connection_parameters=__ret__.connection_parameters,
-        deployment_parameters=__ret__.deployment_parameters,
-        general_information=__ret__.general_information,
-        id=__ret__.id,
-        integration_service_environment=__ret__.integration_service_environment,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        policies=__ret__.policies,
-        provisioning_state=__ret__.provisioning_state,
-        runtime_urls=__ret__.runtime_urls,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        api_definition_url=pulumi.get(__ret__, 'api_definition_url'),
+        api_definitions=pulumi.get(__ret__, 'api_definitions'),
+        backend_service=pulumi.get(__ret__, 'backend_service'),
+        capabilities=pulumi.get(__ret__, 'capabilities'),
+        category=pulumi.get(__ret__, 'category'),
+        connection_parameters=pulumi.get(__ret__, 'connection_parameters'),
+        deployment_parameters=pulumi.get(__ret__, 'deployment_parameters'),
+        general_information=pulumi.get(__ret__, 'general_information'),
+        id=pulumi.get(__ret__, 'id'),
+        integration_service_environment=pulumi.get(__ret__, 'integration_service_environment'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        policies=pulumi.get(__ret__, 'policies'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        runtime_urls=pulumi.get(__ret__, 'runtime_urls'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_integration_service_environment_managed_api)

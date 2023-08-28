@@ -141,13 +141,13 @@ def get_datastore(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs:getDatastore', __args__, opts=opts, typ=GetDatastoreResult).value
 
     return AwaitableGetDatastoreResult(
-        disk_pool_volume=__ret__.disk_pool_volume,
-        id=__ret__.id,
-        name=__ret__.name,
-        net_app_volume=__ret__.net_app_volume,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        type=__ret__.type)
+        disk_pool_volume=pulumi.get(__ret__, 'disk_pool_volume'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        net_app_volume=pulumi.get(__ret__, 'net_app_volume'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_datastore)

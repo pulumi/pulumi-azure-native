@@ -125,12 +125,12 @@ def get_managed_instance_private_endpoint_connection(managed_instance_name: Opti
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getManagedInstancePrivateEndpointConnection', __args__, opts=opts, typ=GetManagedInstancePrivateEndpointConnectionResult).value
 
     return AwaitableGetManagedInstancePrivateEndpointConnectionResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        private_endpoint=__ret__.private_endpoint,
-        private_link_service_connection_state=__ret__.private_link_service_connection_state,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint=pulumi.get(__ret__, 'private_endpoint'),
+        private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_managed_instance_private_endpoint_connection)

@@ -242,22 +242,22 @@ def get_namespace(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getNamespace', __args__, opts=opts, typ=GetNamespaceResult).value
 
     return AwaitableGetNamespaceResult(
-        id=__ret__.id,
-        identity=__ret__.identity,
-        inbound_ip_rules=__ret__.inbound_ip_rules,
-        is_zone_redundant=__ret__.is_zone_redundant,
-        location=__ret__.location,
-        minimum_tls_version_allowed=__ret__.minimum_tls_version_allowed,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        topic_spaces_configuration=__ret__.topic_spaces_configuration,
-        topics_configuration=__ret__.topics_configuration,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        inbound_ip_rules=pulumi.get(__ret__, 'inbound_ip_rules'),
+        is_zone_redundant=pulumi.get(__ret__, 'is_zone_redundant'),
+        location=pulumi.get(__ret__, 'location'),
+        minimum_tls_version_allowed=pulumi.get(__ret__, 'minimum_tls_version_allowed'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        topic_spaces_configuration=pulumi.get(__ret__, 'topic_spaces_configuration'),
+        topics_configuration=pulumi.get(__ret__, 'topics_configuration'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_namespace)

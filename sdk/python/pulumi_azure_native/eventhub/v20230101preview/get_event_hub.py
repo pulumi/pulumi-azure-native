@@ -209,19 +209,19 @@ def get_event_hub(event_hub_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub/v20230101preview:getEventHub', __args__, opts=opts, typ=GetEventHubResult).value
 
     return AwaitableGetEventHubResult(
-        capture_description=__ret__.capture_description,
-        created_at=__ret__.created_at,
-        id=__ret__.id,
-        location=__ret__.location,
-        message_retention_in_days=__ret__.message_retention_in_days,
-        name=__ret__.name,
-        partition_count=__ret__.partition_count,
-        partition_ids=__ret__.partition_ids,
-        retention_description=__ret__.retention_description,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        updated_at=__ret__.updated_at)
+        capture_description=pulumi.get(__ret__, 'capture_description'),
+        created_at=pulumi.get(__ret__, 'created_at'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        message_retention_in_days=pulumi.get(__ret__, 'message_retention_in_days'),
+        name=pulumi.get(__ret__, 'name'),
+        partition_count=pulumi.get(__ret__, 'partition_count'),
+        partition_ids=pulumi.get(__ret__, 'partition_ids'),
+        retention_description=pulumi.get(__ret__, 'retention_description'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_at=pulumi.get(__ret__, 'updated_at'))
 
 
 @_utilities.lift_output_func(get_event_hub)

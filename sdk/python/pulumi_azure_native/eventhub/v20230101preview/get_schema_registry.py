@@ -179,17 +179,17 @@ def get_schema_registry(namespace_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventhub/v20230101preview:getSchemaRegistry', __args__, opts=opts, typ=GetSchemaRegistryResult).value
 
     return AwaitableGetSchemaRegistryResult(
-        created_at_utc=__ret__.created_at_utc,
-        e_tag=__ret__.e_tag,
-        group_properties=__ret__.group_properties,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        schema_compatibility=__ret__.schema_compatibility,
-        schema_type=__ret__.schema_type,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        updated_at_utc=__ret__.updated_at_utc)
+        created_at_utc=pulumi.get(__ret__, 'created_at_utc'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        group_properties=pulumi.get(__ret__, 'group_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        schema_compatibility=pulumi.get(__ret__, 'schema_compatibility'),
+        schema_type=pulumi.get(__ret__, 'schema_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_at_utc=pulumi.get(__ret__, 'updated_at_utc'))
 
 
 @_utilities.lift_output_func(get_schema_registry)

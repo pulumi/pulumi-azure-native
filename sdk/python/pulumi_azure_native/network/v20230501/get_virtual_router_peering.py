@@ -136,13 +136,13 @@ def get_virtual_router_peering(peering_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getVirtualRouterPeering', __args__, opts=opts, typ=GetVirtualRouterPeeringResult).value
 
     return AwaitableGetVirtualRouterPeeringResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        peer_asn=__ret__.peer_asn,
-        peer_ip=__ret__.peer_ip,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        peer_asn=pulumi.get(__ret__, 'peer_asn'),
+        peer_ip=pulumi.get(__ret__, 'peer_ip'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_virtual_router_peering)

@@ -153,14 +153,14 @@ def get_static_member(network_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getStaticMember', __args__, opts=opts, typ=GetStaticMemberResult).value
 
     return AwaitableGetStaticMemberResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        region=__ret__.region,
-        resource_id=__ret__.resource_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        region=pulumi.get(__ret__, 'region'),
+        resource_id=pulumi.get(__ret__, 'resource_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_static_member)

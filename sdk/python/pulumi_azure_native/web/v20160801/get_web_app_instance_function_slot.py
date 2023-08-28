@@ -211,19 +211,19 @@ def get_web_app_instance_function_slot(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20160801:getWebAppInstanceFunctionSlot', __args__, opts=opts, typ=GetWebAppInstanceFunctionSlotResult).value
 
     return AwaitableGetWebAppInstanceFunctionSlotResult(
-        config=__ret__.config,
-        config_href=__ret__.config_href,
-        files=__ret__.files,
-        function_app_id=__ret__.function_app_id,
-        href=__ret__.href,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        script_href=__ret__.script_href,
-        script_root_path_href=__ret__.script_root_path_href,
-        secrets_file_href=__ret__.secrets_file_href,
-        test_data=__ret__.test_data,
-        type=__ret__.type)
+        config=pulumi.get(__ret__, 'config'),
+        config_href=pulumi.get(__ret__, 'config_href'),
+        files=pulumi.get(__ret__, 'files'),
+        function_app_id=pulumi.get(__ret__, 'function_app_id'),
+        href=pulumi.get(__ret__, 'href'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        script_href=pulumi.get(__ret__, 'script_href'),
+        script_root_path_href=pulumi.get(__ret__, 'script_root_path_href'),
+        secrets_file_href=pulumi.get(__ret__, 'secrets_file_href'),
+        test_data=pulumi.get(__ret__, 'test_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_instance_function_slot)

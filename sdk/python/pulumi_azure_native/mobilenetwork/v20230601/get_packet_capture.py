@@ -197,18 +197,18 @@ def get_packet_capture(packet_capture_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:mobilenetwork/v20230601:getPacketCapture', __args__, opts=opts, typ=GetPacketCaptureResult).value
 
     return AwaitableGetPacketCaptureResult(
-        bytes_to_capture_per_packet=__ret__.bytes_to_capture_per_packet,
-        capture_start_time=__ret__.capture_start_time,
-        id=__ret__.id,
-        name=__ret__.name,
-        network_interfaces=__ret__.network_interfaces,
-        provisioning_state=__ret__.provisioning_state,
-        reason=__ret__.reason,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        time_limit_in_seconds=__ret__.time_limit_in_seconds,
-        total_bytes_per_session=__ret__.total_bytes_per_session,
-        type=__ret__.type)
+        bytes_to_capture_per_packet=pulumi.get(__ret__, 'bytes_to_capture_per_packet'),
+        capture_start_time=pulumi.get(__ret__, 'capture_start_time'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        reason=pulumi.get(__ret__, 'reason'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        time_limit_in_seconds=pulumi.get(__ret__, 'time_limit_in_seconds'),
+        total_bytes_per_session=pulumi.get(__ret__, 'total_bytes_per_session'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_packet_capture)

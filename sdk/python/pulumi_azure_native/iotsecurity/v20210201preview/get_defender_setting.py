@@ -137,11 +137,11 @@ def get_defender_setting(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitab
     __ret__ = pulumi.runtime.invoke('azure-native:iotsecurity/v20210201preview:getDefenderSetting', __args__, opts=opts, typ=GetDefenderSettingResult).value
 
     return AwaitableGetDefenderSettingResult(
-        device_quota=__ret__.device_quota,
-        evaluation_end_time=__ret__.evaluation_end_time,
-        id=__ret__.id,
-        mde_integration=__ret__.mde_integration,
-        name=__ret__.name,
-        onboarding_kind=__ret__.onboarding_kind,
-        sentinel_workspace_resource_ids=__ret__.sentinel_workspace_resource_ids,
-        type=__ret__.type)
+        device_quota=pulumi.get(__ret__, 'device_quota'),
+        evaluation_end_time=pulumi.get(__ret__, 'evaluation_end_time'),
+        id=pulumi.get(__ret__, 'id'),
+        mde_integration=pulumi.get(__ret__, 'mde_integration'),
+        name=pulumi.get(__ret__, 'name'),
+        onboarding_kind=pulumi.get(__ret__, 'onboarding_kind'),
+        sentinel_workspace_resource_ids=pulumi.get(__ret__, 'sentinel_workspace_resource_ids'),
+        type=pulumi.get(__ret__, 'type'))

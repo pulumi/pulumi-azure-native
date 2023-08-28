@@ -182,17 +182,17 @@ def get_express_route_gateway(express_route_gateway_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230401:getExpressRouteGateway', __args__, opts=opts, typ=GetExpressRouteGatewayResult).value
 
     return AwaitableGetExpressRouteGatewayResult(
-        allow_non_virtual_wan_traffic=__ret__.allow_non_virtual_wan_traffic,
-        auto_scale_configuration=__ret__.auto_scale_configuration,
-        etag=__ret__.etag,
-        express_route_connections=__ret__.express_route_connections,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_hub=__ret__.virtual_hub)
+        allow_non_virtual_wan_traffic=pulumi.get(__ret__, 'allow_non_virtual_wan_traffic'),
+        auto_scale_configuration=pulumi.get(__ret__, 'auto_scale_configuration'),
+        etag=pulumi.get(__ret__, 'etag'),
+        express_route_connections=pulumi.get(__ret__, 'express_route_connections'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 
 
 @_utilities.lift_output_func(get_express_route_gateway)
