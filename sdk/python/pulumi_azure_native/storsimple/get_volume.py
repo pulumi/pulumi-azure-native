@@ -215,19 +215,19 @@ def get_volume(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:storsimple:getVolume', __args__, opts=opts, typ=GetVolumeResult).value
 
     return AwaitableGetVolumeResult(
-        access_control_record_ids=__ret__.access_control_record_ids,
-        backup_policy_ids=__ret__.backup_policy_ids,
-        backup_status=__ret__.backup_status,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        monitoring_status=__ret__.monitoring_status,
-        name=__ret__.name,
-        operation_status=__ret__.operation_status,
-        size_in_bytes=__ret__.size_in_bytes,
-        type=__ret__.type,
-        volume_container_id=__ret__.volume_container_id,
-        volume_status=__ret__.volume_status,
-        volume_type=__ret__.volume_type)
+        access_control_record_ids=pulumi.get(__ret__, 'access_control_record_ids'),
+        backup_policy_ids=pulumi.get(__ret__, 'backup_policy_ids'),
+        backup_status=pulumi.get(__ret__, 'backup_status'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        monitoring_status=pulumi.get(__ret__, 'monitoring_status'),
+        name=pulumi.get(__ret__, 'name'),
+        operation_status=pulumi.get(__ret__, 'operation_status'),
+        size_in_bytes=pulumi.get(__ret__, 'size_in_bytes'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_container_id=pulumi.get(__ret__, 'volume_container_id'),
+        volume_status=pulumi.get(__ret__, 'volume_status'),
+        volume_type=pulumi.get(__ret__, 'volume_type'))
 
 
 @_utilities.lift_output_func(get_volume)

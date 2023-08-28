@@ -162,15 +162,15 @@ def get_mec_role(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20230701:getMECRole', __args__, opts=opts, typ=GetMECRoleResult).value
 
     return AwaitableGetMECRoleResult(
-        connection_string=__ret__.connection_string,
-        controller_endpoint=__ret__.controller_endpoint,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        resource_unique_id=__ret__.resource_unique_id,
-        role_status=__ret__.role_status,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        connection_string=pulumi.get(__ret__, 'connection_string'),
+        controller_endpoint=pulumi.get(__ret__, 'controller_endpoint'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_unique_id=pulumi.get(__ret__, 'resource_unique_id'),
+        role_status=pulumi.get(__ret__, 'role_status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_mec_role)

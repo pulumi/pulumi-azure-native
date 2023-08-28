@@ -206,19 +206,19 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230201:getVirtualWan', __args__, opts=opts, typ=GetVirtualWanResult).value
 
     return AwaitableGetVirtualWanResult(
-        allow_branch_to_branch_traffic=__ret__.allow_branch_to_branch_traffic,
-        allow_vnet_to_vnet_traffic=__ret__.allow_vnet_to_vnet_traffic,
-        disable_vpn_encryption=__ret__.disable_vpn_encryption,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        office365_local_breakout_category=__ret__.office365_local_breakout_category,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_hubs=__ret__.virtual_hubs,
-        vpn_sites=__ret__.vpn_sites)
+        allow_branch_to_branch_traffic=pulumi.get(__ret__, 'allow_branch_to_branch_traffic'),
+        allow_vnet_to_vnet_traffic=pulumi.get(__ret__, 'allow_vnet_to_vnet_traffic'),
+        disable_vpn_encryption=pulumi.get(__ret__, 'disable_vpn_encryption'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        office365_local_breakout_category=pulumi.get(__ret__, 'office365_local_breakout_category'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_hubs=pulumi.get(__ret__, 'virtual_hubs'),
+        vpn_sites=pulumi.get(__ret__, 'vpn_sites'))
 
 
 @_utilities.lift_output_func(get_virtual_wan)

@@ -267,24 +267,24 @@ def get_network_function(network_function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridnetwork:getNetworkFunction', __args__, opts=opts, typ=GetNetworkFunctionResult).value
 
     return AwaitableGetNetworkFunctionResult(
-        device=__ret__.device,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        managed_application=__ret__.managed_application,
-        managed_application_parameters=__ret__.managed_application_parameters,
-        name=__ret__.name,
-        network_function_container_configurations=__ret__.network_function_container_configurations,
-        network_function_user_configurations=__ret__.network_function_user_configurations,
-        provisioning_state=__ret__.provisioning_state,
-        service_key=__ret__.service_key,
-        sku_name=__ret__.sku_name,
-        sku_type=__ret__.sku_type,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vendor_name=__ret__.vendor_name,
-        vendor_provisioning_state=__ret__.vendor_provisioning_state)
+        device=pulumi.get(__ret__, 'device'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_application=pulumi.get(__ret__, 'managed_application'),
+        managed_application_parameters=pulumi.get(__ret__, 'managed_application_parameters'),
+        name=pulumi.get(__ret__, 'name'),
+        network_function_container_configurations=pulumi.get(__ret__, 'network_function_container_configurations'),
+        network_function_user_configurations=pulumi.get(__ret__, 'network_function_user_configurations'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        service_key=pulumi.get(__ret__, 'service_key'),
+        sku_name=pulumi.get(__ret__, 'sku_name'),
+        sku_type=pulumi.get(__ret__, 'sku_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vendor_name=pulumi.get(__ret__, 'vendor_name'),
+        vendor_provisioning_state=pulumi.get(__ret__, 'vendor_provisioning_state'))
 
 
 @_utilities.lift_output_func(get_network_function)

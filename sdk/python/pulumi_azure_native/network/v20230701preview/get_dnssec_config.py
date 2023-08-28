@@ -134,13 +134,13 @@ def get_dnssec_config(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230701preview:getDnssecConfig', __args__, opts=opts, typ=GetDnssecConfigResult).value
 
     return AwaitableGetDnssecConfigResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        signing_keys=__ret__.signing_keys,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        signing_keys=pulumi.get(__ret__, 'signing_keys'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_dnssec_config)

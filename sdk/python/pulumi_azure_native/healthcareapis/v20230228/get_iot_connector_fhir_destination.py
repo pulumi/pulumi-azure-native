@@ -164,15 +164,15 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:healthcareapis/v20230228:getIotConnectorFhirDestination', __args__, opts=opts, typ=GetIotConnectorFhirDestinationResult).value
 
     return AwaitableGetIotConnectorFhirDestinationResult(
-        etag=__ret__.etag,
-        fhir_mapping=__ret__.fhir_mapping,
-        fhir_service_resource_id=__ret__.fhir_service_resource_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        resource_identity_resolution_type=__ret__.resource_identity_resolution_type,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        etag=pulumi.get(__ret__, 'etag'),
+        fhir_mapping=pulumi.get(__ret__, 'fhir_mapping'),
+        fhir_service_resource_id=pulumi.get(__ret__, 'fhir_service_resource_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        resource_identity_resolution_type=pulumi.get(__ret__, 'resource_identity_resolution_type'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_iot_connector_fhir_destination)

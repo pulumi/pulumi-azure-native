@@ -70,7 +70,7 @@ def get_volume_group_id_for_ldap_user(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20221101preview:getVolumeGroupIdForLdapUser', __args__, opts=opts, typ=GetVolumeGroupIdForLdapUserResult).value
 
     return AwaitableGetVolumeGroupIdForLdapUserResult(
-        group_ids_for_ldap_user=__ret__.group_ids_for_ldap_user)
+        group_ids_for_ldap_user=pulumi.get(__ret__, 'group_ids_for_ldap_user'))
 
 
 @_utilities.lift_output_func(get_volume_group_id_for_ldap_user)

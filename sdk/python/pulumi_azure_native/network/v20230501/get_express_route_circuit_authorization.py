@@ -136,13 +136,13 @@ def get_express_route_circuit_authorization(authorization_name: Optional[str] = 
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getExpressRouteCircuitAuthorization', __args__, opts=opts, typ=GetExpressRouteCircuitAuthorizationResult).value
 
     return AwaitableGetExpressRouteCircuitAuthorizationResult(
-        authorization_key=__ret__.authorization_key,
-        authorization_use_status=__ret__.authorization_use_status,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        authorization_key=pulumi.get(__ret__, 'authorization_key'),
+        authorization_use_status=pulumi.get(__ret__, 'authorization_use_status'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_express_route_circuit_authorization)

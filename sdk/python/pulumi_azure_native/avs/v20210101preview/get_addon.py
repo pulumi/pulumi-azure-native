@@ -124,12 +124,12 @@ def get_addon(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:avs/v20210101preview:getAddon', __args__, opts=opts, typ=GetAddonResult).value
 
     return AwaitableGetAddonResult(
-        addon_type=__ret__.addon_type,
-        id=__ret__.id,
-        license_key=__ret__.license_key,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        addon_type=pulumi.get(__ret__, 'addon_type'),
+        id=pulumi.get(__ret__, 'id'),
+        license_key=pulumi.get(__ret__, 'license_key'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_addon)

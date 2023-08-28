@@ -161,15 +161,15 @@ def get_token(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20230101preview:getToken', __args__, opts=opts, typ=GetTokenResult).value
 
     return AwaitableGetTokenResult(
-        creation_date=__ret__.creation_date,
-        credentials=__ret__.credentials,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        scope_map_id=__ret__.scope_map_id,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        credentials=pulumi.get(__ret__, 'credentials'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        scope_map_id=pulumi.get(__ret__, 'scope_map_id'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_token)

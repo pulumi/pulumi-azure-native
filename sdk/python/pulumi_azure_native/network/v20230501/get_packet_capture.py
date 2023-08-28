@@ -197,18 +197,18 @@ def get_packet_capture(network_watcher_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getPacketCapture', __args__, opts=opts, typ=GetPacketCaptureResult).value
 
     return AwaitableGetPacketCaptureResult(
-        bytes_to_capture_per_packet=__ret__.bytes_to_capture_per_packet,
-        etag=__ret__.etag,
-        filters=__ret__.filters,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        scope=__ret__.scope,
-        storage_location=__ret__.storage_location,
-        target=__ret__.target,
-        target_type=__ret__.target_type,
-        time_limit_in_seconds=__ret__.time_limit_in_seconds,
-        total_bytes_per_session=__ret__.total_bytes_per_session)
+        bytes_to_capture_per_packet=pulumi.get(__ret__, 'bytes_to_capture_per_packet'),
+        etag=pulumi.get(__ret__, 'etag'),
+        filters=pulumi.get(__ret__, 'filters'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        scope=pulumi.get(__ret__, 'scope'),
+        storage_location=pulumi.get(__ret__, 'storage_location'),
+        target=pulumi.get(__ret__, 'target'),
+        target_type=pulumi.get(__ret__, 'target_type'),
+        time_limit_in_seconds=pulumi.get(__ret__, 'time_limit_in_seconds'),
+        total_bytes_per_session=pulumi.get(__ret__, 'total_bytes_per_session'))
 
 
 @_utilities.lift_output_func(get_packet_capture)

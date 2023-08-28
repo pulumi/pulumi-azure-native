@@ -102,9 +102,9 @@ def get_factory_data_plane_access(access_resource_path: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datafactory:getFactoryDataPlaneAccess', __args__, opts=opts, typ=GetFactoryDataPlaneAccessResult).value
 
     return AwaitableGetFactoryDataPlaneAccessResult(
-        access_token=__ret__.access_token,
-        data_plane_url=__ret__.data_plane_url,
-        policy=__ret__.policy)
+        access_token=pulumi.get(__ret__, 'access_token'),
+        data_plane_url=pulumi.get(__ret__, 'data_plane_url'),
+        policy=pulumi.get(__ret__, 'policy'))
 
 
 @_utilities.lift_output_func(get_factory_data_plane_access)

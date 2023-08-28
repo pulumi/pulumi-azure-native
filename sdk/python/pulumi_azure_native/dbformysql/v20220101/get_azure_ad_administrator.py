@@ -161,15 +161,15 @@ def get_azure_ad_administrator(administrator_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbformysql/v20220101:getAzureADAdministrator', __args__, opts=opts, typ=GetAzureADAdministratorResult).value
 
     return AwaitableGetAzureADAdministratorResult(
-        administrator_type=__ret__.administrator_type,
-        id=__ret__.id,
-        identity_resource_id=__ret__.identity_resource_id,
-        login=__ret__.login,
-        name=__ret__.name,
-        sid=__ret__.sid,
-        system_data=__ret__.system_data,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        administrator_type=pulumi.get(__ret__, 'administrator_type'),
+        id=pulumi.get(__ret__, 'id'),
+        identity_resource_id=pulumi.get(__ret__, 'identity_resource_id'),
+        login=pulumi.get(__ret__, 'login'),
+        name=pulumi.get(__ret__, 'name'),
+        sid=pulumi.get(__ret__, 'sid'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_azure_ad_administrator)

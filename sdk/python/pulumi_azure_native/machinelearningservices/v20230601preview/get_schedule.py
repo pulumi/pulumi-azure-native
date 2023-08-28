@@ -113,11 +113,11 @@ def get_schedule(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230601preview:getSchedule', __args__, opts=opts, typ=GetScheduleResult).value
 
     return AwaitableGetScheduleResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        schedule_properties=__ret__.schedule_properties,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        schedule_properties=pulumi.get(__ret__, 'schedule_properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_schedule)

@@ -113,11 +113,11 @@ def get_registry_environment_container(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices/v20230401:getRegistryEnvironmentContainer', __args__, opts=opts, typ=GetRegistryEnvironmentContainerResult).value
 
     return AwaitableGetRegistryEnvironmentContainerResult(
-        environment_container_properties=__ret__.environment_container_properties,
-        id=__ret__.id,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        environment_container_properties=pulumi.get(__ret__, 'environment_container_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_registry_environment_container)

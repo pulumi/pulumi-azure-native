@@ -158,15 +158,15 @@ def get_private_link_scope(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20210701preview:getPrivateLinkScope', __args__, opts=opts, typ=GetPrivateLinkScopeResult).value
 
     return AwaitableGetPrivateLinkScopeResult(
-        access_mode_settings=__ret__.access_mode_settings,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        access_mode_settings=pulumi.get(__ret__, 'access_mode_settings'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_private_link_scope)

@@ -159,15 +159,15 @@ def get_address_by_name(address_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:edgeorder:getAddressByName', __args__, opts=opts, typ=GetAddressByNameResult).value
 
     return AwaitableGetAddressByNameResult(
-        address_validation_status=__ret__.address_validation_status,
-        contact_details=__ret__.contact_details,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        shipping_address=__ret__.shipping_address,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        address_validation_status=pulumi.get(__ret__, 'address_validation_status'),
+        contact_details=pulumi.get(__ret__, 'contact_details'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        shipping_address=pulumi.get(__ret__, 'shipping_address'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_address_by_name)

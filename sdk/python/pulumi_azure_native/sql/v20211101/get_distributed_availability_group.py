@@ -208,19 +208,19 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20211101:getDistributedAvailabilityGroup', __args__, opts=opts, typ=GetDistributedAvailabilityGroupResult).value
 
     return AwaitableGetDistributedAvailabilityGroupResult(
-        distributed_availability_group_id=__ret__.distributed_availability_group_id,
-        id=__ret__.id,
-        last_hardened_lsn=__ret__.last_hardened_lsn,
-        link_state=__ret__.link_state,
-        name=__ret__.name,
-        primary_availability_group_name=__ret__.primary_availability_group_name,
-        replication_mode=__ret__.replication_mode,
-        secondary_availability_group_name=__ret__.secondary_availability_group_name,
-        source_endpoint=__ret__.source_endpoint,
-        source_replica_id=__ret__.source_replica_id,
-        target_database=__ret__.target_database,
-        target_replica_id=__ret__.target_replica_id,
-        type=__ret__.type)
+        distributed_availability_group_id=pulumi.get(__ret__, 'distributed_availability_group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        last_hardened_lsn=pulumi.get(__ret__, 'last_hardened_lsn'),
+        link_state=pulumi.get(__ret__, 'link_state'),
+        name=pulumi.get(__ret__, 'name'),
+        primary_availability_group_name=pulumi.get(__ret__, 'primary_availability_group_name'),
+        replication_mode=pulumi.get(__ret__, 'replication_mode'),
+        secondary_availability_group_name=pulumi.get(__ret__, 'secondary_availability_group_name'),
+        source_endpoint=pulumi.get(__ret__, 'source_endpoint'),
+        source_replica_id=pulumi.get(__ret__, 'source_replica_id'),
+        target_database=pulumi.get(__ret__, 'target_database'),
+        target_replica_id=pulumi.get(__ret__, 'target_replica_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_distributed_availability_group)

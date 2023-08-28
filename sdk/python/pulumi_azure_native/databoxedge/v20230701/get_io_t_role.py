@@ -210,19 +210,19 @@ def get_io_t_role(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20230701:getIoTRole', __args__, opts=opts, typ=GetIoTRoleResult).value
 
     return AwaitableGetIoTRoleResult(
-        compute_resource=__ret__.compute_resource,
-        host_platform=__ret__.host_platform,
-        host_platform_type=__ret__.host_platform_type,
-        id=__ret__.id,
-        io_t_device_details=__ret__.io_t_device_details,
-        io_t_edge_agent_info=__ret__.io_t_edge_agent_info,
-        io_t_edge_device_details=__ret__.io_t_edge_device_details,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        role_status=__ret__.role_status,
-        share_mappings=__ret__.share_mappings,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        compute_resource=pulumi.get(__ret__, 'compute_resource'),
+        host_platform=pulumi.get(__ret__, 'host_platform'),
+        host_platform_type=pulumi.get(__ret__, 'host_platform_type'),
+        id=pulumi.get(__ret__, 'id'),
+        io_t_device_details=pulumi.get(__ret__, 'io_t_device_details'),
+        io_t_edge_agent_info=pulumi.get(__ret__, 'io_t_edge_agent_info'),
+        io_t_edge_device_details=pulumi.get(__ret__, 'io_t_edge_device_details'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        role_status=pulumi.get(__ret__, 'role_status'),
+        share_mappings=pulumi.get(__ret__, 'share_mappings'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_io_t_role)

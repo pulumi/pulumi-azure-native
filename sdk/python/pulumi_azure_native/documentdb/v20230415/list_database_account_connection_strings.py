@@ -62,7 +62,7 @@ def list_database_account_connection_strings(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:documentdb/v20230415:listDatabaseAccountConnectionStrings', __args__, opts=opts, typ=ListDatabaseAccountConnectionStringsResult).value
 
     return AwaitableListDatabaseAccountConnectionStringsResult(
-        connection_strings=__ret__.connection_strings)
+        connection_strings=pulumi.get(__ret__, 'connection_strings'))
 
 
 @_utilities.lift_output_func(list_database_account_connection_strings)

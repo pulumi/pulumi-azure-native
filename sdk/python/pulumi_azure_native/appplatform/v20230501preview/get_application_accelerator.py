@@ -125,12 +125,12 @@ def get_application_accelerator(application_accelerator_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform/v20230501preview:getApplicationAccelerator', __args__, opts=opts, typ=GetApplicationAcceleratorResult).value
 
     return AwaitableGetApplicationAcceleratorResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_application_accelerator)

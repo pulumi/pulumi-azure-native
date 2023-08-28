@@ -56,7 +56,7 @@ def get_organization_api_key(email_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elastic/v20230501preview:getOrganizationApiKey', __args__, opts=opts, typ=GetOrganizationApiKeyResult).value
 
     return AwaitableGetOrganizationApiKeyResult(
-        properties=__ret__.properties)
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_organization_api_key)

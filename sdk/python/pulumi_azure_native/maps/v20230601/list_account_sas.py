@@ -84,7 +84,7 @@ def list_account_sas(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:maps/v20230601:listAccountSas', __args__, opts=opts, typ=ListAccountSasResult).value
 
     return AwaitableListAccountSasResult(
-        account_sas_token=__ret__.account_sas_token)
+        account_sas_token=pulumi.get(__ret__, 'account_sas_token'))
 
 
 @_utilities.lift_output_func(list_account_sas)

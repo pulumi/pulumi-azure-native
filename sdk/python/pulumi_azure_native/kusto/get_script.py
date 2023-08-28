@@ -153,14 +153,14 @@ def get_script(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto:getScript', __args__, opts=opts, typ=GetScriptResult).value
 
     return AwaitableGetScriptResult(
-        continue_on_errors=__ret__.continue_on_errors,
-        force_update_tag=__ret__.force_update_tag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        script_url=__ret__.script_url,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        continue_on_errors=pulumi.get(__ret__, 'continue_on_errors'),
+        force_update_tag=pulumi.get(__ret__, 'force_update_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        script_url=pulumi.get(__ret__, 'script_url'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_script)

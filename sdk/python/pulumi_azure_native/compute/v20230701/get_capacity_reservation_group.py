@@ -161,15 +161,15 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230701:getCapacityReservationGroup', __args__, opts=opts, typ=GetCapacityReservationGroupResult).value
 
     return AwaitableGetCapacityReservationGroupResult(
-        capacity_reservations=__ret__.capacity_reservations,
-        id=__ret__.id,
-        instance_view=__ret__.instance_view,
-        location=__ret__.location,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_machines_associated=__ret__.virtual_machines_associated,
-        zones=__ret__.zones)
+        capacity_reservations=pulumi.get(__ret__, 'capacity_reservations'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_view=pulumi.get(__ret__, 'instance_view'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machines_associated=pulumi.get(__ret__, 'virtual_machines_associated'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_capacity_reservation_group)

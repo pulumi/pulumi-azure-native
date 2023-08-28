@@ -240,22 +240,22 @@ def get_policy(policy_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cdn:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        custom_rules=__ret__.custom_rules,
-        endpoint_links=__ret__.endpoint_links,
-        etag=__ret__.etag,
-        extended_properties=__ret__.extended_properties,
-        id=__ret__.id,
-        location=__ret__.location,
-        managed_rules=__ret__.managed_rules,
-        name=__ret__.name,
-        policy_settings=__ret__.policy_settings,
-        provisioning_state=__ret__.provisioning_state,
-        rate_limit_rules=__ret__.rate_limit_rules,
-        resource_state=__ret__.resource_state,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        custom_rules=pulumi.get(__ret__, 'custom_rules'),
+        endpoint_links=pulumi.get(__ret__, 'endpoint_links'),
+        etag=pulumi.get(__ret__, 'etag'),
+        extended_properties=pulumi.get(__ret__, 'extended_properties'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        managed_rules=pulumi.get(__ret__, 'managed_rules'),
+        name=pulumi.get(__ret__, 'name'),
+        policy_settings=pulumi.get(__ret__, 'policy_settings'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        rate_limit_rules=pulumi.get(__ret__, 'rate_limit_rules'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_policy)

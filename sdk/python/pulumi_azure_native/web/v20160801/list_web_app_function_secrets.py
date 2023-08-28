@@ -124,12 +124,12 @@ def list_web_app_function_secrets(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20160801:listWebAppFunctionSecrets', __args__, opts=opts, typ=ListWebAppFunctionSecretsResult).value
 
     return AwaitableListWebAppFunctionSecretsResult(
-        id=__ret__.id,
-        key=__ret__.key,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        trigger_url=__ret__.trigger_url,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        trigger_url=pulumi.get(__ret__, 'trigger_url'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_web_app_function_secrets)

@@ -242,22 +242,22 @@ def get_cluster_pool(cluster_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hdinsight/v20230601preview:getClusterPool', __args__, opts=opts, typ=GetClusterPoolResult).value
 
     return AwaitableGetClusterPoolResult(
-        aks_cluster_profile=__ret__.aks_cluster_profile,
-        aks_managed_resource_group_name=__ret__.aks_managed_resource_group_name,
-        cluster_pool_profile=__ret__.cluster_pool_profile,
-        compute_profile=__ret__.compute_profile,
-        deployment_id=__ret__.deployment_id,
-        id=__ret__.id,
-        location=__ret__.location,
-        log_analytics_profile=__ret__.log_analytics_profile,
-        managed_resource_group_name=__ret__.managed_resource_group_name,
-        name=__ret__.name,
-        network_profile=__ret__.network_profile,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        aks_cluster_profile=pulumi.get(__ret__, 'aks_cluster_profile'),
+        aks_managed_resource_group_name=pulumi.get(__ret__, 'aks_managed_resource_group_name'),
+        cluster_pool_profile=pulumi.get(__ret__, 'cluster_pool_profile'),
+        compute_profile=pulumi.get(__ret__, 'compute_profile'),
+        deployment_id=pulumi.get(__ret__, 'deployment_id'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        log_analytics_profile=pulumi.get(__ret__, 'log_analytics_profile'),
+        managed_resource_group_name=pulumi.get(__ret__, 'managed_resource_group_name'),
+        name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_cluster_pool)

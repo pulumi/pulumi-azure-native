@@ -88,7 +88,7 @@ def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = 
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20220401preview:getTrafficManagerUserMetricsKey', __args__, opts=opts, typ=GetTrafficManagerUserMetricsKeyResult).value
 
     return AwaitableGetTrafficManagerUserMetricsKeyResult(
-        id=__ret__.id,
-        key=__ret__.key,
-        name=__ret__.name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))

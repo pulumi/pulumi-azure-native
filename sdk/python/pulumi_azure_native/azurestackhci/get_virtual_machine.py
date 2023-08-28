@@ -255,23 +255,23 @@ def get_virtual_machine(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci:getVirtualMachine', __args__, opts=opts, typ=GetVirtualMachineResult).value
 
     return AwaitableGetVirtualMachineResult(
-        extended_location=__ret__.extended_location,
-        guest_agent_profile=__ret__.guest_agent_profile,
-        hardware_profile=__ret__.hardware_profile,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_profile=__ret__.network_profile,
-        os_profile=__ret__.os_profile,
-        provisioning_state=__ret__.provisioning_state,
-        security_profile=__ret__.security_profile,
-        status=__ret__.status,
-        storage_profile=__ret__.storage_profile,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vm_id=__ret__.vm_id)
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        guest_agent_profile=pulumi.get(__ret__, 'guest_agent_profile'),
+        hardware_profile=pulumi.get(__ret__, 'hardware_profile'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_profile=pulumi.get(__ret__, 'network_profile'),
+        os_profile=pulumi.get(__ret__, 'os_profile'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        security_profile=pulumi.get(__ret__, 'security_profile'),
+        status=pulumi.get(__ret__, 'status'),
+        storage_profile=pulumi.get(__ret__, 'storage_profile'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vm_id=pulumi.get(__ret__, 'vm_id'))
 
 
 @_utilities.lift_output_func(get_virtual_machine)

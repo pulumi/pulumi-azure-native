@@ -189,17 +189,17 @@ def get_io_t_addon(addon_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20230701:getIoTAddon', __args__, opts=opts, typ=GetIoTAddonResult).value
 
     return AwaitableGetIoTAddonResult(
-        host_platform=__ret__.host_platform,
-        host_platform_type=__ret__.host_platform_type,
-        id=__ret__.id,
-        io_t_device_details=__ret__.io_t_device_details,
-        io_t_edge_device_details=__ret__.io_t_edge_device_details,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        host_platform=pulumi.get(__ret__, 'host_platform'),
+        host_platform_type=pulumi.get(__ret__, 'host_platform_type'),
+        id=pulumi.get(__ret__, 'id'),
+        io_t_device_details=pulumi.get(__ret__, 'io_t_device_details'),
+        io_t_edge_device_details=pulumi.get(__ret__, 'io_t_edge_device_details'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_io_t_addon)

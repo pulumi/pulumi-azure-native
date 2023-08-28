@@ -137,13 +137,13 @@ def get_server_communication_link(communication_link_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql:getServerCommunicationLink', __args__, opts=opts, typ=GetServerCommunicationLinkResult).value
 
     return AwaitableGetServerCommunicationLinkResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        partner_server=__ret__.partner_server,
-        state=__ret__.state,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_server=pulumi.get(__ret__, 'partner_server'),
+        state=pulumi.get(__ret__, 'state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_server_communication_link)

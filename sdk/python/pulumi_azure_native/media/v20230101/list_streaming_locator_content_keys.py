@@ -65,7 +65,7 @@ def list_streaming_locator_content_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20230101:listStreamingLocatorContentKeys', __args__, opts=opts, typ=ListStreamingLocatorContentKeysResult).value
 
     return AwaitableListStreamingLocatorContentKeysResult(
-        content_keys=__ret__.content_keys)
+        content_keys=pulumi.get(__ret__, 'content_keys'))
 
 
 @_utilities.lift_output_func(list_streaming_locator_content_keys)

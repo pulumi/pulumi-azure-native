@@ -165,15 +165,15 @@ def list_endpoint_ingress_gateway_credentials(endpoint_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:hybridconnectivity:listEndpointIngressGatewayCredentials', __args__, opts=opts, typ=ListEndpointIngressGatewayCredentialsResult).value
 
     return AwaitableListEndpointIngressGatewayCredentialsResult(
-        access_key=__ret__.access_key,
-        expires_on=__ret__.expires_on,
-        hostname=__ret__.hostname,
-        hybrid_connection_name=__ret__.hybrid_connection_name,
-        namespace_name=__ret__.namespace_name,
-        namespace_name_suffix=__ret__.namespace_name_suffix,
-        server_id=__ret__.server_id,
-        service_configuration_token=__ret__.service_configuration_token,
-        tenant_id=__ret__.tenant_id)
+        access_key=pulumi.get(__ret__, 'access_key'),
+        expires_on=pulumi.get(__ret__, 'expires_on'),
+        hostname=pulumi.get(__ret__, 'hostname'),
+        hybrid_connection_name=pulumi.get(__ret__, 'hybrid_connection_name'),
+        namespace_name=pulumi.get(__ret__, 'namespace_name'),
+        namespace_name_suffix=pulumi.get(__ret__, 'namespace_name_suffix'),
+        server_id=pulumi.get(__ret__, 'server_id'),
+        service_configuration_token=pulumi.get(__ret__, 'service_configuration_token'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'))
 
 
 @_utilities.lift_output_func(list_endpoint_ingress_gateway_credentials)

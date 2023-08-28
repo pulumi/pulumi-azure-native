@@ -197,18 +197,18 @@ def get_database(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache/v20230701:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
-        client_protocol=__ret__.client_protocol,
-        clustering_policy=__ret__.clustering_policy,
-        eviction_policy=__ret__.eviction_policy,
-        geo_replication=__ret__.geo_replication,
-        id=__ret__.id,
-        modules=__ret__.modules,
-        name=__ret__.name,
-        persistence=__ret__.persistence,
-        port=__ret__.port,
-        provisioning_state=__ret__.provisioning_state,
-        resource_state=__ret__.resource_state,
-        type=__ret__.type)
+        client_protocol=pulumi.get(__ret__, 'client_protocol'),
+        clustering_policy=pulumi.get(__ret__, 'clustering_policy'),
+        eviction_policy=pulumi.get(__ret__, 'eviction_policy'),
+        geo_replication=pulumi.get(__ret__, 'geo_replication'),
+        id=pulumi.get(__ret__, 'id'),
+        modules=pulumi.get(__ret__, 'modules'),
+        name=pulumi.get(__ret__, 'name'),
+        persistence=pulumi.get(__ret__, 'persistence'),
+        port=pulumi.get(__ret__, 'port'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_database)

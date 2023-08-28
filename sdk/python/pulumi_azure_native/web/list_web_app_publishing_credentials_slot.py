@@ -161,15 +161,15 @@ def list_web_app_publishing_credentials_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:listWebAppPublishingCredentialsSlot', __args__, opts=opts, typ=ListWebAppPublishingCredentialsSlotResult).value
 
     return AwaitableListWebAppPublishingCredentialsSlotResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        publishing_password=__ret__.publishing_password,
-        publishing_password_hash=__ret__.publishing_password_hash,
-        publishing_password_hash_salt=__ret__.publishing_password_hash_salt,
-        publishing_user_name=__ret__.publishing_user_name,
-        scm_uri=__ret__.scm_uri,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        publishing_password=pulumi.get(__ret__, 'publishing_password'),
+        publishing_password_hash=pulumi.get(__ret__, 'publishing_password_hash'),
+        publishing_password_hash_salt=pulumi.get(__ret__, 'publishing_password_hash_salt'),
+        publishing_user_name=pulumi.get(__ret__, 'publishing_user_name'),
+        scm_uri=pulumi.get(__ret__, 'scm_uri'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(list_web_app_publishing_credentials_slot)

@@ -227,20 +227,20 @@ def get_virtual_machine_scale_set_vm_extension(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20211101:getVirtualMachineScaleSetVMExtension', __args__, opts=opts, typ=GetVirtualMachineScaleSetVMExtensionResult).value
 
     return AwaitableGetVirtualMachineScaleSetVMExtensionResult(
-        auto_upgrade_minor_version=__ret__.auto_upgrade_minor_version,
-        enable_automatic_upgrade=__ret__.enable_automatic_upgrade,
-        force_update_tag=__ret__.force_update_tag,
-        id=__ret__.id,
-        instance_view=__ret__.instance_view,
-        name=__ret__.name,
-        protected_settings=__ret__.protected_settings,
-        protected_settings_from_key_vault=__ret__.protected_settings_from_key_vault,
-        provisioning_state=__ret__.provisioning_state,
-        publisher=__ret__.publisher,
-        settings=__ret__.settings,
-        suppress_failures=__ret__.suppress_failures,
-        type=__ret__.type,
-        type_handler_version=__ret__.type_handler_version)
+        auto_upgrade_minor_version=pulumi.get(__ret__, 'auto_upgrade_minor_version'),
+        enable_automatic_upgrade=pulumi.get(__ret__, 'enable_automatic_upgrade'),
+        force_update_tag=pulumi.get(__ret__, 'force_update_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        instance_view=pulumi.get(__ret__, 'instance_view'),
+        name=pulumi.get(__ret__, 'name'),
+        protected_settings=pulumi.get(__ret__, 'protected_settings'),
+        protected_settings_from_key_vault=pulumi.get(__ret__, 'protected_settings_from_key_vault'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        publisher=pulumi.get(__ret__, 'publisher'),
+        settings=pulumi.get(__ret__, 'settings'),
+        suppress_failures=pulumi.get(__ret__, 'suppress_failures'),
+        type=pulumi.get(__ret__, 'type'),
+        type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
 
 
 @_utilities.lift_output_func(get_virtual_machine_scale_set_vm_extension)

@@ -134,13 +134,13 @@ def get_web_app_slot_configuration_names(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:getWebAppSlotConfigurationNames', __args__, opts=opts, typ=GetWebAppSlotConfigurationNamesResult).value
 
     return AwaitableGetWebAppSlotConfigurationNamesResult(
-        app_setting_names=__ret__.app_setting_names,
-        azure_storage_config_names=__ret__.azure_storage_config_names,
-        connection_string_names=__ret__.connection_string_names,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        type=__ret__.type)
+        app_setting_names=pulumi.get(__ret__, 'app_setting_names'),
+        azure_storage_config_names=pulumi.get(__ret__, 'azure_storage_config_names'),
+        connection_string_names=pulumi.get(__ret__, 'connection_string_names'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_web_app_slot_configuration_names)

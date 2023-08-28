@@ -153,14 +153,14 @@ def get_namespace_topic_event_subscription(event_subscription_name: Optional[str
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid:getNamespaceTopicEventSubscription', __args__, opts=opts, typ=GetNamespaceTopicEventSubscriptionResult).value
 
     return AwaitableGetNamespaceTopicEventSubscriptionResult(
-        delivery_configuration=__ret__.delivery_configuration,
-        event_delivery_schema=__ret__.event_delivery_schema,
-        filters_configuration=__ret__.filters_configuration,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        delivery_configuration=pulumi.get(__ret__, 'delivery_configuration'),
+        event_delivery_schema=pulumi.get(__ret__, 'event_delivery_schema'),
+        filters_configuration=pulumi.get(__ret__, 'filters_configuration'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_namespace_topic_event_subscription)

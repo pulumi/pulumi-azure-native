@@ -151,14 +151,14 @@ def get_long_term_retention_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getLongTermRetentionPolicy', __args__, opts=opts, typ=GetLongTermRetentionPolicyResult).value
 
     return AwaitableGetLongTermRetentionPolicyResult(
-        id=__ret__.id,
-        make_backups_immutable=__ret__.make_backups_immutable,
-        monthly_retention=__ret__.monthly_retention,
-        name=__ret__.name,
-        type=__ret__.type,
-        week_of_year=__ret__.week_of_year,
-        weekly_retention=__ret__.weekly_retention,
-        yearly_retention=__ret__.yearly_retention)
+        id=pulumi.get(__ret__, 'id'),
+        make_backups_immutable=pulumi.get(__ret__, 'make_backups_immutable'),
+        monthly_retention=pulumi.get(__ret__, 'monthly_retention'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'),
+        week_of_year=pulumi.get(__ret__, 'week_of_year'),
+        weekly_retention=pulumi.get(__ret__, 'weekly_retention'),
+        yearly_retention=pulumi.get(__ret__, 'yearly_retention'))
 
 
 @_utilities.lift_output_func(get_long_term_retention_policy)

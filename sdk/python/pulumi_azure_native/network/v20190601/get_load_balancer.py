@@ -245,22 +245,22 @@ def get_load_balancer(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20190601:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult).value
 
     return AwaitableGetLoadBalancerResult(
-        backend_address_pools=__ret__.backend_address_pools,
-        etag=__ret__.etag,
-        frontend_ip_configurations=__ret__.frontend_ip_configurations,
-        id=__ret__.id,
-        inbound_nat_pools=__ret__.inbound_nat_pools,
-        inbound_nat_rules=__ret__.inbound_nat_rules,
-        load_balancing_rules=__ret__.load_balancing_rules,
-        location=__ret__.location,
-        name=__ret__.name,
-        outbound_rules=__ret__.outbound_rules,
-        probes=__ret__.probes,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        sku=__ret__.sku,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        backend_address_pools=pulumi.get(__ret__, 'backend_address_pools'),
+        etag=pulumi.get(__ret__, 'etag'),
+        frontend_ip_configurations=pulumi.get(__ret__, 'frontend_ip_configurations'),
+        id=pulumi.get(__ret__, 'id'),
+        inbound_nat_pools=pulumi.get(__ret__, 'inbound_nat_pools'),
+        inbound_nat_rules=pulumi.get(__ret__, 'inbound_nat_rules'),
+        load_balancing_rules=pulumi.get(__ret__, 'load_balancing_rules'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        outbound_rules=pulumi.get(__ret__, 'outbound_rules'),
+        probes=pulumi.get(__ret__, 'probes'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        sku=pulumi.get(__ret__, 'sku'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_load_balancer)

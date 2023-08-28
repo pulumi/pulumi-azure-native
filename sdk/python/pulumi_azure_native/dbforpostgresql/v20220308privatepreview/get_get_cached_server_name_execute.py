@@ -72,7 +72,7 @@ def get_get_cached_server_name_execute(location_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:dbforpostgresql/v20220308privatepreview:getGetCachedServerNameExecute', __args__, opts=opts, typ=GetGetCachedServerNameExecuteResult).value
 
     return AwaitableGetGetCachedServerNameExecuteResult(
-        name=__ret__.name)
+        name=pulumi.get(__ret__, 'name'))
 
 
 @_utilities.lift_output_func(get_get_cached_server_name_execute)

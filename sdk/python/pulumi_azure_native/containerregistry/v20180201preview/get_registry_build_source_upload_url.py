@@ -73,8 +73,8 @@ def get_registry_build_source_upload_url(registry_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20180201preview:getRegistryBuildSourceUploadUrl', __args__, opts=opts, typ=GetRegistryBuildSourceUploadUrlResult).value
 
     return AwaitableGetRegistryBuildSourceUploadUrlResult(
-        relative_path=__ret__.relative_path,
-        upload_url=__ret__.upload_url)
+        relative_path=pulumi.get(__ret__, 'relative_path'),
+        upload_url=pulumi.get(__ret__, 'upload_url'))
 
 
 @_utilities.lift_output_func(get_registry_build_source_upload_url)

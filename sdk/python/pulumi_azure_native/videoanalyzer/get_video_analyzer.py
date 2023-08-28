@@ -231,21 +231,21 @@ def get_video_analyzer(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer:getVideoAnalyzer', __args__, opts=opts, typ=GetVideoAnalyzerResult).value
 
     return AwaitableGetVideoAnalyzerResult(
-        encryption=__ret__.encryption,
-        endpoints=__ret__.endpoints,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        iot_hubs=__ret__.iot_hubs,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_access_control=__ret__.network_access_control,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        public_network_access=__ret__.public_network_access,
-        storage_accounts=__ret__.storage_accounts,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        encryption=pulumi.get(__ret__, 'encryption'),
+        endpoints=pulumi.get(__ret__, 'endpoints'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        iot_hubs=pulumi.get(__ret__, 'iot_hubs'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_access_control=pulumi.get(__ret__, 'network_access_control'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        storage_accounts=pulumi.get(__ret__, 'storage_accounts'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_video_analyzer)

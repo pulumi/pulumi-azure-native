@@ -85,9 +85,9 @@ def list_account_keys(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:maps/v20180501:listAccountKeys', __args__, opts=opts, typ=ListAccountKeysResult).value
 
     return AwaitableListAccountKeysResult(
-        id=__ret__.id,
-        primary_key=__ret__.primary_key,
-        secondary_key=__ret__.secondary_key)
+        id=pulumi.get(__ret__, 'id'),
+        primary_key=pulumi.get(__ret__, 'primary_key'),
+        secondary_key=pulumi.get(__ret__, 'secondary_key'))
 
 
 @_utilities.lift_output_func(list_account_keys)

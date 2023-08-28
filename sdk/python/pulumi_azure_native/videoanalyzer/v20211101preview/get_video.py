@@ -173,16 +173,16 @@ def get_video(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:videoanalyzer/v20211101preview:getVideo', __args__, opts=opts, typ=GetVideoResult).value
 
     return AwaitableGetVideoResult(
-        archival=__ret__.archival,
-        content_urls=__ret__.content_urls,
-        description=__ret__.description,
-        flags=__ret__.flags,
-        id=__ret__.id,
-        media_info=__ret__.media_info,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        title=__ret__.title,
-        type=__ret__.type)
+        archival=pulumi.get(__ret__, 'archival'),
+        content_urls=pulumi.get(__ret__, 'content_urls'),
+        description=pulumi.get(__ret__, 'description'),
+        flags=pulumi.get(__ret__, 'flags'),
+        id=pulumi.get(__ret__, 'id'),
+        media_info=pulumi.get(__ret__, 'media_info'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        title=pulumi.get(__ret__, 'title'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_video)

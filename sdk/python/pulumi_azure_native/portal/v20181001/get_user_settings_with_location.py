@@ -62,7 +62,7 @@ def get_user_settings_with_location(location: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:portal/v20181001:getUserSettingsWithLocation', __args__, opts=opts, typ=GetUserSettingsWithLocationResult).value
 
     return AwaitableGetUserSettingsWithLocationResult(
-        properties=__ret__.properties)
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_user_settings_with_location)

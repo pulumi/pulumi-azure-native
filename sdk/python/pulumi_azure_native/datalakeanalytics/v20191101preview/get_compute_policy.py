@@ -136,13 +136,13 @@ def get_compute_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datalakeanalytics/v20191101preview:getComputePolicy', __args__, opts=opts, typ=GetComputePolicyResult).value
 
     return AwaitableGetComputePolicyResult(
-        id=__ret__.id,
-        max_degree_of_parallelism_per_job=__ret__.max_degree_of_parallelism_per_job,
-        min_priority_per_job=__ret__.min_priority_per_job,
-        name=__ret__.name,
-        object_id=__ret__.object_id,
-        object_type=__ret__.object_type,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        max_degree_of_parallelism_per_job=pulumi.get(__ret__, 'max_degree_of_parallelism_per_job'),
+        min_priority_per_job=pulumi.get(__ret__, 'min_priority_per_job'),
+        name=pulumi.get(__ret__, 'name'),
+        object_id=pulumi.get(__ret__, 'object_id'),
+        object_type=pulumi.get(__ret__, 'object_type'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_compute_policy)

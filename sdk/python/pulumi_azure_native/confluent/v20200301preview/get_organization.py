@@ -182,17 +182,17 @@ def get_organization(organization_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:confluent/v20200301preview:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
 
     return AwaitableGetOrganizationResult(
-        created_time=__ret__.created_time,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        offer_detail=__ret__.offer_detail,
-        organization_id=__ret__.organization_id,
-        provisioning_state=__ret__.provisioning_state,
-        sso_url=__ret__.sso_url,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        user_detail=__ret__.user_detail)
+        created_time=pulumi.get(__ret__, 'created_time'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        offer_detail=pulumi.get(__ret__, 'offer_detail'),
+        organization_id=pulumi.get(__ret__, 'organization_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        sso_url=pulumi.get(__ret__, 'sso_url'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        user_detail=pulumi.get(__ret__, 'user_detail'))
 
 
 @_utilities.lift_output_func(get_organization)

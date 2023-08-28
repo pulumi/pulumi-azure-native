@@ -139,13 +139,13 @@ def get_geo_backup_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getGeoBackupPolicy', __args__, opts=opts, typ=GetGeoBackupPolicyResult).value
 
     return AwaitableGetGeoBackupPolicyResult(
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        state=__ret__.state,
-        storage_type=__ret__.storage_type,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        storage_type=pulumi.get(__ret__, 'storage_type'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_geo_backup_policy)

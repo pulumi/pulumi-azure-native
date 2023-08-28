@@ -209,19 +209,19 @@ def get_vpn_connection(connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20180701:getVpnConnection', __args__, opts=opts, typ=GetVpnConnectionResult).value
 
     return AwaitableGetVpnConnectionResult(
-        connection_bandwidth_in_mbps=__ret__.connection_bandwidth_in_mbps,
-        connection_status=__ret__.connection_status,
-        egress_bytes_transferred=__ret__.egress_bytes_transferred,
-        enable_bgp=__ret__.enable_bgp,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        ingress_bytes_transferred=__ret__.ingress_bytes_transferred,
-        ipsec_policies=__ret__.ipsec_policies,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        remote_vpn_site=__ret__.remote_vpn_site,
-        routing_weight=__ret__.routing_weight,
-        shared_key=__ret__.shared_key)
+        connection_bandwidth_in_mbps=pulumi.get(__ret__, 'connection_bandwidth_in_mbps'),
+        connection_status=pulumi.get(__ret__, 'connection_status'),
+        egress_bytes_transferred=pulumi.get(__ret__, 'egress_bytes_transferred'),
+        enable_bgp=pulumi.get(__ret__, 'enable_bgp'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ingress_bytes_transferred=pulumi.get(__ret__, 'ingress_bytes_transferred'),
+        ipsec_policies=pulumi.get(__ret__, 'ipsec_policies'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        remote_vpn_site=pulumi.get(__ret__, 'remote_vpn_site'),
+        routing_weight=pulumi.get(__ret__, 'routing_weight'),
+        shared_key=pulumi.get(__ret__, 'shared_key'))
 
 
 @_utilities.lift_output_func(get_vpn_connection)

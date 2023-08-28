@@ -229,21 +229,21 @@ def get_role_assignment(role_assignment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization/v20200301preview:getRoleAssignment', __args__, opts=opts, typ=GetRoleAssignmentResult).value
 
     return AwaitableGetRoleAssignmentResult(
-        can_delegate=__ret__.can_delegate,
-        condition=__ret__.condition,
-        condition_version=__ret__.condition_version,
-        created_by=__ret__.created_by,
-        created_on=__ret__.created_on,
-        delegated_managed_identity_resource_id=__ret__.delegated_managed_identity_resource_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        principal_id=__ret__.principal_id,
-        principal_type=__ret__.principal_type,
-        role_definition_id=__ret__.role_definition_id,
-        scope=__ret__.scope,
-        type=__ret__.type,
-        updated_by=__ret__.updated_by,
-        updated_on=__ret__.updated_on)
+        can_delegate=pulumi.get(__ret__, 'can_delegate'),
+        condition=pulumi.get(__ret__, 'condition'),
+        condition_version=pulumi.get(__ret__, 'condition_version'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        created_on=pulumi.get(__ret__, 'created_on'),
+        delegated_managed_identity_resource_id=pulumi.get(__ret__, 'delegated_managed_identity_resource_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        principal_type=pulumi.get(__ret__, 'principal_type'),
+        role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
+        scope=pulumi.get(__ret__, 'scope'),
+        type=pulumi.get(__ret__, 'type'),
+        updated_by=pulumi.get(__ret__, 'updated_by'),
+        updated_on=pulumi.get(__ret__, 'updated_on'))
 
 
 @_utilities.lift_output_func(get_role_assignment)

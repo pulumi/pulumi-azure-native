@@ -185,17 +185,17 @@ def get_network_group(network_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20210201preview:getNetworkGroup', __args__, opts=opts, typ=GetNetworkGroupResult).value
 
     return AwaitableGetNetworkGroupResult(
-        conditional_membership=__ret__.conditional_membership,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        etag=__ret__.etag,
-        group_members=__ret__.group_members,
-        id=__ret__.id,
-        member_type=__ret__.member_type,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        conditional_membership=pulumi.get(__ret__, 'conditional_membership'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        etag=pulumi.get(__ret__, 'etag'),
+        group_members=pulumi.get(__ret__, 'group_members'),
+        id=pulumi.get(__ret__, 'id'),
+        member_type=pulumi.get(__ret__, 'member_type'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_network_group)

@@ -120,11 +120,11 @@ def get_labeling_job(id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:getLabelingJob', __args__, opts=opts, typ=GetLabelingJobResult).value
 
     return AwaitableGetLabelingJobResult(
-        id=__ret__.id,
-        labeling_job_properties=__ret__.labeling_job_properties,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        labeling_job_properties=pulumi.get(__ret__, 'labeling_job_properties'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_labeling_job)

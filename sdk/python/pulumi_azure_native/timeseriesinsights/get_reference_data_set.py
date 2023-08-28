@@ -162,15 +162,15 @@ def get_reference_data_set(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights:getReferenceDataSet', __args__, opts=opts, typ=GetReferenceDataSetResult).value
 
     return AwaitableGetReferenceDataSetResult(
-        creation_time=__ret__.creation_time,
-        data_string_comparison_behavior=__ret__.data_string_comparison_behavior,
-        id=__ret__.id,
-        key_properties=__ret__.key_properties,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        data_string_comparison_behavior=pulumi.get(__ret__, 'data_string_comparison_behavior'),
+        id=pulumi.get(__ret__, 'id'),
+        key_properties=pulumi.get(__ret__, 'key_properties'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_reference_data_set)

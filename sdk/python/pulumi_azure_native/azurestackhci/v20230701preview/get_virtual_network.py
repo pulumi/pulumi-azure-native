@@ -206,19 +206,19 @@ def get_virtual_network(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20230701preview:getVirtualNetwork', __args__, opts=opts, typ=GetVirtualNetworkResult).value
 
     return AwaitableGetVirtualNetworkResult(
-        dhcp_options=__ret__.dhcp_options,
-        extended_location=__ret__.extended_location,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        network_type=__ret__.network_type,
-        provisioning_state=__ret__.provisioning_state,
-        status=__ret__.status,
-        subnets=__ret__.subnets,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vm_switch_name=__ret__.vm_switch_name)
+        dhcp_options=pulumi.get(__ret__, 'dhcp_options'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        network_type=pulumi.get(__ret__, 'network_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        status=pulumi.get(__ret__, 'status'),
+        subnets=pulumi.get(__ret__, 'subnets'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vm_switch_name=pulumi.get(__ret__, 'vm_switch_name'))
 
 
 @_utilities.lift_output_func(get_virtual_network)

@@ -66,7 +66,7 @@ def get_virtual_network_gateway_advertised_routes(peer: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getVirtualNetworkGatewayAdvertisedRoutes', __args__, opts=opts, typ=GetVirtualNetworkGatewayAdvertisedRoutesResult).value
 
     return AwaitableGetVirtualNetworkGatewayAdvertisedRoutesResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_virtual_network_gateway_advertised_routes)

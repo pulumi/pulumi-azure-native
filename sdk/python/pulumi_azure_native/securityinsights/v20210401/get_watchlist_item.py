@@ -239,21 +239,21 @@ def get_watchlist_item(operational_insights_resource_provider: Optional[str] = N
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20210401:getWatchlistItem', __args__, opts=opts, typ=GetWatchlistItemResult).value
 
     return AwaitableGetWatchlistItemResult(
-        created=__ret__.created,
-        created_by=__ret__.created_by,
-        entity_mapping=__ret__.entity_mapping,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        is_deleted=__ret__.is_deleted,
-        items_key_value=__ret__.items_key_value,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type,
-        updated=__ret__.updated,
-        updated_by=__ret__.updated_by,
-        watchlist_item_id=__ret__.watchlist_item_id,
-        watchlist_item_type=__ret__.watchlist_item_type)
+        created=pulumi.get(__ret__, 'created'),
+        created_by=pulumi.get(__ret__, 'created_by'),
+        entity_mapping=pulumi.get(__ret__, 'entity_mapping'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        is_deleted=pulumi.get(__ret__, 'is_deleted'),
+        items_key_value=pulumi.get(__ret__, 'items_key_value'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'),
+        updated=pulumi.get(__ret__, 'updated'),
+        updated_by=pulumi.get(__ret__, 'updated_by'),
+        watchlist_item_id=pulumi.get(__ret__, 'watchlist_item_id'),
+        watchlist_item_type=pulumi.get(__ret__, 'watchlist_item_type'))
 
 
 @_utilities.lift_output_func(get_watchlist_item)

@@ -233,21 +233,21 @@ def get_msix_package(host_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:desktopvirtualization/v20230707preview:getMSIXPackage', __args__, opts=opts, typ=GetMSIXPackageResult).value
 
     return AwaitableGetMSIXPackageResult(
-        display_name=__ret__.display_name,
-        id=__ret__.id,
-        image_path=__ret__.image_path,
-        is_active=__ret__.is_active,
-        is_regular_registration=__ret__.is_regular_registration,
-        last_updated=__ret__.last_updated,
-        name=__ret__.name,
-        package_applications=__ret__.package_applications,
-        package_dependencies=__ret__.package_dependencies,
-        package_family_name=__ret__.package_family_name,
-        package_name=__ret__.package_name,
-        package_relative_path=__ret__.package_relative_path,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        version=__ret__.version)
+        display_name=pulumi.get(__ret__, 'display_name'),
+        id=pulumi.get(__ret__, 'id'),
+        image_path=pulumi.get(__ret__, 'image_path'),
+        is_active=pulumi.get(__ret__, 'is_active'),
+        is_regular_registration=pulumi.get(__ret__, 'is_regular_registration'),
+        last_updated=pulumi.get(__ret__, 'last_updated'),
+        name=pulumi.get(__ret__, 'name'),
+        package_applications=pulumi.get(__ret__, 'package_applications'),
+        package_dependencies=pulumi.get(__ret__, 'package_dependencies'),
+        package_family_name=pulumi.get(__ret__, 'package_family_name'),
+        package_name=pulumi.get(__ret__, 'package_name'),
+        package_relative_path=pulumi.get(__ret__, 'package_relative_path'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_msix_package)

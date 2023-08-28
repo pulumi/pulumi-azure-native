@@ -194,18 +194,18 @@ def get_cloud_connection(cloud_connection_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridcloud/v20230101preview:getCloudConnection', __args__, opts=opts, typ=GetCloudConnectionResult).value
 
     return AwaitableGetCloudConnectionResult(
-        cloud_connector=__ret__.cloud_connector,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        remote_resource_id=__ret__.remote_resource_id,
-        shared_key=__ret__.shared_key,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_hub=__ret__.virtual_hub)
+        cloud_connector=pulumi.get(__ret__, 'cloud_connector'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        remote_resource_id=pulumi.get(__ret__, 'remote_resource_id'),
+        shared_key=pulumi.get(__ret__, 'shared_key'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 
 
 @_utilities.lift_output_func(get_cloud_connection)

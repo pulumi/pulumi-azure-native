@@ -209,19 +209,19 @@ def get_project(group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:datamigration/v20210630:getProject', __args__, opts=opts, typ=GetProjectResult).value
 
     return AwaitableGetProjectResult(
-        creation_time=__ret__.creation_time,
-        databases_info=__ret__.databases_info,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        source_connection_info=__ret__.source_connection_info,
-        source_platform=__ret__.source_platform,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        target_connection_info=__ret__.target_connection_info,
-        target_platform=__ret__.target_platform,
-        type=__ret__.type)
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        databases_info=pulumi.get(__ret__, 'databases_info'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_connection_info=pulumi.get(__ret__, 'source_connection_info'),
+        source_platform=pulumi.get(__ret__, 'source_platform'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_connection_info=pulumi.get(__ret__, 'target_connection_info'),
+        target_platform=pulumi.get(__ret__, 'target_platform'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_project)

@@ -62,7 +62,7 @@ def list_cluster_follower_databases(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto/v20230502:listClusterFollowerDatabases', __args__, opts=opts, typ=ListClusterFollowerDatabasesResult).value
 
     return AwaitableListClusterFollowerDatabasesResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_cluster_follower_databases)

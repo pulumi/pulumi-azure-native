@@ -78,8 +78,8 @@ def list_git_lab_subgroup(group_fq_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:listGitLabSubgroup', __args__, opts=opts, typ=ListGitLabSubgroupResult).value
 
     return AwaitableListGitLabSubgroupResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_git_lab_subgroup)

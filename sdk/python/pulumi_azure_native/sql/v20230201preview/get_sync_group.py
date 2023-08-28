@@ -236,21 +236,21 @@ def get_sync_group(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getSyncGroup', __args__, opts=opts, typ=GetSyncGroupResult).value
 
     return AwaitableGetSyncGroupResult(
-        conflict_logging_retention_in_days=__ret__.conflict_logging_retention_in_days,
-        conflict_resolution_policy=__ret__.conflict_resolution_policy,
-        enable_conflict_logging=__ret__.enable_conflict_logging,
-        hub_database_user_name=__ret__.hub_database_user_name,
-        id=__ret__.id,
-        interval=__ret__.interval,
-        last_sync_time=__ret__.last_sync_time,
-        name=__ret__.name,
-        private_endpoint_name=__ret__.private_endpoint_name,
-        schema=__ret__.schema,
-        sku=__ret__.sku,
-        sync_database_id=__ret__.sync_database_id,
-        sync_state=__ret__.sync_state,
-        type=__ret__.type,
-        use_private_link_connection=__ret__.use_private_link_connection)
+        conflict_logging_retention_in_days=pulumi.get(__ret__, 'conflict_logging_retention_in_days'),
+        conflict_resolution_policy=pulumi.get(__ret__, 'conflict_resolution_policy'),
+        enable_conflict_logging=pulumi.get(__ret__, 'enable_conflict_logging'),
+        hub_database_user_name=pulumi.get(__ret__, 'hub_database_user_name'),
+        id=pulumi.get(__ret__, 'id'),
+        interval=pulumi.get(__ret__, 'interval'),
+        last_sync_time=pulumi.get(__ret__, 'last_sync_time'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_name=pulumi.get(__ret__, 'private_endpoint_name'),
+        schema=pulumi.get(__ret__, 'schema'),
+        sku=pulumi.get(__ret__, 'sku'),
+        sync_database_id=pulumi.get(__ret__, 'sync_database_id'),
+        sync_state=pulumi.get(__ret__, 'sync_state'),
+        type=pulumi.get(__ret__, 'type'),
+        use_private_link_connection=pulumi.get(__ret__, 'use_private_link_connection'))
 
 
 @_utilities.lift_output_func(get_sync_group)

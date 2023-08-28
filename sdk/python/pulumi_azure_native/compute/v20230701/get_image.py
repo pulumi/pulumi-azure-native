@@ -173,16 +173,16 @@ def get_image(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230701:getImage', __args__, opts=opts, typ=GetImageResult).value
 
     return AwaitableGetImageResult(
-        extended_location=__ret__.extended_location,
-        hyper_v_generation=__ret__.hyper_v_generation,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        source_virtual_machine=__ret__.source_virtual_machine,
-        storage_profile=__ret__.storage_profile,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        source_virtual_machine=pulumi.get(__ret__, 'source_virtual_machine'),
+        storage_profile=pulumi.get(__ret__, 'storage_profile'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_image)

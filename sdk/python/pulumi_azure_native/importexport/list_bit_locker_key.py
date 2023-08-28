@@ -63,7 +63,7 @@ def list_bit_locker_key(job_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:importexport:listBitLockerKey', __args__, opts=opts, typ=ListBitLockerKeyResult).value
 
     return AwaitableListBitLockerKeyResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_bit_locker_key)

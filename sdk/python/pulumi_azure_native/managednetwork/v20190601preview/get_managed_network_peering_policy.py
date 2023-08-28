@@ -113,11 +113,11 @@ def get_managed_network_peering_policy(managed_network_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:managednetwork/v20190601preview:getManagedNetworkPeeringPolicy', __args__, opts=opts, typ=GetManagedNetworkPeeringPolicyResult).value
 
     return AwaitableGetManagedNetworkPeeringPolicyResult(
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        properties=__ret__.properties,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        properties=pulumi.get(__ret__, 'properties'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_managed_network_peering_policy)

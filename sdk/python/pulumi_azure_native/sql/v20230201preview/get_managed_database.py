@@ -208,19 +208,19 @@ def get_managed_database(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getManagedDatabase', __args__, opts=opts, typ=GetManagedDatabaseResult).value
 
     return AwaitableGetManagedDatabaseResult(
-        catalog_collation=__ret__.catalog_collation,
-        collation=__ret__.collation,
-        creation_date=__ret__.creation_date,
-        default_secondary_location=__ret__.default_secondary_location,
-        earliest_restore_point=__ret__.earliest_restore_point,
-        failover_group_id=__ret__.failover_group_id,
-        id=__ret__.id,
-        is_ledger_on=__ret__.is_ledger_on,
-        location=__ret__.location,
-        name=__ret__.name,
-        status=__ret__.status,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        catalog_collation=pulumi.get(__ret__, 'catalog_collation'),
+        collation=pulumi.get(__ret__, 'collation'),
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        default_secondary_location=pulumi.get(__ret__, 'default_secondary_location'),
+        earliest_restore_point=pulumi.get(__ret__, 'earliest_restore_point'),
+        failover_group_id=pulumi.get(__ret__, 'failover_group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        is_ledger_on=pulumi.get(__ret__, 'is_ledger_on'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        status=pulumi.get(__ret__, 'status'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_managed_database)

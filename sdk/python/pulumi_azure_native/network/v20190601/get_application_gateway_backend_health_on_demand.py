@@ -103,8 +103,8 @@ def get_application_gateway_backend_health_on_demand(application_gateway_name: O
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20190601:getApplicationGatewayBackendHealthOnDemand', __args__, opts=opts, typ=GetApplicationGatewayBackendHealthOnDemandResult).value
 
     return AwaitableGetApplicationGatewayBackendHealthOnDemandResult(
-        backend_address_pool=__ret__.backend_address_pool,
-        backend_health_http_settings=__ret__.backend_health_http_settings)
+        backend_address_pool=pulumi.get(__ret__, 'backend_address_pool'),
+        backend_health_http_settings=pulumi.get(__ret__, 'backend_health_http_settings'))
 
 
 @_utilities.lift_output_func(get_application_gateway_backend_health_on_demand)

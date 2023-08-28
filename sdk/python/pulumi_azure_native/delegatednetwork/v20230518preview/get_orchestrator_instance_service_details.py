@@ -230,21 +230,21 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[str]
     __ret__ = pulumi.runtime.invoke('azure-native:delegatednetwork/v20230518preview:getOrchestratorInstanceServiceDetails', __args__, opts=opts, typ=GetOrchestratorInstanceServiceDetailsResult).value
 
     return AwaitableGetOrchestratorInstanceServiceDetailsResult(
-        api_server_endpoint=__ret__.api_server_endpoint,
-        cluster_root_ca=__ret__.cluster_root_ca,
-        controller_details=__ret__.controller_details,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        orchestrator_app_id=__ret__.orchestrator_app_id,
-        orchestrator_tenant_id=__ret__.orchestrator_tenant_id,
-        private_link_resource_id=__ret__.private_link_resource_id,
-        provisioning_state=__ret__.provisioning_state,
-        resource_guid=__ret__.resource_guid,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        api_server_endpoint=pulumi.get(__ret__, 'api_server_endpoint'),
+        cluster_root_ca=pulumi.get(__ret__, 'cluster_root_ca'),
+        controller_details=pulumi.get(__ret__, 'controller_details'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        orchestrator_app_id=pulumi.get(__ret__, 'orchestrator_app_id'),
+        orchestrator_tenant_id=pulumi.get(__ret__, 'orchestrator_tenant_id'),
+        private_link_resource_id=pulumi.get(__ret__, 'private_link_resource_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_orchestrator_instance_service_details)

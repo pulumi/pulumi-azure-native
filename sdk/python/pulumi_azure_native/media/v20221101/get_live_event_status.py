@@ -65,7 +65,7 @@ def get_live_event_status(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20221101:getLiveEventStatus', __args__, opts=opts, typ=GetLiveEventStatusResult).value
 
     return AwaitableGetLiveEventStatusResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_live_event_status)

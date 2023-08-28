@@ -133,13 +133,13 @@ def get_workspace_sql_aad_admin(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210601preview:getWorkspaceSqlAadAdmin', __args__, opts=opts, typ=GetWorkspaceSqlAadAdminResult).value
 
     return AwaitableGetWorkspaceSqlAadAdminResult(
-        administrator_type=__ret__.administrator_type,
-        id=__ret__.id,
-        login=__ret__.login,
-        name=__ret__.name,
-        sid=__ret__.sid,
-        tenant_id=__ret__.tenant_id,
-        type=__ret__.type)
+        administrator_type=pulumi.get(__ret__, 'administrator_type'),
+        id=pulumi.get(__ret__, 'id'),
+        login=pulumi.get(__ret__, 'login'),
+        name=pulumi.get(__ret__, 'name'),
+        sid=pulumi.get(__ret__, 'sid'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workspace_sql_aad_admin)

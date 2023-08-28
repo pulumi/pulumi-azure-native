@@ -170,16 +170,16 @@ def get_workbook_template(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20201120:getWorkbookTemplate', __args__, opts=opts, typ=GetWorkbookTemplateResult).value
 
     return AwaitableGetWorkbookTemplateResult(
-        author=__ret__.author,
-        galleries=__ret__.galleries,
-        id=__ret__.id,
-        localized=__ret__.localized,
-        location=__ret__.location,
-        name=__ret__.name,
-        priority=__ret__.priority,
-        tags=__ret__.tags,
-        template_data=__ret__.template_data,
-        type=__ret__.type)
+        author=pulumi.get(__ret__, 'author'),
+        galleries=pulumi.get(__ret__, 'galleries'),
+        id=pulumi.get(__ret__, 'id'),
+        localized=pulumi.get(__ret__, 'localized'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        priority=pulumi.get(__ret__, 'priority'),
+        tags=pulumi.get(__ret__, 'tags'),
+        template_data=pulumi.get(__ret__, 'template_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_workbook_template)

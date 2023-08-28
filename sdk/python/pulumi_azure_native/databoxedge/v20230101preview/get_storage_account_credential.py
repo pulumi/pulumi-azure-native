@@ -197,18 +197,18 @@ def get_storage_account_credential(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge/v20230101preview:getStorageAccountCredential', __args__, opts=opts, typ=GetStorageAccountCredentialResult).value
 
     return AwaitableGetStorageAccountCredentialResult(
-        account_key=__ret__.account_key,
-        account_type=__ret__.account_type,
-        alias=__ret__.alias,
-        blob_domain_name=__ret__.blob_domain_name,
-        connection_string=__ret__.connection_string,
-        id=__ret__.id,
-        name=__ret__.name,
-        ssl_status=__ret__.ssl_status,
-        storage_account_id=__ret__.storage_account_id,
-        system_data=__ret__.system_data,
-        type=__ret__.type,
-        user_name=__ret__.user_name)
+        account_key=pulumi.get(__ret__, 'account_key'),
+        account_type=pulumi.get(__ret__, 'account_type'),
+        alias=pulumi.get(__ret__, 'alias'),
+        blob_domain_name=pulumi.get(__ret__, 'blob_domain_name'),
+        connection_string=pulumi.get(__ret__, 'connection_string'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        ssl_status=pulumi.get(__ret__, 'ssl_status'),
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'),
+        user_name=pulumi.get(__ret__, 'user_name'))
 
 
 @_utilities.lift_output_func(get_storage_account_credential)

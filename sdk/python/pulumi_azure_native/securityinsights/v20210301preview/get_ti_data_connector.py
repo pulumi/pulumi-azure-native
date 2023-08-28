@@ -165,15 +165,15 @@ def get_ti_data_connector(data_connector_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20210301preview:getTIDataConnector', __args__, opts=opts, typ=GetTIDataConnectorResult).value
 
     return AwaitableGetTIDataConnectorResult(
-        data_types=__ret__.data_types,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        name=__ret__.name,
-        system_data=__ret__.system_data,
-        tenant_id=__ret__.tenant_id,
-        tip_lookback_period=__ret__.tip_lookback_period,
-        type=__ret__.type)
+        data_types=pulumi.get(__ret__, 'data_types'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        name=pulumi.get(__ret__, 'name'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        tip_lookback_period=pulumi.get(__ret__, 'tip_lookback_period'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_ti_data_connector)

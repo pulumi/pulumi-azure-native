@@ -90,9 +90,9 @@ def list_appliance_keys(artifact_type: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:resourceconnector:listApplianceKeys', __args__, opts=opts, typ=ListApplianceKeysResult).value
 
     return AwaitableListApplianceKeysResult(
-        artifact_profiles=__ret__.artifact_profiles,
-        kubeconfigs=__ret__.kubeconfigs,
-        ssh_keys=__ret__.ssh_keys)
+        artifact_profiles=pulumi.get(__ret__, 'artifact_profiles'),
+        kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'),
+        ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
 
 
 @_utilities.lift_output_func(list_appliance_keys)

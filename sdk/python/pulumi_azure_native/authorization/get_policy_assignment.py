@@ -255,23 +255,23 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:authorization:getPolicyAssignment', __args__, opts=opts, typ=GetPolicyAssignmentResult).value
 
     return AwaitableGetPolicyAssignmentResult(
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        enforcement_mode=__ret__.enforcement_mode,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        metadata=__ret__.metadata,
-        name=__ret__.name,
-        non_compliance_messages=__ret__.non_compliance_messages,
-        not_scopes=__ret__.not_scopes,
-        overrides=__ret__.overrides,
-        parameters=__ret__.parameters,
-        policy_definition_id=__ret__.policy_definition_id,
-        resource_selectors=__ret__.resource_selectors,
-        scope=__ret__.scope,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        enforcement_mode=pulumi.get(__ret__, 'enforcement_mode'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        metadata=pulumi.get(__ret__, 'metadata'),
+        name=pulumi.get(__ret__, 'name'),
+        non_compliance_messages=pulumi.get(__ret__, 'non_compliance_messages'),
+        not_scopes=pulumi.get(__ret__, 'not_scopes'),
+        overrides=pulumi.get(__ret__, 'overrides'),
+        parameters=pulumi.get(__ret__, 'parameters'),
+        policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
+        resource_selectors=pulumi.get(__ret__, 'resource_selectors'),
+        scope=pulumi.get(__ret__, 'scope'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_policy_assignment)

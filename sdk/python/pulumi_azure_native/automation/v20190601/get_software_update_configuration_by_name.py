@@ -197,18 +197,18 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
     __ret__ = pulumi.runtime.invoke('azure-native:automation/v20190601:getSoftwareUpdateConfigurationByName', __args__, opts=opts, typ=GetSoftwareUpdateConfigurationByNameResult).value
 
     return AwaitableGetSoftwareUpdateConfigurationByNameResult(
-        created_by=__ret__.created_by,
-        creation_time=__ret__.creation_time,
-        error=__ret__.error,
-        id=__ret__.id,
-        last_modified_by=__ret__.last_modified_by,
-        last_modified_time=__ret__.last_modified_time,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        schedule_info=__ret__.schedule_info,
-        tasks=__ret__.tasks,
-        type=__ret__.type,
-        update_configuration=__ret__.update_configuration)
+        created_by=pulumi.get(__ret__, 'created_by'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        error=pulumi.get(__ret__, 'error'),
+        id=pulumi.get(__ret__, 'id'),
+        last_modified_by=pulumi.get(__ret__, 'last_modified_by'),
+        last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        schedule_info=pulumi.get(__ret__, 'schedule_info'),
+        tasks=pulumi.get(__ret__, 'tasks'),
+        type=pulumi.get(__ret__, 'type'),
+        update_configuration=pulumi.get(__ret__, 'update_configuration'))
 
 
 @_utilities.lift_output_func(get_software_update_configuration_by_name)

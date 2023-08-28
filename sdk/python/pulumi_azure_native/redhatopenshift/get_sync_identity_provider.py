@@ -111,11 +111,11 @@ def get_sync_identity_provider(child_resource_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:redhatopenshift:getSyncIdentityProvider', __args__, opts=opts, typ=GetSyncIdentityProviderResult).value
 
     return AwaitableGetSyncIdentityProviderResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        resources=__ret__.resources,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        resources=pulumi.get(__ret__, 'resources'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_sync_identity_provider)

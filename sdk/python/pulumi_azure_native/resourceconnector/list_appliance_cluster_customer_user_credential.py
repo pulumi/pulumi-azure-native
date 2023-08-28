@@ -75,8 +75,8 @@ def list_appliance_cluster_customer_user_credential(resource_group_name: Optiona
     __ret__ = pulumi.runtime.invoke('azure-native:resourceconnector:listApplianceClusterCustomerUserCredential', __args__, opts=opts, typ=ListApplianceClusterCustomerUserCredentialResult).value
 
     return AwaitableListApplianceClusterCustomerUserCredentialResult(
-        kubeconfigs=__ret__.kubeconfigs,
-        ssh_keys=__ret__.ssh_keys)
+        kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'),
+        ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
 
 
 @_utilities.lift_output_func(list_appliance_cluster_customer_user_credential)

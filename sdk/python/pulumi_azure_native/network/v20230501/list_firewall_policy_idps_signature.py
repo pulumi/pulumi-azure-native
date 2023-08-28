@@ -91,8 +91,8 @@ def list_firewall_policy_idps_signature(filters: Optional[Sequence[pulumi.InputT
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:listFirewallPolicyIdpsSignature', __args__, opts=opts, typ=ListFirewallPolicyIdpsSignatureResult).value
 
     return AwaitableListFirewallPolicyIdpsSignatureResult(
-        matching_records_count=__ret__.matching_records_count,
-        signatures=__ret__.signatures)
+        matching_records_count=pulumi.get(__ret__, 'matching_records_count'),
+        signatures=pulumi.get(__ret__, 'signatures'))
 
 
 @_utilities.lift_output_func(list_firewall_policy_idps_signature)

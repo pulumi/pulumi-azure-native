@@ -233,21 +233,21 @@ def get_backup_policy(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:netapp/v20221101preview:getBackupPolicy', __args__, opts=opts, typ=GetBackupPolicyResult).value
 
     return AwaitableGetBackupPolicyResult(
-        backup_policy_id=__ret__.backup_policy_id,
-        daily_backups_to_keep=__ret__.daily_backups_to_keep,
-        enabled=__ret__.enabled,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        location=__ret__.location,
-        monthly_backups_to_keep=__ret__.monthly_backups_to_keep,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        volume_backups=__ret__.volume_backups,
-        volumes_assigned=__ret__.volumes_assigned,
-        weekly_backups_to_keep=__ret__.weekly_backups_to_keep)
+        backup_policy_id=pulumi.get(__ret__, 'backup_policy_id'),
+        daily_backups_to_keep=pulumi.get(__ret__, 'daily_backups_to_keep'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        monthly_backups_to_keep=pulumi.get(__ret__, 'monthly_backups_to_keep'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        volume_backups=pulumi.get(__ret__, 'volume_backups'),
+        volumes_assigned=pulumi.get(__ret__, 'volumes_assigned'),
+        weekly_backups_to_keep=pulumi.get(__ret__, 'weekly_backups_to_keep'))
 
 
 @_utilities.lift_output_func(get_backup_policy)

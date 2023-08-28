@@ -77,8 +77,8 @@ def get_build_service_resource_upload_url(build_service_name: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('azure-native:appplatform:getBuildServiceResourceUploadUrl', __args__, opts=opts, typ=GetBuildServiceResourceUploadUrlResult).value
 
     return AwaitableGetBuildServiceResourceUploadUrlResult(
-        relative_path=__ret__.relative_path,
-        upload_url=__ret__.upload_url)
+        relative_path=pulumi.get(__ret__, 'relative_path'),
+        upload_url=pulumi.get(__ret__, 'upload_url'))
 
 
 @_utilities.lift_output_func(get_build_service_resource_upload_url)

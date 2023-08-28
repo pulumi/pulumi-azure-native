@@ -88,9 +88,9 @@ def list_authorization_server_secrets(authsid: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220901preview:listAuthorizationServerSecrets', __args__, opts=opts, typ=ListAuthorizationServerSecretsResult).value
 
     return AwaitableListAuthorizationServerSecretsResult(
-        client_secret=__ret__.client_secret,
-        resource_owner_password=__ret__.resource_owner_password,
-        resource_owner_username=__ret__.resource_owner_username)
+        client_secret=pulumi.get(__ret__, 'client_secret'),
+        resource_owner_password=pulumi.get(__ret__, 'resource_owner_password'),
+        resource_owner_username=pulumi.get(__ret__, 'resource_owner_username'))
 
 
 @_utilities.lift_output_func(list_authorization_server_secrets)

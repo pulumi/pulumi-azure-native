@@ -74,8 +74,8 @@ def getmanaged_az_resiliency_status(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:servicefabric/v20230301preview:getmanagedAzResiliencyStatus', __args__, opts=opts, typ=GetmanagedAzResiliencyStatusResult).value
 
     return AwaitableGetmanagedAzResiliencyStatusResult(
-        base_resource_status=__ret__.base_resource_status,
-        is_cluster_zone_resilient=__ret__.is_cluster_zone_resilient)
+        base_resource_status=pulumi.get(__ret__, 'base_resource_status'),
+        is_cluster_zone_resilient=pulumi.get(__ret__, 'is_cluster_zone_resilient'))
 
 
 @_utilities.lift_output_func(getmanaged_az_resiliency_status)

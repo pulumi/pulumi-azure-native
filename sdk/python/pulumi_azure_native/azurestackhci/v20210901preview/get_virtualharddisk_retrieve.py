@@ -253,24 +253,24 @@ def get_virtualharddisk_retrieve(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20210901preview:getVirtualharddiskRetrieve', __args__, opts=opts, typ=GetVirtualharddiskRetrieveResult).value
 
     return AwaitableGetVirtualharddiskRetrieveResult(
-        block_size_bytes=__ret__.block_size_bytes,
-        container_id=__ret__.container_id,
-        disk_file_format=__ret__.disk_file_format,
-        disk_size_bytes=__ret__.disk_size_bytes,
-        dynamic=__ret__.dynamic,
-        extended_location=__ret__.extended_location,
-        hyper_v_generation=__ret__.hyper_v_generation,
-        id=__ret__.id,
-        location=__ret__.location,
-        logical_sector_bytes=__ret__.logical_sector_bytes,
-        name=__ret__.name,
-        physical_sector_bytes=__ret__.physical_sector_bytes,
-        provisioning_state=__ret__.provisioning_state,
-        resource_name=__ret__.resource_name,
-        status=__ret__.status,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        block_size_bytes=pulumi.get(__ret__, 'block_size_bytes'),
+        container_id=pulumi.get(__ret__, 'container_id'),
+        disk_file_format=pulumi.get(__ret__, 'disk_file_format'),
+        disk_size_bytes=pulumi.get(__ret__, 'disk_size_bytes'),
+        dynamic=pulumi.get(__ret__, 'dynamic'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        hyper_v_generation=pulumi.get(__ret__, 'hyper_v_generation'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        logical_sector_bytes=pulumi.get(__ret__, 'logical_sector_bytes'),
+        name=pulumi.get(__ret__, 'name'),
+        physical_sector_bytes=pulumi.get(__ret__, 'physical_sector_bytes'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        resource_name=pulumi.get(__ret__, 'resource_name'),
+        status=pulumi.get(__ret__, 'status'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_virtualharddisk_retrieve)

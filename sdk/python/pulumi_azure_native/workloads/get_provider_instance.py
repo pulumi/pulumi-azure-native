@@ -150,14 +150,14 @@ def get_provider_instance(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:workloads:getProviderInstance', __args__, opts=opts, typ=GetProviderInstanceResult).value
 
     return AwaitableGetProviderInstanceResult(
-        errors=__ret__.errors,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        name=__ret__.name,
-        provider_settings=__ret__.provider_settings,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        errors=pulumi.get(__ret__, 'errors'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        name=pulumi.get(__ret__, 'name'),
+        provider_settings=pulumi.get(__ret__, 'provider_settings'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_provider_instance)

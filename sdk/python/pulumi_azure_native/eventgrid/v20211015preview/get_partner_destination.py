@@ -207,19 +207,19 @@ def get_partner_destination(partner_destination_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:eventgrid/v20211015preview:getPartnerDestination', __args__, opts=opts, typ=GetPartnerDestinationResult).value
 
     return AwaitableGetPartnerDestinationResult(
-        activation_state=__ret__.activation_state,
-        endpoint_base_url=__ret__.endpoint_base_url,
-        endpoint_service_context=__ret__.endpoint_service_context,
-        expiration_time_if_not_activated_utc=__ret__.expiration_time_if_not_activated_utc,
-        id=__ret__.id,
-        location=__ret__.location,
-        message_for_activation=__ret__.message_for_activation,
-        name=__ret__.name,
-        partner_registration_immutable_id=__ret__.partner_registration_immutable_id,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        activation_state=pulumi.get(__ret__, 'activation_state'),
+        endpoint_base_url=pulumi.get(__ret__, 'endpoint_base_url'),
+        endpoint_service_context=pulumi.get(__ret__, 'endpoint_service_context'),
+        expiration_time_if_not_activated_utc=pulumi.get(__ret__, 'expiration_time_if_not_activated_utc'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        message_for_activation=pulumi.get(__ret__, 'message_for_activation'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_registration_immutable_id=pulumi.get(__ret__, 'partner_registration_immutable_id'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_partner_destination)

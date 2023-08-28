@@ -65,7 +65,7 @@ def get_virtual_network_gateway_bgp_peer_status(peer: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getVirtualNetworkGatewayBgpPeerStatus', __args__, opts=opts, typ=GetVirtualNetworkGatewayBgpPeerStatusResult).value
 
     return AwaitableGetVirtualNetworkGatewayBgpPeerStatusResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_virtual_network_gateway_bgp_peer_status)

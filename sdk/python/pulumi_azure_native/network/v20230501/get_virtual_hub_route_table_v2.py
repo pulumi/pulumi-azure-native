@@ -125,12 +125,12 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getVirtualHubRouteTableV2', __args__, opts=opts, typ=GetVirtualHubRouteTableV2Result).value
 
     return AwaitableGetVirtualHubRouteTableV2Result(
-        attached_connections=__ret__.attached_connections,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        routes=__ret__.routes)
+        attached_connections=pulumi.get(__ret__, 'attached_connections'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        routes=pulumi.get(__ret__, 'routes'))
 
 
 @_utilities.lift_output_func(get_virtual_hub_route_table_v2)

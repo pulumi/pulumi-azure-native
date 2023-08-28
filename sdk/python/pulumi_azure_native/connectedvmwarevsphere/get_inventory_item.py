@@ -174,16 +174,16 @@ def get_inventory_item(inventory_item_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:connectedvmwarevsphere:getInventoryItem', __args__, opts=opts, typ=GetInventoryItemResult).value
 
     return AwaitableGetInventoryItemResult(
-        id=__ret__.id,
-        inventory_type=__ret__.inventory_type,
-        kind=__ret__.kind,
-        managed_resource_id=__ret__.managed_resource_id,
-        mo_name=__ret__.mo_name,
-        mo_ref_id=__ret__.mo_ref_id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        inventory_type=pulumi.get(__ret__, 'inventory_type'),
+        kind=pulumi.get(__ret__, 'kind'),
+        managed_resource_id=pulumi.get(__ret__, 'managed_resource_id'),
+        mo_name=pulumi.get(__ret__, 'mo_name'),
+        mo_ref_id=pulumi.get(__ret__, 'mo_ref_id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_inventory_item)

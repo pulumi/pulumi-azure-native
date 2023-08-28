@@ -109,11 +109,11 @@ def list_vendor_skus_credential(sku_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:hybridnetwork/v20220101preview:listVendorSkusCredential', __args__, opts=opts, typ=ListVendorSkusCredentialResult).value
 
     return AwaitableListVendorSkusCredentialResult(
-        acr_server_url=__ret__.acr_server_url,
-        acr_token=__ret__.acr_token,
-        expiry=__ret__.expiry,
-        repositories=__ret__.repositories,
-        username=__ret__.username)
+        acr_server_url=pulumi.get(__ret__, 'acr_server_url'),
+        acr_token=pulumi.get(__ret__, 'acr_token'),
+        expiry=pulumi.get(__ret__, 'expiry'),
+        repositories=pulumi.get(__ret__, 'repositories'),
+        username=pulumi.get(__ret__, 'username'))
 
 
 @_utilities.lift_output_func(list_vendor_skus_credential)

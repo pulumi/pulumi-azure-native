@@ -217,20 +217,20 @@ def get_workbook(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20150501:getWorkbook', __args__, opts=opts, typ=GetWorkbookResult).value
 
     return AwaitableGetWorkbookResult(
-        category=__ret__.category,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        serialized_data=__ret__.serialized_data,
-        shared_type_kind=__ret__.shared_type_kind,
-        source_resource_id=__ret__.source_resource_id,
-        tags=__ret__.tags,
-        time_modified=__ret__.time_modified,
-        type=__ret__.type,
-        user_id=__ret__.user_id,
-        version=__ret__.version,
-        workbook_id=__ret__.workbook_id)
+        category=pulumi.get(__ret__, 'category'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        serialized_data=pulumi.get(__ret__, 'serialized_data'),
+        shared_type_kind=pulumi.get(__ret__, 'shared_type_kind'),
+        source_resource_id=pulumi.get(__ret__, 'source_resource_id'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time_modified=pulumi.get(__ret__, 'time_modified'),
+        type=pulumi.get(__ret__, 'type'),
+        user_id=pulumi.get(__ret__, 'user_id'),
+        version=pulumi.get(__ret__, 'version'),
+        workbook_id=pulumi.get(__ret__, 'workbook_id'))
 
 
 @_utilities.lift_output_func(get_workbook)

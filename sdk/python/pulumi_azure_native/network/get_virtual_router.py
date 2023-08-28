@@ -198,18 +198,18 @@ def get_virtual_router(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network:getVirtualRouter', __args__, opts=opts, typ=GetVirtualRouterResult).value
 
     return AwaitableGetVirtualRouterResult(
-        etag=__ret__.etag,
-        hosted_gateway=__ret__.hosted_gateway,
-        hosted_subnet=__ret__.hosted_subnet,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        peerings=__ret__.peerings,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_router_asn=__ret__.virtual_router_asn,
-        virtual_router_ips=__ret__.virtual_router_ips)
+        etag=pulumi.get(__ret__, 'etag'),
+        hosted_gateway=pulumi.get(__ret__, 'hosted_gateway'),
+        hosted_subnet=pulumi.get(__ret__, 'hosted_subnet'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        peerings=pulumi.get(__ret__, 'peerings'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_router_asn=pulumi.get(__ret__, 'virtual_router_asn'),
+        virtual_router_ips=pulumi.get(__ret__, 'virtual_router_ips'))
 
 
 @_utilities.lift_output_func(get_virtual_router)

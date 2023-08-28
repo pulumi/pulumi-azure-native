@@ -272,24 +272,24 @@ def get_update_run(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:azurestackhci/v20221215preview:getUpdateRun', __args__, opts=opts, typ=GetUpdateRunResult).value
 
     return AwaitableGetUpdateRunResult(
-        description=__ret__.description,
-        duration=__ret__.duration,
-        end_time_utc=__ret__.end_time_utc,
-        error_message=__ret__.error_message,
-        expected_execution_time=__ret__.expected_execution_time,
-        id=__ret__.id,
-        last_updated_time=__ret__.last_updated_time,
-        last_updated_time_utc=__ret__.last_updated_time_utc,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        start_time_utc=__ret__.start_time_utc,
-        state=__ret__.state,
-        status=__ret__.status,
-        steps=__ret__.steps,
-        system_data=__ret__.system_data,
-        time_started=__ret__.time_started,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        duration=pulumi.get(__ret__, 'duration'),
+        end_time_utc=pulumi.get(__ret__, 'end_time_utc'),
+        error_message=pulumi.get(__ret__, 'error_message'),
+        expected_execution_time=pulumi.get(__ret__, 'expected_execution_time'),
+        id=pulumi.get(__ret__, 'id'),
+        last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        last_updated_time_utc=pulumi.get(__ret__, 'last_updated_time_utc'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        start_time_utc=pulumi.get(__ret__, 'start_time_utc'),
+        state=pulumi.get(__ret__, 'state'),
+        status=pulumi.get(__ret__, 'status'),
+        steps=pulumi.get(__ret__, 'steps'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        time_started=pulumi.get(__ret__, 'time_started'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_update_run)

@@ -187,17 +187,17 @@ def get_database_principal_assignment(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:kusto/v20221229:getDatabasePrincipalAssignment', __args__, opts=opts, typ=GetDatabasePrincipalAssignmentResult).value
 
     return AwaitableGetDatabasePrincipalAssignmentResult(
-        aad_object_id=__ret__.aad_object_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        principal_id=__ret__.principal_id,
-        principal_name=__ret__.principal_name,
-        principal_type=__ret__.principal_type,
-        provisioning_state=__ret__.provisioning_state,
-        role=__ret__.role,
-        tenant_id=__ret__.tenant_id,
-        tenant_name=__ret__.tenant_name,
-        type=__ret__.type)
+        aad_object_id=pulumi.get(__ret__, 'aad_object_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        principal_name=pulumi.get(__ret__, 'principal_name'),
+        principal_type=pulumi.get(__ret__, 'principal_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        role=pulumi.get(__ret__, 'role'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        tenant_name=pulumi.get(__ret__, 'tenant_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_database_principal_assignment)

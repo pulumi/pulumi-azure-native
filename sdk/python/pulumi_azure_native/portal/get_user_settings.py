@@ -60,7 +60,7 @@ def get_user_settings(user_settings_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:portal:getUserSettings', __args__, opts=opts, typ=GetUserSettingsResult).value
 
     return AwaitableGetUserSettingsResult(
-        properties=__ret__.properties)
+        properties=pulumi.get(__ret__, 'properties'))
 
 
 @_utilities.lift_output_func(get_user_settings)

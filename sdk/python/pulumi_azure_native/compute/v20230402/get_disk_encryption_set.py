@@ -218,20 +218,20 @@ def get_disk_encryption_set(disk_encryption_set_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:compute/v20230402:getDiskEncryptionSet', __args__, opts=opts, typ=GetDiskEncryptionSetResult).value
 
     return AwaitableGetDiskEncryptionSetResult(
-        active_key=__ret__.active_key,
-        auto_key_rotation_error=__ret__.auto_key_rotation_error,
-        encryption_type=__ret__.encryption_type,
-        federated_client_id=__ret__.federated_client_id,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        last_key_rotation_timestamp=__ret__.last_key_rotation_timestamp,
-        location=__ret__.location,
-        name=__ret__.name,
-        previous_keys=__ret__.previous_keys,
-        provisioning_state=__ret__.provisioning_state,
-        rotation_to_latest_key_version_enabled=__ret__.rotation_to_latest_key_version_enabled,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        active_key=pulumi.get(__ret__, 'active_key'),
+        auto_key_rotation_error=pulumi.get(__ret__, 'auto_key_rotation_error'),
+        encryption_type=pulumi.get(__ret__, 'encryption_type'),
+        federated_client_id=pulumi.get(__ret__, 'federated_client_id'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        last_key_rotation_timestamp=pulumi.get(__ret__, 'last_key_rotation_timestamp'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        previous_keys=pulumi.get(__ret__, 'previous_keys'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        rotation_to_latest_key_version_enabled=pulumi.get(__ret__, 'rotation_to_latest_key_version_enabled'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_disk_encryption_set)

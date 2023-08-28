@@ -220,20 +220,20 @@ def get_elastic_pool(elastic_pool_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20140401:getElasticPool', __args__, opts=opts, typ=GetElasticPoolResult).value
 
     return AwaitableGetElasticPoolResult(
-        creation_date=__ret__.creation_date,
-        database_dtu_max=__ret__.database_dtu_max,
-        database_dtu_min=__ret__.database_dtu_min,
-        dtu=__ret__.dtu,
-        edition=__ret__.edition,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        location=__ret__.location,
-        name=__ret__.name,
-        state=__ret__.state,
-        storage_mb=__ret__.storage_mb,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zone_redundant=__ret__.zone_redundant)
+        creation_date=pulumi.get(__ret__, 'creation_date'),
+        database_dtu_max=pulumi.get(__ret__, 'database_dtu_max'),
+        database_dtu_min=pulumi.get(__ret__, 'database_dtu_min'),
+        dtu=pulumi.get(__ret__, 'dtu'),
+        edition=pulumi.get(__ret__, 'edition'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        state=pulumi.get(__ret__, 'state'),
+        storage_mb=pulumi.get(__ret__, 'storage_mb'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
 
 
 @_utilities.lift_output_func(get_elastic_pool)

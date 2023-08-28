@@ -235,21 +235,21 @@ def get_io_t_hub_event_source(environment_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:timeseriesinsights:getIoTHubEventSource', __args__, opts=opts, typ=GetIoTHubEventSourceResult).value
 
     return AwaitableGetIoTHubEventSourceResult(
-        consumer_group_name=__ret__.consumer_group_name,
-        creation_time=__ret__.creation_time,
-        event_source_resource_id=__ret__.event_source_resource_id,
-        id=__ret__.id,
-        iot_hub_name=__ret__.iot_hub_name,
-        key_name=__ret__.key_name,
-        kind=__ret__.kind,
-        local_timestamp=__ret__.local_timestamp,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        tags=__ret__.tags,
-        time=__ret__.time,
-        timestamp_property_name=__ret__.timestamp_property_name,
-        type=__ret__.type)
+        consumer_group_name=pulumi.get(__ret__, 'consumer_group_name'),
+        creation_time=pulumi.get(__ret__, 'creation_time'),
+        event_source_resource_id=pulumi.get(__ret__, 'event_source_resource_id'),
+        id=pulumi.get(__ret__, 'id'),
+        iot_hub_name=pulumi.get(__ret__, 'iot_hub_name'),
+        key_name=pulumi.get(__ret__, 'key_name'),
+        kind=pulumi.get(__ret__, 'kind'),
+        local_timestamp=pulumi.get(__ret__, 'local_timestamp'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        time=pulumi.get(__ret__, 'time'),
+        timestamp_property_name=pulumi.get(__ret__, 'timestamp_property_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_io_t_hub_event_source)

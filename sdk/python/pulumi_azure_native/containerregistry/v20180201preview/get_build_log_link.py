@@ -64,7 +64,7 @@ def get_build_log_link(build_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:containerregistry/v20180201preview:getBuildLogLink', __args__, opts=opts, typ=GetBuildLogLinkResult).value
 
     return AwaitableGetBuildLogLinkResult(
-        log_link=__ret__.log_link)
+        log_link=pulumi.get(__ret__, 'log_link'))
 
 
 @_utilities.lift_output_func(get_build_log_link)

@@ -263,18 +263,18 @@ def get_budget(budget_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:costmanagement:getBudget', __args__, opts=opts, typ=GetBudgetResult).value
 
     return AwaitableGetBudgetResult(
-        amount=__ret__.amount,
-        category=__ret__.category,
-        current_spend=__ret__.current_spend,
-        e_tag=__ret__.e_tag,
-        filter=__ret__.filter,
-        forecast_spend=__ret__.forecast_spend,
-        id=__ret__.id,
-        name=__ret__.name,
-        notifications=__ret__.notifications,
-        time_grain=__ret__.time_grain,
-        time_period=__ret__.time_period,
-        type=__ret__.type)
+        amount=pulumi.get(__ret__, 'amount'),
+        category=pulumi.get(__ret__, 'category'),
+        current_spend=pulumi.get(__ret__, 'current_spend'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        filter=pulumi.get(__ret__, 'filter'),
+        forecast_spend=pulumi.get(__ret__, 'forecast_spend'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        notifications=pulumi.get(__ret__, 'notifications'),
+        time_grain=pulumi.get(__ret__, 'time_grain'),
+        time_period=pulumi.get(__ret__, 'time_period'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_budget)

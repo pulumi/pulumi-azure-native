@@ -56,7 +56,7 @@ def list_workspace_storage_account_keys(resource_group_name: Optional[str] = Non
     __ret__ = pulumi.runtime.invoke('azure-native:machinelearningservices:listWorkspaceStorageAccountKeys', __args__, opts=opts, typ=ListWorkspaceStorageAccountKeysResult).value
 
     return AwaitableListWorkspaceStorageAccountKeysResult(
-        user_storage_key=__ret__.user_storage_key)
+        user_storage_key=pulumi.get(__ret__, 'user_storage_key'))
 
 
 @_utilities.lift_output_func(list_workspace_storage_account_keys)

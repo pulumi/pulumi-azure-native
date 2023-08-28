@@ -208,19 +208,19 @@ def get_managed_environment(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:app/v20220101preview:getManagedEnvironment', __args__, opts=opts, typ=GetManagedEnvironmentResult).value
 
     return AwaitableGetManagedEnvironmentResult(
-        app_logs_configuration=__ret__.app_logs_configuration,
-        dapr_ai_instrumentation_key=__ret__.dapr_ai_instrumentation_key,
-        default_domain=__ret__.default_domain,
-        deployment_errors=__ret__.deployment_errors,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        static_ip=__ret__.static_ip,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        vnet_configuration=__ret__.vnet_configuration)
+        app_logs_configuration=pulumi.get(__ret__, 'app_logs_configuration'),
+        dapr_ai_instrumentation_key=pulumi.get(__ret__, 'dapr_ai_instrumentation_key'),
+        default_domain=pulumi.get(__ret__, 'default_domain'),
+        deployment_errors=pulumi.get(__ret__, 'deployment_errors'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        static_ip=pulumi.get(__ret__, 'static_ip'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        vnet_configuration=pulumi.get(__ret__, 'vnet_configuration'))
 
 
 @_utilities.lift_output_func(get_managed_environment)

@@ -65,7 +65,7 @@ def get_live_event_track_ingest_heartbeats(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:media/v20221101:getLiveEventTrackIngestHeartbeats', __args__, opts=opts, typ=GetLiveEventTrackIngestHeartbeatsResult).value
 
     return AwaitableGetLiveEventTrackIngestHeartbeatsResult(
-        value=__ret__.value)
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_live_event_track_ingest_heartbeats)

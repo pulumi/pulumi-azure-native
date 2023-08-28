@@ -251,23 +251,23 @@ def get_l2_network(l2_network_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:networkcloud/v20230501preview:getL2Network', __args__, opts=opts, typ=GetL2NetworkResult).value
 
     return AwaitableGetL2NetworkResult(
-        associated_resource_ids=__ret__.associated_resource_ids,
-        cluster_id=__ret__.cluster_id,
-        detailed_status=__ret__.detailed_status,
-        detailed_status_message=__ret__.detailed_status_message,
-        extended_location=__ret__.extended_location,
-        hybrid_aks_clusters_associated_ids=__ret__.hybrid_aks_clusters_associated_ids,
-        hybrid_aks_plugin_type=__ret__.hybrid_aks_plugin_type,
-        id=__ret__.id,
-        interface_name=__ret__.interface_name,
-        l2_isolation_domain_id=__ret__.l2_isolation_domain_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_machines_associated_ids=__ret__.virtual_machines_associated_ids)
+        associated_resource_ids=pulumi.get(__ret__, 'associated_resource_ids'),
+        cluster_id=pulumi.get(__ret__, 'cluster_id'),
+        detailed_status=pulumi.get(__ret__, 'detailed_status'),
+        detailed_status_message=pulumi.get(__ret__, 'detailed_status_message'),
+        extended_location=pulumi.get(__ret__, 'extended_location'),
+        hybrid_aks_clusters_associated_ids=pulumi.get(__ret__, 'hybrid_aks_clusters_associated_ids'),
+        hybrid_aks_plugin_type=pulumi.get(__ret__, 'hybrid_aks_plugin_type'),
+        id=pulumi.get(__ret__, 'id'),
+        interface_name=pulumi.get(__ret__, 'interface_name'),
+        l2_isolation_domain_id=pulumi.get(__ret__, 'l2_isolation_domain_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
 
 
 @_utilities.lift_output_func(get_l2_network)

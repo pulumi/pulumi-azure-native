@@ -62,7 +62,7 @@ def list_all_traffic_filter(monitor_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:elastic/v20230701preview:listAllTrafficFilter', __args__, opts=opts, typ=ListAllTrafficFilterResult).value
 
     return AwaitableListAllTrafficFilterResult(
-        rulesets=__ret__.rulesets)
+        rulesets=pulumi.get(__ret__, 'rulesets'))
 
 
 @_utilities.lift_output_func(list_all_traffic_filter)

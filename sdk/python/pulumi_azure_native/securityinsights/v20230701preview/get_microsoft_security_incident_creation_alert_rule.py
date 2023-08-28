@@ -234,21 +234,21 @@ def get_microsoft_security_incident_creation_alert_rule(resource_group_name: Opt
     __ret__ = pulumi.runtime.invoke('azure-native:securityinsights/v20230701preview:getMicrosoftSecurityIncidentCreationAlertRule', __args__, opts=opts, typ=GetMicrosoftSecurityIncidentCreationAlertRuleResult).value
 
     return AwaitableGetMicrosoftSecurityIncidentCreationAlertRuleResult(
-        alert_rule_template_name=__ret__.alert_rule_template_name,
-        description=__ret__.description,
-        display_name=__ret__.display_name,
-        display_names_exclude_filter=__ret__.display_names_exclude_filter,
-        display_names_filter=__ret__.display_names_filter,
-        enabled=__ret__.enabled,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        kind=__ret__.kind,
-        last_modified_utc=__ret__.last_modified_utc,
-        name=__ret__.name,
-        product_filter=__ret__.product_filter,
-        severities_filter=__ret__.severities_filter,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        alert_rule_template_name=pulumi.get(__ret__, 'alert_rule_template_name'),
+        description=pulumi.get(__ret__, 'description'),
+        display_name=pulumi.get(__ret__, 'display_name'),
+        display_names_exclude_filter=pulumi.get(__ret__, 'display_names_exclude_filter'),
+        display_names_filter=pulumi.get(__ret__, 'display_names_filter'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        kind=pulumi.get(__ret__, 'kind'),
+        last_modified_utc=pulumi.get(__ret__, 'last_modified_utc'),
+        name=pulumi.get(__ret__, 'name'),
+        product_filter=pulumi.get(__ret__, 'product_filter'),
+        severities_filter=pulumi.get(__ret__, 'severities_filter'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_microsoft_security_incident_creation_alert_rule)

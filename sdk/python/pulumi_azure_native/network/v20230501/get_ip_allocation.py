@@ -209,19 +209,19 @@ def get_ip_allocation(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getIpAllocation', __args__, opts=opts, typ=GetIpAllocationResult).value
 
     return AwaitableGetIpAllocationResult(
-        allocation_tags=__ret__.allocation_tags,
-        etag=__ret__.etag,
-        id=__ret__.id,
-        ipam_allocation_id=__ret__.ipam_allocation_id,
-        location=__ret__.location,
-        name=__ret__.name,
-        prefix=__ret__.prefix,
-        prefix_length=__ret__.prefix_length,
-        prefix_type=__ret__.prefix_type,
-        subnet=__ret__.subnet,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        virtual_network=__ret__.virtual_network)
+        allocation_tags=pulumi.get(__ret__, 'allocation_tags'),
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        ipam_allocation_id=pulumi.get(__ret__, 'ipam_allocation_id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        prefix=pulumi.get(__ret__, 'prefix'),
+        prefix_length=pulumi.get(__ret__, 'prefix_length'),
+        prefix_type=pulumi.get(__ret__, 'prefix_type'),
+        subnet=pulumi.get(__ret__, 'subnet'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        virtual_network=pulumi.get(__ret__, 'virtual_network'))
 
 
 @_utilities.lift_output_func(get_ip_allocation)

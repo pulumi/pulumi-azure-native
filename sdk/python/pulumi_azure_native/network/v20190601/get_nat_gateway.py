@@ -221,20 +221,20 @@ def get_nat_gateway(expand: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20190601:getNatGateway', __args__, opts=opts, typ=GetNatGatewayResult).value
 
     return AwaitableGetNatGatewayResult(
-        etag=__ret__.etag,
-        id=__ret__.id,
-        idle_timeout_in_minutes=__ret__.idle_timeout_in_minutes,
-        location=__ret__.location,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        public_ip_addresses=__ret__.public_ip_addresses,
-        public_ip_prefixes=__ret__.public_ip_prefixes,
-        resource_guid=__ret__.resource_guid,
-        sku=__ret__.sku,
-        subnets=__ret__.subnets,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        etag=pulumi.get(__ret__, 'etag'),
+        id=pulumi.get(__ret__, 'id'),
+        idle_timeout_in_minutes=pulumi.get(__ret__, 'idle_timeout_in_minutes'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        public_ip_addresses=pulumi.get(__ret__, 'public_ip_addresses'),
+        public_ip_prefixes=pulumi.get(__ret__, 'public_ip_prefixes'),
+        resource_guid=pulumi.get(__ret__, 'resource_guid'),
+        sku=pulumi.get(__ret__, 'sku'),
+        subnets=pulumi.get(__ret__, 'subnets'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_nat_gateway)

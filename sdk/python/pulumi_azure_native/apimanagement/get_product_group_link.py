@@ -104,10 +104,10 @@ def get_product_group_link(group_link_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement:getProductGroupLink', __args__, opts=opts, typ=GetProductGroupLinkResult).value
 
     return AwaitableGetProductGroupLinkResult(
-        group_id=__ret__.group_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        type=__ret__.type)
+        group_id=pulumi.get(__ret__, 'group_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_product_group_link)

@@ -185,17 +185,17 @@ def get_failover_group(failover_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getFailoverGroup', __args__, opts=opts, typ=GetFailoverGroupResult).value
 
     return AwaitableGetFailoverGroupResult(
-        databases=__ret__.databases,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        partner_servers=__ret__.partner_servers,
-        read_only_endpoint=__ret__.read_only_endpoint,
-        read_write_endpoint=__ret__.read_write_endpoint,
-        replication_role=__ret__.replication_role,
-        replication_state=__ret__.replication_state,
-        tags=__ret__.tags,
-        type=__ret__.type)
+        databases=pulumi.get(__ret__, 'databases'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        partner_servers=pulumi.get(__ret__, 'partner_servers'),
+        read_only_endpoint=pulumi.get(__ret__, 'read_only_endpoint'),
+        read_write_endpoint=pulumi.get(__ret__, 'read_write_endpoint'),
+        replication_role=pulumi.get(__ret__, 'replication_role'),
+        replication_state=pulumi.get(__ret__, 'replication_state'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_failover_group)

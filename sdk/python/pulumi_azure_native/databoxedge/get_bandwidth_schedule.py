@@ -150,14 +150,14 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:databoxedge:getBandwidthSchedule', __args__, opts=opts, typ=GetBandwidthScheduleResult).value
 
     return AwaitableGetBandwidthScheduleResult(
-        days=__ret__.days,
-        id=__ret__.id,
-        name=__ret__.name,
-        rate_in_mbps=__ret__.rate_in_mbps,
-        start=__ret__.start,
-        stop=__ret__.stop,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        days=pulumi.get(__ret__, 'days'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        rate_in_mbps=pulumi.get(__ret__, 'rate_in_mbps'),
+        start=pulumi.get(__ret__, 'start'),
+        stop=pulumi.get(__ret__, 'stop'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_bandwidth_schedule)

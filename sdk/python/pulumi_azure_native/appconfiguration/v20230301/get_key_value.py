@@ -188,17 +188,17 @@ def get_key_value(config_store_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:appconfiguration/v20230301:getKeyValue', __args__, opts=opts, typ=GetKeyValueResult).value
 
     return AwaitableGetKeyValueResult(
-        content_type=__ret__.content_type,
-        e_tag=__ret__.e_tag,
-        id=__ret__.id,
-        key=__ret__.key,
-        label=__ret__.label,
-        last_modified=__ret__.last_modified,
-        locked=__ret__.locked,
-        name=__ret__.name,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        value=__ret__.value)
+        content_type=pulumi.get(__ret__, 'content_type'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
+        id=pulumi.get(__ret__, 'id'),
+        key=pulumi.get(__ret__, 'key'),
+        label=pulumi.get(__ret__, 'label'),
+        last_modified=pulumi.get(__ret__, 'last_modified'),
+        locked=pulumi.get(__ret__, 'locked'),
+        name=pulumi.get(__ret__, 'name'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(get_key_value)

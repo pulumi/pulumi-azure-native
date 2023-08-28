@@ -125,12 +125,12 @@ def get_gallery(dev_center_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:devcenter/v20230401:getGallery', __args__, opts=opts, typ=GetGalleryResult).value
 
     return AwaitableGetGalleryResult(
-        gallery_resource_id=__ret__.gallery_resource_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        provisioning_state=__ret__.provisioning_state,
-        system_data=__ret__.system_data,
-        type=__ret__.type)
+        gallery_resource_id=pulumi.get(__ret__, 'gallery_resource_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_gallery)

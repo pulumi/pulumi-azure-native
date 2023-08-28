@@ -188,17 +188,17 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:network/v20230501:getExpressRouteCircuitConnection', __args__, opts=opts, typ=GetExpressRouteCircuitConnectionResult).value
 
     return AwaitableGetExpressRouteCircuitConnectionResult(
-        address_prefix=__ret__.address_prefix,
-        authorization_key=__ret__.authorization_key,
-        circuit_connection_status=__ret__.circuit_connection_status,
-        etag=__ret__.etag,
-        express_route_circuit_peering=__ret__.express_route_circuit_peering,
-        id=__ret__.id,
-        ipv6_circuit_connection_config=__ret__.ipv6_circuit_connection_config,
-        name=__ret__.name,
-        peer_express_route_circuit_peering=__ret__.peer_express_route_circuit_peering,
-        provisioning_state=__ret__.provisioning_state,
-        type=__ret__.type)
+        address_prefix=pulumi.get(__ret__, 'address_prefix'),
+        authorization_key=pulumi.get(__ret__, 'authorization_key'),
+        circuit_connection_status=pulumi.get(__ret__, 'circuit_connection_status'),
+        etag=pulumi.get(__ret__, 'etag'),
+        express_route_circuit_peering=pulumi.get(__ret__, 'express_route_circuit_peering'),
+        id=pulumi.get(__ret__, 'id'),
+        ipv6_circuit_connection_config=pulumi.get(__ret__, 'ipv6_circuit_connection_config'),
+        name=pulumi.get(__ret__, 'name'),
+        peer_express_route_circuit_peering=pulumi.get(__ret__, 'peer_express_route_circuit_peering'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_express_route_circuit_connection)

@@ -76,8 +76,8 @@ def list_gateway_keys(gateway_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:apimanagement/v20220801:listGatewayKeys', __args__, opts=opts, typ=ListGatewayKeysResult).value
 
     return AwaitableListGatewayKeysResult(
-        primary=__ret__.primary,
-        secondary=__ret__.secondary)
+        primary=pulumi.get(__ret__, 'primary'),
+        secondary=pulumi.get(__ret__, 'secondary'))
 
 
 @_utilities.lift_output_func(list_gateway_keys)

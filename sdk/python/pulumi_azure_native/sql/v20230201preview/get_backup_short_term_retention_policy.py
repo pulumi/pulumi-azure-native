@@ -115,11 +115,11 @@ def get_backup_short_term_retention_policy(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:sql/v20230201preview:getBackupShortTermRetentionPolicy', __args__, opts=opts, typ=GetBackupShortTermRetentionPolicyResult).value
 
     return AwaitableGetBackupShortTermRetentionPolicyResult(
-        diff_backup_interval_in_hours=__ret__.diff_backup_interval_in_hours,
-        id=__ret__.id,
-        name=__ret__.name,
-        retention_days=__ret__.retention_days,
-        type=__ret__.type)
+        diff_backup_interval_in_hours=pulumi.get(__ret__, 'diff_backup_interval_in_hours'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        retention_days=pulumi.get(__ret__, 'retention_days'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_backup_short_term_retention_policy)

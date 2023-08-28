@@ -200,19 +200,19 @@ def get_certificate(account_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:batch/v20220601:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        delete_certificate_error=__ret__.delete_certificate_error,
-        etag=__ret__.etag,
-        format=__ret__.format,
-        id=__ret__.id,
-        name=__ret__.name,
-        previous_provisioning_state=__ret__.previous_provisioning_state,
-        previous_provisioning_state_transition_time=__ret__.previous_provisioning_state_transition_time,
-        provisioning_state=__ret__.provisioning_state,
-        provisioning_state_transition_time=__ret__.provisioning_state_transition_time,
-        public_data=__ret__.public_data,
-        thumbprint=__ret__.thumbprint,
-        thumbprint_algorithm=__ret__.thumbprint_algorithm,
-        type=__ret__.type)
+        delete_certificate_error=pulumi.get(__ret__, 'delete_certificate_error'),
+        etag=pulumi.get(__ret__, 'etag'),
+        format=pulumi.get(__ret__, 'format'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        previous_provisioning_state=pulumi.get(__ret__, 'previous_provisioning_state'),
+        previous_provisioning_state_transition_time=pulumi.get(__ret__, 'previous_provisioning_state_transition_time'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        provisioning_state_transition_time=pulumi.get(__ret__, 'provisioning_state_transition_time'),
+        public_data=pulumi.get(__ret__, 'public_data'),
+        thumbprint=pulumi.get(__ret__, 'thumbprint'),
+        thumbprint_algorithm=pulumi.get(__ret__, 'thumbprint_algorithm'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_certificate)

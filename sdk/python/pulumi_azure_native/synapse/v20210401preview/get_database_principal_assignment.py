@@ -191,17 +191,17 @@ def get_database_principal_assignment(database_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:synapse/v20210401preview:getDatabasePrincipalAssignment', __args__, opts=opts, typ=GetDatabasePrincipalAssignmentResult).value
 
     return AwaitableGetDatabasePrincipalAssignmentResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        principal_id=__ret__.principal_id,
-        principal_name=__ret__.principal_name,
-        principal_type=__ret__.principal_type,
-        provisioning_state=__ret__.provisioning_state,
-        role=__ret__.role,
-        system_data=__ret__.system_data,
-        tenant_id=__ret__.tenant_id,
-        tenant_name=__ret__.tenant_name,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        principal_id=pulumi.get(__ret__, 'principal_id'),
+        principal_name=pulumi.get(__ret__, 'principal_name'),
+        principal_type=pulumi.get(__ret__, 'principal_type'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        role=pulumi.get(__ret__, 'role'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tenant_id=pulumi.get(__ret__, 'tenant_id'),
+        tenant_name=pulumi.get(__ret__, 'tenant_name'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_database_principal_assignment)

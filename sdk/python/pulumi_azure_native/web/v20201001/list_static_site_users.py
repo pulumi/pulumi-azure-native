@@ -77,8 +77,8 @@ def list_static_site_users(authprovider: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web/v20201001:listStaticSiteUsers', __args__, opts=opts, typ=ListStaticSiteUsersResult).value
 
     return AwaitableListStaticSiteUsersResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_static_site_users)

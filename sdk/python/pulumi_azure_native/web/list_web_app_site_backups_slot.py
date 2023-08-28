@@ -78,8 +78,8 @@ def list_web_app_site_backups_slot(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:web:listWebAppSiteBackupsSlot', __args__, opts=opts, typ=ListWebAppSiteBackupsSlotResult).value
 
     return AwaitableListWebAppSiteBackupsSlotResult(
-        next_link=__ret__.next_link,
-        value=__ret__.value)
+        next_link=pulumi.get(__ret__, 'next_link'),
+        value=pulumi.get(__ret__, 'value'))
 
 
 @_utilities.lift_output_func(list_web_app_site_backups_slot)

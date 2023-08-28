@@ -194,18 +194,18 @@ def get_autoscale_setting(autoscale_setting_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:insights/v20221001:getAutoscaleSetting', __args__, opts=opts, typ=GetAutoscaleSettingResult).value
 
     return AwaitableGetAutoscaleSettingResult(
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        location=__ret__.location,
-        name=__ret__.name,
-        notifications=__ret__.notifications,
-        predictive_autoscale_policy=__ret__.predictive_autoscale_policy,
-        profiles=__ret__.profiles,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        target_resource_location=__ret__.target_resource_location,
-        target_resource_uri=__ret__.target_resource_uri,
-        type=__ret__.type)
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        location=pulumi.get(__ret__, 'location'),
+        name=pulumi.get(__ret__, 'name'),
+        notifications=pulumi.get(__ret__, 'notifications'),
+        predictive_autoscale_policy=pulumi.get(__ret__, 'predictive_autoscale_policy'),
+        profiles=pulumi.get(__ret__, 'profiles'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        target_resource_location=pulumi.get(__ret__, 'target_resource_location'),
+        target_resource_uri=pulumi.get(__ret__, 'target_resource_uri'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_autoscale_setting)

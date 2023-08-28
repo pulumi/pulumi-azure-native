@@ -242,22 +242,22 @@ def get_redis_enterprise(cluster_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:cache/v20230301preview:getRedisEnterprise', __args__, opts=opts, typ=GetRedisEnterpriseResult).value
 
     return AwaitableGetRedisEnterpriseResult(
-        encryption=__ret__.encryption,
-        host_name=__ret__.host_name,
-        id=__ret__.id,
-        identity=__ret__.identity,
-        location=__ret__.location,
-        minimum_tls_version=__ret__.minimum_tls_version,
-        name=__ret__.name,
-        private_endpoint_connections=__ret__.private_endpoint_connections,
-        provisioning_state=__ret__.provisioning_state,
-        redis_version=__ret__.redis_version,
-        resource_state=__ret__.resource_state,
-        sku=__ret__.sku,
-        system_data=__ret__.system_data,
-        tags=__ret__.tags,
-        type=__ret__.type,
-        zones=__ret__.zones)
+        encryption=pulumi.get(__ret__, 'encryption'),
+        host_name=pulumi.get(__ret__, 'host_name'),
+        id=pulumi.get(__ret__, 'id'),
+        identity=pulumi.get(__ret__, 'identity'),
+        location=pulumi.get(__ret__, 'location'),
+        minimum_tls_version=pulumi.get(__ret__, 'minimum_tls_version'),
+        name=pulumi.get(__ret__, 'name'),
+        private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
+        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        redis_version=pulumi.get(__ret__, 'redis_version'),
+        resource_state=pulumi.get(__ret__, 'resource_state'),
+        sku=pulumi.get(__ret__, 'sku'),
+        system_data=pulumi.get(__ret__, 'system_data'),
+        tags=pulumi.get(__ret__, 'tags'),
+        type=pulumi.get(__ret__, 'type'),
+        zones=pulumi.get(__ret__, 'zones'))
 
 
 @_utilities.lift_output_func(get_redis_enterprise)
