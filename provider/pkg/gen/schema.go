@@ -277,6 +277,7 @@ func PulumiSchema(providerMap openapi.AzureProviders, constraints Constraints) (
 		"rootPackageName":                "pulumiazurenativesdk",
 		"generateResourceContainerTypes": false,
 		"disableInputTypeRegistrations":  true,
+		"internalModuleName":             "utilities",
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
