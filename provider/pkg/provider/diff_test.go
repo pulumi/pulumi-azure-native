@@ -478,6 +478,52 @@ func TestLocationDiffingIsInsensitiveToSpacesAndCasing(t *testing.T) {
 	}
 }
 
+func TestSkuDiffingIsInsensitiveToAksPermutations(t *testing.T) {
+	res := resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Name:     "bodyProperties",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"sku": {Type: "object"},
+					},
+				},
+			},
+		},
+	}
+	testCases := [][]string{
+		[]string{"Basic", "Paid", "Base", "Standard", "equal"},
+		[]string{"Base", "Standard", "Basic", "Paid", "equal"},
+		[]string{"Base", "Standard", "Basic", "Free", "not equal"},
+		[]string{"Premium", "Standard", "Basic", "Free", "not equal"},
+	}
+	for _, testCase := range testCases {
+		diff := resource.ObjectDiff{
+			Updates: map[resource.PropertyKey]resource.ValueDiff{
+				"sku": {
+					Old: resource.PropertyValue{V: resource.PropertyMap{
+						"name": {V: testCase[0]},
+						"tier": {V: testCase[1]}},
+					},
+					New: resource.PropertyValue{V: resource.PropertyMap{
+						"name": {V: testCase[2]},
+						"tier": {V: testCase[3]}},
+					},
+				},
+			},
+		}
+		emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
+		actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
+		if testCase[4] == "equal" {
+			expected := map[string]*rpc.PropertyDiff{}
+			assert.Equal(t, expected, actual)
+		} else {
+			assert.Equal(t, 1, len(actual))
+		}
+	}
+}
+
 func TestChangesAndReplacements_AddedPropertyCausesDiff(t *testing.T) {
 	changes, replacements := calculateChangesAndReplacementsForOneAddedProperty(t, "newvalue", nil)
 	assert.Len(t, changes, 1)

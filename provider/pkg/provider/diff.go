@@ -223,6 +223,12 @@ func applyAzureSpecificDiff(diff *resource.ObjectDiff) {
 				continue
 			}
 		}
+		// Another special case is "sku" in AKS clusters.
+		if string(k) == "sku" && v.Old.IsObject() && v.New.IsObject() {
+			if sameManagedClusterSku(v.Old.ObjectValue(), v.New.ObjectValue()) {
+				continue
+			}
+		}
 		updates[k] = v
 	}
 	diff.Updates = updates
@@ -232,6 +238,36 @@ func applyAzureSpecificDiff(diff *resource.ObjectDiff) {
 // "WestUS2" to the lowercase and no-space format of "westus2".
 func normalizedLocation(location string) string {
 	return strings.ToLower(strings.ReplaceAll(location, " ", ""))
+}
+
+// sameManagedClusterSku checks whether two property maps representing a SKU are
+// equivalent in terms of AKS nomenclature.
+// See https://github.com/pulumi/pulumi-azure-native/issues/2600
+func sameManagedClusterSku(oldMap resource.PropertyMap, newMap resource.PropertyMap) bool {
+	// Expect exactly two keys: name and tier - in both maps.
+	if len(oldMap) != 2 || len(newMap) != 2 {
+		return false
+	}
+
+	// Check that 'name' exists in both.
+	oldName, hasOld := oldMap["name"]
+	newName, hasNew := newMap["name"]
+	if !hasOld || !hasNew || !oldName.IsString() || !newName.IsString() {
+		return false
+	}
+
+	// Check that 'tier' exists in both.
+	oldTier, hasOld := oldMap["tier"]
+	newTier, hasNew := newMap["tier"]
+	if !hasOld || !hasNew || !oldTier.IsString() || !newTier.IsString() {
+		return false
+	}
+
+	// Check that name is (Basic or Base) and tier is (Paid or Standard).
+	return (oldName.StringValue() == "Basic" || oldName.StringValue() == "Base") &&
+		(newName.StringValue() == "Basic" || newName.StringValue() == "Base") &&
+		(oldTier.StringValue() == "Paid" || oldTier.StringValue() == "Standard") &&
+		(newTier.StringValue() == "Paid" || newTier.StringValue() == "Standard")
 }
 
 // calculateChangesAndReplacements compares a property diff with the old and new inputs and the
