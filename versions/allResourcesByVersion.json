@@ -1856,6 +1856,44 @@
       "listGatewayEnvSecrets",
       "listServiceGloballyEnabledApms",
       "listServiceTestKeys"
+    ],
+    "2023-07-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "Apm",
+      "App",
+      "ApplicationAccelerator",
+      "ApplicationLiveView",
+      "Binding",
+      "BuildServiceAgentPool",
+      "BuildServiceBuild",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigServer",
+      "ConfigurationService",
+      "ContainerRegistry",
+      "CustomDomain",
+      "CustomizedAccelerator",
+      "Deployment",
+      "DevToolPortal",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "MonitoringSetting",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listApmSecretKeys",
+      "listBuildServiceBuilderDeployments",
+      "listGatewayEnvSecrets",
+      "listServiceGloballyEnabledApms",
+      "listServiceTestKeys"
     ]
   },
   "Attestation": {
@@ -4707,6 +4745,12 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2023-06-15-preview": [
+      "Fleet",
+      "FleetMember",
+      "UpdateRun",
+      "listFleetCredentials"
     ],
     "2023-07-01": [
       "AgentPool",
