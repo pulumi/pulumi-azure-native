@@ -85,6 +85,9 @@ func main() {
 			if err = buildSchemaResult.Version.WriteTo("versions"); err != nil {
 				panic(err)
 			}
+			if err = buildSchemaResult.Reports.WriteTo("reports"); err != nil {
+				panic(err)
+			}
 		} else {
 			fmt.Println("Note: skipping writing version metadata because DEBUG_CODEGEN_NAMESPACES or DEBUG_CODEGEN_APIVERSIONS is set.")
 		}
