@@ -33,11 +33,15 @@ func (v constraintsStub) ShouldInclude(provider string, version string, typeName
 	return true
 }
 
+func (v constraintsStub) GetDeprecationMessage(token string) (string, bool) {
+	return "", false
+}
+
 func TestAliases(t *testing.T) {
 	generator := packageGenerator{
-		pkg:         &pschema.PackageSpec{Name: "azure-native"},
-		apiVersion:  "v20220222",
-		constraints: constraintsStub{},
+		pkg:        &pschema.PackageSpec{Name: "azure-native"},
+		apiVersion: "v20220222",
+		versioning: constraintsStub{},
 	}
 
 	resource := &resourceVariant{

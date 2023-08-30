@@ -3,7 +3,7 @@ package versioning
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 	"path"
@@ -27,6 +27,10 @@ type VersionMetadata struct {
 	Lock                          openapi.DefaultVersionLock
 	RemovedInvokes                ResourceRemovals
 }
+
+// Ensure our VersionMetadata type implements the gen.Constraints interface
+// The compiler will raise an error here if the interface isn't implemented
+var _ gen.Versioning = (*VersionMetadata)(nil)
 
 func (v VersionMetadata) ShouldInclude(provider string, version string, typeName, token string) bool {
 	// Keep any resources in the default version lock
@@ -54,6 +58,16 @@ func (v VersionMetadata) ShouldInclude(provider string, version string, typeName
 		return false
 	}
 	return true
+}
+
+func (v VersionMetadata) GetDeprecationMessage(token string) (string, bool) {
+	if newToken, ok := v.NextResourcesToRemove[token]; ok {
+		return fmt.Sprintf(
+			"%s is being removed in the next major version of this provider. "+
+				"Upgrade to at least %s to guarantee forwards compatibility.", token, newToken,
+		), true
+	}
+	return "", false
 }
 
 func LoadVersionMetadata(rootDir string, providers openapi.AzureProviders, majorVersion int) (VersionMetadata, error) {
@@ -136,6 +150,7 @@ type VersionSources struct {
 	Config                    Curations
 	ConfigPath                string
 	ResourcesToRemove         ResourceRemovals
+	NextResourcesToRemove     ResourceRemovals
 }
 
 func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error) {
@@ -180,6 +195,13 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 		return VersionSources{}, fmt.Errorf("could not read %s: %v", resourcesToRemovePath, err)
 	}
 
+	nextVersionFilePrefix := fmt.Sprintf("v%d-", majorVersion+1)
+	nextResourcesToRemovePath := path.Join(rootDir, "versions", nextVersionFilePrefix+"removed-resources.yaml")
+	nextResourcesToRemove, err := ReadResourceRemovals(nextResourcesToRemovePath)
+	if err != nil {
+		return VersionSources{}, fmt.Errorf("could not read %s: %v", nextResourcesToRemovePath, err)
+	}
+
 	return VersionSources{
 		MajorVersion:              majorVersion,
 		activePathVersions:        activePathVersions,
@@ -190,6 +212,7 @@ func ReadVersionSources(rootDir string, majorVersion int) (VersionSources, error
 		Config:                    config,
 		ConfigPath:                configPath,
 		ResourcesToRemove:         resourcesToRemove,
+		NextResourcesToRemove:     nextResourcesToRemove,
 	}, nil
 }
 
@@ -204,7 +227,7 @@ func ReadResourceRemovals(path string) (ResourceRemovals, error) {
 	}
 	defer sourceFile.Close()
 
-	byteValue, err := ioutil.ReadAll(sourceFile)
+	byteValue, err := io.ReadAll(sourceFile)
 	if err != nil {
 		return nil, err
 	}
@@ -237,7 +260,7 @@ func ReadRequiredExplicitResources(path string) ([]string, error) {
 	}
 	defer txtFile.Close()
 	// Read each line into an array
-	bytes, err := ioutil.ReadAll(txtFile)
+	bytes, err := io.ReadAll(txtFile)
 	if err != nil {
 		return nil, err
 	}
