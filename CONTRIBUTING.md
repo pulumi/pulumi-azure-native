@@ -96,9 +96,7 @@ Both `tracking` and `additions` can be specified together but if the set of reso
 
 From the Spec file, we generate the Lock JSON file (e.g. [`v2-lock.json`](./versions/v2-lock.json)) which contain the fully expanded set of default resources. These are the files used at the point of generating the schema.
 
-### Additional Files
-
-### Creating a new default version
+### Creating a new major version default selection
 
 1. Take a copy of previous config.
 2. Create an empty spec.
