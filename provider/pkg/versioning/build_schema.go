@@ -24,12 +24,18 @@ type ReadSpecsArgs struct {
 }
 
 type BuildSchemaArgs struct {
-	Specs                   ReadSpecsArgs
-	RootDir                 string
+	Specs ReadSpecsArgs
+	// RootDir is the root directory of the provider repo. Defaults to the current working directory.
+	RootDir string
+	// Only generate defualt version
 	ExcludeExplicitVersions bool
-	OnlyExplicitVersions    bool
-	ExampleLanguages        []string
-	Version                 string
+	// Skip default version
+	OnlyExplicitVersions bool
+	// ExampleLanguages is a list of languages to generate examples for.
+	// If not set, no examples will be generated.
+	ExampleLanguages []string
+	// Used when loading version metadata and generating examples to determine the path of the Go SDK.
+	Version string
 }
 
 type BuildSchemaResult struct {
