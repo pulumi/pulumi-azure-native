@@ -82,11 +82,19 @@ func main() {
 		}
 
 		if namespaces == "*" && apiVersions == "" {
-			if err = buildSchemaResult.Version.WriteTo("versions"); err != nil {
+			written, err := buildSchemaResult.Version.WriteTo("versions")
+			if err != nil {
 				panic(err)
 			}
-			if err = buildSchemaResult.Reports.WriteTo("reports"); err != nil {
+			for _, v := range written {
+				fmt.Printf("Emitted %q\n", v)
+			}
+			written, err = buildSchemaResult.Reports.WriteTo("reports")
+			if err != nil {
 				panic(err)
+			}
+			for _, v := range written {
+				fmt.Printf("Emitted %q\n", v)
 			}
 		} else {
 			fmt.Println("Note: skipping writing version metadata because DEBUG_CODEGEN_NAMESPACES or DEBUG_CODEGEN_APIVERSIONS is set.")
