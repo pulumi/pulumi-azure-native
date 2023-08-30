@@ -130,13 +130,9 @@ func (v VersionMetadata) WriteTo(outputDir string) error {
 	lockPath := filePrefix + "lock.json"
 	removedInvokesPath := filePrefix + "removed-invokes.yaml"
 	return gen.EmitFiles(outputDir, gen.FileMap{
-		"allResourcesByVersion.json":         v.AllResourcesByVersion,
-		"allResourceVersionsByResource.json": v.AllResourceVersionsByResource,
-		"active.json":                        v.Active,
-		"pending.json":                       v.Pending,
-		specPath:                             v.Spec,
-		lockPath:                             v.Lock,
-		removedInvokesPath:                   v.RemovedInvokes,
+		specPath:           v.Spec,
+		lockPath:           v.Lock,
+		removedInvokesPath: v.RemovedInvokes,
 	})
 }
 

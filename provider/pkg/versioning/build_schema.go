@@ -9,6 +9,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
@@ -39,11 +40,19 @@ type BuildSchemaArgs struct {
 
 type BuildSchemaReports struct {
 	PathChangesResult
+	AllResourcesByVersion         ProvidersVersionResources
+	AllResourceVersionsByResource ProviderResourceVersions
+	Active                        providerlist.ProviderPathVersionsJson
+	Pending                       openapi.ProviderVersionList
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) error {
 	return gen.EmitFiles(outputDir, gen.FileMap{
-		"pathChanges.json": r.PathChangesResult,
+		"pathChanges.json":                   r.PathChangesResult,
+		"allResourcesByVersion.json":         r.AllResourcesByVersion,
+		"allResourceVersionsByResource.json": r.AllResourceVersionsByResource,
+		"active.json":                        r.Active,
+		"pending.json":                       r.Pending,
 	})
 }
 
@@ -114,7 +123,11 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		Metadata:    *metadata,
 		Version:     versionMetadata,
 		Reports: BuildSchemaReports{
-			PathChangesResult: pathChanges,
+			PathChangesResult:             pathChanges,
+			AllResourcesByVersion:         versionMetadata.AllResourcesByVersion,
+			AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,
+			Active:                        versionMetadata.Active,
+			Pending:                       versionMetadata.Pending,
 		},
 	}, nil
 }
