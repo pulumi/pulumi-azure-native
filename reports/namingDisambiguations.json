@@ -1,0 +1,758 @@
+[
+  {
+    "OperationID": "CommitmentPlans_GetPlan",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}",
+    "GeneratedName": "CommitmentPlan",
+    "DisambiguatedName": "SharedCommitmentPlan"
+  },
+  {
+    "OperationID": "CommitmentPlans_GetPlan",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}",
+    "GeneratedName": "CommitmentPlan",
+    "DisambiguatedName": "SharedCommitmentPlan"
+  },
+  {
+    "OperationID": "CommitmentPlans_GetPlan",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}",
+    "GeneratedName": "CommitmentPlan",
+    "DisambiguatedName": "SharedCommitmentPlan"
+  },
+  {
+    "OperationID": "CommitmentPlans_GetPlan",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}",
+    "GeneratedName": "CommitmentPlan",
+    "DisambiguatedName": "SharedCommitmentPlan"
+  },
+  {
+    "OperationID": "VirtualNetworkLinks_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
+    "GeneratedName": "VirtualNetworkLink",
+    "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
+  },
+  {
+    "OperationID": "VirtualNetworkLinks_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
+    "GeneratedName": "VirtualNetworkLink",
+    "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
+  },
+  {
+    "OperationID": "VirtualNetworkLinks_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
+    "GeneratedName": "VirtualNetworkLink",
+    "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
+  },
+  {
+    "OperationID": "VirtualNetworkLinks_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
+    "GeneratedName": "VirtualNetworkLink",
+    "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
+  },
+  {
+    "OperationID": "RecordSets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
+    "GeneratedName": "RecordSet",
+    "DisambiguatedName": "PrivateRecordSet"
+  },
+  {
+    "OperationID": "RecordSets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
+    "GeneratedName": "RecordSet",
+    "DisambiguatedName": "PrivateRecordSet"
+  },
+  {
+    "OperationID": "RecordSets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
+    "GeneratedName": "RecordSet",
+    "DisambiguatedName": "PrivateRecordSet"
+  },
+  {
+    "OperationID": "RecordSets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
+    "GeneratedName": "RecordSet",
+    "DisambiguatedName": "PrivateRecordSet"
+  },
+  {
+    "OperationID": "RecordSets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
+    "GeneratedName": "RecordSet",
+    "DisambiguatedName": "PrivateRecordSet"
+  },
+  {
+    "OperationID": "RecordSets_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateDnsZones/{privateZoneName}/{recordType}/{relativeRecordSetName}",
+    "GeneratedName": "RecordSet",
+    "DisambiguatedName": "PrivateRecordSet"
+  },
+  {
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
+    "OperationID": "PrivateEndpointConnections_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}",
+    "GeneratedName": "PrivateEndpointConnection",
+    "DisambiguatedName": "EnterprisePrivateEndpointConnection"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypes_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}",
+    "GeneratedName": "ApplicationType",
+    "DisambiguatedName": "ManagedClusterApplicationType"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "ApplicationTypeVersions_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applicationTypes/{applicationTypeName}/versions/{version}",
+    "GeneratedName": "ApplicationTypeVersion",
+    "DisambiguatedName": "ManagedClusterApplicationTypeVersion"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Applications_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}",
+    "GeneratedName": "Application",
+    "DisambiguatedName": "ManagedClusterApplication"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  },
+  {
+    "OperationID": "Services_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceFabric/managedclusters/{clusterName}/applications/{applicationName}/services/{serviceName}",
+    "GeneratedName": "Service",
+    "DisambiguatedName": "ManagedClusterService"
+  }
+]

@@ -39,6 +39,7 @@ type BuildSchemaReports struct {
 	Active                        providerlist.ProviderPathVersionsJson
 	Pending                       openapi.ProviderVersionList
 	CurationViolations            []CurationViolation
+	NamingDisambiguations         []resources.NameDisambiguation
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) error {
@@ -49,6 +50,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) error {
 		"active.json":                        r.Active,
 		"pending.json":                       r.Pending,
 		"curationViolations.json":            r.CurationViolations,
+		"namingDisambiguations.json":         r.NamingDisambiguations,
 	})
 }
 
@@ -60,14 +62,16 @@ type BuildSchemaResult struct {
 }
 
 func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
+	buildSchemaResult := BuildSchemaReports{}
 	specsDir := args.Specs.SpecsDir
 	if specsDir == "" {
 		specsDir = path.Join(args.RootDir, "azure-rest-api-specs")
 	}
-	providers, err := openapi.ReadAzureProviders(specsDir, args.Specs.NamespaceFilter, args.Specs.VersionsFilter)
+	providers, diagnostics, err := openapi.ReadAzureProviders(specsDir, args.Specs.NamespaceFilter, args.Specs.VersionsFilter)
 	if err != nil {
 		return nil, err
 	}
+	buildSchemaResult.NamingDisambiguations = diagnostics.NamingDisambiguations
 
 	majorVersion, err := strconv.ParseInt(strings.Split(args.Version, ".")[0], 10, 64)
 	if err != nil {
@@ -114,18 +118,18 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		pkgSpec.Version = ""
 	}
 
+	buildSchemaResult.PathChangesResult = pathChanges
+	buildSchemaResult.AllResourcesByVersion = versionMetadata.AllResourcesByVersion
+	buildSchemaResult.AllResourceVersionsByResource = versionMetadata.AllResourceVersionsByResource
+	buildSchemaResult.Active = versionMetadata.Active
+	buildSchemaResult.Pending = versionMetadata.Pending
+	buildSchemaResult.CurationViolations = versionMetadata.CurationViolations
+
 	return &BuildSchemaResult{
 		PackageSpec: *pkgSpec,
 		Metadata:    *metadata,
 		Version:     versionMetadata,
-		Reports: BuildSchemaReports{
-			PathChangesResult:             pathChanges,
-			AllResourcesByVersion:         versionMetadata.AllResourcesByVersion,
-			AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,
-			Active:                        versionMetadata.Active,
-			Pending:                       versionMetadata.Pending,
-			CurationViolations:            versionMetadata.CurationViolations,
-		},
+		Reports:     buildSchemaResult,
 	}, nil
 }
 

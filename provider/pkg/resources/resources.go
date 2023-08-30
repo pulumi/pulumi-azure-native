@@ -4,7 +4,6 @@ package resources
 
 import (
 	"fmt"
-	"log"
 	"regexp"
 	"strings"
 
@@ -224,9 +223,20 @@ var wellKnownNames = map[string]string{
 	"Redis":               "Redis",
 }
 
+type NameDisambiguation struct {
+	// The operation ID that is ambiguous.
+	OperationID string
+	// The path of the resource or invoke that is ambiguous.
+	Path string
+	// The name of the resource or invoke that is ambiguous.
+	GeneratedName string
+	// The API versions that the name is ambiguous between.
+	DisambiguatedName string
+}
+
 // ResourceName constructs a name of a resource based on Get or List operation ID,
 // e.g. "Managers_GetActivationKey" -> "ManagerActivationKey".
-func ResourceName(operationID, path string) string {
+func ResourceName(operationID, path string) (string, *NameDisambiguation) {
 	normalizedID := strings.ReplaceAll(operationID, "-", "_")
 	parts := strings.Split(normalizedID, "_")
 	var name, verb string
@@ -257,14 +267,21 @@ func ResourceName(operationID, path string) string {
 
 	resourceName := name + subName
 
+	var nameDisambiuation *NameDisambiguation
+
 	// Special cases
 
 	// Manual override to resolve ambiguity between public and private RecordSet.
 	// See https://github.com/pulumi/pulumi-azure-native/issues/583.
 	// To be removed with https://github.com/pulumi/pulumi-azure-native/issues/690.
-	if resourceName == "RecordSet" && strings.Contains(path, "privateDns") {
+	if resourceName == "RecordSet" && strings.Contains(path, "/providers/Microsoft.Network/privateDnsZones/") {
 		newName := "PrivateRecordSet"
-		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		nameDisambiuation = &NameDisambiguation{
+			OperationID:       operationID,
+			Path:              path,
+			GeneratedName:     resourceName,
+			DisambiguatedName: newName,
+		}
 		resourceName = newName
 	}
 
@@ -272,18 +289,28 @@ func ResourceName(operationID, path string) string {
 	// The global ones are new, introduced in 2022-12-01, so we rename them.
 	// TODO,tkappler The global plan still has the description "Cognitive Services account
 	// commitment plan." - upstream issue?
-	if resourceName == "CommitmentPlan" && strings.Contains(path, "CognitiveServices/commitmentPlans/") {
+	if resourceName == "CommitmentPlan" && strings.Contains(path, "/providers/Microsoft.CognitiveServices/commitmentPlans/") {
 		newName := "SharedCommitmentPlan"
-		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		nameDisambiuation = &NameDisambiguation{
+			OperationID:       operationID,
+			Path:              path,
+			GeneratedName:     resourceName,
+			DisambiguatedName: newName,
+		}
 		resourceName = newName
 	}
 
 	// Redis and RedisEnterprise are essentially distinct resources sharing the Microsoft.Cache
 	// namespace. It works out ok because each API version has only one of them, and of the shared
 	// types only PrivateEndpointConnection clashes.
-	if resourceName == "PrivateEndpointConnection" && strings.Contains(path, "Microsoft.Cache/redisEnterprise") {
+	if resourceName == "PrivateEndpointConnection" && strings.Contains(path, "/providers/Microsoft.Cache/redisEnterprise/") {
 		newName := "EnterprisePrivateEndpointConnection"
-		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		nameDisambiuation = &NameDisambiguation{
+			OperationID:       operationID,
+			Path:              path,
+			GeneratedName:     resourceName,
+			DisambiguatedName: newName,
+		}
 		resourceName = newName
 	}
 
@@ -291,9 +318,14 @@ func ResourceName(operationID, path string) string {
 	// the links have different properties.
 	// https://learn.microsoft.com/en-us/azure/dns/dns-private-resolver-overview#virtual-network-links
 	// https://learn.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links
-	if resourceName == "VirtualNetworkLink" && strings.Contains(path, "Microsoft.Network/dnsForwardingRulesets") {
+	if resourceName == "VirtualNetworkLink" && strings.Contains(path, "/providers/Microsoft.Network/dnsForwardingRulesets/") {
 		newName := "PrivateResolverVirtualNetworkLink"
-		log.Printf("Disambiguating %s at %s to %s", resourceName, path, newName)
+		nameDisambiuation = &NameDisambiguation{
+			OperationID:       operationID,
+			Path:              path,
+			GeneratedName:     resourceName,
+			DisambiguatedName: newName,
+		}
 		resourceName = newName
 	}
 
@@ -304,10 +336,17 @@ func ResourceName(operationID, path string) string {
 			resourceName == "ApplicationType" ||
 			resourceName == "ApplicationTypeVersion" ||
 			resourceName == "Service") {
-		resourceName = "ManagedCluster" + resourceName
+		newName := "ManagedCluster" + resourceName
+		nameDisambiuation = &NameDisambiguation{
+			OperationID:       operationID,
+			Path:              path,
+			GeneratedName:     resourceName,
+			DisambiguatedName: newName,
+		}
+		resourceName = newName
 	}
 
-	return resourceName
+	return resourceName, nameDisambiuation
 }
 
 var referenceNameReplacer = strings.NewReplacer("CreateOrUpdateParameters", "", "Create", "", "Request", "")

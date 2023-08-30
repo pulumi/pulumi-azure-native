@@ -48,7 +48,7 @@ func TestResourceName(t *testing.T) {
 	}
 
 	for _, tc := range testCases2 {
-		actual := ResourceName(tc.operationID, tc.path)
+		actual, _ := ResourceName(tc.operationID, tc.path)
 		assert.Equal(t, tc.expected, actual)
 	}
 }
