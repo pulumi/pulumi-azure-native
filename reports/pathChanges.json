@@ -1,0 +1,23 @@
+{
+  "Changes": [],
+  "MissingPreviousDefaultVersions": [
+    {
+      "ProviderName": "Cache",
+      "ResourceName": "PrivateEndpointConnection",
+      "Version": "v20210301",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "ContainerStorage",
+      "ResourceName": "Pool",
+      "Version": "v20230301preview",
+      "IsPrevious": true
+    },
+    {
+      "ProviderName": "ContainerStorage",
+      "ResourceName": "Volume",
+      "Version": "v20230301preview",
+      "IsPrevious": true
+    }
+  ]
+}
