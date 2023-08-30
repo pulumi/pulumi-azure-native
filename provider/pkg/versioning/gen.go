@@ -124,7 +124,7 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 	}, nil
 }
 
-func (v VersionMetadata) WriteTo(outputDir string) error {
+func (v VersionMetadata) WriteTo(outputDir string) ([]string, error) {
 	filePrefix := fmt.Sprintf("v%d-", v.MajorVersion)
 	specPath := filePrefix + "spec.yaml"
 	lockPath := filePrefix + "lock.json"

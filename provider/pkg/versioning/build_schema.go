@@ -42,7 +42,7 @@ type BuildSchemaReports struct {
 	NamingDisambiguations         []resources.NameDisambiguation
 }
 
-func (r BuildSchemaReports) WriteTo(outputDir string) error {
+func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
 	return gen.EmitFiles(outputDir, gen.FileMap{
 		"pathChanges.json":                   r.PathChangesResult,
 		"allResourcesByVersion.json":         r.AllResourcesByVersion,
