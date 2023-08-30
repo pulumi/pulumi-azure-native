@@ -20,6 +20,14 @@ type ProviderSpec struct {
 	Tracking *openapi.ApiVersion `yaml:"tracking,omitempty"`
 	// Additions are specific resource versions to be included. These *must not* overlap with any resources from the tracking version
 	Additions *map[openapi.ResourceName]openapi.ApiVersion `yaml:"additions,omitempty"`
+	// Validation warnings for this provider
+	ExclusionErrors []ExclusionError `yaml:"exclusionErrors,omitempty"`
+}
+
+type ExclusionError struct {
+	Provider     openapi.ProviderName
+	ResourceName string
+	Detail       string
 }
 
 // A Spec describes what versions of what resources should be included in the provider.
@@ -145,6 +153,7 @@ func DefaultConfigToDefaultVersionLock(spec ProvidersVersionResources, defaultCo
 func buildSpec(providerName string, versions VersionResources, curations Curations, existing ProviderSpec) ProviderSpec {
 	var additionsPtr *map[string]string
 	var trackingPtr *string
+	var exclusionErrors []ExclusionError
 
 	providerCuration := curations[providerName]
 	latestVersions := findLatestVersions(versions, providerCuration)
@@ -186,7 +195,11 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 		for _, resourceName := range resources {
 			isExcluded, exclusionErr := providerCuration.IsExcluded(resourceName, apiVersion)
 			if exclusionErr != nil {
-				fmt.Printf("Error checking exclusion for %s/%s: %s\n", providerName, resourceName, exclusionErr)
+				exclusionErrors = append(exclusionErrors, ExclusionError{
+					Provider:     providerName,
+					ResourceName: resourceName,
+					Detail:       exclusionErr.Error(),
+				})
 			}
 			if isExcluded || openapi.IsPrivate(apiVersion) {
 				continue
@@ -204,8 +217,9 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 	}
 
 	return ProviderSpec{
-		Tracking:  trackingPtr,
-		Additions: additionsPtr,
+		Tracking:        trackingPtr,
+		Additions:       additionsPtr,
+		ExclusionErrors: exclusionErrors,
 	}
 }
 
