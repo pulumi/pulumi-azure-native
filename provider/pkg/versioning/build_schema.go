@@ -100,7 +100,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		providers = openapi.SingleVersion(providers)
 	}
 
-	generationResult, err := gen.PulumiSchema(providers, versionMetadata)
+	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata)
 	if err != nil {
 		return nil, err
 	}
@@ -112,7 +112,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	if len(args.ExampleLanguages) > 0 {
 		// Ensure the spec is stamped with a version - Go gen needs it.
 		pkgSpec.Version = args.Version
-		err = gen.Examples(pkgSpec, metadata, examples, args.ExampleLanguages)
+		err = gen.Examples(args.RootDir, pkgSpec, metadata, examples, args.ExampleLanguages)
 		if err != nil {
 			return nil, err
 		}
