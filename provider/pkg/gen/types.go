@@ -277,7 +277,17 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 			if strings.HasPrefix(m.module, "datafactory") && enumName == "ScriptActivityParameterDirection" {
 				enumVal.Name = fmt.Sprintf("Value%s", val)
 			}
-			enumSpec.Enum = append(enumSpec.Enum, enumVal)
+			// Ignore additional enum values that only vary by case as this isn't supported by Pulumi.
+			exists := false
+			for _, existing := range enumSpec.Enum {
+				if strings.EqualFold(existing.Value.(string), enumVal.Value.(string)) {
+					exists = true
+					break
+				}
+			}
+			if !exists {
+				enumSpec.Enum = append(enumSpec.Enum, enumVal)
+			}
 		}
 	}
 
