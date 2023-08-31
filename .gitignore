@@ -12,6 +12,7 @@ Pulumi.*.yaml
 yarn.lock
 package-lock.json
 
+provider/coverage.txt
 provider/cmd/**/metadata.go
 provider/cmd/**/schema.go
 provider/cmd/**/schema-full.json
