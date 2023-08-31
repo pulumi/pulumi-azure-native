@@ -56,7 +56,7 @@ type GenerationResult struct {
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders, versioning Versioning) (*GenerationResult, error) {
+func PulumiSchema(rootDir string, providerMap openapi.AzureProviders, versioning Versioning) (*GenerationResult, error) {
 	warnings := []string{}
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
@@ -228,6 +228,7 @@ func PulumiSchema(providerMap openapi.AzureProviders, versioning Versioning) (*G
 				apiVersion: version,
 				examples:   exampleMap,
 				versioning: versioning,
+				rootDir:    rootDir,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -486,6 +487,8 @@ type packageGenerator struct {
 	apiVersion string
 	versioning Versioning
 	warnings   []string
+	// rootDir is used to resolve relative paths in the examples.
+	rootDir string
 }
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
@@ -831,21 +834,17 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 		if err != nil {
 			return err
 		}
-		cwd, err := os.Getwd()
-		if err != nil {
-			return err
-		}
 
 		url, err := swagger.ResolveReference(relativeURL.String())
 		if err != nil {
 			return err
 		}
 
-		url, err = filepath.Rel(cwd, url)
+		url, err = filepath.Rel(g.rootDir, url)
 		if err != nil {
 			return err
 		}
-		if _, err := os.Stat(url); err != nil {
+		if _, err := os.Stat(filepath.Join(g.rootDir, url)); err != nil {
 			return err
 		}
 		result = append(result, resources.AzureAPIExample{

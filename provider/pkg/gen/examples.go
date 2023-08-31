@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path"
+	"path/filepath"
 	"regexp"
 	"strings"
 	"text/template"
@@ -52,7 +53,7 @@ type resourceImportRenderData struct {
 }
 
 // Examples renders Azure API examples to the pkgSpec for the specified list of languages.
-func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
+func Examples(rootDir string, pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 	resExamples map[string][]resources.AzureAPIExample, languages []string) error {
 	sortedKeys := codegen.SortedKeys(pkgSpec.Resources) // To generate in deterministic order
 
@@ -103,7 +104,7 @@ func Examples(pkgSpec *schema.PackageSpec, metadata *resources.AzureAPIMetadata,
 				}
 
 				seen.Add(example.Location)
-				f, err := os.Open(example.Location)
+				f, err := os.Open(filepath.Join(rootDir, example.Location))
 				if err != nil {
 					return err
 				}
