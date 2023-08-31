@@ -1,0 +1,68 @@
+
+[TestApiManagementAuthorizationProvider - 1]
+ApiRelease details.
+
+{{% examples %}}
+## Example Usage
+{{% example %}}
+### ApiManagementCreateApiRelease
+```csharp
+using System.Collections.Generic;
+using System.Linq;
+using Pulumi;
+using AzureNative = Pulumi.AzureNative;
+
+return await Deployment.RunAsync(() => 
+{
+    var apiRelease = new AzureNative.ApiManagement.V20220801.ApiRelease("apiRelease", new()
+    {
+        ApiId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1",
+        Notes = "yahooagain",
+        ReleaseId = "testrev",
+        ResourceGroupName = "rg1",
+        ServiceName = "apimService1",
+    });
+
+});
+
+
+```
+
+```go
+package main
+
+import (
+    "github.com/pulumi/pulumi-azure-native-sdk/apimanagement/v2"
+    "github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+)
+
+func main() {
+    pulumi.Run(func(ctx *pulumi.Context) error {
+        _, err := apimanagement.NewApiRelease(ctx, "apiRelease", &apimanagement.ApiReleaseArgs{
+            ApiId:             pulumi.String("/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1"),
+            Notes:             pulumi.String("yahooagain"),
+            ReleaseId:         pulumi.String("testrev"),
+            ResourceGroupName: pulumi.String("rg1"),
+            ServiceName:       pulumi.String("apimService1"),
+        })
+        if err != nil {
+            return err
+        }
+        return nil
+    })
+}
+
+```
+
+{{% /example %}}
+{{% /examples %}}
+
+## Import
+
+An existing resource can be imported using its type token, name, and identifier, e.g.
+
+```sh
+$ pulumi import azure-native:apimanagement/v20220801:ApiRelease testrev /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/apis/{apiId}/releases/{releaseId} 
+```
+
+---

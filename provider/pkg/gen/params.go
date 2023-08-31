@@ -7,6 +7,7 @@ import (
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/debug"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
 // FlattenParams takes the parameters specified in Azure API specs/ARM templates and
@@ -21,7 +22,10 @@ func FlattenParams(
 ) (map[string]interface{}, error) {
 	out := map[string]interface{}{}
 	converter := resources.SdkShapeConverter{Types: types}
-	for k, v := range input {
+	// Sort the keys to ensure consistent ordering
+	sortedKeys := codegen.SortedKeys(input)
+	for _, k := range sortedKeys {
+		v := input[k]
 		switch k {
 		case "If-Match": // TODO: Not handled in schema
 			continue

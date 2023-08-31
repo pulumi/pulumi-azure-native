@@ -3,8 +3,12 @@
 package gen
 
 import (
+	"os"
+	"path"
 	"testing"
 
+	"github.com/gkampitakis/go-snaps/snaps"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/segmentio/encoding/json"
 	"github.com/stretchr/testify/assert"
 )
@@ -124,4 +128,26 @@ func parse(jsonStr []byte, t *testing.T) map[string]interface{} {
 		t.Fatalf("Could not parse example JSON: %v", err)
 	}
 	return exampleJSON
+}
+
+func TestApiManagementAuthorizationProvider(t *testing.T) {
+	wd, err := os.Getwd()
+	if err != nil {
+		t.Fatal(err)
+	}
+	rootDir := path.Join(wd, "..", "..", "..")
+
+	providers, err := openapi.ReadAzureProviders(path.Join(rootDir, "azure-rest-api-specs"), "ApiManagement", "2022-08-01")
+	if err != nil {
+		t.Fatal(err)
+	}
+	generationResult, err := PulumiSchema(rootDir, providers, constraintsStub{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	err = Examples(rootDir, generationResult.Schema, generationResult.Metadata, generationResult.Examples, []string{"dotnet", "go"})
+	if err != nil {
+		t.Fatal(err)
+	}
+	snaps.MatchSnapshot(t, generationResult.Schema.Resources["azure-native:apimanagement/v20220801:ApiRelease"].Description)
 }
