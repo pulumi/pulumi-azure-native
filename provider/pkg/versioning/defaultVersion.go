@@ -43,7 +43,13 @@ type CurationViolation struct {
 
 func ValidateDefaultConfig(config Spec, curations Curations) []CurationViolation {
 	var violations []CurationViolation
-	for provider, providerSpec := range config {
+	sortedProviders := []string{}
+	for provider := range config {
+		sortedProviders = append(sortedProviders, provider)
+	}
+	sort.Strings(sortedProviders)
+	for _, provider := range sortedProviders {
+		providerSpec := config[provider]
 		providerCuration := curations[provider]
 		expectedTracking := providerCuration.ExpectTracking
 		if expectedTracking == "" {
@@ -75,24 +81,7 @@ func ValidateDefaultConfig(config Spec, curations Curations) []CurationViolation
 			})
 		}
 	}
-	// sort violations by provider name
-	sort.Slice(violations, func(i, j int) bool {
-		return strings.Compare(violations[i].Provider, violations[j].Provider) < 0
-	})
 	return violations
-}
-
-func PrintViolationsAsWarnings(curationsPath string, violations []CurationViolation) {
-	if len(violations) > 0 {
-		// Set colour to yellow
-		fmt.Printf("\x1b[33m")
-		fmt.Printf("Warning: %d curation violations found in %s:\n", len(violations), curationsPath)
-		for _, v := range violations {
-			fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
-		}
-		// Reset colour
-		fmt.Printf("\x1b[0m")
-	}
 }
 
 // ReadSpec parses a spec from a YAML file
