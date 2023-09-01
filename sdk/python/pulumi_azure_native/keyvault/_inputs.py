@@ -112,7 +112,7 @@ class ActionArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['KeyRotationPolicyActionType']] = None):
         """
-        :param pulumi.Input['KeyRotationPolicyActionType'] type: The type of action.
+        :param pulumi.Input['KeyRotationPolicyActionType'] type: The type of the action.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -121,7 +121,7 @@ class ActionArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input['KeyRotationPolicyActionType']]:
         """
-        The type of action.
+        The type of the action.
         """
         return pulumi.get(self, "type")
 

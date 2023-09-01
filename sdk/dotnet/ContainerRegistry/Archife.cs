@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.ContainerRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:Archife"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:Archife"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

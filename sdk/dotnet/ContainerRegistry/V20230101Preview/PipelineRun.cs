@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20211201preview:PipelineRun"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20220201preview:PipelineRun"},
                     new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230601preview:PipelineRun"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerregistry/v20230801preview:PipelineRun"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

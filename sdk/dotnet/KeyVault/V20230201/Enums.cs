@@ -262,7 +262,7 @@ namespace Pulumi.AzureNative.KeyVault.V20230201
     }
 
     /// <summary>
-    /// The type of action.
+    /// The type of the action.
     /// </summary>
     [EnumType]
     public readonly struct KeyRotationPolicyActionType : IEquatable<KeyRotationPolicyActionType>
@@ -274,8 +274,14 @@ namespace Pulumi.AzureNative.KeyVault.V20230201
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static KeyRotationPolicyActionType Rotate { get; } = new KeyRotationPolicyActionType("rotate");
-        public static KeyRotationPolicyActionType Notify { get; } = new KeyRotationPolicyActionType("notify");
+        /// <summary>
+        /// Rotate the key based on the key policy. Key Vault only. Managed HSM uses camelCase 'rotate' instead.
+        /// </summary>
+        public static KeyRotationPolicyActionType Rotate { get; } = new KeyRotationPolicyActionType("Rotate");
+        /// <summary>
+        /// Trigger Event Grid events. Defaults to 30 days before expiry. Key Vault only.
+        /// </summary>
+        public static KeyRotationPolicyActionType Notify { get; } = new KeyRotationPolicyActionType("Notify");
 
         public static bool operator ==(KeyRotationPolicyActionType left, KeyRotationPolicyActionType right) => left.Equals(right);
         public static bool operator !=(KeyRotationPolicyActionType left, KeyRotationPolicyActionType right) => !left.Equals(right);

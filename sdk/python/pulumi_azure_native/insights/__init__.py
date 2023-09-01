@@ -146,6 +146,8 @@ if typing.TYPE_CHECKING:
     v20230315preview = __v20230315preview
     import pulumi_azure_native.insights.v20230501preview as __v20230501preview
     v20230501preview = __v20230501preview
+    import pulumi_azure_native.insights.v20230601 as __v20230601
+    v20230601 = __v20230601
 else:
     v20150501 = _utilities.lazy_import('pulumi_azure_native.insights.v20150501')
     v20160301 = _utilities.lazy_import('pulumi_azure_native.insights.v20160301')
@@ -182,4 +184,5 @@ else:
     v20230101preview = _utilities.lazy_import('pulumi_azure_native.insights.v20230101preview')
     v20230315preview = _utilities.lazy_import('pulumi_azure_native.insights.v20230315preview')
     v20230501preview = _utilities.lazy_import('pulumi_azure_native.insights.v20230501preview')
+    v20230601 = _utilities.lazy_import('pulumi_azure_native.insights.v20230601')
 

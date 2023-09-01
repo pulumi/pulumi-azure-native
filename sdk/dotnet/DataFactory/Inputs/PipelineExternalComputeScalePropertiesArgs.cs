@@ -16,6 +16,18 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
     public sealed class PipelineExternalComputeScalePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Number of the the external nodes, which should be greater than 0 and less than 11.
+        /// </summary>
+        [Input("numberOfExternalNodes")]
+        public Input<int>? NumberOfExternalNodes { get; set; }
+
+        /// <summary>
+        /// Number of the pipeline nodes, which should be greater than 0 and less than 11.
+        /// </summary>
+        [Input("numberOfPipelineNodes")]
+        public Input<int>? NumberOfPipelineNodes { get; set; }
+
+        /// <summary>
         /// Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.
         /// </summary>
         [Input("timeToLive")]

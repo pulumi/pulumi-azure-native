@@ -112,7 +112,7 @@ export class ExportPipeline extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ExportPipeline" }, { type: "azure-native:containerregistry/v20191201preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20201101preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20210601preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20210801preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20211201preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20220201preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20230601preview:ExportPipeline" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerregistry:ExportPipeline" }, { type: "azure-native:containerregistry/v20191201preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20201101preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20210601preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20210801preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20211201preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20220201preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20230601preview:ExportPipeline" }, { type: "azure-native:containerregistry/v20230801preview:ExportPipeline" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ExportPipeline.__pulumiType, name, resourceInputs, opts);
     }

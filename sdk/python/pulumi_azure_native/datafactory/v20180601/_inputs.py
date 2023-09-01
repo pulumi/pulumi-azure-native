@@ -58022,13 +58022,45 @@ class PipelineElapsedTimeMetricPolicyArgs:
 @pulumi.input_type
 class PipelineExternalComputeScalePropertiesArgs:
     def __init__(__self__, *,
+                 number_of_external_nodes: Optional[pulumi.Input[int]] = None,
+                 number_of_pipeline_nodes: Optional[pulumi.Input[int]] = None,
                  time_to_live: Optional[pulumi.Input[int]] = None):
         """
         PipelineExternalComputeScale properties for managed integration runtime.
+        :param pulumi.Input[int] number_of_external_nodes: Number of the the external nodes, which should be greater than 0 and less than 11.
+        :param pulumi.Input[int] number_of_pipeline_nodes: Number of the pipeline nodes, which should be greater than 0 and less than 11.
         :param pulumi.Input[int] time_to_live: Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.
         """
+        if number_of_external_nodes is not None:
+            pulumi.set(__self__, "number_of_external_nodes", number_of_external_nodes)
+        if number_of_pipeline_nodes is not None:
+            pulumi.set(__self__, "number_of_pipeline_nodes", number_of_pipeline_nodes)
         if time_to_live is not None:
             pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter(name="numberOfExternalNodes")
+    def number_of_external_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of the the external nodes, which should be greater than 0 and less than 11.
+        """
+        return pulumi.get(self, "number_of_external_nodes")
+
+    @number_of_external_nodes.setter
+    def number_of_external_nodes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_external_nodes", value)
+
+    @property
+    @pulumi.getter(name="numberOfPipelineNodes")
+    def number_of_pipeline_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of the pipeline nodes, which should be greater than 0 and less than 11.
+        """
+        return pulumi.get(self, "number_of_pipeline_nodes")
+
+    @number_of_pipeline_nodes.setter
+    def number_of_pipeline_nodes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_pipeline_nodes", value)
 
     @property
     @pulumi.getter(name="timeToLive")
@@ -69809,19 +69841,23 @@ class SelfHostedIntegrationRuntimeArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 linked_info: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]] = None):
+                 linked_info: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]] = None,
+                 self_contained_interactive_authoring_enabled: Optional[pulumi.Input[bool]] = None):
         """
         Self-hosted integration runtime.
         :param pulumi.Input[str] type: The type of integration runtime.
                Expected value is 'SelfHosted'.
         :param pulumi.Input[str] description: Integration runtime description.
         :param pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']] linked_info: The base definition of a linked integration runtime.
+        :param pulumi.Input[bool] self_contained_interactive_authoring_enabled: An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
         """
         pulumi.set(__self__, "type", 'SelfHosted')
         if description is not None:
             pulumi.set(__self__, "description", description)
         if linked_info is not None:
             pulumi.set(__self__, "linked_info", linked_info)
+        if self_contained_interactive_authoring_enabled is not None:
+            pulumi.set(__self__, "self_contained_interactive_authoring_enabled", self_contained_interactive_authoring_enabled)
 
     @property
     @pulumi.getter
@@ -69859,6 +69895,18 @@ class SelfHostedIntegrationRuntimeArgs:
     @linked_info.setter
     def linked_info(self, value: Optional[pulumi.Input[Union['LinkedIntegrationRuntimeKeyAuthorizationArgs', 'LinkedIntegrationRuntimeRbacAuthorizationArgs']]]):
         pulumi.set(self, "linked_info", value)
+
+    @property
+    @pulumi.getter(name="selfContainedInteractiveAuthoringEnabled")
+    def self_contained_interactive_authoring_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        """
+        return pulumi.get(self, "self_contained_interactive_authoring_enabled")
+
+    @self_contained_interactive_authoring_enabled.setter
+    def self_contained_interactive_authoring_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "self_contained_interactive_authoring_enabled", value)
 
 
 @pulumi.input_type

@@ -66,6 +66,8 @@ if typing.TYPE_CHECKING:
     v20230601 = __v20230601
     import pulumi_azure_native.containerservice.v20230602preview as __v20230602preview
     v20230602preview = __v20230602preview
+    import pulumi_azure_native.containerservice.v20230615preview as __v20230615preview
+    v20230615preview = __v20230615preview
     import pulumi_azure_native.containerservice.v20230701 as __v20230701
     v20230701 = __v20230701
     import pulumi_azure_native.containerservice.v20230702preview as __v20230702preview
@@ -85,6 +87,7 @@ else:
     v20230502preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20230502preview')
     v20230601 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20230601')
     v20230602preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20230602preview')
+    v20230615preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20230615preview')
     v20230701 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20230701')
     v20230702preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20230702preview')
 

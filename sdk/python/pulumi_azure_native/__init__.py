@@ -1537,6 +1537,39 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "appplatform/v20230701preview",
+  "fqn": "pulumi_azure_native.appplatform.v20230701preview",
+  "classes": {
+   "azure-native:appplatform/v20230701preview:ApiPortal": "ApiPortal",
+   "azure-native:appplatform/v20230701preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
+   "azure-native:appplatform/v20230701preview:Apm": "Apm",
+   "azure-native:appplatform/v20230701preview:App": "App",
+   "azure-native:appplatform/v20230701preview:ApplicationAccelerator": "ApplicationAccelerator",
+   "azure-native:appplatform/v20230701preview:ApplicationLiveView": "ApplicationLiveView",
+   "azure-native:appplatform/v20230701preview:Binding": "Binding",
+   "azure-native:appplatform/v20230701preview:BuildServiceAgentPool": "BuildServiceAgentPool",
+   "azure-native:appplatform/v20230701preview:BuildServiceBuild": "BuildServiceBuild",
+   "azure-native:appplatform/v20230701preview:BuildServiceBuilder": "BuildServiceBuilder",
+   "azure-native:appplatform/v20230701preview:BuildpackBinding": "BuildpackBinding",
+   "azure-native:appplatform/v20230701preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20230701preview:ConfigServer": "ConfigServer",
+   "azure-native:appplatform/v20230701preview:ConfigurationService": "ConfigurationService",
+   "azure-native:appplatform/v20230701preview:ContainerRegistry": "ContainerRegistry",
+   "azure-native:appplatform/v20230701preview:CustomDomain": "CustomDomain",
+   "azure-native:appplatform/v20230701preview:CustomizedAccelerator": "CustomizedAccelerator",
+   "azure-native:appplatform/v20230701preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20230701preview:DevToolPortal": "DevToolPortal",
+   "azure-native:appplatform/v20230701preview:Gateway": "Gateway",
+   "azure-native:appplatform/v20230701preview:GatewayCustomDomain": "GatewayCustomDomain",
+   "azure-native:appplatform/v20230701preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20230701preview:MonitoringSetting": "MonitoringSetting",
+   "azure-native:appplatform/v20230701preview:Service": "Service",
+   "azure-native:appplatform/v20230701preview:ServiceRegistry": "ServiceRegistry",
+   "azure-native:appplatform/v20230701preview:Storage": "Storage"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "attestation",
   "fqn": "pulumi_azure_native.attestation",
   "classes": {
@@ -2207,6 +2240,19 @@ _utilities.register(
    "azure-native:azurestackhci/v20230301:Update": "Update",
    "azure-native:azurestackhci/v20230301:UpdateRun": "UpdateRun",
    "azure-native:azurestackhci/v20230301:UpdateSummary": "UpdateSummary"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azurestackhci/v20230601",
+  "fqn": "pulumi_azure_native.azurestackhci.v20230601",
+  "classes": {
+   "azure-native:azurestackhci/v20230601:ArcSetting": "ArcSetting",
+   "azure-native:azurestackhci/v20230601:Cluster": "Cluster",
+   "azure-native:azurestackhci/v20230601:Extension": "Extension",
+   "azure-native:azurestackhci/v20230601:Update": "Update",
+   "azure-native:azurestackhci/v20230601:UpdateRun": "UpdateRun",
+   "azure-native:azurestackhci/v20230601:UpdateSummary": "UpdateSummary"
   }
  },
  {
@@ -3142,6 +3188,27 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "containerregistry/v20230801preview",
+  "fqn": "pulumi_azure_native.containerregistry.v20230801preview",
+  "classes": {
+   "azure-native:containerregistry/v20230801preview:Archife": "Archife",
+   "azure-native:containerregistry/v20230801preview:ArchiveVersion": "ArchiveVersion",
+   "azure-native:containerregistry/v20230801preview:CacheRule": "CacheRule",
+   "azure-native:containerregistry/v20230801preview:ConnectedRegistry": "ConnectedRegistry",
+   "azure-native:containerregistry/v20230801preview:CredentialSet": "CredentialSet",
+   "azure-native:containerregistry/v20230801preview:ExportPipeline": "ExportPipeline",
+   "azure-native:containerregistry/v20230801preview:ImportPipeline": "ImportPipeline",
+   "azure-native:containerregistry/v20230801preview:PipelineRun": "PipelineRun",
+   "azure-native:containerregistry/v20230801preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:containerregistry/v20230801preview:Registry": "Registry",
+   "azure-native:containerregistry/v20230801preview:Replication": "Replication",
+   "azure-native:containerregistry/v20230801preview:ScopeMap": "ScopeMap",
+   "azure-native:containerregistry/v20230801preview:Token": "Token",
+   "azure-native:containerregistry/v20230801preview:Webhook": "Webhook"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "containerservice",
   "fqn": "pulumi_azure_native.containerservice",
   "classes": {
@@ -3283,6 +3350,16 @@ _utilities.register(
    "azure-native:containerservice/v20230602preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice/v20230602preview:Snapshot": "Snapshot",
    "azure-native:containerservice/v20230602preview:TrustedAccessRoleBinding": "TrustedAccessRoleBinding"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "containerservice/v20230615preview",
+  "fqn": "pulumi_azure_native.containerservice.v20230615preview",
+  "classes": {
+   "azure-native:containerservice/v20230615preview:Fleet": "Fleet",
+   "azure-native:containerservice/v20230615preview:FleetMember": "FleetMember",
+   "azure-native:containerservice/v20230615preview:UpdateRun": "UpdateRun"
   }
  },
  {
@@ -5991,6 +6068,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.insights.v20230501preview",
   "classes": {
    "azure-native:insights/v20230501preview:TenantActionGroup": "TenantActionGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "insights/v20230601",
+  "fqn": "pulumi_azure_native.insights.v20230601",
+  "classes": {
+   "azure-native:insights/v20230601:Workbook": "Workbook"
   }
  },
  {
@@ -10154,6 +10239,19 @@ _utilities.register(
    "azure-native:servicefabric/v20230301preview:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
    "azure-native:servicefabric/v20230301preview:ManagedClusterService": "ManagedClusterService",
    "azure-native:servicefabric/v20230301preview:NodeType": "NodeType"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "servicefabric/v20230701preview",
+  "fqn": "pulumi_azure_native.servicefabric.v20230701preview",
+  "classes": {
+   "azure-native:servicefabric/v20230701preview:ManagedCluster": "ManagedCluster",
+   "azure-native:servicefabric/v20230701preview:ManagedClusterApplication": "ManagedClusterApplication",
+   "azure-native:servicefabric/v20230701preview:ManagedClusterApplicationType": "ManagedClusterApplicationType",
+   "azure-native:servicefabric/v20230701preview:ManagedClusterApplicationTypeVersion": "ManagedClusterApplicationTypeVersion",
+   "azure-native:servicefabric/v20230701preview:ManagedClusterService": "ManagedClusterService",
+   "azure-native:servicefabric/v20230701preview:NodeType": "NodeType"
   }
  },
  {

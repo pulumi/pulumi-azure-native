@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.ContainerService
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230315preview:UpdateRun"},
+                    new global::Pulumi.Alias { Type = "azure-native:containerservice/v20230615preview:UpdateRun"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

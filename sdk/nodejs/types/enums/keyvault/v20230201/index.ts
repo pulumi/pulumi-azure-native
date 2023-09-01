@@ -95,8 +95,14 @@ export const KeyPermissions = {
 export type KeyPermissions = (typeof KeyPermissions)[keyof typeof KeyPermissions];
 
 export const KeyRotationPolicyActionType = {
-    Rotate: "rotate",
-    Notify: "notify",
+    /**
+     * Rotate the key based on the key policy. Key Vault only. Managed HSM uses camelCase 'rotate' instead.
+     */
+    Rotate: "Rotate",
+    /**
+     * Trigger Event Grid events. Defaults to 30 days before expiry. Key Vault only.
+     */
+    Notify: "Notify",
 } as const;
 
 export type KeyRotationPolicyActionType = (typeof KeyRotationPolicyActionType)[keyof typeof KeyRotationPolicyActionType];

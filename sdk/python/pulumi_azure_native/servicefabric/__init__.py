@@ -13,6 +13,7 @@ from .get_managed_cluster_application_type_version import *
 from .get_managed_cluster_service import *
 from .get_node_type import *
 from .getmanaged_az_resiliency_status import *
+from .getmanaged_maintenance_window_status import *
 from .managed_cluster import *
 from .managed_cluster_application import *
 from .managed_cluster_application_type import *
@@ -36,6 +37,8 @@ if typing.TYPE_CHECKING:
     v20221001preview = __v20221001preview
     import pulumi_azure_native.servicefabric.v20230301preview as __v20230301preview
     v20230301preview = __v20230301preview
+    import pulumi_azure_native.servicefabric.v20230701preview as __v20230701preview
+    v20230701preview = __v20230701preview
 else:
     v20200101preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20200101preview')
     v20201201preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20201201preview')
@@ -43,4 +46,5 @@ else:
     v20220101 = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20220101')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20221001preview')
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20230301preview')
+    v20230701preview = _utilities.lazy_import('pulumi_azure_native.servicefabric.v20230701preview')
 

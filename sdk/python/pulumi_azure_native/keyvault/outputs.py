@@ -126,7 +126,7 @@ class ActionResponse(dict):
     def __init__(__self__, *,
                  type: Optional[str] = None):
         """
-        :param str type: The type of action.
+        :param str type: The type of the action.
         """
         if type is not None:
             pulumi.set(__self__, "type", type)
@@ -135,7 +135,7 @@ class ActionResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        The type of action.
+        The type of the action.
         """
         return pulumi.get(self, "type")
 

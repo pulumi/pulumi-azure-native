@@ -13,7 +13,7 @@ namespace Pulumi.AzureNative.KeyVault.V20230201.Inputs
     public sealed class ActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of action.
+        /// The type of the action.
         /// </summary>
         [Input("type")]
         public Input<Pulumi.AzureNative.KeyVault.V20230201.KeyRotationPolicyActionType>? Type { get; set; }

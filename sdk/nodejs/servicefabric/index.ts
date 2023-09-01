@@ -40,6 +40,11 @@ export const getmanagedAzResiliencyStatus: typeof import("./getmanagedAzResilien
 export const getmanagedAzResiliencyStatusOutput: typeof import("./getmanagedAzResiliencyStatus").getmanagedAzResiliencyStatusOutput = null as any;
 utilities.lazyLoad(exports, ["getmanagedAzResiliencyStatus","getmanagedAzResiliencyStatusOutput"], () => require("./getmanagedAzResiliencyStatus"));
 
+export { GetmanagedMaintenanceWindowStatusArgs, GetmanagedMaintenanceWindowStatusResult, GetmanagedMaintenanceWindowStatusOutputArgs } from "./getmanagedMaintenanceWindowStatus";
+export const getmanagedMaintenanceWindowStatus: typeof import("./getmanagedMaintenanceWindowStatus").getmanagedMaintenanceWindowStatus = null as any;
+export const getmanagedMaintenanceWindowStatusOutput: typeof import("./getmanagedMaintenanceWindowStatus").getmanagedMaintenanceWindowStatusOutput = null as any;
+utilities.lazyLoad(exports, ["getmanagedMaintenanceWindowStatus","getmanagedMaintenanceWindowStatusOutput"], () => require("./getmanagedMaintenanceWindowStatus"));
+
 export { ManagedClusterArgs } from "./managedCluster";
 export type ManagedCluster = import("./managedCluster").ManagedCluster;
 export const ManagedCluster: typeof import("./managedCluster").ManagedCluster = null as any;
@@ -81,6 +86,7 @@ import * as v20210601 from "./v20210601";
 import * as v20220101 from "./v20220101";
 import * as v20221001preview from "./v20221001preview";
 import * as v20230301preview from "./v20230301preview";
+import * as v20230701preview from "./v20230701preview";
 
 export {
     v20200101preview,
@@ -89,6 +95,7 @@ export {
     v20220101,
     v20221001preview,
     v20230301preview,
+    v20230701preview,
 };
 
 const _module = {

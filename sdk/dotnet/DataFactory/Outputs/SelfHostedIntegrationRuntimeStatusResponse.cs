@@ -65,6 +65,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string ScheduledUpdateDate;
         /// <summary>
+        /// An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        /// </summary>
+        public readonly bool SelfContainedInteractiveAuthoringEnabled;
+        /// <summary>
         /// The URLs for the services used in integration runtime backend service.
         /// </summary>
         public readonly ImmutableArray<string> ServiceUrls;
@@ -120,6 +124,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string scheduledUpdateDate,
 
+            bool selfContainedInteractiveAuthoringEnabled,
+
             ImmutableArray<string> serviceUrls,
 
             string state,
@@ -146,6 +152,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Nodes = nodes;
             PushedVersion = pushedVersion;
             ScheduledUpdateDate = scheduledUpdateDate;
+            SelfContainedInteractiveAuthoringEnabled = selfContainedInteractiveAuthoringEnabled;
             ServiceUrls = serviceUrls;
             State = state;
             TaskQueueId = taskQueueId;

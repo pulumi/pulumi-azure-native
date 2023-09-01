@@ -114,7 +114,7 @@ export class UpdateRun extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:UpdateRun" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice:UpdateRun" }, { type: "azure-native:containerservice/v20230615preview:UpdateRun" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(UpdateRun.__pulumiType, name, resourceInputs, opts);
     }

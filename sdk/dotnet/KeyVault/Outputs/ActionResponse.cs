@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.KeyVault.Outputs
     public sealed class ActionResponse
     {
         /// <summary>
-        /// The type of action.
+        /// The type of the action.
         /// </summary>
         public readonly string? Type;
 

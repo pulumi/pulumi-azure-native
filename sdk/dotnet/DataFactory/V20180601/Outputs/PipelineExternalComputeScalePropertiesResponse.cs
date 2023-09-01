@@ -17,13 +17,28 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
     public sealed class PipelineExternalComputeScalePropertiesResponse
     {
         /// <summary>
+        /// Number of the the external nodes, which should be greater than 0 and less than 11.
+        /// </summary>
+        public readonly int? NumberOfExternalNodes;
+        /// <summary>
+        /// Number of the pipeline nodes, which should be greater than 0 and less than 11.
+        /// </summary>
+        public readonly int? NumberOfPipelineNodes;
+        /// <summary>
         /// Time to live (in minutes) setting of integration runtime which will execute pipeline and external activity.
         /// </summary>
         public readonly int? TimeToLive;
 
         [OutputConstructor]
-        private PipelineExternalComputeScalePropertiesResponse(int? timeToLive)
+        private PipelineExternalComputeScalePropertiesResponse(
+            int? numberOfExternalNodes,
+
+            int? numberOfPipelineNodes,
+
+            int? timeToLive)
         {
+            NumberOfExternalNodes = numberOfExternalNodes;
+            NumberOfPipelineNodes = numberOfPipelineNodes;
             TimeToLive = timeToLive;
         }
     }

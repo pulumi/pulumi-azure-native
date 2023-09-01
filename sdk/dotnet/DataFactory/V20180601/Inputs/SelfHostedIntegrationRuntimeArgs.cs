@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.LinkedIntegrationRuntimeKeyAuthorizationArgs, Inputs.LinkedIntegrationRuntimeRbacAuthorizationArgs>? LinkedInfo { get; set; }
 
         /// <summary>
+        /// An alternative option to ensure interactive authoring function when your self-hosted integration runtime is unable to establish a connection with Azure Relay.
+        /// </summary>
+        [Input("selfContainedInteractiveAuthoringEnabled")]
+        public Input<bool>? SelfContainedInteractiveAuthoringEnabled { get; set; }
+
+        /// <summary>
         /// The type of integration runtime.
         /// Expected value is 'SelfHosted'.
         /// </summary>

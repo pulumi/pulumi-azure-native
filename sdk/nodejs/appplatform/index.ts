@@ -317,10 +317,12 @@ export * from "../types/enums/appplatform";
 // Export sub-modules:
 import * as v20210601preview from "./v20210601preview";
 import * as v20230501preview from "./v20230501preview";
+import * as v20230701preview from "./v20230701preview";
 
 export {
     v20210601preview,
     v20230501preview,
+    v20230701preview,
 };
 
 const _module = {
