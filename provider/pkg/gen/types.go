@@ -254,6 +254,18 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 			Type:        "string", // This provider only has string enums
 		},
 	}
+
+	// Ignore additional enum values that only vary by case as this isn't supported by Pulumi.
+	enumExists := func(enumVal pschema.EnumValueSpec) bool {
+		for _, existing := range enumSpec.Enum {
+			if strings.EqualFold(existing.Value.(string), enumVal.Value.(string)) {
+				return true
+			}
+		}
+		return false
+	}
+
+	// We prefer the enumExtension if available as it also provides the name and description.
 	if values, ok := enumExtension["values"].([]interface{}); ok {
 		for _, val := range values {
 			if val, ok := val.(map[string]interface{}); ok {
@@ -266,10 +278,13 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 				if description, ok := val["description"].(string); ok {
 					enumVal.Description = description
 				}
-				enumSpec.Enum = append(enumSpec.Enum, enumVal)
+				if !enumExists(enumVal) {
+					enumSpec.Enum = append(enumSpec.Enum, enumVal)
+				}
 			}
 		}
 	} else {
+		// Fall back to the enum values defined in the schema if enumExtensions not available.
 		for _, val := range resolvedSchema.Enum {
 			enumVal := pschema.EnumValueSpec{Value: fmt.Sprintf("%v", val)}
 			// Override the name for the values for this Enum since it contains unfortunately
@@ -277,15 +292,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 			if strings.HasPrefix(m.module, "datafactory") && enumName == "ScriptActivityParameterDirection" {
 				enumVal.Name = fmt.Sprintf("Value%s", val)
 			}
-			// Ignore additional enum values that only vary by case as this isn't supported by Pulumi.
-			exists := false
-			for _, existing := range enumSpec.Enum {
-				if strings.EqualFold(existing.Value.(string), enumVal.Value.(string)) {
-					exists = true
-					break
-				}
-			}
-			if !exists {
+			if !enumExists(enumVal) {
 				enumSpec.Enum = append(enumSpec.Enum, enumVal)
 			}
 		}
