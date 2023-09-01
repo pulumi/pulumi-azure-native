@@ -1856,6 +1856,44 @@
       "listGatewayEnvSecrets",
       "listServiceGloballyEnabledApms",
       "listServiceTestKeys"
+    ],
+    "2023-07-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "Apm",
+      "App",
+      "ApplicationAccelerator",
+      "ApplicationLiveView",
+      "Binding",
+      "BuildServiceAgentPool",
+      "BuildServiceBuild",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigServer",
+      "ConfigurationService",
+      "ContainerRegistry",
+      "CustomDomain",
+      "CustomizedAccelerator",
+      "Deployment",
+      "DevToolPortal",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "MonitoringSetting",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listApmSecretKeys",
+      "listBuildServiceBuilderDeployments",
+      "listGatewayEnvSecrets",
+      "listServiceGloballyEnabledApms",
+      "listServiceTestKeys"
     ]
   },
   "Attestation": {
@@ -2402,6 +2440,14 @@
       "UpdateSummary"
     ],
     "2023-03-01": [
+      "ArcSetting",
+      "Cluster",
+      "Extension",
+      "Update",
+      "UpdateRun",
+      "UpdateSummary"
+    ],
+    "2023-06-01": [
       "ArcSetting",
       "Cluster",
       "Extension",
@@ -4105,6 +4151,25 @@
       "getWebhookCallbackConfig",
       "listRegistryCredentials",
       "listWebhookEvents"
+    ],
+    "2023-08-01-preview": [
+      "Archife",
+      "ArchiveVersion",
+      "CacheRule",
+      "ConnectedRegistry",
+      "CredentialSet",
+      "ExportPipeline",
+      "ImportPipeline",
+      "PipelineRun",
+      "PrivateEndpointConnection",
+      "Registry",
+      "Replication",
+      "ScopeMap",
+      "Token",
+      "Webhook",
+      "getWebhookCallbackConfig",
+      "listRegistryCredentials",
+      "listWebhookEvents"
     ]
   },
   "ContainerService": {
@@ -4707,6 +4772,12 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2023-06-15-preview": [
+      "Fleet",
+      "FleetMember",
+      "UpdateRun",
+      "listFleetCredentials"
     ],
     "2023-07-01": [
       "AgentPool",
@@ -8661,6 +8732,9 @@
     ],
     "2023-05-01-preview": [
       "TenantActionGroup"
+    ],
+    "2023-06-01": [
+      "Workbook"
     ]
   },
   "Intune": {
@@ -16476,6 +16550,16 @@
       "ManagedClusterService",
       "NodeType",
       "getmanagedAzResiliencyStatus"
+    ],
+    "2023-07-01-preview": [
+      "ManagedCluster",
+      "ManagedClusterApplication",
+      "ManagedClusterApplicationType",
+      "ManagedClusterApplicationTypeVersion",
+      "ManagedClusterService",
+      "NodeType",
+      "getmanagedAzResiliencyStatus",
+      "getmanagedMaintenanceWindowStatus"
     ]
   },
   "ServiceFabricMesh": {

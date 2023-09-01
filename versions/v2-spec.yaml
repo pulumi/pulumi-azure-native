@@ -1040,6 +1040,8 @@ ServiceBus:
         NamespaceVirtualNetworkRule: 2018-01-01-preview
 ServiceFabric:
     tracking: 2023-03-01-preview
+    additions:
+        getmanagedMaintenanceWindowStatus: 2023-07-01-preview
 ServiceFabricMesh:
     tracking: 2018-09-01-preview
 ServiceLinker:
