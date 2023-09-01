@@ -38,6 +38,7 @@ type BuildSchemaReports struct {
 	AllResourceVersionsByResource ProviderResourceVersions
 	Active                        providerlist.ProviderPathVersionsJson
 	Pending                       openapi.ProviderVersionList
+	CurationViolations            []CurationViolation
 }
 
 func (r BuildSchemaReports) WriteTo(outputDir string) error {
@@ -47,6 +48,7 @@ func (r BuildSchemaReports) WriteTo(outputDir string) error {
 		"allResourceVersionsByResource.json": r.AllResourceVersionsByResource,
 		"active.json":                        r.Active,
 		"pending.json":                       r.Pending,
+		"curationViolations.json":            r.CurationViolations,
 	})
 }
 
@@ -122,6 +124,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 			AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,
 			Active:                        versionMetadata.Active,
 			Pending:                       versionMetadata.Pending,
+			CurationViolations:            versionMetadata.CurationViolations,
 		},
 	}, nil
 }
