@@ -861,6 +861,23 @@ NotificationHubs:
     tracking: 2023-01-01-preview
 OffAzure:
     tracking: "2020-07-07"
+    additions:
+        HypervClusterControllerCluster: "2023-06-06"
+        HypervHostController: "2023-06-06"
+        HypervSitesController: "2023-06-06"
+        ImportSitesController: "2023-06-06"
+        MasterSitesController: "2023-06-06"
+        PrivateEndpointConnectionController: "2023-06-06"
+        ServerSitesController: "2023-06-06"
+        SitesController: "2023-06-06"
+        SqlDiscoverySiteDataSourceController: "2023-06-06"
+        SqlSitesController: "2023-06-06"
+        VcenterController: "2023-06-06"
+        WebAppDiscoverySiteDataSourcesController: "2023-06-06"
+        WebAppSitesController: "2023-06-06"
+        listHypervSitesControllerHealthSummary: "2023-06-06"
+        listServerSitesControllerHealthSummary: "2023-06-06"
+        listSitesControllerHealthSummary: "2023-06-06"
 OpenEnergyPlatform:
     tracking: 2022-04-04-preview
 OperationalInsights:

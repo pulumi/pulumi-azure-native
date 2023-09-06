@@ -632,7 +632,9 @@
   ],
   "NetworkFunction": [],
   "NotificationHubs": [],
-  "OffAzure": [],
+  "OffAzure": [
+    "2023-06-06"
+  ],
   "OpenEnergyPlatform": [],
   "OperationalInsights": [
     "2019-08-01-preview",
