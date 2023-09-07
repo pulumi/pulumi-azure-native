@@ -393,12 +393,15 @@ export FAKE_MODULE
 .make/build_python: VERSION_PYTHON = $(shell bin/pulumictl convert-version -l python -v "$(VERSION_GENERIC)")
 .make/build_python: bin/pulumictl .make/generate_python
 	cd sdk/python && \
-		python3 setup.py clean --all 2>/dev/null && \
+		git clean -fxd && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
-		sed -i.bak -e 's/^VERSION = .*/VERSION = "$(VERSION_PYTHON)"/g' -e 's/^PLUGIN_VERSION = .*/PLUGIN_VERSION = "$(VERSION_GENERIC)"/g' ./bin/setup.py && \
-		rm ./bin/setup.py.bak && \
+		sed -i.bak -e 's/^  version = .*/  version = "$(VERSION_PYTHON)"/g' ./bin/pyproject.toml && \
+		rm ./bin/pyproject.toml.bak && \
 		rm ./bin/go.mod && \
-		cd ./bin && python3 setup.py build sdist
+		python3 -m venv venv && \
+		./venv/bin/python -m pip install build && \
+		cd ./bin && \
+		../venv/bin/python -m build .
 	@touch $@
 
 .make/build_dotnet: VERSION_DOTNET = $(shell bin/pulumictl convert-version -l dotnet -v "$(PROVIDER_VERSION)")
