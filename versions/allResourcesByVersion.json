@@ -2840,6 +2840,16 @@
       "EnterprisePrivateEndpointConnection",
       "RedisEnterprise",
       "listDatabaseKeys"
+    ],
+    "2023-08-01": [
+      "AccessPolicy",
+      "AccessPolicyAssignment",
+      "FirewallRule",
+      "LinkedServer",
+      "PatchSchedule",
+      "PrivateEndpointConnection",
+      "Redis",
+      "listRedisKeys"
     ]
   },
   "Capacity": {
@@ -5768,6 +5778,16 @@
       "BackupVault",
       "DppResourceGuardProxy",
       "ResourceGuard"
+    ]
+  },
+  "DataReplication": {
+    "2021-02-16-preview": [
+      "Dra",
+      "Fabric",
+      "Policy",
+      "ProtectedItem",
+      "ReplicationExtension",
+      "Vault"
     ]
   },
   "DataShare": {
@@ -14244,6 +14264,17 @@
       "getNotificationHubPnsCredentials",
       "listNamespaceKeys",
       "listNotificationHubKeys"
+    ],
+    "2023-09-01": [
+      "Namespace",
+      "NamespaceAuthorizationRule",
+      "NotificationHub",
+      "NotificationHubAuthorizationRule",
+      "PrivateEndpointConnection",
+      "getNamespacePnsCredentials",
+      "getNotificationHubPnsCredentials",
+      "listNamespaceKeys",
+      "listNotificationHubKeys"
     ]
   },
   "OffAzure": {
@@ -14258,6 +14289,24 @@
       "PrivateEndpointConnection",
       "Site",
       "VCenter"
+    ],
+    "2023-06-06": [
+      "HypervClusterControllerCluster",
+      "HypervHostController",
+      "HypervSitesController",
+      "ImportSitesController",
+      "MasterSitesController",
+      "PrivateEndpointConnectionController",
+      "ServerSitesController",
+      "SitesController",
+      "SqlDiscoverySiteDataSourceController",
+      "SqlSitesController",
+      "VcenterController",
+      "WebAppDiscoverySiteDataSourcesController",
+      "WebAppSitesController",
+      "listHypervSitesControllerHealthSummary",
+      "listServerSitesControllerHealthSummary",
+      "listSitesControllerHealthSummary"
     ]
   },
   "OpenEnergyPlatform": {
@@ -15469,6 +15518,13 @@
     "2016-03-01": [
       "Job",
       "JobCollection"
+    ]
+  },
+  "Scom": {
+    "2023-07-07-preview": [
+      "Instance",
+      "ManagedGateway",
+      "MonitoredResource"
     ]
   },
   "Search": {
