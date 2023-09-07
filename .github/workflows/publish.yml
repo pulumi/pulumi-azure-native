@@ -155,7 +155,7 @@ jobs:
           twine upload
           -u "pulumi"
           -p "${PYPI_PASSWORD}"
-          "${{ github.workspace }}/sdk/python/bin/dist/*.tar.gz"
+          "${{ github.workspace }}/sdk/python/bin/dist/*"
           --skip-existing
           --verbose
 
