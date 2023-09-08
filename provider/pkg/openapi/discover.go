@@ -179,6 +179,10 @@ func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders
 	// Collect all versions for each path in the API across all Swagger files.
 	providers := AzureProviders{}
 	for _, location := range swaggerSpecLocations {
+		relLocation, err := filepath.Rel(specsDir, location)
+		if err != nil {
+			return nil, diagnostics, errors.Wrapf(err, "failed to get relative path for %q", location)
+		}
 		swagger, err := NewSpec(location)
 		if err != nil {
 			return nil, diagnostics, errors.Wrapf(err, "failed to parse %q", location)
@@ -190,7 +194,7 @@ func ReadAzureProviders(specsDir, namespace, apiVersions string) (AzureProviders
 		}
 		sort.Strings(orderedPaths)
 		for _, path := range orderedPaths {
-			namingDisambiguations := providers.addAPIPath(location, path, swagger)
+			namingDisambiguations := providers.addAPIPath(specsDir, relLocation, path, swagger)
 			diagnostics.NamingDisambiguations = append(diagnostics.NamingDisambiguations, namingDisambiguations...)
 		}
 	}
@@ -321,14 +325,14 @@ var excludeRegexes = []*regexp.Regexp{
 
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // provider map. `providers` are mutated in-place.
-func (providers AzureProviders) addAPIPath(fileLocation, path string, swagger *Spec) []resources.NameDisambiguation {
+func (providers AzureProviders) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) []resources.NameDisambiguation {
 	for _, re := range excludeRegexes {
 		if re.MatchString(fileLocation) {
 			return nil
 		}
 	}
 
-	prov := resources.ResourceProvider(fileLocation, path)
+	prov := resources.ResourceProvider(filepath.Join(specsDir, fileLocation), path)
 	if prov == "" {
 		return nil
 	}
@@ -377,6 +381,7 @@ func (providers AzureProviders) addAPIPath(fileLocation, path string, swagger *S
 
 			typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
 			if disambiguation != nil {
+				disambiguation.FileLocation = fileLocation
 				nameDisambiguations = append(nameDisambiguations, *disambiguation)
 			}
 
@@ -398,6 +403,7 @@ func (providers AzureProviders) addAPIPath(fileLocation, path string, swagger *S
 		case pathItem.Head != nil && !pathItem.Head.Deprecated:
 			typeName, disambiguation := resources.ResourceName(pathItem.Head.ID, path)
 			if disambiguation != nil {
+				disambiguation.FileLocation = fileLocation
 				nameDisambiguations = append(nameDisambiguations, *disambiguation)
 			}
 			if typeName != "" && hasDelete {
@@ -420,6 +426,7 @@ func (providers AzureProviders) addAPIPath(fileLocation, path string, swagger *S
 				typeName, disambiguation = resources.ResourceName(pathItemList.Post.ID, path)
 			}
 			if disambiguation != nil {
+				disambiguation.FileLocation = fileLocation
 				nameDisambiguations = append(nameDisambiguations, *disambiguation)
 			}
 			if typeName != "" {
@@ -453,6 +460,7 @@ func (providers AzureProviders) addAPIPath(fileLocation, path string, swagger *S
 		defaultState := defaults.GetDefaultResourceState(path)
 		typeName, disambiguation := resources.ResourceName(pathItem.Get.ID, path)
 		if disambiguation != nil {
+			disambiguation.FileLocation = fileLocation
 			nameDisambiguations = append(nameDisambiguations, *disambiguation)
 		}
 		if typeName != "" && defaultState != nil {
@@ -495,6 +503,7 @@ func (providers AzureProviders) addAPIPath(fileLocation, path string, swagger *S
 
 		typeName, disambiguation := resources.ResourceName(pathItem.Post.ID, path)
 		if disambiguation != nil {
+			disambiguation.FileLocation = fileLocation
 			nameDisambiguations = append(nameDisambiguations, *disambiguation)
 		}
 		if typeName != "" {

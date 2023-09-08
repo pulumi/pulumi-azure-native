@@ -224,6 +224,8 @@ var wellKnownNames = map[string]string{
 }
 
 type NameDisambiguation struct {
+	// The path to the OpenAPI spec file that generates the ambiguous name.
+	FileLocation string
 	// The operation ID that is ambiguous.
 	OperationID string
 	// The path of the resource or invoke that is ambiguous.
