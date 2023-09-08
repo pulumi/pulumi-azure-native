@@ -40,12 +40,17 @@ import (
 // Note - this needs to be kept in sync with the layout in the SDK package
 const goBasePath = "github.com/pulumi/pulumi-azure-native-sdk/v2"
 
-type Constraints interface {
+type ResourceDeprecation struct {
+	ReplacementToken string
+}
+
+type Versioning interface {
 	ShouldInclude(provider string, version string, typeName, token string) bool
+	GetDeprecation(token string) (ResourceDeprecation, bool)
 }
 
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders, constraints Constraints) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
+func PulumiSchema(providerMap openapi.AzureProviders, versioning Versioning) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -200,11 +205,6 @@ func PulumiSchema(providerMap openapi.AzureProviders, constraints Constraints) (
 	}
 	sort.Strings(providers)
 
-	upgradePathMap, err := GenerateUpgradeWarnings()
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
 	exampleMap := make(map[string][]resources.AzureAPIExample)
 	for _, providerName := range providers {
 		versionMap := providerMap[providerName]
@@ -216,12 +216,11 @@ func PulumiSchema(providerMap openapi.AzureProviders, constraints Constraints) (
 
 		for _, version := range versions {
 			gen := packageGenerator{
-				pkg:             &pkg,
-				metadata:        &metadata,
-				apiVersion:      version,
-				examples:        exampleMap,
-				upgradeWarnings: upgradePathMap,
-				constraints:     constraints,
+				pkg:        &pkg,
+				metadata:   &metadata,
+				apiVersion: version,
+				examples:   exampleMap,
+				versioning: versioning,
 			}
 
 			// Populate C#, Java, Python and Go module mapping.
@@ -266,7 +265,7 @@ func PulumiSchema(providerMap openapi.AzureProviders, constraints Constraints) (
 		}
 	}
 
-	err = genMixins(&pkg, &metadata)
+	err := genMixins(&pkg, &metadata)
 	if err != nil {
 		return nil, nil, nil, err
 	}
@@ -424,12 +423,11 @@ const (
 )
 
 type packageGenerator struct {
-	pkg             *pschema.PackageSpec
-	metadata        *resources.AzureAPIMetadata
-	examples        map[string][]resources.AzureAPIExample
-	apiVersion      string
-	upgradeWarnings map[string]string
-	constraints     Constraints
+	pkg        *pschema.PackageSpec
+	metadata   *resources.AzureAPIMetadata
+	examples   map[string][]resources.AzureAPIExample
+	apiVersion string
+	versioning Versioning
 }
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) error {
@@ -570,7 +568,7 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 	path := resource.PathItem
 
 	resourceTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, resource.typeName)
-	if !g.constraints.ShouldInclude(prov, g.apiVersion, resource.typeName, resourceTok) {
+	if !g.versioning.ShouldInclude(prov, g.apiVersion, resource.typeName, resourceTok) {
 		return nil
 	}
 
@@ -617,11 +615,15 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 	delete(resourceResponse.specs, "id")
 	resourceResponse.requiredSpecs.Delete("id")
 
-	if upgradeMessage, ok := g.upgradeWarnings[resourceTok]; ok {
+	if resourceDeprecation, ok := g.versioning.GetDeprecation(resourceTok); ok {
+		deprecationMessage := fmt.Sprintf(
+			"%s is being removed in the next major version of this provider. "+
+				"Upgrade to at least %s to guarantee forwards compatibility.", resourceTok, resourceDeprecation.ReplacementToken,
+		)
 		if resource.deprecationMessage == "" {
-			resource.deprecationMessage = upgradeMessage
+			resource.deprecationMessage = deprecationMessage
 		} else {
-			resource.deprecationMessage = resource.deprecationMessage + "\n" + upgradeMessage
+			resource.deprecationMessage = resource.deprecationMessage + "\n" + deprecationMessage
 		}
 	}
 
@@ -641,7 +643,7 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:get%s`, g.pkg.Name, module, resource.typeName)
-	if g.constraints.ShouldInclude(prov, g.apiVersion, resource.typeName, functionTok) {
+	if g.versioning.ShouldInclude(prov, g.apiVersion, resource.typeName, functionTok) {
 		var readOp *spec.Operation
 		switch {
 		case resource.PathItemList != nil:
@@ -819,7 +821,7 @@ func (g *packageGenerator) genPostFunctions(prov, typeName, path string, pathIte
 
 	// Generate the function to get this resource.
 	functionTok := fmt.Sprintf(`%s:%s:%s`, g.pkg.Name, module, typeName)
-	if !g.constraints.ShouldInclude(prov, g.apiVersion, typeName, functionTok) {
+	if !g.versioning.ShouldInclude(prov, g.apiVersion, typeName, functionTok) {
 		return
 	}
 

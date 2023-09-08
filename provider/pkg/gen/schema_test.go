@@ -26,18 +26,26 @@ func TestTypeAliasFormatting(t *testing.T) {
 	assert.Equal(t, "azure-native:compute:VirtualMachine", *actual.Type)
 }
 
-type constraintsStub struct {
+// Ensure our VersionMetadata type implements the gen.Versioning interface
+// The compiler will raise an error here if the interface isn't implemented
+var _ Versioning = (*versioningStub)(nil)
+
+type versioningStub struct {
 }
 
-func (v constraintsStub) ShouldInclude(provider string, version string, typeName, token string) bool {
+func (v versioningStub) ShouldInclude(provider string, version string, typeName, token string) bool {
 	return true
+}
+
+func (v versioningStub) GetDeprecation(token string) (ResourceDeprecation, bool) {
+	return ResourceDeprecation{}, false
 }
 
 func TestAliases(t *testing.T) {
 	generator := packageGenerator{
-		pkg:         &pschema.PackageSpec{Name: "azure-native"},
-		apiVersion:  "v20220222",
-		constraints: constraintsStub{},
+		pkg:        &pschema.PackageSpec{Name: "azure-native"},
+		apiVersion: "v20220222",
+		versioning: versioningStub{},
 	}
 
 	resource := &resourceVariant{
