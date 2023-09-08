@@ -26,6 +26,7 @@ type VersionMetadata struct {
 	Spec                          Spec
 	Lock                          openapi.DefaultVersionLock
 	RemovedInvokes                ResourceRemovals
+	CurationViolations            []CurationViolation
 }
 
 // Ensure our VersionMetadata type implements the gen.Versioning interface
@@ -93,7 +94,6 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 	spec = BuildSpec(allResourcesByVersionWithoutDeprecations, config, spec)
 
 	violations := ValidateDefaultConfig(spec, config)
-	PrintViolationsAsWarnings(versionSources.ConfigPath, violations)
 
 	v2Lock, err := DefaultConfigToDefaultVersionLock(allResourcesByVersionWithoutDeprecations, spec)
 	if err != nil {
@@ -120,22 +120,19 @@ func calculateVersionMetadata(versionSources VersionSources, providers openapi.A
 		Spec:                          spec,
 		Lock:                          v2Lock,
 		RemovedInvokes:                removedInvokes,
+		CurationViolations:            violations,
 	}, nil
 }
 
-func (v VersionMetadata) WriteTo(outputDir string) error {
+func (v VersionMetadata) WriteTo(outputDir string) ([]string, error) {
 	filePrefix := fmt.Sprintf("v%d-", v.MajorVersion)
 	specPath := filePrefix + "spec.yaml"
 	lockPath := filePrefix + "lock.json"
 	removedInvokesPath := filePrefix + "removed-invokes.yaml"
 	return gen.EmitFiles(outputDir, gen.FileMap{
-		"allResourcesByVersion.json":         v.AllResourcesByVersion,
-		"allResourceVersionsByResource.json": v.AllResourceVersionsByResource,
-		"active.json":                        v.Active,
-		"pending.json":                       v.Pending,
-		specPath:                             v.Spec,
-		lockPath:                             v.Lock,
-		removedInvokesPath:                   v.RemovedInvokes,
+		specPath:           v.Spec,
+		lockPath:           v.Lock,
+		removedInvokesPath: v.RemovedInvokes,
 	})
 }
 

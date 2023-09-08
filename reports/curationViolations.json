@@ -1,0 +1,178 @@
+[
+  {
+    "Provider": "ApiCenter",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "AppPlatform",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "AzureSphere",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "AzureStack",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "AzureStackHCI",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Billing",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Communication",
+    "Detail": "expected tracking preview but found stable"
+  },
+  {
+    "Provider": "ConnectedVMwarevSphere",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "ContainerStorage",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "DataReplication",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "DevCenter",
+    "Detail": "expected tracking preview but found stable"
+  },
+  {
+    "Provider": "EdgeOrder",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "ElasticSan",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "EventHub",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "EventHub",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "ExtendedLocation",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "GraphServices",
+    "Detail": "expected tracking preview but found stable"
+  },
+  {
+    "Provider": "HDInsight",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "HealthcareApis",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "HybridCloud",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "HybridCompute",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "HybridConnectivity",
+    "Detail": "expected tracking preview but found stable"
+  },
+  {
+    "Provider": "HybridNetwork",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "IoTCentral",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "IoTFirmwareDefense",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "Kubernetes",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "Kubernetes",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "KubernetesConfiguration",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Kusto",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "LabServices",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "MachineLearningServices",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Maintenance",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "ManagedIdentity",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "ManagedNetworkFabric",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Maps",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "MixedReality",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "MobilePacketCore",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "NetApp",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "NetworkCloud",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "NotificationHubs",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "OffAzure",
+    "Detail": "expected no additions but found some"
+  },
+  {
+    "Provider": "Quota",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "Scom",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "Provider": "ServiceFabric",
+    "Detail": "expected no additions but found some"
+  }
+]

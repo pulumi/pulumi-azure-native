@@ -1,15 +1,15 @@
 package versioning
 
 import (
-	"fmt"
-	"log"
 	"path"
+	"sort"
 	"strconv"
 	"strings"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/providerlist"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
@@ -32,21 +32,46 @@ type BuildSchemaArgs struct {
 	Version                 string
 }
 
+type BuildSchemaReports struct {
+	PathChangesResult
+	AllResourcesByVersion         ProvidersVersionResources
+	AllResourceVersionsByResource ProviderResourceVersions
+	Active                        providerlist.ProviderPathVersionsJson
+	Pending                       openapi.ProviderVersionList
+	CurationViolations            []CurationViolation
+	NamingDisambiguations         []resources.NameDisambiguation
+}
+
+func (r BuildSchemaReports) WriteTo(outputDir string) ([]string, error) {
+	return gen.EmitFiles(outputDir, gen.FileMap{
+		"pathChanges.json":                   r.PathChangesResult,
+		"allResourcesByVersion.json":         r.AllResourcesByVersion,
+		"allResourceVersionsByResource.json": r.AllResourceVersionsByResource,
+		"active.json":                        r.Active,
+		"pending.json":                       r.Pending,
+		"curationViolations.json":            r.CurationViolations,
+		"namingDisambiguations.json":         r.NamingDisambiguations,
+	})
+}
+
 type BuildSchemaResult struct {
 	PackageSpec schema.PackageSpec
 	Metadata    resources.AzureAPIMetadata
 	Version     VersionMetadata
+	Reports     BuildSchemaReports
 }
 
 func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
+	buildSchemaResult := BuildSchemaReports{}
 	specsDir := args.Specs.SpecsDir
 	if specsDir == "" {
 		specsDir = path.Join(args.RootDir, "azure-rest-api-specs")
 	}
-	providers, err := openapi.ReadAzureProviders(specsDir, args.Specs.NamespaceFilter, args.Specs.VersionsFilter)
+	providers, diagnostics, err := openapi.ReadAzureProviders(specsDir, args.Specs.NamespaceFilter, args.Specs.VersionsFilter)
 	if err != nil {
 		return nil, err
 	}
+	buildSchemaResult.NamingDisambiguations = diagnostics.NamingDisambiguations
 
 	majorVersion, err := strconv.ParseInt(strings.Split(args.Version, ".")[0], 10, 64)
 	if err != nil {
@@ -68,16 +93,19 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	}
 
 	pathChanges := findPathChanges(providers, versionMetadata.Lock, versionMetadata.PreviousLock, versionMetadata.Config)
-	printPathChanges(pathChanges)
 
 	if args.ExcludeExplicitVersions {
 		providers = openapi.SingleVersion(providers)
 	}
 
-	pkgSpec, metadata, examples, err := gen.PulumiSchema(providers, versionMetadata)
+	generationResult, err := gen.PulumiSchema(providers, versionMetadata)
 	if err != nil {
 		return nil, err
 	}
+
+	pkgSpec := generationResult.Schema
+	metadata := generationResult.Metadata
+	examples := generationResult.Examples
 
 	if len(args.ExampleLanguages) > 0 {
 		// Ensure the spec is stamped with a version - Go gen needs it.
@@ -90,34 +118,69 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		pkgSpec.Version = ""
 	}
 
+	buildSchemaResult.PathChangesResult = pathChanges
+	buildSchemaResult.AllResourcesByVersion = versionMetadata.AllResourcesByVersion
+	buildSchemaResult.AllResourceVersionsByResource = versionMetadata.AllResourceVersionsByResource
+	buildSchemaResult.Active = versionMetadata.Active
+	buildSchemaResult.Pending = versionMetadata.Pending
+	buildSchemaResult.CurationViolations = versionMetadata.CurationViolations
+
 	return &BuildSchemaResult{
 		PackageSpec: *pkgSpec,
 		Metadata:    *metadata,
 		Version:     versionMetadata,
+		Reports:     buildSchemaResult,
 	}, nil
 }
 
-type pathChange struct {
-	currentPath  string
-	previousPath string
-	resourceName string
+type PathChange struct {
+	CurrentPath  string
+	PreviousPath string
+	ResourceName string
+}
+
+type MissingExpectedResourceVersion struct {
+	ProviderName string
+	ResourceName string
+	Version      string
+	IsPrevious   bool
+}
+
+type PathChangesResult struct {
+	Changes                        []PathChange
+	MissingPreviousDefaultVersions []MissingExpectedResourceVersion
 }
 
 func findPathChanges(providers openapi.AzureProviders,
 	defaultVersion openapi.DefaultVersionLock,
 	previousVersion openapi.DefaultVersionLock,
-	curations Curations) []pathChange {
+	curations Curations) PathChangesResult {
 
-	result := []pathChange{}
+	result := []PathChange{}
+	missingPreviousDefaultVersions := []MissingExpectedResourceVersion{}
 
-	for providerName, resources := range defaultVersion {
+	sortedProviderNames := []string{}
+	for providerName := range defaultVersion {
+		sortedProviderNames = append(sortedProviderNames, providerName)
+	}
+	sort.Strings(sortedProviderNames)
+
+	for _, providerName := range sortedProviderNames {
+		resources := defaultVersion[providerName]
 		previousResources, ok := previousVersion[providerName]
 		if !ok {
 			continue
 		}
 		providerVersions := providers[providerName]
 
-		for resourceName, version := range resources {
+		sortedResourceNames := []string{}
+		for resourceName := range resources {
+			sortedResourceNames = append(sortedResourceNames, resourceName)
+		}
+		sort.Strings(sortedResourceNames)
+
+		for _, resourceName := range sortedResourceNames {
+			version := resources[resourceName]
 			previousVersion, ok := previousResources[resourceName]
 			if !ok {
 				continue
@@ -132,7 +195,12 @@ func findPathChanges(providers openapi.AzureProviders,
 				spec, ok = cur.Invokes[resourceName]
 			}
 			if !ok {
-				log.Printf("Warning: could not find current default resource %s/%s in OpenAPI spec.\n", resourceName, version)
+				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{
+					ProviderName: providerName,
+					ResourceName: resourceName,
+					Version:      prevVersion,
+					IsPrevious:   false,
+				})
 				continue
 			}
 
@@ -141,7 +209,12 @@ func findPathChanges(providers openapi.AzureProviders,
 				prevSpec, ok = prev.Invokes[resourceName]
 			}
 			if !ok {
-				log.Printf("Warning: could not find previous default resource %s/%s in OpenAPI spec.\n", resourceName, version)
+				missingPreviousDefaultVersions = append(missingPreviousDefaultVersions, MissingExpectedResourceVersion{
+					ProviderName: providerName,
+					ResourceName: resourceName,
+					Version:      prevVersion,
+					IsPrevious:   true,
+				})
 				continue
 			}
 
@@ -151,30 +224,17 @@ func findPathChanges(providers openapi.AzureProviders,
 			if path != prevPath {
 				excluded, err := curations.IsExcluded(providerName, resourceName, prevVersion)
 				if !excluded && err == nil {
-					result = append(result, pathChange{
-						currentPath:  path,
-						previousPath: prevPath,
-						resourceName: resourceName,
+					result = append(result, PathChange{
+						CurrentPath:  path,
+						PreviousPath: prevPath,
+						ResourceName: resourceName,
 					})
 				}
 			}
 		}
 	}
-	return result
-}
-
-func printPathChanges(changes []pathChange) {
-	const fmtStr = "[V1->V2 path change] %s: %s...\n    ...%s\n    ...%s\n"
-
-	for _, change := range changes {
-		cur := change.currentPath
-		prev := change.previousPath
-
-		// Find the first index where the paths differ so we can print the common prefix only once.
-		idx := 0
-		for idx < len(cur) && idx < len(prev) && cur[idx] == prev[idx] {
-			idx++
-		}
-		fmt.Printf(fmtStr, change.resourceName, prev[:idx], cur[idx:], prev[idx:])
+	return PathChangesResult{
+		Changes:                        result,
+		MissingPreviousDefaultVersions: missingPreviousDefaultVersions,
 	}
 }

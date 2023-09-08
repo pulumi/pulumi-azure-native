@@ -23,7 +23,7 @@ func BenchmarkGen(b *testing.B) {
 		b.Fatal(err)
 	}
 
-	specs, err := openapi.ReadAzureProviders(path.Join(rootDir, "azure-rest-api-specs"), "*", "")
+	specs, _, err := openapi.ReadAzureProviders(path.Join(rootDir, "azure-rest-api-specs"), "*", "")
 	if err != nil {
 		b.Fatal(err)
 	}

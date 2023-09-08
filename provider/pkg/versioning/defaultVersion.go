@@ -20,6 +20,14 @@ type ProviderSpec struct {
 	Tracking *openapi.ApiVersion `yaml:"tracking,omitempty"`
 	// Additions are specific resource versions to be included. These *must not* overlap with any resources from the tracking version
 	Additions *map[openapi.ResourceName]openapi.ApiVersion `yaml:"additions,omitempty"`
+	// Validation warnings for this provider
+	ExclusionErrors []ExclusionError `yaml:"exclusionErrors,omitempty"`
+}
+
+type ExclusionError struct {
+	Provider     openapi.ProviderName
+	ResourceName string
+	Detail       string
 }
 
 // A Spec describes what versions of what resources should be included in the provider.
@@ -43,7 +51,13 @@ type CurationViolation struct {
 
 func ValidateDefaultConfig(config Spec, curations Curations) []CurationViolation {
 	var violations []CurationViolation
-	for provider, providerSpec := range config {
+	sortedProviders := []string{}
+	for provider := range config {
+		sortedProviders = append(sortedProviders, provider)
+	}
+	sort.Strings(sortedProviders)
+	for _, provider := range sortedProviders {
+		providerSpec := config[provider]
 		providerCuration := curations[provider]
 		expectedTracking := providerCuration.ExpectTracking
 		if expectedTracking == "" {
@@ -75,24 +89,7 @@ func ValidateDefaultConfig(config Spec, curations Curations) []CurationViolation
 			})
 		}
 	}
-	// sort violations by provider name
-	sort.Slice(violations, func(i, j int) bool {
-		return strings.Compare(violations[i].Provider, violations[j].Provider) < 0
-	})
 	return violations
-}
-
-func PrintViolationsAsWarnings(curationsPath string, violations []CurationViolation) {
-	if len(violations) > 0 {
-		// Set colour to yellow
-		fmt.Printf("\x1b[33m")
-		fmt.Printf("Warning: %d curation violations found in %s:\n", len(violations), curationsPath)
-		for _, v := range violations {
-			fmt.Printf("  %s: %s\n", v.Provider, v.Detail)
-		}
-		// Reset colour
-		fmt.Printf("\x1b[0m")
-	}
 }
 
 // ReadSpec parses a spec from a YAML file
@@ -156,6 +153,7 @@ func DefaultConfigToDefaultVersionLock(spec ProvidersVersionResources, defaultCo
 func buildSpec(providerName string, versions VersionResources, curations Curations, existing ProviderSpec) ProviderSpec {
 	var additionsPtr *map[string]string
 	var trackingPtr *string
+	var exclusionErrors []ExclusionError
 
 	providerCuration := curations[providerName]
 	latestVersions := findLatestVersions(versions, providerCuration)
@@ -197,7 +195,11 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 		for _, resourceName := range resources {
 			isExcluded, exclusionErr := providerCuration.IsExcluded(resourceName, apiVersion)
 			if exclusionErr != nil {
-				fmt.Printf("Error checking exclusion for %s/%s: %s\n", providerName, resourceName, exclusionErr)
+				exclusionErrors = append(exclusionErrors, ExclusionError{
+					Provider:     providerName,
+					ResourceName: resourceName,
+					Detail:       exclusionErr.Error(),
+				})
 			}
 			if isExcluded || openapi.IsPrivate(apiVersion) {
 				continue
@@ -215,8 +217,9 @@ func buildSpec(providerName string, versions VersionResources, curations Curatio
 	}
 
 	return ProviderSpec{
-		Tracking:  trackingPtr,
-		Additions: additionsPtr,
+		Tracking:        trackingPtr,
+		Additions:       additionsPtr,
+		ExclusionErrors: exclusionErrors,
 	}
 }
 

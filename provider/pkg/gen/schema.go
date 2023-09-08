@@ -49,8 +49,15 @@ type Versioning interface {
 	GetDeprecation(token string) (ResourceDeprecation, bool)
 }
 
+type GenerationResult struct {
+	Schema   *pschema.PackageSpec
+	Metadata *resources.AzureAPIMetadata
+	Examples map[string][]resources.AzureAPIExample
+}
+
 // PulumiSchema will generate a Pulumi schema for the given Azure providers and resources map.
-func PulumiSchema(providerMap openapi.AzureProviders, versioning Versioning) (*pschema.PackageSpec, *resources.AzureAPIMetadata, map[string][]resources.AzureAPIExample, error) {
+func PulumiSchema(providerMap openapi.AzureProviders, versioning Versioning) (*GenerationResult, error) {
+	warnings := []string{}
 	pkg := pschema.PackageSpec{
 		Name:        "azure-native",
 		Description: "A native Pulumi package for creating and managing Azure resources.",
@@ -247,7 +254,7 @@ func PulumiSchema(providerMap openapi.AzureProviders, versioning Versioning) (*p
 				resource := items.Resources[typeName]
 				err := gen.genResources(providerName, typeName, resource)
 				if err != nil {
-					return nil, nil, nil, err
+					return nil, err
 				}
 			}
 
@@ -262,12 +269,13 @@ func PulumiSchema(providerMap openapi.AzureProviders, versioning Versioning) (*p
 				invoke := items.Invokes[typeName]
 				gen.genPostFunctions(providerName, typeName, invoke.Path, invoke.PathItem, invoke.Swagger)
 			}
+			warnings = append(warnings, gen.warnings...)
 		}
 	}
 
 	err := genMixins(&pkg, &metadata)
 	if err != nil {
-		return nil, nil, nil, err
+		return nil, err
 	}
 
 	pkg.Language["go"] = rawMessage(map[string]interface{}{
@@ -314,7 +322,11 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		"packages": javaPackages,
 	})
 
-	return &pkg, &metadata, exampleMap, nil
+	return &GenerationResult{
+		Schema:   &pkg,
+		Metadata: &metadata,
+		Examples: exampleMap,
+	}, nil
 }
 
 func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) error {
@@ -428,6 +440,7 @@ type packageGenerator struct {
 	examples   map[string][]resources.AzureAPIExample
 	apiVersion string
 	versioning Versioning
+	warnings   []string
 }
 
 func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) error {

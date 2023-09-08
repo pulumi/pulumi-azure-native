@@ -17,15 +17,17 @@ type FileData = interface{}
 
 type FileMap = map[FilePath]FileData
 
-func EmitFiles(outDir string, files FileMap) error {
+func EmitFiles(outDir string, files FileMap) ([]string, error) {
+	var written []string
 	for filename, data := range files {
 		outPath := path.Join(outDir, filename)
 		err := EmitFile(outPath, data)
 		if err != nil {
-			return err
+			return nil, err
 		}
+		written = append(written, outPath)
 	}
-	return nil
+	return written, nil
 }
 
 func EmitFile(outputPath string, data FileData) error {
