@@ -97,7 +97,7 @@ export class HyperVSite extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:HyperVSite" }, { type: "azure-native:offazure/v20200707:HyperVSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20200101:HyperVSite" }, { type: "azure-native:offazure/v20200707:HyperVSite" }, { type: "azure-native:offazure/v20230606:HyperVSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HyperVSite.__pulumiType, name, resourceInputs, opts);
     }

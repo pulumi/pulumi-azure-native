@@ -774,6 +774,8 @@ class SolutionPropertiesResponse(dict):
             suggest = "saas_subscription_name"
         elif key == "termId":
             suggest = "term_id"
+        elif key == "roleAssignmentId":
+            suggest = "role_assignment_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SolutionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -793,7 +795,8 @@ class SolutionPropertiesResponse(dict):
                  plan_id: str,
                  saas_subscription_id: str,
                  saas_subscription_name: str,
-                 term_id: str):
+                 term_id: str,
+                 role_assignment_id: Optional[str] = None):
         """
         Solution resource properties.
         :param str marketplace_publisher_id: SaaS application Marketplace Publisher Id.
@@ -803,6 +806,7 @@ class SolutionPropertiesResponse(dict):
         :param str saas_subscription_id: SaaS subscriptionId of the installed SaaS application.
         :param str saas_subscription_name: SaaS subscription name of the installed SaaS application.
         :param str term_id: SaaS application Term Id.
+        :param str role_assignment_id: Role Assignment Id.
         """
         pulumi.set(__self__, "marketplace_publisher_id", marketplace_publisher_id)
         pulumi.set(__self__, "offer_id", offer_id)
@@ -811,6 +815,8 @@ class SolutionPropertiesResponse(dict):
         pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
         pulumi.set(__self__, "saas_subscription_name", saas_subscription_name)
         pulumi.set(__self__, "term_id", term_id)
+        if role_assignment_id is not None:
+            pulumi.set(__self__, "role_assignment_id", role_assignment_id)
 
     @property
     @pulumi.getter(name="marketplacePublisherId")
@@ -867,6 +873,14 @@ class SolutionPropertiesResponse(dict):
         SaaS application Term Id.
         """
         return pulumi.get(self, "term_id")
+
+    @property
+    @pulumi.getter(name="roleAssignmentId")
+    def role_assignment_id(self) -> Optional[str]:
+        """
+        Role Assignment Id.
+        """
+        return pulumi.get(self, "role_assignment_id")
 
 
 @pulumi.output_type

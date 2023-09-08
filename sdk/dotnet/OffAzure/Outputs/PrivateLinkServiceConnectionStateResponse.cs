@@ -10,11 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OffAzure.Outputs
 {
 
+    /// <summary>
+    /// Service Connection State
+    /// </summary>
     [OutputType]
     public sealed class PrivateLinkServiceConnectionStateResponse
     {
+        /// <summary>
+        /// actions required
+        /// </summary>
         public readonly string? ActionsRequired;
+        /// <summary>
+        /// description string
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// state status
+        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

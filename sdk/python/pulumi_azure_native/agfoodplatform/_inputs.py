@@ -329,7 +329,8 @@ class SolutionPropertiesArgs:
                  plan_id: pulumi.Input[str],
                  saas_subscription_id: pulumi.Input[str],
                  saas_subscription_name: pulumi.Input[str],
-                 term_id: pulumi.Input[str]):
+                 term_id: pulumi.Input[str],
+                 role_assignment_id: Optional[pulumi.Input[str]] = None):
         """
         Solution resource properties.
         :param pulumi.Input[str] marketplace_publisher_id: SaaS application Marketplace Publisher Id.
@@ -338,6 +339,7 @@ class SolutionPropertiesArgs:
         :param pulumi.Input[str] saas_subscription_id: SaaS subscriptionId of the installed SaaS application.
         :param pulumi.Input[str] saas_subscription_name: SaaS subscription name of the installed SaaS application.
         :param pulumi.Input[str] term_id: SaaS application Term Id.
+        :param pulumi.Input[str] role_assignment_id: Role Assignment Id.
         """
         pulumi.set(__self__, "marketplace_publisher_id", marketplace_publisher_id)
         pulumi.set(__self__, "offer_id", offer_id)
@@ -345,6 +347,8 @@ class SolutionPropertiesArgs:
         pulumi.set(__self__, "saas_subscription_id", saas_subscription_id)
         pulumi.set(__self__, "saas_subscription_name", saas_subscription_name)
         pulumi.set(__self__, "term_id", term_id)
+        if role_assignment_id is not None:
+            pulumi.set(__self__, "role_assignment_id", role_assignment_id)
 
     @property
     @pulumi.getter(name="marketplacePublisherId")
@@ -417,5 +421,17 @@ class SolutionPropertiesArgs:
     @term_id.setter
     def term_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "term_id", value)
+
+    @property
+    @pulumi.getter(name="roleAssignmentId")
+    def role_assignment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Role Assignment Id.
+        """
+        return pulumi.get(self, "role_assignment_id")
+
+    @role_assignment_id.setter
+    def role_assignment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_assignment_id", value)
 
 

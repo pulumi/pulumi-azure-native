@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OffAzure.Outputs
 {
 
+    /// <summary>
+    /// PrivateEndpointModelsResourceId
+    /// </summary>
     [OutputType]
     public sealed class ResourceIdResponse
     {
+        /// <summary>
+        /// id name
+        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

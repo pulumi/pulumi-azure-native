@@ -9,16 +9,206 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 
 __all__ = [
+    'HealthErrorDetailsResponse',
     'PrivateEndpointConnectionPropertiesResponse',
+    'PrivateEndpointConnectionResponse',
     'PrivateLinkServiceConnectionStateResponse',
     'ResourceIdResponse',
     'SiteAgentPropertiesResponse',
+    'SiteAppliancePropertiesResponse',
+    'SiteHealthSummaryResponse',
     'SitePropertiesResponse',
     'SiteSpnPropertiesResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class HealthErrorDetailsResponse(dict):
+    """
+    Error contract returned when some exception occurs in Rest API.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applianceName":
+            suggest = "appliance_name"
+        elif key == "discoveryScope":
+            suggest = "discovery_scope"
+        elif key == "messageParameters":
+            suggest = "message_parameters"
+        elif key == "possibleCauses":
+            suggest = "possible_causes"
+        elif key == "recommendedAction":
+            suggest = "recommended_action"
+        elif key == "runAsAccountId":
+            suggest = "run_as_account_id"
+        elif key == "summaryMessage":
+            suggest = "summary_message"
+        elif key == "updatedTimeStamp":
+            suggest = "updated_time_stamp"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthErrorDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthErrorDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthErrorDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 appliance_name: str,
+                 code: str,
+                 discovery_scope: str,
+                 id: float,
+                 message: str,
+                 message_parameters: Mapping[str, str],
+                 possible_causes: str,
+                 recommended_action: str,
+                 run_as_account_id: str,
+                 severity: str,
+                 source: str,
+                 summary_message: str,
+                 updated_time_stamp: str):
+        """
+        Error contract returned when some exception occurs in Rest API.
+        :param str appliance_name: Gets the appliance name.
+        :param str code: Gets the error name.
+        :param str discovery_scope: Gets discovery scope for which             error is encountered.
+        :param float id: Gets the error ID.
+        :param str message: Gets the error message.
+        :param Mapping[str, str] message_parameters: Gets the message parameters.
+        :param str possible_causes: Gets the possible causes of error.
+        :param str recommended_action: Gets the recommended action to resolve error.
+        :param str run_as_account_id: Gets run as account id used while performing discovery             of entity.
+        :param str severity: Gets the error severity.
+        :param str source: Gets the error source.
+        :param str summary_message: Gets the error summary message.
+        :param str updated_time_stamp: Gets the time stamp when the error was updated.
+        """
+        pulumi.set(__self__, "appliance_name", appliance_name)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "discovery_scope", discovery_scope)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "message_parameters", message_parameters)
+        pulumi.set(__self__, "possible_causes", possible_causes)
+        pulumi.set(__self__, "recommended_action", recommended_action)
+        pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "source", source)
+        pulumi.set(__self__, "summary_message", summary_message)
+        pulumi.set(__self__, "updated_time_stamp", updated_time_stamp)
+
+    @property
+    @pulumi.getter(name="applianceName")
+    def appliance_name(self) -> str:
+        """
+        Gets the appliance name.
+        """
+        return pulumi.get(self, "appliance_name")
+
+    @property
+    @pulumi.getter
+    def code(self) -> str:
+        """
+        Gets the error name.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="discoveryScope")
+    def discovery_scope(self) -> str:
+        """
+        Gets discovery scope for which             error is encountered.
+        """
+        return pulumi.get(self, "discovery_scope")
+
+    @property
+    @pulumi.getter
+    def id(self) -> float:
+        """
+        Gets the error ID.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        """
+        Gets the error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter(name="messageParameters")
+    def message_parameters(self) -> Mapping[str, str]:
+        """
+        Gets the message parameters.
+        """
+        return pulumi.get(self, "message_parameters")
+
+    @property
+    @pulumi.getter(name="possibleCauses")
+    def possible_causes(self) -> str:
+        """
+        Gets the possible causes of error.
+        """
+        return pulumi.get(self, "possible_causes")
+
+    @property
+    @pulumi.getter(name="recommendedAction")
+    def recommended_action(self) -> str:
+        """
+        Gets the recommended action to resolve error.
+        """
+        return pulumi.get(self, "recommended_action")
+
+    @property
+    @pulumi.getter(name="runAsAccountId")
+    def run_as_account_id(self) -> str:
+        """
+        Gets run as account id used while performing discovery             of entity.
+        """
+        return pulumi.get(self, "run_as_account_id")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        Gets the error severity.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        Gets the error source.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="summaryMessage")
+    def summary_message(self) -> str:
+        """
+        Gets the error summary message.
+        """
+        return pulumi.get(self, "summary_message")
+
+    @property
+    @pulumi.getter(name="updatedTimeStamp")
+    def updated_time_stamp(self) -> str:
+        """
+        Gets the time stamp when the error was updated.
+        """
+        return pulumi.get(self, "updated_time_stamp")
+
 
 @pulumi.output_type
 class PrivateEndpointConnectionPropertiesResponse(dict):
@@ -69,7 +259,135 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class PrivateEndpointConnectionResponse(dict):
+    """
+    REST model used to encapsulate Private Link properties for tracked resources.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupIds":
+            suggest = "group_ids"
+        elif key == "privateEndpoint":
+            suggest = "private_endpoint"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "systemData":
+            suggest = "system_data"
+        elif key == "privateLinkServiceConnectionState":
+            suggest = "private_link_service_connection_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_ids: Sequence[str],
+                 id: str,
+                 name: str,
+                 private_endpoint: 'outputs.ResourceIdResponse',
+                 provisioning_state: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 private_link_service_connection_state: Optional['outputs.PrivateLinkServiceConnectionStateResponse'] = None):
+        """
+        REST model used to encapsulate Private Link properties for tracked resources.
+        :param Sequence[str] group_ids: array of group ids
+        :param str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        :param str name: The name of the resource
+        :param 'ResourceIdResponse' private_endpoint: private endpoints
+        :param str provisioning_state: provisioning state enum
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        :param 'PrivateLinkServiceConnectionStateResponse' private_link_service_connection_state: private endpoints connection state
+        """
+        pulumi.set(__self__, "group_ids", group_ids)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "private_endpoint", private_endpoint)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Sequence[str]:
+        """
+        array of group ids
+        """
+        return pulumi.get(self, "group_ids")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the resource
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="privateEndpoint")
+    def private_endpoint(self) -> 'outputs.ResourceIdResponse':
+        """
+        private endpoints
+        """
+        return pulumi.get(self, "private_endpoint")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> str:
+        """
+        provisioning state enum
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional['outputs.PrivateLinkServiceConnectionStateResponse']:
+        """
+        private endpoints connection state
+        """
+        return pulumi.get(self, "private_link_service_connection_state")
+
+
+@pulumi.output_type
 class PrivateLinkServiceConnectionStateResponse(dict):
+    """
+    Service Connection State
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -91,6 +409,12 @@ class PrivateLinkServiceConnectionStateResponse(dict):
                  actions_required: Optional[str] = None,
                  description: Optional[str] = None,
                  status: Optional[str] = None):
+        """
+        Service Connection State
+        :param str actions_required: actions required
+        :param str description: description string
+        :param str status: state status
+        """
         if actions_required is not None:
             pulumi.set(__self__, "actions_required", actions_required)
         if description is not None:
@@ -101,28 +425,47 @@ class PrivateLinkServiceConnectionStateResponse(dict):
     @property
     @pulumi.getter(name="actionsRequired")
     def actions_required(self) -> Optional[str]:
+        """
+        actions required
+        """
         return pulumi.get(self, "actions_required")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        description string
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
     def status(self) -> Optional[str]:
+        """
+        state status
+        """
         return pulumi.get(self, "status")
 
 
 @pulumi.output_type
 class ResourceIdResponse(dict):
+    """
+    PrivateEndpointModelsResourceId
+    """
     def __init__(__self__, *,
                  id: str):
+        """
+        PrivateEndpointModelsResourceId
+        :param str id: id name
+        """
         pulumi.set(__self__, "id", id)
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        id name
+        """
         return pulumi.get(self, "id")
 
 
@@ -160,11 +503,11 @@ class SiteAgentPropertiesResponse(dict):
                  key_vault_uri: Optional[str] = None):
         """
         Class for site agent properties.
-        :param str id: ID of the agent.
-        :param str last_heart_beat_utc: Last heartbeat time of the agent in UTC.
-        :param str version: Version of the agent.
-        :param str key_vault_id: Key vault ARM Id.
-        :param str key_vault_uri: Key vault URI.
+        :param str id: Gets the ID of the agent.
+        :param str last_heart_beat_utc: Gets the last heartbeat time of the agent in UTC.
+        :param str version: Gets the version of the agent.
+        :param str key_vault_id: Gets or sets the key vault ARM Id.
+        :param str key_vault_uri: Gets or sets the key vault URI.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "last_heart_beat_utc", last_heart_beat_utc)
@@ -178,7 +521,7 @@ class SiteAgentPropertiesResponse(dict):
     @pulumi.getter
     def id(self) -> str:
         """
-        ID of the agent.
+        Gets the ID of the agent.
         """
         return pulumi.get(self, "id")
 
@@ -186,7 +529,7 @@ class SiteAgentPropertiesResponse(dict):
     @pulumi.getter(name="lastHeartBeatUtc")
     def last_heart_beat_utc(self) -> str:
         """
-        Last heartbeat time of the agent in UTC.
+        Gets the last heartbeat time of the agent in UTC.
         """
         return pulumi.get(self, "last_heart_beat_utc")
 
@@ -194,7 +537,7 @@ class SiteAgentPropertiesResponse(dict):
     @pulumi.getter
     def version(self) -> str:
         """
-        Version of the agent.
+        Gets the version of the agent.
         """
         return pulumi.get(self, "version")
 
@@ -202,7 +545,7 @@ class SiteAgentPropertiesResponse(dict):
     @pulumi.getter(name="keyVaultId")
     def key_vault_id(self) -> Optional[str]:
         """
-        Key vault ARM Id.
+        Gets or sets the key vault ARM Id.
         """
         return pulumi.get(self, "key_vault_id")
 
@@ -210,9 +553,224 @@ class SiteAgentPropertiesResponse(dict):
     @pulumi.getter(name="keyVaultUri")
     def key_vault_uri(self) -> Optional[str]:
         """
-        Key vault URI.
+        Gets or sets the key vault URI.
         """
         return pulumi.get(self, "key_vault_uri")
+
+
+@pulumi.output_type
+class SiteAppliancePropertiesResponse(dict):
+    """
+    Class for site appliance properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentDetails":
+            suggest = "agent_details"
+        elif key == "applianceName":
+            suggest = "appliance_name"
+        elif key == "servicePrincipalIdentityDetails":
+            suggest = "service_principal_identity_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SiteAppliancePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SiteAppliancePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SiteAppliancePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_details: Optional['outputs.SiteAgentPropertiesResponse'] = None,
+                 appliance_name: Optional[str] = None,
+                 service_principal_identity_details: Optional['outputs.SiteSpnPropertiesResponse'] = None):
+        """
+        Class for site appliance properties.
+        :param 'SiteAgentPropertiesResponse' agent_details: Gets or sets the on-premises agent details.
+        :param str appliance_name: Gets or sets the Appliance Name.
+        :param 'SiteSpnPropertiesResponse' service_principal_identity_details:  Gets or sets the service principal identity details used by agent for  communication              to the service.  
+        """
+        if agent_details is not None:
+            pulumi.set(__self__, "agent_details", agent_details)
+        if appliance_name is not None:
+            pulumi.set(__self__, "appliance_name", appliance_name)
+        if service_principal_identity_details is not None:
+            pulumi.set(__self__, "service_principal_identity_details", service_principal_identity_details)
+
+    @property
+    @pulumi.getter(name="agentDetails")
+    def agent_details(self) -> Optional['outputs.SiteAgentPropertiesResponse']:
+        """
+        Gets or sets the on-premises agent details.
+        """
+        return pulumi.get(self, "agent_details")
+
+    @property
+    @pulumi.getter(name="applianceName")
+    def appliance_name(self) -> Optional[str]:
+        """
+        Gets or sets the Appliance Name.
+        """
+        return pulumi.get(self, "appliance_name")
+
+    @property
+    @pulumi.getter(name="servicePrincipalIdentityDetails")
+    def service_principal_identity_details(self) -> Optional['outputs.SiteSpnPropertiesResponse']:
+        """
+         Gets or sets the service principal identity details used by agent for  communication              to the service.  
+        """
+        return pulumi.get(self, "service_principal_identity_details")
+
+
+@pulumi.output_type
+class SiteHealthSummaryResponse(dict):
+    """
+    The properties of ServerSiteResource.
+    """
+    def __init__(__self__, *,
+                 affected_resource_type: str,
+                 appliance_name: str,
+                 error_code: str,
+                 error_id: float,
+                 error_message: str,
+                 remediation_guidance: str,
+                 severity: str,
+                 summary_message: str,
+                 affected_objects_count: Optional[float] = None,
+                 affected_resources: Optional[Sequence[str]] = None,
+                 fabric_layout_update_sources: Optional[Sequence[str]] = None,
+                 hit_count: Optional[float] = None):
+        """
+        The properties of ServerSiteResource.
+        :param str affected_resource_type: Gets the affected resource type.
+        :param str appliance_name: Gets the appliance name.
+        :param str error_code: Gets the error code.
+        :param float error_id: Gets the error Id.
+        :param str error_message: Gets the error message.
+        :param str remediation_guidance: Gets the remediation guidance.
+        :param str severity: Gets the severity of error.
+        :param str summary_message: Gets the summary message.
+        :param float affected_objects_count: Gets or sets the count of affected objects.
+        :param Sequence[str] affected_resources: Gets or sets the affected resources.
+        :param Sequence[str] fabric_layout_update_sources: Gets or sets sources of the exception.
+        :param float hit_count: Gets or sets the hit count of the error.
+        """
+        pulumi.set(__self__, "affected_resource_type", affected_resource_type)
+        pulumi.set(__self__, "appliance_name", appliance_name)
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_id", error_id)
+        pulumi.set(__self__, "error_message", error_message)
+        pulumi.set(__self__, "remediation_guidance", remediation_guidance)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "summary_message", summary_message)
+        if affected_objects_count is not None:
+            pulumi.set(__self__, "affected_objects_count", affected_objects_count)
+        if affected_resources is not None:
+            pulumi.set(__self__, "affected_resources", affected_resources)
+        if fabric_layout_update_sources is not None:
+            pulumi.set(__self__, "fabric_layout_update_sources", fabric_layout_update_sources)
+        if hit_count is not None:
+            pulumi.set(__self__, "hit_count", hit_count)
+
+    @property
+    @pulumi.getter(name="affectedResourceType")
+    def affected_resource_type(self) -> str:
+        """
+        Gets the affected resource type.
+        """
+        return pulumi.get(self, "affected_resource_type")
+
+    @property
+    @pulumi.getter(name="applianceName")
+    def appliance_name(self) -> str:
+        """
+        Gets the appliance name.
+        """
+        return pulumi.get(self, "appliance_name")
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        Gets the error code.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorId")
+    def error_id(self) -> float:
+        """
+        Gets the error Id.
+        """
+        return pulumi.get(self, "error_id")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        Gets the error message.
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="remediationGuidance")
+    def remediation_guidance(self) -> str:
+        """
+        Gets the remediation guidance.
+        """
+        return pulumi.get(self, "remediation_guidance")
+
+    @property
+    @pulumi.getter
+    def severity(self) -> str:
+        """
+        Gets the severity of error.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="summaryMessage")
+    def summary_message(self) -> str:
+        """
+        Gets the summary message.
+        """
+        return pulumi.get(self, "summary_message")
+
+    @property
+    @pulumi.getter(name="affectedObjectsCount")
+    def affected_objects_count(self) -> Optional[float]:
+        """
+        Gets or sets the count of affected objects.
+        """
+        return pulumi.get(self, "affected_objects_count")
+
+    @property
+    @pulumi.getter(name="affectedResources")
+    def affected_resources(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets the affected resources.
+        """
+        return pulumi.get(self, "affected_resources")
+
+    @property
+    @pulumi.getter(name="fabricLayoutUpdateSources")
+    def fabric_layout_update_sources(self) -> Optional[Sequence[str]]:
+        """
+        Gets or sets sources of the exception.
+        """
+        return pulumi.get(self, "fabric_layout_update_sources")
+
+    @property
+    @pulumi.getter(name="hitCount")
+    def hit_count(self) -> Optional[float]:
+        """
+        Gets or sets the hit count of the error.
+        """
+        return pulumi.get(self, "hit_count")
 
 
 @pulumi.output_type
@@ -349,12 +907,24 @@ class SiteSpnPropertiesResponse(dict):
                  tenant_id: Optional[str] = None):
         """
         Class for site properties.
-        :param str aad_authority: AAD Authority URL which was used to request the token for the service principal.
-        :param str application_id: Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-        :param str audience: Intended audience for the service principal.
-        :param str object_id: Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
-        :param str raw_cert_data: Raw certificate data for building certificate expiry flows.
-        :param str tenant_id: Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        :param str aad_authority: Gets or sets the AAD Authority URL which was used to request the token for
+               the
+                           service principal.
+        :param str application_id: Gets or sets the application/client Id for the service principal with which
+               the
+                           on-premise management/data plane components would communicate
+               with our Azure 
+                           services.
+        :param str audience: Gets or sets the intended audience for the service principal.
+        :param str object_id: Gets or sets the object Id of the service principal with which the on-premise
+               
+                          management/data plane components would communicate with our Azure
+               services.
+        :param str raw_cert_data: Gets or sets the raw certificate data for building certificate expiry flows.
+        :param str tenant_id: Gets or sets the tenant Id for the service principal with which the
+               on-premise
+                           management/data plane components would communicate with
+               our Azure services.
         """
         if aad_authority is not None:
             pulumi.set(__self__, "aad_authority", aad_authority)
@@ -373,7 +943,9 @@ class SiteSpnPropertiesResponse(dict):
     @pulumi.getter(name="aadAuthority")
     def aad_authority(self) -> Optional[str]:
         """
-        AAD Authority URL which was used to request the token for the service principal.
+        Gets or sets the AAD Authority URL which was used to request the token for
+        the
+                    service principal.
         """
         return pulumi.get(self, "aad_authority")
 
@@ -381,7 +953,11 @@ class SiteSpnPropertiesResponse(dict):
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[str]:
         """
-        Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        Gets or sets the application/client Id for the service principal with which
+        the
+                    on-premise management/data plane components would communicate
+        with our Azure 
+                    services.
         """
         return pulumi.get(self, "application_id")
 
@@ -389,7 +965,7 @@ class SiteSpnPropertiesResponse(dict):
     @pulumi.getter
     def audience(self) -> Optional[str]:
         """
-        Intended audience for the service principal.
+        Gets or sets the intended audience for the service principal.
         """
         return pulumi.get(self, "audience")
 
@@ -397,7 +973,10 @@ class SiteSpnPropertiesResponse(dict):
     @pulumi.getter(name="objectId")
     def object_id(self) -> Optional[str]:
         """
-        Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        Gets or sets the object Id of the service principal with which the on-premise
+
+                   management/data plane components would communicate with our Azure
+        services.
         """
         return pulumi.get(self, "object_id")
 
@@ -405,7 +984,7 @@ class SiteSpnPropertiesResponse(dict):
     @pulumi.getter(name="rawCertData")
     def raw_cert_data(self) -> Optional[str]:
         """
-        Raw certificate data for building certificate expiry flows.
+        Gets or sets the raw certificate data for building certificate expiry flows.
         """
         return pulumi.get(self, "raw_cert_data")
 
@@ -413,7 +992,10 @@ class SiteSpnPropertiesResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[str]:
         """
-        Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        Gets or sets the tenant Id for the service principal with which the
+        on-premise
+                    management/data plane components would communicate with
+        our Azure services.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -462,7 +1044,7 @@ class SystemDataResponse(dict):
         :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -507,7 +1089,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The type of identity that last modified the resource.
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 

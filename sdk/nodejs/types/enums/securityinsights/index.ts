@@ -24,6 +24,7 @@ import * as v20230401preview from "./v20230401preview";
 import * as v20230501preview from "./v20230501preview";
 import * as v20230601preview from "./v20230601preview";
 import * as v20230701preview from "./v20230701preview";
+import * as v20230801preview from "./v20230801preview";
 
 export {
     v20190101preview,
@@ -48,6 +49,7 @@ export {
     v20230501preview,
     v20230601preview,
     v20230701preview,
+    v20230801preview,
 };
 
 export const ActionType = {

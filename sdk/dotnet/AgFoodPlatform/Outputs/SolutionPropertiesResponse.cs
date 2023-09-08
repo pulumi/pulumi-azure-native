@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
         /// </summary>
         public readonly string PlanId;
         /// <summary>
+        /// Role Assignment Id.
+        /// </summary>
+        public readonly string? RoleAssignmentId;
+        /// <summary>
         /// SaaS subscriptionId of the installed SaaS application.
         /// </summary>
         public readonly string SaasSubscriptionId;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
 
             string planId,
 
+            string? roleAssignmentId,
+
             string saasSubscriptionId,
 
             string saasSubscriptionName,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNative.AgFoodPlatform.Outputs
             OfferId = offerId;
             PartnerId = partnerId;
             PlanId = planId;
+            RoleAssignmentId = roleAssignmentId;
             SaasSubscriptionId = saasSubscriptionId;
             SaasSubscriptionName = saasSubscriptionName;
             TermId = termId;

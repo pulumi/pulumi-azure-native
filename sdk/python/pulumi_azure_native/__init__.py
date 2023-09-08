@@ -133,6 +133,8 @@ if typing.TYPE_CHECKING:
     datamigration = __datamigration
     import pulumi_azure_native.dataprotection as __dataprotection
     dataprotection = __dataprotection
+    import pulumi_azure_native.datareplication as __datareplication
+    datareplication = __datareplication
     import pulumi_azure_native.datashare as __datashare
     datashare = __datashare
     import pulumi_azure_native.dbformariadb as __dbformariadb
@@ -347,6 +349,8 @@ if typing.TYPE_CHECKING:
     saas = __saas
     import pulumi_azure_native.scheduler as __scheduler
     scheduler = __scheduler
+    import pulumi_azure_native.scom as __scom
+    scom = __scom
     import pulumi_azure_native.scvmm as __scvmm
     scvmm = __scvmm
     import pulumi_azure_native.search as __search
@@ -492,6 +496,7 @@ else:
     datalakestore = _utilities.lazy_import('pulumi_azure_native.datalakestore')
     datamigration = _utilities.lazy_import('pulumi_azure_native.datamigration')
     dataprotection = _utilities.lazy_import('pulumi_azure_native.dataprotection')
+    datareplication = _utilities.lazy_import('pulumi_azure_native.datareplication')
     datashare = _utilities.lazy_import('pulumi_azure_native.datashare')
     dbformariadb = _utilities.lazy_import('pulumi_azure_native.dbformariadb')
     dbformysql = _utilities.lazy_import('pulumi_azure_native.dbformysql')
@@ -599,6 +604,7 @@ else:
     resources = _utilities.lazy_import('pulumi_azure_native.resources')
     saas = _utilities.lazy_import('pulumi_azure_native.saas')
     scheduler = _utilities.lazy_import('pulumi_azure_native.scheduler')
+    scom = _utilities.lazy_import('pulumi_azure_native.scom')
     scvmm = _utilities.lazy_import('pulumi_azure_native.scvmm')
     search = _utilities.lazy_import('pulumi_azure_native.search')
     security = _utilities.lazy_import('pulumi_azure_native.security')
@@ -2499,6 +2505,20 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cache/v20230801",
+  "fqn": "pulumi_azure_native.cache.v20230801",
+  "classes": {
+   "azure-native:cache/v20230801:AccessPolicy": "AccessPolicy",
+   "azure-native:cache/v20230801:AccessPolicyAssignment": "AccessPolicyAssignment",
+   "azure-native:cache/v20230801:FirewallRule": "FirewallRule",
+   "azure-native:cache/v20230801:LinkedServer": "LinkedServer",
+   "azure-native:cache/v20230801:PatchSchedule": "PatchSchedule",
+   "azure-native:cache/v20230801:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:cache/v20230801:Redis": "Redis"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cdn",
   "fqn": "pulumi_azure_native.cdn",
   "classes": {
@@ -4023,6 +4043,32 @@ _utilities.register(
    "azure-native:dataprotection/v20230501:BackupVault": "BackupVault",
    "azure-native:dataprotection/v20230501:DppResourceGuardProxy": "DppResourceGuardProxy",
    "azure-native:dataprotection/v20230501:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "datareplication",
+  "fqn": "pulumi_azure_native.datareplication",
+  "classes": {
+   "azure-native:datareplication:Dra": "Dra",
+   "azure-native:datareplication:Fabric": "Fabric",
+   "azure-native:datareplication:Policy": "Policy",
+   "azure-native:datareplication:ProtectedItem": "ProtectedItem",
+   "azure-native:datareplication:ReplicationExtension": "ReplicationExtension",
+   "azure-native:datareplication:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "datareplication/v20210216preview",
+  "fqn": "pulumi_azure_native.datareplication.v20210216preview",
+  "classes": {
+   "azure-native:datareplication/v20210216preview:Dra": "Dra",
+   "azure-native:datareplication/v20210216preview:Fabric": "Fabric",
+   "azure-native:datareplication/v20210216preview:Policy": "Policy",
+   "azure-native:datareplication/v20210216preview:ProtectedItem": "ProtectedItem",
+   "azure-native:datareplication/v20210216preview:ReplicationExtension": "ReplicationExtension",
+   "azure-native:datareplication/v20210216preview:Vault": "Vault"
   }
  },
  {
@@ -8588,12 +8634,37 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "notificationhubs/v20230901",
+  "fqn": "pulumi_azure_native.notificationhubs.v20230901",
+  "classes": {
+   "azure-native:notificationhubs/v20230901:Namespace": "Namespace",
+   "azure-native:notificationhubs/v20230901:NamespaceAuthorizationRule": "NamespaceAuthorizationRule",
+   "azure-native:notificationhubs/v20230901:NotificationHub": "NotificationHub",
+   "azure-native:notificationhubs/v20230901:NotificationHubAuthorizationRule": "NotificationHubAuthorizationRule",
+   "azure-native:notificationhubs/v20230901:PrivateEndpointConnection": "PrivateEndpointConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "offazure",
   "fqn": "pulumi_azure_native.offazure",
   "classes": {
    "azure-native:offazure:HyperVSite": "HyperVSite",
+   "azure-native:offazure:HypervClusterControllerCluster": "HypervClusterControllerCluster",
+   "azure-native:offazure:HypervHostController": "HypervHostController",
+   "azure-native:offazure:HypervSitesController": "HypervSitesController",
+   "azure-native:offazure:ImportSitesController": "ImportSitesController",
+   "azure-native:offazure:MasterSitesController": "MasterSitesController",
    "azure-native:offazure:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:offazure:Site": "Site"
+   "azure-native:offazure:PrivateEndpointConnectionController": "PrivateEndpointConnectionController",
+   "azure-native:offazure:ServerSitesController": "ServerSitesController",
+   "azure-native:offazure:Site": "Site",
+   "azure-native:offazure:SitesController": "SitesController",
+   "azure-native:offazure:SqlDiscoverySiteDataSourceController": "SqlDiscoverySiteDataSourceController",
+   "azure-native:offazure:SqlSitesController": "SqlSitesController",
+   "azure-native:offazure:VcenterController": "VcenterController",
+   "azure-native:offazure:WebAppDiscoverySiteDataSourcesController": "WebAppDiscoverySiteDataSourcesController",
+   "azure-native:offazure:WebAppSitesController": "WebAppSitesController"
   }
  },
  {
@@ -8604,6 +8675,26 @@ _utilities.register(
    "azure-native:offazure/v20200707:HyperVSite": "HyperVSite",
    "azure-native:offazure/v20200707:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:offazure/v20200707:Site": "Site"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "offazure/v20230606",
+  "fqn": "pulumi_azure_native.offazure.v20230606",
+  "classes": {
+   "azure-native:offazure/v20230606:HypervClusterControllerCluster": "HypervClusterControllerCluster",
+   "azure-native:offazure/v20230606:HypervHostController": "HypervHostController",
+   "azure-native:offazure/v20230606:HypervSitesController": "HypervSitesController",
+   "azure-native:offazure/v20230606:ImportSitesController": "ImportSitesController",
+   "azure-native:offazure/v20230606:MasterSitesController": "MasterSitesController",
+   "azure-native:offazure/v20230606:PrivateEndpointConnectionController": "PrivateEndpointConnectionController",
+   "azure-native:offazure/v20230606:ServerSitesController": "ServerSitesController",
+   "azure-native:offazure/v20230606:SitesController": "SitesController",
+   "azure-native:offazure/v20230606:SqlDiscoverySiteDataSourceController": "SqlDiscoverySiteDataSourceController",
+   "azure-native:offazure/v20230606:SqlSitesController": "SqlSitesController",
+   "azure-native:offazure/v20230606:VcenterController": "VcenterController",
+   "azure-native:offazure/v20230606:WebAppDiscoverySiteDataSourcesController": "WebAppDiscoverySiteDataSourcesController",
+   "azure-native:offazure/v20230606:WebAppSitesController": "WebAppSitesController"
   }
  },
  {
@@ -9460,6 +9551,26 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "scom",
+  "fqn": "pulumi_azure_native.scom",
+  "classes": {
+   "azure-native:scom:Instance": "Instance",
+   "azure-native:scom:ManagedGateway": "ManagedGateway",
+   "azure-native:scom:MonitoredResource": "MonitoredResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "scom/v20230707preview",
+  "fqn": "pulumi_azure_native.scom.v20230707preview",
+  "classes": {
+   "azure-native:scom/v20230707preview:Instance": "Instance",
+   "azure-native:scom/v20230707preview:ManagedGateway": "ManagedGateway",
+   "azure-native:scom/v20230707preview:MonitoredResource": "MonitoredResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "scvmm",
   "fqn": "pulumi_azure_native.scvmm",
   "classes": {
@@ -10085,6 +10196,71 @@ _utilities.register(
    "azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration": "WorkspaceManagerConfiguration",
    "azure-native:securityinsights/v20230701preview:WorkspaceManagerGroup": "WorkspaceManagerGroup",
    "azure-native:securityinsights/v20230701preview:WorkspaceManagerMember": "WorkspaceManagerMember"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "securityinsights/v20230801preview",
+  "fqn": "pulumi_azure_native.securityinsights.v20230801preview",
+  "classes": {
+   "azure-native:securityinsights/v20230801preview:AADDataConnector": "AADDataConnector",
+   "azure-native:securityinsights/v20230801preview:AATPDataConnector": "AATPDataConnector",
+   "azure-native:securityinsights/v20230801preview:ASCDataConnector": "ASCDataConnector",
+   "azure-native:securityinsights/v20230801preview:Action": "Action",
+   "azure-native:securityinsights/v20230801preview:ActivityCustomEntityQuery": "ActivityCustomEntityQuery",
+   "azure-native:securityinsights/v20230801preview:Anomalies": "Anomalies",
+   "azure-native:securityinsights/v20230801preview:AnomalySecurityMLAnalyticsSettings": "AnomalySecurityMLAnalyticsSettings",
+   "azure-native:securityinsights/v20230801preview:AutomationRule": "AutomationRule",
+   "azure-native:securityinsights/v20230801preview:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
+   "azure-native:securityinsights/v20230801preview:AwsS3DataConnector": "AwsS3DataConnector",
+   "azure-native:securityinsights/v20230801preview:Bookmark": "Bookmark",
+   "azure-native:securityinsights/v20230801preview:BookmarkRelation": "BookmarkRelation",
+   "azure-native:securityinsights/v20230801preview:CodelessApiPollingDataConnector": "CodelessApiPollingDataConnector",
+   "azure-native:securityinsights/v20230801preview:CodelessUiDataConnector": "CodelessUiDataConnector",
+   "azure-native:securityinsights/v20230801preview:ContentPackage": "ContentPackage",
+   "azure-native:securityinsights/v20230801preview:ContentTemplate": "ContentTemplate",
+   "azure-native:securityinsights/v20230801preview:CustomizableConnectorDefinition": "CustomizableConnectorDefinition",
+   "azure-native:securityinsights/v20230801preview:Dynamics365DataConnector": "Dynamics365DataConnector",
+   "azure-native:securityinsights/v20230801preview:EntityAnalytics": "EntityAnalytics",
+   "azure-native:securityinsights/v20230801preview:EyesOn": "EyesOn",
+   "azure-native:securityinsights/v20230801preview:FileImport": "FileImport",
+   "azure-native:securityinsights/v20230801preview:FusionAlertRule": "FusionAlertRule",
+   "azure-native:securityinsights/v20230801preview:GCPDataConnector": "GCPDataConnector",
+   "azure-native:securityinsights/v20230801preview:Hunt": "Hunt",
+   "azure-native:securityinsights/v20230801preview:HuntComment": "HuntComment",
+   "azure-native:securityinsights/v20230801preview:HuntRelation": "HuntRelation",
+   "azure-native:securityinsights/v20230801preview:Incident": "Incident",
+   "azure-native:securityinsights/v20230801preview:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20230801preview:IncidentRelation": "IncidentRelation",
+   "azure-native:securityinsights/v20230801preview:IncidentTask": "IncidentTask",
+   "azure-native:securityinsights/v20230801preview:IoTDataConnector": "IoTDataConnector",
+   "azure-native:securityinsights/v20230801preview:MCASDataConnector": "MCASDataConnector",
+   "azure-native:securityinsights/v20230801preview:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights/v20230801preview:MLBehaviorAnalyticsAlertRule": "MLBehaviorAnalyticsAlertRule",
+   "azure-native:securityinsights/v20230801preview:MSTIDataConnector": "MSTIDataConnector",
+   "azure-native:securityinsights/v20230801preview:MTPDataConnector": "MTPDataConnector",
+   "azure-native:securityinsights/v20230801preview:Metadata": "Metadata",
+   "azure-native:securityinsights/v20230801preview:MicrosoftPurviewInformationProtectionDataConnector": "MicrosoftPurviewInformationProtectionDataConnector",
+   "azure-native:securityinsights/v20230801preview:MicrosoftSecurityIncidentCreationAlertRule": "MicrosoftSecurityIncidentCreationAlertRule",
+   "azure-native:securityinsights/v20230801preview:NrtAlertRule": "NrtAlertRule",
+   "azure-native:securityinsights/v20230801preview:Office365ProjectDataConnector": "Office365ProjectDataConnector",
+   "azure-native:securityinsights/v20230801preview:OfficeATPDataConnector": "OfficeATPDataConnector",
+   "azure-native:securityinsights/v20230801preview:OfficeDataConnector": "OfficeDataConnector",
+   "azure-native:securityinsights/v20230801preview:OfficeIRMDataConnector": "OfficeIRMDataConnector",
+   "azure-native:securityinsights/v20230801preview:OfficePowerBIDataConnector": "OfficePowerBIDataConnector",
+   "azure-native:securityinsights/v20230801preview:ScheduledAlertRule": "ScheduledAlertRule",
+   "azure-native:securityinsights/v20230801preview:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights/v20230801preview:TIDataConnector": "TIDataConnector",
+   "azure-native:securityinsights/v20230801preview:ThreatIntelligenceAlertRule": "ThreatIntelligenceAlertRule",
+   "azure-native:securityinsights/v20230801preview:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
+   "azure-native:securityinsights/v20230801preview:TiTaxiiDataConnector": "TiTaxiiDataConnector",
+   "azure-native:securityinsights/v20230801preview:Ueba": "Ueba",
+   "azure-native:securityinsights/v20230801preview:Watchlist": "Watchlist",
+   "azure-native:securityinsights/v20230801preview:WatchlistItem": "WatchlistItem",
+   "azure-native:securityinsights/v20230801preview:WorkspaceManagerAssignment": "WorkspaceManagerAssignment",
+   "azure-native:securityinsights/v20230801preview:WorkspaceManagerConfiguration": "WorkspaceManagerConfiguration",
+   "azure-native:securityinsights/v20230801preview:WorkspaceManagerGroup": "WorkspaceManagerGroup",
+   "azure-native:securityinsights/v20230801preview:WorkspaceManagerMember": "WorkspaceManagerMember"
   }
  },
  {

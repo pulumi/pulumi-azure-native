@@ -108,7 +108,8 @@
   "Cache": [
     "2023-04-01",
     "2023-05-01-preview",
-    "2023-07-01"
+    "2023-07-01",
+    "2023-08-01"
   ],
   "Capacity": [],
   "Cdn": [],
@@ -284,6 +285,7 @@
     "2023-04-01-preview",
     "2023-05-01"
   ],
+  "DataReplication": [],
   "DataShare": [],
   "Databricks": [
     "2023-05-01"
@@ -631,8 +633,12 @@
     "2023-07-01"
   ],
   "NetworkFunction": [],
-  "NotificationHubs": [],
-  "OffAzure": [],
+  "NotificationHubs": [
+    "2023-09-01"
+  ],
+  "OffAzure": [
+    "2023-06-06"
+  ],
   "OpenEnergyPlatform": [],
   "OperationalInsights": [
     "2019-08-01-preview",
@@ -685,7 +691,8 @@
   ],
   "ResourceGraph": [],
   "ResourceHealth": [
-    "2022-10-01-preview"
+    "2022-10-01-preview",
+    "2023-07-01-preview"
   ],
   "Resources": [
     "2021-01-01",
@@ -700,6 +707,7 @@
   "SaaS": [],
   "ScVmm": [],
   "Scheduler": [],
+  "Scom": [],
   "Search": [],
   "Security": [
     "2019-01-01",
@@ -732,7 +740,8 @@
     "2023-04-01-preview",
     "2023-05-01-preview",
     "2023-06-01-preview",
-    "2023-07-01-preview"
+    "2023-07-01-preview",
+    "2023-08-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [

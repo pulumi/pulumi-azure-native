@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230501preview:ASCDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230601preview:ASCDataConnector"},
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230701preview:ASCDataConnector"},
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20230801preview:ASCDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -127,6 +127,7 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs:NotificationHubAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20160301:NotificationHubAuthorizationRule"},
                     new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230101preview:NotificationHubAuthorizationRule"},
+                    new global::Pulumi.Alias { Type = "azure-native:notificationhubs/v20230901:NotificationHubAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

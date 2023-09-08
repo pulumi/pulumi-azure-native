@@ -17,23 +17,23 @@ namespace Pulumi.AzureNative.OffAzure.Outputs
     public sealed class SiteAgentPropertiesResponse
     {
         /// <summary>
-        /// ID of the agent.
+        /// Gets the ID of the agent.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Key vault ARM Id.
+        /// Gets or sets the key vault ARM Id.
         /// </summary>
         public readonly string? KeyVaultId;
         /// <summary>
-        /// Key vault URI.
+        /// Gets or sets the key vault URI.
         /// </summary>
         public readonly string? KeyVaultUri;
         /// <summary>
-        /// Last heartbeat time of the agent in UTC.
+        /// Gets the last heartbeat time of the agent in UTC.
         /// </summary>
         public readonly string LastHeartBeatUtc;
         /// <summary>
-        /// Version of the agent.
+        /// Gets the version of the agent.
         /// </summary>
         public readonly string Version;
 

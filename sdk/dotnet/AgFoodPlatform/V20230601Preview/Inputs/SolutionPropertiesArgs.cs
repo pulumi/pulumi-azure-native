@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20230601Preview.Inputs
         public Input<string> PlanId { get; set; } = null!;
 
         /// <summary>
+        /// Role Assignment Id.
+        /// </summary>
+        [Input("roleAssignmentId")]
+        public Input<string>? RoleAssignmentId { get; set; }
+
+        /// <summary>
         /// SaaS subscriptionId of the installed SaaS application.
         /// </summary>
         [Input("saasSubscriptionId", required: true)]

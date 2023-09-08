@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.OffAzure.Inputs
     public sealed class SiteAgentPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Key vault ARM Id.
+        /// Gets or sets the key vault ARM Id.
         /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
 
         /// <summary>
-        /// Key vault URI.
+        /// Gets or sets the key vault URI.
         /// </summary>
         [Input("keyVaultUri")]
         public Input<string>? KeyVaultUri { get; set; }

@@ -15,7 +15,10 @@ if typing.TYPE_CHECKING:
     v20221001 = __v20221001
     import pulumi_azure_native.resourcehealth.v20221001preview as __v20221001preview
     v20221001preview = __v20221001preview
+    import pulumi_azure_native.resourcehealth.v20230701preview as __v20230701preview
+    v20230701preview = __v20230701preview
 else:
     v20221001 = _utilities.lazy_import('pulumi_azure_native.resourcehealth.v20221001')
     v20221001preview = _utilities.lazy_import('pulumi_azure_native.resourcehealth.v20221001preview')
+    v20230701preview = _utilities.lazy_import('pulumi_azure_native.resourcehealth.v20230701preview')
 

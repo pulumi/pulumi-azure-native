@@ -17,27 +17,39 @@ namespace Pulumi.AzureNative.OffAzure.Outputs
     public sealed class SiteSpnPropertiesResponse
     {
         /// <summary>
-        /// AAD Authority URL which was used to request the token for the service principal.
+        /// Gets or sets the AAD Authority URL which was used to request the token for
+        /// the
+        ///             service principal.
         /// </summary>
         public readonly string? AadAuthority;
         /// <summary>
-        /// Application/client Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        /// Gets or sets the application/client Id for the service principal with which
+        /// the
+        ///             on-premise management/data plane components would communicate
+        /// with our Azure 
+        ///             services.
         /// </summary>
         public readonly string? ApplicationId;
         /// <summary>
-        /// Intended audience for the service principal.
+        /// Gets or sets the intended audience for the service principal.
         /// </summary>
         public readonly string? Audience;
         /// <summary>
-        /// Object Id of the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        /// Gets or sets the object Id of the service principal with which the on-premise
+        /// 
+        ///            management/data plane components would communicate with our Azure
+        /// services.
         /// </summary>
         public readonly string? ObjectId;
         /// <summary>
-        /// Raw certificate data for building certificate expiry flows.
+        /// Gets or sets the raw certificate data for building certificate expiry flows.
         /// </summary>
         public readonly string? RawCertData;
         /// <summary>
-        /// Tenant Id for the service principal with which the on-premise management/data plane components would communicate with our Azure services.
+        /// Gets or sets the tenant Id for the service principal with which the
+        /// on-premise
+        ///             management/data plane components would communicate with
+        /// our Azure services.
         /// </summary>
         public readonly string? TenantId;
 

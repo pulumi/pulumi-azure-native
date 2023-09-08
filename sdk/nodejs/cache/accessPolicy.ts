@@ -86,7 +86,7 @@ export class AccessPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20230501preview:AccessPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cache/v20230501preview:AccessPolicy" }, { type: "azure-native:cache/v20230801:AccessPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AccessPolicy.__pulumiType, name, resourceInputs, opts);
     }

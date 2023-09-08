@@ -74,6 +74,7 @@ import * as datalakeanalytics from "./datalakeanalytics";
 import * as datalakestore from "./datalakestore";
 import * as datamigration from "./datamigration";
 import * as dataprotection from "./dataprotection";
+import * as datareplication from "./datareplication";
 import * as datashare from "./datashare";
 import * as dbformariadb from "./dbformariadb";
 import * as dbformysql from "./dbformysql";
@@ -181,6 +182,7 @@ import * as resourcehealth from "./resourcehealth";
 import * as resources from "./resources";
 import * as saas from "./saas";
 import * as scheduler from "./scheduler";
+import * as scom from "./scom";
 import * as scvmm from "./scvmm";
 import * as search from "./search";
 import * as security from "./security";
@@ -287,6 +289,7 @@ export {
     datalakestore,
     datamigration,
     dataprotection,
+    datareplication,
     datashare,
     dbformariadb,
     dbformysql,
@@ -394,6 +397,7 @@ export {
     resources,
     saas,
     scheduler,
+    scom,
     scvmm,
     search,
     security,

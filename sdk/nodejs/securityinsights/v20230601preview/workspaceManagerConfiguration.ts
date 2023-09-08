@@ -94,7 +94,7 @@ export class WorkspaceManagerConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230501preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230701preview:WorkspaceManagerConfiguration" }, { type: "azure-native:securityinsights/v20230801preview:WorkspaceManagerConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WorkspaceManagerConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -224,7 +224,7 @@ export class ContentPackage extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230501preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230601preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230701preview:ContentPackage" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20230401preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230501preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230601preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230701preview:ContentPackage" }, { type: "azure-native:securityinsights/v20230801preview:ContentPackage" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContentPackage.__pulumiType, name, resourceInputs, opts);
     }
