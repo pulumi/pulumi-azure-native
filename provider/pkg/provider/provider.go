@@ -1161,6 +1161,28 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azureError(err)
 		}
 	default:
+		if res.Path == "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}" {
+			if _, has := bodyParams["subnets"]; !has {
+				state, err := k.azureGet(ctx, id+res.ReadPath, res.APIVersion)
+				if err != nil {
+					return nil, fmt.Errorf("reading vnet: %w", err)
+				}
+				properties, ok := state["properties"].(map[string]interface{})
+				if !ok {
+					panic("properties")
+				}
+				subnets, ok := properties["subnets"]
+				if !ok {
+					panic(fmt.Sprintf("%+v", properties))
+				}
+				bodyProps, ok := bodyParams["properties"].(map[string]interface{})
+				if !ok {
+					panic("old properties")
+				}
+				bodyProps["subnets"] = subnets
+			}
+		}
+
 		response, updated, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
 			if updated {

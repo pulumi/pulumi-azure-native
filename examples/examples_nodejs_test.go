@@ -5,10 +5,11 @@ package examples
 
 import (
 	"encoding/json"
-	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
-	"github.com/stretchr/testify/assert"
 	"path/filepath"
 	"testing"
+
+	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestAccApiTs(t *testing.T) {
@@ -139,6 +140,22 @@ func TestPublicIpUpdateTs(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:         filepath.Join(getCwd(t), "public-ip-update"),
+			SkipRefresh: true,
+			EditDirs: []integration.EditDir{
+				{
+					Dir:      "step2",
+					Additive: true,
+				},
+			},
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestVnetSubnetsResolution(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir:         filepath.Join(getCwd(t), "vnet-subnets-resolution"),
 			SkipRefresh: true,
 			EditDirs: []integration.EditDir{
 				{
