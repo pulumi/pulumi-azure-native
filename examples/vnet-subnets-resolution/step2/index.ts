@@ -7,12 +7,13 @@ const inlineVnet = new network.VirtualNetwork("inline", {
     resourceGroupName: resourceGroup.name,
     addressSpace: { addressPrefixes: ["10.4.0.0/16"] },
     tags: {
-        "step": "1",
+        "step": "2",
     },
     subnets: [
       { name: "default", addressPrefix: "10.4.1.0/24" },
       { name: "second", addressPrefix: "10.4.2.0/24" },
       { name: "third", addressPrefix: "10.4.3.0/24" },
+      { name: "fourth", addressPrefix: "10.4.4.0/24" },
     ]
 });
 
@@ -29,7 +30,8 @@ const externalVnet = new network.VirtualNetwork("external", {
   resourceGroupName: resourceGroup.name,
   addressSpace: { addressPrefixes: ["10.5.0.0/16"] },
   tags: {
-      "step": "1",
+      // Updating tags causes a resource update that should NOT try to delete subnets.
+      "step": "2",
   },
 });
 

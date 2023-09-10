@@ -1161,26 +1161,9 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azureError(err)
 		}
 	default:
-		if res.Path == "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}" {
-			if _, has := bodyParams["subnets"]; !has {
-				state, err := k.azureGet(ctx, id+res.ReadPath, res.APIVersion)
-				if err != nil {
-					return nil, fmt.Errorf("reading vnet: %w", err)
-				}
-				properties, ok := state["properties"].(map[string]interface{})
-				if !ok {
-					panic("properties")
-				}
-				subnets, ok := properties["subnets"]
-				if !ok {
-					panic(fmt.Sprintf("%+v", properties))
-				}
-				bodyProps, ok := bodyParams["properties"].(map[string]interface{})
-				if !ok {
-					panic("old properties")
-				}
-				bodyProps["subnets"] = subnets
-			}
+		err = k.mergeStateIntoUpdateBody(ctx, &res, id, bodyParams)
+		if err != nil {
+			return nil, fmt.Errorf("mergeStateIntoUpdateBody: %w", err)
 		}
 
 		response, updated, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
@@ -1215,6 +1198,51 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	return &rpc.UpdateResponse{
 		Properties: checkpoint,
 	}, nil
+}
+
+func (k *azureNativeProvider) mergeStateIntoUpdateBody(ctx context.Context, res *resources.AzureAPIResource, id string, bodyParams map[string]interface{}) error {
+	// Ignore all resources except network.VirtualNetwork.
+	if res.Path != "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}" {
+		return nil
+	}
+
+	bodyProperties, ok := bodyParams["properties"].(map[string]interface{})
+	if !ok {
+		// Properties missing from Update payload. In principle, this should never happen, this
+		// may be a new API version with redically new request structure? Unlikely in practice,
+		// but let's not fail the operation and continue with a log message.
+		logging.V(9).Infof("properties not found in VirtualNetwork request")
+		return nil
+	}
+	if _, ok := bodyProperties["subnets"]; ok {
+		// Subnets are already specified explicitly by the user. Do nothing extra, just return.
+		return nil
+	}
+
+	// Read the current resource state.
+	state, err := k.azureGet(ctx, id+res.ReadPath, res.APIVersion)
+	if err != nil {
+		return fmt.Errorf("reading vnet: %w", err)
+	}
+
+	properties, ok := state["properties"].(map[string]interface{})
+	if !ok {
+		// Properties missing from Read response. In principle, this should never happen, this
+		// may be a new API version with redically new request structure? Unlikely in practice,
+		// but let's not fail the operation and continue with a log message.
+		logging.V(9).Infof("properties not found in VirtualNetwork response")
+		return nil
+	}
+
+	subnets, ok := properties["subnets"]
+	if !ok {
+		// No subnets - do nothing.
+		return nil
+	}
+
+	// Subnets received - override the original request properties to set subnets back to it.
+	bodyProperties["subnets"] = subnets
+	return nil
 }
 
 // Delete tears down an existing resource with the given ID. If it fails, the resource is assumed
