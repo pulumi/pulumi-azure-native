@@ -16400,6 +16400,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -16410,6 +16411,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -16420,6 +16422,7 @@
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -16430,6 +16433,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -16440,6 +16444,7 @@
       {
         "resourceType": "registeredSubscriptions",
         "apiVersions": [
+          "2023-09-01-preview",
           "2023-07-01",
           "2022-12-01-preview",
           "2022-10-01",
@@ -43981,8 +43986,7 @@
         "apiVersions": [
           "2023-07-13-preview",
           "2023-04-03",
-          "2023-01-31",
-          "2022-12-01-preview"
+          "2023-01-31"
         ]
       },
       {
@@ -43990,8 +43994,7 @@
         "apiVersions": [
           "2023-07-13-preview",
           "2023-04-03",
-          "2023-01-31",
-          "2022-12-01-preview"
+          "2023-01-31"
         ]
       },
       {
@@ -43999,8 +44002,7 @@
         "apiVersions": [
           "2023-07-13-preview",
           "2023-04-03",
-          "2023-01-31",
-          "2022-12-01-preview"
+          "2023-01-31"
         ]
       }
     ]

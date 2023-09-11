@@ -2850,6 +2850,12 @@
       "PrivateEndpointConnection",
       "Redis",
       "listRedisKeys"
+    ],
+    "2023-08-01-preview": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
     ]
   },
   "Capacity": {
@@ -10905,6 +10911,20 @@
       "Backup",
       "BackupPolicy",
       "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2023-05-01": [
+      "Account",
+      "BackupPolicy",
       "Pool",
       "Snapshot",
       "SnapshotPolicy",
