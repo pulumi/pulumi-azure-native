@@ -1161,6 +1161,8 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azureError(err)
 		}
 	default:
+		// This does nothing for most resources. It's a hook to change the update payload based on
+		// the current state of a resource of a given type, where this is needed as a workaround of Azure issues.
 		err = k.mergeStateIntoUpdateBody(ctx, &res, id, bodyParams)
 		if err != nil {
 			return nil, fmt.Errorf("mergeStateIntoUpdateBody: %w", err)
@@ -1200,6 +1202,10 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 	}, nil
 }
 
+// mergeStateIntoUpdateBody skips most resource types, but for selected resources (current just network.VirtualNetwork)
+// if changes the update payload based on the current state of a resource of a given type, where this is needed as
+// a workaround of Azure issues.
+// See https://github.com/pulumi/pulumi-azure-native/issues/611 for details.
 func (k *azureNativeProvider) mergeStateIntoUpdateBody(ctx context.Context, res *resources.AzureAPIResource, id string, bodyParams map[string]interface{}) error {
 	// Ignore all resources except network.VirtualNetwork.
 	if res.Path != "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}" {
@@ -1236,7 +1242,7 @@ func (k *azureNativeProvider) mergeStateIntoUpdateBody(ctx context.Context, res 
 
 	subnets, ok := properties["subnets"]
 	if !ok {
-		// No subnets - do nothing.
+		// No subnets in the resource state - do nothing.
 		return nil
 	}
 
