@@ -2850,6 +2850,12 @@
       "PrivateEndpointConnection",
       "Redis",
       "listRedisKeys"
+    ],
+    "2023-08-01-preview": [
+      "Database",
+      "EnterprisePrivateEndpointConnection",
+      "RedisEnterprise",
+      "listDatabaseKeys"
     ]
   },
   "Capacity": {
@@ -8480,6 +8486,14 @@
       "MachineExtension",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2023-06-20-preview": [
+      "License",
+      "LicenseProfile",
+      "Machine",
+      "MachineExtension",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
     ]
   },
   "HybridConnectivity": {
@@ -10905,6 +10919,20 @@
       "Backup",
       "BackupPolicy",
       "BackupVault",
+      "Pool",
+      "Snapshot",
+      "SnapshotPolicy",
+      "Subvolume",
+      "Volume",
+      "VolumeGroup",
+      "VolumeQuotaRule",
+      "getSubvolumeMetadata",
+      "getVolumeGroupIdForLdapUser",
+      "listVolumeReplications"
+    ],
+    "2023-05-01": [
+      "Account",
+      "BackupPolicy",
       "Pool",
       "Snapshot",
       "SnapshotPolicy",
@@ -15505,6 +15533,20 @@
       "InventoryItem",
       "MachineExtension",
       "VirtualMachine",
+      "VirtualMachineTemplate",
+      "VirtualNetwork",
+      "VmmServer"
+    ],
+    "2023-04-01-preview": [
+      "AvailabilitySet",
+      "Cloud",
+      "GuestAgent",
+      "HybridIdentityMetadata",
+      "InventoryItem",
+      "MachineExtension",
+      "VMInstanceGuestAgent",
+      "VirtualMachine",
+      "VirtualMachineInstance",
       "VirtualMachineTemplate",
       "VirtualNetwork",
       "VmmServer"

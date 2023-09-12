@@ -1081,6 +1081,8 @@
     "CloudConnector": "2023-01-01-preview"
   },
   "HybridCompute": {
+    "License": "2023-06-20-preview",
+    "LicenseProfile": "2023-06-20-preview",
     "Machine": "2022-12-27",
     "MachineExtension": "2022-12-27",
     "PrivateEndpointConnection": "2022-12-27",
@@ -1943,7 +1945,9 @@
     "HybridIdentityMetadata": "2022-05-21-preview",
     "InventoryItem": "2022-05-21-preview",
     "MachineExtension": "2022-05-21-preview",
+    "VMInstanceGuestAgent": "2023-04-01-preview",
     "VirtualMachine": "2022-05-21-preview",
+    "VirtualMachineInstance": "2023-04-01-preview",
     "VirtualMachineTemplate": "2022-05-21-preview",
     "VirtualNetwork": "2022-05-21-preview",
     "VmmServer": "2022-05-21-preview"
