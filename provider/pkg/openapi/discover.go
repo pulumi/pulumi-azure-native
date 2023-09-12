@@ -91,7 +91,8 @@ func ApplyProvidersTransformations(providers AzureProviders, defaultVersion Defa
 }
 
 func ApplyRemovals(providers map[string]map[string]VersionResources, removed map[string][]string) {
-	for providerName, versionMap := range providers {
+	for _, providerName := range codegen.SortedKeys(providers) {
+		versionMap := providers[providerName]
 		if removedVersion, ok := removed[providerName]; ok {
 			for _, versionToRemove := range removedVersion {
 				sdkVersionToRemove := ApiToSdkVersion(versionToRemove)
@@ -102,7 +103,8 @@ func ApplyRemovals(providers map[string]map[string]VersionResources, removed map
 }
 
 func AddDefaultVersion(providers map[string]map[string]VersionResources, defaultVersion DefaultVersionLock, previousVersion DefaultVersionLock) {
-	for providerName, versionMap := range providers {
+	for _, providerName := range codegen.SortedKeys(providers) {
+		versionMap := providers[providerName]
 		// Add a default version for each resource and invoke.
 		defaultResourceVersions := defaultVersion[providerName]
 		versionMap[""] = buildDefaultVersion(versionMap, defaultResourceVersions, previousVersion[providerName])
@@ -116,7 +118,8 @@ func AddDefaultVersion(providers map[string]map[string]VersionResources, default
 		sort.Strings(versions)
 		for _, version := range versions {
 			items := versionMap[version]
-			for _, r := range items.Resources {
+			for _, resourceName := range codegen.SortedKeys(items.Resources) {
+				r := items.Resources[resourceName]
 				var otherVersions []string
 				normalisedPath := paths.NormalizePath(r.Path)
 				otherVersionsSorted := pathVersions[normalisedPath].SortedValues()
@@ -132,7 +135,8 @@ func AddDefaultVersion(providers map[string]map[string]VersionResources, default
 }
 
 func ApplyDeprecations(providers AzureProviders, deprecated ProviderVersionList) AzureProviders {
-	for providerName, versionMap := range providers {
+	for _, providerName := range codegen.SortedKeys(providers) {
+		versionMap := providers[providerName]
 		for _, apiVersion := range deprecated[providerName] {
 			sdkVersion := ApiToSdkVersion(apiVersion)
 			resources := versionMap[sdkVersion]
@@ -146,7 +150,8 @@ func ApplyDeprecations(providers AzureProviders, deprecated ProviderVersionList)
 func buildDefaultVersion(versionMap ProviderVersions, defaultResourceVersions map[ResourceName]ApiVersion, previousResourceVersions map[ResourceName]ApiVersion) VersionResources {
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
-	for resourceName, apiVersion := range defaultResourceVersions {
+	for _, resourceName := range codegen.SortedKeys(defaultResourceVersions) {
+		apiVersion := defaultResourceVersions[resourceName]
 		if versionResources, ok := versionMap[ApiToSdkVersion(apiVersion)]; ok {
 			if resource, ok := versionResources.Resources[resourceName]; ok {
 				resourceCopy := *resource

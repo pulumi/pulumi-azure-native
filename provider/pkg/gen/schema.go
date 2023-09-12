@@ -821,9 +821,11 @@ func (g *packageGenerator) generateExampleReferences(resourceTok string, path *s
 	}
 
 	examples := raw.(map[string]interface{})
+	sortedExampleKeys := codegen.SortedKeys(examples)
 
 	result := make([]resources.AzureAPIExample, 0, len(examples))
-	for k, v := range examples {
+	for _, k := range sortedExampleKeys {
+		v := examples[k]
 		resolved := v.(map[string]interface{})
 		if _, ok := resolved["$ref"]; !ok {
 			continue
