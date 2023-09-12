@@ -109,6 +109,13 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 				props.requiredProperties.Delete("priority")
 				props.requiredSpecs.Delete("priority")
 			}
+			// incompatible type "azure-native:scvmm:GuestCredential" for resource "VMInstanceGuestAgent" ("azure-native:scvmm:VMInstanceGuestAgent"): required properties do not match: only required in A: password,username
+			if tok == "azure-native:scvmm:GuestCredential" {
+				props.requiredProperties.Delete("password")
+				props.requiredSpecs.Delete("password")
+				props.requiredProperties.Delete("username")
+				props.requiredSpecs.Delete("username")
+			}
 
 			spec := pschema.ComplexTypeSpec{
 				ObjectTypeSpec: pschema.ObjectTypeSpec{
