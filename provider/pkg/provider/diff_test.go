@@ -495,6 +495,9 @@ func TestSkuDiffingIsInsensitiveToAksPermutations(t *testing.T) {
 	testCases := [][]string{
 		[]string{"Basic", "Paid", "Base", "Standard", "equal"},
 		[]string{"Base", "Standard", "Basic", "Paid", "equal"},
+		[]string{"Base", "Free", "Basic", "Free", "equal"},
+		[]string{"Basic", "Paid", "Basic", "Standard", "equal"},
+		[]string{"Basic", "Paid", "Basic", "Paid", "equal"},
 		[]string{"Base", "Standard", "Basic", "Free", "not equal"},
 		[]string{"Premium", "Standard", "Basic", "Free", "not equal"},
 	}

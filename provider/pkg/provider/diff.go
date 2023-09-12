@@ -263,11 +263,16 @@ func sameManagedClusterSku(oldMap resource.PropertyMap, newMap resource.Property
 		return false
 	}
 
-	// Check that name is (Basic or Base) and tier is (Paid or Standard).
-	return (oldName.StringValue() == "Basic" || oldName.StringValue() == "Base") &&
-		(newName.StringValue() == "Basic" || newName.StringValue() == "Base") &&
-		(oldTier.StringValue() == "Paid" || oldTier.StringValue() == "Standard") &&
-		(newTier.StringValue() == "Paid" || newTier.StringValue() == "Standard")
+	// Check that name is exactly the same or both are Basic or Base.
+	sameName := oldName.StringValue() == newName.StringValue() ||
+		(oldName.StringValue() == "Basic" && newName.StringValue() == "Base") ||
+		(oldName.StringValue() == "Base" && newName.StringValue() == "Basic")
+	// Check that tier is exactly the same or both are Paid or Standard.
+	sameTier := oldTier.StringValue() == newTier.StringValue() ||
+		(oldTier.StringValue() == "Paid" && newTier.StringValue() == "Standard") ||
+		(oldTier.StringValue() == "Standard" && newTier.StringValue() == "Paid")
+	// Return true if both of the above hold.
+	return sameName && sameTier
 }
 
 // calculateChangesAndReplacements compares a property diff with the old and new inputs and the
