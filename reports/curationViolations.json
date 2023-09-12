@@ -168,6 +168,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "ScVmm",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "Scom",
     "Detail": "expected tracking stable but found preview"
   },

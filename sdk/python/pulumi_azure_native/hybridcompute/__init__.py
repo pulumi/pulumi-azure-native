@@ -6,11 +6,15 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_license import *
+from .get_license_profile import *
 from .get_machine import *
 from .get_machine_extension import *
 from .get_private_endpoint_connection import *
 from .get_private_link_scope import *
 from .get_private_link_scoped_resource import *
+from .license import *
+from .license_profile import *
 from .machine import *
 from .machine_extension import *
 from .private_endpoint_connection import *
@@ -29,9 +33,12 @@ if typing.TYPE_CHECKING:
     v20220510preview = __v20220510preview
     import pulumi_azure_native.hybridcompute.v20221227 as __v20221227
     v20221227 = __v20221227
+    import pulumi_azure_native.hybridcompute.v20230620preview as __v20230620preview
+    v20230620preview = __v20230620preview
 else:
     v20200802 = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20200802')
     v20200815preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20200815preview')
     v20220510preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20220510preview')
     v20221227 = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20221227')
+    v20230620preview = _utilities.lazy_import('pulumi_azure_native.hybridcompute.v20230620preview')
 

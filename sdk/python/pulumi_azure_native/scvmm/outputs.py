@@ -22,10 +22,12 @@ __all__ = [
     'HardwareProfileResponse',
     'HttpProxyConfigurationResponse',
     'IdentityResponse',
+    'InfrastructureProfileResponse',
     'MachineExtensionInstanceViewResponseStatus',
     'MachineExtensionPropertiesResponseInstanceView',
     'NetworkInterfacesResponse',
     'NetworkProfileResponse',
+    'OsProfileForVMInstanceResponse',
     'OsProfileResponse',
     'StorageProfileResponse',
     'StorageQoSPolicyDetailsResponse',
@@ -33,6 +35,7 @@ __all__ = [
     'SystemDataResponse',
     'VMMServerPropertiesResponseCredentials',
     'VirtualDiskResponse',
+    'VirtualMachineInstancePropertiesResponseAvailabilitySets',
     'VirtualMachinePropertiesResponseAvailabilitySets',
 ]
 
@@ -442,17 +445,16 @@ class GuestCredentialResponse(dict):
     Username / Password Credentials to connect to guest.
     """
     def __init__(__self__, *,
-                 username: Optional[str] = None):
+                 username: str):
         """
         Username / Password Credentials to connect to guest.
         :param str username: Gets or sets username to connect with the guest.
         """
-        if username is not None:
-            pulumi.set(__self__, "username", username)
+        pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[str]:
+    def username(self) -> str:
         """
         Gets or sets username to connect with the guest.
         """
@@ -684,6 +686,179 @@ class IdentityResponse(dict):
         The type of managed service identity.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class InfrastructureProfileResponse(dict):
+    """
+    Specifies the vmmServer infrastructure specific settings for the virtual machine instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastRestoredVMCheckpoint":
+            suggest = "last_restored_vm_checkpoint"
+        elif key == "biosGuid":
+            suggest = "bios_guid"
+        elif key == "checkpointType":
+            suggest = "checkpoint_type"
+        elif key == "cloudId":
+            suggest = "cloud_id"
+        elif key == "inventoryItemId":
+            suggest = "inventory_item_id"
+        elif key == "templateId":
+            suggest = "template_id"
+        elif key == "vmName":
+            suggest = "vm_name"
+        elif key == "vmmServerId":
+            suggest = "vmm_server_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_restored_vm_checkpoint: 'outputs.CheckpointResponse',
+                 bios_guid: Optional[str] = None,
+                 checkpoint_type: Optional[str] = None,
+                 checkpoints: Optional[Sequence['outputs.CheckpointResponse']] = None,
+                 cloud_id: Optional[str] = None,
+                 generation: Optional[int] = None,
+                 inventory_item_id: Optional[str] = None,
+                 template_id: Optional[str] = None,
+                 uuid: Optional[str] = None,
+                 vm_name: Optional[str] = None,
+                 vmm_server_id: Optional[str] = None):
+        """
+        Specifies the vmmServer infrastructure specific settings for the virtual machine instance.
+        :param 'CheckpointResponse' last_restored_vm_checkpoint: Last restored checkpoint in the vm.
+        :param str bios_guid: Gets or sets the bios guid for the vm.
+        :param str checkpoint_type: Type of checkpoint supported for the vm.
+        :param Sequence['CheckpointResponse'] checkpoints: Checkpoints in the vm.
+        :param str cloud_id: ARM Id of the cloud resource to use for deploying the vm.
+        :param int generation: Gets or sets the generation for the vm.
+        :param str inventory_item_id: Gets or sets the inventory Item ID for the resource.
+        :param str template_id: ARM Id of the template resource to use for deploying the vm.
+        :param str uuid: Unique ID of the virtual machine.
+        :param str vm_name: VMName is the name of VM on the SCVMM server.
+        :param str vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
+        """
+        pulumi.set(__self__, "last_restored_vm_checkpoint", last_restored_vm_checkpoint)
+        if bios_guid is not None:
+            pulumi.set(__self__, "bios_guid", bios_guid)
+        if checkpoint_type is not None:
+            pulumi.set(__self__, "checkpoint_type", checkpoint_type)
+        if checkpoints is not None:
+            pulumi.set(__self__, "checkpoints", checkpoints)
+        if cloud_id is not None:
+            pulumi.set(__self__, "cloud_id", cloud_id)
+        if generation is not None:
+            pulumi.set(__self__, "generation", generation)
+        if inventory_item_id is not None:
+            pulumi.set(__self__, "inventory_item_id", inventory_item_id)
+        if template_id is not None:
+            pulumi.set(__self__, "template_id", template_id)
+        if uuid is not None:
+            pulumi.set(__self__, "uuid", uuid)
+        if vm_name is not None:
+            pulumi.set(__self__, "vm_name", vm_name)
+        if vmm_server_id is not None:
+            pulumi.set(__self__, "vmm_server_id", vmm_server_id)
+
+    @property
+    @pulumi.getter(name="lastRestoredVMCheckpoint")
+    def last_restored_vm_checkpoint(self) -> 'outputs.CheckpointResponse':
+        """
+        Last restored checkpoint in the vm.
+        """
+        return pulumi.get(self, "last_restored_vm_checkpoint")
+
+    @property
+    @pulumi.getter(name="biosGuid")
+    def bios_guid(self) -> Optional[str]:
+        """
+        Gets or sets the bios guid for the vm.
+        """
+        return pulumi.get(self, "bios_guid")
+
+    @property
+    @pulumi.getter(name="checkpointType")
+    def checkpoint_type(self) -> Optional[str]:
+        """
+        Type of checkpoint supported for the vm.
+        """
+        return pulumi.get(self, "checkpoint_type")
+
+    @property
+    @pulumi.getter
+    def checkpoints(self) -> Optional[Sequence['outputs.CheckpointResponse']]:
+        """
+        Checkpoints in the vm.
+        """
+        return pulumi.get(self, "checkpoints")
+
+    @property
+    @pulumi.getter(name="cloudId")
+    def cloud_id(self) -> Optional[str]:
+        """
+        ARM Id of the cloud resource to use for deploying the vm.
+        """
+        return pulumi.get(self, "cloud_id")
+
+    @property
+    @pulumi.getter
+    def generation(self) -> Optional[int]:
+        """
+        Gets or sets the generation for the vm.
+        """
+        return pulumi.get(self, "generation")
+
+    @property
+    @pulumi.getter(name="inventoryItemId")
+    def inventory_item_id(self) -> Optional[str]:
+        """
+        Gets or sets the inventory Item ID for the resource.
+        """
+        return pulumi.get(self, "inventory_item_id")
+
+    @property
+    @pulumi.getter(name="templateId")
+    def template_id(self) -> Optional[str]:
+        """
+        ARM Id of the template resource to use for deploying the vm.
+        """
+        return pulumi.get(self, "template_id")
+
+    @property
+    @pulumi.getter
+    def uuid(self) -> Optional[str]:
+        """
+        Unique ID of the virtual machine.
+        """
+        return pulumi.get(self, "uuid")
+
+    @property
+    @pulumi.getter(name="vmName")
+    def vm_name(self) -> Optional[str]:
+        """
+        VMName is the name of VM on the SCVMM server.
+        """
+        return pulumi.get(self, "vm_name")
+
+    @property
+    @pulumi.getter(name="vmmServerId")
+    def vmm_server_id(self) -> Optional[str]:
+        """
+        ARM Id of the vmmServer resource in which this resource resides.
+        """
+        return pulumi.get(self, "vmm_server_id")
 
 
 @pulumi.output_type
@@ -1054,6 +1229,85 @@ class NetworkProfileResponse(dict):
         Gets or sets the list of network interfaces associated with the virtual machine.
         """
         return pulumi.get(self, "network_interfaces")
+
+
+@pulumi.output_type
+class OsProfileForVMInstanceResponse(dict):
+    """
+    Defines the resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "osSku":
+            suggest = "os_sku"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "osVersion":
+            suggest = "os_version"
+        elif key == "computerName":
+            suggest = "computer_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OsProfileForVMInstanceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OsProfileForVMInstanceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OsProfileForVMInstanceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 os_sku: str,
+                 os_type: str,
+                 os_version: str,
+                 computer_name: Optional[str] = None):
+        """
+        Defines the resource properties.
+        :param str os_sku: Gets or sets os sku.
+        :param str os_type: Gets or sets the type of the os.
+        :param str os_version: Gets os version.
+        :param str computer_name: Gets or sets computer name.
+        """
+        pulumi.set(__self__, "os_sku", os_sku)
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "os_version", os_version)
+        if computer_name is not None:
+            pulumi.set(__self__, "computer_name", computer_name)
+
+    @property
+    @pulumi.getter(name="osSku")
+    def os_sku(self) -> str:
+        """
+        Gets or sets os sku.
+        """
+        return pulumi.get(self, "os_sku")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> str:
+        """
+        Gets or sets the type of the os.
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> str:
+        """
+        Gets os version.
+        """
+        return pulumi.get(self, "os_version")
+
+    @property
+    @pulumi.getter(name="computerName")
+    def computer_name(self) -> Optional[str]:
+        """
+        Gets or sets computer name.
+        """
+        return pulumi.get(self, "computer_name")
 
 
 @pulumi.output_type
@@ -1629,6 +1883,41 @@ class VirtualDiskResponse(dict):
         Gets or sets the disk vhd type.
         """
         return pulumi.get(self, "vhd_type")
+
+
+@pulumi.output_type
+class VirtualMachineInstancePropertiesResponseAvailabilitySets(dict):
+    """
+    Availability Set model
+    """
+    def __init__(__self__, *,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        Availability Set model
+        :param str id: Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
+        :param str name: Gets or sets the name of the availability set.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Gets the ARM Id of the microsoft.scvmm/availabilitySets resource.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the name of the availability set.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

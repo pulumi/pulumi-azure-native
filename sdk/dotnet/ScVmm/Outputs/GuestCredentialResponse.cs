@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.ScVmm.Outputs
         /// <summary>
         /// Gets or sets username to connect with the guest.
         /// </summary>
-        public readonly string? Username;
+        public readonly string Username;
 
         [OutputConstructor]
-        private GuestCredentialResponse(string? username)
+        private GuestCredentialResponse(string username)
         {
             Username = username;
         }

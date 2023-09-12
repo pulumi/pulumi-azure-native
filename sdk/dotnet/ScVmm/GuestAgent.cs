@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:GuestAgent"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:GuestAgent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -668,6 +668,8 @@ HybridCloud:
 HybridCompute:
     tracking: "2022-12-27"
     additions:
+        License: 2023-06-20-preview
+        LicenseProfile: 2023-06-20-preview
         PrivateLinkScopedResource: 2020-08-15-preview
 HybridConnectivity:
     tracking: "2023-03-15"
@@ -1222,6 +1224,9 @@ SaaS:
     tracking: 2018-03-01-beta
 ScVmm:
     tracking: 2022-05-21-preview
+    additions:
+        VMInstanceGuestAgent: 2023-04-01-preview
+        VirtualMachineInstance: 2023-04-01-preview
 Scheduler:
     tracking: "2016-03-01"
 Scom:

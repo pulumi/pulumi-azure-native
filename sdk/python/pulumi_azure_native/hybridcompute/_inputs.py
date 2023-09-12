@@ -14,6 +14,7 @@ __all__ = [
     'AgentUpgradeArgs',
     'HybridComputePrivateLinkScopePropertiesArgs',
     'IdentityArgs',
+    'LicenseDetailsArgs',
     'LocationDataArgs',
     'MachineExtensionInstanceViewStatusArgs',
     'MachineExtensionInstanceViewArgs',
@@ -128,6 +129,94 @@ class IdentityArgs:
 
     @type.setter
     def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class LicenseDetailsArgs:
+    def __init__(__self__, *,
+                 edition: Optional[pulumi.Input[Union[str, 'LicenseEdition']]] = None,
+                 processors: Optional[pulumi.Input[int]] = None,
+                 state: Optional[pulumi.Input[Union[str, 'LicenseState']]] = None,
+                 target: Optional[pulumi.Input[Union[str, 'LicenseTarget']]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'LicenseCoreType']]] = None):
+        """
+        Describes the properties of a License.
+        :param pulumi.Input[Union[str, 'LicenseEdition']] edition: Describes the edition of the license. The values are either Standard or Datacenter.
+        :param pulumi.Input[int] processors: Describes the number of processors.
+        :param pulumi.Input[Union[str, 'LicenseState']] state: Describes the state of the license.
+        :param pulumi.Input[Union[str, 'LicenseTarget']] target: Describes the license target server.
+        :param pulumi.Input[Union[str, 'LicenseCoreType']] type: Describes the license core type (pCore or vCore).
+        """
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if processors is not None:
+            pulumi.set(__self__, "processors", processors)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[pulumi.Input[Union[str, 'LicenseEdition']]]:
+        """
+        Describes the edition of the license. The values are either Standard or Datacenter.
+        """
+        return pulumi.get(self, "edition")
+
+    @edition.setter
+    def edition(self, value: Optional[pulumi.Input[Union[str, 'LicenseEdition']]]):
+        pulumi.set(self, "edition", value)
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Optional[pulumi.Input[int]]:
+        """
+        Describes the number of processors.
+        """
+        return pulumi.get(self, "processors")
+
+    @processors.setter
+    def processors(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "processors", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[str, 'LicenseState']]]:
+        """
+        Describes the state of the license.
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[str, 'LicenseState']]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[pulumi.Input[Union[str, 'LicenseTarget']]]:
+        """
+        Describes the license target server.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: Optional[pulumi.Input[Union[str, 'LicenseTarget']]]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[str, 'LicenseCoreType']]]:
+        """
+        Describes the license core type (pCore or vCore).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[str, 'LicenseCoreType']]]):
         pulumi.set(self, "type", value)
 
 

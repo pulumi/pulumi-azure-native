@@ -2519,6 +2519,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "cache/v20230801preview",
+  "fqn": "pulumi_azure_native.cache.v20230801preview",
+  "classes": {
+   "azure-native:cache/v20230801preview:Database": "Database",
+   "azure-native:cache/v20230801preview:EnterprisePrivateEndpointConnection": "EnterprisePrivateEndpointConnection",
+   "azure-native:cache/v20230801preview:RedisEnterprise": "RedisEnterprise"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "cdn",
   "fqn": "pulumi_azure_native.cdn",
   "classes": {
@@ -5657,6 +5667,8 @@ _utilities.register(
   "mod": "hybridcompute",
   "fqn": "pulumi_azure_native.hybridcompute",
   "classes": {
+   "azure-native:hybridcompute:License": "License",
+   "azure-native:hybridcompute:LicenseProfile": "LicenseProfile",
    "azure-native:hybridcompute:Machine": "Machine",
    "azure-native:hybridcompute:MachineExtension": "MachineExtension",
    "azure-native:hybridcompute:PrivateEndpointConnection": "PrivateEndpointConnection",
@@ -5702,6 +5714,19 @@ _utilities.register(
    "azure-native:hybridcompute/v20221227:MachineExtension": "MachineExtension",
    "azure-native:hybridcompute/v20221227:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:hybridcompute/v20221227:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "hybridcompute/v20230620preview",
+  "fqn": "pulumi_azure_native.hybridcompute.v20230620preview",
+  "classes": {
+   "azure-native:hybridcompute/v20230620preview:License": "License",
+   "azure-native:hybridcompute/v20230620preview:LicenseProfile": "LicenseProfile",
+   "azure-native:hybridcompute/v20230620preview:Machine": "Machine",
+   "azure-native:hybridcompute/v20230620preview:MachineExtension": "MachineExtension",
+   "azure-native:hybridcompute/v20230620preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:hybridcompute/v20230620preview:PrivateLinkScope": "PrivateLinkScope"
   }
  },
  {
@@ -7753,6 +7778,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "netapp/v20230501",
+  "fqn": "pulumi_azure_native.netapp.v20230501",
+  "classes": {
+   "azure-native:netapp/v20230501:Account": "Account",
+   "azure-native:netapp/v20230501:BackupPolicy": "BackupPolicy",
+   "azure-native:netapp/v20230501:Pool": "Pool",
+   "azure-native:netapp/v20230501:Snapshot": "Snapshot",
+   "azure-native:netapp/v20230501:SnapshotPolicy": "SnapshotPolicy",
+   "azure-native:netapp/v20230501:Subvolume": "Subvolume",
+   "azure-native:netapp/v20230501:Volume": "Volume",
+   "azure-native:netapp/v20230501:VolumeGroup": "VolumeGroup",
+   "azure-native:netapp/v20230501:VolumeQuotaRule": "VolumeQuotaRule"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "network",
   "fqn": "pulumi_azure_native.network",
   "classes": {
@@ -9580,7 +9621,9 @@ _utilities.register(
    "azure-native:scvmm:HybridIdentityMetadata": "HybridIdentityMetadata",
    "azure-native:scvmm:InventoryItem": "InventoryItem",
    "azure-native:scvmm:MachineExtension": "MachineExtension",
+   "azure-native:scvmm:VMInstanceGuestAgent": "VMInstanceGuestAgent",
    "azure-native:scvmm:VirtualMachine": "VirtualMachine",
+   "azure-native:scvmm:VirtualMachineInstance": "VirtualMachineInstance",
    "azure-native:scvmm:VirtualMachineTemplate": "VirtualMachineTemplate",
    "azure-native:scvmm:VirtualNetwork": "VirtualNetwork",
    "azure-native:scvmm:VmmServer": "VmmServer"
@@ -9601,6 +9644,25 @@ _utilities.register(
    "azure-native:scvmm/v20220521preview:VirtualMachineTemplate": "VirtualMachineTemplate",
    "azure-native:scvmm/v20220521preview:VirtualNetwork": "VirtualNetwork",
    "azure-native:scvmm/v20220521preview:VmmServer": "VmmServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "scvmm/v20230401preview",
+  "fqn": "pulumi_azure_native.scvmm.v20230401preview",
+  "classes": {
+   "azure-native:scvmm/v20230401preview:AvailabilitySet": "AvailabilitySet",
+   "azure-native:scvmm/v20230401preview:Cloud": "Cloud",
+   "azure-native:scvmm/v20230401preview:GuestAgent": "GuestAgent",
+   "azure-native:scvmm/v20230401preview:HybridIdentityMetadata": "HybridIdentityMetadata",
+   "azure-native:scvmm/v20230401preview:InventoryItem": "InventoryItem",
+   "azure-native:scvmm/v20230401preview:MachineExtension": "MachineExtension",
+   "azure-native:scvmm/v20230401preview:VMInstanceGuestAgent": "VMInstanceGuestAgent",
+   "azure-native:scvmm/v20230401preview:VirtualMachine": "VirtualMachine",
+   "azure-native:scvmm/v20230401preview:VirtualMachineInstance": "VirtualMachineInstance",
+   "azure-native:scvmm/v20230401preview:VirtualMachineTemplate": "VirtualMachineTemplate",
+   "azure-native:scvmm/v20230401preview:VirtualNetwork": "VirtualNetwork",
+   "azure-native:scvmm/v20230401preview:VmmServer": "VmmServer"
   }
  },
  {

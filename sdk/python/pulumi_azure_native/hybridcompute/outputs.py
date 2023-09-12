@@ -18,8 +18,10 @@ __all__ = [
     'ConfigurationExtensionResponse',
     'ErrorAdditionalInfoResponse',
     'ErrorDetailResponse',
+    'EsuKeyResponse',
     'HybridComputePrivateLinkScopePropertiesResponse',
     'IdentityResponse',
+    'LicenseDetailsResponse',
     'LocationDataResponse',
     'MachineExtensionInstanceViewResponse',
     'MachineExtensionInstanceViewResponseStatus',
@@ -445,6 +447,58 @@ class ErrorDetailResponse(dict):
 
 
 @pulumi.output_type
+class EsuKeyResponse(dict):
+    """
+    ESU key
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "licenseStatus":
+            suggest = "license_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EsuKeyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EsuKeyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EsuKeyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 license_status: Optional[str] = None,
+                 sku: Optional[str] = None):
+        """
+        ESU key
+        :param str license_status: The current status of the license profile key.
+        :param str sku: SKU number.
+        """
+        if license_status is not None:
+            pulumi.set(__self__, "license_status", license_status)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+
+    @property
+    @pulumi.getter(name="licenseStatus")
+    def license_status(self) -> Optional[str]:
+        """
+        The current status of the license profile key.
+        """
+        return pulumi.get(self, "license_status")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        """
+        SKU number.
+        """
+        return pulumi.get(self, "sku")
+
+
+@pulumi.output_type
 class HybridComputePrivateLinkScopePropertiesResponse(dict):
     """
     Properties that define a Azure Arc PrivateLinkScope resource.
@@ -583,6 +637,118 @@ class IdentityResponse(dict):
     def type(self) -> Optional[str]:
         """
         The identity type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class LicenseDetailsResponse(dict):
+    """
+    Describes the properties of a License.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignedLicenses":
+            suggest = "assigned_licenses"
+        elif key == "immutableId":
+            suggest = "immutable_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assigned_licenses: int,
+                 immutable_id: str,
+                 edition: Optional[str] = None,
+                 processors: Optional[int] = None,
+                 state: Optional[str] = None,
+                 target: Optional[str] = None,
+                 type: Optional[str] = None):
+        """
+        Describes the properties of a License.
+        :param int assigned_licenses: Describes the number of assigned licenses.
+        :param str immutable_id: Describes the immutable id.
+        :param str edition: Describes the edition of the license. The values are either Standard or Datacenter.
+        :param int processors: Describes the number of processors.
+        :param str state: Describes the state of the license.
+        :param str target: Describes the license target server.
+        :param str type: Describes the license core type (pCore or vCore).
+        """
+        pulumi.set(__self__, "assigned_licenses", assigned_licenses)
+        pulumi.set(__self__, "immutable_id", immutable_id)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if processors is not None:
+            pulumi.set(__self__, "processors", processors)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if target is not None:
+            pulumi.set(__self__, "target", target)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="assignedLicenses")
+    def assigned_licenses(self) -> int:
+        """
+        Describes the number of assigned licenses.
+        """
+        return pulumi.get(self, "assigned_licenses")
+
+    @property
+    @pulumi.getter(name="immutableId")
+    def immutable_id(self) -> str:
+        """
+        Describes the immutable id.
+        """
+        return pulumi.get(self, "immutable_id")
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[str]:
+        """
+        Describes the edition of the license. The values are either Standard or Datacenter.
+        """
+        return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter
+    def processors(self) -> Optional[int]:
+        """
+        Describes the number of processors.
+        """
+        return pulumi.get(self, "processors")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Describes the state of the license.
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
+    def target(self) -> Optional[str]:
+        """
+        Describes the license target server.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Describes the license core type (pCore or vCore).
         """
         return pulumi.get(self, "type")
 

@@ -6,6 +6,11 @@ from enum import Enum
 
 __all__ = [
     'AssessmentModeTypes',
+    'LicenseCoreType',
+    'LicenseEdition',
+    'LicenseState',
+    'LicenseTarget',
+    'LicenseType',
     'PatchModeTypes',
     'PublicNetworkAccessType',
     'ResourceIdentityType',
@@ -19,6 +24,45 @@ class AssessmentModeTypes(str, Enum):
     """
     IMAGE_DEFAULT = "ImageDefault"
     AUTOMATIC_BY_PLATFORM = "AutomaticByPlatform"
+
+
+class LicenseCoreType(str, Enum):
+    """
+    Describes the license core type (pCore or vCore).
+    """
+    P_CORE = "pCore"
+    V_CORE = "vCore"
+
+
+class LicenseEdition(str, Enum):
+    """
+    Describes the edition of the license. The values are either Standard or Datacenter.
+    """
+    STANDARD = "Standard"
+    DATACENTER = "Datacenter"
+
+
+class LicenseState(str, Enum):
+    """
+    Describes the state of the license.
+    """
+    ACTIVATED = "Activated"
+    DEACTIVATED = "Deactivated"
+
+
+class LicenseTarget(str, Enum):
+    """
+    Describes the license target server.
+    """
+    WINDOWS_SERVER_2012 = "Windows Server 2012"
+    WINDOWS_SERVER_2012_R2 = "Windows Server 2012 R2"
+
+
+class LicenseType(str, Enum):
+    """
+    The type of the license resource.
+    """
+    ESU = "ESU"
 
 
 class PatchModeTypes(str, Enum):

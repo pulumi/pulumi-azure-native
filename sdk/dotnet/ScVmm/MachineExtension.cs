@@ -126,6 +126,7 @@ namespace Pulumi.AzureNative.ScVmm
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:scvmm/v20220521preview:MachineExtension"},
+                    new global::Pulumi.Alias { Type = "azure-native:scvmm/v20230401preview:MachineExtension"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

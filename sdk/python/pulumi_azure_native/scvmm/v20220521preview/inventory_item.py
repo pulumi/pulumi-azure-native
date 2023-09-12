@@ -175,7 +175,7 @@ class InventoryItem(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm:InventoryItem"), pulumi.Alias(type_="azure-native:scvmm/v20200605preview:InventoryItem")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:scvmm:InventoryItem"), pulumi.Alias(type_="azure-native:scvmm/v20200605preview:InventoryItem"), pulumi.Alias(type_="azure-native:scvmm/v20230401preview:InventoryItem")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(InventoryItem, __self__).__init__(
             'azure-native:scvmm/v20220521preview:InventoryItem',

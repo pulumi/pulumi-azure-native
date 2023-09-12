@@ -39,6 +39,160 @@ namespace Pulumi.AzureNative.HybridCompute
     }
 
     /// <summary>
+    /// Describes the license core type (pCore or vCore).
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseCoreType : IEquatable<LicenseCoreType>
+    {
+        private readonly string _value;
+
+        private LicenseCoreType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseCoreType PCore { get; } = new LicenseCoreType("pCore");
+        public static LicenseCoreType VCore { get; } = new LicenseCoreType("vCore");
+
+        public static bool operator ==(LicenseCoreType left, LicenseCoreType right) => left.Equals(right);
+        public static bool operator !=(LicenseCoreType left, LicenseCoreType right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseCoreType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseCoreType other && Equals(other);
+        public bool Equals(LicenseCoreType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes the edition of the license. The values are either Standard or Datacenter.
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseEdition : IEquatable<LicenseEdition>
+    {
+        private readonly string _value;
+
+        private LicenseEdition(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseEdition Standard { get; } = new LicenseEdition("Standard");
+        public static LicenseEdition Datacenter { get; } = new LicenseEdition("Datacenter");
+
+        public static bool operator ==(LicenseEdition left, LicenseEdition right) => left.Equals(right);
+        public static bool operator !=(LicenseEdition left, LicenseEdition right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseEdition value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseEdition other && Equals(other);
+        public bool Equals(LicenseEdition other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes the state of the license.
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseState : IEquatable<LicenseState>
+    {
+        private readonly string _value;
+
+        private LicenseState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseState Activated { get; } = new LicenseState("Activated");
+        public static LicenseState Deactivated { get; } = new LicenseState("Deactivated");
+
+        public static bool operator ==(LicenseState left, LicenseState right) => left.Equals(right);
+        public static bool operator !=(LicenseState left, LicenseState right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseState other && Equals(other);
+        public bool Equals(LicenseState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes the license target server.
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseTarget : IEquatable<LicenseTarget>
+    {
+        private readonly string _value;
+
+        private LicenseTarget(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseTarget Windows_Server_2012 { get; } = new LicenseTarget("Windows Server 2012");
+        public static LicenseTarget Windows_Server_2012_R2 { get; } = new LicenseTarget("Windows Server 2012 R2");
+
+        public static bool operator ==(LicenseTarget left, LicenseTarget right) => left.Equals(right);
+        public static bool operator !=(LicenseTarget left, LicenseTarget right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseTarget value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseTarget other && Equals(other);
+        public bool Equals(LicenseTarget other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the license resource.
+    /// </summary>
+    [EnumType]
+    public readonly struct LicenseType : IEquatable<LicenseType>
+    {
+        private readonly string _value;
+
+        private LicenseType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LicenseType ESU { get; } = new LicenseType("ESU");
+
+        public static bool operator ==(LicenseType left, LicenseType right) => left.Equals(right);
+        public static bool operator !=(LicenseType left, LicenseType right) => !left.Equals(right);
+
+        public static explicit operator string(LicenseType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LicenseType other && Equals(other);
+        public bool Equals(LicenseType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the patch mode.
     /// </summary>
     [EnumType]

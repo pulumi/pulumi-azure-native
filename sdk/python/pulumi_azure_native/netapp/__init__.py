@@ -48,6 +48,8 @@ if typing.TYPE_CHECKING:
     v20221101 = __v20221101
     import pulumi_azure_native.netapp.v20221101preview as __v20221101preview
     v20221101preview = __v20221101preview
+    import pulumi_azure_native.netapp.v20230501 as __v20230501
+    v20230501 = __v20230501
 else:
     v20210401 = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401')
     v20210401preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20210401preview')
@@ -55,4 +57,5 @@ else:
     v20220501 = _utilities.lazy_import('pulumi_azure_native.netapp.v20220501')
     v20221101 = _utilities.lazy_import('pulumi_azure_native.netapp.v20221101')
     v20221101preview = _utilities.lazy_import('pulumi_azure_native.netapp.v20221101preview')
+    v20230501 = _utilities.lazy_import('pulumi_azure_native.netapp.v20230501')
 

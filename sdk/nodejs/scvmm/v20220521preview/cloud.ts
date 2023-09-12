@@ -137,7 +137,7 @@ export class Cloud extends pulumi.CustomResource {
             resourceInputs["vmmServerId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:scvmm:Cloud" }, { type: "azure-native:scvmm/v20200605preview:Cloud" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:scvmm:Cloud" }, { type: "azure-native:scvmm/v20200605preview:Cloud" }, { type: "azure-native:scvmm/v20230401preview:Cloud" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Cloud.__pulumiType, name, resourceInputs, opts);
     }

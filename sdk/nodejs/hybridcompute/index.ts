@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetLicenseArgs, GetLicenseResult, GetLicenseOutputArgs } from "./getLicense";
+export const getLicense: typeof import("./getLicense").getLicense = null as any;
+export const getLicenseOutput: typeof import("./getLicense").getLicenseOutput = null as any;
+utilities.lazyLoad(exports, ["getLicense","getLicenseOutput"], () => require("./getLicense"));
+
+export { GetLicenseProfileArgs, GetLicenseProfileResult, GetLicenseProfileOutputArgs } from "./getLicenseProfile";
+export const getLicenseProfile: typeof import("./getLicenseProfile").getLicenseProfile = null as any;
+export const getLicenseProfileOutput: typeof import("./getLicenseProfile").getLicenseProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getLicenseProfile","getLicenseProfileOutput"], () => require("./getLicenseProfile"));
+
 export { GetMachineArgs, GetMachineResult, GetMachineOutputArgs } from "./getMachine";
 export const getMachine: typeof import("./getMachine").getMachine = null as any;
 export const getMachineOutput: typeof import("./getMachine").getMachineOutput = null as any;
@@ -29,6 +39,16 @@ export { GetPrivateLinkScopedResourceArgs, GetPrivateLinkScopedResourceResult, G
 export const getPrivateLinkScopedResource: typeof import("./getPrivateLinkScopedResource").getPrivateLinkScopedResource = null as any;
 export const getPrivateLinkScopedResourceOutput: typeof import("./getPrivateLinkScopedResource").getPrivateLinkScopedResourceOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateLinkScopedResource","getPrivateLinkScopedResourceOutput"], () => require("./getPrivateLinkScopedResource"));
+
+export { LicenseArgs } from "./license";
+export type License = import("./license").License;
+export const License: typeof import("./license").License = null as any;
+utilities.lazyLoad(exports, ["License"], () => require("./license"));
+
+export { LicenseProfileArgs } from "./licenseProfile";
+export type LicenseProfile = import("./licenseProfile").LicenseProfile;
+export const LicenseProfile: typeof import("./licenseProfile").LicenseProfile = null as any;
+utilities.lazyLoad(exports, ["LicenseProfile"], () => require("./licenseProfile"));
 
 export { MachineArgs } from "./machine";
 export type Machine = import("./machine").Machine;
@@ -64,18 +84,24 @@ import * as v20200802 from "./v20200802";
 import * as v20200815preview from "./v20200815preview";
 import * as v20220510preview from "./v20220510preview";
 import * as v20221227 from "./v20221227";
+import * as v20230620preview from "./v20230620preview";
 
 export {
     v20200802,
     v20200815preview,
     v20220510preview,
     v20221227,
+    v20230620preview,
 };
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:hybridcompute:License":
+                return new License(name, <any>undefined, { urn })
+            case "azure-native:hybridcompute:LicenseProfile":
+                return new LicenseProfile(name, <any>undefined, { urn })
             case "azure-native:hybridcompute:Machine":
                 return new Machine(name, <any>undefined, { urn })
             case "azure-native:hybridcompute:MachineExtension":

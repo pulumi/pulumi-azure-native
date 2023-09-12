@@ -5,11 +5,13 @@
 import * as v20200815preview from "./v20200815preview";
 import * as v20220510preview from "./v20220510preview";
 import * as v20221227 from "./v20221227";
+import * as v20230620preview from "./v20230620preview";
 
 export {
     v20200815preview,
     v20220510preview,
     v20221227,
+    v20230620preview,
 };
 
 export const AssessmentModeTypes = {
@@ -18,6 +20,40 @@ export const AssessmentModeTypes = {
 } as const;
 
 export type AssessmentModeTypes = (typeof AssessmentModeTypes)[keyof typeof AssessmentModeTypes];
+
+export const LicenseCoreType = {
+    PCore: "pCore",
+    VCore: "vCore",
+} as const;
+
+export type LicenseCoreType = (typeof LicenseCoreType)[keyof typeof LicenseCoreType];
+
+export const LicenseEdition = {
+    Standard: "Standard",
+    Datacenter: "Datacenter",
+} as const;
+
+export type LicenseEdition = (typeof LicenseEdition)[keyof typeof LicenseEdition];
+
+export const LicenseState = {
+    Activated: "Activated",
+    Deactivated: "Deactivated",
+} as const;
+
+export type LicenseState = (typeof LicenseState)[keyof typeof LicenseState];
+
+export const LicenseTarget = {
+    Windows_Server_2012: "Windows Server 2012",
+    Windows_Server_2012_R2: "Windows Server 2012 R2",
+} as const;
+
+export type LicenseTarget = (typeof LicenseTarget)[keyof typeof LicenseTarget];
+
+export const LicenseType = {
+    ESU: "ESU",
+} as const;
+
+export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
 export const PatchModeTypes = {
     ImageDefault: "ImageDefault",

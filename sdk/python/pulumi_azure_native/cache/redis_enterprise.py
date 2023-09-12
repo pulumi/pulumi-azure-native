@@ -259,7 +259,7 @@ class RedisEnterprise(pulumi.CustomResource):
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210201preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210301:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210801:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20220101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20221101preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230701:RedisEnterprise")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20201001preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210201preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210301:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20210801:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20220101:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20221101preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230301preview:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230701:RedisEnterprise"), pulumi.Alias(type_="azure-native:cache/v20230801preview:RedisEnterprise")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RedisEnterprise, __self__).__init__(
             'azure-native:cache:RedisEnterprise',
