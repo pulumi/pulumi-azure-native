@@ -13,4 +13,7 @@ export const CertificateFormat = {
     Cer: "Cer",
 } as const;
 
+/**
+ * The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx.
+ */
 export type CertificateFormat = (typeof CertificateFormat)[keyof typeof CertificateFormat];

@@ -52,6 +52,9 @@ export const AgentVMSizeTypes = {
     Standard_GS5: "Standard_GS5",
 } as const;
 
+/**
+ * The Azure VM size of the agent VM nodes. This cannot be changed once the cluster is created. This list is non exhaustive; refer to https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes for the possible VM sizes.
+ */
 export type AgentVMSizeTypes = (typeof AgentVMSizeTypes)[keyof typeof AgentVMSizeTypes];
 
 export const ClusterType = {
@@ -59,6 +62,9 @@ export const ClusterType = {
     Local: "Local",
 } as const;
 
+/**
+ * The cluster type.
+ */
 export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
 
 export const OrchestratorType = {
@@ -66,6 +72,9 @@ export const OrchestratorType = {
     None: "None",
 } as const;
 
+/**
+ * Type of orchestrator. It cannot be changed once the cluster is created.
+ */
 export type OrchestratorType = (typeof OrchestratorType)[keyof typeof OrchestratorType];
 
 export const Status = {
@@ -73,6 +82,9 @@ export const Status = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * SSL status. Allowed values are Enabled and Disabled.
+ */
 export type Status = (typeof Status)[keyof typeof Status];
 
 export const SystemServiceType = {
@@ -81,4 +93,7 @@ export const SystemServiceType = {
     BatchFrontEnd: "BatchFrontEnd",
 } as const;
 
+/**
+ * The system service type
+ */
 export type SystemServiceType = (typeof SystemServiceType)[keyof typeof SystemServiceType];

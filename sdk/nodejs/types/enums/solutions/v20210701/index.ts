@@ -8,6 +8,9 @@ export const ApplicationArtifactType = {
     Custom: "Custom",
 } as const;
 
+/**
+ * The managed application definition artifact type.
+ */
 export type ApplicationArtifactType = (typeof ApplicationArtifactType)[keyof typeof ApplicationArtifactType];
 
 export const ApplicationDefinitionArtifactName = {
@@ -17,6 +20,9 @@ export const ApplicationDefinitionArtifactName = {
     MainTemplateParameters: "MainTemplateParameters",
 } as const;
 
+/**
+ * The managed application definition artifact name.
+ */
 export type ApplicationDefinitionArtifactName = (typeof ApplicationDefinitionArtifactName)[keyof typeof ApplicationDefinitionArtifactName];
 
 export const ApplicationLockLevel = {
@@ -25,6 +31,9 @@ export const ApplicationLockLevel = {
     None: "None",
 } as const;
 
+/**
+ * The managed application lock level.
+ */
 export type ApplicationLockLevel = (typeof ApplicationLockLevel)[keyof typeof ApplicationLockLevel];
 
 export const ApplicationManagementMode = {
@@ -33,6 +42,9 @@ export const ApplicationManagementMode = {
     Managed: "Managed",
 } as const;
 
+/**
+ * The managed application management mode.
+ */
 export type ApplicationManagementMode = (typeof ApplicationManagementMode)[keyof typeof ApplicationManagementMode];
 
 export const DeploymentMode = {
@@ -41,6 +53,9 @@ export const DeploymentMode = {
     Complete: "Complete",
 } as const;
 
+/**
+ * The managed application deployment mode.
+ */
 export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
 export const JitApprovalMode = {
@@ -49,6 +64,9 @@ export const JitApprovalMode = {
     ManualApprove: "ManualApprove",
 } as const;
 
+/**
+ * JIT approval mode.
+ */
 export type JitApprovalMode = (typeof JitApprovalMode)[keyof typeof JitApprovalMode];
 
 export const JitApproverType = {
@@ -56,6 +74,9 @@ export const JitApproverType = {
     Group: "group",
 } as const;
 
+/**
+ * The approver type.
+ */
 export type JitApproverType = (typeof JitApproverType)[keyof typeof JitApproverType];
 
 export const JitSchedulingType = {
@@ -64,6 +85,9 @@ export const JitSchedulingType = {
     Recurring: "Recurring",
 } as const;
 
+/**
+ * The type of JIT schedule.
+ */
 export type JitSchedulingType = (typeof JitSchedulingType)[keyof typeof JitSchedulingType];
 
 export const ResourceIdentityType = {
@@ -73,4 +97,7 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

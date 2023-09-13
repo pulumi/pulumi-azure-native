@@ -8,6 +8,9 @@ export const AutoDiscovery = {
     NotApplicable: "NotApplicable",
 } as const;
 
+/**
+ * AutoDiscovery states.
+ */
 export type AutoDiscovery = (typeof AutoDiscovery)[keyof typeof AutoDiscovery];
 
 export const DevOpsProvisioningState = {
@@ -20,4 +23,15 @@ export const DevOpsProvisioningState = {
     DeletionFailure: "DeletionFailure",
 } as const;
 
+/**
+ * The provisioning state of the resource.
+ * 
+ * Pending - Provisioning pending.
+ * Failed - Provisioning failed.
+ * Succeeded - Successful provisioning.
+ * Canceled - Provisioning canceled.
+ * PendingDeletion - Deletion pending.
+ * DeletionSuccess - Deletion successful.
+ * DeletionFailure - Deletion failure.
+ */
 export type DevOpsProvisioningState = (typeof DevOpsProvisioningState)[keyof typeof DevOpsProvisioningState];

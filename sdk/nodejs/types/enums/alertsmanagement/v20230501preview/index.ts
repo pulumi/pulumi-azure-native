@@ -8,6 +8,9 @@ export const ActionType = {
     CorrelateAlerts: "CorrelateAlerts",
 } as const;
 
+/**
+ * Action that should be applied.
+ */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 export const DaysOfWeek = {
@@ -20,6 +23,9 @@ export const DaysOfWeek = {
     Saturday: "Saturday",
 } as const;
 
+/**
+ * Days of week.
+ */
 export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
 
 export const Field = {
@@ -36,6 +42,9 @@ export const Field = {
     AlertContext: "AlertContext",
 } as const;
 
+/**
+ * Field for a given condition.
+ */
 export type Field = (typeof Field)[keyof typeof Field];
 
 export const NotificationsForCorrelatedAlerts = {
@@ -43,6 +52,9 @@ export const NotificationsForCorrelatedAlerts = {
     SuppressAlways: "SuppressAlways",
 } as const;
 
+/**
+ * Indicates how to handle child alerts notifications.
+ */
 export type NotificationsForCorrelatedAlerts = (typeof NotificationsForCorrelatedAlerts)[keyof typeof NotificationsForCorrelatedAlerts];
 
 export const Operator = {
@@ -52,6 +64,9 @@ export const Operator = {
     DoesNotContain: "DoesNotContain",
 } as const;
 
+/**
+ * Operator for a given condition.
+ */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const RecurrenceType = {
@@ -60,4 +75,7 @@ export const RecurrenceType = {
     Monthly: "Monthly",
 } as const;
 
+/**
+ * Specifies when the recurrence should be applied.
+ */
 export type RecurrenceType = (typeof RecurrenceType)[keyof typeof RecurrenceType];

@@ -13,4 +13,7 @@ export const StudentRole = {
     Admin: "Admin",
 } as const;
 
+/**
+ * Student Role
+ */
 export type StudentRole = (typeof StudentRole)[keyof typeof StudentRole];

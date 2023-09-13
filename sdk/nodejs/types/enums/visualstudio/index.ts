@@ -15,4 +15,7 @@ export const AccountResourceRequestOperationType = {
     Link: "link",
 } as const;
 
+/**
+ * The type of the operation.
+ */
 export type AccountResourceRequestOperationType = (typeof AccountResourceRequestOperationType)[keyof typeof AccountResourceRequestOperationType];

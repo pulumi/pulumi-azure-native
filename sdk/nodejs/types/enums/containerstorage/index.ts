@@ -39,6 +39,9 @@ export const AzureDiskSkuName = {
     StandardSSD_ZRS: "StandardSSD_ZRS",
 } as const;
 
+/**
+ * Sku name
+ */
 export type AzureDiskSkuName = (typeof AzureDiskSkuName)[keyof typeof AzureDiskSkuName];
 
 export const ElasticSanSkuName = {
@@ -52,6 +55,9 @@ export const ElasticSanSkuName = {
     Premium_ZRS: "Premium_ZRS",
 } as const;
 
+/**
+ * Sku name
+ */
 export type ElasticSanSkuName = (typeof ElasticSanSkuName)[keyof typeof ElasticSanSkuName];
 
 export const ManagedServiceIdentityType = {
@@ -61,6 +67,9 @@ export const ManagedServiceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
 } as const;
 
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const ReclaimPolicy = {
@@ -74,6 +83,9 @@ export const ReclaimPolicy = {
     Retain: "Retain",
 } as const;
 
+/**
+ * ReclaimPolicy defines what happens to the backend storage when StoragePool is deleted
+ */
 export type ReclaimPolicy = (typeof ReclaimPolicy)[keyof typeof ReclaimPolicy];
 
 export const Zone = {
@@ -91,4 +103,7 @@ export const Zone = {
     Zone3: "3",
 } as const;
 
+/**
+ * Availability Zones
+ */
 export type Zone = (typeof Zone)[keyof typeof Zone];

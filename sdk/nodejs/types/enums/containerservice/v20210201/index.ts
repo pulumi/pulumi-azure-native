@@ -7,6 +7,9 @@ export const AgentPoolMode = {
     User: "User",
 } as const;
 
+/**
+ * AgentPoolMode represents mode of an agent pool
+ */
 export type AgentPoolMode = (typeof AgentPoolMode)[keyof typeof AgentPoolMode];
 
 export const AgentPoolType = {
@@ -14,6 +17,9 @@ export const AgentPoolType = {
     AvailabilitySet: "AvailabilitySet",
 } as const;
 
+/**
+ * AgentPoolType represents types of an agent pool
+ */
 export type AgentPoolType = (typeof AgentPoolType)[keyof typeof AgentPoolType];
 
 export const ContainerServiceVMSizeTypes = {
@@ -193,6 +199,9 @@ export const ContainerServiceVMSizeTypes = {
     Standard_NV6: "Standard_NV6",
 } as const;
 
+/**
+ * Size of agent VMs.
+ */
 export type ContainerServiceVMSizeTypes = (typeof ContainerServiceVMSizeTypes)[keyof typeof ContainerServiceVMSizeTypes];
 
 export const KubeletDiskType = {
@@ -200,6 +209,9 @@ export const KubeletDiskType = {
     Temporary: "Temporary",
 } as const;
 
+/**
+ * KubeletDiskType determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage. Currently allows one value, OS, resulting in Kubelet using the OS disk for data.
+ */
 export type KubeletDiskType = (typeof KubeletDiskType)[keyof typeof KubeletDiskType];
 
 export const OSDiskType = {
@@ -207,6 +219,9 @@ export const OSDiskType = {
     Ephemeral: "Ephemeral",
 } as const;
 
+/**
+ * OS disk type to be used for machines in a given agent pool. Allowed values are 'Ephemeral' and 'Managed'. If unspecified, defaults to 'Ephemeral' when the VM supports ephemeral OS and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation.
+ */
 export type OSDiskType = (typeof OSDiskType)[keyof typeof OSDiskType];
 
 export const OSType = {
@@ -214,6 +229,9 @@ export const OSType = {
     Windows: "Windows",
 } as const;
 
+/**
+ * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+ */
 export type OSType = (typeof OSType)[keyof typeof OSType];
 
 export const ScaleSetEvictionPolicy = {
@@ -221,6 +239,9 @@ export const ScaleSetEvictionPolicy = {
     Deallocate: "Deallocate",
 } as const;
 
+/**
+ * ScaleSetEvictionPolicy to be used to specify eviction policy for Spot virtual machine scale set. Default to Delete.
+ */
 export type ScaleSetEvictionPolicy = (typeof ScaleSetEvictionPolicy)[keyof typeof ScaleSetEvictionPolicy];
 
 export const ScaleSetPriority = {
@@ -228,4 +249,7 @@ export const ScaleSetPriority = {
     Regular: "Regular",
 } as const;
 
+/**
+ * ScaleSetPriority to be used to specify virtual machine scale set priority. Default to regular.
+ */
 export type ScaleSetPriority = (typeof ScaleSetPriority)[keyof typeof ScaleSetPriority];

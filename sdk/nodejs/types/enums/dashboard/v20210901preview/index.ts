@@ -13,6 +13,9 @@ export const IdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;
 
+/**
+ * The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the resource.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const ProvisioningState = {
@@ -27,6 +30,9 @@ export const ProvisioningState = {
     NotSpecified: "NotSpecified",
 } as const;
 
+/**
+ * Provisioning state of the resource.
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const ZoneRedundancy = {

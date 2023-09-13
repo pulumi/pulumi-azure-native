@@ -8,6 +8,9 @@ export const DiskIndependenceMode = {
     Independent_nonpersistent: "independent_nonpersistent",
 } as const;
 
+/**
+ * Disk's independence mode type
+ */
 export type DiskIndependenceMode = (typeof DiskIndependenceMode)[keyof typeof DiskIndependenceMode];
 
 export const NICType = {
@@ -19,4 +22,7 @@ export const NICType = {
     VMXNET3: "VMXNET3",
 } as const;
 
+/**
+ * NIC type
+ */
 export type NICType = (typeof NICType)[keyof typeof NICType];

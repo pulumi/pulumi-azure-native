@@ -8,6 +8,9 @@ export const ProvisioningState = {
     Canceled: "Canceled",
 } as const;
 
+/**
+ * Provision states for FluidRelay RP
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const ResourceIdentityType = {
@@ -15,4 +18,7 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

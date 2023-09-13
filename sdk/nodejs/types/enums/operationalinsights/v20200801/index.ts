@@ -6,6 +6,9 @@ export const ClusterSkuNameEnum = {
     CapacityReservation: "CapacityReservation",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type ClusterSkuNameEnum = (typeof ClusterSkuNameEnum)[keyof typeof ClusterSkuNameEnum];
 
 export const DataSourceKind = {
@@ -44,6 +47,9 @@ export const DataSourceKind = {
     SqlDataClassification: "SqlDataClassification",
 } as const;
 
+/**
+ * The kind of the DataSource.
+ */
 export type DataSourceKind = (typeof DataSourceKind)[keyof typeof DataSourceKind];
 
 export const IdentityType = {
@@ -51,6 +57,9 @@ export const IdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const LinkedServiceEntityStatus = {
@@ -60,6 +69,9 @@ export const LinkedServiceEntityStatus = {
     Updating: "Updating",
 } as const;
 
+/**
+ * The provisioning state of the linked service.
+ */
 export type LinkedServiceEntityStatus = (typeof LinkedServiceEntityStatus)[keyof typeof LinkedServiceEntityStatus];
 
 export const PublicNetworkAccessType = {
@@ -73,6 +85,9 @@ export const PublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The network access type for accessing Log Analytics query.
+ */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const WorkspaceEntityStatus = {
@@ -85,6 +100,9 @@ export const WorkspaceEntityStatus = {
     Updating: "Updating",
 } as const;
 
+/**
+ * The provisioning state of the workspace.
+ */
 export type WorkspaceEntityStatus = (typeof WorkspaceEntityStatus)[keyof typeof WorkspaceEntityStatus];
 
 export const WorkspaceSkuNameEnum = {
@@ -98,4 +116,7 @@ export const WorkspaceSkuNameEnum = {
     LACluster: "LACluster",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type WorkspaceSkuNameEnum = (typeof WorkspaceSkuNameEnum)[keyof typeof WorkspaceSkuNameEnum];

@@ -17,6 +17,9 @@ export const AmlFilesystemIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of identity used for the resource.
+ */
 export type AmlFilesystemIdentityType = (typeof AmlFilesystemIdentityType)[keyof typeof AmlFilesystemIdentityType];
 
 export const CacheIdentityType = {
@@ -26,6 +29,9 @@ export const CacheIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of identity used for the cache
+ */
 export type CacheIdentityType = (typeof CacheIdentityType)[keyof typeof CacheIdentityType];
 
 export const MaintenanceDayOfWeekType = {
@@ -38,6 +44,9 @@ export const MaintenanceDayOfWeekType = {
     Sunday: "Sunday",
 } as const;
 
+/**
+ * Day of the week on which the maintenance window will occur.
+ */
 export type MaintenanceDayOfWeekType = (typeof MaintenanceDayOfWeekType)[keyof typeof MaintenanceDayOfWeekType];
 
 export const NfsAccessRuleAccess = {
@@ -46,6 +55,9 @@ export const NfsAccessRuleAccess = {
     Rw: "rw",
 } as const;
 
+/**
+ * Access allowed by this rule.
+ */
 export type NfsAccessRuleAccess = (typeof NfsAccessRuleAccess)[keyof typeof NfsAccessRuleAccess];
 
 export const NfsAccessRuleScope = {
@@ -54,6 +66,9 @@ export const NfsAccessRuleScope = {
     Host: "host",
 } as const;
 
+/**
+ * Scope for this rule. The scope and filter determine which clients match the rule.
+ */
 export type NfsAccessRuleScope = (typeof NfsAccessRuleScope)[keyof typeof NfsAccessRuleScope];
 
 export const OperationalStateType = {
@@ -63,6 +78,9 @@ export const OperationalStateType = {
     Flushing: "Flushing",
 } as const;
 
+/**
+ * Storage target operational state.
+ */
 export type OperationalStateType = (typeof OperationalStateType)[keyof typeof OperationalStateType];
 
 export const StorageTargetType = {
@@ -72,6 +90,9 @@ export const StorageTargetType = {
     BlobNfs: "blobNfs",
 } as const;
 
+/**
+ * Type of the Storage Target.
+ */
 export type StorageTargetType = (typeof StorageTargetType)[keyof typeof StorageTargetType];
 
 export const UsernameSource = {
@@ -81,4 +102,7 @@ export const UsernameSource = {
     None: "None",
 } as const;
 
+/**
+ * This setting determines how the cache gets username and group names for clients.
+ */
 export type UsernameSource = (typeof UsernameSource)[keyof typeof UsernameSource];

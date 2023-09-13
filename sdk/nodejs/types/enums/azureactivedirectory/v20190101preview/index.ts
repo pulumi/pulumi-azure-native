@@ -17,6 +17,9 @@ export const B2CResourceSKUName = {
     PremiumP2: "PremiumP2",
 } as const;
 
+/**
+ * The name of the SKU for the tenant.
+ */
 export type B2CResourceSKUName = (typeof B2CResourceSKUName)[keyof typeof B2CResourceSKUName];
 
 export const B2CResourceSKUTier = {
@@ -26,4 +29,7 @@ export const B2CResourceSKUTier = {
     A0: "A0",
 } as const;
 
+/**
+ * The tier of the tenant.
+ */
 export type B2CResourceSKUTier = (typeof B2CResourceSKUTier)[keyof typeof B2CResourceSKUTier];

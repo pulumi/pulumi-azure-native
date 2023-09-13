@@ -9,6 +9,9 @@ export const FontSize = {
     Large: "Large",
 } as const;
 
+/**
+ * Size of terminal font.
+ */
 export type FontSize = (typeof FontSize)[keyof typeof FontSize];
 
 export const FontStyle = {
@@ -17,6 +20,9 @@ export const FontStyle = {
     Courier: "Courier",
 } as const;
 
+/**
+ * Style of terminal font.
+ */
 export type FontStyle = (typeof FontStyle)[keyof typeof FontStyle];
 
 export const OsType = {
@@ -24,6 +30,9 @@ export const OsType = {
     Linux: "Linux",
 } as const;
 
+/**
+ * The operating system type of the cloud shell. Deprecated, use preferredShellType.
+ */
 export type OsType = (typeof OsType)[keyof typeof OsType];
 
 export const ProvisioningState = {
@@ -38,6 +47,9 @@ export const ProvisioningState = {
     Succeeded: "Succeeded",
 } as const;
 
+/**
+ * Provisioning state of the console.
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const ShellType = {
@@ -46,4 +58,7 @@ export const ShellType = {
     Powershell: "powershell",
 } as const;
 
+/**
+ * The shell type of the cloud shell.
+ */
 export type ShellType = (typeof ShellType)[keyof typeof ShellType];

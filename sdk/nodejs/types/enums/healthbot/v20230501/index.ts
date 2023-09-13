@@ -9,6 +9,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the Azure Health Bot
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SkuName = {
@@ -18,4 +21,7 @@ export const SkuName = {
     PES: "PES",
 } as const;
 
+/**
+ * The name of the Azure Health Bot SKU
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];

@@ -35,6 +35,9 @@ export const AccessReviewRecurrencePatternType = {
     AbsoluteMonthly: "absoluteMonthly",
 } as const;
 
+/**
+ * The recurrence type : weekly, monthly, etc.
+ */
 export type AccessReviewRecurrencePatternType = (typeof AccessReviewRecurrencePatternType)[keyof typeof AccessReviewRecurrencePatternType];
 
 export const AccessReviewRecurrenceRangeType = {
@@ -43,6 +46,9 @@ export const AccessReviewRecurrenceRangeType = {
     Numbered: "numbered",
 } as const;
 
+/**
+ * The recurrence range type. The possible values are: endDate, noEnd, numbered.
+ */
 export type AccessReviewRecurrenceRangeType = (typeof AccessReviewRecurrenceRangeType)[keyof typeof AccessReviewRecurrenceRangeType];
 
 export const AccessReviewResult = {
@@ -53,6 +59,9 @@ export const AccessReviewResult = {
     NotNotified: "NotNotified",
 } as const;
 
+/**
+ * Represents a reviewer's decision for a given review
+ */
 export type AccessReviewResult = (typeof AccessReviewResult)[keyof typeof AccessReviewResult];
 
 export const AssignmentScopeValidation = {
@@ -66,6 +75,9 @@ export const AssignmentScopeValidation = {
     DoNotValidate: "DoNotValidate",
 } as const;
 
+/**
+ * The option whether validate the exemption is at or under the assignment scope.
+ */
 export type AssignmentScopeValidation = (typeof AssignmentScopeValidation)[keyof typeof AssignmentScopeValidation];
 
 export const DefaultDecisionType = {
@@ -74,6 +86,9 @@ export const DefaultDecisionType = {
     Recommendation: "Recommendation",
 } as const;
 
+/**
+ * This specifies the behavior for the autoReview feature when an access review completes.
+ */
 export type DefaultDecisionType = (typeof DefaultDecisionType)[keyof typeof DefaultDecisionType];
 
 export const EnforcementMode = {
@@ -87,6 +102,9 @@ export const EnforcementMode = {
     DoNotEnforce: "DoNotEnforce",
 } as const;
 
+/**
+ * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+ */
 export type EnforcementMode = (typeof EnforcementMode)[keyof typeof EnforcementMode];
 
 export const ExemptionCategory = {
@@ -100,6 +118,9 @@ export const ExemptionCategory = {
     Mitigated: "Mitigated",
 } as const;
 
+/**
+ * The policy exemption category. Possible values are Waiver and Mitigated.
+ */
 export type ExemptionCategory = (typeof ExemptionCategory)[keyof typeof ExemptionCategory];
 
 export const LockLevel = {
@@ -108,6 +129,9 @@ export const LockLevel = {
     ReadOnly: "ReadOnly",
 } as const;
 
+/**
+ * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
+ */
 export type LockLevel = (typeof LockLevel)[keyof typeof LockLevel];
 
 export const OverrideKind = {
@@ -117,6 +141,9 @@ export const OverrideKind = {
     PolicyEffect: "policyEffect",
 } as const;
 
+/**
+ * The override kind.
+ */
 export type OverrideKind = (typeof OverrideKind)[keyof typeof OverrideKind];
 
 export const ParameterType = {
@@ -129,6 +156,9 @@ export const ParameterType = {
     DateTime: "DateTime",
 } as const;
 
+/**
+ * The data type of the parameter.
+ */
 export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 export const PolicyType = {
@@ -138,6 +168,9 @@ export const PolicyType = {
     Static: "Static",
 } as const;
 
+/**
+ * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+ */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 
 export const PrincipalType = {
@@ -148,6 +181,9 @@ export const PrincipalType = {
     Device: "Device",
 } as const;
 
+/**
+ * The principal type of the assigned principal ID.
+ */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 export const PublicNetworkAccessOptions = {
@@ -172,6 +208,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type. This is the only required field when adding a system or user assigned identity to a resource.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SelectorKind = {
@@ -193,4 +232,7 @@ export const SelectorKind = {
     PolicyDefinitionReferenceId: "policyDefinitionReferenceId",
 } as const;
 
+/**
+ * The selector kind.
+ */
 export type SelectorKind = (typeof SelectorKind)[keyof typeof SelectorKind];

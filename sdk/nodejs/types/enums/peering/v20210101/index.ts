@@ -11,6 +11,9 @@ export const Role = {
     Other: "Other",
 } as const;
 
+/**
+ * The role of the contact.
+ */
 export type Role = (typeof Role)[keyof typeof Role];
 
 export const ValidationState = {
@@ -20,4 +23,7 @@ export const ValidationState = {
     Failed: "Failed",
 } as const;
 
+/**
+ * The validation state of the ASN associated with the peer.
+ */
 export type ValidationState = (typeof ValidationState)[keyof typeof ValidationState];

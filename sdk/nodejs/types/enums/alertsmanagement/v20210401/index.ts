@@ -7,6 +7,9 @@ export const AlertRuleState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The alert rule state.
+ */
 export type AlertRuleState = (typeof AlertRuleState)[keyof typeof AlertRuleState];
 
 export const Severity = {
@@ -17,4 +20,7 @@ export const Severity = {
     Sev4: "Sev4",
 } as const;
 
+/**
+ * The alert rule severity.
+ */
 export type Severity = (typeof Severity)[keyof typeof Severity];

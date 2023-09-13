@@ -10,6 +10,9 @@ export const Kind = {
     Azurebot: "azurebot",
 } as const;
 
+/**
+ * Required. Gets or sets the Kind of the resource.
+ */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
 export const MsaAppType = {
@@ -18,6 +21,9 @@ export const MsaAppType = {
     MultiTenant: "MultiTenant",
 } as const;
 
+/**
+ * Microsoft App Type for the bot
+ */
 export type MsaAppType = (typeof MsaAppType)[keyof typeof MsaAppType];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -26,6 +32,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -33,6 +42,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether the bot is in an isolated network
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SkuName = {
@@ -40,4 +52,7 @@ export const SkuName = {
     S1: "S1",
 } as const;
 
+/**
+ * The sku name
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];

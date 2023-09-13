@@ -8,6 +8,9 @@ export const AppSku = {
     ST2: "ST2",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type AppSku = (typeof AppSku)[keyof typeof AppSku];
 
 export const NetworkAction = {
@@ -15,6 +18,9 @@ export const NetworkAction = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The default network action to apply.
+ */
 export type NetworkAction = (typeof NetworkAction)[keyof typeof NetworkAction];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -23,6 +29,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -30,6 +39,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether requests from the public network are allowed.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SystemAssignedServiceIdentityType = {
@@ -37,4 +49,7 @@ export const SystemAssignedServiceIdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;
 
+/**
+ * Type of managed service identity (either system assigned, or none).
+ */
 export type SystemAssignedServiceIdentityType = (typeof SystemAssignedServiceIdentityType)[keyof typeof SystemAssignedServiceIdentityType];

@@ -13,6 +13,9 @@ export const AgentPoolMode = {
     User: "User",
 } as const;
 
+/**
+ * A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+ */
 export type AgentPoolMode = (typeof AgentPoolMode)[keyof typeof AgentPoolMode];
 
 export const AgentPoolType = {
@@ -26,6 +29,9 @@ export const AgentPoolType = {
     AvailabilitySet: "AvailabilitySet",
 } as const;
 
+/**
+ * The type of Agent Pool.
+ */
 export type AgentPoolType = (typeof AgentPoolType)[keyof typeof AgentPoolType];
 
 export const GPUInstanceProfile = {
@@ -36,6 +42,9 @@ export const GPUInstanceProfile = {
     MIG7g: "MIG7g",
 } as const;
 
+/**
+ * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
+ */
 export type GPUInstanceProfile = (typeof GPUInstanceProfile)[keyof typeof GPUInstanceProfile];
 
 export const KubeletDiskType = {
@@ -49,6 +58,9 @@ export const KubeletDiskType = {
     Temporary: "Temporary",
 } as const;
 
+/**
+ * Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
+ */
 export type KubeletDiskType = (typeof KubeletDiskType)[keyof typeof KubeletDiskType];
 
 export const OSDiskType = {
@@ -62,6 +74,9 @@ export const OSDiskType = {
     Ephemeral: "Ephemeral",
 } as const;
 
+/**
+ * The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+ */
 export type OSDiskType = (typeof OSDiskType)[keyof typeof OSDiskType];
 
 export const OSSKU = {
@@ -69,6 +84,9 @@ export const OSSKU = {
     CBLMariner: "CBLMariner",
 } as const;
 
+/**
+ * Specifies an OS SKU. This value must not be specified if OSType is Windows.
+ */
 export type OSSKU = (typeof OSSKU)[keyof typeof OSSKU];
 
 export const OSType = {
@@ -82,6 +100,9 @@ export const OSType = {
     Windows: "Windows",
 } as const;
 
+/**
+ * The operating system type. The default is Linux.
+ */
 export type OSType = (typeof OSType)[keyof typeof OSType];
 
 export const ScaleDownMode = {
@@ -95,6 +116,9 @@ export const ScaleDownMode = {
     Deallocate: "Deallocate",
 } as const;
 
+/**
+ * This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+ */
 export type ScaleDownMode = (typeof ScaleDownMode)[keyof typeof ScaleDownMode];
 
 export const ScaleSetEvictionPolicy = {
@@ -108,6 +132,9 @@ export const ScaleSetEvictionPolicy = {
     Deallocate: "Deallocate",
 } as const;
 
+/**
+ * This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+ */
 export type ScaleSetEvictionPolicy = (typeof ScaleSetEvictionPolicy)[keyof typeof ScaleSetEvictionPolicy];
 
 export const ScaleSetPriority = {
@@ -121,6 +148,9 @@ export const ScaleSetPriority = {
     Regular: "Regular",
 } as const;
 
+/**
+ * The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+ */
 export type ScaleSetPriority = (typeof ScaleSetPriority)[keyof typeof ScaleSetPriority];
 
 export const WorkloadRuntime = {
@@ -134,4 +164,7 @@ export const WorkloadRuntime = {
     WasmWasi: "WasmWasi",
 } as const;
 
+/**
+ * Determines the type of workload a node can run.
+ */
 export type WorkloadRuntime = (typeof WorkloadRuntime)[keyof typeof WorkloadRuntime];

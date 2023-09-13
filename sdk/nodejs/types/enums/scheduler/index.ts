@@ -27,6 +27,9 @@ export const HttpAuthenticationType = {
     Basic: "Basic",
 } as const;
 
+/**
+ * Gets or sets the HTTP authentication type.
+ */
 export type HttpAuthenticationType = (typeof HttpAuthenticationType)[keyof typeof HttpAuthenticationType];
 
 export const JobActionType = {
@@ -37,6 +40,9 @@ export const JobActionType = {
     ServiceBusTopic: "ServiceBusTopic",
 } as const;
 
+/**
+ * Gets or sets the job action type.
+ */
 export type JobActionType = (typeof JobActionType)[keyof typeof JobActionType];
 
 export const JobCollectionState = {
@@ -46,6 +52,9 @@ export const JobCollectionState = {
     Deleted: "Deleted",
 } as const;
 
+/**
+ * Gets or sets the state.
+ */
 export type JobCollectionState = (typeof JobCollectionState)[keyof typeof JobCollectionState];
 
 export const JobScheduleDay = {
@@ -58,6 +67,9 @@ export const JobScheduleDay = {
     Sunday: "Sunday",
 } as const;
 
+/**
+ * Gets or sets the day. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+ */
 export type JobScheduleDay = (typeof JobScheduleDay)[keyof typeof JobScheduleDay];
 
 export const JobState = {
@@ -67,6 +79,9 @@ export const JobState = {
     Completed: "Completed",
 } as const;
 
+/**
+ * Gets or set the job state.
+ */
 export type JobState = (typeof JobState)[keyof typeof JobState];
 
 export const RecurrenceFrequency = {
@@ -77,6 +92,9 @@ export const RecurrenceFrequency = {
     Month: "Month",
 } as const;
 
+/**
+ * Gets or sets the frequency of recurrence (second, minute, hour, day, week, month).
+ */
 export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
 
 export const RetryType = {
@@ -84,6 +102,9 @@ export const RetryType = {
     Fixed: "Fixed",
 } as const;
 
+/**
+ * Gets or sets the retry strategy to be used.
+ */
 export type RetryType = (typeof RetryType)[keyof typeof RetryType];
 
 export const ServiceBusAuthenticationType = {
@@ -91,6 +112,9 @@ export const ServiceBusAuthenticationType = {
     SharedAccessKey: "SharedAccessKey",
 } as const;
 
+/**
+ * Gets or sets the authentication type.
+ */
 export type ServiceBusAuthenticationType = (typeof ServiceBusAuthenticationType)[keyof typeof ServiceBusAuthenticationType];
 
 export const ServiceBusTransportType = {
@@ -99,6 +123,9 @@ export const ServiceBusTransportType = {
     AMQP: "AMQP",
 } as const;
 
+/**
+ * Gets or sets the transport type.
+ */
 export type ServiceBusTransportType = (typeof ServiceBusTransportType)[keyof typeof ServiceBusTransportType];
 
 export const SkuDefinition = {
@@ -108,4 +135,7 @@ export const SkuDefinition = {
     P20Premium: "P20Premium",
 } as const;
 
+/**
+ * Gets or set the SKU.
+ */
 export type SkuDefinition = (typeof SkuDefinition)[keyof typeof SkuDefinition];

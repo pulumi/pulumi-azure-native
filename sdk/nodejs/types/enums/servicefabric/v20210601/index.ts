@@ -13,6 +13,9 @@ export const ArmServicePackageActivationMode = {
     ExclusiveProcess: "ExclusiveProcess",
 } as const;
 
+/**
+ * The activation Mode of the service package
+ */
 export type ArmServicePackageActivationMode = (typeof ArmServicePackageActivationMode)[keyof typeof ArmServicePackageActivationMode];
 
 export const ArmUpgradeFailureAction = {
@@ -26,6 +29,9 @@ export const ArmUpgradeFailureAction = {
     Manual: "Manual",
 } as const;
 
+/**
+ * The activation Mode of the service package
+ */
 export type ArmUpgradeFailureAction = (typeof ArmUpgradeFailureAction)[keyof typeof ArmUpgradeFailureAction];
 
 export const ClusterUpgradeCadence = {
@@ -43,6 +49,9 @@ export const ClusterUpgradeCadence = {
     Wave2: "Wave2",
 } as const;
 
+/**
+ * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'.
+ */
 export type ClusterUpgradeCadence = (typeof ClusterUpgradeCadence)[keyof typeof ClusterUpgradeCadence];
 
 export const ManagedIdentityType = {
@@ -64,6 +73,9 @@ export const ManagedIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of managed identity for the resource.
+ */
 export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
 
 export const MoveCost = {
@@ -85,6 +97,9 @@ export const MoveCost = {
     High: "High",
 } as const;
 
+/**
+ * Specifies the move cost for the service.
+ */
 export type MoveCost = (typeof MoveCost)[keyof typeof MoveCost];
 
 export const NotificationCategory = {
@@ -94,6 +109,9 @@ export const NotificationCategory = {
     WaveProgress: "WaveProgress",
 } as const;
 
+/**
+ * The category of notification.
+ */
 export type NotificationCategory = (typeof NotificationCategory)[keyof typeof NotificationCategory];
 
 export const NotificationChannel = {
@@ -107,6 +125,9 @@ export const NotificationChannel = {
     EmailSubscription: "EmailSubscription",
 } as const;
 
+/**
+ * The notification channel indicates the type of receivers subscribed to the notification, either user or subscription.
+ */
 export type NotificationChannel = (typeof NotificationChannel)[keyof typeof NotificationChannel];
 
 export const NotificationLevel = {
@@ -120,6 +141,9 @@ export const NotificationLevel = {
     All: "All",
 } as const;
 
+/**
+ * The level of notification.
+ */
 export type NotificationLevel = (typeof NotificationLevel)[keyof typeof NotificationLevel];
 
 export const PartitionScheme = {
@@ -141,6 +165,9 @@ export const PartitionScheme = {
     Named: "Named",
 } as const;
 
+/**
+ * Specifies how the service is partitioned.
+ */
 export type PartitionScheme = (typeof PartitionScheme)[keyof typeof PartitionScheme];
 
 export const RollingUpgradeMode = {
@@ -162,6 +189,9 @@ export const RollingUpgradeMode = {
     Monitored: "Monitored",
 } as const;
 
+/**
+ * The mode used to monitor health during a rolling upgrade. The values are UnmonitoredAuto, UnmonitoredManual, and Monitored.
+ */
 export type RollingUpgradeMode = (typeof RollingUpgradeMode)[keyof typeof RollingUpgradeMode];
 
 export const ServiceCorrelationScheme = {
@@ -183,6 +213,9 @@ export const ServiceCorrelationScheme = {
     NonAlignedAffinity: "NonAlignedAffinity",
 } as const;
 
+/**
+ * The ServiceCorrelationScheme which describes the relationship between this service and the service specified via ServiceName.
+ */
 export type ServiceCorrelationScheme = (typeof ServiceCorrelationScheme)[keyof typeof ServiceCorrelationScheme];
 
 export const ServiceKind = {
@@ -200,6 +233,9 @@ export const ServiceKind = {
     Stateful: "Stateful",
 } as const;
 
+/**
+ * The kind of service (Stateless or Stateful).
+ */
 export type ServiceKind = (typeof ServiceKind)[keyof typeof ServiceKind];
 
 export const ServiceLoadMetricWeight = {
@@ -221,6 +257,9 @@ export const ServiceLoadMetricWeight = {
     High: "High",
 } as const;
 
+/**
+ * The service load metric relative weight, compared to other metrics configured for this service, as a number.
+ */
 export type ServiceLoadMetricWeight = (typeof ServiceLoadMetricWeight)[keyof typeof ServiceLoadMetricWeight];
 
 export const ServicePlacementPolicyType = {
@@ -250,6 +289,9 @@ export const ServicePlacementPolicyType = {
     NonPartiallyPlaceService: "NonPartiallyPlaceService",
 } as const;
 
+/**
+ * The type of placement policy for a service fabric service. Following are the possible values.
+ */
 export type ServicePlacementPolicyType = (typeof ServicePlacementPolicyType)[keyof typeof ServicePlacementPolicyType];
 
 export const SfZonalUpgradeMode = {
@@ -263,6 +305,9 @@ export const SfZonalUpgradeMode = {
     Hierarchical: "Hierarchical",
 } as const;
 
+/**
+ * This property controls the logical grouping of VMs in upgrade domains (UDs). This property can't be modified if a node type with multiple Availability Zones is already present in the cluster.
+ */
 export type SfZonalUpgradeMode = (typeof SfZonalUpgradeMode)[keyof typeof SfZonalUpgradeMode];
 
 export const UpgradeMode = {
@@ -276,6 +321,9 @@ export const UpgradeMode = {
     Manual: "Manual",
 } as const;
 
+/**
+ * The upgrade mode of the cluster when new Service Fabric runtime version is available.
+ */
 export type UpgradeMode = (typeof UpgradeMode)[keyof typeof UpgradeMode];
 
 export const VmssZonalUpgradeMode = {
@@ -289,4 +337,7 @@ export const VmssZonalUpgradeMode = {
     Hierarchical: "Hierarchical",
 } as const;
 
+/**
+ * This property defines the upgrade mode for the virtual machine scale set, it is mandatory if a node type with multiple Availability Zones is added.
+ */
 export type VmssZonalUpgradeMode = (typeof VmssZonalUpgradeMode)[keyof typeof VmssZonalUpgradeMode];

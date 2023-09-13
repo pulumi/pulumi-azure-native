@@ -8,6 +8,9 @@ export const DeploymentModelVersionUpgradeOption = {
     NoAutoUpgrade: "NoAutoUpgrade",
 } as const;
 
+/**
+ * Deployment model version upgrade option.
+ */
 export type DeploymentModelVersionUpgradeOption = (typeof DeploymentModelVersionUpgradeOption)[keyof typeof DeploymentModelVersionUpgradeOption];
 
 export const DeploymentScaleType = {
@@ -15,6 +18,9 @@ export const DeploymentScaleType = {
     Manual: "Manual",
 } as const;
 
+/**
+ * Deployment scale type.
+ */
 export type DeploymentScaleType = (typeof DeploymentScaleType)[keyof typeof DeploymentScaleType];
 
 export const HostingModel = {
@@ -24,6 +30,9 @@ export const HostingModel = {
     ProvisionedWeb: "ProvisionedWeb",
 } as const;
 
+/**
+ * Account hosting model.
+ */
 export type HostingModel = (typeof HostingModel)[keyof typeof HostingModel];
 
 export const KeySource = {
@@ -31,6 +40,9 @@ export const KeySource = {
     Microsoft_KeyVault: "Microsoft.KeyVault",
 } as const;
 
+/**
+ * Enumerates the possible value of keySource for Encryption
+ */
 export type KeySource = (typeof KeySource)[keyof typeof KeySource];
 
 export const NetworkRuleAction = {
@@ -38,6 +50,9 @@ export const NetworkRuleAction = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+ */
 export type NetworkRuleAction = (typeof NetworkRuleAction)[keyof typeof NetworkRuleAction];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -46,6 +61,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -53,6 +71,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not public endpoint access is allowed for this account.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ResourceIdentityType = {
@@ -62,6 +83,9 @@ export const ResourceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RoutingMethods = {
@@ -70,6 +94,9 @@ export const RoutingMethods = {
     Performance: "Performance",
 } as const;
 
+/**
+ * Multiregion routing methods.
+ */
 export type RoutingMethods = (typeof RoutingMethods)[keyof typeof RoutingMethods];
 
 export const SkuTier = {
@@ -80,4 +107,7 @@ export const SkuTier = {
     Enterprise: "Enterprise",
 } as const;
 
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

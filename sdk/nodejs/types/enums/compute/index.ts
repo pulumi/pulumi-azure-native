@@ -41,6 +41,9 @@ export const Architecture = {
     Arm64: "Arm64",
 } as const;
 
+/**
+ * CPU architecture supported by an OS disk.
+ */
 export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 
 export const CachingTypes = {
@@ -49,6 +52,9 @@ export const CachingTypes = {
     ReadWrite: "ReadWrite",
 } as const;
 
+/**
+ * Specifies the caching requirements. Possible values are: **None,** **ReadOnly,** **ReadWrite.** The defaulting behavior is: **None for Standard storage. ReadOnly for Premium storage.**
+ */
 export type CachingTypes = (typeof CachingTypes)[keyof typeof CachingTypes];
 
 export const CloudServiceSlotType = {
@@ -56,6 +62,11 @@ export const CloudServiceSlotType = {
     Staging: "Staging",
 } as const;
 
+/**
+ * Slot type for the cloud service.
+ * Possible values are <br /><br />**Production**<br /><br />**Staging**<br /><br />
+ * If not specified, the default value is Production.
+ */
 export type CloudServiceSlotType = (typeof CloudServiceSlotType)[keyof typeof CloudServiceSlotType];
 
 export const CloudServiceUpgradeMode = {
@@ -64,12 +75,20 @@ export const CloudServiceUpgradeMode = {
     Simultaneous: "Simultaneous",
 } as const;
 
+/**
+ * Update mode for the cloud service. Role instances are allocated to update domains when the service is deployed. Updates can be initiated manually in each update domain or initiated automatically in all update domains.
+ * Possible Values are <br /><br />**Auto**<br /><br />**Manual** <br /><br />**Simultaneous**<br /><br />
+ * If not specified, the default value is Auto. If set to Manual, PUT UpdateDomain must be called to apply the update. If set to Auto, the update is automatically applied to each update domain in sequence.
+ */
 export type CloudServiceUpgradeMode = (typeof CloudServiceUpgradeMode)[keyof typeof CloudServiceUpgradeMode];
 
 export const ComponentNames = {
     Microsoft_Windows_Shell_Setup: "Microsoft-Windows-Shell-Setup",
 } as const;
 
+/**
+ * The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup.
+ */
 export type ComponentNames = (typeof ComponentNames)[keyof typeof ComponentNames];
 
 export const ConfidentialVMEncryptionType = {
@@ -78,6 +97,9 @@ export const ConfidentialVMEncryptionType = {
     EncryptedWithCmk: "EncryptedWithCmk",
 } as const;
 
+/**
+ * confidential VM encryption types
+ */
 export type ConfidentialVMEncryptionType = (typeof ConfidentialVMEncryptionType)[keyof typeof ConfidentialVMEncryptionType];
 
 export const ConsistencyModeTypes = {
@@ -86,6 +108,9 @@ export const ConsistencyModeTypes = {
     ApplicationConsistent: "ApplicationConsistent",
 } as const;
 
+/**
+ * ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
+ */
 export type ConsistencyModeTypes = (typeof ConsistencyModeTypes)[keyof typeof ConsistencyModeTypes];
 
 export const CopyCompletionErrorReason = {
@@ -95,6 +120,9 @@ export const CopyCompletionErrorReason = {
     CopySourceNotFound: "CopySourceNotFound",
 } as const;
 
+/**
+ * Indicates the error code if the background copy of a resource created via the CopyStart operation fails.
+ */
 export type CopyCompletionErrorReason = (typeof CopyCompletionErrorReason)[keyof typeof CopyCompletionErrorReason];
 
 export const DataAccessAuthMode = {
@@ -108,6 +136,9 @@ export const DataAccessAuthMode = {
     None: "None",
 } as const;
 
+/**
+ * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+ */
 export type DataAccessAuthMode = (typeof DataAccessAuthMode)[keyof typeof DataAccessAuthMode];
 
 export const DedicatedHostLicenseTypes = {
@@ -116,6 +147,9 @@ export const DedicatedHostLicenseTypes = {
     Windows_Server_Perpetual: "Windows_Server_Perpetual",
 } as const;
 
+/**
+ * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
+ */
 export type DedicatedHostLicenseTypes = (typeof DedicatedHostLicenseTypes)[keyof typeof DedicatedHostLicenseTypes];
 
 export const DeleteOptions = {
@@ -123,12 +157,18 @@ export const DeleteOptions = {
     Detach: "Detach",
 } as const;
 
+/**
+ * Specify what happens to the public IP when the VM is deleted
+ */
 export type DeleteOptions = (typeof DeleteOptions)[keyof typeof DeleteOptions];
 
 export const DiffDiskOptions = {
     Local: "Local",
 } as const;
 
+/**
+ * Specifies the ephemeral disk settings for operating system disk.
+ */
 export type DiffDiskOptions = (typeof DiffDiskOptions)[keyof typeof DiffDiskOptions];
 
 export const DiffDiskPlacement = {
@@ -136,6 +176,9 @@ export const DiffDiskPlacement = {
     ResourceDisk: "ResourceDisk",
 } as const;
 
+/**
+ * Specifies the ephemeral disk placement for operating system disk. Possible values are: **CacheDisk,** **ResourceDisk.** The defaulting behavior is: **CacheDisk** if one is configured for the VM size otherwise **ResourceDisk** is used. Refer to the VM size documentation for Windows VM at https://docs.microsoft.com/azure/virtual-machines/windows/sizes and Linux VM at https://docs.microsoft.com/azure/virtual-machines/linux/sizes to check which VM sizes exposes a cache disk.
+ */
 export type DiffDiskPlacement = (typeof DiffDiskPlacement)[keyof typeof DiffDiskPlacement];
 
 export const DiskControllerTypes = {
@@ -143,6 +186,9 @@ export const DiskControllerTypes = {
     NVMe: "NVMe",
 } as const;
 
+/**
+ * Specifies the disk controller type configured for the VM. **Note:** This property will be set to the default disk controller type if not specified provided virtual machine is being created with 'hyperVGeneration' set to V2 based on the capabilities of the operating system disk and VM size from the the specified minimum api version. You need to deallocate the VM before updating its disk controller type unless you are updating the VM size in the VM configuration which implicitly deallocates and reallocates the VM. Minimum api-version: 2022-08-01.
+ */
 export type DiskControllerTypes = (typeof DiskControllerTypes)[keyof typeof DiskControllerTypes];
 
 export const DiskCreateOption = {
@@ -188,6 +234,9 @@ export const DiskCreateOption = {
     UploadPreparedSecure: "UploadPreparedSecure",
 } as const;
 
+/**
+ * This enumerates the possible sources of a disk's creation.
+ */
 export type DiskCreateOption = (typeof DiskCreateOption)[keyof typeof DiskCreateOption];
 
 export const DiskCreateOptionTypes = {
@@ -196,6 +245,9 @@ export const DiskCreateOptionTypes = {
     Attach: "Attach",
 } as const;
 
+/**
+ * Specifies how the virtual machine should be created. Possible values are: **Attach.** This value is used when you are using a specialized disk to create the virtual machine. **FromImage.** This value is used when you are using an image to create the virtual machine. If you are using a platform image, you should also use the imageReference element described above. If you are using a marketplace image, you should also use the plan element previously described.
+ */
 export type DiskCreateOptionTypes = (typeof DiskCreateOptionTypes)[keyof typeof DiskCreateOptionTypes];
 
 export const DiskDeleteOptionTypes = {
@@ -203,12 +255,18 @@ export const DiskDeleteOptionTypes = {
     Detach: "Detach",
 } as const;
 
+/**
+ * Specifies whether OS Disk should be deleted or detached upon VM deletion. Possible values are: **Delete.** If this value is used, the OS disk is deleted when VM is deleted. **Detach.** If this value is used, the os disk is retained after VM is deleted. The default value is set to **Detach**. For an ephemeral OS Disk, the default value is set to **Delete**. The user cannot change the delete option for an ephemeral OS Disk.
+ */
 export type DiskDeleteOptionTypes = (typeof DiskDeleteOptionTypes)[keyof typeof DiskDeleteOptionTypes];
 
 export const DiskDetachOptionTypes = {
     ForceDetach: "ForceDetach",
 } as const;
 
+/**
+ * Specifies the detach behavior to be used while detaching a disk or which is already in the process of detachment from the virtual machine. Supported values: **ForceDetach.** detachOption: **ForceDetach** is applicable only for managed data disks. If a previous detachment attempt of the data disk did not complete due to an unexpected failure from the virtual machine and the disk is still not released then use force-detach as a last resort option to detach the disk forcibly from the VM. All writes might not have been flushed when using this detach behavior. **This feature is still in preview** mode and is not supported for VirtualMachineScaleSet. To force-detach a data disk update toBeDetached to 'true' along with setting detachOption: 'ForceDetach'.
+ */
 export type DiskDetachOptionTypes = (typeof DiskDetachOptionTypes)[keyof typeof DiskDetachOptionTypes];
 
 export const DiskEncryptionSetIdentityType = {
@@ -218,6 +276,9 @@ export const DiskEncryptionSetIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+ */
 export type DiskEncryptionSetIdentityType = (typeof DiskEncryptionSetIdentityType)[keyof typeof DiskEncryptionSetIdentityType];
 
 export const DiskEncryptionSetType = {
@@ -235,6 +296,9 @@ export const DiskEncryptionSetType = {
     ConfidentialVmEncryptedWithCustomerKey: "ConfidentialVmEncryptedWithCustomerKey",
 } as const;
 
+/**
+ * The type of key used to encrypt the data of the disk.
+ */
 export type DiskEncryptionSetType = (typeof DiskEncryptionSetType)[keyof typeof DiskEncryptionSetType];
 
 export const DiskSecurityTypes = {
@@ -256,6 +320,9 @@ export const DiskSecurityTypes = {
     ConfidentialVM_DiskEncryptedWithCustomerKey: "ConfidentialVM_DiskEncryptedWithCustomerKey",
 } as const;
 
+/**
+ * Specifies the SecurityType of the VM. Applicable for OS disks only.
+ */
 export type DiskSecurityTypes = (typeof DiskSecurityTypes)[keyof typeof DiskSecurityTypes];
 
 export const DiskStorageAccountTypes = {
@@ -289,6 +356,9 @@ export const DiskStorageAccountTypes = {
     PremiumV2_LRS: "PremiumV2_LRS",
 } as const;
 
+/**
+ * The sku name.
+ */
 export type DiskStorageAccountTypes = (typeof DiskStorageAccountTypes)[keyof typeof DiskStorageAccountTypes];
 
 export const EdgeZoneStorageAccountType = {
@@ -298,6 +368,9 @@ export const EdgeZoneStorageAccountType = {
     Premium_LRS: "Premium_LRS",
 } as const;
 
+/**
+ * Specifies the storage account type to be used to store the image. This property is not updatable.
+ */
 export type EdgeZoneStorageAccountType = (typeof EdgeZoneStorageAccountType)[keyof typeof EdgeZoneStorageAccountType];
 
 export const EncryptionType = {
@@ -315,12 +388,18 @@ export const EncryptionType = {
     EncryptionAtRestWithPlatformAndCustomerKeys: "EncryptionAtRestWithPlatformAndCustomerKeys",
 } as const;
 
+/**
+ * The type of key used to encrypt the data of the disk.
+ */
 export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 export const ExtendedLocationTypes = {
     EdgeZone: "EdgeZone",
 } as const;
 
+/**
+ * The type of the extended location.
+ */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
 export const GalleryApplicationCustomActionParameterType = {
@@ -329,6 +408,9 @@ export const GalleryApplicationCustomActionParameterType = {
     LogOutputBlob: "LogOutputBlob",
 } as const;
 
+/**
+ * Specifies the type of the custom action parameter. Possible values are: String, ConfigurationDataBlob or LogOutputBlob
+ */
 export type GalleryApplicationCustomActionParameterType = (typeof GalleryApplicationCustomActionParameterType)[keyof typeof GalleryApplicationCustomActionParameterType];
 
 export const GalleryExtendedLocationType = {
@@ -336,6 +418,9 @@ export const GalleryExtendedLocationType = {
     Unknown: "Unknown",
 } as const;
 
+/**
+ * It is type of the extended location.
+ */
 export type GalleryExtendedLocationType = (typeof GalleryExtendedLocationType)[keyof typeof GalleryExtendedLocationType];
 
 export const GallerySharingPermissionTypes = {
@@ -344,6 +429,9 @@ export const GallerySharingPermissionTypes = {
     Community: "Community",
 } as const;
 
+/**
+ * This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups** <br><br> **Community**
+ */
 export type GallerySharingPermissionTypes = (typeof GallerySharingPermissionTypes)[keyof typeof GallerySharingPermissionTypes];
 
 export const HostCaching = {
@@ -352,6 +440,9 @@ export const HostCaching = {
     ReadWrite: "ReadWrite",
 } as const;
 
+/**
+ * The host caching of the disk. Valid values are 'None', 'ReadOnly', and 'ReadWrite'
+ */
 export type HostCaching = (typeof HostCaching)[keyof typeof HostCaching];
 
 export const HyperVGeneration = {
@@ -359,6 +450,9 @@ export const HyperVGeneration = {
     V2: "V2",
 } as const;
 
+/**
+ * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+ */
 export type HyperVGeneration = (typeof HyperVGeneration)[keyof typeof HyperVGeneration];
 
 export const HyperVGenerationTypes = {
@@ -366,6 +460,9 @@ export const HyperVGenerationTypes = {
     V2: "V2",
 } as const;
 
+/**
+ * Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
+ */
 export type HyperVGenerationTypes = (typeof HyperVGenerationTypes)[keyof typeof HyperVGenerationTypes];
 
 export const IPVersion = {
@@ -373,6 +470,9 @@ export const IPVersion = {
     IPv6: "IPv6",
 } as const;
 
+/**
+ * Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+ */
 export type IPVersion = (typeof IPVersion)[keyof typeof IPVersion];
 
 export const IPVersions = {
@@ -380,6 +480,9 @@ export const IPVersions = {
     IPv6: "IPv6",
 } as const;
 
+/**
+ * Available from Api-Version 2019-07-01 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4. Possible values are: 'IPv4' and 'IPv6'.
+ */
 export type IPVersions = (typeof IPVersions)[keyof typeof IPVersions];
 
 export const IntervalInMins = {
@@ -389,6 +492,9 @@ export const IntervalInMins = {
     SixtyMins: "SixtyMins",
 } as const;
 
+/**
+ * Interval value in minutes used to create LogAnalytics call rate logs.
+ */
 export type IntervalInMins = (typeof IntervalInMins)[keyof typeof IntervalInMins];
 
 export const LinuxPatchAssessmentMode = {
@@ -396,6 +502,9 @@ export const LinuxPatchAssessmentMode = {
     AutomaticByPlatform: "AutomaticByPlatform",
 } as const;
 
+/**
+ * Specifies the mode of VM Guest Patch Assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine. <br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true.
+ */
 export type LinuxPatchAssessmentMode = (typeof LinuxPatchAssessmentMode)[keyof typeof LinuxPatchAssessmentMode];
 
 export const LinuxVMGuestPatchAutomaticByPlatformRebootSetting = {
@@ -405,6 +514,9 @@ export const LinuxVMGuestPatchAutomaticByPlatformRebootSetting = {
     Always: "Always",
 } as const;
 
+/**
+ * Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+ */
 export type LinuxVMGuestPatchAutomaticByPlatformRebootSetting = (typeof LinuxVMGuestPatchAutomaticByPlatformRebootSetting)[keyof typeof LinuxVMGuestPatchAutomaticByPlatformRebootSetting];
 
 export const LinuxVMGuestPatchMode = {
@@ -412,6 +524,9 @@ export const LinuxVMGuestPatchMode = {
     AutomaticByPlatform: "AutomaticByPlatform",
 } as const;
 
+/**
+ * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - The virtual machine's default patching configuration is used. <br /><br /> **AutomaticByPlatform** - The virtual machine will be automatically updated by the platform. The property provisionVMAgent must be true
+ */
 export type LinuxVMGuestPatchMode = (typeof LinuxVMGuestPatchMode)[keyof typeof LinuxVMGuestPatchMode];
 
 export const NetworkAccessPolicy = {
@@ -429,12 +544,18 @@ export const NetworkAccessPolicy = {
     DenyAll: "DenyAll",
 } as const;
 
+/**
+ * Policy for accessing the disk via network.
+ */
 export type NetworkAccessPolicy = (typeof NetworkAccessPolicy)[keyof typeof NetworkAccessPolicy];
 
 export const NetworkApiVersion = {
     NetworkApiVersion_2020_11_01: "2020-11-01",
 } as const;
 
+/**
+ * specifies the Microsoft.Network API version used when creating networking resources in the Network Interface Configurations
+ */
 export type NetworkApiVersion = (typeof NetworkApiVersion)[keyof typeof NetworkApiVersion];
 
 export const OperatingSystemStateTypes = {
@@ -448,6 +569,9 @@ export const OperatingSystemStateTypes = {
     Specialized: "Specialized",
 } as const;
 
+/**
+ * The OS State. For managed images, use Generalized.
+ */
 export type OperatingSystemStateTypes = (typeof OperatingSystemStateTypes)[keyof typeof OperatingSystemStateTypes];
 
 export const OperatingSystemTypes = {
@@ -455,6 +579,9 @@ export const OperatingSystemTypes = {
     Linux: "Linux",
 } as const;
 
+/**
+ * This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: **Windows,** **Linux.**
+ */
 export type OperatingSystemTypes = (typeof OperatingSystemTypes)[keyof typeof OperatingSystemTypes];
 
 export const OrchestrationMode = {
@@ -462,12 +589,18 @@ export const OrchestrationMode = {
     Flexible: "Flexible",
 } as const;
 
+/**
+ * Specifies the orchestration mode for the virtual machine scale set.
+ */
 export type OrchestrationMode = (typeof OrchestrationMode)[keyof typeof OrchestrationMode];
 
 export const PassNames = {
     OobeSystem: "OobeSystem",
 } as const;
 
+/**
+ * The pass name. Currently, the only allowable value is OobeSystem.
+ */
 export type PassNames = (typeof PassNames)[keyof typeof PassNames];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -476,6 +609,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const ProtocolTypes = {
@@ -483,6 +619,9 @@ export const ProtocolTypes = {
     Https: "Https",
 } as const;
 
+/**
+ * Specifies the protocol of WinRM listener. Possible values are: **http,** **https.**
+ */
 export type ProtocolTypes = (typeof ProtocolTypes)[keyof typeof ProtocolTypes];
 
 export const ProximityPlacementGroupType = {
@@ -490,6 +629,9 @@ export const ProximityPlacementGroupType = {
     Ultra: "Ultra",
 } as const;
 
+/**
+ * Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
+ */
 export type ProximityPlacementGroupType = (typeof ProximityPlacementGroupType)[keyof typeof ProximityPlacementGroupType];
 
 export const PublicIPAddressSkuName = {
@@ -497,6 +639,9 @@ export const PublicIPAddressSkuName = {
     Standard: "Standard",
 } as const;
 
+/**
+ * Specify public IP sku name
+ */
 export type PublicIPAddressSkuName = (typeof PublicIPAddressSkuName)[keyof typeof PublicIPAddressSkuName];
 
 export const PublicIPAddressSkuTier = {
@@ -504,6 +649,9 @@ export const PublicIPAddressSkuTier = {
     Global: "Global",
 } as const;
 
+/**
+ * Specify public IP sku tier
+ */
 export type PublicIPAddressSkuTier = (typeof PublicIPAddressSkuTier)[keyof typeof PublicIPAddressSkuTier];
 
 export const PublicIPAllocationMethod = {
@@ -511,6 +659,9 @@ export const PublicIPAllocationMethod = {
     Static: "Static",
 } as const;
 
+/**
+ * Specify the public IP allocation type
+ */
 export type PublicIPAllocationMethod = (typeof PublicIPAllocationMethod)[keyof typeof PublicIPAllocationMethod];
 
 export const PublicNetworkAccess = {
@@ -524,6 +675,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Policy for controlling export on the disk.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const RepairAction = {
@@ -532,6 +686,9 @@ export const RepairAction = {
     Reimage: "Reimage",
 } as const;
 
+/**
+ * Type of repair action (replace, restart, reimage) that will be used for repairing unhealthy virtual machines in the scale set. Default value is replace.
+ */
 export type RepairAction = (typeof RepairAction)[keyof typeof RepairAction];
 
 export const ReplicationMode = {
@@ -539,6 +696,9 @@ export const ReplicationMode = {
     Shallow: "Shallow",
 } as const;
 
+/**
+ * Optional parameter which specifies the mode to be used for replication. This property is not updatable.
+ */
 export type ReplicationMode = (typeof ReplicationMode)[keyof typeof ReplicationMode];
 
 export const ResourceIdentityType = {
@@ -548,6 +708,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of identity used for the virtual machine. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the virtual machine.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RestorePointEncryptionType = {
@@ -565,6 +728,9 @@ export const RestorePointEncryptionType = {
     EncryptionAtRestWithPlatformAndCustomerKeys: "EncryptionAtRestWithPlatformAndCustomerKeys",
 } as const;
 
+/**
+ * The type of key used to encrypt the data of the disk restore point.
+ */
 export type RestorePointEncryptionType = (typeof RestorePointEncryptionType)[keyof typeof RestorePointEncryptionType];
 
 export const SecurityEncryptionTypes = {
@@ -572,6 +738,9 @@ export const SecurityEncryptionTypes = {
     DiskWithVMGuestState: "DiskWithVMGuestState",
 } as const;
 
+/**
+ * Specifies the EncryptionType of the managed disk. It is set to DiskWithVMGuestState for encryption of the managed disk along with VMGuestState blob, and VMGuestStateOnly for encryption of just the VMGuestState blob. **Note:** It can be set for only Confidential VMs.
+ */
 export type SecurityEncryptionTypes = (typeof SecurityEncryptionTypes)[keyof typeof SecurityEncryptionTypes];
 
 export const SecurityTypes = {
@@ -579,6 +748,9 @@ export const SecurityTypes = {
     ConfidentialVM: "ConfidentialVM",
 } as const;
 
+/**
+ * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings. The default behavior is: UefiSettings will not be enabled unless this property is set.
+ */
 export type SecurityTypes = (typeof SecurityTypes)[keyof typeof SecurityTypes];
 
 export const SettingNames = {
@@ -586,6 +758,9 @@ export const SettingNames = {
     FirstLogonCommands: "FirstLogonCommands",
 } as const;
 
+/**
+ * Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon.
+ */
 export type SettingNames = (typeof SettingNames)[keyof typeof SettingNames];
 
 export const SnapshotStorageAccountTypes = {
@@ -603,6 +778,9 @@ export const SnapshotStorageAccountTypes = {
     Standard_ZRS: "Standard_ZRS",
 } as const;
 
+/**
+ * The sku name.
+ */
 export type SnapshotStorageAccountTypes = (typeof SnapshotStorageAccountTypes)[keyof typeof SnapshotStorageAccountTypes];
 
 export const StatusLevelTypes = {
@@ -611,6 +789,9 @@ export const StatusLevelTypes = {
     Error: "Error",
 } as const;
 
+/**
+ * The level code.
+ */
 export type StatusLevelTypes = (typeof StatusLevelTypes)[keyof typeof StatusLevelTypes];
 
 export const StorageAccountType = {
@@ -619,6 +800,9 @@ export const StorageAccountType = {
     Premium_LRS: "Premium_LRS",
 } as const;
 
+/**
+ * Specifies the storage account type to be used to store the image. This property is not updatable.
+ */
 export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
 
 export const StorageAccountTypes = {
@@ -631,6 +815,9 @@ export const StorageAccountTypes = {
     PremiumV2_LRS: "PremiumV2_LRS",
 } as const;
 
+/**
+ * Specifies the storage account type for the managed disk. NOTE: UltraSSD_LRS can only be used with data disks, it cannot be used with OS Disk.
+ */
 export type StorageAccountTypes = (typeof StorageAccountTypes)[keyof typeof StorageAccountTypes];
 
 export const UpgradeMode = {
@@ -639,6 +826,9 @@ export const UpgradeMode = {
     Rolling: "Rolling",
 } as const;
 
+/**
+ * Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are  automatically updated at the same time.
+ */
 export type UpgradeMode = (typeof UpgradeMode)[keyof typeof UpgradeMode];
 
 export const VirtualMachineEvictionPolicyTypes = {
@@ -646,6 +836,9 @@ export const VirtualMachineEvictionPolicyTypes = {
     Delete: "Delete",
 } as const;
 
+/**
+ * Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. For Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. For Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview.
+ */
 export type VirtualMachineEvictionPolicyTypes = (typeof VirtualMachineEvictionPolicyTypes)[keyof typeof VirtualMachineEvictionPolicyTypes];
 
 export const VirtualMachinePriorityTypes = {
@@ -654,6 +847,9 @@ export const VirtualMachinePriorityTypes = {
     Spot: "Spot",
 } as const;
 
+/**
+ * Specifies the priority for the virtual machines in the scale set. Minimum api-version: 2017-10-30-preview.
+ */
 export type VirtualMachinePriorityTypes = (typeof VirtualMachinePriorityTypes)[keyof typeof VirtualMachinePriorityTypes];
 
 export const VirtualMachineScaleSetScaleInRules = {
@@ -833,6 +1029,9 @@ export const VirtualMachineSizeTypes = {
     Standard_NV24: "Standard_NV24",
 } as const;
 
+/**
+ * Specifies the size of the virtual machine. The enum data type is currently deprecated and will be removed by December 23rd 2023. The recommended way to get the list of available sizes is using these APIs: [List all available virtual machine sizes in an availability set](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes), [List all available virtual machine sizes in a region]( https://docs.microsoft.com/rest/api/compute/resourceskus/list), [List all available virtual machine sizes for resizing](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes). For more information about virtual machine sizes, see [Sizes for virtual machines](https://docs.microsoft.com/azure/virtual-machines/sizes). The available VM sizes depend on region and availability set.
+ */
 export type VirtualMachineSizeTypes = (typeof VirtualMachineSizeTypes)[keyof typeof VirtualMachineSizeTypes];
 
 export const WindowsPatchAssessmentMode = {
@@ -840,6 +1039,9 @@ export const WindowsPatchAssessmentMode = {
     AutomaticByPlatform: "AutomaticByPlatform",
 } as const;
 
+/**
+ * Specifies the mode of VM Guest patch assessment for the IaaS virtual machine.<br /><br /> Possible values are:<br /><br /> **ImageDefault** - You control the timing of patch assessments on a virtual machine.<br /><br /> **AutomaticByPlatform** - The platform will trigger periodic patch assessments. The property provisionVMAgent must be true. 
+ */
 export type WindowsPatchAssessmentMode = (typeof WindowsPatchAssessmentMode)[keyof typeof WindowsPatchAssessmentMode];
 
 export const WindowsVMGuestPatchAutomaticByPlatformRebootSetting = {
@@ -849,6 +1051,9 @@ export const WindowsVMGuestPatchAutomaticByPlatformRebootSetting = {
     Always: "Always",
 } as const;
 
+/**
+ * Specifies the reboot setting for all AutomaticByPlatform patch installation operations.
+ */
 export type WindowsVMGuestPatchAutomaticByPlatformRebootSetting = (typeof WindowsVMGuestPatchAutomaticByPlatformRebootSetting)[keyof typeof WindowsVMGuestPatchAutomaticByPlatformRebootSetting];
 
 export const WindowsVMGuestPatchMode = {
@@ -857,4 +1062,7 @@ export const WindowsVMGuestPatchMode = {
     AutomaticByPlatform: "AutomaticByPlatform",
 } as const;
 
+/**
+ * Specifies the mode of VM Guest Patching to IaaS virtual machine or virtual machines associated to virtual machine scale set with OrchestrationMode as Flexible.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of patches to a virtual machine. You do this by applying patches manually inside the VM. In this mode, automatic updates are disabled; the property WindowsConfiguration.enableAutomaticUpdates must be false<br /><br /> **AutomaticByOS** - The virtual machine will automatically be updated by the OS. The property WindowsConfiguration.enableAutomaticUpdates must be true. <br /><br /> **AutomaticByPlatform** - the virtual machine will automatically updated by the platform. The properties provisionVMAgent and WindowsConfiguration.enableAutomaticUpdates must be true 
+ */
 export type WindowsVMGuestPatchMode = (typeof WindowsVMGuestPatchMode)[keyof typeof WindowsVMGuestPatchMode];

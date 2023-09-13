@@ -17,6 +17,9 @@ export const AcquireStorageAccountLock = {
     NotAcquire: "NotAcquire",
 } as const;
 
+/**
+ * Whether storage account lock is to be acquired for this container or not.
+ */
 export type AcquireStorageAccountLock = (typeof AcquireStorageAccountLock)[keyof typeof AcquireStorageAccountLock];
 
 export const AgentAutoUpdateStatus = {
@@ -24,6 +27,9 @@ export const AgentAutoUpdateStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * A value indicating whether the auto update is enabled.
+ */
 export type AgentAutoUpdateStatus = (typeof AgentAutoUpdateStatus)[keyof typeof AgentAutoUpdateStatus];
 
 export const AlertsState = {
@@ -38,6 +44,9 @@ export const AutomationAccountAuthenticationType = {
     SystemAssignedIdentity: "SystemAssignedIdentity",
 } as const;
 
+/**
+ * A value indicating the type authentication to use for automation Account.
+ */
 export type AutomationAccountAuthenticationType = (typeof AutomationAccountAuthenticationType)[keyof typeof AutomationAccountAuthenticationType];
 
 export const BackupItemType = {
@@ -59,6 +68,9 @@ export const BackupItemType = {
     SAPHanaDBInstance: "SAPHanaDBInstance",
 } as const;
 
+/**
+ * Type of backup items associated with this container.
+ */
 export type BackupItemType = (typeof BackupItemType)[keyof typeof BackupItemType];
 
 export const BackupManagementType = {
@@ -73,6 +85,9 @@ export const BackupManagementType = {
     DefaultBackup: "DefaultBackup",
 } as const;
 
+/**
+ * Type of backup management for the backed up item.
+ */
 export type BackupManagementType = (typeof BackupManagementType)[keyof typeof BackupManagementType];
 
 export const CreateMode = {
@@ -81,6 +96,9 @@ export const CreateMode = {
     Recover: "Recover",
 } as const;
 
+/**
+ * Create mode to indicate recovery of existing soft deleted data source or creation of new data source.
+ */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const CrossSubscriptionRestoreState = {
@@ -109,12 +127,18 @@ export const DiskAccountType = {
     StandardSSD_LRS: "StandardSSD_LRS",
 } as const;
 
+/**
+ * The disk type.
+ */
 export type DiskAccountType = (typeof DiskAccountType)[keyof typeof DiskAccountType];
 
 export const ExtendedLocationType = {
     EdgeZone: "EdgeZone",
 } as const;
 
+/**
+ * The extended location type.
+ */
 export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
 
 export const FailoverDeploymentModel = {
@@ -123,6 +147,9 @@ export const FailoverDeploymentModel = {
     ResourceManager: "ResourceManager",
 } as const;
 
+/**
+ * The failover deployment model.
+ */
 export type FailoverDeploymentModel = (typeof FailoverDeploymentModel)[keyof typeof FailoverDeploymentModel];
 
 export const IAASVMPolicyType = {
@@ -146,6 +173,9 @@ export const InfrastructureEncryptionState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Enabling/Disabling the Double Encryption state
+ */
 export type InfrastructureEncryptionState = (typeof InfrastructureEncryptionState)[keyof typeof InfrastructureEncryptionState];
 
 export const LastBackupStatus = {
@@ -155,6 +185,9 @@ export const LastBackupStatus = {
     IRPending: "IRPending",
 } as const;
 
+/**
+ * Last backup operation status. Possible values: Healthy, Unhealthy.
+ */
 export type LastBackupStatus = (typeof LastBackupStatus)[keyof typeof LastBackupStatus];
 
 export const LicenseType = {
@@ -163,6 +196,9 @@ export const LicenseType = {
     WindowsServer: "WindowsServer",
 } as const;
 
+/**
+ * The license type.
+ */
 export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
 export const MonthOfYear = {
@@ -189,6 +225,9 @@ export const OperationType = {
     Reregister: "Reregister",
 } as const;
 
+/**
+ * Re-Do Operation
+ */
 export type OperationType = (typeof OperationType)[keyof typeof OperationType];
 
 export const PolicyType = {
@@ -202,6 +241,9 @@ export const PolicyType = {
     SnapshotCopyOnlyFull: "SnapshotCopyOnlyFull",
 } as const;
 
+/**
+ * Type of backup policy type
+ */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];
 
 export const PossibleOperationsDirections = {
@@ -218,6 +260,9 @@ export const PrivateEndpointConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * Gets or sets the status
+ */
 export type PrivateEndpointConnectionStatus = (typeof PrivateEndpointConnectionStatus)[keyof typeof PrivateEndpointConnectionStatus];
 
 export const ProtectableContainerType = {
@@ -241,6 +286,12 @@ export const ProtectableContainerType = {
     AzureWorkloadContainer: "AzureWorkloadContainer",
 } as const;
 
+/**
+ * Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.
+ * Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is
+ * Windows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload
+ * Backup is VMAppContainer
+ */
 export type ProtectableContainerType = (typeof ProtectableContainerType)[keyof typeof ProtectableContainerType];
 
 export const ProtectedItemHealthStatus = {
@@ -251,6 +302,9 @@ export const ProtectedItemHealthStatus = {
     IRPending: "IRPending",
 } as const;
 
+/**
+ * Health status of the backup item, evaluated based on last heartbeat received
+ */
 export type ProtectedItemHealthStatus = (typeof ProtectedItemHealthStatus)[keyof typeof ProtectedItemHealthStatus];
 
 export const ProtectedItemState = {
@@ -263,6 +317,9 @@ export const ProtectedItemState = {
     BackupsSuspended: "BackupsSuspended",
 } as const;
 
+/**
+ * Protection state of the backup engine
+ */
 export type ProtectedItemState = (typeof ProtectedItemState)[keyof typeof ProtectedItemState];
 
 export const ProtectionIntentItemType = {
@@ -274,6 +331,9 @@ export const ProtectionIntentItemType = {
     AzureWorkloadSQLAutoProtectionIntent: "AzureWorkloadSQLAutoProtectionIntent",
 } as const;
 
+/**
+ * backup protectionIntent type.
+ */
 export type ProtectionIntentItemType = (typeof ProtectionIntentItemType)[keyof typeof ProtectionIntentItemType];
 
 export const ProtectionState = {
@@ -286,6 +346,9 @@ export const ProtectionState = {
     BackupsSuspended: "BackupsSuspended",
 } as const;
 
+/**
+ * Backup state of this backup item.
+ */
 export type ProtectionState = (typeof ProtectionState)[keyof typeof ProtectionState];
 
 export const ProtectionStatus = {
@@ -296,6 +359,9 @@ export const ProtectionStatus = {
     ProtectionFailed: "ProtectionFailed",
 } as const;
 
+/**
+ * Backup state of this backup item.
+ */
 export type ProtectionStatus = (typeof ProtectionStatus)[keyof typeof ProtectionStatus];
 
 export const ProvisioningState = {
@@ -305,6 +371,9 @@ export const ProvisioningState = {
     Pending: "Pending",
 } as const;
 
+/**
+ * Gets or sets provisioning state of the private endpoint connection
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const PublicNetworkAccess = {
@@ -312,6 +381,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * property to enable or disable resource provider inbound network traffic from public clients
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const RecoveryPlanActionLocation = {
@@ -319,6 +391,9 @@ export const RecoveryPlanActionLocation = {
     Recovery: "Recovery",
 } as const;
 
+/**
+ * The fabric location.
+ */
 export type RecoveryPlanActionLocation = (typeof RecoveryPlanActionLocation)[keyof typeof RecoveryPlanActionLocation];
 
 export const RecoveryPlanGroupType = {
@@ -327,6 +402,9 @@ export const RecoveryPlanGroupType = {
     Failover: "Failover",
 } as const;
 
+/**
+ * The group type.
+ */
 export type RecoveryPlanGroupType = (typeof RecoveryPlanGroupType)[keyof typeof RecoveryPlanGroupType];
 
 export const ReplicationProtectedItemOperation = {
@@ -357,6 +435,9 @@ export const ResourceHealthStatus = {
     Invalid: "Invalid",
 } as const;
 
+/**
+ * Resource Health Status
+ */
 export type ResourceHealthStatus = (typeof ResourceHealthStatus)[keyof typeof ResourceHealthStatus];
 
 export const ResourceIdentityType = {
@@ -366,6 +447,9 @@ export const ResourceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
 } as const;
 
+/**
+ * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RetentionDurationType = {
@@ -376,6 +460,10 @@ export const RetentionDurationType = {
     Years: "Years",
 } as const;
 
+/**
+ * Retention duration type: days/weeks/months/years
+ * Used only if TieringMode is set to TierAfter
+ */
 export type RetentionDurationType = (typeof RetentionDurationType)[keyof typeof RetentionDurationType];
 
 export const RetentionScheduleFormat = {
@@ -384,6 +472,9 @@ export const RetentionScheduleFormat = {
     Weekly: "Weekly",
 } as const;
 
+/**
+ * Retention schedule format for yearly retention policy.
+ */
 export type RetentionScheduleFormat = (typeof RetentionScheduleFormat)[keyof typeof RetentionScheduleFormat];
 
 export const ScheduleRunType = {
@@ -393,6 +484,9 @@ export const ScheduleRunType = {
     Hourly: "Hourly",
 } as const;
 
+/**
+ * Frequency of the schedule operation of this policy.
+ */
 export type ScheduleRunType = (typeof ScheduleRunType)[keyof typeof ScheduleRunType];
 
 export const SecurityType = {
@@ -401,6 +495,9 @@ export const SecurityType = {
     ConfidentialVM: "ConfidentialVM",
 } as const;
 
+/**
+ * The target VM security type.
+ */
 export type SecurityType = (typeof SecurityType)[keyof typeof SecurityType];
 
 export const SetMultiVmSyncStatus = {
@@ -408,6 +505,9 @@ export const SetMultiVmSyncStatus = {
     Disable: "Disable",
 } as const;
 
+/**
+ * A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+ */
 export type SetMultiVmSyncStatus = (typeof SetMultiVmSyncStatus)[keyof typeof SetMultiVmSyncStatus];
 
 export const SkuName = {
@@ -415,6 +515,9 @@ export const SkuName = {
     RS0: "RS0",
 } as const;
 
+/**
+ * Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const SoftDeleteState = {
@@ -433,6 +536,9 @@ export const SqlServerLicenseType = {
     AHUB: "AHUB",
 } as const;
 
+/**
+ * The SQL Server license type.
+ */
 export type SqlServerLicenseType = (typeof SqlServerLicenseType)[keyof typeof SqlServerLicenseType];
 
 export const TieringMode = {
@@ -442,6 +548,12 @@ export const TieringMode = {
     DoNotTier: "DoNotTier",
 } as const;
 
+/**
+ * Tiering Mode to control automatic tiering of recovery points. Supported values are:
+ * 1. TierRecommended: Tier all recovery points recommended to be tiered
+ * 2. TierAfter: Tier all recovery points after a fixed period, as specified in duration + durationType below.
+ * 3. DoNotTier: Do not tier any recovery points
+ */
 export type TieringMode = (typeof TieringMode)[keyof typeof TieringMode];
 
 export const VaultSubResourceType = {
@@ -450,6 +562,9 @@ export const VaultSubResourceType = {
     AzureSiteRecovery: "AzureSiteRecovery",
 } as const;
 
+/**
+ * GroupId for the PrivateEndpointConnection - AzureBackup, AzureBackup_secondary or AzureSiteRecovery
+ */
 export type VaultSubResourceType = (typeof VaultSubResourceType)[keyof typeof VaultSubResourceType];
 
 export const WeekOfMonth = {
@@ -474,6 +589,9 @@ export const WorkloadItemType = {
     SAPHanaDBInstance: "SAPHanaDBInstance",
 } as const;
 
+/**
+ * Workload item type of the item for which intent is to be set
+ */
 export type WorkloadItemType = (typeof WorkloadItemType)[keyof typeof WorkloadItemType];
 
 export const WorkloadType = {
@@ -495,4 +613,7 @@ export const WorkloadType = {
     SAPHanaDBInstance: "SAPHanaDBInstance",
 } as const;
 
+/**
+ * Type of workload for the backup management
+ */
 export type WorkloadType = (typeof WorkloadType)[keyof typeof WorkloadType];

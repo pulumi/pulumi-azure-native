@@ -47,6 +47,9 @@ export const AgentPoolMode = {
     User: "User",
 } as const;
 
+/**
+ * A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+ */
 export type AgentPoolMode = (typeof AgentPoolMode)[keyof typeof AgentPoolMode];
 
 export const AgentPoolType = {
@@ -60,6 +63,9 @@ export const AgentPoolType = {
     AvailabilitySet: "AvailabilitySet",
 } as const;
 
+/**
+ * The type of Agent Pool.
+ */
 export type AgentPoolType = (typeof AgentPoolType)[keyof typeof AgentPoolType];
 
 export const Code = {
@@ -73,6 +79,9 @@ export const Code = {
     Stopped: "Stopped",
 } as const;
 
+/**
+ * Tells whether the cluster is Running or Stopped
+ */
 export type Code = (typeof Code)[keyof typeof Code];
 
 export const ConnectionStatus = {
@@ -82,6 +91,9 @@ export const ConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * The private link service connection status.
+ */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 export const Expander = {
@@ -103,12 +115,18 @@ export const Expander = {
     Random: "random",
 } as const;
 
+/**
+ * If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+ */
 export type Expander = (typeof Expander)[keyof typeof Expander];
 
 export const ExtendedLocationTypes = {
     EdgeZone: "EdgeZone",
 } as const;
 
+/**
+ * The type of the extended location.
+ */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
 export const GPUInstanceProfile = {
@@ -119,6 +137,9 @@ export const GPUInstanceProfile = {
     MIG7g: "MIG7g",
 } as const;
 
+/**
+ * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
+ */
 export type GPUInstanceProfile = (typeof GPUInstanceProfile)[keyof typeof GPUInstanceProfile];
 
 export const IpFamily = {
@@ -126,6 +147,9 @@ export const IpFamily = {
     IPv6: "IPv6",
 } as const;
 
+/**
+ * The IP version to use for cluster networking and IP assignment.
+ */
 export type IpFamily = (typeof IpFamily)[keyof typeof IpFamily];
 
 export const KeyVaultNetworkAccessTypes = {
@@ -133,6 +157,9 @@ export const KeyVaultNetworkAccessTypes = {
     Private: "Private",
 } as const;
 
+/**
+ * Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+ */
 export type KeyVaultNetworkAccessTypes = (typeof KeyVaultNetworkAccessTypes)[keyof typeof KeyVaultNetworkAccessTypes];
 
 export const KubeletDiskType = {
@@ -146,6 +173,9 @@ export const KubeletDiskType = {
     Temporary: "Temporary",
 } as const;
 
+/**
+ * Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
+ */
 export type KubeletDiskType = (typeof KubeletDiskType)[keyof typeof KubeletDiskType];
 
 export const KubernetesSupportPlan = {
@@ -159,6 +189,9 @@ export const KubernetesSupportPlan = {
     AKSLongTermSupport: "AKSLongTermSupport",
 } as const;
 
+/**
+ * The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'.
+ */
 export type KubernetesSupportPlan = (typeof KubernetesSupportPlan)[keyof typeof KubernetesSupportPlan];
 
 export const LicenseType = {
@@ -172,6 +205,9 @@ export const LicenseType = {
     Windows_Server: "Windows_Server",
 } as const;
 
+/**
+ * The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
+ */
 export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
 export const LoadBalancerSku = {
@@ -185,6 +221,9 @@ export const LoadBalancerSku = {
     Basic: "basic",
 } as const;
 
+/**
+ * The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
+ */
 export type LoadBalancerSku = (typeof LoadBalancerSku)[keyof typeof LoadBalancerSku];
 
 export const ManagedClusterSKUName = {
@@ -194,6 +233,9 @@ export const ManagedClusterSKUName = {
     Base: "Base",
 } as const;
 
+/**
+ * The name of a managed cluster SKU.
+ */
 export type ManagedClusterSKUName = (typeof ManagedClusterSKUName)[keyof typeof ManagedClusterSKUName];
 
 export const ManagedClusterSKUTier = {
@@ -211,6 +253,9 @@ export const ManagedClusterSKUTier = {
     Free: "Free",
 } as const;
 
+/**
+ * If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
+ */
 export type ManagedClusterSKUTier = (typeof ManagedClusterSKUTier)[keyof typeof ManagedClusterSKUTier];
 
 export const ManagedClusterUpgradeType = {
@@ -224,6 +269,11 @@ export const ManagedClusterUpgradeType = {
     NodeImageOnly: "NodeImageOnly",
 } as const;
 
+/**
+ * The upgrade type.
+ * Full requires the KubernetesVersion property to be set.
+ * NodeImageOnly requires the KubernetesVersion property not to be set.
+ */
 export type ManagedClusterUpgradeType = (typeof ManagedClusterUpgradeType)[keyof typeof ManagedClusterUpgradeType];
 
 export const NetworkDataplane = {
@@ -237,6 +287,9 @@ export const NetworkDataplane = {
     Cilium: "cilium",
 } as const;
 
+/**
+ * Network dataplane used in the Kubernetes cluster.
+ */
 export type NetworkDataplane = (typeof NetworkDataplane)[keyof typeof NetworkDataplane];
 
 export const NetworkMode = {
@@ -250,6 +303,9 @@ export const NetworkMode = {
     Bridge: "bridge",
 } as const;
 
+/**
+ * This cannot be specified if networkPlugin is anything other than 'azure'.
+ */
 export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
 
 export const NetworkPlugin = {
@@ -267,6 +323,9 @@ export const NetworkPlugin = {
     None: "none",
 } as const;
 
+/**
+ * Network plugin used for building the Kubernetes network.
+ */
 export type NetworkPlugin = (typeof NetworkPlugin)[keyof typeof NetworkPlugin];
 
 export const NetworkPluginMode = {
@@ -276,6 +335,9 @@ export const NetworkPluginMode = {
     Overlay: "overlay",
 } as const;
 
+/**
+ * The mode the network plugin should use.
+ */
 export type NetworkPluginMode = (typeof NetworkPluginMode)[keyof typeof NetworkPluginMode];
 
 export const NetworkPolicy = {
@@ -293,6 +355,9 @@ export const NetworkPolicy = {
     Cilium: "cilium",
 } as const;
 
+/**
+ * Network policy used for building the Kubernetes network.
+ */
 export type NetworkPolicy = (typeof NetworkPolicy)[keyof typeof NetworkPolicy];
 
 export const OSDiskType = {
@@ -306,6 +371,9 @@ export const OSDiskType = {
     Ephemeral: "Ephemeral",
 } as const;
 
+/**
+ * The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+ */
 export type OSDiskType = (typeof OSDiskType)[keyof typeof OSDiskType];
 
 export const OSSKU = {
@@ -331,6 +399,9 @@ export const OSSKU = {
     Windows2022: "Windows2022",
 } as const;
 
+/**
+ * Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
+ */
 export type OSSKU = (typeof OSSKU)[keyof typeof OSSKU];
 
 export const OSType = {
@@ -338,6 +409,9 @@ export const OSType = {
     Windows: "Windows",
 } as const;
 
+/**
+ * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+ */
 export type OSType = (typeof OSType)[keyof typeof OSType];
 
 export const OpenShiftAgentPoolProfileRole = {
@@ -345,6 +419,9 @@ export const OpenShiftAgentPoolProfileRole = {
     Infra: "infra",
 } as const;
 
+/**
+ * Define the role of the AgentPoolProfile.
+ */
 export type OpenShiftAgentPoolProfileRole = (typeof OpenShiftAgentPoolProfileRole)[keyof typeof OpenShiftAgentPoolProfileRole];
 
 export const OpenShiftContainerServiceVMSize = {
@@ -383,6 +460,9 @@ export const OpenShiftContainerServiceVMSize = {
     Standard_L32s: "Standard_L32s",
 } as const;
 
+/**
+ * Size of agent VMs.
+ */
 export type OpenShiftContainerServiceVMSize = (typeof OpenShiftContainerServiceVMSize)[keyof typeof OpenShiftContainerServiceVMSize];
 
 export const OutboundType = {
@@ -404,6 +484,9 @@ export const OutboundType = {
     UserAssignedNATGateway: "userAssignedNATGateway",
 } as const;
 
+/**
+ * This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
+ */
 export type OutboundType = (typeof OutboundType)[keyof typeof OutboundType];
 
 export const PublicNetworkAccess = {
@@ -411,6 +494,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Allow or deny public network access for AKS
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ResourceIdentityType = {
@@ -428,6 +514,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const ScaleDownMode = {
@@ -441,6 +530,9 @@ export const ScaleDownMode = {
     Deallocate: "Deallocate",
 } as const;
 
+/**
+ * This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+ */
 export type ScaleDownMode = (typeof ScaleDownMode)[keyof typeof ScaleDownMode];
 
 export const ScaleSetEvictionPolicy = {
@@ -454,6 +546,9 @@ export const ScaleSetEvictionPolicy = {
     Deallocate: "Deallocate",
 } as const;
 
+/**
+ * This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+ */
 export type ScaleSetEvictionPolicy = (typeof ScaleSetEvictionPolicy)[keyof typeof ScaleSetEvictionPolicy];
 
 export const ScaleSetPriority = {
@@ -467,6 +562,9 @@ export const ScaleSetPriority = {
     Regular: "Regular",
 } as const;
 
+/**
+ * The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
+ */
 export type ScaleSetPriority = (typeof ScaleSetPriority)[keyof typeof ScaleSetPriority];
 
 export const SnapshotType = {
@@ -476,6 +574,9 @@ export const SnapshotType = {
     NodePool: "NodePool",
 } as const;
 
+/**
+ * The type of a snapshot. The default is NodePool.
+ */
 export type SnapshotType = (typeof SnapshotType)[keyof typeof SnapshotType];
 
 export const UpgradeChannel = {
@@ -501,6 +602,9 @@ export const UpgradeChannel = {
     None: "none",
 } as const;
 
+/**
+ * For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+ */
 export type UpgradeChannel = (typeof UpgradeChannel)[keyof typeof UpgradeChannel];
 
 export const WeekDay = {
@@ -513,6 +617,9 @@ export const WeekDay = {
     Saturday: "Saturday",
 } as const;
 
+/**
+ * The day of the week.
+ */
 export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];
 
 export const WorkloadRuntime = {
@@ -526,4 +633,7 @@ export const WorkloadRuntime = {
     WasmWasi: "WasmWasi",
 } as const;
 
+/**
+ * Determines the type of workload a node can run.
+ */
 export type WorkloadRuntime = (typeof WorkloadRuntime)[keyof typeof WorkloadRuntime];

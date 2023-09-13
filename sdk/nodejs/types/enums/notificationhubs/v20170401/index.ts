@@ -15,6 +15,9 @@ export const NamespaceType = {
     NotificationHub: "NotificationHub",
 } as const;
 
+/**
+ * The namespace type.
+ */
 export type NamespaceType = (typeof NamespaceType)[keyof typeof NamespaceType];
 
 export const SkuName = {
@@ -23,4 +26,7 @@ export const SkuName = {
     Standard: "Standard",
 } as const;
 
+/**
+ * Name of the notification hub sku
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];

@@ -9,6 +9,9 @@ export const AddonType = {
     Arc: "Arc",
 } as const;
 
+/**
+ * The type of private cloud addon
+ */
 export type AddonType = (typeof AddonType)[keyof typeof AddonType];
 
 export const AffinityStrength = {
@@ -16,6 +19,9 @@ export const AffinityStrength = {
     Must: "Must",
 } as const;
 
+/**
+ * vm-host placement policy affinity strength (should/must)
+ */
 export type AffinityStrength = (typeof AffinityStrength)[keyof typeof AffinityStrength];
 
 export const AffinityType = {
@@ -23,6 +29,9 @@ export const AffinityType = {
     AntiAffinity: "AntiAffinity",
 } as const;
 
+/**
+ * placement policy affinity type
+ */
 export type AffinityType = (typeof AffinityType)[keyof typeof AffinityType];
 
 export const AvailabilityStrategy = {
@@ -30,6 +39,9 @@ export const AvailabilityStrategy = {
     DualZone: "DualZone",
 } as const;
 
+/**
+ * The availability strategy for the private cloud
+ */
 export type AvailabilityStrategy = (typeof AvailabilityStrategy)[keyof typeof AvailabilityStrategy];
 
 export const AzureHybridBenefitType = {
@@ -37,6 +49,9 @@ export const AzureHybridBenefitType = {
     None: "None",
 } as const;
 
+/**
+ * placement policy azure hybrid benefit opt-in type
+ */
 export type AzureHybridBenefitType = (typeof AzureHybridBenefitType)[keyof typeof AzureHybridBenefitType];
 
 export const DhcpTypeEnum = {
@@ -44,6 +59,9 @@ export const DhcpTypeEnum = {
     RELAY: "RELAY",
 } as const;
 
+/**
+ * Type of DHCP: SERVER or RELAY.
+ */
 export type DhcpTypeEnum = (typeof DhcpTypeEnum)[keyof typeof DhcpTypeEnum];
 
 export const DnsServiceLogLevelEnum = {
@@ -54,6 +72,9 @@ export const DnsServiceLogLevelEnum = {
     FATAL: "FATAL",
 } as const;
 
+/**
+ * DNS Service log level.
+ */
 export type DnsServiceLogLevelEnum = (typeof DnsServiceLogLevelEnum)[keyof typeof DnsServiceLogLevelEnum];
 
 export const EncryptionState = {
@@ -61,6 +82,9 @@ export const EncryptionState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Status of customer managed encryption key
+ */
 export type EncryptionState = (typeof EncryptionState)[keyof typeof EncryptionState];
 
 export const InternetEnum = {
@@ -68,6 +92,9 @@ export const InternetEnum = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Connectivity to internet is enabled or disabled
+ */
 export type InternetEnum = (typeof InternetEnum)[keyof typeof InternetEnum];
 
 export const MountOptionEnum = {
@@ -75,6 +102,9 @@ export const MountOptionEnum = {
     ATTACH: "ATTACH",
 } as const;
 
+/**
+ * Mode that describes whether the LUN has to be mounted as a datastore or attached as a LUN
+ */
 export type MountOptionEnum = (typeof MountOptionEnum)[keyof typeof MountOptionEnum];
 
 export const PlacementPolicyState = {
@@ -82,6 +112,9 @@ export const PlacementPolicyState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether the placement policy is enabled or disabled
+ */
 export type PlacementPolicyState = (typeof PlacementPolicyState)[keyof typeof PlacementPolicyState];
 
 export const PlacementPolicyType = {
@@ -89,6 +122,9 @@ export const PlacementPolicyType = {
     VmHost: "VmHost",
 } as const;
 
+/**
+ * placement policy type
+ */
 export type PlacementPolicyType = (typeof PlacementPolicyType)[keyof typeof PlacementPolicyType];
 
 export const PortMirroringDirectionEnum = {
@@ -97,6 +133,9 @@ export const PortMirroringDirectionEnum = {
     BIDIRECTIONAL: "BIDIRECTIONAL",
 } as const;
 
+/**
+ * Direction of port mirroring profile.
+ */
 export type PortMirroringDirectionEnum = (typeof PortMirroringDirectionEnum)[keyof typeof PortMirroringDirectionEnum];
 
 export const ResourceIdentityType = {
@@ -104,6 +143,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of identity used for the private cloud. The type 'SystemAssigned' refers to an implicitly created identity. The type 'None' will remove any identities from the Private Cloud.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const ScriptExecutionParameterType = {
@@ -112,6 +154,9 @@ export const ScriptExecutionParameterType = {
     Credential: "Credential",
 } as const;
 
+/**
+ * The type of execution parameter
+ */
 export type ScriptExecutionParameterType = (typeof ScriptExecutionParameterType)[keyof typeof ScriptExecutionParameterType];
 
 export const SslEnum = {
@@ -119,4 +164,7 @@ export const SslEnum = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Protect LDAP communication using SSL certificate (LDAPS)
+ */
 export type SslEnum = (typeof SslEnum)[keyof typeof SslEnum];

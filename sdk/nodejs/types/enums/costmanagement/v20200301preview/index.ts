@@ -6,6 +6,9 @@ export const CostAllocationPolicyType = {
     FixedProportion: "FixedProportion",
 } as const;
 
+/**
+ * Method of cost allocation for the rule
+ */
 export type CostAllocationPolicyType = (typeof CostAllocationPolicyType)[keyof typeof CostAllocationPolicyType];
 
 export const CostAllocationResourceType = {
@@ -19,6 +22,9 @@ export const CostAllocationResourceType = {
     Tag: "Tag",
 } as const;
 
+/**
+ * Type of resources contained in this cost allocation rule
+ */
 export type CostAllocationResourceType = (typeof CostAllocationResourceType)[keyof typeof CostAllocationResourceType];
 
 export const RuleStatus = {
@@ -36,4 +42,7 @@ export const RuleStatus = {
     Processing: "Processing",
 } as const;
 
+/**
+ * Status of the rule
+ */
 export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];

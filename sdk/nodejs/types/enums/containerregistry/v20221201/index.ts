@@ -6,6 +6,9 @@ export const Action = {
     Allow: "Allow",
 } as const;
 
+/**
+ * The action of IP ACL rule.
+ */
 export type Action = (typeof Action)[keyof typeof Action];
 
 export const ActionsRequired = {
@@ -13,6 +16,9 @@ export const ActionsRequired = {
     Recreate: "Recreate",
 } as const;
 
+/**
+ * A message indicating if changes on the service provider require any updates on the consumer.
+ */
 export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequired];
 
 export const ConnectionStatus = {
@@ -22,6 +28,9 @@ export const ConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * The private link service connection status.
+ */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 export const DefaultAction = {
@@ -29,6 +38,9 @@ export const DefaultAction = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The default action of allow or deny when no other rules match.
+ */
 export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
 export const EncryptionStatus = {
@@ -36,6 +48,9 @@ export const EncryptionStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * Indicates whether or not the encryption is enabled for container registry.
+ */
 export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
 
 export const ExportPolicyStatus = {
@@ -43,6 +58,9 @@ export const ExportPolicyStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The value that indicates whether the policy is enabled or not.
+ */
 export type ExportPolicyStatus = (typeof ExportPolicyStatus)[keyof typeof ExportPolicyStatus];
 
 export const NetworkRuleBypassOptions = {
@@ -50,6 +68,9 @@ export const NetworkRuleBypassOptions = {
     None: "None",
 } as const;
 
+/**
+ * Whether to allow trusted Azure services to access a network restricted registry.
+ */
 export type NetworkRuleBypassOptions = (typeof NetworkRuleBypassOptions)[keyof typeof NetworkRuleBypassOptions];
 
 export const PolicyStatus = {
@@ -57,6 +78,9 @@ export const PolicyStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The value that indicates whether the policy is enabled or not.
+ */
 export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
 
 export const PublicNetworkAccess = {
@@ -64,6 +88,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not public network access is allowed for the container registry.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ResourceIdentityType = {
@@ -73,6 +100,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SkuName = {
@@ -82,6 +112,9 @@ export const SkuName = {
     Premium: "Premium",
 } as const;
 
+/**
+ * The SKU name of the container registry. Required for registry creation.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const TokenCertificateName = {
@@ -96,6 +129,9 @@ export const TokenPasswordName = {
     Password2: "password2",
 } as const;
 
+/**
+ * The password name "password1" or "password2"
+ */
 export type TokenPasswordName = (typeof TokenPasswordName)[keyof typeof TokenPasswordName];
 
 export const TokenStatus = {
@@ -103,12 +139,18 @@ export const TokenStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The status of the token example enabled or disabled.
+ */
 export type TokenStatus = (typeof TokenStatus)[keyof typeof TokenStatus];
 
 export const TrustPolicyType = {
     Notary: "Notary",
 } as const;
 
+/**
+ * The type of trust policy.
+ */
 export type TrustPolicyType = (typeof TrustPolicyType)[keyof typeof TrustPolicyType];
 
 export const WebhookAction = {
@@ -126,6 +168,9 @@ export const WebhookStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The status of the webhook at the time the operation was called.
+ */
 export type WebhookStatus = (typeof WebhookStatus)[keyof typeof WebhookStatus];
 
 export const ZoneRedundancy = {
@@ -133,4 +178,7 @@ export const ZoneRedundancy = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not zone redundancy is enabled for this container registry replication
+ */
 export type ZoneRedundancy = (typeof ZoneRedundancy)[keyof typeof ZoneRedundancy];

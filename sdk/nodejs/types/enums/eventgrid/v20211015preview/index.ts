@@ -24,6 +24,9 @@ export const AdvancedFilterOperatorType = {
     IsNotNull: "IsNotNull",
 } as const;
 
+/**
+ * The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others.
+ */
 export type AdvancedFilterOperatorType = (typeof AdvancedFilterOperatorType)[keyof typeof AdvancedFilterOperatorType];
 
 export const PartnerDestinationActivationState = {
@@ -31,6 +34,9 @@ export const PartnerDestinationActivationState = {
     Activated: "Activated",
 } as const;
 
+/**
+ * Activation state of the partner destination.
+ */
 export type PartnerDestinationActivationState = (typeof PartnerDestinationActivationState)[keyof typeof PartnerDestinationActivationState];
 
 export const PartnerDestinationProvisioningState = {
@@ -42,6 +48,9 @@ export const PartnerDestinationProvisioningState = {
     Failed: "Failed",
 } as const;
 
+/**
+ * Provisioning state of the partner destination.
+ */
 export type PartnerDestinationProvisioningState = (typeof PartnerDestinationProvisioningState)[keyof typeof PartnerDestinationProvisioningState];
 
 export const PartnerRegistrationVisibilityState = {
@@ -50,4 +59,7 @@ export const PartnerRegistrationVisibilityState = {
     GenerallyAvailable: "GenerallyAvailable",
 } as const;
 
+/**
+ * Visibility state of the partner registration.
+ */
 export type PartnerRegistrationVisibilityState = (typeof PartnerRegistrationVisibilityState)[keyof typeof PartnerRegistrationVisibilityState];

@@ -7,6 +7,9 @@ export const ApplicationSharingPolicy = {
     Shared: "Shared",
 } as const;
 
+/**
+ * Policy for sharing applications on this compute instance among users of parent workspace. If Personal, only the creator can access applications on this compute instance. When Shared, any workspace user can access applications on this instance depending on his/her assigned role.
+ */
 export type ApplicationSharingPolicy = (typeof ApplicationSharingPolicy)[keyof typeof ApplicationSharingPolicy];
 
 export const AutoDeleteCondition = {
@@ -14,6 +17,9 @@ export const AutoDeleteCondition = {
     LastAccessedGreaterThan: "LastAccessedGreaterThan",
 } as const;
 
+/**
+ * When to check if an asset is expired
+ */
 export type AutoDeleteCondition = (typeof AutoDeleteCondition)[keyof typeof AutoDeleteCondition];
 
 export const AutoRebuildSetting = {
@@ -21,6 +27,9 @@ export const AutoRebuildSetting = {
     OnBaseImageUpdate: "OnBaseImageUpdate",
 } as const;
 
+/**
+ * Defines if image needs to be rebuilt based on base image changes.
+ */
 export type AutoRebuildSetting = (typeof AutoRebuildSetting)[keyof typeof AutoRebuildSetting];
 
 export const BatchDeploymentConfigurationType = {
@@ -28,6 +37,9 @@ export const BatchDeploymentConfigurationType = {
     PipelineComponent: "PipelineComponent",
 } as const;
 
+/**
+ * [Required] The type of the deployment
+ */
 export type BatchDeploymentConfigurationType = (typeof BatchDeploymentConfigurationType)[keyof typeof BatchDeploymentConfigurationType];
 
 export const BatchLoggingLevel = {
@@ -36,6 +48,9 @@ export const BatchLoggingLevel = {
     Debug: "Debug",
 } as const;
 
+/**
+ * Logging level for batch inference operation.
+ */
 export type BatchLoggingLevel = (typeof BatchLoggingLevel)[keyof typeof BatchLoggingLevel];
 
 export const BatchOutputAction = {
@@ -43,6 +58,9 @@ export const BatchOutputAction = {
     AppendRow: "AppendRow",
 } as const;
 
+/**
+ * Indicates how the output will be organized.
+ */
 export type BatchOutputAction = (typeof BatchOutputAction)[keyof typeof BatchOutputAction];
 
 export const BlockedTransformers = {
@@ -88,6 +106,9 @@ export const BlockedTransformers = {
     HashOneHotEncoder: "HashOneHotEncoder",
 } as const;
 
+/**
+ * Enum for all classification models supported by AutoML.
+ */
 export type BlockedTransformers = (typeof BlockedTransformers)[keyof typeof BlockedTransformers];
 
 export const CategoricalDataDriftMetric = {
@@ -105,6 +126,9 @@ export const CategoricalDataDriftMetric = {
     PearsonsChiSquaredTest: "PearsonsChiSquaredTest",
 } as const;
 
+/**
+ * [Required] The categorical data drift metric to calculate.
+ */
 export type CategoricalDataDriftMetric = (typeof CategoricalDataDriftMetric)[keyof typeof CategoricalDataDriftMetric];
 
 export const CategoricalDataQualityMetric = {
@@ -122,6 +146,9 @@ export const CategoricalDataQualityMetric = {
     OutOfBoundsRate: "OutOfBoundsRate",
 } as const;
 
+/**
+ * [Required] The categorical data quality metric to calculate.
+ */
 export type CategoricalDataQualityMetric = (typeof CategoricalDataQualityMetric)[keyof typeof CategoricalDataQualityMetric];
 
 export const CategoricalPredictionDriftMetric = {
@@ -139,6 +166,9 @@ export const CategoricalPredictionDriftMetric = {
     PearsonsChiSquaredTest: "PearsonsChiSquaredTest",
 } as const;
 
+/**
+ * [Required] The categorical prediction drift metric to calculate.
+ */
 export type CategoricalPredictionDriftMetric = (typeof CategoricalPredictionDriftMetric)[keyof typeof CategoricalPredictionDriftMetric];
 
 export const ClassificationModelPerformanceMetric = {
@@ -160,6 +190,9 @@ export const ClassificationModelPerformanceMetric = {
     F1Score: "F1Score",
 } as const;
 
+/**
+ * [Required] The classification model performance to calculate.
+ */
 export type ClassificationModelPerformanceMetric = (typeof ClassificationModelPerformanceMetric)[keyof typeof ClassificationModelPerformanceMetric];
 
 export const ClassificationModels = {
@@ -229,6 +262,9 @@ export const ClassificationModels = {
     XGBoostClassifier: "XGBoostClassifier",
 } as const;
 
+/**
+ * Enum for all classification models supported by AutoML.
+ */
 export type ClassificationModels = (typeof ClassificationModels)[keyof typeof ClassificationModels];
 
 export const ClassificationMultilabelPrimaryMetrics = {
@@ -262,6 +298,9 @@ export const ClassificationMultilabelPrimaryMetrics = {
     IOU: "IOU",
 } as const;
 
+/**
+ * Primary metric to optimize for this task.
+ */
 export type ClassificationMultilabelPrimaryMetrics = (typeof ClassificationMultilabelPrimaryMetrics)[keyof typeof ClassificationMultilabelPrimaryMetrics];
 
 export const ClassificationPrimaryMetrics = {
@@ -291,6 +330,9 @@ export const ClassificationPrimaryMetrics = {
     PrecisionScoreWeighted: "PrecisionScoreWeighted",
 } as const;
 
+/**
+ * Primary metric for Text-Classification task.
+ */
 export type ClassificationPrimaryMetrics = (typeof ClassificationPrimaryMetrics)[keyof typeof ClassificationPrimaryMetrics];
 
 export const ClusterPurpose = {
@@ -299,12 +341,18 @@ export const ClusterPurpose = {
     DevTest: "DevTest",
 } as const;
 
+/**
+ * Intended usage of the cluster
+ */
 export type ClusterPurpose = (typeof ClusterPurpose)[keyof typeof ClusterPurpose];
 
 export const ComputeInstanceAuthorizationType = {
     Personal: "personal",
 } as const;
 
+/**
+ * The Compute Instance Authorization type. Available values are personal (default).
+ */
 export type ComputeInstanceAuthorizationType = (typeof ComputeInstanceAuthorizationType)[keyof typeof ComputeInstanceAuthorizationType];
 
 export const ComputePowerAction = {
@@ -312,6 +360,9 @@ export const ComputePowerAction = {
     Stop: "Stop",
 } as const;
 
+/**
+ * [Required] The compute power action.
+ */
 export type ComputePowerAction = (typeof ComputePowerAction)[keyof typeof ComputePowerAction];
 
 export const ComputeType = {
@@ -327,6 +378,9 @@ export const ComputeType = {
     SynapseSpark: "SynapseSpark",
 } as const;
 
+/**
+ * The type of compute
+ */
 export type ComputeType = (typeof ComputeType)[keyof typeof ComputeType];
 
 export const ConnectionAuthType = {
@@ -339,6 +393,9 @@ export const ConnectionAuthType = {
     AccessKey: "AccessKey",
 } as const;
 
+/**
+ * Authentication type of the connection target
+ */
 export type ConnectionAuthType = (typeof ConnectionAuthType)[keyof typeof ConnectionAuthType];
 
 export const ConnectionCategory = {
@@ -356,6 +413,9 @@ export const ConnectionCategory = {
     Redis: "Redis",
 } as const;
 
+/**
+ * Category of the connection
+ */
 export type ConnectionCategory = (typeof ConnectionCategory)[keyof typeof ConnectionCategory];
 
 export const ContainerType = {
@@ -373,6 +433,9 @@ export const ContainerType = {
     ModelDataCollector: "ModelDataCollector",
 } as const;
 
+/**
+ * The type of container to retrieve logs from.
+ */
 export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
 
 export const CredentialsType = {
@@ -385,6 +448,9 @@ export const CredentialsType = {
     KerberosPassword: "KerberosPassword",
 } as const;
 
+/**
+ * [Required] Credential type used to authentication with storage.
+ */
 export type CredentialsType = (typeof CredentialsType)[keyof typeof CredentialsType];
 
 export const DataCollectionMode = {
@@ -392,6 +458,9 @@ export const DataCollectionMode = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Enable or disable data collection.
+ */
 export type DataCollectionMode = (typeof DataCollectionMode)[keyof typeof DataCollectionMode];
 
 export const DataImportSourceType = {
@@ -399,6 +468,9 @@ export const DataImportSourceType = {
     File_system: "file_system",
 } as const;
 
+/**
+ * [Required] Specifies the type of data.
+ */
 export type DataImportSourceType = (typeof DataImportSourceType)[keyof typeof DataImportSourceType];
 
 export const DataType = {
@@ -407,6 +479,9 @@ export const DataType = {
     Mltable: "mltable",
 } as const;
 
+/**
+ * [Required] Specifies the type of data.
+ */
 export type DataType = (typeof DataType)[keyof typeof DataType];
 
 export const DatastoreType = {
@@ -418,6 +493,9 @@ export const DatastoreType = {
     OneLake: "OneLake",
 } as const;
 
+/**
+ * [Required] Storage type backing the datastore.
+ */
 export type DatastoreType = (typeof DatastoreType)[keyof typeof DatastoreType];
 
 export const DistributionType = {
@@ -427,6 +505,9 @@ export const DistributionType = {
     Ray: "Ray",
 } as const;
 
+/**
+ * [Required] Specifies the type of distribution framework.
+ */
 export type DistributionType = (typeof DistributionType)[keyof typeof DistributionType];
 
 export const EarlyTerminationPolicyType = {
@@ -435,6 +516,9 @@ export const EarlyTerminationPolicyType = {
     TruncationSelection: "TruncationSelection",
 } as const;
 
+/**
+ * [Required] Name of policy configuration
+ */
 export type EarlyTerminationPolicyType = (typeof EarlyTerminationPolicyType)[keyof typeof EarlyTerminationPolicyType];
 
 export const EgressPublicNetworkAccessType = {
@@ -442,6 +526,9 @@ export const EgressPublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled.
+ */
 export type EgressPublicNetworkAccessType = (typeof EgressPublicNetworkAccessType)[keyof typeof EgressPublicNetworkAccessType];
 
 export const EmailNotificationEnableType = {
@@ -450,6 +537,9 @@ export const EmailNotificationEnableType = {
     JobCancelled: "JobCancelled",
 } as const;
 
+/**
+ * Enum to determine the email notification type.
+ */
 export type EmailNotificationEnableType = (typeof EmailNotificationEnableType)[keyof typeof EmailNotificationEnableType];
 
 export const EncryptionStatus = {
@@ -457,6 +547,9 @@ export const EncryptionStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates whether or not the encryption is enabled for the workspace.
+ */
 export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
 
 export const EndpointAuthMode = {
@@ -465,6 +558,9 @@ export const EndpointAuthMode = {
     AADToken: "AADToken",
 } as const;
 
+/**
+ * [Required] Use 'Key' for key based authentication and 'AMLToken' for Azure Machine Learning token-based authentication. 'Key' doesn't expire but 'AMLToken' does.
+ */
 export type EndpointAuthMode = (typeof EndpointAuthMode)[keyof typeof EndpointAuthMode];
 
 export const EndpointComputeType = {
@@ -473,6 +569,9 @@ export const EndpointComputeType = {
     AzureMLCompute: "AzureMLCompute",
 } as const;
 
+/**
+ * [Required] The compute type of the endpoint.
+ */
 export type EndpointComputeType = (typeof EndpointComputeType)[keyof typeof EndpointComputeType];
 
 export const EndpointServiceConnectionStatus = {
@@ -482,12 +581,18 @@ export const EndpointServiceConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * Connection status of the service consumer with the service provider
+ */
 export type EndpointServiceConnectionStatus = (typeof EndpointServiceConnectionStatus)[keyof typeof EndpointServiceConnectionStatus];
 
 export const EnvironmentVariableType = {
     Local: "local",
 } as const;
 
+/**
+ * Type of the Environment Variable. Possible values are: local - For local variable
+ */
 export type EnvironmentVariableType = (typeof EnvironmentVariableType)[keyof typeof EnvironmentVariableType];
 
 export const FeatureAttributionMetric = {
@@ -497,6 +602,9 @@ export const FeatureAttributionMetric = {
     NormalizedDiscountedCumulativeGain: "NormalizedDiscountedCumulativeGain",
 } as const;
 
+/**
+ * [Required] The feature attribution metric to calculate.
+ */
 export type FeatureAttributionMetric = (typeof FeatureAttributionMetric)[keyof typeof FeatureAttributionMetric];
 
 export const FeatureDataType = {
@@ -510,6 +618,9 @@ export const FeatureDataType = {
     Boolean: "Boolean",
 } as const;
 
+/**
+ * Specifies the data type
+ */
 export type FeatureDataType = (typeof FeatureDataType)[keyof typeof FeatureDataType];
 
 export const FeatureLags = {
@@ -523,6 +634,9 @@ export const FeatureLags = {
     Auto: "Auto",
 } as const;
 
+/**
+ * Flag for generating lags for the numeric features with 'auto' or null.
+ */
 export type FeatureLags = (typeof FeatureLags)[keyof typeof FeatureLags];
 
 export const FeaturizationMode = {
@@ -540,6 +654,11 @@ export const FeaturizationMode = {
     Off: "Off",
 } as const;
 
+/**
+ * Featurization mode - User can keep the default 'Auto' mode and AutoML will take care of necessary transformation of the data in featurization phase.
+ * If 'Off' is selected then no featurization is done.
+ * If 'Custom' is selected then user can specify additional inputs to customize how featurization is done.
+ */
 export type FeaturizationMode = (typeof FeaturizationMode)[keyof typeof FeaturizationMode];
 
 export const ForecastHorizonMode = {
@@ -553,6 +672,9 @@ export const ForecastHorizonMode = {
     Custom: "Custom",
 } as const;
 
+/**
+ * [Required] Set forecast horizon value selection mode.
+ */
 export type ForecastHorizonMode = (typeof ForecastHorizonMode)[keyof typeof ForecastHorizonMode];
 
 export const ForecastingModels = {
@@ -643,6 +765,9 @@ export const ForecastingModels = {
     XGBoostRegressor: "XGBoostRegressor",
 } as const;
 
+/**
+ * Enum for all forecasting models supported by AutoML.
+ */
 export type ForecastingModels = (typeof ForecastingModels)[keyof typeof ForecastingModels];
 
 export const ForecastingPrimaryMetrics = {
@@ -664,6 +789,9 @@ export const ForecastingPrimaryMetrics = {
     NormalizedMeanAbsoluteError: "NormalizedMeanAbsoluteError",
 } as const;
 
+/**
+ * Primary metric for forecasting task.
+ */
 export type ForecastingPrimaryMetrics = (typeof ForecastingPrimaryMetrics)[keyof typeof ForecastingPrimaryMetrics];
 
 export const Goal = {
@@ -671,6 +799,9 @@ export const Goal = {
     Maximize: "Maximize",
 } as const;
 
+/**
+ * [Required] Defines supported metric goals for hyperparameter tuning
+ */
 export type Goal = (typeof Goal)[keyof typeof Goal];
 
 export const IdentityConfigurationType = {
@@ -679,6 +810,9 @@ export const IdentityConfigurationType = {
     UserIdentity: "UserIdentity",
 } as const;
 
+/**
+ * [Required] Specifies the type of identity framework.
+ */
 export type IdentityConfigurationType = (typeof IdentityConfigurationType)[keyof typeof IdentityConfigurationType];
 
 export const ImageAnnotationType = {
@@ -687,6 +821,9 @@ export const ImageAnnotationType = {
     InstanceSegmentation: "InstanceSegmentation",
 } as const;
 
+/**
+ * Annotation type of image labeling job.
+ */
 export type ImageAnnotationType = (typeof ImageAnnotationType)[keyof typeof ImageAnnotationType];
 
 export const ImageType = {
@@ -694,6 +831,9 @@ export const ImageType = {
     Azureml: "azureml",
 } as const;
 
+/**
+ * Type of the image. Possible values are: docker - For docker images. azureml - For AzureML images
+ */
 export type ImageType = (typeof ImageType)[keyof typeof ImageType];
 
 export const IncrementalDataRefresh = {
@@ -701,6 +841,9 @@ export const IncrementalDataRefresh = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates whether to enable incremental data refresh.
+ */
 export type IncrementalDataRefresh = (typeof IncrementalDataRefresh)[keyof typeof IncrementalDataRefresh];
 
 export const InputDeliveryMode = {
@@ -712,6 +855,9 @@ export const InputDeliveryMode = {
     EvalDownload: "EvalDownload",
 } as const;
 
+/**
+ * Input Asset Delivery Mode.
+ */
 export type InputDeliveryMode = (typeof InputDeliveryMode)[keyof typeof InputDeliveryMode];
 
 export const InstanceSegmentationPrimaryMetrics = {
@@ -722,6 +868,9 @@ export const InstanceSegmentationPrimaryMetrics = {
     MeanAveragePrecision: "MeanAveragePrecision",
 } as const;
 
+/**
+ * Primary metric to optimize for this task.
+ */
 export type InstanceSegmentationPrimaryMetrics = (typeof InstanceSegmentationPrimaryMetrics)[keyof typeof InstanceSegmentationPrimaryMetrics];
 
 export const IsolationMode = {
@@ -730,6 +879,9 @@ export const IsolationMode = {
     AllowOnlyApprovedOutbound: "AllowOnlyApprovedOutbound",
 } as const;
 
+/**
+ * Isolation mode for the managed network of a machine learning workspace.
+ */
 export type IsolationMode = (typeof IsolationMode)[keyof typeof IsolationMode];
 
 export const JobInputType = {
@@ -742,6 +894,9 @@ export const JobInputType = {
     Triton_model: "triton_model",
 } as const;
 
+/**
+ * [Required] Specifies the type of job.
+ */
 export type JobInputType = (typeof JobInputType)[keyof typeof JobInputType];
 
 export const JobLimitsType = {
@@ -749,6 +904,9 @@ export const JobLimitsType = {
     Sweep: "Sweep",
 } as const;
 
+/**
+ * [Required] JobLimit type.
+ */
 export type JobLimitsType = (typeof JobLimitsType)[keyof typeof JobLimitsType];
 
 export const JobOutputType = {
@@ -760,6 +918,9 @@ export const JobOutputType = {
     Triton_model: "triton_model",
 } as const;
 
+/**
+ * [Required] Specifies the type of job.
+ */
 export type JobOutputType = (typeof JobOutputType)[keyof typeof JobOutputType];
 
 export const JobTier = {
@@ -769,6 +930,9 @@ export const JobTier = {
     Premium: "Premium",
 } as const;
 
+/**
+ * Enum to determine the job tier.
+ */
 export type JobTier = (typeof JobTier)[keyof typeof JobTier];
 
 export const JobType = {
@@ -780,6 +944,9 @@ export const JobType = {
     Spark: "Spark",
 } as const;
 
+/**
+ * [Required] Specifies the type of job.
+ */
 export type JobType = (typeof JobType)[keyof typeof JobType];
 
 export const LearningRateScheduler = {
@@ -797,6 +964,9 @@ export const LearningRateScheduler = {
     Step: "Step",
 } as const;
 
+/**
+ * Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'.
+ */
 export type LearningRateScheduler = (typeof LearningRateScheduler)[keyof typeof LearningRateScheduler];
 
 export const LoadBalancerType = {
@@ -804,6 +974,9 @@ export const LoadBalancerType = {
     InternalLoadBalancer: "InternalLoadBalancer",
 } as const;
 
+/**
+ * Load Balancer Type
+ */
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
 
 export const LogTrainingMetrics = {
@@ -817,6 +990,9 @@ export const LogTrainingMetrics = {
     Disable: "Disable",
 } as const;
 
+/**
+ * Enable computing and logging training metrics.
+ */
 export type LogTrainingMetrics = (typeof LogTrainingMetrics)[keyof typeof LogTrainingMetrics];
 
 export const LogValidationLoss = {
@@ -830,6 +1006,9 @@ export const LogValidationLoss = {
     Disable: "Disable",
 } as const;
 
+/**
+ * Enable computing and logging validation loss.
+ */
 export type LogValidationLoss = (typeof LogValidationLoss)[keyof typeof LogValidationLoss];
 
 export const LogVerbosity = {
@@ -859,6 +1038,9 @@ export const LogVerbosity = {
     Critical: "Critical",
 } as const;
 
+/**
+ * Log verbosity for the job.
+ */
 export type LogVerbosity = (typeof LogVerbosity)[keyof typeof LogVerbosity];
 
 export const MLAssistConfigurationType = {
@@ -866,6 +1048,9 @@ export const MLAssistConfigurationType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * [Required] Indicates whether MLAssist feature is enabled.
+ */
 export type MLAssistConfigurationType = (typeof MLAssistConfigurationType)[keyof typeof MLAssistConfigurationType];
 
 export const MLFlowAutologgerState = {
@@ -873,6 +1058,9 @@ export const MLFlowAutologgerState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * [Required] Indicates whether mlflow autologger is enabled.
+ */
 export type MLFlowAutologgerState = (typeof MLFlowAutologgerState)[keyof typeof MLFlowAutologgerState];
 
 export const ManagedNetworkStatus = {
@@ -880,6 +1068,9 @@ export const ManagedNetworkStatus = {
     Active: "Active",
 } as const;
 
+/**
+ * Status for the managed network of a machine learning workspace.
+ */
 export type ManagedNetworkStatus = (typeof ManagedNetworkStatus)[keyof typeof ManagedNetworkStatus];
 
 export const ManagedServiceIdentityType = {
@@ -889,6 +1080,9 @@ export const ManagedServiceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const MaterializationStoreType = {
@@ -898,6 +1092,9 @@ export const MaterializationStoreType = {
     OnlineAndOffline: "OnlineAndOffline",
 } as const;
 
+/**
+ * Specifies the stores to which materialization should happen
+ */
 export type MaterializationStoreType = (typeof MaterializationStoreType)[keyof typeof MaterializationStoreType];
 
 export const MediaType = {
@@ -905,6 +1102,9 @@ export const MediaType = {
     Text: "Text",
 } as const;
 
+/**
+ * [Required] Media type of the job.
+ */
 export type MediaType = (typeof MediaType)[keyof typeof MediaType];
 
 export const MlflowAutologger = {
@@ -912,6 +1112,9 @@ export const MlflowAutologger = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates whether mlflow autologger is enabled for notebooks.
+ */
 export type MlflowAutologger = (typeof MlflowAutologger)[keyof typeof MlflowAutologger];
 
 export const ModelSize = {
@@ -937,6 +1140,11 @@ export const ModelSize = {
     ExtraLarge: "ExtraLarge",
 } as const;
 
+/**
+ * Model size. Must be 'small', 'medium', 'large', or 'xlarge'.
+ * Note: training run may get into CUDA OOM if the model size is too big.
+ * Note: This settings is only supported for the 'yolov5' algorithm.
+ */
 export type ModelSize = (typeof ModelSize)[keyof typeof ModelSize];
 
 export const MonitoringAlertNotificationType = {
@@ -950,6 +1158,9 @@ export const MonitoringAlertNotificationType = {
     Email: "Email",
 } as const;
 
+/**
+ * [Required] Specifies the type of signal to monitor.
+ */
 export type MonitoringAlertNotificationType = (typeof MonitoringAlertNotificationType)[keyof typeof MonitoringAlertNotificationType];
 
 export const MonitoringFeatureDataType = {
@@ -963,6 +1174,9 @@ export const MonitoringFeatureDataType = {
     Categorical: "Categorical",
 } as const;
 
+/**
+ * [Required] Specifies the data type of the metric threshold.
+ */
 export type MonitoringFeatureDataType = (typeof MonitoringFeatureDataType)[keyof typeof MonitoringFeatureDataType];
 
 export const MonitoringFeatureFilterType = {
@@ -980,6 +1194,9 @@ export const MonitoringFeatureFilterType = {
     FeatureSubset: "FeatureSubset",
 } as const;
 
+/**
+ * [Required] Specifies the feature filter to leverage when selecting features to calculate metrics over.
+ */
 export type MonitoringFeatureFilterType = (typeof MonitoringFeatureFilterType)[keyof typeof MonitoringFeatureFilterType];
 
 export const MonitoringInputDataContext = {
@@ -1009,6 +1226,9 @@ export const MonitoringInputDataContext = {
     GroundTruth: "GroundTruth",
 } as const;
 
+/**
+ * [Required] The context of the data source.
+ */
 export type MonitoringInputDataContext = (typeof MonitoringInputDataContext)[keyof typeof MonitoringInputDataContext];
 
 export const MonitoringModelType = {
@@ -1022,6 +1242,9 @@ export const MonitoringModelType = {
     Regression: "Regression",
 } as const;
 
+/**
+ * [Required] The type of the model monitored.
+ */
 export type MonitoringModelType = (typeof MonitoringModelType)[keyof typeof MonitoringModelType];
 
 export const MonitoringNotificationMode = {
@@ -1035,6 +1258,9 @@ export const MonitoringNotificationMode = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * The current notification mode for this signal.
+ */
 export type MonitoringNotificationMode = (typeof MonitoringNotificationMode)[keyof typeof MonitoringNotificationMode];
 
 export const MonitoringSignalType = {
@@ -1064,6 +1290,9 @@ export const MonitoringSignalType = {
     ModelPerformance: "ModelPerformance",
 } as const;
 
+/**
+ * [Required] Specifies the type of signal to monitor.
+ */
 export type MonitoringSignalType = (typeof MonitoringSignalType)[keyof typeof MonitoringSignalType];
 
 export const MultiSelect = {
@@ -1071,6 +1300,9 @@ export const MultiSelect = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates whether it is allowed to select multiple classes in this category.
+ */
 export type MultiSelect = (typeof MultiSelect)[keyof typeof MultiSelect];
 
 export const NCrossValidationsMode = {
@@ -1084,6 +1316,9 @@ export const NCrossValidationsMode = {
     Custom: "Custom",
 } as const;
 
+/**
+ * [Required] Mode for determining N-Cross validations.
+ */
 export type NCrossValidationsMode = (typeof NCrossValidationsMode)[keyof typeof NCrossValidationsMode];
 
 export const NlpLearningRateScheduler = {
@@ -1117,6 +1352,9 @@ export const NlpLearningRateScheduler = {
     ConstantWithWarmup: "ConstantWithWarmup",
 } as const;
 
+/**
+ * The type of learning rate schedule to use during the training procedure.
+ */
 export type NlpLearningRateScheduler = (typeof NlpLearningRateScheduler)[keyof typeof NlpLearningRateScheduler];
 
 export const NodesValueType = {
@@ -1124,6 +1362,9 @@ export const NodesValueType = {
     Custom: "Custom",
 } as const;
 
+/**
+ * [Required] Type of the Nodes value
+ */
 export type NodesValueType = (typeof NodesValueType)[keyof typeof NodesValueType];
 
 export const NumericalDataDriftMetric = {
@@ -1145,6 +1386,9 @@ export const NumericalDataDriftMetric = {
     TwoSampleKolmogorovSmirnovTest: "TwoSampleKolmogorovSmirnovTest",
 } as const;
 
+/**
+ * [Required] The numerical data drift metric to calculate.
+ */
 export type NumericalDataDriftMetric = (typeof NumericalDataDriftMetric)[keyof typeof NumericalDataDriftMetric];
 
 export const NumericalDataQualityMetric = {
@@ -1162,6 +1406,9 @@ export const NumericalDataQualityMetric = {
     OutOfBoundsRate: "OutOfBoundsRate",
 } as const;
 
+/**
+ * [Required] The numerical data quality metric to calculate.
+ */
 export type NumericalDataQualityMetric = (typeof NumericalDataQualityMetric)[keyof typeof NumericalDataQualityMetric];
 
 export const NumericalPredictionDriftMetric = {
@@ -1183,6 +1430,9 @@ export const NumericalPredictionDriftMetric = {
     TwoSampleKolmogorovSmirnovTest: "TwoSampleKolmogorovSmirnovTest",
 } as const;
 
+/**
+ * [Required] The numerical prediction drift metric to calculate.
+ */
 export type NumericalPredictionDriftMetric = (typeof NumericalPredictionDriftMetric)[keyof typeof NumericalPredictionDriftMetric];
 
 export const ObjectDetectionPrimaryMetrics = {
@@ -1193,12 +1443,18 @@ export const ObjectDetectionPrimaryMetrics = {
     MeanAveragePrecision: "MeanAveragePrecision",
 } as const;
 
+/**
+ * Primary metric to optimize for this task.
+ */
 export type ObjectDetectionPrimaryMetrics = (typeof ObjectDetectionPrimaryMetrics)[keyof typeof ObjectDetectionPrimaryMetrics];
 
 export const OneLakeArtifactType = {
     LakeHouse: "LakeHouse",
 } as const;
 
+/**
+ * [Required] OneLake artifact type
+ */
 export type OneLakeArtifactType = (typeof OneLakeArtifactType)[keyof typeof OneLakeArtifactType];
 
 export const OperatingSystemType = {
@@ -1206,6 +1462,9 @@ export const OperatingSystemType = {
     Windows: "Windows",
 } as const;
 
+/**
+ * The OS type of the environment.
+ */
 export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
 
 export const OsType = {
@@ -1213,6 +1472,9 @@ export const OsType = {
     Windows: "Windows",
 } as const;
 
+/**
+ * Compute OS Type
+ */
 export type OsType = (typeof OsType)[keyof typeof OsType];
 
 export const OutputDeliveryMode = {
@@ -1221,6 +1483,9 @@ export const OutputDeliveryMode = {
     Direct: "Direct",
 } as const;
 
+/**
+ * Output Asset Delivery Mode.
+ */
 export type OutputDeliveryMode = (typeof OutputDeliveryMode)[keyof typeof OutputDeliveryMode];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -1231,6 +1496,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Timeout: "Timeout",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const ProtectionLevel = {
@@ -1244,6 +1512,9 @@ export const ProtectionLevel = {
     None: "None",
 } as const;
 
+/**
+ * Protection level of the Intellectual Property.
+ */
 export type ProtectionLevel = (typeof ProtectionLevel)[keyof typeof ProtectionLevel];
 
 export const Protocol = {
@@ -1252,6 +1523,9 @@ export const Protocol = {
     Http: "http",
 } as const;
 
+/**
+ * Protocol over which communication will happen over this endpoint
+ */
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 export const PublicNetworkAccess = {
@@ -1259,6 +1533,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether requests from Public Network are allowed.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const PublicNetworkAccessType = {
@@ -1266,6 +1543,9 @@ export const PublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Set to "Enabled" for endpoints that should allow public access when Private Link is enabled.
+ */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const RandomSamplingAlgorithmRule = {
@@ -1273,6 +1553,9 @@ export const RandomSamplingAlgorithmRule = {
     Sobol: "Sobol",
 } as const;
 
+/**
+ * The specific type of random algorithm
+ */
 export type RandomSamplingAlgorithmRule = (typeof RandomSamplingAlgorithmRule)[keyof typeof RandomSamplingAlgorithmRule];
 
 export const RecurrenceFrequency = {
@@ -1298,6 +1581,9 @@ export const RecurrenceFrequency = {
     Month: "Month",
 } as const;
 
+/**
+ * [Required] The frequency to trigger schedule.
+ */
 export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
 
 export const ReferenceType = {
@@ -1306,6 +1592,9 @@ export const ReferenceType = {
     OutputPath: "OutputPath",
 } as const;
 
+/**
+ * [Required] Specifies the type of asset reference.
+ */
 export type ReferenceType = (typeof ReferenceType)[keyof typeof ReferenceType];
 
 export const RegressionModelPerformanceMetric = {
@@ -1323,6 +1612,9 @@ export const RegressionModelPerformanceMetric = {
     MeanSquaredError: "MeanSquaredError",
 } as const;
 
+/**
+ * [Required] The regression model performance metric to calculate.
+ */
 export type RegressionModelPerformanceMetric = (typeof RegressionModelPerformanceMetric)[keyof typeof RegressionModelPerformanceMetric];
 
 export const RegressionModels = {
@@ -1374,6 +1666,9 @@ export const RegressionModels = {
     XGBoostRegressor: "XGBoostRegressor",
 } as const;
 
+/**
+ * Enum for all Regression models supported by AutoML.
+ */
 export type RegressionModels = (typeof RegressionModels)[keyof typeof RegressionModels];
 
 export const RegressionPrimaryMetrics = {
@@ -1395,6 +1690,9 @@ export const RegressionPrimaryMetrics = {
     NormalizedMeanAbsoluteError: "NormalizedMeanAbsoluteError",
 } as const;
 
+/**
+ * Primary metric for regression task.
+ */
 export type RegressionPrimaryMetrics = (typeof RegressionPrimaryMetrics)[keyof typeof RegressionPrimaryMetrics];
 
 export const RemoteLoginPortPublicAccess = {
@@ -1403,6 +1701,9 @@ export const RemoteLoginPortPublicAccess = {
     NotSpecified: "NotSpecified",
 } as const;
 
+/**
+ * State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on all nodes of the cluster. Enabled - Indicates that the public ssh port is open on all nodes of the cluster. NotSpecified - Indicates that the public ssh port is closed on all nodes of the cluster if VNet is defined, else is open all public nodes. It can be default only during cluster creation time, after creation it will be either enabled or disabled.
+ */
 export type RemoteLoginPortPublicAccess = (typeof RemoteLoginPortPublicAccess)[keyof typeof RemoteLoginPortPublicAccess];
 
 export const RollingRateType = {
@@ -1413,6 +1714,12 @@ export const RollingRateType = {
     Minute: "Minute",
 } as const;
 
+/**
+ * When model data is collected to blob storage, we need to roll the data to different path to avoid logging all of them in a single blob file.
+ * If the rolling rate is hour, all data will be collected in the blob path /yyyy/MM/dd/HH/.
+ * If it's day, all data will be collected in blob path /yyyy/MM/dd/.
+ * The other benefit of rolling path is that model monitoring ui is able to select a time range of data very quickly.
+ */
 export type RollingRateType = (typeof RollingRateType)[keyof typeof RollingRateType];
 
 export const RuleCategory = {
@@ -1421,6 +1728,9 @@ export const RuleCategory = {
     UserDefined: "UserDefined",
 } as const;
 
+/**
+ * Category of a managed network Outbound Rule of a machine learning workspace.
+ */
 export type RuleCategory = (typeof RuleCategory)[keyof typeof RuleCategory];
 
 export const RuleStatus = {
@@ -1428,6 +1738,9 @@ export const RuleStatus = {
     Active: "Active",
 } as const;
 
+/**
+ * Status of a managed network Outbound Rule of a machine learning workspace.
+ */
 export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
 
 export const RuleType = {
@@ -1436,6 +1749,9 @@ export const RuleType = {
     ServiceTag: "ServiceTag",
 } as const;
 
+/**
+ * Type of a managed network Outbound Rule of a machine learning workspace.
+ */
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
 
 export const SamplingAlgorithmType = {
@@ -1444,6 +1760,9 @@ export const SamplingAlgorithmType = {
     Bayesian: "Bayesian",
 } as const;
 
+/**
+ * [Required] The algorithm used for generating hyperparameter values, along with configuration properties
+ */
 export type SamplingAlgorithmType = (typeof SamplingAlgorithmType)[keyof typeof SamplingAlgorithmType];
 
 export const ScaleType = {
@@ -1451,6 +1770,9 @@ export const ScaleType = {
     TargetUtilization: "TargetUtilization",
 } as const;
 
+/**
+ * [Required] Type of deployment scaling algorithm
+ */
 export type ScaleType = (typeof ScaleType)[keyof typeof ScaleType];
 
 export const ScheduleActionType = {
@@ -1460,6 +1782,9 @@ export const ScheduleActionType = {
     CreateMonitor: "CreateMonitor",
 } as const;
 
+/**
+ * [Required] Specifies the action type of the schedule
+ */
 export type ScheduleActionType = (typeof ScheduleActionType)[keyof typeof ScheduleActionType];
 
 export const ScheduleProvisioningState = {
@@ -1468,6 +1793,9 @@ export const ScheduleProvisioningState = {
     Failed: "Failed",
 } as const;
 
+/**
+ * The current deployment state of schedule.
+ */
 export type ScheduleProvisioningState = (typeof ScheduleProvisioningState)[keyof typeof ScheduleProvisioningState];
 
 export const ScheduleStatus = {
@@ -1475,6 +1803,9 @@ export const ScheduleStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Is the schedule enabled or disabled?
+ */
 export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus];
 
 export const SeasonalityMode = {
@@ -1488,6 +1819,9 @@ export const SeasonalityMode = {
     Custom: "Custom",
 } as const;
 
+/**
+ * [Required] Seasonality mode.
+ */
 export type SeasonalityMode = (typeof SeasonalityMode)[keyof typeof SeasonalityMode];
 
 export const SecretsType = {
@@ -1499,6 +1833,9 @@ export const SecretsType = {
     KerberosKeytab: "KerberosKeytab",
 } as const;
 
+/**
+ * [Required] Credential type used to authentication with storage.
+ */
 export type SecretsType = (typeof SecretsType)[keyof typeof SecretsType];
 
 export const ServiceDataAccessAuthIdentity = {
@@ -1516,6 +1853,9 @@ export const ServiceDataAccessAuthIdentity = {
     WorkspaceUserAssignedIdentity: "WorkspaceUserAssignedIdentity",
 } as const;
 
+/**
+ * Indicates which identity to use to authenticate service data access to customer's storage.
+ */
 export type ServiceDataAccessAuthIdentity = (typeof ServiceDataAccessAuthIdentity)[keyof typeof ServiceDataAccessAuthIdentity];
 
 export const ShortSeriesHandlingConfiguration = {
@@ -1537,6 +1877,9 @@ export const ShortSeriesHandlingConfiguration = {
     Drop: "Drop",
 } as const;
 
+/**
+ * The parameter defining how if AutoML should handle short time series.
+ */
 export type ShortSeriesHandlingConfiguration = (typeof ShortSeriesHandlingConfiguration)[keyof typeof ShortSeriesHandlingConfiguration];
 
 export const SkuTier = {
@@ -1546,6 +1889,9 @@ export const SkuTier = {
     Premium: "Premium",
 } as const;
 
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const SparkJobEntryType = {
@@ -1553,6 +1899,9 @@ export const SparkJobEntryType = {
     SparkJobScalaEntry: "SparkJobScalaEntry",
 } as const;
 
+/**
+ * [Required] Type of the job's entry point.
+ */
 export type SparkJobEntryType = (typeof SparkJobEntryType)[keyof typeof SparkJobEntryType];
 
 export const SshPublicAccess = {
@@ -1560,6 +1909,9 @@ export const SshPublicAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * State of the public SSH port. Possible values are: Disabled - Indicates that the public ssh port is closed on this instance. Enabled - Indicates that the public ssh port is open and accessible according to the VNet/subnet policy if applicable.
+ */
 export type SshPublicAccess = (typeof SshPublicAccess)[keyof typeof SshPublicAccess];
 
 export const SslConfigStatus = {
@@ -1568,6 +1920,9 @@ export const SslConfigStatus = {
     Auto: "Auto",
 } as const;
 
+/**
+ * Enable or disable ssl for scoring
+ */
 export type SslConfigStatus = (typeof SslConfigStatus)[keyof typeof SslConfigStatus];
 
 export const StackMetaLearnerType = {
@@ -1593,6 +1948,9 @@ export const StackMetaLearnerType = {
     LinearRegression: "LinearRegression",
 } as const;
 
+/**
+ * The meta-learner is a model trained on the output of the individual heterogeneous models.
+ */
 export type StackMetaLearnerType = (typeof StackMetaLearnerType)[keyof typeof StackMetaLearnerType];
 
 export const StochasticOptimizer = {
@@ -1614,6 +1972,9 @@ export const StochasticOptimizer = {
     Adamw: "Adamw",
 } as const;
 
+/**
+ * Type of optimizer.
+ */
 export type StochasticOptimizer = (typeof StochasticOptimizer)[keyof typeof StochasticOptimizer];
 
 export const TargetAggregationFunction = {
@@ -1627,6 +1988,10 @@ export const TargetAggregationFunction = {
     Mean: "Mean",
 } as const;
 
+/**
+ * The function to be used to aggregate the time series target column to conform to a user specified frequency.
+ * If the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: "sum", "max", "min" and "mean".
+ */
 export type TargetAggregationFunction = (typeof TargetAggregationFunction)[keyof typeof TargetAggregationFunction];
 
 export const TargetLagsMode = {
@@ -1640,6 +2005,9 @@ export const TargetLagsMode = {
     Custom: "Custom",
 } as const;
 
+/**
+ * [Required] Set target lags mode - Auto/Custom
+ */
 export type TargetLagsMode = (typeof TargetLagsMode)[keyof typeof TargetLagsMode];
 
 export const TargetRollingWindowSizeMode = {
@@ -1653,6 +2021,9 @@ export const TargetRollingWindowSizeMode = {
     Custom: "Custom",
 } as const;
 
+/**
+ * [Required] TargetRollingWindowSiz detection mode.
+ */
 export type TargetRollingWindowSizeMode = (typeof TargetRollingWindowSizeMode)[keyof typeof TargetRollingWindowSizeMode];
 
 export const TaskType = {
@@ -1706,6 +2077,9 @@ export const TaskType = {
     TextNER: "TextNER",
 } as const;
 
+/**
+ * [Required] Task type for AutoMLJob.
+ */
 export type TaskType = (typeof TaskType)[keyof typeof TaskType];
 
 export const TextAnnotationType = {
@@ -1713,6 +2087,9 @@ export const TextAnnotationType = {
     NamedEntityRecognition: "NamedEntityRecognition",
 } as const;
 
+/**
+ * Annotation type of text labeling job.
+ */
 export type TextAnnotationType = (typeof TextAnnotationType)[keyof typeof TextAnnotationType];
 
 export const TrainingMode = {
@@ -1730,6 +2107,11 @@ export const TrainingMode = {
     NonDistributed: "NonDistributed",
 } as const;
 
+/**
+ * TrainingMode mode - Setting to 'auto' is same as setting it to 'non-distributed' for now, however in the future may result in mixed mode or heuristics based mode selection. Default is 'auto'.
+ * If 'Distributed' then only distributed featurization is used and distributed algorithms are chosen.
+ * If 'NonDistributed' then only non distributed algorithms are chosen.
+ */
 export type TrainingMode = (typeof TrainingMode)[keyof typeof TrainingMode];
 
 export const TriggerType = {
@@ -1737,6 +2119,9 @@ export const TriggerType = {
     Cron: "Cron",
 } as const;
 
+/**
+ * [Required] 
+ */
 export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];
 
 export const UseStl = {
@@ -1748,6 +2133,9 @@ export const UseStl = {
     SeasonTrend: "SeasonTrend",
 } as const;
 
+/**
+ * Configure STL Decomposition of the time-series target column.
+ */
 export type UseStl = (typeof UseStl)[keyof typeof UseStl];
 
 export const ValidationMetricType = {
@@ -1769,12 +2157,18 @@ export const ValidationMetricType = {
     CocoVoc: "CocoVoc",
 } as const;
 
+/**
+ * Metric computation method to use for validation metrics.
+ */
 export type ValidationMetricType = (typeof ValidationMetricType)[keyof typeof ValidationMetricType];
 
 export const ValueFormat = {
     JSON: "JSON",
 } as const;
 
+/**
+ * format for the workspace connection value
+ */
 export type ValueFormat = (typeof ValueFormat)[keyof typeof ValueFormat];
 
 export const VmPriority = {
@@ -1782,6 +2176,9 @@ export const VmPriority = {
     LowPriority: "LowPriority",
 } as const;
 
+/**
+ * Virtual Machine priority
+ */
 export type VmPriority = (typeof VmPriority)[keyof typeof VmPriority];
 
 export const VolumeDefinitionType = {
@@ -1791,12 +2188,18 @@ export const VolumeDefinitionType = {
     Npipe: "npipe",
 } as const;
 
+/**
+ * Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe
+ */
 export type VolumeDefinitionType = (typeof VolumeDefinitionType)[keyof typeof VolumeDefinitionType];
 
 export const WebhookType = {
     AzureDevOps: "AzureDevOps",
 } as const;
 
+/**
+ * [Required] Specifies the type of service to send a callback
+ */
 export type WebhookType = (typeof WebhookType)[keyof typeof WebhookType];
 
 export const WeekDay = {
@@ -1830,4 +2233,7 @@ export const WeekDay = {
     Sunday: "Sunday",
 } as const;
 
+/**
+ * Enum of weekday
+ */
 export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];

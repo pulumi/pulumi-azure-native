@@ -7,6 +7,9 @@ export const AgentAutoUpdateStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * A value indicating whether the auto update is enabled.
+ */
 export type AgentAutoUpdateStatus = (typeof AgentAutoUpdateStatus)[keyof typeof AgentAutoUpdateStatus];
 
 export const AutomationAccountAuthenticationType = {
@@ -14,6 +17,9 @@ export const AutomationAccountAuthenticationType = {
     SystemAssignedIdentity: "SystemAssignedIdentity",
 } as const;
 
+/**
+ * A value indicating the type authentication to use for automation Account.
+ */
 export type AutomationAccountAuthenticationType = (typeof AutomationAccountAuthenticationType)[keyof typeof AutomationAccountAuthenticationType];
 
 export const DiskAccountType = {
@@ -22,12 +28,18 @@ export const DiskAccountType = {
     StandardSSD_LRS: "StandardSSD_LRS",
 } as const;
 
+/**
+ * The disk type.
+ */
 export type DiskAccountType = (typeof DiskAccountType)[keyof typeof DiskAccountType];
 
 export const ExtendedLocationType = {
     EdgeZone: "EdgeZone",
 } as const;
 
+/**
+ * The extended location type.
+ */
 export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
 
 export const FailoverDeploymentModel = {
@@ -36,6 +48,9 @@ export const FailoverDeploymentModel = {
     ResourceManager: "ResourceManager",
 } as const;
 
+/**
+ * The failover deployment model.
+ */
 export type FailoverDeploymentModel = (typeof FailoverDeploymentModel)[keyof typeof FailoverDeploymentModel];
 
 export const LicenseType = {
@@ -44,6 +59,9 @@ export const LicenseType = {
     WindowsServer: "WindowsServer",
 } as const;
 
+/**
+ * The license type.
+ */
 export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
 export const PossibleOperationsDirections = {
@@ -58,6 +76,9 @@ export const RecoveryPlanActionLocation = {
     Recovery: "Recovery",
 } as const;
 
+/**
+ * The fabric location.
+ */
 export type RecoveryPlanActionLocation = (typeof RecoveryPlanActionLocation)[keyof typeof RecoveryPlanActionLocation];
 
 export const RecoveryPlanGroupType = {
@@ -66,6 +87,9 @@ export const RecoveryPlanGroupType = {
     Failover: "Failover",
 } as const;
 
+/**
+ * The group type.
+ */
 export type RecoveryPlanGroupType = (typeof RecoveryPlanGroupType)[keyof typeof RecoveryPlanGroupType];
 
 export const ReplicationProtectedItemOperation = {
@@ -93,6 +117,9 @@ export const SecurityType = {
     ConfidentialVM: "ConfidentialVM",
 } as const;
 
+/**
+ * The target VM security type.
+ */
 export type SecurityType = (typeof SecurityType)[keyof typeof SecurityType];
 
 export const SetMultiVmSyncStatus = {
@@ -100,6 +127,9 @@ export const SetMultiVmSyncStatus = {
     Disable: "Disable",
 } as const;
 
+/**
+ * A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'.
+ */
 export type SetMultiVmSyncStatus = (typeof SetMultiVmSyncStatus)[keyof typeof SetMultiVmSyncStatus];
 
 export const SqlServerLicenseType = {
@@ -109,4 +139,7 @@ export const SqlServerLicenseType = {
     AHUB: "AHUB",
 } as const;
 
+/**
+ * The SQL Server license type.
+ */
 export type SqlServerLicenseType = (typeof SqlServerLicenseType)[keyof typeof SqlServerLicenseType];
