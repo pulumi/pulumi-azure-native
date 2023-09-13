@@ -1161,6 +1161,10 @@ func (k *azureNativeProvider) Update(ctx context.Context, req *rpc.UpdateRequest
 			return nil, azureError(err)
 		}
 	default:
+		err := k.maintainSubResourcePropertiesIfNotSet(ctx, &res, id, bodyParams)
+		if err != nil {
+			return nil, fmt.Errorf("failed maintaining unset sub-resource properties: %w", err)
+		}
 		response, updated, err := k.azureCreateOrUpdate(ctx, id, bodyParams, queryParams, res.UpdateMethod, res.PutAsyncStyle)
 		if err != nil {
 			if updated {
@@ -1289,6 +1293,117 @@ func (k *azureNativeProvider) GetMapping(context.Context, *rpc.GetMappingRequest
 func (k *azureNativeProvider) Cancel(context.Context, *pbempty.Empty) (*pbempty.Empty, error) {
 	// TODO
 	return &pbempty.Empty{}, nil
+}
+
+func (k *azureNativeProvider) maintainSubResourcePropertiesIfNotSet(ctx context.Context, res *resources.AzureAPIResource, id string, bodyParams map[string]interface{}) error {
+	// Identify the properties we need to read
+	missingProperties := findSubResourcePropertiesToMaintain(res, bodyParams)
+
+	if len(missingProperties) == 0 {
+		// Everything's already specified explicitly by the user, no need to do read.
+		return nil
+	}
+
+	// Read the current resource state.
+	state, err := k.azureGet(ctx, id+res.ReadPath, res.APIVersion)
+	if err != nil {
+		return fmt.Errorf("reading cloud state: %w", err)
+	}
+
+	writtenProperties := writePropertiesToBody(missingProperties, bodyParams, state)
+	for writtenProperty, writtenValue := range writtenProperties {
+		logging.V(9).Infof("Maintaining remote value for property: %s.%s = %v", id, writtenProperty, writtenValue)
+	}
+
+	return nil
+}
+
+func writePropertiesToBody(missingProperties map[string]resources.AzureAPIProperty, bodyParams map[string]interface{}, responseBody map[string]interface{}) map[string]interface{} {
+	writtenProperties := map[string]interface{}{}
+	for propName, prop := range missingProperties {
+		currentBodyContainer := bodyParams
+		currentResponseContainer := responseBody
+		for _, containerName := range prop.Containers {
+			innerBodyContainer, bodyOk := currentBodyContainer[containerName]
+			innerStateContainer, stateOk := currentResponseContainer[containerName]
+			if !bodyOk {
+				innerBodyContainer = map[string]interface{}{}
+				currentBodyContainer[containerName] = innerBodyContainer
+			}
+			if !stateOk {
+				innerStateContainer = map[string]interface{}{}
+				currentResponseContainer[containerName] = innerStateContainer
+			}
+			currentBodyContainer = innerBodyContainer.(map[string]interface{})
+			currentResponseContainer = innerStateContainer.(map[string]interface{})
+		}
+		responseValue, ok := currentResponseContainer[propName]
+		if ok {
+			currentBodyContainer[propName] = responseValue
+			writtenProperties[fmt.Sprintf("%s.%s", strings.Join(prop.Containers, "."), propName)] = responseValue
+		}
+	}
+	return writtenProperties
+}
+
+func findSubResourcePropertiesToMaintain(res *resources.AzureAPIResource, bodyParams map[string]interface{}) map[string]resources.AzureAPIProperty {
+	// Find all properties which might need to be read
+	subResourceProperties := findSubResourceProperties(res)
+
+	if len(subResourceProperties) == 0 {
+		// No properties to be read
+		return subResourceProperties
+	}
+	// Filter to only properties which the user also hasn't set
+	return findUnsetProperties(subResourceProperties, bodyParams)
+}
+
+func findUnsetProperties(candidateProperties map[string]resources.AzureAPIProperty, bodyParams map[string]interface{}) map[string]resources.AzureAPIProperty {
+	missingProperties := map[string]resources.AzureAPIProperty{}
+	for propName, prop := range candidateProperties {
+		currentContainer := bodyParams
+		containerNotFound := false
+		for _, containerName := range prop.Containers {
+			innerContainer, ok := currentContainer[containerName]
+			if !ok {
+				containerNotFound = true
+				break
+			}
+			currentContainer, ok = innerContainer.(map[string]interface{})
+			if !ok {
+				containerNotFound = true
+				break
+			}
+		}
+
+		if containerNotFound {
+			// If the containers are not found, the property is also not defined
+			missingProperties[propName] = prop
+			continue
+		}
+		if _, ok := currentContainer[propName]; !ok {
+			missingProperties[propName] = prop
+		}
+	}
+	return missingProperties
+}
+
+func findSubResourceProperties(res *resources.AzureAPIResource) map[string]resources.AzureAPIProperty {
+	subResourceProperties := map[string]resources.AzureAPIProperty{}
+	for _, param := range res.PutParameters {
+		if param.Location != "body" {
+			continue
+		}
+		if param.Body.Properties == nil {
+			continue
+		}
+		for propName, prop := range param.Body.Properties {
+			if prop.MaintainSubResourceIfUnset {
+				subResourceProperties[propName] = prop
+			}
+		}
+	}
+	return subResourceProperties
 }
 
 func (k *azureNativeProvider) azureCreateOrUpdate(
