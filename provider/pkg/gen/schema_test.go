@@ -5,6 +5,7 @@ package gen
 import (
 	"testing"
 
+	"github.com/go-openapi/spec"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
@@ -65,5 +66,76 @@ func TestAliases(t *testing.T) {
 		"azure-native:insights/v20210111:PrivateLinkForAzureAd",
 		"azure-native:insights/v20220222:privateLinkForAzureAd",
 	)
+	assert.Equal(t, expected, actual)
+}
+
+func TestFindNestedResources(t *testing.T) {
+	parent := &openapi.ResourceSpec{
+		Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}",
+	}
+
+	otherResources := map[string]*openapi.ResourceSpec{
+		"VirtualNetwork": {
+			Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}",
+		},
+		"VirtualNetworks": {
+			Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks",
+		},
+		"Subnet": {
+			Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
+		},
+		"SubnetPrivateEndpoint": {
+			Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}",
+		},
+		"VirtualNetworkPeering": {
+			Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName}",
+		},
+	}
+
+	actual := findNestedResources(parent, otherResources)
+
+	expected := []*openapi.ResourceSpec{
+		{
+			Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
+		},
+		{
+			Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}/providers/Microsoft.Network/privateEndpoints/{privateEndpointName}",
+		},
+		{
+			Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/virtualNetworkPeerings/{virtualNetworkPeeringName}",
+		},
+	}
+
+	assert.Equal(t, expected, actual)
+}
+
+func TestFindResourcesBodyRefs(t *testing.T) {
+	nestedResources := []*openapi.ResourceSpec{
+		{
+			Path: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}",
+			PathItem: &spec.PathItem{
+				PathItemProps: spec.PathItemProps{
+					Put: &spec.Operation{
+						OperationProps: spec.OperationProps{
+							Parameters: []spec.Parameter{
+								{
+									ParamProps: spec.ParamProps{
+										In: "body",
+										Schema: &spec.Schema{
+											SchemaProps: spec.SchemaProps{
+												Ref: spec.MustCreateRef("#/definitions/Subnet"),
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+	actual := findResourcesBodyRefs(nestedResources)
+	expected := []string{"#/definitions/Subnet"}
 	assert.Equal(t, expected, actual)
 }

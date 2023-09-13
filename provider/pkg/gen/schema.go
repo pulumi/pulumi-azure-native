@@ -252,7 +252,8 @@ func PulumiSchema(providerMap openapi.AzureProviders, versioning Versioning) (*G
 
 			for _, typeName := range resources {
 				resource := items.Resources[typeName]
-				err := gen.genResources(providerName, typeName, resource)
+				nestedResourceBodyRefs := findNestedResourceBodyRefs(resource, items.Resources)
+				err := gen.genResources(providerName, typeName, resource, nestedResourceBodyRefs)
 				if err != nil {
 					return nil, err
 				}
@@ -327,6 +328,50 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 		Metadata: &metadata,
 		Examples: exampleMap,
 	}, nil
+}
+
+func findNestedResourceBodyRefs(resource *openapi.ResourceSpec, resourceSpecs map[string]*openapi.ResourceSpec) []string {
+	nestedResources := findNestedResources(resource, resourceSpecs)
+	return findResourcesBodyRefs(nestedResources)
+}
+
+func findResourcesBodyRefs(nestedResources []*openapi.ResourceSpec) []string {
+	var nestedResourcePostBodyTypeRefs []string
+	for _, nestedResource := range nestedResources {
+		nestedResourcePostBodyTypeRef, ok := findResourcePutBodyTypeRef(nestedResource)
+		if ok {
+			nestedResourcePostBodyTypeRefs = append(nestedResourcePostBodyTypeRefs, nestedResourcePostBodyTypeRef)
+		}
+	}
+	return nestedResourcePostBodyTypeRefs
+}
+
+func findResourcePutBodyTypeRef(resource *openapi.ResourceSpec) (string, bool) {
+	if resource.PathItem != nil && resource.PathItem.Put != nil {
+		for _, parameter := range resource.PathItem.Put.Parameters {
+			if parameter.In != "body" || parameter.Schema == nil {
+				continue
+			}
+			return parameter.Schema.Ref.String(), true
+		}
+	}
+	return "", false
+}
+
+func findNestedResources(resource *openapi.ResourceSpec, resourceSpecs map[string]*openapi.ResourceSpec) []*openapi.ResourceSpec {
+	orderedNames := codegen.SortedKeys(resourceSpecs)
+	var nestedResourceSpecs []*openapi.ResourceSpec
+	for _, otherResourceName := range orderedNames {
+		otherResource := resourceSpecs[otherResourceName]
+		// Ignore self
+		if otherResource.Path == resource.Path {
+			continue
+		}
+		if strings.HasPrefix(otherResource.Path, resource.Path) {
+			nestedResourceSpecs = append(nestedResourceSpecs, otherResource)
+		}
+	}
+	return nestedResourceSpecs
 }
 
 func genMixins(pkg *pschema.PackageSpec, metadata *resources.AzureAPIMetadata) error {
@@ -443,7 +488,7 @@ type packageGenerator struct {
 	warnings   []string
 }
 
-func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec) error {
+func (g *packageGenerator) genResources(prov, typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
 	// Resource names should consistently start with upper case.
 	// We need to alias the previous, lowercase name so users can upgrade to v2 without replacement.
 	// These aliases will not be required anymore with v3; their removal is tracked by #2411.
@@ -463,7 +508,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	}
 
 	for _, v := range variants {
-		err = g.genResourceVariant(prov, resource, v, typeNameAliases...)
+		err = g.genResourceVariant(prov, resource, v, nestedResourceBodyRefs, typeNameAliases...)
 		if err != nil {
 			return err
 		}
@@ -481,7 +526,7 @@ func (g *packageGenerator) genResources(prov, typeName string, resource *openapi
 	if resource.DeprecationMessage != "" {
 		mainResource.deprecationMessage = resource.DeprecationMessage
 	}
-	return g.genResourceVariant(prov, resource, mainResource, typeNameAliases...)
+	return g.genResourceVariant(prov, resource, mainResource, nestedResourceBodyRefs, typeNameAliases...)
 }
 
 // resourceVariant points to request body's and response's schemas of a resource which is one of the variants
@@ -575,7 +620,7 @@ func (g *packageGenerator) makeTypeAlias(prov, alias, apiVersion string) pschema
 	return pschema.AliasSpec{Type: &fqAlias}
 }
 
-func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.ResourceSpec, resource *resourceVariant, typeNameAliases ...string) error {
+func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.ResourceSpec, resource *resourceVariant, nestedResourceBodyRefs []string, typeNameAliases ...string) error {
 	module := g.providerToModule(prov)
 	swagger := resource.Swagger
 	path := resource.PathItem
@@ -587,14 +632,15 @@ func (g *packageGenerator) genResourceVariant(prov string, apiSpec *openapi.Reso
 
 	// Generate the resource.
 	gen := moduleGenerator{
-		pkg:           g.pkg,
-		metadata:      g.metadata,
-		module:        module,
-		prov:          prov,
-		resourceName:  resource.typeName,
-		resourceToken: resourceTok,
-		visitedTypes:  make(map[string]bool),
-		inlineTypes:   map[*openapi.ReferenceContext]codegen.StringSet{},
+		pkg:                    g.pkg,
+		metadata:               g.metadata,
+		module:                 module,
+		prov:                   prov,
+		resourceName:           resource.typeName,
+		resourceToken:          resourceTok,
+		visitedTypes:           make(map[string]bool),
+		inlineTypes:            map[*openapi.ReferenceContext]codegen.StringSet{},
+		nestedResourceBodyRefs: nestedResourceBodyRefs,
 	}
 
 	updateOp := path.Put
@@ -985,14 +1031,15 @@ func getResponseSchema(ctx *openapi.ReferenceContext, statusCodeResponses map[in
 }
 
 type moduleGenerator struct {
-	pkg           *pschema.PackageSpec
-	metadata      *resources.AzureAPIMetadata
-	module        string
-	prov          string
-	resourceName  string
-	resourceToken string
-	visitedTypes  map[string]bool
-	inlineTypes   map[*openapi.ReferenceContext]codegen.StringSet
+	pkg                    *pschema.PackageSpec
+	metadata               *resources.AzureAPIMetadata
+	module                 string
+	prov                   string
+	resourceName           string
+	resourceToken          string
+	visitedTypes           map[string]bool
+	inlineTypes            map[*openapi.ReferenceContext]codegen.StringSet
+	nestedResourceBodyRefs []string
 }
 
 func (m *moduleGenerator) escapeCSharpNames(typeName string, resourceResponse *propertyBag) {
