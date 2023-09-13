@@ -13,6 +13,9 @@ export const DirectPeeringType = {
     EdgeZoneForOperators: "EdgeZoneForOperators",
 } as const;
 
+/**
+ * The type of direct peering.
+ */
 export type DirectPeeringType = (typeof DirectPeeringType)[keyof typeof DirectPeeringType];
 
 export const Kind = {
@@ -20,6 +23,9 @@ export const Kind = {
     Exchange: "Exchange",
 } as const;
 
+/**
+ * The kind of the peering.
+ */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
 export const Role = {
@@ -31,6 +37,9 @@ export const Role = {
     Other: "Other",
 } as const;
 
+/**
+ * The role of the contact.
+ */
 export type Role = (typeof Role)[keyof typeof Role];
 
 export const SessionAddressProvider = {
@@ -38,4 +47,7 @@ export const SessionAddressProvider = {
     Peer: "Peer",
 } as const;
 
+/**
+ * The field indicating if Microsoft provides session ip addresses.
+ */
 export type SessionAddressProvider = (typeof SessionAddressProvider)[keyof typeof SessionAddressProvider];

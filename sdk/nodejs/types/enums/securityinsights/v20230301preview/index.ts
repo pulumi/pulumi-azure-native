@@ -21,6 +21,9 @@ export const EntityTimelineKind = {
     Anomaly: "Anomaly",
 } as const;
 
+/**
+ * The entity query kind
+ */
 export type EntityTimelineKind = (typeof EntityTimelineKind)[keyof typeof EntityTimelineKind];
 
 export const IncidentClassification = {
@@ -42,6 +45,9 @@ export const IncidentClassification = {
     FalsePositive: "FalsePositive",
 } as const;
 
+/**
+ * The reason the incident was closed
+ */
 export type IncidentClassification = (typeof IncidentClassification)[keyof typeof IncidentClassification];
 
 export const IncidentClassificationReason = {
@@ -63,6 +69,9 @@ export const IncidentClassificationReason = {
     InaccurateData: "InaccurateData",
 } as const;
 
+/**
+ * The classification reason the incident was closed with
+ */
 export type IncidentClassificationReason = (typeof IncidentClassificationReason)[keyof typeof IncidentClassificationReason];
 
 export const IncidentSeverity = {
@@ -84,6 +93,9 @@ export const IncidentSeverity = {
     Informational: "Informational",
 } as const;
 
+/**
+ * The severity of the incident
+ */
 export type IncidentSeverity = (typeof IncidentSeverity)[keyof typeof IncidentSeverity];
 
 export const IncidentStatus = {
@@ -101,6 +113,9 @@ export const IncidentStatus = {
     Closed: "Closed",
 } as const;
 
+/**
+ * The status of the incident
+ */
 export type IncidentStatus = (typeof IncidentStatus)[keyof typeof IncidentStatus];
 
 export const OwnerType = {
@@ -118,4 +133,7 @@ export const OwnerType = {
     Group: "Group",
 } as const;
 
+/**
+ * The type of the owner the incident is assigned to.
+ */
 export type OwnerType = (typeof OwnerType)[keyof typeof OwnerType];

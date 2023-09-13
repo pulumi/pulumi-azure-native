@@ -13,4 +13,7 @@ export const ProvisioningState = {
     Migrating: "Migrating",
 } as const;
 
+/**
+ * State of provisioning of the AzureBareMetalStorageInstance
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];

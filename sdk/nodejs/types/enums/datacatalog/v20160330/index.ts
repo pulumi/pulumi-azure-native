@@ -7,4 +7,7 @@ export const SkuType = {
     Standard: "Standard",
 } as const;
 
+/**
+ * Azure data catalog SKU.
+ */
 export type SkuType = (typeof SkuType)[keyof typeof SkuType];

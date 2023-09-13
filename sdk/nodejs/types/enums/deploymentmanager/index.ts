@@ -13,6 +13,9 @@ export const DeploymentMode = {
     Complete: "Complete",
 } as const;
 
+/**
+ * Describes the type of ARM deployment to be performed on the resource.
+ */
 export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
 export const RestAuthLocation = {
@@ -20,6 +23,9 @@ export const RestAuthLocation = {
     Header: "Header",
 } as const;
 
+/**
+ * The location of the authentication key/value pair in the request.
+ */
 export type RestAuthLocation = (typeof RestAuthLocation)[keyof typeof RestAuthLocation];
 
 export const RestAuthType = {
@@ -27,6 +33,9 @@ export const RestAuthType = {
     RolloutIdentity: "RolloutIdentity",
 } as const;
 
+/**
+ * The authentication type.
+ */
 export type RestAuthType = (typeof RestAuthType)[keyof typeof RestAuthType];
 
 export const RestMatchQuantifier = {
@@ -34,6 +43,9 @@ export const RestMatchQuantifier = {
     Any: "Any",
 } as const;
 
+/**
+ * Indicates whether any or all of the expressions should match with the response content.
+ */
 export type RestMatchQuantifier = (typeof RestMatchQuantifier)[keyof typeof RestMatchQuantifier];
 
 export const RestRequestMethod = {
@@ -41,6 +53,9 @@ export const RestRequestMethod = {
     POST: "POST",
 } as const;
 
+/**
+ * The HTTP method to use for the request.
+ */
 export type RestRequestMethod = (typeof RestRequestMethod)[keyof typeof RestRequestMethod];
 
 export const StepType = {
@@ -48,4 +63,7 @@ export const StepType = {
     HealthCheck: "HealthCheck",
 } as const;
 
+/**
+ * The type of step.
+ */
 export type StepType = (typeof StepType)[keyof typeof StepType];

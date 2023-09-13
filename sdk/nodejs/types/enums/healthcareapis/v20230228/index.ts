@@ -8,6 +8,9 @@ export const FhirResourceVersionPolicy = {
     Versioned_update: "versioned-update",
 } as const;
 
+/**
+ * Controls how resources are versioned on the FHIR service
+ */
 export type FhirResourceVersionPolicy = (typeof FhirResourceVersionPolicy)[keyof typeof FhirResourceVersionPolicy];
 
 export const FhirServiceKind = {
@@ -15,6 +18,9 @@ export const FhirServiceKind = {
     Fhir_R4: "fhir-R4",
 } as const;
 
+/**
+ * The kind of the service.
+ */
 export type FhirServiceKind = (typeof FhirServiceKind)[keyof typeof FhirServiceKind];
 
 export const IotIdentityResolutionType = {
@@ -22,6 +28,9 @@ export const IotIdentityResolutionType = {
     Lookup: "Lookup",
 } as const;
 
+/**
+ * Determines how resource identity is resolved on the destination.
+ */
 export type IotIdentityResolutionType = (typeof IotIdentityResolutionType)[keyof typeof IotIdentityResolutionType];
 
 export const Kind = {
@@ -30,6 +39,9 @@ export const Kind = {
     Fhir_R4: "fhir-R4",
 } as const;
 
+/**
+ * The kind of the service.
+ */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
 export const ManagedServiceIdentityType = {
@@ -37,6 +49,9 @@ export const ManagedServiceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * Type of identity being specified, currently SystemAssigned and None are allowed.
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -45,6 +60,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -52,6 +70,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ServiceManagedIdentityType = {
@@ -61,4 +82,7 @@ export const ServiceManagedIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * Type of identity being specified, currently SystemAssigned and None are allowed.
+ */
 export type ServiceManagedIdentityType = (typeof ServiceManagedIdentityType)[keyof typeof ServiceManagedIdentityType];

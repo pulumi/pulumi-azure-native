@@ -8,6 +8,9 @@ export const Architecture = {
     Arm: "arm",
 } as const;
 
+/**
+ * The OS architecture.
+ */
 export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 
 export const BaseImageTriggerType = {
@@ -15,6 +18,9 @@ export const BaseImageTriggerType = {
     Runtime: "Runtime",
 } as const;
 
+/**
+ * The type of the auto trigger for base image dependency updates.
+ */
 export type BaseImageTriggerType = (typeof BaseImageTriggerType)[keyof typeof BaseImageTriggerType];
 
 export const OS = {
@@ -22,6 +28,9 @@ export const OS = {
     Linux: "Linux",
 } as const;
 
+/**
+ * The operating system type required for the run.
+ */
 export type OS = (typeof OS)[keyof typeof OS];
 
 export const ResourceIdentityType = {
@@ -31,6 +40,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SecretObjectType = {
@@ -38,6 +50,10 @@ export const SecretObjectType = {
     Vaultsecret: "Vaultsecret",
 } as const;
 
+/**
+ * The type of the secret object which determines how the value of the secret object has to be
+ * interpreted.
+ */
 export type SecretObjectType = (typeof SecretObjectType)[keyof typeof SecretObjectType];
 
 export const SourceControlType = {
@@ -45,6 +61,9 @@ export const SourceControlType = {
     VisualStudioTeamService: "VisualStudioTeamService",
 } as const;
 
+/**
+ * The type of source control service.
+ */
 export type SourceControlType = (typeof SourceControlType)[keyof typeof SourceControlType];
 
 export const SourceRegistryLoginMode = {
@@ -52,6 +71,11 @@ export const SourceRegistryLoginMode = {
     Default: "Default",
 } as const;
 
+/**
+ * The authentication mode which determines the source registry login scope. The credentials for the source registry
+ * will be generated using the given scope. These credentials will be used to login to
+ * the source registry during the run.
+ */
 export type SourceRegistryLoginMode = (typeof SourceRegistryLoginMode)[keyof typeof SourceRegistryLoginMode];
 
 export const SourceTriggerEvent = {
@@ -67,6 +91,9 @@ export const StepType = {
     EncodedTask: "EncodedTask",
 } as const;
 
+/**
+ * The type of the step.
+ */
 export type StepType = (typeof StepType)[keyof typeof StepType];
 
 export const TaskStatus = {
@@ -74,6 +101,9 @@ export const TaskStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * The current status of task.
+ */
 export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
 
 export const TokenType = {
@@ -81,6 +111,9 @@ export const TokenType = {
     OAuth: "OAuth",
 } as const;
 
+/**
+ * The type of Auth token.
+ */
 export type TokenType = (typeof TokenType)[keyof typeof TokenType];
 
 export const TriggerStatus = {
@@ -88,6 +121,9 @@ export const TriggerStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * The current status of trigger.
+ */
 export type TriggerStatus = (typeof TriggerStatus)[keyof typeof TriggerStatus];
 
 export const Variant = {
@@ -96,4 +132,7 @@ export const Variant = {
     V8: "v8",
 } as const;
 
+/**
+ * Variant of the CPU.
+ */
 export type Variant = (typeof Variant)[keyof typeof Variant];

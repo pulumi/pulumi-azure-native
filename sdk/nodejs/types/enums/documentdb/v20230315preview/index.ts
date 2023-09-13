@@ -7,6 +7,9 @@ export const AnalyticalStorageSchemaType = {
     FullFidelity: "FullFidelity",
 } as const;
 
+/**
+ * Describes the types of schema for analytical storage.
+ */
 export type AnalyticalStorageSchemaType = (typeof AnalyticalStorageSchemaType)[keyof typeof AnalyticalStorageSchemaType];
 
 export const BackupPolicyMigrationStatus = {
@@ -16,6 +19,9 @@ export const BackupPolicyMigrationStatus = {
     Failed: "Failed",
 } as const;
 
+/**
+ * Describes the status of migration between backup policy types.
+ */
 export type BackupPolicyMigrationStatus = (typeof BackupPolicyMigrationStatus)[keyof typeof BackupPolicyMigrationStatus];
 
 export const BackupPolicyType = {
@@ -23,6 +29,9 @@ export const BackupPolicyType = {
     Continuous: "Continuous",
 } as const;
 
+/**
+ * Describes the mode of backups.
+ */
 export type BackupPolicyType = (typeof BackupPolicyType)[keyof typeof BackupPolicyType];
 
 export const BackupStorageRedundancy = {
@@ -31,6 +40,9 @@ export const BackupStorageRedundancy = {
     Zone: "Zone",
 } as const;
 
+/**
+ * Enum to indicate type of backup residency
+ */
 export type BackupStorageRedundancy = (typeof BackupStorageRedundancy)[keyof typeof BackupStorageRedundancy];
 
 export const CompositePathSortOrder = {
@@ -38,6 +50,9 @@ export const CompositePathSortOrder = {
     Descending: "descending",
 } as const;
 
+/**
+ * Sort order for composite paths.
+ */
 export type CompositePathSortOrder = (typeof CompositePathSortOrder)[keyof typeof CompositePathSortOrder];
 
 export const ConflictResolutionMode = {
@@ -45,12 +60,18 @@ export const ConflictResolutionMode = {
     Custom: "Custom",
 } as const;
 
+/**
+ * Indicates the conflict resolution mode.
+ */
 export type ConflictResolutionMode = (typeof ConflictResolutionMode)[keyof typeof ConflictResolutionMode];
 
 export const ConnectorOffer = {
     Small: "Small",
 } as const;
 
+/**
+ * The cassandra connector offer type for the Cosmos DB database C* account.
+ */
 export type ConnectorOffer = (typeof ConnectorOffer)[keyof typeof ConnectorOffer];
 
 export const ContinuousTier = {
@@ -58,6 +79,9 @@ export const ContinuousTier = {
     Continuous30Days: "Continuous30Days",
 } as const;
 
+/**
+ * Enum to indicate type of Continuos backup mode
+ */
 export type ContinuousTier = (typeof ContinuousTier)[keyof typeof ContinuousTier];
 
 export const CreateMode = {
@@ -65,6 +89,9 @@ export const CreateMode = {
     Restore: "Restore",
 } as const;
 
+/**
+ * Enum to indicate the mode of resource creation.
+ */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const DataType = {
@@ -76,6 +103,9 @@ export const DataType = {
     MultiPolygon: "MultiPolygon",
 } as const;
 
+/**
+ * The datatype for which the indexing behavior is applied to.
+ */
 export type DataType = (typeof DataType)[keyof typeof DataType];
 
 export const DatabaseAccountKind = {
@@ -84,12 +114,18 @@ export const DatabaseAccountKind = {
     Parse: "Parse",
 } as const;
 
+/**
+ * Indicates the type of database account. This can only be set at database account creation.
+ */
 export type DatabaseAccountKind = (typeof DatabaseAccountKind)[keyof typeof DatabaseAccountKind];
 
 export const DatabaseAccountOfferType = {
     Standard: "Standard",
 } as const;
 
+/**
+ * The offer type for the database
+ */
 export type DatabaseAccountOfferType = (typeof DatabaseAccountOfferType)[keyof typeof DatabaseAccountOfferType];
 
 export const DefaultConsistencyLevel = {
@@ -100,6 +136,9 @@ export const DefaultConsistencyLevel = {
     ConsistentPrefix: "ConsistentPrefix",
 } as const;
 
+/**
+ * The default consistency level and configuration settings of the Cosmos DB account.
+ */
 export type DefaultConsistencyLevel = (typeof DefaultConsistencyLevel)[keyof typeof DefaultConsistencyLevel];
 
 export const EnableFullTextQuery = {
@@ -108,6 +147,9 @@ export const EnableFullTextQuery = {
     False: "False",
 } as const;
 
+/**
+ * Describe the level of detail with which queries are to be logged.
+ */
 export type EnableFullTextQuery = (typeof EnableFullTextQuery)[keyof typeof EnableFullTextQuery];
 
 export const IndexKind = {
@@ -116,6 +158,9 @@ export const IndexKind = {
     Spatial: "Spatial",
 } as const;
 
+/**
+ * Indicates the type of index.
+ */
 export type IndexKind = (typeof IndexKind)[keyof typeof IndexKind];
 
 export const IndexingMode = {
@@ -124,6 +169,9 @@ export const IndexingMode = {
     None: "none",
 } as const;
 
+/**
+ * Indicates the indexing mode.
+ */
 export type IndexingMode = (typeof IndexingMode)[keyof typeof IndexingMode];
 
 export const MinimalTlsVersion = {
@@ -132,6 +180,9 @@ export const MinimalTlsVersion = {
     Tls12: "Tls12",
 } as const;
 
+/**
+ * Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2.
+ */
 export type MinimalTlsVersion = (typeof MinimalTlsVersion)[keyof typeof MinimalTlsVersion];
 
 export const NetworkAclBypass = {
@@ -139,12 +190,18 @@ export const NetworkAclBypass = {
     AzureServices: "AzureServices",
 } as const;
 
+/**
+ * Indicates what services are allowed to bypass firewall checks.
+ */
 export type NetworkAclBypass = (typeof NetworkAclBypass)[keyof typeof NetworkAclBypass];
 
 export const NodeKind = {
     Shard: "Shard",
 } as const;
 
+/**
+ * The node type deployed in the node group.
+ */
 export type NodeKind = (typeof NodeKind)[keyof typeof NodeKind];
 
 export const PartitionKind = {
@@ -153,6 +210,9 @@ export const PartitionKind = {
     MultiHash: "MultiHash",
 } as const;
 
+/**
+ * Indicates the kind of algorithm used for partitioning. For MultiHash, multiple partition keys (upto three maximum) are supported for container create
+ */
 export type PartitionKind = (typeof PartitionKind)[keyof typeof PartitionKind];
 
 export const PublicNetworkAccess = {
@@ -160,6 +220,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether requests from Public Network are allowed
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ResourceIdentityType = {
@@ -169,12 +232,18 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of identity used for the resource. The type 'SystemAssigned,UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RestoreMode = {
     PointInTime: "PointInTime",
 } as const;
 
+/**
+ * Describes the mode of the restore.
+ */
 export type RestoreMode = (typeof RestoreMode)[keyof typeof RestoreMode];
 
 export const ServerVersion = {
@@ -184,6 +253,9 @@ export const ServerVersion = {
     ServerVersion_4_2: "4.2",
 } as const;
 
+/**
+ * Describes the ServerVersion of an a MongoDB account.
+ */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
 
 export const SpatialType = {
@@ -193,6 +265,9 @@ export const SpatialType = {
     MultiPolygon: "MultiPolygon",
 } as const;
 
+/**
+ * Indicates the spatial type of index.
+ */
 export type SpatialType = (typeof SpatialType)[keyof typeof SpatialType];
 
 export const TriggerOperation = {
@@ -203,6 +278,9 @@ export const TriggerOperation = {
     Replace: "Replace",
 } as const;
 
+/**
+ * The operation the trigger is associated with
+ */
 export type TriggerOperation = (typeof TriggerOperation)[keyof typeof TriggerOperation];
 
 export const TriggerType = {
@@ -210,4 +288,7 @@ export const TriggerType = {
     Post: "Post",
 } as const;
 
+/**
+ * Type of the Trigger
+ */
 export type TriggerType = (typeof TriggerType)[keyof typeof TriggerType];

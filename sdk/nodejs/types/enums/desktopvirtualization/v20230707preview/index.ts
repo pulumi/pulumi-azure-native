@@ -7,6 +7,9 @@ export const ApplicationGroupType = {
     Desktop: "Desktop",
 } as const;
 
+/**
+ * Resource Type of ApplicationGroup.
+ */
 export type ApplicationGroupType = (typeof ApplicationGroupType)[keyof typeof ApplicationGroupType];
 
 export const CommandLineSetting = {
@@ -15,6 +18,9 @@ export const CommandLineSetting = {
     Require: "Require",
 } as const;
 
+/**
+ * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
+ */
 export type CommandLineSetting = (typeof CommandLineSetting)[keyof typeof CommandLineSetting];
 
 export const DayOfWeek = {
@@ -44,6 +50,9 @@ export const HostPoolType = {
     BYODesktop: "BYODesktop",
 } as const;
 
+/**
+ * HostPool type for desktop.
+ */
 export type HostPoolType = (typeof HostPoolType)[keyof typeof HostPoolType];
 
 export const HostpoolPublicNetworkAccess = {
@@ -53,6 +62,9 @@ export const HostpoolPublicNetworkAccess = {
     EnabledForClientsOnly: "EnabledForClientsOnly",
 } as const;
 
+/**
+ * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+ */
 export type HostpoolPublicNetworkAccess = (typeof HostpoolPublicNetworkAccess)[keyof typeof HostpoolPublicNetworkAccess];
 
 export const LoadBalancerType = {
@@ -61,6 +73,9 @@ export const LoadBalancerType = {
     Persistent: "Persistent",
 } as const;
 
+/**
+ * The type of the load balancer.
+ */
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
 
 export const PersonalDesktopAssignmentType = {
@@ -68,6 +83,9 @@ export const PersonalDesktopAssignmentType = {
     Direct: "Direct",
 } as const;
 
+/**
+ * PersonalDesktopAssignment type for HostPool.
+ */
 export type PersonalDesktopAssignmentType = (typeof PersonalDesktopAssignmentType)[keyof typeof PersonalDesktopAssignmentType];
 
 export const PreferredAppGroupType = {
@@ -76,6 +94,9 @@ export const PreferredAppGroupType = {
     RailApplications: "RailApplications",
 } as const;
 
+/**
+ * The type of preferred application group type, default to Desktop Application Group
+ */
 export type PreferredAppGroupType = (typeof PreferredAppGroupType)[keyof typeof PreferredAppGroupType];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -84,6 +105,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -91,6 +115,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const RegistrationTokenOperation = {
@@ -99,6 +126,9 @@ export const RegistrationTokenOperation = {
     Update: "Update",
 } as const;
 
+/**
+ * The type of resetting the token.
+ */
 export type RegistrationTokenOperation = (typeof RegistrationTokenOperation)[keyof typeof RegistrationTokenOperation];
 
 export const RemoteApplicationType = {
@@ -106,12 +136,18 @@ export const RemoteApplicationType = {
     MsixApplication: "MsixApplication",
 } as const;
 
+/**
+ * Resource Type of Application.
+ */
 export type RemoteApplicationType = (typeof RemoteApplicationType)[keyof typeof RemoteApplicationType];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SSOSecretType = {
@@ -121,6 +157,9 @@ export const SSOSecretType = {
     CertificateInKeyVault: "CertificateInKeyVault",
 } as const;
 
+/**
+ * The type of single sign on Secret Type.
+ */
 export type SSOSecretType = (typeof SSOSecretType)[keyof typeof SSOSecretType];
 
 export const ScalingHostPoolType = {
@@ -130,6 +169,9 @@ export const ScalingHostPoolType = {
     Pooled: "Pooled",
 } as const;
 
+/**
+ * HostPool type for desktop.
+ */
 export type ScalingHostPoolType = (typeof ScalingHostPoolType)[keyof typeof ScalingHostPoolType];
 
 export const SessionHandlingOperation = {
@@ -137,6 +179,9 @@ export const SessionHandlingOperation = {
     Deallocate: "Deallocate",
 } as const;
 
+/**
+ * Action to be taken after a logoff during the ramp up period.
+ */
 export type SessionHandlingOperation = (typeof SessionHandlingOperation)[keyof typeof SessionHandlingOperation];
 
 export const SessionHostComponentUpdateType = {
@@ -150,6 +195,9 @@ export const SessionHostComponentUpdateType = {
     Scheduled: "Scheduled",
 } as const;
 
+/**
+ * The type of maintenance for session host components.
+ */
 export type SessionHostComponentUpdateType = (typeof SessionHostComponentUpdateType)[keyof typeof SessionHostComponentUpdateType];
 
 export const SessionHostLoadBalancingAlgorithm = {
@@ -157,6 +205,9 @@ export const SessionHostLoadBalancingAlgorithm = {
     DepthFirst: "DepthFirst",
 } as const;
 
+/**
+ * Load balancing algorithm for ramp up period.
+ */
 export type SessionHostLoadBalancingAlgorithm = (typeof SessionHostLoadBalancingAlgorithm)[keyof typeof SessionHostLoadBalancingAlgorithm];
 
 export const SetStartVMOnConnect = {
@@ -164,6 +215,9 @@ export const SetStartVMOnConnect = {
     Disable: "Disable",
 } as const;
 
+/**
+ * The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
+ */
 export type SetStartVMOnConnect = (typeof SetStartVMOnConnect)[keyof typeof SetStartVMOnConnect];
 
 export const SkuTier = {
@@ -173,6 +227,9 @@ export const SkuTier = {
     Premium: "Premium",
 } as const;
 
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const StartupBehavior = {
@@ -190,6 +247,9 @@ export const StartupBehavior = {
     All: "All",
 } as const;
 
+/**
+ * The desired startup behavior during the ramp up period for personal vms in the hostpool.
+ */
 export type StartupBehavior = (typeof StartupBehavior)[keyof typeof StartupBehavior];
 
 export const StopHostsWhen = {
@@ -197,4 +257,7 @@ export const StopHostsWhen = {
     ZeroActiveSessions: "ZeroActiveSessions",
 } as const;
 
+/**
+ * Specifies when to stop hosts during ramp down period.
+ */
 export type StopHostsWhen = (typeof StopHostsWhen)[keyof typeof StopHostsWhen];

@@ -13,6 +13,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const Status = {
@@ -24,4 +27,7 @@ export const Status = {
     Failed: "Failed",
 } as const;
 
+/**
+ * Provisioning status field
+ */
 export type Status = (typeof Status)[keyof typeof Status];

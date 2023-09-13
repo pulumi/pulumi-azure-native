@@ -7,6 +7,9 @@ export const DomainJoinType = {
     AzureADJoin: "AzureADJoin",
 } as const;
 
+/**
+ * AAD Join type.
+ */
 export type DomainJoinType = (typeof DomainJoinType)[keyof typeof DomainJoinType];
 
 export const EnvironmentTypeEnableStatus = {
@@ -14,6 +17,9 @@ export const EnvironmentTypeEnableStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Defines whether this Environment Type can be used in this Project.
+ */
 export type EnvironmentTypeEnableStatus = (typeof EnvironmentTypeEnableStatus)[keyof typeof EnvironmentTypeEnableStatus];
 
 export const HibernateSupport = {
@@ -21,12 +27,18 @@ export const HibernateSupport = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
+ */
 export type HibernateSupport = (typeof HibernateSupport)[keyof typeof HibernateSupport];
 
 export const LicenseType = {
     Windows_Client: "Windows_Client",
 } as const;
 
+/**
+ * Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
+ */
 export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
 export const LocalAdminStatus = {
@@ -34,6 +46,9 @@ export const LocalAdminStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.
+ */
 export type LocalAdminStatus = (typeof LocalAdminStatus)[keyof typeof LocalAdminStatus];
 
 export const ManagedServiceIdentityType = {
@@ -43,6 +58,9 @@ export const ManagedServiceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
 } as const;
 
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const ScheduleEnableStatus = {
@@ -50,18 +68,27 @@ export const ScheduleEnableStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates whether or not this scheduled task is enabled.
+ */
 export type ScheduleEnableStatus = (typeof ScheduleEnableStatus)[keyof typeof ScheduleEnableStatus];
 
 export const ScheduledFrequency = {
     Daily: "Daily",
 } as const;
 
+/**
+ * The frequency of this scheduled task.
+ */
 export type ScheduledFrequency = (typeof ScheduledFrequency)[keyof typeof ScheduledFrequency];
 
 export const ScheduledType = {
     StopDevBox: "StopDevBox",
 } as const;
 
+/**
+ * Supported type this scheduled task represents.
+ */
 export type ScheduledType = (typeof ScheduledType)[keyof typeof ScheduledType];
 
 export const SkuTier = {
@@ -71,6 +98,9 @@ export const SkuTier = {
     Premium: "Premium",
 } as const;
 
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const StopOnDisconnectEnableStatus = {
@@ -78,4 +108,7 @@ export const StopOnDisconnectEnableStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether the feature to stop the Dev Box on disconnect once the grace period has lapsed is enabled.
+ */
 export type StopOnDisconnectEnableStatus = (typeof StopOnDisconnectEnableStatus)[keyof typeof StopOnDisconnectEnableStatus];

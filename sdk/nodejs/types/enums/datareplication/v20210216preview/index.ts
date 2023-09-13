@@ -7,6 +7,9 @@ export const ReplicationVaultType = {
     Migrate: "Migrate",
 } as const;
 
+/**
+ * Gets or sets the type of vault.
+ */
 export type ReplicationVaultType = (typeof ReplicationVaultType)[keyof typeof ReplicationVaultType];
 
 export const VMNicSelection = {
@@ -16,4 +19,7 @@ export const VMNicSelection = {
     SelectedByUserOverride: "SelectedByUserOverride",
 } as const;
 
+/**
+ * Gets or sets the selection type of the NIC.
+ */
 export type VMNicSelection = (typeof VMNicSelection)[keyof typeof VMNicSelection];

@@ -7,6 +7,9 @@ export const AccessPolicyRole = {
     Contributor: "Contributor",
 } as const;
 
+/**
+ * A role defining the data plane operations that a principal can perform on a Time Series Insights client.
+ */
 export type AccessPolicyRole = (typeof AccessPolicyRole)[keyof typeof AccessPolicyRole];
 
 export const DataStringComparisonBehavior = {
@@ -14,6 +17,9 @@ export const DataStringComparisonBehavior = {
     OrdinalIgnoreCase: "OrdinalIgnoreCase",
 } as const;
 
+/**
+ * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
+ */
 export type DataStringComparisonBehavior = (typeof DataStringComparisonBehavior)[keyof typeof DataStringComparisonBehavior];
 
 export const EnvironmentKind = {
@@ -21,6 +27,9 @@ export const EnvironmentKind = {
     Gen2: "Gen2",
 } as const;
 
+/**
+ * The kind of the environment.
+ */
 export type EnvironmentKind = (typeof EnvironmentKind)[keyof typeof EnvironmentKind];
 
 export const EventSourceKind = {
@@ -28,6 +37,9 @@ export const EventSourceKind = {
     Microsoft_IoTHub: "Microsoft.IoTHub",
 } as const;
 
+/**
+ * The kind of the event source.
+ */
 export type EventSourceKind = (typeof EventSourceKind)[keyof typeof EventSourceKind];
 
 export const IngressStartAtType = {
@@ -36,18 +48,27 @@ export const IngressStartAtType = {
     CustomEnqueuedTime: "CustomEnqueuedTime",
 } as const;
 
+/**
+ * The type of the ingressStartAt, It can be "EarliestAvailable", "EventSourceCreationTime", "CustomEnqueuedTime".
+ */
 export type IngressStartAtType = (typeof IngressStartAtType)[keyof typeof IngressStartAtType];
 
 export const LocalTimestampFormat = {
     Embedded: "Embedded",
 } as const;
 
+/**
+ * An enum that represents the format of the local timestamp property that needs to be set.
+ */
 export type LocalTimestampFormat = (typeof LocalTimestampFormat)[keyof typeof LocalTimestampFormat];
 
 export const PropertyType = {
     String: "String",
 } as const;
 
+/**
+ * The type of the property.
+ */
 export type PropertyType = (typeof PropertyType)[keyof typeof PropertyType];
 
 export const ReferenceDataKeyPropertyType = {
@@ -57,6 +78,9 @@ export const ReferenceDataKeyPropertyType = {
     DateTime: "DateTime",
 } as const;
 
+/**
+ * The type of the key property.
+ */
 export type ReferenceDataKeyPropertyType = (typeof ReferenceDataKeyPropertyType)[keyof typeof ReferenceDataKeyPropertyType];
 
 export const SkuName = {
@@ -66,6 +90,9 @@ export const SkuName = {
     L1: "L1",
 } as const;
 
+/**
+ * The name of this SKU.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const StorageLimitExceededBehavior = {
@@ -73,4 +100,7 @@ export const StorageLimitExceededBehavior = {
     PauseIngress: "PauseIngress",
 } as const;
 
+/**
+ * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
+ */
 export type StorageLimitExceededBehavior = (typeof StorageLimitExceededBehavior)[keyof typeof StorageLimitExceededBehavior];

@@ -7,6 +7,9 @@ export const BlobStorageEventType = {
     Microsoft_Storage_BlobRenamed: "Microsoft.Storage.BlobRenamed",
 } as const;
 
+/**
+ * The name of blob storage event type to process.
+ */
 export type BlobStorageEventType = (typeof BlobStorageEventType)[keyof typeof BlobStorageEventType];
 
 export const ClusterPrincipalRole = {
@@ -14,6 +17,9 @@ export const ClusterPrincipalRole = {
     AllDatabasesViewer: "AllDatabasesViewer",
 } as const;
 
+/**
+ * Cluster principal role.
+ */
 export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
 
 export const Compression = {
@@ -21,6 +27,9 @@ export const Compression = {
     GZip: "GZip",
 } as const;
 
+/**
+ * The event hub messages compression type
+ */
 export type Compression = (typeof Compression)[keyof typeof Compression];
 
 export const ConfigurationType = {
@@ -28,6 +37,9 @@ export const ConfigurationType = {
     Artifact: "Artifact",
 } as const;
 
+/**
+ * The type of the spark config properties file.
+ */
 export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
 
 export const CreateMode = {
@@ -37,6 +49,17 @@ export const CreateMode = {
     Restore: "Restore",
 } as const;
 
+/**
+ * Specifies the mode of sql pool creation.
+ *
+ * Default: regular sql pool creation.
+ *
+ * PointInTimeRestore: Creates a sql pool by restoring a point in time backup of an existing sql pool. sourceDatabaseId must be specified as the resource ID of the existing sql pool, and restorePointInTime must be specified.
+ *
+ * Recovery: Creates a sql pool by a geo-replicated backup. sourceDatabaseId  must be specified as the recoverableDatabaseId to restore.
+ *
+ * Restore: Creates a sql pool by restoring a backup of a deleted sql  pool. SourceDatabaseId should be the sql pool's original resource ID. SourceDatabaseId and sourceDatabaseDeletionDate must be specified.
+ */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const DataConnectionKind = {
@@ -45,6 +68,9 @@ export const DataConnectionKind = {
     IotHub: "IotHub",
 } as const;
 
+/**
+ * Kind of the endpoint for the data connection
+ */
 export type DataConnectionKind = (typeof DataConnectionKind)[keyof typeof DataConnectionKind];
 
 export const DataFlowComputeType = {
@@ -53,6 +79,9 @@ export const DataFlowComputeType = {
     ComputeOptimized: "ComputeOptimized",
 } as const;
 
+/**
+ * Compute type of the cluster which will execute data flow job.
+ */
 export type DataFlowComputeType = (typeof DataFlowComputeType)[keyof typeof DataFlowComputeType];
 
 export const DatabasePrincipalRole = {
@@ -64,6 +93,9 @@ export const DatabasePrincipalRole = {
     Viewer: "Viewer",
 } as const;
 
+/**
+ * Database principal role.
+ */
 export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
 
 export const DefaultPrincipalsModificationKind = {
@@ -72,6 +104,9 @@ export const DefaultPrincipalsModificationKind = {
     None: "None",
 } as const;
 
+/**
+ * The default principals modification kind
+ */
 export type DefaultPrincipalsModificationKind = (typeof DefaultPrincipalsModificationKind)[keyof typeof DefaultPrincipalsModificationKind];
 
 export const EventGridDataFormat = {
@@ -93,6 +128,9 @@ export const EventGridDataFormat = {
     W3CLOGFILE: "W3CLOGFILE",
 } as const;
 
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
 export type EventGridDataFormat = (typeof EventGridDataFormat)[keyof typeof EventGridDataFormat];
 
 export const EventHubDataFormat = {
@@ -114,6 +152,9 @@ export const EventHubDataFormat = {
     W3CLOGFILE: "W3CLOGFILE",
 } as const;
 
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
 export type EventHubDataFormat = (typeof EventHubDataFormat)[keyof typeof EventHubDataFormat];
 
 export const IntegrationRuntimeEdition = {
@@ -121,6 +162,9 @@ export const IntegrationRuntimeEdition = {
     Enterprise: "Enterprise",
 } as const;
 
+/**
+ * The edition for the SSIS Integration Runtime
+ */
 export type IntegrationRuntimeEdition = (typeof IntegrationRuntimeEdition)[keyof typeof IntegrationRuntimeEdition];
 
 export const IntegrationRuntimeEntityReferenceType = {
@@ -128,6 +172,9 @@ export const IntegrationRuntimeEntityReferenceType = {
     LinkedServiceReference: "LinkedServiceReference",
 } as const;
 
+/**
+ * The type of this referenced entity.
+ */
 export type IntegrationRuntimeEntityReferenceType = (typeof IntegrationRuntimeEntityReferenceType)[keyof typeof IntegrationRuntimeEntityReferenceType];
 
 export const IntegrationRuntimeLicenseType = {
@@ -135,6 +182,9 @@ export const IntegrationRuntimeLicenseType = {
     LicenseIncluded: "LicenseIncluded",
 } as const;
 
+/**
+ * License type for bringing your own license scenario.
+ */
 export type IntegrationRuntimeLicenseType = (typeof IntegrationRuntimeLicenseType)[keyof typeof IntegrationRuntimeLicenseType];
 
 export const IntegrationRuntimeSsisCatalogPricingTier = {
@@ -144,6 +194,9 @@ export const IntegrationRuntimeSsisCatalogPricingTier = {
     PremiumRS: "PremiumRS",
 } as const;
 
+/**
+ * The pricing tier for the catalog database. The valid values could be found in https://azure.microsoft.com/en-us/pricing/details/sql-database/
+ */
 export type IntegrationRuntimeSsisCatalogPricingTier = (typeof IntegrationRuntimeSsisCatalogPricingTier)[keyof typeof IntegrationRuntimeSsisCatalogPricingTier];
 
 export const IntegrationRuntimeType = {
@@ -151,6 +204,9 @@ export const IntegrationRuntimeType = {
     SelfHosted: "SelfHosted",
 } as const;
 
+/**
+ * Type of integration runtime.
+ */
 export type IntegrationRuntimeType = (typeof IntegrationRuntimeType)[keyof typeof IntegrationRuntimeType];
 
 export const IotHubDataFormat = {
@@ -172,6 +228,9 @@ export const IotHubDataFormat = {
     W3CLOGFILE: "W3CLOGFILE",
 } as const;
 
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
 export type IotHubDataFormat = (typeof IotHubDataFormat)[keyof typeof IotHubDataFormat];
 
 export const Kind = {
@@ -179,6 +238,9 @@ export const Kind = {
     ReadOnlyFollowing: "ReadOnlyFollowing",
 } as const;
 
+/**
+ * Kind of the database
+ */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
 export const NodeSize = {
@@ -191,6 +253,9 @@ export const NodeSize = {
     XXXLarge: "XXXLarge",
 } as const;
 
+/**
+ * The level of compute power that each node in the Big Data pool has.
+ */
 export type NodeSize = (typeof NodeSize)[keyof typeof NodeSize];
 
 export const NodeSizeFamily = {
@@ -200,6 +265,9 @@ export const NodeSizeFamily = {
     HardwareAcceleratedGPU: "HardwareAcceleratedGPU",
 } as const;
 
+/**
+ * The kind of nodes that the Big Data pool provides.
+ */
 export type NodeSizeFamily = (typeof NodeSizeFamily)[keyof typeof NodeSizeFamily];
 
 export const PrincipalType = {
@@ -208,6 +276,9 @@ export const PrincipalType = {
     User: "User",
 } as const;
 
+/**
+ * Principal type.
+ */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 export const ResourceIdentityType = {
@@ -216,6 +287,9 @@ export const ResourceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * The type of managed identity for the workspace
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SensitivityLabelRank = {
@@ -233,6 +307,9 @@ export const SkuName = {
     Storage_optimized: "Storage optimized",
 } as const;
 
+/**
+ * SKU name.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const SkuSize = {
@@ -242,6 +319,9 @@ export const SkuSize = {
     Large: "Large",
 } as const;
 
+/**
+ * SKU size.
+ */
 export type SkuSize = (typeof SkuSize)[keyof typeof SkuSize];
 
 export const StorageAccountType = {
@@ -249,6 +329,9 @@ export const StorageAccountType = {
     LRS: "LRS",
 } as const;
 
+/**
+ * The storage account type used to store backups for this sql pool.
+ */
 export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
 
 export const TransparentDataEncryptionStatus = {
@@ -256,6 +339,9 @@ export const TransparentDataEncryptionStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The status of the database transparent data encryption.
+ */
 export type TransparentDataEncryptionStatus = (typeof TransparentDataEncryptionStatus)[keyof typeof TransparentDataEncryptionStatus];
 
 export const WorkspacePublicNetworkAccess = {
@@ -263,4 +349,7 @@ export const WorkspacePublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Enable or Disable public network access to workspace
+ */
 export type WorkspacePublicNetworkAccess = (typeof WorkspacePublicNetworkAccess)[keyof typeof WorkspacePublicNetworkAccess];

@@ -17,6 +17,9 @@ export const AddressType = {
     Commercial: "Commercial",
 } as const;
 
+/**
+ * Type of address.
+ */
 export type AddressType = (typeof AddressType)[keyof typeof AddressType];
 
 export const DoubleEncryptionStatus = {
@@ -30,6 +33,9 @@ export const DoubleEncryptionStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Double encryption status as entered by the customer. It is compulsory to give this parameter if the 'Deny' or 'Disabled' policy is configured.
+ */
 export type DoubleEncryptionStatus = (typeof DoubleEncryptionStatus)[keyof typeof DoubleEncryptionStatus];
 
 export const NotificationStageName = {
@@ -43,6 +49,9 @@ export const NotificationStageName = {
     Delivered: "Delivered",
 } as const;
 
+/**
+ * Name of the stage.
+ */
 export type NotificationStageName = (typeof NotificationStageName)[keyof typeof NotificationStageName];
 
 export const OrderItemType = {
@@ -56,6 +65,9 @@ export const OrderItemType = {
     Rental: "Rental",
 } as const;
 
+/**
+ * Order item type.
+ */
 export type OrderItemType = (typeof OrderItemType)[keyof typeof OrderItemType];
 
 export const SupportedFilterTypes = {
@@ -69,6 +81,9 @@ export const SupportedFilterTypes = {
     DoubleEncryptionStatus: "DoubleEncryptionStatus",
 } as const;
 
+/**
+ * Type of product filter.
+ */
 export type SupportedFilterTypes = (typeof SupportedFilterTypes)[keyof typeof SupportedFilterTypes];
 
 export const TransportShipmentTypes = {
@@ -82,4 +97,7 @@ export const TransportShipmentTypes = {
     MicrosoftManaged: "MicrosoftManaged",
 } as const;
 
+/**
+ * Indicates Shipment Logistics type that the customer preferred.
+ */
 export type TransportShipmentTypes = (typeof TransportShipmentTypes)[keyof typeof TransportShipmentTypes];

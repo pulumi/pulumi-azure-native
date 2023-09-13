@@ -7,6 +7,9 @@ export const AccessRuleDirection = {
     Outbound: "Outbound",
 } as const;
 
+/**
+ * Direction that specifies whether the access rules is inbound/outbound.
+ */
 export type AccessRuleDirection = (typeof AccessRuleDirection)[keyof typeof AccessRuleDirection];
 
 export const AddressPrefixType = {
@@ -14,6 +17,9 @@ export const AddressPrefixType = {
     ServiceTag: "ServiceTag",
 } as const;
 
+/**
+ * Address prefix type.
+ */
 export type AddressPrefixType = (typeof AddressPrefixType)[keyof typeof AddressPrefixType];
 
 export const AdminRuleKind = {
@@ -21,6 +27,9 @@ export const AdminRuleKind = {
     Default: "Default",
 } as const;
 
+/**
+ * Whether the rule is custom or default.
+ */
 export type AdminRuleKind = (typeof AdminRuleKind)[keyof typeof AdminRuleKind];
 
 export const AssociationAccessMode = {
@@ -29,6 +38,9 @@ export const AssociationAccessMode = {
     Audit: "Audit",
 } as const;
 
+/**
+ * Access mode on the association.
+ */
 export type AssociationAccessMode = (typeof AssociationAccessMode)[keyof typeof AssociationAccessMode];
 
 export const ConfigurationType = {
@@ -37,6 +49,9 @@ export const ConfigurationType = {
     Connectivity: "Connectivity",
 } as const;
 
+/**
+ * Configuration Deployment Type.
+ */
 export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
 
 export const ConnectivityTopology = {
@@ -44,6 +59,9 @@ export const ConnectivityTopology = {
     Mesh: "Mesh",
 } as const;
 
+/**
+ * Connectivity topology type.
+ */
 export type ConnectivityTopology = (typeof ConnectivityTopology)[keyof typeof ConnectivityTopology];
 
 export const DeleteExistingPeering = {
@@ -51,6 +69,9 @@ export const DeleteExistingPeering = {
     True: "True",
 } as const;
 
+/**
+ * Flag if need to remove current existing peerings.
+ */
 export type DeleteExistingPeering = (typeof DeleteExistingPeering)[keyof typeof DeleteExistingPeering];
 
 export const GroupConnectivity = {
@@ -58,6 +79,9 @@ export const GroupConnectivity = {
     DirectlyConnected: "DirectlyConnected",
 } as const;
 
+/**
+ * Group connectivity type.
+ */
 export type GroupConnectivity = (typeof GroupConnectivity)[keyof typeof GroupConnectivity];
 
 export const IsGlobal = {
@@ -65,6 +89,9 @@ export const IsGlobal = {
     True: "True",
 } as const;
 
+/**
+ * Flag if global mesh is supported.
+ */
 export type IsGlobal = (typeof IsGlobal)[keyof typeof IsGlobal];
 
 export const SecurityConfigurationRuleAccess = {
@@ -73,6 +100,9 @@ export const SecurityConfigurationRuleAccess = {
     AlwaysAllow: "AlwaysAllow",
 } as const;
 
+/**
+ * Indicates the access allowed for this particular rule
+ */
 export type SecurityConfigurationRuleAccess = (typeof SecurityConfigurationRuleAccess)[keyof typeof SecurityConfigurationRuleAccess];
 
 export const SecurityConfigurationRuleDirection = {
@@ -80,6 +110,9 @@ export const SecurityConfigurationRuleDirection = {
     Outbound: "Outbound",
 } as const;
 
+/**
+ * Indicates if the traffic matched against the rule in inbound or outbound.
+ */
 export type SecurityConfigurationRuleDirection = (typeof SecurityConfigurationRuleDirection)[keyof typeof SecurityConfigurationRuleDirection];
 
 export const SecurityConfigurationRuleProtocol = {
@@ -91,6 +124,9 @@ export const SecurityConfigurationRuleProtocol = {
     Ah: "Ah",
 } as const;
 
+/**
+ * Network protocol this rule applies to.
+ */
 export type SecurityConfigurationRuleProtocol = (typeof SecurityConfigurationRuleProtocol)[keyof typeof SecurityConfigurationRuleProtocol];
 
 export const UseHubGateway = {
@@ -98,4 +134,7 @@ export const UseHubGateway = {
     True: "True",
 } as const;
 
+/**
+ * Flag if need to use hub gateway.
+ */
 export type UseHubGateway = (typeof UseHubGateway)[keyof typeof UseHubGateway];

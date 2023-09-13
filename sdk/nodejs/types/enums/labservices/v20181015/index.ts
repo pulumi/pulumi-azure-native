@@ -13,6 +13,9 @@ export const AddRemove = {
     Remove: "Remove",
 } as const;
 
+/**
+ * Enum indicating if user is adding or removing a favorite lab
+ */
 export type AddRemove = (typeof AddRemove)[keyof typeof AddRemove];
 
 export const ConfigurationState = {
@@ -27,6 +30,9 @@ export const ConfigurationState = {
     Completed: "Completed",
 } as const;
 
+/**
+ * Describes the user's progress in configuring their environment setting
+ */
 export type ConfigurationState = (typeof ConfigurationState)[keyof typeof ConfigurationState];
 
 export const LabUserAccessMode = {
@@ -40,6 +46,9 @@ export const LabUserAccessMode = {
     Open: "Open",
 } as const;
 
+/**
+ * Lab user access mode (open to all vs. restricted to those listed on the lab).
+ */
 export type LabUserAccessMode = (typeof LabUserAccessMode)[keyof typeof LabUserAccessMode];
 
 export const ManagedLabVmSize = {
@@ -57,4 +66,7 @@ export const ManagedLabVmSize = {
     Performance: "Performance",
 } as const;
 
+/**
+ * The size of the virtual machine
+ */
 export type ManagedLabVmSize = (typeof ManagedLabVmSize)[keyof typeof ManagedLabVmSize];

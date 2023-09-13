@@ -8,6 +8,9 @@ export const KeyType = {
     Secondary: "Secondary",
 } as const;
 
+/**
+ * The key type.
+ */
 export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 export const ParameterType = {
@@ -22,6 +25,9 @@ export const ParameterType = {
     SecureObject: "SecureObject",
 } as const;
 
+/**
+ * The type.
+ */
 export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 export const SkuName = {
@@ -33,6 +39,9 @@ export const SkuName = {
     Premium: "Premium",
 } as const;
 
+/**
+ * The name.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const WorkflowState = {
@@ -44,4 +53,7 @@ export const WorkflowState = {
     Suspended: "Suspended",
 } as const;
 
+/**
+ * The state.
+ */
 export type WorkflowState = (typeof WorkflowState)[keyof typeof WorkflowState];

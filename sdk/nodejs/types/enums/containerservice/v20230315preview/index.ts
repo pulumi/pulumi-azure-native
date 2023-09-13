@@ -13,4 +13,9 @@ export const ManagedClusterUpgradeType = {
     NodeImageOnly: "NodeImageOnly",
 } as const;
 
+/**
+ * The upgrade type.
+ * Full requires the KubernetesVersion property to be set.
+ * NodeImageOnly requires the KubernetesVersion property not to be set.
+ */
 export type ManagedClusterUpgradeType = (typeof ManagedClusterUpgradeType)[keyof typeof ManagedClusterUpgradeType];

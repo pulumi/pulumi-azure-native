@@ -13,6 +13,9 @@ export const PublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+ */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const StatusLevelTypes = {
@@ -21,4 +24,7 @@ export const StatusLevelTypes = {
     Error: "Error",
 } as const;
 
+/**
+ * The level code.
+ */
 export type StatusLevelTypes = (typeof StatusLevelTypes)[keyof typeof StatusLevelTypes];

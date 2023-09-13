@@ -13,6 +13,9 @@ export const AccountProvisioningMode = {
     Manual: "manual",
 } as const;
 
+/**
+ * The service account provisioning mode for this Active Directory connector.
+ */
 export type AccountProvisioningMode = (typeof AccountProvisioningMode)[keyof typeof AccountProvisioningMode];
 
 export const ArcSqlManagedInstanceLicenseType = {
@@ -21,6 +24,9 @@ export const ArcSqlManagedInstanceLicenseType = {
     DisasterRecovery: "DisasterRecovery",
 } as const;
 
+/**
+ * The license type to apply for this managed instance.
+ */
 export type ArcSqlManagedInstanceLicenseType = (typeof ArcSqlManagedInstanceLicenseType)[keyof typeof ArcSqlManagedInstanceLicenseType];
 
 export const ArcSqlServerLicenseType = {
@@ -33,6 +39,9 @@ export const ArcSqlServerLicenseType = {
     Paid: "Paid",
 } as const;
 
+/**
+ * SQL Server license type.
+ */
 export type ArcSqlServerLicenseType = (typeof ArcSqlServerLicenseType)[keyof typeof ArcSqlServerLicenseType];
 
 export const ConnectionStatus = {
@@ -42,6 +51,9 @@ export const ConnectionStatus = {
     Unknown: "Unknown",
 } as const;
 
+/**
+ * The cloud connectivity status.
+ */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 export const DatabaseState = {
@@ -56,6 +68,9 @@ export const DatabaseState = {
     OfflineSecondary: "OfflineSecondary",
 } as const;
 
+/**
+ * State of the database.
+ */
 export type DatabaseState = (typeof DatabaseState)[keyof typeof DatabaseState];
 
 export const DefenderStatus = {
@@ -64,6 +79,9 @@ export const DefenderStatus = {
     Unknown: "Unknown",
 } as const;
 
+/**
+ * Status of Azure Defender.
+ */
 export type DefenderStatus = (typeof DefenderStatus)[keyof typeof DefenderStatus];
 
 export const EditionType = {
@@ -76,12 +94,18 @@ export const EditionType = {
     Business_Intelligence: "Business Intelligence",
 } as const;
 
+/**
+ * SQL Server edition.
+ */
 export type EditionType = (typeof EditionType)[keyof typeof EditionType];
 
 export const ExtendedLocationTypes = {
     CustomLocation: "CustomLocation",
 } as const;
 
+/**
+ * The type of the extended location.
+ */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
 export const FailoverGroupPartnerSyncMode = {
@@ -89,6 +113,9 @@ export const FailoverGroupPartnerSyncMode = {
     Sync: "sync",
 } as const;
 
+/**
+ * The partner sync mode of the SQL managed instance.
+ */
 export type FailoverGroupPartnerSyncMode = (typeof FailoverGroupPartnerSyncMode)[keyof typeof FailoverGroupPartnerSyncMode];
 
 export const HostType = {
@@ -107,6 +134,9 @@ export const HostType = {
     Other: "Other",
 } as const;
 
+/**
+ * Type of host for Azure Arc SQL Server
+ */
 export type HostType = (typeof HostType)[keyof typeof HostType];
 
 export const Infrastructure = {
@@ -118,6 +148,9 @@ export const Infrastructure = {
     Other: "other",
 } as const;
 
+/**
+ * The infrastructure the data controller is running on.
+ */
 export type Infrastructure = (typeof Infrastructure)[keyof typeof Infrastructure];
 
 export const InstanceFailoverGroupRole = {
@@ -127,12 +160,18 @@ export const InstanceFailoverGroupRole = {
     Force_secondary: "force-secondary",
 } as const;
 
+/**
+ * The role of the SQL managed instance in this failover group.
+ */
 export type InstanceFailoverGroupRole = (typeof InstanceFailoverGroupRole)[keyof typeof InstanceFailoverGroupRole];
 
 export const PostgresInstanceSkuTier = {
     Hyperscale: "Hyperscale",
 } as const;
 
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier.
+ */
 export type PostgresInstanceSkuTier = (typeof PostgresInstanceSkuTier)[keyof typeof PostgresInstanceSkuTier];
 
 export const RecoveryMode = {
@@ -141,12 +180,18 @@ export const RecoveryMode = {
     Simple: "Simple",
 } as const;
 
+/**
+ * Status of the database.
+ */
 export type RecoveryMode = (typeof RecoveryMode)[keyof typeof RecoveryMode];
 
 export const SqlManagedInstanceSkuName = {
     VCore: "vCore",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type SqlManagedInstanceSkuName = (typeof SqlManagedInstanceSkuName)[keyof typeof SqlManagedInstanceSkuName];
 
 export const SqlManagedInstanceSkuTier = {
@@ -154,6 +199,9 @@ export const SqlManagedInstanceSkuTier = {
     BusinessCritical: "BusinessCritical",
 } as const;
 
+/**
+ * The pricing tier for the instance.
+ */
 export type SqlManagedInstanceSkuTier = (typeof SqlManagedInstanceSkuTier)[keyof typeof SqlManagedInstanceSkuTier];
 
 export const SqlVersion = {
@@ -166,4 +214,7 @@ export const SqlVersion = {
     Unknown: "Unknown",
 } as const;
 
+/**
+ * SQL Server version.
+ */
 export type SqlVersion = (typeof SqlVersion)[keyof typeof SqlVersion];

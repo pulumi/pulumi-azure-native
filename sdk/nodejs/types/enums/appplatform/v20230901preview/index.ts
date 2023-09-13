@@ -10,6 +10,9 @@ export const ApmType = {
     ElasticAPM: "ElasticAPM",
 } as const;
 
+/**
+ * Type of application performance monitoring
+ */
 export type ApmType = (typeof ApmType)[keyof typeof ApmType];
 
 export const BackendProtocol = {
@@ -17,6 +20,9 @@ export const BackendProtocol = {
     Default: "Default",
 } as const;
 
+/**
+ * How ingress should communicate with this app backend service.
+ */
 export type BackendProtocol = (typeof BackendProtocol)[keyof typeof BackendProtocol];
 
 export const BindingType = {
@@ -29,6 +35,9 @@ export const BindingType = {
     CACertificates: "CACertificates",
 } as const;
 
+/**
+ * Buildpack Binding Type
+ */
 export type BindingType = (typeof BindingType)[keyof typeof BindingType];
 
 export const ConfigServerEnabledState = {
@@ -42,6 +51,9 @@ export const ConfigServerEnabledState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Enabled state of the config server. This is only used in Consumption tier.
+ */
 export type ConfigServerEnabledState = (typeof ConfigServerEnabledState)[keyof typeof ConfigServerEnabledState];
 
 export const ConfigurationServiceGeneration = {
@@ -49,6 +61,9 @@ export const ConfigurationServiceGeneration = {
     Gen2: "Gen2",
 } as const;
 
+/**
+ * The generation of the Application Configuration Service.
+ */
 export type ConfigurationServiceGeneration = (typeof ConfigurationServiceGeneration)[keyof typeof ConfigurationServiceGeneration];
 
 export const CustomizedAcceleratorType = {
@@ -56,6 +71,9 @@ export const CustomizedAcceleratorType = {
     Fragment: "Fragment",
 } as const;
 
+/**
+ * Type of the customized accelerator.
+ */
 export type CustomizedAcceleratorType = (typeof CustomizedAcceleratorType)[keyof typeof CustomizedAcceleratorType];
 
 export const DevToolPortalFeatureState = {
@@ -69,12 +87,18 @@ export const DevToolPortalFeatureState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * State of the plugin
+ */
 export type DevToolPortalFeatureState = (typeof DevToolPortalFeatureState)[keyof typeof DevToolPortalFeatureState];
 
 export const Frequency = {
     Weekly: "Weekly",
 } as const;
 
+/**
+ * The frequency to run the maintenance job
+ */
 export type Frequency = (typeof Frequency)[keyof typeof Frequency];
 
 export const GatewayCertificateVerification = {
@@ -88,6 +112,9 @@ export const GatewayCertificateVerification = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to enable certificate verification or not
+ */
 export type GatewayCertificateVerification = (typeof GatewayCertificateVerification)[keyof typeof GatewayCertificateVerification];
 
 export const GatewayRouteConfigProtocol = {
@@ -95,6 +122,9 @@ export const GatewayRouteConfigProtocol = {
     HTTPS: "HTTPS",
 } as const;
 
+/**
+ * Protocol of routed Azure Spring Apps applications.
+ */
 export type GatewayRouteConfigProtocol = (typeof GatewayRouteConfigProtocol)[keyof typeof GatewayRouteConfigProtocol];
 
 export const GitImplementation = {
@@ -102,6 +132,9 @@ export const GitImplementation = {
     Libgit2: "libgit2",
 } as const;
 
+/**
+ * Git libraries used to support various repository providers
+ */
 export type GitImplementation = (typeof GitImplementation)[keyof typeof GitImplementation];
 
 export const HTTPSchemeType = {
@@ -109,6 +142,13 @@ export const HTTPSchemeType = {
     HTTPS: "HTTPS",
 } as const;
 
+/**
+ * Scheme to use for connecting to the host. Defaults to HTTP.
+ *
+ * Possible enum values:
+ *  - `"HTTP"` means that the scheme used will be http://
+ *  - `"HTTPS"` means that the scheme used will be https://
+ */
 export type HTTPSchemeType = (typeof HTTPSchemeType)[keyof typeof HTTPSchemeType];
 
 export const KeyVaultCertificateAutoSync = {
@@ -116,6 +156,9 @@ export const KeyVaultCertificateAutoSync = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Indicates whether to automatically synchronize certificate from key vault or not.
+ */
 export type KeyVaultCertificateAutoSync = (typeof KeyVaultCertificateAutoSync)[keyof typeof KeyVaultCertificateAutoSync];
 
 export const ManagedIdentityType = {
@@ -125,6 +168,9 @@ export const ManagedIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * Type of the managed identity
+ */
 export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
 
 export const ProbeActionType = {
@@ -133,6 +179,9 @@ export const ProbeActionType = {
     ExecAction: "ExecAction",
 } as const;
 
+/**
+ * The type of the action to take to perform the health check.
+ */
 export type ProbeActionType = (typeof ProbeActionType)[keyof typeof ProbeActionType];
 
 export const SessionAffinity = {
@@ -140,18 +189,27 @@ export const SessionAffinity = {
     None: "None",
 } as const;
 
+/**
+ * Type of the affinity, set this to Cookie to enable session affinity.
+ */
 export type SessionAffinity = (typeof SessionAffinity)[keyof typeof SessionAffinity];
 
 export const StorageType = {
     StorageAccount: "StorageAccount",
 } as const;
 
+/**
+ * The type of the storage.
+ */
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 export const Type = {
     AzureFileVolume: "AzureFileVolume",
 } as const;
 
+/**
+ * The type of the underlying resource to mount as a persistent disk.
+ */
 export type Type = (typeof Type)[keyof typeof Type];
 
 export const WeekDay = {
@@ -164,4 +222,7 @@ export const WeekDay = {
     Sunday: "Sunday",
 } as const;
 
+/**
+ * The day to run the maintenance job
+ */
 export type WeekDay = (typeof WeekDay)[keyof typeof WeekDay];

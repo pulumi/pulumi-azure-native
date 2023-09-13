@@ -13,4 +13,7 @@ export const LoggerType = {
     ApplicationInsights: "applicationInsights",
 } as const;
 
+/**
+ * Logger type.
+ */
 export type LoggerType = (typeof LoggerType)[keyof typeof LoggerType];

@@ -13,6 +13,9 @@ export const AccountEncryptionKeyType = {
     CustomerKey: "CustomerKey",
 } as const;
 
+/**
+ * The type of key used to encrypt the Account Key.
+ */
 export type AccountEncryptionKeyType = (typeof AccountEncryptionKeyType)[keyof typeof AccountEncryptionKeyType];
 
 export const AssetContainerPermission = {
@@ -30,6 +33,9 @@ export const AssetContainerPermission = {
     ReadWriteDelete: "ReadWriteDelete",
 } as const;
 
+/**
+ * The permissions to set on the SAS URL.
+ */
 export type AssetContainerPermission = (typeof AssetContainerPermission)[keyof typeof AssetContainerPermission];
 
 export const ContentKeyPolicyFairPlayRentalAndLeaseKeyType = {
@@ -55,6 +61,9 @@ export const ContentKeyPolicyFairPlayRentalAndLeaseKeyType = {
     PersistentLimited: "PersistentLimited",
 } as const;
 
+/**
+ * The rental and lease key type.
+ */
 export type ContentKeyPolicyFairPlayRentalAndLeaseKeyType = (typeof ContentKeyPolicyFairPlayRentalAndLeaseKeyType)[keyof typeof ContentKeyPolicyFairPlayRentalAndLeaseKeyType];
 
 export const ContentKeyPolicyPlayReadyContentType = {
@@ -76,6 +85,9 @@ export const ContentKeyPolicyPlayReadyContentType = {
     UltraVioletStreaming: "UltraVioletStreaming",
 } as const;
 
+/**
+ * The PlayReady content type.
+ */
 export type ContentKeyPolicyPlayReadyContentType = (typeof ContentKeyPolicyPlayReadyContentType)[keyof typeof ContentKeyPolicyPlayReadyContentType];
 
 export const ContentKeyPolicyPlayReadyLicenseType = {
@@ -93,6 +105,9 @@ export const ContentKeyPolicyPlayReadyLicenseType = {
     Persistent: "Persistent",
 } as const;
 
+/**
+ * The license type.
+ */
 export type ContentKeyPolicyPlayReadyLicenseType = (typeof ContentKeyPolicyPlayReadyLicenseType)[keyof typeof ContentKeyPolicyPlayReadyLicenseType];
 
 export const ContentKeyPolicyPlayReadyUnknownOutputPassingOption = {
@@ -114,6 +129,9 @@ export const ContentKeyPolicyPlayReadyUnknownOutputPassingOption = {
     AllowedWithVideoConstriction: "AllowedWithVideoConstriction",
 } as const;
 
+/**
+ * Configures Unknown output handling settings of the license.
+ */
 export type ContentKeyPolicyPlayReadyUnknownOutputPassingOption = (typeof ContentKeyPolicyPlayReadyUnknownOutputPassingOption)[keyof typeof ContentKeyPolicyPlayReadyUnknownOutputPassingOption];
 
 export const ContentKeyPolicyRestrictionTokenType = {
@@ -131,6 +149,9 @@ export const ContentKeyPolicyRestrictionTokenType = {
     Jwt: "Jwt",
 } as const;
 
+/**
+ * The type of token.
+ */
 export type ContentKeyPolicyRestrictionTokenType = (typeof ContentKeyPolicyRestrictionTokenType)[keyof typeof ContentKeyPolicyRestrictionTokenType];
 
 export const DefaultAction = {
@@ -144,6 +165,9 @@ export const DefaultAction = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The behavior for IP access control in Key Delivery.
+ */
 export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
 export const FilterTrackPropertyCompareOperation = {
@@ -157,6 +181,9 @@ export const FilterTrackPropertyCompareOperation = {
     NotEqual: "NotEqual",
 } as const;
 
+/**
+ * The track property condition operation.
+ */
 export type FilterTrackPropertyCompareOperation = (typeof FilterTrackPropertyCompareOperation)[keyof typeof FilterTrackPropertyCompareOperation];
 
 export const FilterTrackPropertyType = {
@@ -186,6 +213,9 @@ export const FilterTrackPropertyType = {
     Bitrate: "Bitrate",
 } as const;
 
+/**
+ * The track property type.
+ */
 export type FilterTrackPropertyType = (typeof FilterTrackPropertyType)[keyof typeof FilterTrackPropertyType];
 
 export const MinimumTlsVersion = {
@@ -207,6 +237,9 @@ export const MinimumTlsVersion = {
     Tls13: "Tls13",
 } as const;
 
+/**
+ * The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+ */
 export type MinimumTlsVersion = (typeof MinimumTlsVersion)[keyof typeof MinimumTlsVersion];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -215,6 +248,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -228,6 +264,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not public network access is allowed for resources under the Media Services account.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SecurityLevel = {
@@ -249,6 +288,9 @@ export const SecurityLevel = {
     SL3000: "SL3000",
 } as const;
 
+/**
+ * The security level.
+ */
 export type SecurityLevel = (typeof SecurityLevel)[keyof typeof SecurityLevel];
 
 export const StorageAccountType = {
@@ -262,6 +304,9 @@ export const StorageAccountType = {
     Secondary: "Secondary",
 } as const;
 
+/**
+ * The type of the storage account.
+ */
 export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
 
 export const StorageAuthentication = {
@@ -288,6 +333,9 @@ export const TrackPropertyCompareOperation = {
     Equal: "Equal",
 } as const;
 
+/**
+ * Track property condition operation
+ */
 export type TrackPropertyCompareOperation = (typeof TrackPropertyCompareOperation)[keyof typeof TrackPropertyCompareOperation];
 
 export const TrackPropertyType = {
@@ -301,6 +349,9 @@ export const TrackPropertyType = {
     FourCC: "FourCC",
 } as const;
 
+/**
+ * Track property type
+ */
 export type TrackPropertyType = (typeof TrackPropertyType)[keyof typeof TrackPropertyType];
 
 export const Visibility = {
@@ -314,4 +365,7 @@ export const Visibility = {
     Visible: "Visible",
 } as const;
 
+/**
+ * When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+ */
 export type Visibility = (typeof Visibility)[keyof typeof Visibility];

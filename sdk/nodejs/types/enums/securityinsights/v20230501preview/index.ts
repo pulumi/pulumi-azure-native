@@ -7,6 +7,9 @@ export const ContentType = {
     Workbook: "Workbook",
 } as const;
 
+/**
+ * Content type.
+ */
 export type ContentType = (typeof ContentType)[keyof typeof ContentType];
 
 export const DeploymentFetchStatus = {
@@ -15,6 +18,9 @@ export const DeploymentFetchStatus = {
     NotFound: "NotFound",
 } as const;
 
+/**
+ * Status while fetching the last deployment.
+ */
 export type DeploymentFetchStatus = (typeof DeploymentFetchStatus)[keyof typeof DeploymentFetchStatus];
 
 export const DeploymentResult = {
@@ -23,6 +29,9 @@ export const DeploymentResult = {
     Failed: "Failed",
 } as const;
 
+/**
+ * The outcome of the deployment.
+ */
 export type DeploymentResult = (typeof DeploymentResult)[keyof typeof DeploymentResult];
 
 export const DeploymentState = {
@@ -32,6 +41,9 @@ export const DeploymentState = {
     Canceling: "Canceling",
 } as const;
 
+/**
+ * Current status of the deployment.
+ */
 export type DeploymentState = (typeof DeploymentState)[keyof typeof DeploymentState];
 
 export const EntityTimelineKind = {
@@ -53,6 +65,9 @@ export const EntityTimelineKind = {
     Anomaly: "Anomaly",
 } as const;
 
+/**
+ * The entity query kind
+ */
 export type EntityTimelineKind = (typeof EntityTimelineKind)[keyof typeof EntityTimelineKind];
 
 export const RepoType = {
@@ -60,6 +75,9 @@ export const RepoType = {
     DevOps: "DevOps",
 } as const;
 
+/**
+ * The repository type of the source control
+ */
 export type RepoType = (typeof RepoType)[keyof typeof RepoType];
 
 export const Version = {
@@ -67,4 +85,7 @@ export const Version = {
     V2: "V2",
 } as const;
 
+/**
+ * The version number associated with the source control
+ */
 export type Version = (typeof Version)[keyof typeof Version];

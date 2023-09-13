@@ -12,6 +12,9 @@ export const CitusVersion = {
     CitusVersion_9_5: "9.5",
 } as const;
 
+/**
+ * The Citus version of server group.
+ */
 export type CitusVersion = (typeof CitusVersion)[keyof typeof CitusVersion];
 
 export const CreateMode = {
@@ -20,6 +23,9 @@ export const CreateMode = {
     ReadReplica: "ReadReplica",
 } as const;
 
+/**
+ * The mode to create a new server group.
+ */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const PostgreSQLVersion = {
@@ -27,6 +33,9 @@ export const PostgreSQLVersion = {
     PostgreSQLVersion_12: "12",
 } as const;
 
+/**
+ * The PostgreSQL version of server group.
+ */
 export type PostgreSQLVersion = (typeof PostgreSQLVersion)[keyof typeof PostgreSQLVersion];
 
 export const ServerEdition = {
@@ -34,6 +43,9 @@ export const ServerEdition = {
     MemoryOptimized: "MemoryOptimized",
 } as const;
 
+/**
+ * The edition of a server (default: GeneralPurpose).
+ */
 export type ServerEdition = (typeof ServerEdition)[keyof typeof ServerEdition];
 
 export const ServerRole = {
@@ -41,4 +53,7 @@ export const ServerRole = {
     Worker: "Worker",
 } as const;
 
+/**
+ * The role of servers in the server role group.
+ */
 export type ServerRole = (typeof ServerRole)[keyof typeof ServerRole];

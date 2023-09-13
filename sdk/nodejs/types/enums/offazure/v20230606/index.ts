@@ -17,6 +17,9 @@ export const MasterSitePropertiesPublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Gets or sets the state of public network access.
+ */
 export type MasterSitePropertiesPublicNetworkAccess = (typeof MasterSitePropertiesPublicNetworkAccess)[keyof typeof MasterSitePropertiesPublicNetworkAccess];
 
 export const PrivateLinkServiceConnectionStateStatus = {
@@ -38,6 +41,9 @@ export const PrivateLinkServiceConnectionStateStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * state status
+ */
 export type PrivateLinkServiceConnectionStateStatus = (typeof PrivateLinkServiceConnectionStateStatus)[keyof typeof PrivateLinkServiceConnectionStateStatus];
 
 export const ProvisioningState = {
@@ -71,6 +77,9 @@ export const ProvisioningState = {
     Canceled: "Canceled",
 } as const;
 
+/**
+ * The status of the last operation.
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const SqlSitePropertiesDiscoveryScenario = {
@@ -84,6 +93,9 @@ export const SqlSitePropertiesDiscoveryScenario = {
     DR: "DR",
 } as const;
 
+/**
+ * Gets or sets the discovery scenario.
+ */
 export type SqlSitePropertiesDiscoveryScenario = (typeof SqlSitePropertiesDiscoveryScenario)[keyof typeof SqlSitePropertiesDiscoveryScenario];
 
 export const WebAppSitePropertiesDiscoveryScenario = {
@@ -97,4 +109,7 @@ export const WebAppSitePropertiesDiscoveryScenario = {
     DR: "DR",
 } as const;
 
+/**
+ * Gets or sets the discovery scenario.
+ */
 export type WebAppSitePropertiesDiscoveryScenario = (typeof WebAppSitePropertiesDiscoveryScenario)[keyof typeof WebAppSitePropertiesDiscoveryScenario];

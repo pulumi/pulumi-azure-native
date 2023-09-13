@@ -13,6 +13,9 @@ export const ChannelBinding = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not ChannelBinding is enabled or disabled.
+ */
 export type ChannelBinding = (typeof ChannelBinding)[keyof typeof ChannelBinding];
 
 export const ExternalAccess = {
@@ -20,6 +23,9 @@ export const ExternalAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not Secure LDAP access over the internet is enabled or disabled.
+ */
 export type ExternalAccess = (typeof ExternalAccess)[keyof typeof ExternalAccess];
 
 export const FilteredSync = {
@@ -27,6 +33,9 @@ export const FilteredSync = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Enabled or Disabled flag to turn on Group-based filtered sync
+ */
 export type FilteredSync = (typeof FilteredSync)[keyof typeof FilteredSync];
 
 export const KerberosArmoring = {
@@ -34,6 +43,9 @@ export const KerberosArmoring = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not KerberosArmoring is enabled or disabled.
+ */
 export type KerberosArmoring = (typeof KerberosArmoring)[keyof typeof KerberosArmoring];
 
 export const KerberosRc4Encryption = {
@@ -41,6 +53,9 @@ export const KerberosRc4Encryption = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not KerberosRc4Encryption is enabled or disabled.
+ */
 export type KerberosRc4Encryption = (typeof KerberosRc4Encryption)[keyof typeof KerberosRc4Encryption];
 
 export const LdapSigning = {
@@ -48,6 +63,9 @@ export const LdapSigning = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not LdapSigning is enabled or disabled.
+ */
 export type LdapSigning = (typeof LdapSigning)[keyof typeof LdapSigning];
 
 export const Ldaps = {
@@ -55,6 +73,9 @@ export const Ldaps = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not Secure LDAP is enabled or disabled.
+ */
 export type Ldaps = (typeof Ldaps)[keyof typeof Ldaps];
 
 export const NotifyDcAdmins = {
@@ -62,6 +83,9 @@ export const NotifyDcAdmins = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Should domain controller admins be notified
+ */
 export type NotifyDcAdmins = (typeof NotifyDcAdmins)[keyof typeof NotifyDcAdmins];
 
 export const NotifyGlobalAdmins = {
@@ -69,6 +93,9 @@ export const NotifyGlobalAdmins = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Should global admins be notified
+ */
 export type NotifyGlobalAdmins = (typeof NotifyGlobalAdmins)[keyof typeof NotifyGlobalAdmins];
 
 export const NtlmV1 = {
@@ -76,6 +103,9 @@ export const NtlmV1 = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not NtlmV1 is enabled or disabled.
+ */
 export type NtlmV1 = (typeof NtlmV1)[keyof typeof NtlmV1];
 
 export const Status = {
@@ -87,6 +117,9 @@ export const Status = {
     Skipped: "Skipped",
 } as const;
 
+/**
+ * Status for individual validator after running diagnostics.
+ */
 export type Status = (typeof Status)[keyof typeof Status];
 
 export const SyncKerberosPasswords = {
@@ -94,6 +127,9 @@ export const SyncKerberosPasswords = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not SyncKerberosPasswords is enabled or disabled.
+ */
 export type SyncKerberosPasswords = (typeof SyncKerberosPasswords)[keyof typeof SyncKerberosPasswords];
 
 export const SyncNtlmPasswords = {
@@ -101,6 +137,9 @@ export const SyncNtlmPasswords = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not SyncNtlmPasswords is enabled or disabled.
+ */
 export type SyncNtlmPasswords = (typeof SyncNtlmPasswords)[keyof typeof SyncNtlmPasswords];
 
 export const SyncOnPremPasswords = {
@@ -108,6 +147,9 @@ export const SyncOnPremPasswords = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not SyncOnPremPasswords is enabled or disabled.
+ */
 export type SyncOnPremPasswords = (typeof SyncOnPremPasswords)[keyof typeof SyncOnPremPasswords];
 
 export const SyncScope = {
@@ -115,6 +157,9 @@ export const SyncScope = {
     CloudOnly: "CloudOnly",
 } as const;
 
+/**
+ * All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
+ */
 export type SyncScope = (typeof SyncScope)[keyof typeof SyncScope];
 
 export const TlsV1 = {
@@ -122,4 +167,7 @@ export const TlsV1 = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A flag to determine whether or not TlsV1 is enabled or disabled.
+ */
 export type TlsV1 = (typeof TlsV1)[keyof typeof TlsV1];

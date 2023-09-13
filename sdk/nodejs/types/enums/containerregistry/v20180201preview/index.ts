@@ -7,6 +7,9 @@ export const BuildTaskStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * The current status of build task.
+ */
 export type BuildTaskStatus = (typeof BuildTaskStatus)[keyof typeof BuildTaskStatus];
 
 export const OsType = {
@@ -14,6 +17,9 @@ export const OsType = {
     Linux: "Linux",
 } as const;
 
+/**
+ * The operating system type required for the build.
+ */
 export type OsType = (typeof OsType)[keyof typeof OsType];
 
 export const SourceControlType = {
@@ -21,6 +27,9 @@ export const SourceControlType = {
     VisualStudioTeamService: "VisualStudioTeamService",
 } as const;
 
+/**
+ * The type of source control service.
+ */
 export type SourceControlType = (typeof SourceControlType)[keyof typeof SourceControlType];
 
 export const TokenType = {
@@ -28,4 +37,7 @@ export const TokenType = {
     OAuth: "OAuth",
 } as const;
 
+/**
+ * The type of Auth token.
+ */
 export type TokenType = (typeof TokenType)[keyof typeof TokenType];

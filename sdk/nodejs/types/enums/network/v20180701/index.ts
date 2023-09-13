@@ -13,6 +13,9 @@ export const DhGroup = {
     DHGroup24: "DHGroup24",
 } as const;
 
+/**
+ * The DH Groups used in IKE Phase 1 for initial SA.
+ */
 export type DhGroup = (typeof DhGroup)[keyof typeof DhGroup];
 
 export const IPAllocationMethod = {
@@ -20,6 +23,9 @@ export const IPAllocationMethod = {
     Dynamic: "Dynamic",
 } as const;
 
+/**
+ * The public IP allocation method. Possible values are: 'Static' and 'Dynamic'.
+ */
 export type IPAllocationMethod = (typeof IPAllocationMethod)[keyof typeof IPAllocationMethod];
 
 export const IPVersion = {
@@ -27,6 +33,9 @@ export const IPVersion = {
     IPv6: "IPv6",
 } as const;
 
+/**
+ * The public IP address version. Possible values are: 'IPv4' and 'IPv6'.
+ */
 export type IPVersion = (typeof IPVersion)[keyof typeof IPVersion];
 
 export const IkeEncryption = {
@@ -39,6 +48,9 @@ export const IkeEncryption = {
     GCMAES128: "GCMAES128",
 } as const;
 
+/**
+ * The IKE encryption algorithm (IKE phase 2).
+ */
 export type IkeEncryption = (typeof IkeEncryption)[keyof typeof IkeEncryption];
 
 export const IkeIntegrity = {
@@ -50,6 +62,9 @@ export const IkeIntegrity = {
     GCMAES128: "GCMAES128",
 } as const;
 
+/**
+ * The IKE integrity algorithm (IKE phase 2).
+ */
 export type IkeIntegrity = (typeof IkeIntegrity)[keyof typeof IkeIntegrity];
 
 export const IpsecEncryption = {
@@ -64,6 +79,9 @@ export const IpsecEncryption = {
     GCMAES256: "GCMAES256",
 } as const;
 
+/**
+ * The IPSec encryption algorithm (IKE phase 1).
+ */
 export type IpsecEncryption = (typeof IpsecEncryption)[keyof typeof IpsecEncryption];
 
 export const IpsecIntegrity = {
@@ -75,6 +93,9 @@ export const IpsecIntegrity = {
     GCMAES256: "GCMAES256",
 } as const;
 
+/**
+ * The IPSec integrity algorithm (IKE phase 1).
+ */
 export type IpsecIntegrity = (typeof IpsecIntegrity)[keyof typeof IpsecIntegrity];
 
 export const PfsGroup = {
@@ -89,6 +110,9 @@ export const PfsGroup = {
     PFSMM: "PFSMM",
 } as const;
 
+/**
+ * The Pfs Groups used in IKE Phase 2 for new child SA.
+ */
 export type PfsGroup = (typeof PfsGroup)[keyof typeof PfsGroup];
 
 export const PublicIPAddressSkuName = {
@@ -96,6 +120,9 @@ export const PublicIPAddressSkuName = {
     Standard: "Standard",
 } as const;
 
+/**
+ * Name of a public IP address SKU.
+ */
 export type PublicIPAddressSkuName = (typeof PublicIPAddressSkuName)[keyof typeof PublicIPAddressSkuName];
 
 export const RouteNextHopType = {
@@ -106,6 +133,9 @@ export const RouteNextHopType = {
     None: "None",
 } as const;
 
+/**
+ * The type of Azure hop the packet should be sent to. Possible values are: 'VirtualNetworkGateway', 'VnetLocal', 'Internet', 'VirtualAppliance', and 'None'
+ */
 export type RouteNextHopType = (typeof RouteNextHopType)[keyof typeof RouteNextHopType];
 
 export const SecurityRuleAccess = {
@@ -113,6 +143,9 @@ export const SecurityRuleAccess = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The network traffic is allowed or denied. Possible values are: 'Allow' and 'Deny'.
+ */
 export type SecurityRuleAccess = (typeof SecurityRuleAccess)[keyof typeof SecurityRuleAccess];
 
 export const SecurityRuleDirection = {
@@ -120,6 +153,9 @@ export const SecurityRuleDirection = {
     Outbound: "Outbound",
 } as const;
 
+/**
+ * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are: 'Inbound' and 'Outbound'.
+ */
 export type SecurityRuleDirection = (typeof SecurityRuleDirection)[keyof typeof SecurityRuleDirection];
 
 export const SecurityRuleProtocol = {
@@ -128,6 +164,9 @@ export const SecurityRuleProtocol = {
     Asterisk: "*",
 } as const;
 
+/**
+ * Network protocol this rule applies to. Possible values are 'Tcp', 'Udp', and '*'.
+ */
 export type SecurityRuleProtocol = (typeof SecurityRuleProtocol)[keyof typeof SecurityRuleProtocol];
 
 export const TransportProtocol = {
@@ -136,4 +175,7 @@ export const TransportProtocol = {
     All: "All",
 } as const;
 
+/**
+ * The transport protocol for the endpoint. Possible values are 'Udp' or 'Tcp' or 'All'.
+ */
 export type TransportProtocol = (typeof TransportProtocol)[keyof typeof TransportProtocol];

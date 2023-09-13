@@ -14,12 +14,18 @@ export const AzureSkuName = {
     S1: "S1",
 } as const;
 
+/**
+ * SKU name
+ */
 export type AzureSkuName = (typeof AzureSkuName)[keyof typeof AzureSkuName];
 
 export const AzureSkuTier = {
     Standard: "Standard",
 } as const;
 
+/**
+ * SKU tier
+ */
 export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
 
 export const PersistedConnectionStatus = {
@@ -29,6 +35,9 @@ export const PersistedConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * Status of the connection.
+ */
 export type PersistedConnectionStatus = (typeof PersistedConnectionStatus)[keyof typeof PersistedConnectionStatus];
 
 export const ResourceProvisioningState = {
@@ -40,4 +49,7 @@ export const ResourceProvisioningState = {
     Failed: "Failed",
 } as const;
 
+/**
+ * Provisioning state of the Private Endpoint Connection.
+ */
 export type ResourceProvisioningState = (typeof ResourceProvisioningState)[keyof typeof ResourceProvisioningState];

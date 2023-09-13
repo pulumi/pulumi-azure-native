@@ -18,4 +18,7 @@ export const SubscriptionFeatureRegistrationState = {
     Unregistered: "Unregistered",
 } as const;
 
+/**
+ * The state.
+ */
 export type SubscriptionFeatureRegistrationState = (typeof SubscriptionFeatureRegistrationState)[keyof typeof SubscriptionFeatureRegistrationState];

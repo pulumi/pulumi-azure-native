@@ -6,12 +6,18 @@ export const BudgetOperatorType = {
     In: "In",
 } as const;
 
+/**
+ * The operator to use for comparison.
+ */
 export type BudgetOperatorType = (typeof BudgetOperatorType)[keyof typeof BudgetOperatorType];
 
 export const CategoryType = {
     Cost: "Cost",
 } as const;
 
+/**
+ * The category of the budget, whether the budget tracks cost or usage.
+ */
 export type CategoryType = (typeof CategoryType)[keyof typeof CategoryType];
 
 export const CultureCode = {
@@ -38,6 +44,9 @@ export const CultureCode = {
     Sv_se: "sv-se",
 } as const;
 
+/**
+ * Language in which the recipient will receive the notification
+ */
 export type CultureCode = (typeof CultureCode)[keyof typeof CultureCode];
 
 export const OperatorType = {
@@ -55,6 +64,9 @@ export const OperatorType = {
     GreaterThanOrEqualTo: "GreaterThanOrEqualTo",
 } as const;
 
+/**
+ * The comparison operator.
+ */
 export type OperatorType = (typeof OperatorType)[keyof typeof OperatorType];
 
 export const ThresholdType = {
@@ -68,6 +80,9 @@ export const ThresholdType = {
     Forecasted: "Forecasted",
 } as const;
 
+/**
+ * The type of threshold
+ */
 export type ThresholdType = (typeof ThresholdType)[keyof typeof ThresholdType];
 
 export const TimeGrainType = {
@@ -79,4 +94,7 @@ export const TimeGrainType = {
     BillingAnnual: "BillingAnnual",
 } as const;
 
+/**
+ * The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
+ */
 export type TimeGrainType = (typeof TimeGrainType)[keyof typeof TimeGrainType];

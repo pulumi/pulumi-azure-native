@@ -9,4 +9,7 @@ export const BlockchainProtocol = {
     Corda: "Corda",
 } as const;
 
+/**
+ * Gets or sets the blockchain protocol.
+ */
 export type BlockchainProtocol = (typeof BlockchainProtocol)[keyof typeof BlockchainProtocol];

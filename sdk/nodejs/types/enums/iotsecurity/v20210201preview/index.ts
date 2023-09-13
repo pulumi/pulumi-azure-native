@@ -7,6 +7,9 @@ export const MdeIntegration = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Integration status
+ */
 export type MdeIntegration = (typeof MdeIntegration)[keyof typeof MdeIntegration];
 
 export const OnboardingKind = {
@@ -16,6 +19,9 @@ export const OnboardingKind = {
     Purchased: "Purchased",
 } as const;
 
+/**
+ * The kind of onboarding for the subscription
+ */
 export type OnboardingKind = (typeof OnboardingKind)[keyof typeof OnboardingKind];
 
 export const SensorType = {
@@ -23,4 +29,7 @@ export const SensorType = {
     Enterprise: "Enterprise",
 } as const;
 
+/**
+ * Type of sensor
+ */
 export type SensorType = (typeof SensorType)[keyof typeof SensorType];

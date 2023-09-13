@@ -14,6 +14,9 @@ export const ArtifactKind = {
     PolicyAssignment: "policyAssignment",
 } as const;
 
+/**
+ * Specifies the kind of blueprint artifact.
+ */
 export type ArtifactKind = (typeof ArtifactKind)[keyof typeof ArtifactKind];
 
 export const AssignmentLockMode = {
@@ -22,6 +25,9 @@ export const AssignmentLockMode = {
     AllResourcesDoNotDelete: "AllResourcesDoNotDelete",
 } as const;
 
+/**
+ * Lock mode.
+ */
 export type AssignmentLockMode = (typeof AssignmentLockMode)[keyof typeof AssignmentLockMode];
 
 export const BlueprintTargetScope = {
@@ -35,6 +41,9 @@ export const BlueprintTargetScope = {
     ManagementGroup: "managementGroup",
 } as const;
 
+/**
+ * The scope where this blueprint definition can be assigned.
+ */
 export type BlueprintTargetScope = (typeof BlueprintTargetScope)[keyof typeof BlueprintTargetScope];
 
 export const ManagedServiceIdentityType = {
@@ -43,6 +52,9 @@ export const ManagedServiceIdentityType = {
     UserAssigned: "UserAssigned",
 } as const;
 
+/**
+ * Type of the managed identity.
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const TemplateParameterType = {
@@ -55,4 +67,7 @@ export const TemplateParameterType = {
     SecureString: "secureString",
 } as const;
 
+/**
+ * Allowed data types for Resource Manager template parameters.
+ */
 export type TemplateParameterType = (typeof TemplateParameterType)[keyof typeof TemplateParameterType];

@@ -10,6 +10,9 @@ export const ActionType = {
     AnomalyScoring: "AnomalyScoring",
 } as const;
 
+/**
+ * Describes the override action to be applied when rule matches.
+ */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 export const CustomRuleEnabledState = {
@@ -17,6 +20,9 @@ export const CustomRuleEnabledState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+ */
 export type CustomRuleEnabledState = (typeof CustomRuleEnabledState)[keyof typeof CustomRuleEnabledState];
 
 export const FrontDoorMatchVariable = {
@@ -31,6 +37,9 @@ export const FrontDoorMatchVariable = {
     SocketAddr: "SocketAddr",
 } as const;
 
+/**
+ * Request variable to compare with.
+ */
 export type FrontDoorMatchVariable = (typeof FrontDoorMatchVariable)[keyof typeof FrontDoorMatchVariable];
 
 export const ManagedRuleEnabledState = {
@@ -38,6 +47,9 @@ export const ManagedRuleEnabledState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+ */
 export type ManagedRuleEnabledState = (typeof ManagedRuleEnabledState)[keyof typeof ManagedRuleEnabledState];
 
 export const ManagedRuleExclusionMatchVariable = {
@@ -48,6 +60,9 @@ export const ManagedRuleExclusionMatchVariable = {
     RequestBodyJsonArgNames: "RequestBodyJsonArgNames",
 } as const;
 
+/**
+ * The variable type to be excluded.
+ */
 export type ManagedRuleExclusionMatchVariable = (typeof ManagedRuleExclusionMatchVariable)[keyof typeof ManagedRuleExclusionMatchVariable];
 
 export const ManagedRuleExclusionSelectorMatchOperator = {
@@ -58,6 +73,9 @@ export const ManagedRuleExclusionSelectorMatchOperator = {
     EqualsAny: "EqualsAny",
 } as const;
 
+/**
+ * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
+ */
 export type ManagedRuleExclusionSelectorMatchOperator = (typeof ManagedRuleExclusionSelectorMatchOperator)[keyof typeof ManagedRuleExclusionSelectorMatchOperator];
 
 export const ManagedRuleSetActionType = {
@@ -66,6 +84,9 @@ export const ManagedRuleSetActionType = {
     Redirect: "Redirect",
 } as const;
 
+/**
+ * Defines the rule set action.
+ */
 export type ManagedRuleSetActionType = (typeof ManagedRuleSetActionType)[keyof typeof ManagedRuleSetActionType];
 
 export const Operator = {
@@ -83,6 +104,9 @@ export const Operator = {
     RegEx: "RegEx",
 } as const;
 
+/**
+ * Comparison type to use for matching with the variable value.
+ */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const PolicyEnabledState = {
@@ -90,6 +114,9 @@ export const PolicyEnabledState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
+ */
 export type PolicyEnabledState = (typeof PolicyEnabledState)[keyof typeof PolicyEnabledState];
 
 export const PolicyMode = {
@@ -97,6 +124,9 @@ export const PolicyMode = {
     Detection: "Detection",
 } as const;
 
+/**
+ * Describes if it is in detection mode or prevention mode at policy level.
+ */
 export type PolicyMode = (typeof PolicyMode)[keyof typeof PolicyMode];
 
 export const PolicyRequestBodyCheck = {
@@ -104,6 +134,9 @@ export const PolicyRequestBodyCheck = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Describes if policy managed rules will inspect the request body content.
+ */
 export type PolicyRequestBodyCheck = (typeof PolicyRequestBodyCheck)[keyof typeof PolicyRequestBodyCheck];
 
 export const RuleType = {
@@ -111,6 +144,9 @@ export const RuleType = {
     RateLimitRule: "RateLimitRule",
 } as const;
 
+/**
+ * Describes type of rule.
+ */
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
 
 export const SkuName = {
@@ -119,6 +155,9 @@ export const SkuName = {
     Premium_AzureFrontDoor: "Premium_AzureFrontDoor",
 } as const;
 
+/**
+ * Name of the pricing tier.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const TransformType = {
@@ -130,4 +169,7 @@ export const TransformType = {
     RemoveNulls: "RemoveNulls",
 } as const;
 
+/**
+ * Describes what transforms applied before matching.
+ */
 export type TransformType = (typeof TransformType)[keyof typeof TransformType];
