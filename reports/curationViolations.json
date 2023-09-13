@@ -8,6 +8,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "Provider": "AzurePlaywrightService",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "Provider": "AzureSphere",
     "Detail": "expected tracking stable but found preview"
   },

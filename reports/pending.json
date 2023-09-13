@@ -44,7 +44,8 @@
   "AppComplianceAutomation": [],
   "AppConfiguration": [],
   "AppPlatform": [
-    "2023-07-01-preview"
+    "2023-07-01-preview",
+    "2023-09-01-preview"
   ],
   "Attestation": [
     "2021-06-01-preview"
@@ -64,7 +65,8 @@
     "2022-05-01-preview",
     "2022-06-01",
     "2022-07-01-preview",
-    "2022-08-01-preview"
+    "2022-08-01-preview",
+    "2023-04-01"
   ],
   "Automanage": [
     "2021-04-30-preview",
@@ -86,6 +88,7 @@
   ],
   "AzureArcData": [],
   "AzureData": [],
+  "AzurePlaywrightService": [],
   "AzureSphere": [],
   "AzureStack": [
     "2022-06-01"
@@ -735,7 +738,8 @@
     "2023-02-01-preview",
     "2023-03-01-preview",
     "2023-05-01",
-    "2023-09-01-preview"
+    "2023-09-01-preview",
+    "2023-11-15"
   ],
   "SecurityAndCompliance": [],
   "SecurityDevOps": [],
@@ -764,7 +768,8 @@
   "ServiceNetworking": [],
   "SignalRService": [
     "2023-03-01-preview",
-    "2023-06-01-preview"
+    "2023-06-01-preview",
+    "2023-08-01-preview"
   ],
   "SoftwarePlan": [],
   "Solutions": [],
@@ -852,7 +857,8 @@
   ],
   "WebPubSub": [
     "2023-03-01-preview",
-    "2023-06-01-preview"
+    "2023-06-01-preview",
+    "2023-08-01-preview"
   ],
   "WindowsESU": [],
   "WindowsIoT": [],
