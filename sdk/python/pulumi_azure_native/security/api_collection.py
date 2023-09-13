@@ -132,7 +132,7 @@ class APICollection(pulumi.CustomResource):
             __props__.__dict__["display_name"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221120preview:APICollection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:security/v20221120preview:APICollection"), pulumi.Alias(type_="azure-native:security/v20231115:APICollection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(APICollection, __self__).__init__(
             'azure-native:security:APICollection',

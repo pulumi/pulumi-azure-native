@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.Authorization.Inputs
         public Input<Inputs.ParameterDefinitionsValueMetadataArgs>? Metadata { get; set; }
 
         /// <summary>
+        /// Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
+        /// </summary>
+        [Input("schema")]
+        public Input<object>? Schema { get; set; }
+
+        /// <summary>
         /// The data type of the parameter.
         /// </summary>
         [Input("type")]

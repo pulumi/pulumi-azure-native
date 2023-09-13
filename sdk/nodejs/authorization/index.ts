@@ -70,6 +70,16 @@ export const getPolicyDefinitionAtManagementGroup: typeof import("./getPolicyDef
 export const getPolicyDefinitionAtManagementGroupOutput: typeof import("./getPolicyDefinitionAtManagementGroup").getPolicyDefinitionAtManagementGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicyDefinitionAtManagementGroup","getPolicyDefinitionAtManagementGroupOutput"], () => require("./getPolicyDefinitionAtManagementGroup"));
 
+export { GetPolicyDefinitionVersionArgs, GetPolicyDefinitionVersionResult, GetPolicyDefinitionVersionOutputArgs } from "./getPolicyDefinitionVersion";
+export const getPolicyDefinitionVersion: typeof import("./getPolicyDefinitionVersion").getPolicyDefinitionVersion = null as any;
+export const getPolicyDefinitionVersionOutput: typeof import("./getPolicyDefinitionVersion").getPolicyDefinitionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyDefinitionVersion","getPolicyDefinitionVersionOutput"], () => require("./getPolicyDefinitionVersion"));
+
+export { GetPolicyDefinitionVersionAtManagementGroupArgs, GetPolicyDefinitionVersionAtManagementGroupResult, GetPolicyDefinitionVersionAtManagementGroupOutputArgs } from "./getPolicyDefinitionVersionAtManagementGroup";
+export const getPolicyDefinitionVersionAtManagementGroup: typeof import("./getPolicyDefinitionVersionAtManagementGroup").getPolicyDefinitionVersionAtManagementGroup = null as any;
+export const getPolicyDefinitionVersionAtManagementGroupOutput: typeof import("./getPolicyDefinitionVersionAtManagementGroup").getPolicyDefinitionVersionAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicyDefinitionVersionAtManagementGroup","getPolicyDefinitionVersionAtManagementGroupOutput"], () => require("./getPolicyDefinitionVersionAtManagementGroup"));
+
 export { GetPolicyExemptionArgs, GetPolicyExemptionResult, GetPolicyExemptionOutputArgs } from "./getPolicyExemption";
 export const getPolicyExemption: typeof import("./getPolicyExemption").getPolicyExemption = null as any;
 export const getPolicyExemptionOutput: typeof import("./getPolicyExemption").getPolicyExemptionOutput = null as any;
@@ -84,6 +94,16 @@ export { GetPolicySetDefinitionAtManagementGroupArgs, GetPolicySetDefinitionAtMa
 export const getPolicySetDefinitionAtManagementGroup: typeof import("./getPolicySetDefinitionAtManagementGroup").getPolicySetDefinitionAtManagementGroup = null as any;
 export const getPolicySetDefinitionAtManagementGroupOutput: typeof import("./getPolicySetDefinitionAtManagementGroup").getPolicySetDefinitionAtManagementGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicySetDefinitionAtManagementGroup","getPolicySetDefinitionAtManagementGroupOutput"], () => require("./getPolicySetDefinitionAtManagementGroup"));
+
+export { GetPolicySetDefinitionVersionArgs, GetPolicySetDefinitionVersionResult, GetPolicySetDefinitionVersionOutputArgs } from "./getPolicySetDefinitionVersion";
+export const getPolicySetDefinitionVersion: typeof import("./getPolicySetDefinitionVersion").getPolicySetDefinitionVersion = null as any;
+export const getPolicySetDefinitionVersionOutput: typeof import("./getPolicySetDefinitionVersion").getPolicySetDefinitionVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicySetDefinitionVersion","getPolicySetDefinitionVersionOutput"], () => require("./getPolicySetDefinitionVersion"));
+
+export { GetPolicySetDefinitionVersionAtManagementGroupArgs, GetPolicySetDefinitionVersionAtManagementGroupResult, GetPolicySetDefinitionVersionAtManagementGroupOutputArgs } from "./getPolicySetDefinitionVersionAtManagementGroup";
+export const getPolicySetDefinitionVersionAtManagementGroup: typeof import("./getPolicySetDefinitionVersionAtManagementGroup").getPolicySetDefinitionVersionAtManagementGroup = null as any;
+export const getPolicySetDefinitionVersionAtManagementGroupOutput: typeof import("./getPolicySetDefinitionVersionAtManagementGroup").getPolicySetDefinitionVersionAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicySetDefinitionVersionAtManagementGroup","getPolicySetDefinitionVersionAtManagementGroupOutput"], () => require("./getPolicySetDefinitionVersionAtManagementGroup"));
 
 export { GetPrivateLinkAssociationArgs, GetPrivateLinkAssociationResult, GetPrivateLinkAssociationOutputArgs } from "./getPrivateLinkAssociation";
 export const getPrivateLinkAssociation: typeof import("./getPrivateLinkAssociation").getPrivateLinkAssociation = null as any;
@@ -140,6 +160,36 @@ export const getVariableValueAtManagementGroup: typeof import("./getVariableValu
 export const getVariableValueAtManagementGroupOutput: typeof import("./getVariableValueAtManagementGroup").getVariableValueAtManagementGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getVariableValueAtManagementGroup","getVariableValueAtManagementGroupOutput"], () => require("./getVariableValueAtManagementGroup"));
 
+export { ListPolicyDefinitionVersionAllArgs, ListPolicyDefinitionVersionAllResult } from "./listPolicyDefinitionVersionAll";
+export const listPolicyDefinitionVersionAll: typeof import("./listPolicyDefinitionVersionAll").listPolicyDefinitionVersionAll = null as any;
+export const listPolicyDefinitionVersionAllOutput: typeof import("./listPolicyDefinitionVersionAll").listPolicyDefinitionVersionAllOutput = null as any;
+utilities.lazyLoad(exports, ["listPolicyDefinitionVersionAll","listPolicyDefinitionVersionAllOutput"], () => require("./listPolicyDefinitionVersionAll"));
+
+export { ListPolicyDefinitionVersionAllAtManagementGroupArgs, ListPolicyDefinitionVersionAllAtManagementGroupResult, ListPolicyDefinitionVersionAllAtManagementGroupOutputArgs } from "./listPolicyDefinitionVersionAllAtManagementGroup";
+export const listPolicyDefinitionVersionAllAtManagementGroup: typeof import("./listPolicyDefinitionVersionAllAtManagementGroup").listPolicyDefinitionVersionAllAtManagementGroup = null as any;
+export const listPolicyDefinitionVersionAllAtManagementGroupOutput: typeof import("./listPolicyDefinitionVersionAllAtManagementGroup").listPolicyDefinitionVersionAllAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["listPolicyDefinitionVersionAllAtManagementGroup","listPolicyDefinitionVersionAllAtManagementGroupOutput"], () => require("./listPolicyDefinitionVersionAllAtManagementGroup"));
+
+export { ListPolicyDefinitionVersionAllBuiltinsArgs, ListPolicyDefinitionVersionAllBuiltinsResult } from "./listPolicyDefinitionVersionAllBuiltins";
+export const listPolicyDefinitionVersionAllBuiltins: typeof import("./listPolicyDefinitionVersionAllBuiltins").listPolicyDefinitionVersionAllBuiltins = null as any;
+export const listPolicyDefinitionVersionAllBuiltinsOutput: typeof import("./listPolicyDefinitionVersionAllBuiltins").listPolicyDefinitionVersionAllBuiltinsOutput = null as any;
+utilities.lazyLoad(exports, ["listPolicyDefinitionVersionAllBuiltins","listPolicyDefinitionVersionAllBuiltinsOutput"], () => require("./listPolicyDefinitionVersionAllBuiltins"));
+
+export { ListPolicySetDefinitionVersionAllArgs, ListPolicySetDefinitionVersionAllResult } from "./listPolicySetDefinitionVersionAll";
+export const listPolicySetDefinitionVersionAll: typeof import("./listPolicySetDefinitionVersionAll").listPolicySetDefinitionVersionAll = null as any;
+export const listPolicySetDefinitionVersionAllOutput: typeof import("./listPolicySetDefinitionVersionAll").listPolicySetDefinitionVersionAllOutput = null as any;
+utilities.lazyLoad(exports, ["listPolicySetDefinitionVersionAll","listPolicySetDefinitionVersionAllOutput"], () => require("./listPolicySetDefinitionVersionAll"));
+
+export { ListPolicySetDefinitionVersionAllAtManagementGroupArgs, ListPolicySetDefinitionVersionAllAtManagementGroupResult, ListPolicySetDefinitionVersionAllAtManagementGroupOutputArgs } from "./listPolicySetDefinitionVersionAllAtManagementGroup";
+export const listPolicySetDefinitionVersionAllAtManagementGroup: typeof import("./listPolicySetDefinitionVersionAllAtManagementGroup").listPolicySetDefinitionVersionAllAtManagementGroup = null as any;
+export const listPolicySetDefinitionVersionAllAtManagementGroupOutput: typeof import("./listPolicySetDefinitionVersionAllAtManagementGroup").listPolicySetDefinitionVersionAllAtManagementGroupOutput = null as any;
+utilities.lazyLoad(exports, ["listPolicySetDefinitionVersionAllAtManagementGroup","listPolicySetDefinitionVersionAllAtManagementGroupOutput"], () => require("./listPolicySetDefinitionVersionAllAtManagementGroup"));
+
+export { ListPolicySetDefinitionVersionAllBuiltinsArgs, ListPolicySetDefinitionVersionAllBuiltinsResult } from "./listPolicySetDefinitionVersionAllBuiltins";
+export const listPolicySetDefinitionVersionAllBuiltins: typeof import("./listPolicySetDefinitionVersionAllBuiltins").listPolicySetDefinitionVersionAllBuiltins = null as any;
+export const listPolicySetDefinitionVersionAllBuiltinsOutput: typeof import("./listPolicySetDefinitionVersionAllBuiltins").listPolicySetDefinitionVersionAllBuiltinsOutput = null as any;
+utilities.lazyLoad(exports, ["listPolicySetDefinitionVersionAllBuiltins","listPolicySetDefinitionVersionAllBuiltinsOutput"], () => require("./listPolicySetDefinitionVersionAllBuiltins"));
+
 export { ManagementLockAtResourceGroupLevelArgs } from "./managementLockAtResourceGroupLevel";
 export type ManagementLockAtResourceGroupLevel = import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel;
 export const ManagementLockAtResourceGroupLevel: typeof import("./managementLockAtResourceGroupLevel").ManagementLockAtResourceGroupLevel = null as any;
@@ -175,6 +225,16 @@ export type PolicyDefinitionAtManagementGroup = import("./policyDefinitionAtMana
 export const PolicyDefinitionAtManagementGroup: typeof import("./policyDefinitionAtManagementGroup").PolicyDefinitionAtManagementGroup = null as any;
 utilities.lazyLoad(exports, ["PolicyDefinitionAtManagementGroup"], () => require("./policyDefinitionAtManagementGroup"));
 
+export { PolicyDefinitionVersionArgs } from "./policyDefinitionVersion";
+export type PolicyDefinitionVersion = import("./policyDefinitionVersion").PolicyDefinitionVersion;
+export const PolicyDefinitionVersion: typeof import("./policyDefinitionVersion").PolicyDefinitionVersion = null as any;
+utilities.lazyLoad(exports, ["PolicyDefinitionVersion"], () => require("./policyDefinitionVersion"));
+
+export { PolicyDefinitionVersionAtManagementGroupArgs } from "./policyDefinitionVersionAtManagementGroup";
+export type PolicyDefinitionVersionAtManagementGroup = import("./policyDefinitionVersionAtManagementGroup").PolicyDefinitionVersionAtManagementGroup;
+export const PolicyDefinitionVersionAtManagementGroup: typeof import("./policyDefinitionVersionAtManagementGroup").PolicyDefinitionVersionAtManagementGroup = null as any;
+utilities.lazyLoad(exports, ["PolicyDefinitionVersionAtManagementGroup"], () => require("./policyDefinitionVersionAtManagementGroup"));
+
 export { PolicyExemptionArgs } from "./policyExemption";
 export type PolicyExemption = import("./policyExemption").PolicyExemption;
 export const PolicyExemption: typeof import("./policyExemption").PolicyExemption = null as any;
@@ -189,6 +249,16 @@ export { PolicySetDefinitionAtManagementGroupArgs } from "./policySetDefinitionA
 export type PolicySetDefinitionAtManagementGroup = import("./policySetDefinitionAtManagementGroup").PolicySetDefinitionAtManagementGroup;
 export const PolicySetDefinitionAtManagementGroup: typeof import("./policySetDefinitionAtManagementGroup").PolicySetDefinitionAtManagementGroup = null as any;
 utilities.lazyLoad(exports, ["PolicySetDefinitionAtManagementGroup"], () => require("./policySetDefinitionAtManagementGroup"));
+
+export { PolicySetDefinitionVersionArgs } from "./policySetDefinitionVersion";
+export type PolicySetDefinitionVersion = import("./policySetDefinitionVersion").PolicySetDefinitionVersion;
+export const PolicySetDefinitionVersion: typeof import("./policySetDefinitionVersion").PolicySetDefinitionVersion = null as any;
+utilities.lazyLoad(exports, ["PolicySetDefinitionVersion"], () => require("./policySetDefinitionVersion"));
+
+export { PolicySetDefinitionVersionAtManagementGroupArgs } from "./policySetDefinitionVersionAtManagementGroup";
+export type PolicySetDefinitionVersionAtManagementGroup = import("./policySetDefinitionVersionAtManagementGroup").PolicySetDefinitionVersionAtManagementGroup;
+export const PolicySetDefinitionVersionAtManagementGroup: typeof import("./policySetDefinitionVersionAtManagementGroup").PolicySetDefinitionVersionAtManagementGroup = null as any;
+utilities.lazyLoad(exports, ["PolicySetDefinitionVersionAtManagementGroup"], () => require("./policySetDefinitionVersionAtManagementGroup"));
 
 export { PrivateLinkAssociationArgs } from "./privateLinkAssociation";
 export type PrivateLinkAssociation = import("./privateLinkAssociation").PrivateLinkAssociation;
@@ -266,6 +336,7 @@ import * as v20220501preview from "./v20220501preview";
 import * as v20220601 from "./v20220601";
 import * as v20220701preview from "./v20220701preview";
 import * as v20220801preview from "./v20220801preview";
+import * as v20230401 from "./v20230401";
 
 export {
     v20171001preview,
@@ -284,6 +355,7 @@ export {
     v20220601,
     v20220701preview,
     v20220801preview,
+    v20230401,
 };
 
 const _module = {
@@ -308,12 +380,20 @@ const _module = {
                 return new PolicyDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicyDefinitionAtManagementGroup":
                 return new PolicyDefinitionAtManagementGroup(name, <any>undefined, { urn })
+            case "azure-native:authorization:PolicyDefinitionVersion":
+                return new PolicyDefinitionVersion(name, <any>undefined, { urn })
+            case "azure-native:authorization:PolicyDefinitionVersionAtManagementGroup":
+                return new PolicyDefinitionVersionAtManagementGroup(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicyExemption":
                 return new PolicyExemption(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinition":
                 return new PolicySetDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:PolicySetDefinitionAtManagementGroup":
                 return new PolicySetDefinitionAtManagementGroup(name, <any>undefined, { urn })
+            case "azure-native:authorization:PolicySetDefinitionVersion":
+                return new PolicySetDefinitionVersion(name, <any>undefined, { urn })
+            case "azure-native:authorization:PolicySetDefinitionVersionAtManagementGroup":
+                return new PolicySetDefinitionVersionAtManagementGroup(name, <any>undefined, { urn })
             case "azure-native:authorization:PrivateLinkAssociation":
                 return new PrivateLinkAssociation(name, <any>undefined, { urn })
             case "azure-native:authorization:ResourceManagementPrivateLink":

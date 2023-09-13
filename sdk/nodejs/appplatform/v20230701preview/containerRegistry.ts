@@ -85,7 +85,7 @@ export class ContainerRegistry extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:ContainerRegistry" }, { type: "azure-native:appplatform/v20230501preview:ContainerRegistry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:ContainerRegistry" }, { type: "azure-native:appplatform/v20230501preview:ContainerRegistry" }, { type: "azure-native:appplatform/v20230901preview:ContainerRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContainerRegistry.__pulumiType, name, resourceInputs, opts);
     }

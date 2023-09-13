@@ -152,7 +152,7 @@ class DevToolPortal(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:DevToolPortal"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:DevToolPortal"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:DevToolPortal"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:DevToolPortal"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:DevToolPortal")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:DevToolPortal"), pulumi.Alias(type_="azure-native:appplatform/v20221101preview:DevToolPortal"), pulumi.Alias(type_="azure-native:appplatform/v20230101preview:DevToolPortal"), pulumi.Alias(type_="azure-native:appplatform/v20230301preview:DevToolPortal"), pulumi.Alias(type_="azure-native:appplatform/v20230501preview:DevToolPortal"), pulumi.Alias(type_="azure-native:appplatform/v20230901preview:DevToolPortal")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DevToolPortal, __self__).__init__(
             'azure-native:appplatform/v20230701preview:DevToolPortal',

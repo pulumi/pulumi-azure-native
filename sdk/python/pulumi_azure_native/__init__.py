@@ -53,6 +53,8 @@ if typing.TYPE_CHECKING:
     azurearcdata = __azurearcdata
     import pulumi_azure_native.azuredata as __azuredata
     azuredata = __azuredata
+    import pulumi_azure_native.azureplaywrightservice as __azureplaywrightservice
+    azureplaywrightservice = __azureplaywrightservice
     import pulumi_azure_native.azuresphere as __azuresphere
     azuresphere = __azuresphere
     import pulumi_azure_native.azurestack as __azurestack
@@ -456,6 +458,7 @@ else:
     azureactivedirectory = _utilities.lazy_import('pulumi_azure_native.azureactivedirectory')
     azurearcdata = _utilities.lazy_import('pulumi_azure_native.azurearcdata')
     azuredata = _utilities.lazy_import('pulumi_azure_native.azuredata')
+    azureplaywrightservice = _utilities.lazy_import('pulumi_azure_native.azureplaywrightservice')
     azuresphere = _utilities.lazy_import('pulumi_azure_native.azuresphere')
     azurestack = _utilities.lazy_import('pulumi_azure_native.azurestack')
     azurestackhci = _utilities.lazy_import('pulumi_azure_native.azurestackhci')
@@ -1576,6 +1579,39 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "appplatform/v20230901preview",
+  "fqn": "pulumi_azure_native.appplatform.v20230901preview",
+  "classes": {
+   "azure-native:appplatform/v20230901preview:ApiPortal": "ApiPortal",
+   "azure-native:appplatform/v20230901preview:ApiPortalCustomDomain": "ApiPortalCustomDomain",
+   "azure-native:appplatform/v20230901preview:Apm": "Apm",
+   "azure-native:appplatform/v20230901preview:App": "App",
+   "azure-native:appplatform/v20230901preview:ApplicationAccelerator": "ApplicationAccelerator",
+   "azure-native:appplatform/v20230901preview:ApplicationLiveView": "ApplicationLiveView",
+   "azure-native:appplatform/v20230901preview:Binding": "Binding",
+   "azure-native:appplatform/v20230901preview:BuildServiceAgentPool": "BuildServiceAgentPool",
+   "azure-native:appplatform/v20230901preview:BuildServiceBuild": "BuildServiceBuild",
+   "azure-native:appplatform/v20230901preview:BuildServiceBuilder": "BuildServiceBuilder",
+   "azure-native:appplatform/v20230901preview:BuildpackBinding": "BuildpackBinding",
+   "azure-native:appplatform/v20230901preview:Certificate": "Certificate",
+   "azure-native:appplatform/v20230901preview:ConfigServer": "ConfigServer",
+   "azure-native:appplatform/v20230901preview:ConfigurationService": "ConfigurationService",
+   "azure-native:appplatform/v20230901preview:ContainerRegistry": "ContainerRegistry",
+   "azure-native:appplatform/v20230901preview:CustomDomain": "CustomDomain",
+   "azure-native:appplatform/v20230901preview:CustomizedAccelerator": "CustomizedAccelerator",
+   "azure-native:appplatform/v20230901preview:Deployment": "Deployment",
+   "azure-native:appplatform/v20230901preview:DevToolPortal": "DevToolPortal",
+   "azure-native:appplatform/v20230901preview:Gateway": "Gateway",
+   "azure-native:appplatform/v20230901preview:GatewayCustomDomain": "GatewayCustomDomain",
+   "azure-native:appplatform/v20230901preview:GatewayRouteConfig": "GatewayRouteConfig",
+   "azure-native:appplatform/v20230901preview:MonitoringSetting": "MonitoringSetting",
+   "azure-native:appplatform/v20230901preview:Service": "Service",
+   "azure-native:appplatform/v20230901preview:ServiceRegistry": "ServiceRegistry",
+   "azure-native:appplatform/v20230901preview:Storage": "Storage"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "attestation",
   "fqn": "pulumi_azure_native.attestation",
   "classes": {
@@ -1615,9 +1651,13 @@ _utilities.register(
    "azure-native:authorization:PolicyAssignment": "PolicyAssignment",
    "azure-native:authorization:PolicyDefinition": "PolicyDefinition",
    "azure-native:authorization:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
+   "azure-native:authorization:PolicyDefinitionVersion": "PolicyDefinitionVersion",
+   "azure-native:authorization:PolicyDefinitionVersionAtManagementGroup": "PolicyDefinitionVersionAtManagementGroup",
    "azure-native:authorization:PolicyExemption": "PolicyExemption",
    "azure-native:authorization:PolicySetDefinition": "PolicySetDefinition",
    "azure-native:authorization:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup",
+   "azure-native:authorization:PolicySetDefinitionVersion": "PolicySetDefinitionVersion",
+   "azure-native:authorization:PolicySetDefinitionVersionAtManagementGroup": "PolicySetDefinitionVersionAtManagementGroup",
    "azure-native:authorization:PrivateLinkAssociation": "PrivateLinkAssociation",
    "azure-native:authorization:ResourceManagementPrivateLink": "ResourceManagementPrivateLink",
    "azure-native:authorization:RoleAssignment": "RoleAssignment",
@@ -1776,6 +1816,22 @@ _utilities.register(
    "azure-native:authorization/v20220801preview:VariableAtManagementGroup": "VariableAtManagementGroup",
    "azure-native:authorization/v20220801preview:VariableValue": "VariableValue",
    "azure-native:authorization/v20220801preview:VariableValueAtManagementGroup": "VariableValueAtManagementGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "authorization/v20230401",
+  "fqn": "pulumi_azure_native.authorization.v20230401",
+  "classes": {
+   "azure-native:authorization/v20230401:PolicyAssignment": "PolicyAssignment",
+   "azure-native:authorization/v20230401:PolicyDefinition": "PolicyDefinition",
+   "azure-native:authorization/v20230401:PolicyDefinitionAtManagementGroup": "PolicyDefinitionAtManagementGroup",
+   "azure-native:authorization/v20230401:PolicyDefinitionVersion": "PolicyDefinitionVersion",
+   "azure-native:authorization/v20230401:PolicyDefinitionVersionAtManagementGroup": "PolicyDefinitionVersionAtManagementGroup",
+   "azure-native:authorization/v20230401:PolicySetDefinition": "PolicySetDefinition",
+   "azure-native:authorization/v20230401:PolicySetDefinitionAtManagementGroup": "PolicySetDefinitionAtManagementGroup",
+   "azure-native:authorization/v20230401:PolicySetDefinitionVersion": "PolicySetDefinitionVersion",
+   "azure-native:authorization/v20230401:PolicySetDefinitionVersionAtManagementGroup": "PolicySetDefinitionVersionAtManagementGroup"
   }
  },
  {
@@ -2100,6 +2156,22 @@ _utilities.register(
   "classes": {
    "azure-native:azuredata/v20190724preview:SqlServer": "SqlServer",
    "azure-native:azuredata/v20190724preview:SqlServerRegistration": "SqlServerRegistration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azureplaywrightservice",
+  "fqn": "pulumi_azure_native.azureplaywrightservice",
+  "classes": {
+   "azure-native:azureplaywrightservice:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "azureplaywrightservice/v20231001preview",
+  "fqn": "pulumi_azure_native.azureplaywrightservice.v20231001preview",
+  "classes": {
+   "azure-native:azureplaywrightservice/v20231001preview:Account": "Account"
   }
  },
  {
@@ -9699,6 +9771,7 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security",
   "classes": {
    "azure-native:security:APICollection": "APICollection",
+   "azure-native:security:APICollectionByAzureApiManagementService": "APICollectionByAzureApiManagementService",
    "azure-native:security:AdaptiveApplicationControl": "AdaptiveApplicationControl",
    "azure-native:security:AdvancedThreatProtection": "AdvancedThreatProtection",
    "azure-native:security:AlertsSuppressionRule": "AlertsSuppressionRule",
@@ -9886,6 +9959,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20230901preview",
   "classes": {
    "azure-native:security/v20230901preview:DevOpsConfiguration": "DevOpsConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20231115",
+  "fqn": "pulumi_azure_native.security.v20231115",
+  "classes": {
+   "azure-native:security/v20231115:APICollectionByAzureApiManagementService": "APICollectionByAzureApiManagementService"
   }
  },
  {
@@ -10627,6 +10708,19 @@ _utilities.register(
    "azure-native:signalrservice/v20230601preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
    "azure-native:signalrservice/v20230601preview:SignalRReplica": "SignalRReplica",
    "azure-native:signalrservice/v20230601preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "signalrservice/v20230801preview",
+  "fqn": "pulumi_azure_native.signalrservice.v20230801preview",
+  "classes": {
+   "azure-native:signalrservice/v20230801preview:SignalR": "SignalR",
+   "azure-native:signalrservice/v20230801preview:SignalRCustomCertificate": "SignalRCustomCertificate",
+   "azure-native:signalrservice/v20230801preview:SignalRCustomDomain": "SignalRCustomDomain",
+   "azure-native:signalrservice/v20230801preview:SignalRPrivateEndpointConnection": "SignalRPrivateEndpointConnection",
+   "azure-native:signalrservice/v20230801preview:SignalRReplica": "SignalRReplica",
+   "azure-native:signalrservice/v20230801preview:SignalRSharedPrivateLinkResource": "SignalRSharedPrivateLinkResource"
   }
  },
  {
@@ -12137,6 +12231,20 @@ _utilities.register(
    "azure-native:webpubsub/v20230601preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
    "azure-native:webpubsub/v20230601preview:WebPubSubReplica": "WebPubSubReplica",
    "azure-native:webpubsub/v20230601preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "webpubsub/v20230801preview",
+  "fqn": "pulumi_azure_native.webpubsub.v20230801preview",
+  "classes": {
+   "azure-native:webpubsub/v20230801preview:WebPubSub": "WebPubSub",
+   "azure-native:webpubsub/v20230801preview:WebPubSubCustomCertificate": "WebPubSubCustomCertificate",
+   "azure-native:webpubsub/v20230801preview:WebPubSubCustomDomain": "WebPubSubCustomDomain",
+   "azure-native:webpubsub/v20230801preview:WebPubSubHub": "WebPubSubHub",
+   "azure-native:webpubsub/v20230801preview:WebPubSubPrivateEndpointConnection": "WebPubSubPrivateEndpointConnection",
+   "azure-native:webpubsub/v20230801preview:WebPubSubReplica": "WebPubSubReplica",
+   "azure-native:webpubsub/v20230801preview:WebPubSubSharedPrivateLinkResource": "WebPubSubSharedPrivateLinkResource"
   }
  },
  {

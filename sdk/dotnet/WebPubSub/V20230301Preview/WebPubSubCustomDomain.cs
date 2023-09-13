@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.WebPubSub.V20230301Preview
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230201:WebPubSubCustomDomain"},
                     new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230601preview:WebPubSubCustomDomain"},
+                    new global::Pulumi.Alias { Type = "azure-native:webpubsub/v20230801preview:WebPubSubCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -102,7 +102,7 @@ export class WebPubSubCustomDomain extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20230201:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubCustomDomain" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:webpubsub:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20220801preview:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20230201:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20230601preview:WebPubSubCustomDomain" }, { type: "azure-native:webpubsub/v20230801preview:WebPubSubCustomDomain" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebPubSubCustomDomain.__pulumiType, name, resourceInputs, opts);
     }

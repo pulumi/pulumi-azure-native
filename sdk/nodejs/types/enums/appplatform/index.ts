@@ -4,10 +4,12 @@
 // Export sub-modules:
 import * as v20230501preview from "./v20230501preview";
 import * as v20230701preview from "./v20230701preview";
+import * as v20230901preview from "./v20230901preview";
 
 export {
     v20230501preview,
     v20230701preview,
+    v20230901preview,
 };
 
 export const ApmType = {

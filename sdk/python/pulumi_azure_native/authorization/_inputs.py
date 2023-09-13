@@ -573,12 +573,14 @@ class ParameterDefinitionsValueArgs:
                  allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
                  default_value: Optional[Any] = None,
                  metadata: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']] = None,
+                 schema: Optional[Any] = None,
                  type: Optional[pulumi.Input[Union[str, 'ParameterType']]] = None):
         """
         The definition of a parameter that can be provided to the policy.
         :param pulumi.Input[Sequence[Any]] allowed_values: The allowed values for the parameter.
         :param Any default_value: The default value for the parameter if no value is provided.
         :param pulumi.Input['ParameterDefinitionsValueMetadataArgs'] metadata: General metadata for the parameter.
+        :param Any schema: Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
         :param pulumi.Input[Union[str, 'ParameterType']] type: The data type of the parameter.
         """
         if allowed_values is not None:
@@ -587,6 +589,8 @@ class ParameterDefinitionsValueArgs:
             pulumi.set(__self__, "default_value", default_value)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -625,6 +629,18 @@ class ParameterDefinitionsValueArgs:
     @metadata.setter
     def metadata(self, value: Optional[pulumi.Input['ParameterDefinitionsValueMetadataArgs']]):
         pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[Any]):
+        pulumi.set(self, "schema", value)
 
     @property
     @pulumi.getter

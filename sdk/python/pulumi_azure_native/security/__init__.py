@@ -10,6 +10,7 @@ from .adaptive_application_control import *
 from .advanced_threat_protection import *
 from .alerts_suppression_rule import *
 from .api_collection import *
+from .api_collection_by_azure_api_management_service import *
 from .application import *
 from .assessment import *
 from .assessment_metadata_in_subscription import *
@@ -26,6 +27,7 @@ from .get_adaptive_application_control import *
 from .get_advanced_threat_protection import *
 from .get_alerts_suppression_rule import *
 from .get_api_collection import *
+from .get_api_collection_by_azure_api_management_service import *
 from .get_application import *
 from .get_assessment import *
 from .get_assessment_metadata_in_subscription import *
@@ -111,6 +113,8 @@ if typing.TYPE_CHECKING:
     v20230501 = __v20230501
     import pulumi_azure_native.security.v20230901preview as __v20230901preview
     v20230901preview = __v20230901preview
+    import pulumi_azure_native.security.v20231115 as __v20231115
+    v20231115 = __v20231115
 else:
     v20170801preview = _utilities.lazy_import('pulumi_azure_native.security.v20170801preview')
     v20190101 = _utilities.lazy_import('pulumi_azure_native.security.v20190101')
@@ -130,4 +134,5 @@ else:
     v20230301preview = _utilities.lazy_import('pulumi_azure_native.security.v20230301preview')
     v20230501 = _utilities.lazy_import('pulumi_azure_native.security.v20230501')
     v20230901preview = _utilities.lazy_import('pulumi_azure_native.security.v20230901preview')
+    v20231115 = _utilities.lazy_import('pulumi_azure_native.security.v20231115')
 

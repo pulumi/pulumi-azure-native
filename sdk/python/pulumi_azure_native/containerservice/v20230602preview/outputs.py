@@ -35,6 +35,7 @@ __all__ = [
     'IPTagResponse',
     'IstioCertificateAuthorityResponse',
     'IstioComponentsResponse',
+    'IstioEgressGatewayResponse',
     'IstioIngressGatewayResponse',
     'IstioPluginCertificateAuthorityResponse',
     'IstioServiceMeshResponse',
@@ -1446,7 +1447,9 @@ class IstioComponentsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ingressGateways":
+        if key == "egressGateways":
+            suggest = "egress_gateways"
+        elif key == "ingressGateways":
             suggest = "ingress_gateways"
 
         if suggest:
@@ -1461,13 +1464,25 @@ class IstioComponentsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 egress_gateways: Optional[Sequence['outputs.IstioEgressGatewayResponse']] = None,
                  ingress_gateways: Optional[Sequence['outputs.IstioIngressGatewayResponse']] = None):
         """
         Istio components configuration.
+        :param Sequence['IstioEgressGatewayResponse'] egress_gateways: Istio egress gateways.
         :param Sequence['IstioIngressGatewayResponse'] ingress_gateways: Istio ingress gateways.
         """
+        if egress_gateways is not None:
+            pulumi.set(__self__, "egress_gateways", egress_gateways)
         if ingress_gateways is not None:
             pulumi.set(__self__, "ingress_gateways", ingress_gateways)
+
+    @property
+    @pulumi.getter(name="egressGateways")
+    def egress_gateways(self) -> Optional[Sequence['outputs.IstioEgressGatewayResponse']]:
+        """
+        Istio egress gateways.
+        """
+        return pulumi.get(self, "egress_gateways")
 
     @property
     @pulumi.getter(name="ingressGateways")
@@ -1476,6 +1491,57 @@ class IstioComponentsResponse(dict):
         Istio ingress gateways.
         """
         return pulumi.get(self, "ingress_gateways")
+
+
+@pulumi.output_type
+class IstioEgressGatewayResponse(dict):
+    """
+    Istio egress gateway configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeSelector":
+            suggest = "node_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IstioEgressGatewayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IstioEgressGatewayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IstioEgressGatewayResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 node_selector: Optional[Mapping[str, str]] = None):
+        """
+        Istio egress gateway configuration.
+        :param bool enabled: Whether to enable the egress gateway.
+        :param Mapping[str, str] node_selector: NodeSelector for scheduling the egress gateway.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if node_selector is not None:
+            pulumi.set(__self__, "node_selector", node_selector)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        Whether to enable the egress gateway.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="nodeSelector")
+    def node_selector(self) -> Optional[Mapping[str, str]]:
+        """
+        NodeSelector for scheduling the egress gateway.
+        """
+        return pulumi.get(self, "node_selector")
 
 
 @pulumi.output_type

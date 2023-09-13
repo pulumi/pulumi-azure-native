@@ -33,6 +33,8 @@ __all__ = [
     'PolicyAssignmentPropertiesResponseScope',
     'PolicyDefinitionGroupResponse',
     'PolicyDefinitionReferenceResponse',
+    'PolicyDefinitionVersionResponse',
+    'PolicySetDefinitionVersionResponse',
     'PolicyVariableColumnResponse',
     'PolicyVariableValueColumnValueResponse',
     'PrincipalResponse',
@@ -1065,12 +1067,14 @@ class ParameterDefinitionsValueResponse(dict):
                  allowed_values: Optional[Sequence[Any]] = None,
                  default_value: Optional[Any] = None,
                  metadata: Optional['outputs.ParameterDefinitionsValueResponseMetadata'] = None,
+                 schema: Optional[Any] = None,
                  type: Optional[str] = None):
         """
         The definition of a parameter that can be provided to the policy.
         :param Sequence[Any] allowed_values: The allowed values for the parameter.
         :param Any default_value: The default value for the parameter if no value is provided.
         :param 'ParameterDefinitionsValueResponseMetadata' metadata: General metadata for the parameter.
+        :param Any schema: Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
         :param str type: The data type of the parameter.
         """
         if allowed_values is not None:
@@ -1079,6 +1083,8 @@ class ParameterDefinitionsValueResponse(dict):
             pulumi.set(__self__, "default_value", default_value)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -1105,6 +1111,14 @@ class ParameterDefinitionsValueResponse(dict):
         General metadata for the parameter.
         """
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
+        """
+        return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
@@ -1745,6 +1759,309 @@ class PolicyDefinitionReferenceResponse(dict):
         A unique id (within the policy set definition) for this policy definition reference.
         """
         return pulumi.get(self, "policy_definition_reference_id")
+
+
+@pulumi.output_type
+class PolicyDefinitionVersionResponse(dict):
+    """
+    The ID of the policy definition version.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 mode: Optional[str] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']] = None,
+                 policy_rule: Optional[Any] = None,
+                 policy_type: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        The ID of the policy definition version.
+        :param str id: The ID of the policy definition version.
+        :param str name: The name of the policy definition version.
+        :param 'SystemDataResponse' system_data: The system metadata relating to this resource.
+        :param str type: The type of the resource (Microsoft.Authorization/policyDefinitions/versions).
+        :param str description: The policy definition description.
+        :param str display_name: The display name of the policy definition.
+        :param Any metadata: The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+        :param str mode: The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+        :param Mapping[str, 'ParameterDefinitionsValueResponse'] parameters: The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+        :param Any policy_rule: The policy rule.
+        :param str policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        :param str version: The policy definition version in #.#.# format.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if mode is None:
+            mode = 'Indexed'
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if policy_rule is not None:
+            pulumi.set(__self__, "policy_rule", policy_rule)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the policy definition version.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the policy definition version.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource (Microsoft.Authorization/policyDefinitions/versions).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The policy definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the policy definition.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']]:
+        """
+        The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyRule")
+    def policy_rule(self) -> Optional[Any]:
+        """
+        The policy rule.
+        """
+        return pulumi.get(self, "policy_rule")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[str]:
+        """
+        The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The policy definition version in #.#.# format.
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class PolicySetDefinitionVersionResponse(dict):
+    """
+    The policy set definition version.
+    """
+    def __init__(__self__, *,
+                 id: str,
+                 name: str,
+                 policy_definitions: Sequence['outputs.PolicyDefinitionReferenceResponse'],
+                 system_data: 'outputs.SystemDataResponse',
+                 type: str,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 metadata: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']] = None,
+                 policy_definition_groups: Optional[Sequence['outputs.PolicyDefinitionGroupResponse']] = None,
+                 policy_type: Optional[str] = None,
+                 version: Optional[str] = None):
+        """
+        The policy set definition version.
+        :param str id: The ID of the policy set definition version.
+        :param str name: The name of the policy set definition version.
+        :param Sequence['PolicyDefinitionReferenceResponse'] policy_definitions: An array of policy definition references.
+        :param 'SystemDataResponse' system_data: The system metadata relating to this resource.
+        :param str type: The type of the resource (Microsoft.Authorization/policySetDefinitions/versions).
+        :param str description: The policy set definition description.
+        :param str display_name: The display name of the policy set definition.
+        :param Any metadata: The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+        :param Mapping[str, 'ParameterDefinitionsValueResponse'] parameters: The policy set definition parameters that can be used in policy definition references.
+        :param Sequence['PolicyDefinitionGroupResponse'] policy_definition_groups: The metadata describing groups of policy definition references within the policy set definition.
+        :param str policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        :param str version: The policy set definition version in #.#.# format.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "policy_definitions", policy_definitions)
+        pulumi.set(__self__, "system_data", system_data)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if policy_definition_groups is not None:
+            pulumi.set(__self__, "policy_definition_groups", policy_definition_groups)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the policy set definition version.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the policy set definition version.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyDefinitions")
+    def policy_definitions(self) -> Sequence['outputs.PolicyDefinitionReferenceResponse']:
+        """
+        An array of policy definition references.
+        """
+        return pulumi.get(self, "policy_definitions")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system metadata relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of the resource (Microsoft.Authorization/policySetDefinitions/versions).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The policy set definition description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name of the policy set definition.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[Any]:
+        """
+        The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
+        """
+        return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterDefinitionsValueResponse']]:
+        """
+        The policy set definition parameters that can be used in policy definition references.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="policyDefinitionGroups")
+    def policy_definition_groups(self) -> Optional[Sequence['outputs.PolicyDefinitionGroupResponse']]:
+        """
+        The metadata describing groups of policy definition references within the policy set definition.
+        """
+        return pulumi.get(self, "policy_definition_groups")
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[str]:
+        """
+        The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        The policy set definition version in #.#.# format.
+        """
+        return pulumi.get(self, "version")
 
 
 @pulumi.output_type

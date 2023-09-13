@@ -17,13 +17,21 @@ namespace Pulumi.AzureNative.ContainerService.V20230702Preview.Outputs
     public sealed class IstioComponentsResponse
     {
         /// <summary>
+        /// Istio egress gateways.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.IstioEgressGatewayResponse> EgressGateways;
+        /// <summary>
         /// Istio ingress gateways.
         /// </summary>
         public readonly ImmutableArray<Outputs.IstioIngressGatewayResponse> IngressGateways;
 
         [OutputConstructor]
-        private IstioComponentsResponse(ImmutableArray<Outputs.IstioIngressGatewayResponse> ingressGateways)
+        private IstioComponentsResponse(
+            ImmutableArray<Outputs.IstioEgressGatewayResponse> egressGateways,
+
+            ImmutableArray<Outputs.IstioIngressGatewayResponse> ingressGateways)
         {
+            EgressGateways = egressGateways;
             IngressGateways = ingressGateways;
         }
     }

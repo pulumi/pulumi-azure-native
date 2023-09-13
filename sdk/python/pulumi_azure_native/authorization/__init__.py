@@ -19,9 +19,13 @@ from .get_management_lock_by_scope import *
 from .get_policy_assignment import *
 from .get_policy_definition import *
 from .get_policy_definition_at_management_group import *
+from .get_policy_definition_version import *
+from .get_policy_definition_version_at_management_group import *
 from .get_policy_exemption import *
 from .get_policy_set_definition import *
 from .get_policy_set_definition_at_management_group import *
+from .get_policy_set_definition_version import *
+from .get_policy_set_definition_version_at_management_group import *
 from .get_private_link_association import *
 from .get_resource_management_private_link import *
 from .get_role_assignment import *
@@ -33,6 +37,12 @@ from .get_variable import *
 from .get_variable_at_management_group import *
 from .get_variable_value import *
 from .get_variable_value_at_management_group import *
+from .list_policy_definition_version_all import *
+from .list_policy_definition_version_all_at_management_group import *
+from .list_policy_definition_version_all_builtins import *
+from .list_policy_set_definition_version_all import *
+from .list_policy_set_definition_version_all_at_management_group import *
+from .list_policy_set_definition_version_all_builtins import *
 from .management_lock_at_resource_group_level import *
 from .management_lock_at_resource_level import *
 from .management_lock_at_subscription_level import *
@@ -40,9 +50,13 @@ from .management_lock_by_scope import *
 from .policy_assignment import *
 from .policy_definition import *
 from .policy_definition_at_management_group import *
+from .policy_definition_version import *
+from .policy_definition_version_at_management_group import *
 from .policy_exemption import *
 from .policy_set_definition import *
 from .policy_set_definition_at_management_group import *
+from .policy_set_definition_version import *
+from .policy_set_definition_version_at_management_group import *
 from .private_link_association import *
 from .resource_management_private_link import *
 from .role_assignment import *
@@ -91,6 +105,8 @@ if typing.TYPE_CHECKING:
     v20220701preview = __v20220701preview
     import pulumi_azure_native.authorization.v20220801preview as __v20220801preview
     v20220801preview = __v20220801preview
+    import pulumi_azure_native.authorization.v20230401 as __v20230401
+    v20230401 = __v20230401
 else:
     v20171001preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20171001preview')
     v20180501 = _utilities.lazy_import('pulumi_azure_native.authorization.v20180501')
@@ -108,4 +124,5 @@ else:
     v20220601 = _utilities.lazy_import('pulumi_azure_native.authorization.v20220601')
     v20220701preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220701preview')
     v20220801preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20220801preview')
+    v20230401 = _utilities.lazy_import('pulumi_azure_native.authorization.v20230401')
 

@@ -33,6 +33,7 @@ __all__ = [
     'IPTagArgs',
     'IstioCertificateAuthorityArgs',
     'IstioComponentsArgs',
+    'IstioEgressGatewayArgs',
     'IstioIngressGatewayArgs',
     'IstioPluginCertificateAuthorityArgs',
     'IstioServiceMeshArgs',
@@ -1198,13 +1199,29 @@ class IstioCertificateAuthorityArgs:
 @pulumi.input_type
 class IstioComponentsArgs:
     def __init__(__self__, *,
+                 egress_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]] = None,
                  ingress_gateways: Optional[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]] = None):
         """
         Istio components configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]] egress_gateways: Istio egress gateways.
         :param pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]] ingress_gateways: Istio ingress gateways.
         """
+        if egress_gateways is not None:
+            pulumi.set(__self__, "egress_gateways", egress_gateways)
         if ingress_gateways is not None:
             pulumi.set(__self__, "ingress_gateways", ingress_gateways)
+
+    @property
+    @pulumi.getter(name="egressGateways")
+    def egress_gateways(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]]:
+        """
+        Istio egress gateways.
+        """
+        return pulumi.get(self, "egress_gateways")
+
+    @egress_gateways.setter
+    def egress_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IstioEgressGatewayArgs']]]]):
+        pulumi.set(self, "egress_gateways", value)
 
     @property
     @pulumi.getter(name="ingressGateways")
@@ -1217,6 +1234,45 @@ class IstioComponentsArgs:
     @ingress_gateways.setter
     def ingress_gateways(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IstioIngressGatewayArgs']]]]):
         pulumi.set(self, "ingress_gateways", value)
+
+
+@pulumi.input_type
+class IstioEgressGatewayArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 node_selector: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Istio egress gateway configuration.
+        :param pulumi.Input[bool] enabled: Whether to enable the egress gateway.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_selector: NodeSelector for scheduling the egress gateway.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if node_selector is not None:
+            pulumi.set(__self__, "node_selector", node_selector)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Whether to enable the egress gateway.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="nodeSelector")
+    def node_selector(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        NodeSelector for scheduling the egress gateway.
+        """
+        return pulumi.get(self, "node_selector")
+
+    @node_selector.setter
+    def node_selector(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "node_selector", value)
 
 
 @pulumi.input_type

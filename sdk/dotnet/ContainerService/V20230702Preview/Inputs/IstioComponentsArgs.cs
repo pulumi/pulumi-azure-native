@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.ContainerService.V20230702Preview.Inputs
     /// </summary>
     public sealed class IstioComponentsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("egressGateways")]
+        private InputList<Inputs.IstioEgressGatewayArgs>? _egressGateways;
+
+        /// <summary>
+        /// Istio egress gateways.
+        /// </summary>
+        public InputList<Inputs.IstioEgressGatewayArgs> EgressGateways
+        {
+            get => _egressGateways ?? (_egressGateways = new InputList<Inputs.IstioEgressGatewayArgs>());
+            set => _egressGateways = value;
+        }
+
         [Input("ingressGateways")]
         private InputList<Inputs.IstioIngressGatewayArgs>? _ingressGateways;
 

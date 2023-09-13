@@ -89,7 +89,7 @@ export class BuildServiceBuild extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230301preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230501preview:BuildServiceBuild" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230301preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230501preview:BuildServiceBuild" }, { type: "azure-native:appplatform/v20230901preview:BuildServiceBuild" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BuildServiceBuild.__pulumiType, name, resourceInputs, opts);
     }

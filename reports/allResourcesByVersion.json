@@ -1894,6 +1894,44 @@
       "listGatewayEnvSecrets",
       "listServiceGloballyEnabledApms",
       "listServiceTestKeys"
+    ],
+    "2023-09-01-preview": [
+      "ApiPortal",
+      "ApiPortalCustomDomain",
+      "Apm",
+      "App",
+      "ApplicationAccelerator",
+      "ApplicationLiveView",
+      "Binding",
+      "BuildServiceAgentPool",
+      "BuildServiceBuild",
+      "BuildServiceBuilder",
+      "BuildpackBinding",
+      "Certificate",
+      "ConfigServer",
+      "ConfigurationService",
+      "ContainerRegistry",
+      "CustomDomain",
+      "CustomizedAccelerator",
+      "Deployment",
+      "DevToolPortal",
+      "Gateway",
+      "GatewayCustomDomain",
+      "GatewayRouteConfig",
+      "MonitoringSetting",
+      "Service",
+      "ServiceRegistry",
+      "Storage",
+      "getAppResourceUploadUrl",
+      "getBuildServiceBuildResultLog",
+      "getBuildServiceResourceUploadUrl",
+      "getDeploymentLogFileUrl",
+      "getDeploymentRemoteDebuggingConfig",
+      "listApmSecretKeys",
+      "listBuildServiceBuilderDeployments",
+      "listGatewayEnvSecrets",
+      "listServiceGloballyEnabledApms",
+      "listServiceTestKeys"
     ]
   },
   "Attestation": {
@@ -2083,6 +2121,23 @@
       "VariableAtManagementGroup",
       "VariableValue",
       "VariableValueAtManagementGroup"
+    ],
+    "2023-04-01": [
+      "PolicyAssignment",
+      "PolicyDefinition",
+      "PolicyDefinitionAtManagementGroup",
+      "PolicyDefinitionVersion",
+      "PolicyDefinitionVersionAtManagementGroup",
+      "PolicySetDefinition",
+      "PolicySetDefinitionAtManagementGroup",
+      "PolicySetDefinitionVersion",
+      "PolicySetDefinitionVersionAtManagementGroup",
+      "listPolicyDefinitionVersionAll",
+      "listPolicyDefinitionVersionAllAtManagementGroup",
+      "listPolicyDefinitionVersionAllBuiltins",
+      "listPolicySetDefinitionVersionAll",
+      "listPolicySetDefinitionVersionAllAtManagementGroup",
+      "listPolicySetDefinitionVersionAllBuiltins"
     ]
   },
   "Automanage": {
@@ -2288,6 +2343,11 @@
     "2019-07-24-preview": [
       "SqlServer",
       "SqlServerRegistration"
+    ]
+  },
+  "AzurePlaywrightService": {
+    "2023-10-01-preview": [
+      "Account"
     ]
   },
   "AzureSphere": {
@@ -15719,6 +15779,9 @@
       "listGitHubOwnerAvailable",
       "listGitLabGroupAvailable",
       "listGitLabSubgroup"
+    ],
+    "2023-11-15": [
+      "APICollectionByAzureApiManagementService"
     ]
   },
   "SecurityAndCompliance": {
@@ -16824,6 +16887,15 @@
       "listSignalRKeys"
     ],
     "2023-06-01-preview": [
+      "SignalR",
+      "SignalRCustomCertificate",
+      "SignalRCustomDomain",
+      "SignalRPrivateEndpointConnection",
+      "SignalRReplica",
+      "SignalRSharedPrivateLinkResource",
+      "listSignalRKeys"
+    ],
+    "2023-08-01-preview": [
       "SignalR",
       "SignalRCustomCertificate",
       "SignalRCustomDomain",
@@ -20113,6 +20185,16 @@
       "listWebPubSubKeys"
     ],
     "2023-06-01-preview": [
+      "WebPubSub",
+      "WebPubSubCustomCertificate",
+      "WebPubSubCustomDomain",
+      "WebPubSubHub",
+      "WebPubSubPrivateEndpointConnection",
+      "WebPubSubReplica",
+      "WebPubSubSharedPrivateLinkResource",
+      "listWebPubSubKeys"
+    ],
+    "2023-08-01-preview": [
       "WebPubSub",
       "WebPubSubCustomCertificate",
       "WebPubSubCustomDomain",

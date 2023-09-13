@@ -5,11 +5,13 @@
 import * as v20230201 from "./v20230201";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230601preview from "./v20230601preview";
+import * as v20230801preview from "./v20230801preview";
 
 export {
     v20230201,
     v20230301preview,
     v20230601preview,
+    v20230801preview,
 };
 
 export const ACLAction = {

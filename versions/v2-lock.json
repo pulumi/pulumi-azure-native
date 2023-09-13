@@ -250,9 +250,13 @@
     "PolicyAssignment": "2022-06-01",
     "PolicyDefinition": "2021-06-01",
     "PolicyDefinitionAtManagementGroup": "2021-06-01",
+    "PolicyDefinitionVersion": "2023-04-01",
+    "PolicyDefinitionVersionAtManagementGroup": "2023-04-01",
     "PolicyExemption": "2022-07-01-preview",
     "PolicySetDefinition": "2021-06-01",
     "PolicySetDefinitionAtManagementGroup": "2021-06-01",
+    "PolicySetDefinitionVersion": "2023-04-01",
+    "PolicySetDefinitionVersionAtManagementGroup": "2023-04-01",
     "PrivateLinkAssociation": "2020-05-01",
     "ResourceManagementPrivateLink": "2020-05-01",
     "RoleAssignment": "2022-04-01",
@@ -263,7 +267,13 @@
     "Variable": "2022-08-01-preview",
     "VariableAtManagementGroup": "2022-08-01-preview",
     "VariableValue": "2022-08-01-preview",
-    "VariableValueAtManagementGroup": "2022-08-01-preview"
+    "VariableValueAtManagementGroup": "2022-08-01-preview",
+    "listPolicyDefinitionVersionAll": "2023-04-01",
+    "listPolicyDefinitionVersionAllAtManagementGroup": "2023-04-01",
+    "listPolicyDefinitionVersionAllBuiltins": "2023-04-01",
+    "listPolicySetDefinitionVersionAll": "2023-04-01",
+    "listPolicySetDefinitionVersionAllAtManagementGroup": "2023-04-01",
+    "listPolicySetDefinitionVersionAllBuiltins": "2023-04-01"
   },
   "Automanage": {
     "Account": "2020-06-30-preview",
@@ -318,6 +328,9 @@
   "AzureData": {
     "SqlServer": "2019-07-24-preview",
     "SqlServerRegistration": "2019-07-24-preview"
+  },
+  "AzurePlaywrightService": {
+    "Account": "2023-10-01-preview"
   },
   "AzureSphere": {
     "Catalog": "2022-09-01-preview",
@@ -1970,6 +1983,7 @@
   },
   "Security": {
     "APICollection": "2022-11-20-preview",
+    "APICollectionByAzureApiManagementService": "2023-11-15",
     "AdaptiveApplicationControl": "2020-01-01",
     "AdvancedThreatProtection": "2019-01-01",
     "AlertsSuppressionRule": "2019-01-01-preview",

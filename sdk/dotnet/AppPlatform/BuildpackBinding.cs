@@ -76,6 +76,7 @@ namespace Pulumi.AzureNative.AppPlatform
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230301preview:BuildpackBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230501preview:BuildpackBinding"},
                     new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230701preview:BuildpackBinding"},
+                    new global::Pulumi.Alias { Type = "azure-native:appplatform/v20230901preview:BuildpackBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

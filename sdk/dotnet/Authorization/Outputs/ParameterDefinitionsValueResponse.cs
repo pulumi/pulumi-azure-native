@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// </summary>
         public readonly Outputs.ParameterDefinitionsValueResponseMetadata? Metadata;
         /// <summary>
+        /// Provides validation of parameter inputs during assignment using a self-defined JSON schema. This property is only supported for object-type parameters and follows the Json.NET Schema 2019-09 implementation. You can learn more about using schemas at https://json-schema.org/ and test draft schemas at https://www.jsonschemavalidator.net/.
+        /// </summary>
+        public readonly object? Schema;
+        /// <summary>
         /// The data type of the parameter.
         /// </summary>
         public readonly string? Type;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.Authorization.Outputs
 
             Outputs.ParameterDefinitionsValueResponseMetadata? metadata,
 
+            object? schema,
+
             string? type)
         {
             AllowedValues = allowedValues;
             DefaultValue = defaultValue;
             Metadata = metadata;
+            Schema = schema;
             Type = type;
         }
     }

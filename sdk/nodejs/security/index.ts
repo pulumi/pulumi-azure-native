@@ -25,6 +25,11 @@ export type APICollection = import("./apicollection").APICollection;
 export const APICollection: typeof import("./apicollection").APICollection = null as any;
 utilities.lazyLoad(exports, ["APICollection"], () => require("./apicollection"));
 
+export { APICollectionByAzureApiManagementServiceArgs } from "./apicollectionByAzureApiManagementService";
+export type APICollectionByAzureApiManagementService = import("./apicollectionByAzureApiManagementService").APICollectionByAzureApiManagementService;
+export const APICollectionByAzureApiManagementService: typeof import("./apicollectionByAzureApiManagementService").APICollectionByAzureApiManagementService = null as any;
+utilities.lazyLoad(exports, ["APICollectionByAzureApiManagementService"], () => require("./apicollectionByAzureApiManagementService"));
+
 export { ApplicationArgs } from "./application";
 export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
@@ -89,6 +94,11 @@ export { GetAPICollectionArgs, GetAPICollectionResult, GetAPICollectionOutputArg
 export const getAPICollection: typeof import("./getAPICollection").getAPICollection = null as any;
 export const getAPICollectionOutput: typeof import("./getAPICollection").getAPICollectionOutput = null as any;
 utilities.lazyLoad(exports, ["getAPICollection","getAPICollectionOutput"], () => require("./getAPICollection"));
+
+export { GetAPICollectionByAzureApiManagementServiceArgs, GetAPICollectionByAzureApiManagementServiceResult, GetAPICollectionByAzureApiManagementServiceOutputArgs } from "./getAPICollectionByAzureApiManagementService";
+export const getAPICollectionByAzureApiManagementService: typeof import("./getAPICollectionByAzureApiManagementService").getAPICollectionByAzureApiManagementService = null as any;
+export const getAPICollectionByAzureApiManagementServiceOutput: typeof import("./getAPICollectionByAzureApiManagementService").getAPICollectionByAzureApiManagementServiceOutput = null as any;
+utilities.lazyLoad(exports, ["getAPICollectionByAzureApiManagementService","getAPICollectionByAzureApiManagementServiceOutput"], () => require("./getAPICollectionByAzureApiManagementService"));
 
 export { GetAdaptiveApplicationControlArgs, GetAdaptiveApplicationControlResult, GetAdaptiveApplicationControlOutputArgs } from "./getAdaptiveApplicationControl";
 export const getAdaptiveApplicationControl: typeof import("./getAdaptiveApplicationControl").getAdaptiveApplicationControl = null as any;
@@ -348,6 +358,7 @@ import * as v20230201preview from "./v20230201preview";
 import * as v20230301preview from "./v20230301preview";
 import * as v20230501 from "./v20230501";
 import * as v20230901preview from "./v20230901preview";
+import * as v20231115 from "./v20231115";
 
 export {
     v20170801preview,
@@ -368,6 +379,7 @@ export {
     v20230301preview,
     v20230501,
     v20230901preview,
+    v20231115,
 };
 
 const _module = {
@@ -376,6 +388,8 @@ const _module = {
         switch (type) {
             case "azure-native:security:APICollection":
                 return new APICollection(name, <any>undefined, { urn })
+            case "azure-native:security:APICollectionByAzureApiManagementService":
+                return new APICollectionByAzureApiManagementService(name, <any>undefined, { urn })
             case "azure-native:security:AdaptiveApplicationControl":
                 return new AdaptiveApplicationControl(name, <any>undefined, { urn })
             case "azure-native:security:AdvancedThreatProtection":
