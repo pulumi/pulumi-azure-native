@@ -7,6 +7,9 @@ export const OSType = {
     Windows: "Windows",
 } as const;
 
+/**
+ * OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux.
+ */
 export type OSType = (typeof OSType)[keyof typeof OSType];
 
 export const OpenShiftAgentPoolProfileRole = {
@@ -14,6 +17,9 @@ export const OpenShiftAgentPoolProfileRole = {
     Infra: "infra",
 } as const;
 
+/**
+ * Define the role of the AgentPoolProfile.
+ */
 export type OpenShiftAgentPoolProfileRole = (typeof OpenShiftAgentPoolProfileRole)[keyof typeof OpenShiftAgentPoolProfileRole];
 
 export const OpenShiftContainerServiceVMSize = {
@@ -52,4 +58,7 @@ export const OpenShiftContainerServiceVMSize = {
     Standard_L32s: "Standard_L32s",
 } as const;
 
+/**
+ * Size of agent VMs.
+ */
 export type OpenShiftContainerServiceVMSize = (typeof OpenShiftContainerServiceVMSize)[keyof typeof OpenShiftContainerServiceVMSize];

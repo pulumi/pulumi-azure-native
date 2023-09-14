@@ -7,12 +7,18 @@ export const CopyMode = {
     Mirror: "Mirror",
 } as const;
 
+/**
+ * Strategy to use for copy.
+ */
 export type CopyMode = (typeof CopyMode)[keyof typeof CopyMode];
 
 export const CredentialType = {
     AzureKeyVaultSmb: "AzureKeyVaultSmb",
 } as const;
 
+/**
+ * The Credentials type.
+ */
 export type CredentialType = (typeof CredentialType)[keyof typeof CredentialType];
 
 export const EndpointType = {
@@ -22,6 +28,9 @@ export const EndpointType = {
     SmbMount: "SmbMount",
 } as const;
 
+/**
+ * The Endpoint resource type.
+ */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 export const NfsVersion = {
@@ -30,4 +39,7 @@ export const NfsVersion = {
     NFSv4: "NFSv4",
 } as const;
 
+/**
+ * The NFS protocol version.
+ */
 export type NfsVersion = (typeof NfsVersion)[keyof typeof NfsVersion];

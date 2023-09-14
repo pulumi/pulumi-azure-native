@@ -17,6 +17,9 @@ export const ActionRuleStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates if the given action rule is enabled or disabled
+ */
 export type ActionRuleStatus = (typeof ActionRuleStatus)[keyof typeof ActionRuleStatus];
 
 export const ActionRuleType = {
@@ -25,6 +28,9 @@ export const ActionRuleType = {
     Diagnostics: "Diagnostics",
 } as const;
 
+/**
+ * Indicates type of action rule
+ */
 export type ActionRuleType = (typeof ActionRuleType)[keyof typeof ActionRuleType];
 
 export const ActionType = {
@@ -33,6 +39,9 @@ export const ActionType = {
     CorrelateAlerts: "CorrelateAlerts",
 } as const;
 
+/**
+ * Action that should be applied.
+ */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 export const AlertRuleState = {
@@ -40,6 +49,9 @@ export const AlertRuleState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The alert rule state.
+ */
 export type AlertRuleState = (typeof AlertRuleState)[keyof typeof AlertRuleState];
 
 export const DaysOfWeek = {
@@ -52,6 +64,9 @@ export const DaysOfWeek = {
     Saturday: "Saturday",
 } as const;
 
+/**
+ * Days of week.
+ */
 export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
 
 export const Field = {
@@ -68,6 +83,9 @@ export const Field = {
     AlertContext: "AlertContext",
 } as const;
 
+/**
+ * Field for a given condition.
+ */
 export type Field = (typeof Field)[keyof typeof Field];
 
 export const NotificationsForCorrelatedAlerts = {
@@ -75,6 +93,9 @@ export const NotificationsForCorrelatedAlerts = {
     SuppressAlways: "SuppressAlways",
 } as const;
 
+/**
+ * Indicates how to handle child alerts notifications.
+ */
 export type NotificationsForCorrelatedAlerts = (typeof NotificationsForCorrelatedAlerts)[keyof typeof NotificationsForCorrelatedAlerts];
 
 export const Operator = {
@@ -84,6 +105,9 @@ export const Operator = {
     DoesNotContain: "DoesNotContain",
 } as const;
 
+/**
+ * Operator for a given condition.
+ */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const RecurrenceType = {
@@ -92,6 +116,9 @@ export const RecurrenceType = {
     Monthly: "Monthly",
 } as const;
 
+/**
+ * Specifies when the recurrence should be applied.
+ */
 export type RecurrenceType = (typeof RecurrenceType)[keyof typeof RecurrenceType];
 
 export const ScopeType = {
@@ -100,6 +127,9 @@ export const ScopeType = {
     Subscription: "Subscription",
 } as const;
 
+/**
+ * type of target scope
+ */
 export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
 
 export const Severity = {
@@ -110,6 +140,9 @@ export const Severity = {
     Sev4: "Sev4",
 } as const;
 
+/**
+ * The alert rule severity.
+ */
 export type Severity = (typeof Severity)[keyof typeof Severity];
 
 export const SuppressionType = {
@@ -120,4 +153,7 @@ export const SuppressionType = {
     Monthly: "Monthly",
 } as const;
 
+/**
+ * Specifies when the suppression should be applied
+ */
 export type SuppressionType = (typeof SuppressionType)[keyof typeof SuppressionType];

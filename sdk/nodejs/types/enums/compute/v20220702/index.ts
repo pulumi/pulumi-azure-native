@@ -7,6 +7,9 @@ export const Architecture = {
     Arm64: "Arm64",
 } as const;
 
+/**
+ * CPU architecture supported by an OS disk.
+ */
 export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 
 export const CopyCompletionErrorReason = {
@@ -16,6 +19,9 @@ export const CopyCompletionErrorReason = {
     CopySourceNotFound: "CopySourceNotFound",
 } as const;
 
+/**
+ * Indicates the error code if the background copy of a resource created via the CopyStart operation fails.
+ */
 export type CopyCompletionErrorReason = (typeof CopyCompletionErrorReason)[keyof typeof CopyCompletionErrorReason];
 
 export const DataAccessAuthMode = {
@@ -29,6 +35,9 @@ export const DataAccessAuthMode = {
     None: "None",
 } as const;
 
+/**
+ * Additional authentication requirements when exporting or uploading to a disk or snapshot.
+ */
 export type DataAccessAuthMode = (typeof DataAccessAuthMode)[keyof typeof DataAccessAuthMode];
 
 export const DiskCreateOption = {
@@ -74,6 +83,9 @@ export const DiskCreateOption = {
     UploadPreparedSecure: "UploadPreparedSecure",
 } as const;
 
+/**
+ * This enumerates the possible sources of a disk's creation.
+ */
 export type DiskCreateOption = (typeof DiskCreateOption)[keyof typeof DiskCreateOption];
 
 export const DiskEncryptionSetIdentityType = {
@@ -83,6 +95,9 @@ export const DiskEncryptionSetIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of Managed Identity used by the DiskEncryptionSet. Only SystemAssigned is supported for new creations. Disk Encryption Sets can be updated with Identity type None during migration of subscription to a new Azure Active Directory tenant; it will cause the encrypted resources to lose access to the keys.
+ */
 export type DiskEncryptionSetIdentityType = (typeof DiskEncryptionSetIdentityType)[keyof typeof DiskEncryptionSetIdentityType];
 
 export const DiskEncryptionSetType = {
@@ -100,6 +115,9 @@ export const DiskEncryptionSetType = {
     ConfidentialVmEncryptedWithCustomerKey: "ConfidentialVmEncryptedWithCustomerKey",
 } as const;
 
+/**
+ * The type of key used to encrypt the data of the disk.
+ */
 export type DiskEncryptionSetType = (typeof DiskEncryptionSetType)[keyof typeof DiskEncryptionSetType];
 
 export const DiskSecurityTypes = {
@@ -121,6 +139,9 @@ export const DiskSecurityTypes = {
     ConfidentialVM_DiskEncryptedWithCustomerKey: "ConfidentialVM_DiskEncryptedWithCustomerKey",
 } as const;
 
+/**
+ * Specifies the SecurityType of the VM. Applicable for OS disks only.
+ */
 export type DiskSecurityTypes = (typeof DiskSecurityTypes)[keyof typeof DiskSecurityTypes];
 
 export const DiskStorageAccountTypes = {
@@ -154,6 +175,9 @@ export const DiskStorageAccountTypes = {
     PremiumV2_LRS: "PremiumV2_LRS",
 } as const;
 
+/**
+ * The sku name.
+ */
 export type DiskStorageAccountTypes = (typeof DiskStorageAccountTypes)[keyof typeof DiskStorageAccountTypes];
 
 export const EncryptionType = {
@@ -171,12 +195,18 @@ export const EncryptionType = {
     EncryptionAtRestWithPlatformAndCustomerKeys: "EncryptionAtRestWithPlatformAndCustomerKeys",
 } as const;
 
+/**
+ * The type of key used to encrypt the data of the disk.
+ */
 export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 export const ExtendedLocationTypes = {
     EdgeZone: "EdgeZone",
 } as const;
 
+/**
+ * The type of the extended location.
+ */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
 
 export const HyperVGeneration = {
@@ -184,6 +214,9 @@ export const HyperVGeneration = {
     V2: "V2",
 } as const;
 
+/**
+ * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+ */
 export type HyperVGeneration = (typeof HyperVGeneration)[keyof typeof HyperVGeneration];
 
 export const NetworkAccessPolicy = {
@@ -201,6 +234,9 @@ export const NetworkAccessPolicy = {
     DenyAll: "DenyAll",
 } as const;
 
+/**
+ * Policy for accessing the disk via network.
+ */
 export type NetworkAccessPolicy = (typeof NetworkAccessPolicy)[keyof typeof NetworkAccessPolicy];
 
 export const OperatingSystemTypes = {
@@ -208,6 +244,9 @@ export const OperatingSystemTypes = {
     Linux: "Linux",
 } as const;
 
+/**
+ * The Operating System type.
+ */
 export type OperatingSystemTypes = (typeof OperatingSystemTypes)[keyof typeof OperatingSystemTypes];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -216,6 +255,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -229,6 +271,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Policy for controlling export on the disk.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SnapshotStorageAccountTypes = {
@@ -246,4 +291,7 @@ export const SnapshotStorageAccountTypes = {
     Standard_ZRS: "Standard_ZRS",
 } as const;
 
+/**
+ * The sku name.
+ */
 export type SnapshotStorageAccountTypes = (typeof SnapshotStorageAccountTypes)[keyof typeof SnapshotStorageAccountTypes];

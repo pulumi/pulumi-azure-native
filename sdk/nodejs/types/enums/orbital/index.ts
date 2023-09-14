@@ -16,6 +16,9 @@ export const AutoTrackingConfiguration = {
     SBand: "sBand",
 } as const;
 
+/**
+ * Auto-tracking configuration.
+ */
 export type AutoTrackingConfiguration = (typeof AutoTrackingConfiguration)[keyof typeof AutoTrackingConfiguration];
 
 export const Direction = {
@@ -23,6 +26,9 @@ export const Direction = {
     Downlink: "Downlink",
 } as const;
 
+/**
+ * Direction (Uplink or Downlink).
+ */
 export type Direction = (typeof Direction)[keyof typeof Direction];
 
 export const Polarization = {
@@ -32,6 +38,9 @@ export const Polarization = {
     LinearHorizontal: "linearHorizontal",
 } as const;
 
+/**
+ * Polarization. e.g. (RHCP, LHCP).
+ */
 export type Polarization = (typeof Polarization)[keyof typeof Polarization];
 
 export const Protocol = {
@@ -39,4 +48,7 @@ export const Protocol = {
     UDP: "UDP",
 } as const;
 
+/**
+ * Protocol either UDP or TCP.
+ */
 export type Protocol = (typeof Protocol)[keyof typeof Protocol];

@@ -7,6 +7,9 @@ export const Kind = {
     Gen2: "Gen2",
 } as const;
 
+/**
+ * Get or Set Kind property.
+ */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
 export const Name = {
@@ -15,6 +18,9 @@ export const Name = {
     G2: "G2",
 } as const;
 
+/**
+ * The name of the SKU, in standard format (such as S0).
+ */
 export type Name = (typeof Name)[keyof typeof Name];
 
 export const ResourceIdentityType = {
@@ -24,6 +30,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SigningKey = {
@@ -31,4 +40,7 @@ export const SigningKey = {
     SecondaryKey: "secondaryKey",
 } as const;
 
+/**
+ * The Map account key to use for signing.
+ */
 export type SigningKey = (typeof SigningKey)[keyof typeof SigningKey];

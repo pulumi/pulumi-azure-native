@@ -13,6 +13,9 @@ export const AadAuthFailureMode = {
     Http401WithBearerChallenge: "http401WithBearerChallenge",
 } as const;
 
+/**
+ * Describes what response the data plane API of a Search service would send for requests that failed authentication.
+ */
 export type AadAuthFailureMode = (typeof AadAuthFailureMode)[keyof typeof AadAuthFailureMode];
 
 export const HostingMode = {
@@ -26,6 +29,9 @@ export const HostingMode = {
     HighDensity: "highDensity",
 } as const;
 
+/**
+ * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+ */
 export type HostingMode = (typeof HostingMode)[keyof typeof HostingMode];
 
 export const IdentityType = {
@@ -47,6 +53,9 @@ export const IdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
 } as const;
 
+/**
+ * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const PublicNetworkAccess = {
@@ -60,6 +69,9 @@ export const PublicNetworkAccess = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SearchBypass = {
@@ -73,6 +85,9 @@ export const SearchBypass = {
     AzurePortal: "AzurePortal",
 } as const;
 
+/**
+ * Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
+ */
 export type SearchBypass = (typeof SearchBypass)[keyof typeof SearchBypass];
 
 export const SearchDisabledDataExfiltrationOption = {
@@ -82,6 +97,9 @@ export const SearchDisabledDataExfiltrationOption = {
     All: "All",
 } as const;
 
+/**
+ * A specific data exfiltration scenario that is disabled for the service.
+ */
 export type SearchDisabledDataExfiltrationOption = (typeof SearchDisabledDataExfiltrationOption)[keyof typeof SearchDisabledDataExfiltrationOption];
 
 export const SearchEncryptionWithCmk = {
@@ -99,6 +117,9 @@ export const SearchEncryptionWithCmk = {
     Unspecified: "Unspecified",
 } as const;
 
+/**
+ * Describes how a search service should enforce having one or more non customer encrypted resources.
+ */
 export type SearchEncryptionWithCmk = (typeof SearchEncryptionWithCmk)[keyof typeof SearchEncryptionWithCmk];
 
 export const SearchSemanticSearch = {
@@ -116,6 +137,9 @@ export const SearchSemanticSearch = {
     Standard: "standard",
 } as const;
 
+/**
+ * Sets options that control the availability of semantic search. This configuration is only possible for certain Azure Cognitive Search SKUs in certain locations.
+ */
 export type SearchSemanticSearch = (typeof SearchSemanticSearch)[keyof typeof SearchSemanticSearch];
 
 export const SkuName = {
@@ -149,4 +173,7 @@ export const SkuName = {
     StorageOptimizedL2: "storage_optimized_l2",
 } as const;
 
+/**
+ * The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];

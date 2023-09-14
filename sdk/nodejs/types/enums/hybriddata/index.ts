@@ -38,6 +38,9 @@ export const RunLocation = {
     Westus2: "westus2",
 } as const;
 
+/**
+ * This is the preferred geo location for the job to run.
+ */
 export type RunLocation = (typeof RunLocation)[keyof typeof RunLocation];
 
 export const State = {
@@ -46,6 +49,9 @@ export const State = {
     Supported: "Supported",
 } as const;
 
+/**
+ * State of the job definition.
+ */
 export type State = (typeof State)[keyof typeof State];
 
 export const SupportedAlgorithm = {
@@ -55,6 +61,9 @@ export const SupportedAlgorithm = {
     PlainText: "PlainText",
 } as const;
 
+/**
+ * The encryption algorithm used to encrypt data.
+ */
 export type SupportedAlgorithm = (typeof SupportedAlgorithm)[keyof typeof SupportedAlgorithm];
 
 export const UserConfirmation = {
@@ -62,4 +71,7 @@ export const UserConfirmation = {
     Required: "Required",
 } as const;
 
+/**
+ * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
+ */
 export type UserConfirmation = (typeof UserConfirmation)[keyof typeof UserConfirmation];

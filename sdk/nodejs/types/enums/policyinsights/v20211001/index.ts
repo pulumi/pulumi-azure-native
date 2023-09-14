@@ -13,4 +13,7 @@ export const ResourceDiscoveryMode = {
     ReEvaluateCompliance: "ReEvaluateCompliance",
 } as const;
 
+/**
+ * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
+ */
 export type ResourceDiscoveryMode = (typeof ResourceDiscoveryMode)[keyof typeof ResourceDiscoveryMode];

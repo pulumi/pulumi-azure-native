@@ -17,6 +17,9 @@ export const ContentSourceType = {
     Uri: "uri",
 } as const;
 
+/**
+ * Gets or sets the content source type.
+ */
 export type ContentSourceType = (typeof ContentSourceType)[keyof typeof ContentSourceType];
 
 export const EncryptionKeySourceType = {
@@ -24,6 +27,9 @@ export const EncryptionKeySourceType = {
     Microsoft_Keyvault: "Microsoft.Keyvault",
 } as const;
 
+/**
+ * Encryption Key Source
+ */
 export type EncryptionKeySourceType = (typeof EncryptionKeySourceType)[keyof typeof EncryptionKeySourceType];
 
 export const LinuxUpdateClasses = {
@@ -33,6 +39,9 @@ export const LinuxUpdateClasses = {
     Other: "Other",
 } as const;
 
+/**
+ * Update classifications included in the software update configuration.
+ */
 export type LinuxUpdateClasses = (typeof LinuxUpdateClasses)[keyof typeof LinuxUpdateClasses];
 
 export const OperatingSystemType = {
@@ -40,6 +49,9 @@ export const OperatingSystemType = {
     Linux: "Linux",
 } as const;
 
+/**
+ * operating system of target machines
+ */
 export type OperatingSystemType = (typeof OperatingSystemType)[keyof typeof OperatingSystemType];
 
 export const ResourceIdentityType = {
@@ -49,6 +61,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RunbookTypeEnum = {
@@ -62,6 +77,9 @@ export const RunbookTypeEnum = {
     Python3: "Python3",
 } as const;
 
+/**
+ * Gets or sets the type of the runbook.
+ */
 export type RunbookTypeEnum = (typeof RunbookTypeEnum)[keyof typeof RunbookTypeEnum];
 
 export const ScheduleDay = {
@@ -74,6 +92,9 @@ export const ScheduleDay = {
     Sunday: "Sunday",
 } as const;
 
+/**
+ * Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
+ */
 export type ScheduleDay = (typeof ScheduleDay)[keyof typeof ScheduleDay];
 
 export const ScheduleFrequency = {
@@ -88,6 +109,9 @@ export const ScheduleFrequency = {
     Minute: "Minute",
 } as const;
 
+/**
+ * Gets or sets the frequency of the schedule.
+ */
 export type ScheduleFrequency = (typeof ScheduleFrequency)[keyof typeof ScheduleFrequency];
 
 export const SkuNameEnum = {
@@ -95,6 +119,9 @@ export const SkuNameEnum = {
     Basic: "Basic",
 } as const;
 
+/**
+ * Gets or sets the SKU name of the account.
+ */
 export type SkuNameEnum = (typeof SkuNameEnum)[keyof typeof SkuNameEnum];
 
 export const SourceType = {
@@ -103,6 +130,9 @@ export const SourceType = {
     GitHub: "GitHub",
 } as const;
 
+/**
+ * The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
+ */
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];
 
 export const TagOperators = {
@@ -110,6 +140,9 @@ export const TagOperators = {
     Any: "Any",
 } as const;
 
+/**
+ * Filter VMs by Any or All specified tags.
+ */
 export type TagOperators = (typeof TagOperators)[keyof typeof TagOperators];
 
 export const TokenType = {
@@ -117,6 +150,9 @@ export const TokenType = {
     Oauth: "Oauth",
 } as const;
 
+/**
+ * The token type. Must be either PersonalAccessToken or Oauth.
+ */
 export type TokenType = (typeof TokenType)[keyof typeof TokenType];
 
 export const WindowsUpdateClasses = {
@@ -131,4 +167,7 @@ export const WindowsUpdateClasses = {
     Updates: "Updates",
 } as const;
 
+/**
+ * Update classification included in the software update configuration. A comma separated string with required values
+ */
 export type WindowsUpdateClasses = (typeof WindowsUpdateClasses)[keyof typeof WindowsUpdateClasses];

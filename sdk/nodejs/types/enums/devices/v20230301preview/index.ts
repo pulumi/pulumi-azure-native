@@ -11,6 +11,9 @@ export const AccessRightsDescription = {
     RegistrationStatusWrite: "RegistrationStatusWrite",
 } as const;
 
+/**
+ * Rights that this key has.
+ */
 export type AccessRightsDescription = (typeof AccessRightsDescription)[keyof typeof AccessRightsDescription];
 
 export const AllocationPolicy = {
@@ -19,12 +22,18 @@ export const AllocationPolicy = {
     Static: "Static",
 } as const;
 
+/**
+ * Allocation policy to be used by this provisioning service.
+ */
 export type AllocationPolicy = (typeof AllocationPolicy)[keyof typeof AllocationPolicy];
 
 export const IotDpsSku = {
     S1: "S1",
 } as const;
 
+/**
+ * Sku name.
+ */
 export type IotDpsSku = (typeof IotDpsSku)[keyof typeof IotDpsSku];
 
 export const IpFilterActionType = {
@@ -32,6 +41,9 @@ export const IpFilterActionType = {
     Reject: "Reject",
 } as const;
 
+/**
+ * The desired action for requests captured by this rule.
+ */
 export type IpFilterActionType = (typeof IpFilterActionType)[keyof typeof IpFilterActionType];
 
 export const IpFilterTargetType = {
@@ -40,6 +52,9 @@ export const IpFilterTargetType = {
     DeviceApi: "deviceApi",
 } as const;
 
+/**
+ * Target for requests captured by this rule.
+ */
 export type IpFilterTargetType = (typeof IpFilterTargetType)[keyof typeof IpFilterTargetType];
 
 export const ManagedServiceIdentityType = {
@@ -49,6 +64,9 @@ export const ManagedServiceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const PrivateLinkServiceConnectionStatus = {
@@ -58,6 +76,9 @@ export const PrivateLinkServiceConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * The status of a private endpoint connection
+ */
 export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -65,6 +86,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether requests from Public Network are allowed
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const State = {
@@ -82,4 +106,7 @@ export const State = {
     FailoverFailed: "FailoverFailed",
 } as const;
 
+/**
+ * Current state of the provisioning service.
+ */
 export type State = (typeof State)[keyof typeof State];

@@ -6,6 +6,9 @@ export const ActionsRequired = {
     None: "None",
 } as const;
 
+/**
+ * A message indicating if changes on the service provider require any updates on the consumer.
+ */
 export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequired];
 
 export const CertificatePermissions = {
@@ -35,6 +38,9 @@ export const CreateMode = {
     Default: "default",
 } as const;
 
+/**
+ * The vault's create mode to indicate whether the vault need to be recovered or not.
+ */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const JsonWebKeyCurveName = {
@@ -44,6 +50,9 @@ export const JsonWebKeyCurveName = {
     P_256K: "P-256K",
 } as const;
 
+/**
+ * The elliptic curve name. For valid values, see JsonWebKeyCurveName.
+ */
 export type JsonWebKeyCurveName = (typeof JsonWebKeyCurveName)[keyof typeof JsonWebKeyCurveName];
 
 export const JsonWebKeyOperation = {
@@ -57,6 +66,9 @@ export const JsonWebKeyOperation = {
     Release: "release",
 } as const;
 
+/**
+ * The permitted JSON web key operations of the key. For more information, see JsonWebKeyOperation.
+ */
 export type JsonWebKeyOperation = (typeof JsonWebKeyOperation)[keyof typeof JsonWebKeyOperation];
 
 export const JsonWebKeyType = {
@@ -66,6 +78,9 @@ export const JsonWebKeyType = {
     RSA_HSM: "RSA-HSM",
 } as const;
 
+/**
+ * The type of the key. For valid values, see JsonWebKeyType.
+ */
 export type JsonWebKeyType = (typeof JsonWebKeyType)[keyof typeof JsonWebKeyType];
 
 export const KeyPermissions = {
@@ -105,12 +120,18 @@ export const KeyRotationPolicyActionType = {
     Notify: "Notify",
 } as const;
 
+/**
+ * The type of the action.
+ */
 export type KeyRotationPolicyActionType = (typeof KeyRotationPolicyActionType)[keyof typeof KeyRotationPolicyActionType];
 
 export const ManagedHsmSkuFamily = {
     B: "B",
 } as const;
 
+/**
+ * SKU Family of the managed HSM Pool
+ */
 export type ManagedHsmSkuFamily = (typeof ManagedHsmSkuFamily)[keyof typeof ManagedHsmSkuFamily];
 
 export const ManagedHsmSkuName = {
@@ -119,6 +140,9 @@ export const ManagedHsmSkuName = {
     Custom_B6: "Custom_B6",
 } as const;
 
+/**
+ * SKU of the managed HSM Pool
+ */
 export type ManagedHsmSkuName = (typeof ManagedHsmSkuName)[keyof typeof ManagedHsmSkuName];
 
 export const NetworkRuleAction = {
@@ -126,6 +150,9 @@ export const NetworkRuleAction = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The default action when no rule from ipRules and from virtualNetworkRules match. This is only used after the bypass property has been evaluated.
+ */
 export type NetworkRuleAction = (typeof NetworkRuleAction)[keyof typeof NetworkRuleAction];
 
 export const NetworkRuleBypassOptions = {
@@ -133,6 +160,9 @@ export const NetworkRuleBypassOptions = {
     None: "None",
 } as const;
 
+/**
+ * Tells what traffic can bypass network rules. This can be 'AzureServices' or 'None'.  If not specified the default is 'AzureServices'.
+ */
 export type NetworkRuleBypassOptions = (typeof NetworkRuleBypassOptions)[keyof typeof NetworkRuleBypassOptions];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -142,6 +172,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * Indicates whether the connection has been approved, rejected or removed by the key vault owner.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -149,6 +182,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Control permission to the managed HSM from public networks.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SecretPermissions = {
@@ -169,6 +205,9 @@ export const SkuFamily = {
     A: "A",
 } as const;
 
+/**
+ * SKU family name
+ */
 export type SkuFamily = (typeof SkuFamily)[keyof typeof SkuFamily];
 
 export const SkuName = {
@@ -176,6 +215,9 @@ export const SkuName = {
     Premium: "premium",
 } as const;
 
+/**
+ * SKU name to specify whether the key vault is a standard vault or a premium vault.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const StoragePermissions = {
@@ -203,4 +245,7 @@ export const VaultProvisioningState = {
     RegisteringDns: "RegisteringDns",
 } as const;
 
+/**
+ * Provisioning state of the vault.
+ */
 export type VaultProvisioningState = (typeof VaultProvisioningState)[keyof typeof VaultProvisioningState];

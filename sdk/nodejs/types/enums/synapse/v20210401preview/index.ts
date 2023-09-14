@@ -30,6 +30,9 @@ export const AzureSkuName = {
     Dev_No_SLA_Standard_E2a_v4: "Dev(No SLA)_Standard_E2a_v4",
 } as const;
 
+/**
+ * SKU name.
+ */
 export type AzureSkuName = (typeof AzureSkuName)[keyof typeof AzureSkuName];
 
 export const AzureSkuTier = {
@@ -37,6 +40,9 @@ export const AzureSkuTier = {
     Standard: "Standard",
 } as const;
 
+/**
+ * SKU tier.
+ */
 export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
 
 export const DatabasePrincipalRole = {
@@ -48,6 +54,9 @@ export const DatabasePrincipalRole = {
     Viewer: "Viewer",
 } as const;
 
+/**
+ * Database principal role.
+ */
 export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
 
 export const EngineType = {
@@ -55,6 +64,9 @@ export const EngineType = {
     V3: "V3",
 } as const;
 
+/**
+ * The engine type
+ */
 export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 export const PrincipalType = {
@@ -63,4 +75,7 @@ export const PrincipalType = {
     User: "User",
 } as const;
 
+/**
+ * Principal type.
+ */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];

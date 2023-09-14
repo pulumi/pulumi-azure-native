@@ -7,6 +7,9 @@ export const FeatureStatus = {
     Off: "off",
 } as const;
 
+/**
+ * Offline data transfer
+ */
 export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 export const IncomingTrafficPolicy = {
@@ -14,6 +17,9 @@ export const IncomingTrafficPolicy = {
     AllowVirtualNetworksOnly: "AllowVirtualNetworksOnly",
 } as const;
 
+/**
+ * Incoming Traffic Policy
+ */
 export type IncomingTrafficPolicy = (typeof IncomingTrafficPolicy)[keyof typeof IncomingTrafficPolicy];
 
 export const InitialDownloadPolicy = {
@@ -22,6 +28,9 @@ export const InitialDownloadPolicy = {
     AvoidTieredFiles: "AvoidTieredFiles",
 } as const;
 
+/**
+ * Policy for how namespace and files are recalled during FastDr.
+ */
 export type InitialDownloadPolicy = (typeof InitialDownloadPolicy)[keyof typeof InitialDownloadPolicy];
 
 export const InitialUploadPolicy = {
@@ -29,6 +38,9 @@ export const InitialUploadPolicy = {
     Merge: "Merge",
 } as const;
 
+/**
+ * Policy for how the initial upload sync session is performed.
+ */
 export type InitialUploadPolicy = (typeof InitialUploadPolicy)[keyof typeof InitialUploadPolicy];
 
 export const LocalCacheMode = {
@@ -36,6 +48,9 @@ export const LocalCacheMode = {
     UpdateLocallyCachedFiles: "UpdateLocallyCachedFiles",
 } as const;
 
+/**
+ * Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
+ */
 export type LocalCacheMode = (typeof LocalCacheMode)[keyof typeof LocalCacheMode];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -44,4 +59,7 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];

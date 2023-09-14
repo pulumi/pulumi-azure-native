@@ -7,6 +7,9 @@ export const AccessReviewRecurrencePatternType = {
     AbsoluteMonthly: "absoluteMonthly",
 } as const;
 
+/**
+ * The recurrence type : weekly, monthly, etc.
+ */
 export type AccessReviewRecurrencePatternType = (typeof AccessReviewRecurrencePatternType)[keyof typeof AccessReviewRecurrencePatternType];
 
 export const AccessReviewRecurrenceRangeType = {
@@ -15,6 +18,9 @@ export const AccessReviewRecurrenceRangeType = {
     Numbered: "numbered",
 } as const;
 
+/**
+ * The recurrence range type. The possible values are: endDate, noEnd, numbered.
+ */
 export type AccessReviewRecurrenceRangeType = (typeof AccessReviewRecurrenceRangeType)[keyof typeof AccessReviewRecurrenceRangeType];
 
 export const AccessReviewResult = {
@@ -25,6 +31,9 @@ export const AccessReviewResult = {
     NotNotified: "NotNotified",
 } as const;
 
+/**
+ * Represents a reviewer's decision for a given review
+ */
 export type AccessReviewResult = (typeof AccessReviewResult)[keyof typeof AccessReviewResult];
 
 export const DefaultDecisionType = {
@@ -33,4 +42,7 @@ export const DefaultDecisionType = {
     Recommendation: "Recommendation",
 } as const;
 
+/**
+ * This specifies the behavior for the autoReview feature when an access review completes.
+ */
 export type DefaultDecisionType = (typeof DefaultDecisionType)[keyof typeof DefaultDecisionType];

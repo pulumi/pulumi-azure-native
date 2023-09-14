@@ -13,6 +13,9 @@ export const AlertDetail = {
     Severity: "Severity",
 } as const;
 
+/**
+ * Alert detail
+ */
 export type AlertDetail = (typeof AlertDetail)[keyof typeof AlertDetail];
 
 export const AlertRuleKind = {
@@ -24,6 +27,9 @@ export const AlertRuleKind = {
     NRT: "NRT",
 } as const;
 
+/**
+ * The kind of the alert rule
+ */
 export type AlertRuleKind = (typeof AlertRuleKind)[keyof typeof AlertRuleKind];
 
 export const AlertSeverity = {
@@ -45,6 +51,9 @@ export const AlertSeverity = {
     Informational: "Informational",
 } as const;
 
+/**
+ * The severity for alerts created by this alert rule.
+ */
 export type AlertSeverity = (typeof AlertSeverity)[keyof typeof AlertSeverity];
 
 export const AttackTactic = {
@@ -67,6 +76,9 @@ export const AttackTactic = {
     InhibitResponseFunction: "InhibitResponseFunction",
 } as const;
 
+/**
+ * The severity for alerts created by this alert rule.
+ */
 export type AttackTactic = (typeof AttackTactic)[keyof typeof AttackTactic];
 
 export const EntityMappingType = {
@@ -144,6 +156,9 @@ export const EntityMappingType = {
     SubmissionMail: "SubmissionMail",
 } as const;
 
+/**
+ * The V3 type of the mapped entity
+ */
 export type EntityMappingType = (typeof EntityMappingType)[keyof typeof EntityMappingType];
 
 export const EntityTimelineKind = {
@@ -161,6 +176,9 @@ export const EntityTimelineKind = {
     SecurityAlert: "SecurityAlert",
 } as const;
 
+/**
+ * The entity query kind
+ */
 export type EntityTimelineKind = (typeof EntityTimelineKind)[keyof typeof EntityTimelineKind];
 
 export const MatchingMethod = {
@@ -178,6 +196,9 @@ export const MatchingMethod = {
     Selected: "Selected",
 } as const;
 
+/**
+ * Grouping matching method. When method is Selected at least one of groupByEntities, groupByAlertDetails, groupByCustomDetails must be provided and not empty.
+ */
 export type MatchingMethod = (typeof MatchingMethod)[keyof typeof MatchingMethod];
 
 export const Source = {
@@ -185,4 +206,7 @@ export const Source = {
     Remote_storage: "Remote storage",
 } as const;
 
+/**
+ * The source of the watchlist
+ */
 export type Source = (typeof Source)[keyof typeof Source];

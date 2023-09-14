@@ -15,18 +15,27 @@ export const ManagedServiceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const OnFailure = {
     Break: "break",
 } as const;
 
+/**
+ * Action to be taken when the operation fails for a object.
+ */
 export type OnFailure = (typeof OnFailure)[keyof typeof OnFailure];
 
 export const OnSuccess = {
     Continue: "continue",
 } as const;
 
+/**
+ * Action to be taken when the operation is successful for a object.
+ */
 export type OnSuccess = (typeof OnSuccess)[keyof typeof OnSuccess];
 
 export const StorageTaskOperationName = {
@@ -39,4 +48,7 @@ export const StorageTaskOperationName = {
     UndeleteBlob: "UndeleteBlob",
 } as const;
 
+/**
+ * The operation to be performed on the object.
+ */
 export type StorageTaskOperationName = (typeof StorageTaskOperationName)[keyof typeof StorageTaskOperationName];

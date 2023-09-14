@@ -20,6 +20,9 @@ export const DataSourceKind = {
     WindowsPerformanceCounter: "WindowsPerformanceCounter",
 } as const;
 
+/**
+ * The kind of the DataSource.
+ */
 export type DataSourceKind = (typeof DataSourceKind)[keyof typeof DataSourceKind];
 
 export const EntityStatus = {
@@ -31,6 +34,9 @@ export const EntityStatus = {
     ProvisioningAccount: "ProvisioningAccount",
 } as const;
 
+/**
+ * The provisioning state of the workspace.
+ */
 export type EntityStatus = (typeof EntityStatus)[keyof typeof EntityStatus];
 
 export const MachineGroupType = {
@@ -41,6 +47,9 @@ export const MachineGroupType = {
     User_static: "user-static",
 } as const;
 
+/**
+ * Type of the machine group
+ */
 export type MachineGroupType = (typeof MachineGroupType)[keyof typeof MachineGroupType];
 
 export const SkuNameEnum = {
@@ -53,4 +62,7 @@ export const SkuNameEnum = {
     CapacityReservation: "CapacityReservation",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type SkuNameEnum = (typeof SkuNameEnum)[keyof typeof SkuNameEnum];

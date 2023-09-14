@@ -20,6 +20,9 @@ export const AccessRights = {
     RegistryRead_RegistryWrite_ServiceConnect_DeviceConnect: "RegistryRead, RegistryWrite, ServiceConnect, DeviceConnect",
 } as const;
 
+/**
+ * The permissions assigned to the shared access policy.
+ */
 export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
 
 export const AuthenticationType = {
@@ -27,6 +30,9 @@ export const AuthenticationType = {
     IdentityBased: "identityBased",
 } as const;
 
+/**
+ * Specifies authentication type being used for connecting to the storage account.
+ */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 export const Capabilities = {
@@ -34,6 +40,9 @@ export const Capabilities = {
     DeviceManagement: "DeviceManagement",
 } as const;
 
+/**
+ * The capabilities and features enabled for the IoT hub.
+ */
 export type Capabilities = (typeof Capabilities)[keyof typeof Capabilities];
 
 export const DefaultAction = {
@@ -41,6 +50,9 @@ export const DefaultAction = {
     Allow: "Allow",
 } as const;
 
+/**
+ * Default Action for Network Rule Set
+ */
 export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
 export const IotHubSku = {
@@ -53,6 +65,9 @@ export const IotHubSku = {
     B3: "B3",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type IotHubSku = (typeof IotHubSku)[keyof typeof IotHubSku];
 
 export const IpFilterActionType = {
@@ -60,12 +75,18 @@ export const IpFilterActionType = {
     Reject: "Reject",
 } as const;
 
+/**
+ * The desired action for requests captured by this rule.
+ */
 export type IpFilterActionType = (typeof IpFilterActionType)[keyof typeof IpFilterActionType];
 
 export const NetworkRuleIPAction = {
     Allow: "Allow",
 } as const;
 
+/**
+ * IP Filter Action
+ */
 export type NetworkRuleIPAction = (typeof NetworkRuleIPAction)[keyof typeof NetworkRuleIPAction];
 
 export const PrivateLinkServiceConnectionStatus = {
@@ -75,6 +96,9 @@ export const PrivateLinkServiceConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * The status of a private endpoint connection
+ */
 export type PrivateLinkServiceConnectionStatus = (typeof PrivateLinkServiceConnectionStatus)[keyof typeof PrivateLinkServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -82,6 +106,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether requests from Public Network are allowed
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ResourceIdentityType = {
@@ -91,6 +118,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the service.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const RoutingSource = {
@@ -102,4 +132,7 @@ export const RoutingSource = {
     DeviceConnectionStateEvents: "DeviceConnectionStateEvents",
 } as const;
 
+/**
+ * The source that the routing rule is to be applied to, such as DeviceMessages.
+ */
 export type RoutingSource = (typeof RoutingSource)[keyof typeof RoutingSource];

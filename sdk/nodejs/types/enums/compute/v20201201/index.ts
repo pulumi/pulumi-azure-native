@@ -9,4 +9,7 @@ export const IntervalInMins = {
     SixtyMins: "SixtyMins",
 } as const;
 
+/**
+ * Interval value in minutes used to create LogAnalytics call rate logs.
+ */
 export type IntervalInMins = (typeof IntervalInMins)[keyof typeof IntervalInMins];

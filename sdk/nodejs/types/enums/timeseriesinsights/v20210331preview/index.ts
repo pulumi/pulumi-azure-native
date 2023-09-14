@@ -7,6 +7,9 @@ export const EnvironmentKind = {
     Gen2: "Gen2",
 } as const;
 
+/**
+ * The kind of the environment.
+ */
 export type EnvironmentKind = (typeof EnvironmentKind)[keyof typeof EnvironmentKind];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -15,12 +18,18 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PropertyType = {
     String: "String",
 } as const;
 
+/**
+ * The type of the property.
+ */
 export type PropertyType = (typeof PropertyType)[keyof typeof PropertyType];
 
 export const PublicNetworkAccess = {
@@ -28,6 +37,9 @@ export const PublicNetworkAccess = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SkuName = {
@@ -37,4 +49,7 @@ export const SkuName = {
     L1: "L1",
 } as const;
 
+/**
+ * The name of this SKU.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];

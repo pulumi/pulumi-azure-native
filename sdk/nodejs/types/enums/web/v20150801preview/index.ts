@@ -14,6 +14,9 @@ export const ConnectionParameterType = {
     Connection: "connection",
 } as const;
 
+/**
+ * Type of the parameter
+ */
 export type ConnectionParameterType = (typeof ConnectionParameterType)[keyof typeof ConnectionParameterType];
 
 export const PrincipalType = {
@@ -22,4 +25,7 @@ export const PrincipalType = {
     MicrosoftAccount: "MicrosoftAccount",
 } as const;
 
+/**
+ * Principal type
+ */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];

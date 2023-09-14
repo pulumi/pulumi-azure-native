@@ -7,6 +7,9 @@ export const DataResidencyType = {
     ZoneReplication: "ZoneReplication",
 } as const;
 
+/**
+ * DataResidencyType enum
+ */
 export type DataResidencyType = (typeof DataResidencyType)[keyof typeof DataResidencyType];
 
 export const ShipmentType = {
@@ -15,6 +18,9 @@ export const ShipmentType = {
     SelfPickup: "SelfPickup",
 } as const;
 
+/**
+ * ShipmentType of the order
+ */
 export type ShipmentType = (typeof ShipmentType)[keyof typeof ShipmentType];
 
 export const SkuName = {
@@ -49,10 +55,16 @@ export const SkuName = {
     EdgeMR_TCP: "EdgeMR_TCP",
 } as const;
 
+/**
+ * SKU name.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const SkuTier = {
     Standard: "Standard",
 } as const;
 
+/**
+ * The SKU tier. This is based on the SKU name.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

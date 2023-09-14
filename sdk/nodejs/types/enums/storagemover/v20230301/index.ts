@@ -7,6 +7,9 @@ export const CopyMode = {
     Mirror: "Mirror",
 } as const;
 
+/**
+ * Strategy to use for copy.
+ */
 export type CopyMode = (typeof CopyMode)[keyof typeof CopyMode];
 
 export const EndpointType = {
@@ -14,6 +17,9 @@ export const EndpointType = {
     NfsMount: "NfsMount",
 } as const;
 
+/**
+ * The Endpoint resource type.
+ */
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 export const NfsVersion = {
@@ -22,4 +28,7 @@ export const NfsVersion = {
     NFSv4: "NFSv4",
 } as const;
 
+/**
+ * The NFS protocol version.
+ */
 export type NfsVersion = (typeof NfsVersion)[keyof typeof NfsVersion];

@@ -17,4 +17,7 @@ export const ComplianceState = {
     Unknown: "Unknown",
 } as const;
 
+/**
+ * The compliance state that should be set on the resource.
+ */
 export type ComplianceState = (typeof ComplianceState)[keyof typeof ComplianceState];

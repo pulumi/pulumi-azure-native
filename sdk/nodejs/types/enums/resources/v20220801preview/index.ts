@@ -17,6 +17,9 @@ export const DenySettingsMode = {
     None: "none",
 } as const;
 
+/**
+ * denySettings Mode.
+ */
 export type DenySettingsMode = (typeof DenySettingsMode)[keyof typeof DenySettingsMode];
 
 export const DeploymentStacksDeleteDetachEnum = {
@@ -24,4 +27,7 @@ export const DeploymentStacksDeleteDetachEnum = {
     Detach: "detach",
 } as const;
 
+/**
+ * Specifies the action that should be taken on the resource when the deployment stack is deleted. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
+ */
 export type DeploymentStacksDeleteDetachEnum = (typeof DeploymentStacksDeleteDetachEnum)[keyof typeof DeploymentStacksDeleteDetachEnum];

@@ -9,6 +9,9 @@ export const AgreementType = {
     Edifact: "Edifact",
 } as const;
 
+/**
+ * The agreement type.
+ */
 export type AgreementType = (typeof AgreementType)[keyof typeof AgreementType];
 
 export const EdifactCharacterSet = {
@@ -29,6 +32,9 @@ export const EdifactCharacterSet = {
     KECA: "KECA",
 } as const;
 
+/**
+ * The EDIFACT frame setting characterSet.
+ */
 export type EdifactCharacterSet = (typeof EdifactCharacterSet)[keyof typeof EdifactCharacterSet];
 
 export const EdifactDecimalIndicator = {
@@ -37,6 +43,9 @@ export const EdifactDecimalIndicator = {
     Decimal: "Decimal",
 } as const;
 
+/**
+ * The EDIFACT frame setting decimal indicator.
+ */
 export type EdifactDecimalIndicator = (typeof EdifactDecimalIndicator)[keyof typeof EdifactDecimalIndicator];
 
 export const EncryptionAlgorithm = {
@@ -49,6 +58,9 @@ export const EncryptionAlgorithm = {
     AES256: "AES256",
 } as const;
 
+/**
+ * The encryption algorithm.
+ */
 export type EncryptionAlgorithm = (typeof EncryptionAlgorithm)[keyof typeof EncryptionAlgorithm];
 
 export const HashingAlgorithm = {
@@ -59,6 +71,9 @@ export const HashingAlgorithm = {
     SHA2512: "SHA2512",
 } as const;
 
+/**
+ * The signing or hashing algorithm.
+ */
 export type HashingAlgorithm = (typeof HashingAlgorithm)[keyof typeof HashingAlgorithm];
 
 export const MapType = {
@@ -66,6 +81,9 @@ export const MapType = {
     Xslt: "Xslt",
 } as const;
 
+/**
+ * The map type.
+ */
 export type MapType = (typeof MapType)[keyof typeof MapType];
 
 export const MessageFilterType = {
@@ -74,6 +92,9 @@ export const MessageFilterType = {
     Exclude: "Exclude",
 } as const;
 
+/**
+ * The message filter type.
+ */
 export type MessageFilterType = (typeof MessageFilterType)[keyof typeof MessageFilterType];
 
 export const PartnerType = {
@@ -81,6 +102,9 @@ export const PartnerType = {
     B2B: "B2B",
 } as const;
 
+/**
+ * The partner type.
+ */
 export type PartnerType = (typeof PartnerType)[keyof typeof PartnerType];
 
 export const SchemaType = {
@@ -88,6 +112,9 @@ export const SchemaType = {
     Xml: "Xml",
 } as const;
 
+/**
+ * The schema type.
+ */
 export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
 
 export const SegmentTerminatorSuffix = {
@@ -98,6 +125,9 @@ export const SegmentTerminatorSuffix = {
     CRLF: "CRLF",
 } as const;
 
+/**
+ * The segment terminator suffix.
+ */
 export type SegmentTerminatorSuffix = (typeof SegmentTerminatorSuffix)[keyof typeof SegmentTerminatorSuffix];
 
 export const SkuName = {
@@ -109,6 +139,9 @@ export const SkuName = {
     Premium: "Premium",
 } as const;
 
+/**
+ * The sku name.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const TrailingSeparatorPolicy = {
@@ -118,6 +151,9 @@ export const TrailingSeparatorPolicy = {
     Mandatory: "Mandatory",
 } as const;
 
+/**
+ * The trailing separator policy.
+ */
 export type TrailingSeparatorPolicy = (typeof TrailingSeparatorPolicy)[keyof typeof TrailingSeparatorPolicy];
 
 export const UsageIndicator = {
@@ -127,6 +163,9 @@ export const UsageIndicator = {
     Production: "Production",
 } as const;
 
+/**
+ * The usage indicator.
+ */
 export type UsageIndicator = (typeof UsageIndicator)[keyof typeof UsageIndicator];
 
 export const X12CharacterSet = {
@@ -136,6 +175,9 @@ export const X12CharacterSet = {
     UTF8: "UTF8",
 } as const;
 
+/**
+ * The X12 character set.
+ */
 export type X12CharacterSet = (typeof X12CharacterSet)[keyof typeof X12CharacterSet];
 
 export const X12DateFormat = {
@@ -144,6 +186,9 @@ export const X12DateFormat = {
     YYMMDD: "YYMMDD",
 } as const;
 
+/**
+ * The group header date format.
+ */
 export type X12DateFormat = (typeof X12DateFormat)[keyof typeof X12DateFormat];
 
 export const X12TimeFormat = {
@@ -154,4 +199,7 @@ export const X12TimeFormat = {
     HHMMSSd: "HHMMSSd",
 } as const;
 
+/**
+ * The group header time format.
+ */
 export type X12TimeFormat = (typeof X12TimeFormat)[keyof typeof X12TimeFormat];

@@ -17,6 +17,9 @@ export const AccessPolicyEccAlgo = {
     ES512: "ES512",
 } as const;
 
+/**
+ * Elliptical curve algorithm to be used: ES256, ES384 or ES512.
+ */
 export type AccessPolicyEccAlgo = (typeof AccessPolicyEccAlgo)[keyof typeof AccessPolicyEccAlgo];
 
 export const AccessPolicyRole = {
@@ -26,6 +29,9 @@ export const AccessPolicyRole = {
     Reader: "Reader",
 } as const;
 
+/**
+ * Defines the access level granted by this policy.
+ */
 export type AccessPolicyRole = (typeof AccessPolicyRole)[keyof typeof AccessPolicyRole];
 
 export const AccessPolicyRsaAlgo = {
@@ -43,6 +49,9 @@ export const AccessPolicyRsaAlgo = {
     RS512: "RS512",
 } as const;
 
+/**
+ * RSA algorithm to be used: RS256, RS384 or RS512.
+ */
 export type AccessPolicyRsaAlgo = (typeof AccessPolicyRsaAlgo)[keyof typeof AccessPolicyRsaAlgo];
 
 export const AccountEncryptionKeyType = {
@@ -56,6 +65,9 @@ export const AccountEncryptionKeyType = {
     CustomerKey: "CustomerKey",
 } as const;
 
+/**
+ * The type of key used to encrypt the Account Key.
+ */
 export type AccountEncryptionKeyType = (typeof AccountEncryptionKeyType)[keyof typeof AccountEncryptionKeyType];
 
 export const EncoderSystemPresetType = {
@@ -77,6 +89,9 @@ export const EncoderSystemPresetType = {
     SingleLayer_2160p_H264_AAC: "SingleLayer_2160p_H264_AAC",
 } as const;
 
+/**
+ * Name of the built-in encoding preset.
+ */
 export type EncoderSystemPresetType = (typeof EncoderSystemPresetType)[keyof typeof EncoderSystemPresetType];
 
 export const Kind = {
@@ -90,6 +105,9 @@ export const Kind = {
     Batch: "Batch",
 } as const;
 
+/**
+ * Topology kind.
+ */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
 export const ParameterType = {
@@ -115,6 +133,9 @@ export const ParameterType = {
     Bool: "Bool",
 } as const;
 
+/**
+ * Type of the parameter.
+ */
 export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -123,6 +144,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -136,6 +160,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not public network access is allowed for resources under the Video Analyzer account.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const RtspTransport = {
@@ -149,6 +176,9 @@ export const RtspTransport = {
     Tcp: "Tcp",
 } as const;
 
+/**
+ * Network transport utilized by the RTSP and RTP exchange: TCP or HTTP. When using TCP, the RTP packets are interleaved on the TCP RTSP connection. When using HTTP, the RTSP messages are exchanged through long lived HTTP connections, and the RTP packages are interleaved in the HTTP connections alongside the RTSP messages.
+ */
 export type RtspTransport = (typeof RtspTransport)[keyof typeof RtspTransport];
 
 export const SkuName = {
@@ -162,6 +192,9 @@ export const SkuName = {
     Batch_S1: "Batch_S1",
 } as const;
 
+/**
+ * The SKU name.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const VideoScaleMode = {
@@ -179,4 +212,7 @@ export const VideoScaleMode = {
     Stretch: "Stretch",
 } as const;
 
+/**
+ * Describes the video scaling mode to be applied. Default mode is 'Pad'. If the mode is 'Pad' or 'Stretch' then both width and height must be specified. Else if the mode is 'PreserveAspectRatio' then only one of width or height need be provided.
+ */
 export type VideoScaleMode = (typeof VideoScaleMode)[keyof typeof VideoScaleMode];

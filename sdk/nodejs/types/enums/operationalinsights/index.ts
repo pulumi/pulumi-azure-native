@@ -23,12 +23,18 @@ export const BillingType = {
     Workspaces: "Workspaces",
 } as const;
 
+/**
+ * The cluster's billing type.
+ */
 export type BillingType = (typeof BillingType)[keyof typeof BillingType];
 
 export const ClusterSkuNameEnum = {
     CapacityReservation: "CapacityReservation",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type ClusterSkuNameEnum = (typeof ClusterSkuNameEnum)[keyof typeof ClusterSkuNameEnum];
 
 export const ColumnDataTypeHintEnum = {
@@ -50,6 +56,9 @@ export const ColumnDataTypeHintEnum = {
     Ip: "ip",
 } as const;
 
+/**
+ * Column data type logical hint.
+ */
 export type ColumnDataTypeHintEnum = (typeof ColumnDataTypeHintEnum)[keyof typeof ColumnDataTypeHintEnum];
 
 export const ColumnTypeEnum = {
@@ -63,6 +72,9 @@ export const ColumnTypeEnum = {
     Dynamic: "dynamic",
 } as const;
 
+/**
+ * Column data type.
+ */
 export type ColumnTypeEnum = (typeof ColumnTypeEnum)[keyof typeof ColumnTypeEnum];
 
 export const DataSourceKind = {
@@ -101,6 +113,9 @@ export const DataSourceKind = {
     SqlDataClassification: "SqlDataClassification",
 } as const;
 
+/**
+ * The kind of the DataSource.
+ */
 export type DataSourceKind = (typeof DataSourceKind)[keyof typeof DataSourceKind];
 
 export const IdentityType = {
@@ -109,6 +124,9 @@ export const IdentityType = {
     None: "None",
 } as const;
 
+/**
+ * Type of managed service identity.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const LinkedServiceEntityStatus = {
@@ -118,6 +136,9 @@ export const LinkedServiceEntityStatus = {
     Updating: "Updating",
 } as const;
 
+/**
+ * The provisioning state of the linked service.
+ */
 export type LinkedServiceEntityStatus = (typeof LinkedServiceEntityStatus)[keyof typeof LinkedServiceEntityStatus];
 
 export const MachineGroupType = {
@@ -128,6 +149,9 @@ export const MachineGroupType = {
     User_static: "user-static",
 } as const;
 
+/**
+ * Type of the machine group
+ */
 export type MachineGroupType = (typeof MachineGroupType)[keyof typeof MachineGroupType];
 
 export const PublicNetworkAccessType = {
@@ -141,6 +165,9 @@ export const PublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The network access type for accessing Log Analytics query.
+ */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const TablePlanEnum = {
@@ -154,6 +181,9 @@ export const TablePlanEnum = {
     Analytics: "Analytics",
 } as const;
 
+/**
+ * Instruct the system how to handle and charge the logs ingested to this table.
+ */
 export type TablePlanEnum = (typeof TablePlanEnum)[keyof typeof TablePlanEnum];
 
 export const WorkspaceSkuNameEnum = {
@@ -167,4 +197,7 @@ export const WorkspaceSkuNameEnum = {
     LACluster: "LACluster",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type WorkspaceSkuNameEnum = (typeof WorkspaceSkuNameEnum)[keyof typeof WorkspaceSkuNameEnum];

@@ -18,6 +18,9 @@ export const AccessRights = {
     Listen: "Listen",
 } as const;
 
+/**
+ * Defines values for AccessRights.
+ */
 export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
 
 export const NamespaceStatus = {
@@ -27,6 +30,9 @@ export const NamespaceStatus = {
     Deleting: "Deleting",
 } as const;
 
+/**
+ * Namespace status.
+ */
 export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
 
 export const NamespaceType = {
@@ -34,6 +40,9 @@ export const NamespaceType = {
     NotificationHub: "NotificationHub",
 } as const;
 
+/**
+ * Defines values for NamespaceType.
+ */
 export type NamespaceType = (typeof NamespaceType)[keyof typeof NamespaceType];
 
 export const OperationProvisioningState = {
@@ -46,6 +55,9 @@ export const OperationProvisioningState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Defines values for OperationProvisioningState.
+ */
 export type OperationProvisioningState = (typeof OperationProvisioningState)[keyof typeof OperationProvisioningState];
 
 export const PrivateEndpointConnectionProvisioningState = {
@@ -59,6 +71,9 @@ export const PrivateEndpointConnectionProvisioningState = {
     Deleted: "Deleted",
 } as const;
 
+/**
+ * State of Private Endpoint Connection.
+ */
 export type PrivateEndpointConnectionProvisioningState = (typeof PrivateEndpointConnectionProvisioningState)[keyof typeof PrivateEndpointConnectionProvisioningState];
 
 export const PrivateLinkConnectionStatus = {
@@ -68,6 +83,9 @@ export const PrivateLinkConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * State of Private Link Connection.
+ */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -75,6 +93,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Type of public network access.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ReplicationRegion = {
@@ -88,6 +109,9 @@ export const ReplicationRegion = {
     None: "None",
 } as const;
 
+/**
+ * Allowed replication region
+ */
 export type ReplicationRegion = (typeof ReplicationRegion)[keyof typeof ReplicationRegion];
 
 export const SkuName = {
@@ -96,6 +120,9 @@ export const SkuName = {
     Standard: "Standard",
 } as const;
 
+/**
+ * Namespace SKU name.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const ZoneRedundancyPreference = {
@@ -103,4 +130,7 @@ export const ZoneRedundancyPreference = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Namespace SKU name.
+ */
 export type ZoneRedundancyPreference = (typeof ZoneRedundancyPreference)[keyof typeof ZoneRedundancyPreference];

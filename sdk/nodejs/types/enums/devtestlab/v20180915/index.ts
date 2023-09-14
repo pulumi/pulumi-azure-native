@@ -8,6 +8,9 @@ export const CustomImageOsType = {
     None: "None",
 } as const;
 
+/**
+ * The OS type of the custom image (i.e. Windows, Linux)
+ */
 export type CustomImageOsType = (typeof CustomImageOsType)[keyof typeof CustomImageOsType];
 
 export const EnableStatus = {
@@ -15,6 +18,9 @@ export const EnableStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The status of the schedule (i.e. Enabled, Disabled)
+ */
 export type EnableStatus = (typeof EnableStatus)[keyof typeof EnableStatus];
 
 export const EnvironmentPermission = {
@@ -22,6 +28,9 @@ export const EnvironmentPermission = {
     Contributor: "Contributor",
 } as const;
 
+/**
+ * The access rights to be granted to the user when provisioning an environment
+ */
 export type EnvironmentPermission = (typeof EnvironmentPermission)[keyof typeof EnvironmentPermission];
 
 export const HostCachingOptions = {
@@ -30,6 +39,9 @@ export const HostCachingOptions = {
     ReadWrite: "ReadWrite",
 } as const;
 
+/**
+ * Caching option for a data disk (i.e. None, ReadOnly, ReadWrite).
+ */
 export type HostCachingOptions = (typeof HostCachingOptions)[keyof typeof HostCachingOptions];
 
 export const LinuxOsState = {
@@ -38,6 +50,9 @@ export const LinuxOsState = {
     DeprovisionApplied: "DeprovisionApplied",
 } as const;
 
+/**
+ * The state of the Linux OS (i.e. NonDeprovisioned, DeprovisionRequested, DeprovisionApplied).
+ */
 export type LinuxOsState = (typeof LinuxOsState)[keyof typeof LinuxOsState];
 
 export const ManagedIdentityType = {
@@ -47,6 +62,9 @@ export const ManagedIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * Managed identity.
+ */
 export type ManagedIdentityType = (typeof ManagedIdentityType)[keyof typeof ManagedIdentityType];
 
 export const NotificationChannelEventType = {
@@ -54,6 +72,9 @@ export const NotificationChannelEventType = {
     Cost: "Cost",
 } as const;
 
+/**
+ * The event type for which this notification is enabled (i.e. AutoShutdown, Cost)
+ */
 export type NotificationChannelEventType = (typeof NotificationChannelEventType)[keyof typeof NotificationChannelEventType];
 
 export const PolicyEvaluatorType = {
@@ -61,6 +82,9 @@ export const PolicyEvaluatorType = {
     MaxValuePolicy: "MaxValuePolicy",
 } as const;
 
+/**
+ * The evaluator type of the policy (i.e. AllowedValuesPolicy, MaxValuePolicy).
+ */
 export type PolicyEvaluatorType = (typeof PolicyEvaluatorType)[keyof typeof PolicyEvaluatorType];
 
 export const PolicyFactName = {
@@ -76,6 +100,9 @@ export const PolicyFactName = {
     ScheduleEditPermission: "ScheduleEditPermission",
 } as const;
 
+/**
+ * The fact name of the policy (e.g. LabVmCount, LabVmSize, MaxVmsAllowedPerLab, etc.
+ */
 export type PolicyFactName = (typeof PolicyFactName)[keyof typeof PolicyFactName];
 
 export const PolicyStatus = {
@@ -83,6 +110,9 @@ export const PolicyStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The status of the policy.
+ */
 export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
 
 export const PremiumDataDisk = {
@@ -90,6 +120,11 @@ export const PremiumDataDisk = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * The setting to enable usage of premium data disks.
+ * When its value is 'Enabled', creation of standard or premium data disks is allowed.
+ * When its value is 'Disabled', only creation of standard data disks is allowed.
+ */
 export type PremiumDataDisk = (typeof PremiumDataDisk)[keyof typeof PremiumDataDisk];
 
 export const SourceControlType = {
@@ -98,6 +133,9 @@ export const SourceControlType = {
     StorageAccount: "StorageAccount",
 } as const;
 
+/**
+ * The artifact source's type.
+ */
 export type SourceControlType = (typeof SourceControlType)[keyof typeof SourceControlType];
 
 export const StorageType = {
@@ -106,6 +144,9 @@ export const StorageType = {
     StandardSSD: "StandardSSD",
 } as const;
 
+/**
+ * The storage type for the disk (i.e. Standard, Premium).
+ */
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 export const TransportProtocol = {
@@ -113,6 +154,9 @@ export const TransportProtocol = {
     Udp: "Udp",
 } as const;
 
+/**
+ * Protocol type of the port.
+ */
 export type TransportProtocol = (typeof TransportProtocol)[keyof typeof TransportProtocol];
 
 export const UsagePermissionType = {
@@ -121,6 +165,9 @@ export const UsagePermissionType = {
     Allow: "Allow",
 } as const;
 
+/**
+ * Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny).
+ */
 export type UsagePermissionType = (typeof UsagePermissionType)[keyof typeof UsagePermissionType];
 
 export const WindowsOsState = {
@@ -129,4 +176,7 @@ export const WindowsOsState = {
     SysprepApplied: "SysprepApplied",
 } as const;
 
+/**
+ * The state of the Windows OS (i.e. NonSysprepped, SysprepRequested, SysprepApplied).
+ */
 export type WindowsOsState = (typeof WindowsOsState)[keyof typeof WindowsOsState];

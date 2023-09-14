@@ -15,4 +15,7 @@ export const IscsiTargetAclMode = {
     Static: "Static",
 } as const;
 
+/**
+ * Mode for Target connectivity.
+ */
 export type IscsiTargetAclMode = (typeof IscsiTargetAclMode)[keyof typeof IscsiTargetAclMode];

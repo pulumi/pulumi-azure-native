@@ -27,6 +27,9 @@ export const DataSetKind = {
     SynapseWorkspaceSqlPoolTable: "SynapseWorkspaceSqlPoolTable",
 } as const;
 
+/**
+ * Kind of data set.
+ */
 export type DataSetKind = (typeof DataSetKind)[keyof typeof DataSetKind];
 
 export const DataSetMappingKind = {
@@ -44,6 +47,9 @@ export const DataSetMappingKind = {
     SynapseWorkspaceSqlPoolTable: "SynapseWorkspaceSqlPoolTable",
 } as const;
 
+/**
+ * Kind of data set mapping.
+ */
 export type DataSetMappingKind = (typeof DataSetMappingKind)[keyof typeof DataSetMappingKind];
 
 export const OutputType = {
@@ -51,6 +57,9 @@ export const OutputType = {
     Parquet: "Parquet",
 } as const;
 
+/**
+ * File output type
+ */
 export type OutputType = (typeof OutputType)[keyof typeof OutputType];
 
 export const RecurrenceInterval = {
@@ -58,6 +67,9 @@ export const RecurrenceInterval = {
     Day: "Day",
 } as const;
 
+/**
+ * Recurrence Interval
+ */
 export type RecurrenceInterval = (typeof RecurrenceInterval)[keyof typeof RecurrenceInterval];
 
 export const ShareKind = {
@@ -65,6 +77,9 @@ export const ShareKind = {
     InPlace: "InPlace",
 } as const;
 
+/**
+ * Share kind.
+ */
 export type ShareKind = (typeof ShareKind)[keyof typeof ShareKind];
 
 export const SynchronizationMode = {
@@ -72,22 +87,34 @@ export const SynchronizationMode = {
     FullSync: "FullSync",
 } as const;
 
+/**
+ * Synchronization mode
+ */
 export type SynchronizationMode = (typeof SynchronizationMode)[keyof typeof SynchronizationMode];
 
 export const SynchronizationSettingKind = {
     ScheduleBased: "ScheduleBased",
 } as const;
 
+/**
+ * Kind of synchronization setting.
+ */
 export type SynchronizationSettingKind = (typeof SynchronizationSettingKind)[keyof typeof SynchronizationSettingKind];
 
 export const TriggerKind = {
     ScheduleBased: "ScheduleBased",
 } as const;
 
+/**
+ * Kind of synchronization on trigger.
+ */
 export type TriggerKind = (typeof TriggerKind)[keyof typeof TriggerKind];
 
 export const Type = {
     SystemAssigned: "SystemAssigned",
 } as const;
 
+/**
+ * Identity Type
+ */
 export type Type = (typeof Type)[keyof typeof Type];

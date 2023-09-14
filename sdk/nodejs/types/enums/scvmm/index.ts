@@ -15,6 +15,9 @@ export const AllocationMethod = {
     Static: "Static",
 } as const;
 
+/**
+ * Gets or sets the mac address type.
+ */
 export type AllocationMethod = (typeof AllocationMethod)[keyof typeof AllocationMethod];
 
 export const CreateDiffDisk = {
@@ -22,6 +25,9 @@ export const CreateDiffDisk = {
     True: "true",
 } as const;
 
+/**
+ * Gets or sets a value indicating diff disk.
+ */
 export type CreateDiffDisk = (typeof CreateDiffDisk)[keyof typeof CreateDiffDisk];
 
 export const DynamicMemoryEnabled = {
@@ -29,6 +35,9 @@ export const DynamicMemoryEnabled = {
     True: "true",
 } as const;
 
+/**
+ * Gets or sets a value indicating whether to enable dynamic memory or not.
+ */
 export type DynamicMemoryEnabled = (typeof DynamicMemoryEnabled)[keyof typeof DynamicMemoryEnabled];
 
 export const IdentityType = {
@@ -36,6 +45,9 @@ export const IdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;
 
+/**
+ * The type of managed service identity.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const InventoryType = {
@@ -45,6 +57,9 @@ export const InventoryType = {
     VirtualMachine: "VirtualMachine",
 } as const;
 
+/**
+ * They inventory type.
+ */
 export type InventoryType = (typeof InventoryType)[keyof typeof InventoryType];
 
 export const LimitCpuForMigration = {
@@ -52,6 +67,9 @@ export const LimitCpuForMigration = {
     True: "true",
 } as const;
 
+/**
+ * Gets or sets a value indicating whether to enable processor compatibility mode for live migration of VMs.
+ */
 export type LimitCpuForMigration = (typeof LimitCpuForMigration)[keyof typeof LimitCpuForMigration];
 
 export const ProvisioningAction = {
@@ -60,4 +78,7 @@ export const ProvisioningAction = {
     Repair: "repair",
 } as const;
 
+/**
+ * Gets or sets the guest agent provisioning action.
+ */
 export type ProvisioningAction = (typeof ProvisioningAction)[keyof typeof ProvisioningAction];

@@ -7,6 +7,9 @@ export const ClusterType = {
     MultiRack: "MultiRack",
 } as const;
 
+/**
+ * The type of rack configuration for the cluster.
+ */
 export type ClusterType = (typeof ClusterType)[keyof typeof ClusterType];
 
 export const IpAllocationType = {
@@ -15,6 +18,9 @@ export const IpAllocationType = {
     DualStack: "DualStack",
 } as const;
 
+/**
+ * The type of the IP address allocation.
+ */
 export type IpAllocationType = (typeof IpAllocationType)[keyof typeof IpAllocationType];
 
 export const ValidationThresholdGrouping = {
@@ -22,6 +28,9 @@ export const ValidationThresholdGrouping = {
     PerRack: "PerRack",
 } as const;
 
+/**
+ * Selection of how the type evaluation is applied to the cluster calculation.
+ */
 export type ValidationThresholdGrouping = (typeof ValidationThresholdGrouping)[keyof typeof ValidationThresholdGrouping];
 
 export const ValidationThresholdType = {
@@ -29,4 +38,7 @@ export const ValidationThresholdType = {
     PercentSuccess: "PercentSuccess",
 } as const;
 
+/**
+ * Selection of how the threshold should be evaluated.
+ */
 export type ValidationThresholdType = (typeof ValidationThresholdType)[keyof typeof ValidationThresholdType];

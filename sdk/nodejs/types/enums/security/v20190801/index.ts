@@ -7,12 +7,18 @@ export const AdditionalWorkspaceDataType = {
     RawEvents: "RawEvents",
 } as const;
 
+/**
+ * Data types sent to workspace.
+ */
 export type AdditionalWorkspaceDataType = (typeof AdditionalWorkspaceDataType)[keyof typeof AdditionalWorkspaceDataType];
 
 export const AdditionalWorkspaceType = {
     Sentinel: "Sentinel",
 } as const;
 
+/**
+ * Workspace type.
+ */
 export type AdditionalWorkspaceType = (typeof AdditionalWorkspaceType)[keyof typeof AdditionalWorkspaceType];
 
 export const DataSource = {
@@ -38,6 +44,9 @@ export const RecommendationConfigStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Recommendation status. When the recommendation status is disabled recommendations are not generated.
+ */
 export type RecommendationConfigStatus = (typeof RecommendationConfigStatus)[keyof typeof RecommendationConfigStatus];
 
 export const RecommendationType = {
@@ -107,6 +116,9 @@ export const RecommendationType = {
     IoT_VulnerableTLSCipherSuite: "IoT_VulnerableTLSCipherSuite",
 } as const;
 
+/**
+ * The type of IoT Security recommendation.
+ */
 export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
 
 export const SecuritySolutionStatus = {
@@ -114,6 +126,9 @@ export const SecuritySolutionStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Status of the IoT Security solution.
+ */
 export type SecuritySolutionStatus = (typeof SecuritySolutionStatus)[keyof typeof SecuritySolutionStatus];
 
 export const UnmaskedIpLoggingStatus = {
@@ -127,4 +142,7 @@ export const UnmaskedIpLoggingStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Unmasked IP address logging status
+ */
 export type UnmaskedIpLoggingStatus = (typeof UnmaskedIpLoggingStatus)[keyof typeof UnmaskedIpLoggingStatus];

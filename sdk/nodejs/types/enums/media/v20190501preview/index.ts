@@ -9,6 +9,9 @@ export const LiveEventEncodingType = {
     Premium1080p: "Premium1080p",
 } as const;
 
+/**
+ * The encoding type for Live Event.  This value is specified at creation time and cannot be updated.
+ */
 export type LiveEventEncodingType = (typeof LiveEventEncodingType)[keyof typeof LiveEventEncodingType];
 
 export const LiveEventInputProtocol = {
@@ -16,6 +19,9 @@ export const LiveEventInputProtocol = {
     RTMP: "RTMP",
 } as const;
 
+/**
+ * The streaming protocol for the Live Event.  This is specified at creation time and cannot be updated.
+ */
 export type LiveEventInputProtocol = (typeof LiveEventInputProtocol)[keyof typeof LiveEventInputProtocol];
 
 export const StreamOptionsFlag = {

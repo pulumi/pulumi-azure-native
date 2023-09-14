@@ -7,6 +7,9 @@ export const MoveType = {
     RegionToZone: "RegionToZone",
 } as const;
 
+/**
+ * Defines the MoveType.
+ */
 export type MoveType = (typeof MoveType)[keyof typeof MoveType];
 
 export const ResourceIdentityType = {
@@ -15,6 +18,9 @@ export const ResourceIdentityType = {
     UserAssigned: "UserAssigned",
 } as const;
 
+/**
+ * The type of identity used for the resource mover service.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const TargetAvailabilityZone = {
@@ -24,6 +30,9 @@ export const TargetAvailabilityZone = {
     NA: "NA",
 } as const;
 
+/**
+ * Gets or sets the target availability zone.
+ */
 export type TargetAvailabilityZone = (typeof TargetAvailabilityZone)[keyof typeof TargetAvailabilityZone];
 
 export const ZoneRedundant = {
@@ -31,4 +40,7 @@ export const ZoneRedundant = {
     Disable: "Disable",
 } as const;
 
+/**
+ * Defines the zone redundant resource setting.
+ */
 export type ZoneRedundant = (typeof ZoneRedundant)[keyof typeof ZoneRedundant];

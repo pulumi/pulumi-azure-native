@@ -7,4 +7,7 @@ export const IPAction = {
     Reject: "Reject",
 } as const;
 
+/**
+ * The IP Filter Action
+ */
 export type IPAction = (typeof IPAction)[keyof typeof IPAction];

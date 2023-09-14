@@ -37,6 +37,9 @@ export const ActiveDirectoryAuthEnum = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * If Enabled, Azure Active Directory authentication is enabled.
+ */
 export type ActiveDirectoryAuthEnum = (typeof ActiveDirectoryAuthEnum)[keyof typeof ActiveDirectoryAuthEnum];
 
 export const ArmServerKeyType = {
@@ -44,6 +47,9 @@ export const ArmServerKeyType = {
     AzureKeyVault: "AzureKeyVault",
 } as const;
 
+/**
+ * Data encryption type to depict if it is System Managed vs Azure Key vault.
+ */
 export type ArmServerKeyType = (typeof ArmServerKeyType)[keyof typeof ArmServerKeyType];
 
 export const CancelEnum = {
@@ -51,6 +57,9 @@ export const CancelEnum = {
     False: "False",
 } as const;
 
+/**
+ * To trigger cancel for entire migration we need to send this flag as True
+ */
 export type CancelEnum = (typeof CancelEnum)[keyof typeof CancelEnum];
 
 export const CreateMode = {
@@ -62,6 +71,9 @@ export const CreateMode = {
     Replica: "Replica",
 } as const;
 
+/**
+ * The mode to create a new PostgreSQL server.
+ */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const GeoRedundantBackupEnum = {
@@ -69,6 +81,9 @@ export const GeoRedundantBackupEnum = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A value indicating whether Geo-Redundant backup is enabled on the server.
+ */
 export type GeoRedundantBackupEnum = (typeof GeoRedundantBackupEnum)[keyof typeof GeoRedundantBackupEnum];
 
 export const HighAvailabilityMode = {
@@ -77,6 +92,9 @@ export const HighAvailabilityMode = {
     SameZone: "SameZone",
 } as const;
 
+/**
+ * The HA mode for the server.
+ */
 export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
 
 export const IdentityType = {
@@ -84,6 +102,9 @@ export const IdentityType = {
     UserAssigned: "UserAssigned",
 } as const;
 
+/**
+ * the types of identities associated with this resource; currently restricted to 'None and UserAssigned'
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const LogicalReplicationOnSourceDbEnum = {
@@ -91,6 +112,9 @@ export const LogicalReplicationOnSourceDbEnum = {
     False: "False",
 } as const;
 
+/**
+ * Indicates whether to setup LogicalReplicationOnSourceDb, if needed
+ */
 export type LogicalReplicationOnSourceDbEnum = (typeof LogicalReplicationOnSourceDbEnum)[keyof typeof LogicalReplicationOnSourceDbEnum];
 
 export const MigrationMode = {
@@ -98,6 +122,9 @@ export const MigrationMode = {
     Online: "Online",
 } as const;
 
+/**
+ * There are two types of migration modes Online and Offline
+ */
 export type MigrationMode = (typeof MigrationMode)[keyof typeof MigrationMode];
 
 export const OverwriteDbsInTargetEnum = {
@@ -105,6 +132,9 @@ export const OverwriteDbsInTargetEnum = {
     False: "False",
 } as const;
 
+/**
+ * Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists.
+ */
 export type OverwriteDbsInTargetEnum = (typeof OverwriteDbsInTargetEnum)[keyof typeof OverwriteDbsInTargetEnum];
 
 export const PasswordAuthEnum = {
@@ -112,6 +142,9 @@ export const PasswordAuthEnum = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * If Enabled, Password authentication is enabled.
+ */
 export type PasswordAuthEnum = (typeof PasswordAuthEnum)[keyof typeof PasswordAuthEnum];
 
 export const PrincipalType = {
@@ -121,6 +154,9 @@ export const PrincipalType = {
     ServicePrincipal: "ServicePrincipal",
 } as const;
 
+/**
+ * The principal type used to represent the type of Active Directory Administrator.
+ */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -129,6 +165,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const ReplicationRole = {
@@ -138,6 +177,9 @@ export const ReplicationRole = {
     GeoAsyncReplica: "GeoAsyncReplica",
 } as const;
 
+/**
+ * Replication role of the server
+ */
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
 
 export const ServerVersion = {
@@ -147,6 +189,9 @@ export const ServerVersion = {
     ServerVersion_11: "11",
 } as const;
 
+/**
+ * PostgreSQL Server version.
+ */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
 
 export const SkuTier = {
@@ -155,6 +200,9 @@ export const SkuTier = {
     MemoryOptimized: "MemoryOptimized",
 } as const;
 
+/**
+ * The tier of the particular SKU, e.g. Burstable.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const StartDataMigrationEnum = {
@@ -162,6 +210,9 @@ export const StartDataMigrationEnum = {
     False: "False",
 } as const;
 
+/**
+ * Indicates whether the data migration should start right away
+ */
 export type StartDataMigrationEnum = (typeof StartDataMigrationEnum)[keyof typeof StartDataMigrationEnum];
 
 export const TriggerCutoverEnum = {
@@ -169,4 +220,7 @@ export const TriggerCutoverEnum = {
     False: "False",
 } as const;
 
+/**
+ * To trigger cutover for entire migration we need to send this flag as True
+ */
 export type TriggerCutoverEnum = (typeof TriggerCutoverEnum)[keyof typeof TriggerCutoverEnum];

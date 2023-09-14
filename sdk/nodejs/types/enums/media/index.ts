@@ -33,6 +33,9 @@ export const AacAudioProfile = {
     HeAacV2: "HeAacV2",
 } as const;
 
+/**
+ * The encoding profile to be used when encoding audio with AAC.
+ */
 export type AacAudioProfile = (typeof AacAudioProfile)[keyof typeof AacAudioProfile];
 
 export const AccountEncryptionKeyType = {
@@ -46,6 +49,9 @@ export const AccountEncryptionKeyType = {
     CustomerKey: "CustomerKey",
 } as const;
 
+/**
+ * The type of key used to encrypt the Account Key.
+ */
 export type AccountEncryptionKeyType = (typeof AccountEncryptionKeyType)[keyof typeof AccountEncryptionKeyType];
 
 export const AnalysisResolution = {
@@ -53,6 +59,9 @@ export const AnalysisResolution = {
     StandardDefinition: "StandardDefinition",
 } as const;
 
+/**
+ * Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
+ */
 export type AnalysisResolution = (typeof AnalysisResolution)[keyof typeof AnalysisResolution];
 
 export const AssetContainerPermission = {
@@ -70,6 +79,9 @@ export const AssetContainerPermission = {
     ReadWriteDelete: "ReadWriteDelete",
 } as const;
 
+/**
+ * The permissions to set on the SAS URL.
+ */
 export type AssetContainerPermission = (typeof AssetContainerPermission)[keyof typeof AssetContainerPermission];
 
 export const AttributeFilter = {
@@ -91,6 +103,9 @@ export const AttributeFilter = {
     ValueEquals: "ValueEquals",
 } as const;
 
+/**
+ * The type of AttributeFilter to apply to the TrackAttribute in order to select the tracks.
+ */
 export type AttributeFilter = (typeof AttributeFilter)[keyof typeof AttributeFilter];
 
 export const AudioAnalysisMode = {
@@ -104,6 +119,9 @@ export const AudioAnalysisMode = {
     Basic: "Basic",
 } as const;
 
+/**
+ * Determines the set of audio analysis operations to be performed. If unspecified, the Standard AudioAnalysisMode would be chosen.
+ */
 export type AudioAnalysisMode = (typeof AudioAnalysisMode)[keyof typeof AudioAnalysisMode];
 
 export const BlurType = {
@@ -129,6 +147,9 @@ export const BlurType = {
     Black: "Black",
 } as const;
 
+/**
+ * Blur type
+ */
 export type BlurType = (typeof BlurType)[keyof typeof BlurType];
 
 export const ChannelMapping = {
@@ -166,6 +187,9 @@ export const ChannelMapping = {
     StereoRight: "StereoRight",
 } as const;
 
+/**
+ * Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks.
+ */
 export type ChannelMapping = (typeof ChannelMapping)[keyof typeof ChannelMapping];
 
 export const Complexity = {
@@ -183,6 +207,9 @@ export const Complexity = {
     Quality: "Quality",
 } as const;
 
+/**
+ * Allows you to configure the encoder settings to control the balance between speed and quality. Example: set Complexity as Speed for faster encoding but less compression efficiency.
+ */
 export type Complexity = (typeof Complexity)[keyof typeof Complexity];
 
 export const ContentKeyPolicyFairPlayRentalAndLeaseKeyType = {
@@ -208,6 +235,9 @@ export const ContentKeyPolicyFairPlayRentalAndLeaseKeyType = {
     PersistentLimited: "PersistentLimited",
 } as const;
 
+/**
+ * The rental and lease key type.
+ */
 export type ContentKeyPolicyFairPlayRentalAndLeaseKeyType = (typeof ContentKeyPolicyFairPlayRentalAndLeaseKeyType)[keyof typeof ContentKeyPolicyFairPlayRentalAndLeaseKeyType];
 
 export const ContentKeyPolicyPlayReadyContentType = {
@@ -229,6 +259,9 @@ export const ContentKeyPolicyPlayReadyContentType = {
     UltraVioletStreaming: "UltraVioletStreaming",
 } as const;
 
+/**
+ * The PlayReady content type.
+ */
 export type ContentKeyPolicyPlayReadyContentType = (typeof ContentKeyPolicyPlayReadyContentType)[keyof typeof ContentKeyPolicyPlayReadyContentType];
 
 export const ContentKeyPolicyPlayReadyLicenseType = {
@@ -246,6 +279,9 @@ export const ContentKeyPolicyPlayReadyLicenseType = {
     Persistent: "Persistent",
 } as const;
 
+/**
+ * The license type.
+ */
 export type ContentKeyPolicyPlayReadyLicenseType = (typeof ContentKeyPolicyPlayReadyLicenseType)[keyof typeof ContentKeyPolicyPlayReadyLicenseType];
 
 export const ContentKeyPolicyPlayReadyUnknownOutputPassingOption = {
@@ -267,6 +303,9 @@ export const ContentKeyPolicyPlayReadyUnknownOutputPassingOption = {
     AllowedWithVideoConstriction: "AllowedWithVideoConstriction",
 } as const;
 
+/**
+ * Configures Unknown output handling settings of the license.
+ */
 export type ContentKeyPolicyPlayReadyUnknownOutputPassingOption = (typeof ContentKeyPolicyPlayReadyUnknownOutputPassingOption)[keyof typeof ContentKeyPolicyPlayReadyUnknownOutputPassingOption];
 
 export const ContentKeyPolicyRestrictionTokenType = {
@@ -284,6 +323,9 @@ export const ContentKeyPolicyRestrictionTokenType = {
     Jwt: "Jwt",
 } as const;
 
+/**
+ * The type of token.
+ */
 export type ContentKeyPolicyRestrictionTokenType = (typeof ContentKeyPolicyRestrictionTokenType)[keyof typeof ContentKeyPolicyRestrictionTokenType];
 
 export const DefaultAction = {
@@ -297,6 +339,9 @@ export const DefaultAction = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The behavior for IP access control in Key Delivery.
+ */
 export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
 export const DeinterlaceMode = {
@@ -310,6 +355,9 @@ export const DeinterlaceMode = {
     AutoPixelAdaptive: "AutoPixelAdaptive",
 } as const;
 
+/**
+ * The deinterlacing mode. Defaults to AutoPixelAdaptive.
+ */
 export type DeinterlaceMode = (typeof DeinterlaceMode)[keyof typeof DeinterlaceMode];
 
 export const DeinterlaceParity = {
@@ -327,6 +375,9 @@ export const DeinterlaceParity = {
     BottomFieldFirst: "BottomFieldFirst",
 } as const;
 
+/**
+ * The field parity for de-interlacing, defaults to Auto.
+ */
 export type DeinterlaceParity = (typeof DeinterlaceParity)[keyof typeof DeinterlaceParity];
 
 export const EncoderNamedPreset = {
@@ -400,6 +451,9 @@ export const EncoderNamedPreset = {
     H265SingleBitrate4K: "H265SingleBitrate4K",
 } as const;
 
+/**
+ * The built-in preset to be used for encoding videos.
+ */
 export type EncoderNamedPreset = (typeof EncoderNamedPreset)[keyof typeof EncoderNamedPreset];
 
 export const EntropyMode = {
@@ -413,6 +467,9 @@ export const EntropyMode = {
     Cavlc: "Cavlc",
 } as const;
 
+/**
+ * The entropy mode to be used for this layer. If not specified, the encoder chooses the mode that is appropriate for the profile and level.
+ */
 export type EntropyMode = (typeof EntropyMode)[keyof typeof EntropyMode];
 
 export const FaceRedactorMode = {
@@ -430,6 +487,9 @@ export const FaceRedactorMode = {
     Combined: "Combined",
 } as const;
 
+/**
+ * This mode provides the ability to choose between the following settings: 1) Analyze - For detection only.This mode generates a metadata JSON file marking appearances of faces throughout the video.Where possible, appearances of the same person are assigned the same ID. 2) Combined - Additionally redacts(blurs) detected faces. 3) Redact - This enables a 2-pass process, allowing for selective redaction of a subset of detected faces.It takes in the metadata file from a prior analyze pass, along with the source video, and a user-selected subset of IDs that require redaction.
+ */
 export type FaceRedactorMode = (typeof FaceRedactorMode)[keyof typeof FaceRedactorMode];
 
 export const FilterTrackPropertyCompareOperation = {
@@ -443,6 +503,9 @@ export const FilterTrackPropertyCompareOperation = {
     NotEqual: "NotEqual",
 } as const;
 
+/**
+ * The track property condition operation.
+ */
 export type FilterTrackPropertyCompareOperation = (typeof FilterTrackPropertyCompareOperation)[keyof typeof FilterTrackPropertyCompareOperation];
 
 export const FilterTrackPropertyType = {
@@ -472,6 +535,9 @@ export const FilterTrackPropertyType = {
     Bitrate: "Bitrate",
 } as const;
 
+/**
+ * The track property type.
+ */
 export type FilterTrackPropertyType = (typeof FilterTrackPropertyType)[keyof typeof FilterTrackPropertyType];
 
 export const H264Complexity = {
@@ -489,6 +555,9 @@ export const H264Complexity = {
     Quality: "Quality",
 } as const;
 
+/**
+ * Tells the encoder how to choose its encoding settings. The default value is Balanced.
+ */
 export type H264Complexity = (typeof H264Complexity)[keyof typeof H264Complexity];
 
 export const H264RateControlMode = {
@@ -506,6 +575,9 @@ export const H264RateControlMode = {
     CRF: "CRF",
 } as const;
 
+/**
+ * The video rate control mode
+ */
 export type H264RateControlMode = (typeof H264RateControlMode)[keyof typeof H264RateControlMode];
 
 export const H264VideoProfile = {
@@ -535,6 +607,9 @@ export const H264VideoProfile = {
     High444: "High444",
 } as const;
 
+/**
+ * We currently support Baseline, Main, High, High422, High444. Default is Auto.
+ */
 export type H264VideoProfile = (typeof H264VideoProfile)[keyof typeof H264VideoProfile];
 
 export const H265Complexity = {
@@ -552,6 +627,9 @@ export const H265Complexity = {
     Quality: "Quality",
 } as const;
 
+/**
+ * Tells the encoder how to choose its encoding settings.  Quality will provide for a higher compression ratio but at a higher cost and longer compute time.  Speed will produce a relatively larger file but is faster and more economical. The default value is Balanced.
+ */
 export type H265Complexity = (typeof H265Complexity)[keyof typeof H265Complexity];
 
 export const H265VideoProfile = {
@@ -569,6 +647,9 @@ export const H265VideoProfile = {
     Main10: "Main10",
 } as const;
 
+/**
+ * We currently support Main. Default is Auto.
+ */
 export type H265VideoProfile = (typeof H265VideoProfile)[keyof typeof H265VideoProfile];
 
 export const InsightsType = {
@@ -586,6 +667,9 @@ export const InsightsType = {
     AllInsights: "AllInsights",
 } as const;
 
+/**
+ * Defines the type of insights that you want the service to generate. The allowed values are 'AudioInsightsOnly', 'VideoInsightsOnly', and 'AllInsights'. The default is AllInsights. If you set this to AllInsights and the input is audio only, then only audio insights are generated. Similarly if the input is video only, then only video insights are generated. It is recommended that you not use AudioInsightsOnly if you expect some of your inputs to be video only; or use VideoInsightsOnly if you expect some of your inputs to be audio only. Your Jobs in such conditions would error out.
+ */
 export type InsightsType = (typeof InsightsType)[keyof typeof InsightsType];
 
 export const InterleaveOutput = {
@@ -599,6 +683,9 @@ export const InterleaveOutput = {
     InterleavedOutput: "InterleavedOutput",
 } as const;
 
+/**
+ * Sets the interleave mode of the output to control how audio and video are stored in the container format. Example: set InterleavedOutput as NonInterleavedOutput to produce audio-only and video-only outputs in separate MP4 files.
+ */
 export type InterleaveOutput = (typeof InterleaveOutput)[keyof typeof InterleaveOutput];
 
 export const LiveEventEncodingType = {
@@ -624,6 +711,9 @@ export const LiveEventEncodingType = {
     PassthroughStandard: "PassthroughStandard",
 } as const;
 
+/**
+ * Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
+ */
 export type LiveEventEncodingType = (typeof LiveEventEncodingType)[keyof typeof LiveEventEncodingType];
 
 export const LiveEventInputProtocol = {
@@ -637,6 +727,9 @@ export const LiveEventInputProtocol = {
     RTMP: "RTMP",
 } as const;
 
+/**
+ * The input protocol for the live event. This is specified at creation time and cannot be updated.
+ */
 export type LiveEventInputProtocol = (typeof LiveEventInputProtocol)[keyof typeof LiveEventInputProtocol];
 
 export const MediaGraphRtspTransport = {
@@ -650,6 +743,9 @@ export const MediaGraphRtspTransport = {
     Tcp: "Tcp",
 } as const;
 
+/**
+ * Underlying RTSP transport. This can be used to enable or disable HTTP tunneling.
+ */
 export type MediaGraphRtspTransport = (typeof MediaGraphRtspTransport)[keyof typeof MediaGraphRtspTransport];
 
 export const MinimumTlsVersion = {
@@ -671,6 +767,9 @@ export const MinimumTlsVersion = {
     Tls13: "Tls13",
 } as const;
 
+/**
+ * The minimum TLS version allowed for this account's requests. This is an optional property. If unspecified, a secure default value will be used.
+ */
 export type MinimumTlsVersion = (typeof MinimumTlsVersion)[keyof typeof MinimumTlsVersion];
 
 export const OnErrorType = {
@@ -684,6 +783,9 @@ export const OnErrorType = {
     ContinueJob: "ContinueJob",
 } as const;
 
+/**
+ * A Transform can define more than one outputs. This property defines what the service should do when one output fails - either continue to produce other outputs, or, stop the other outputs. The overall Job state will not reflect failures of outputs that are specified with 'ContinueJob'. The default is 'StopProcessingJob'.
+ */
 export type OnErrorType = (typeof OnErrorType)[keyof typeof OnErrorType];
 
 export const Priority = {
@@ -701,6 +803,9 @@ export const Priority = {
     High: "High",
 } as const;
 
+/**
+ * Sets the relative priority of the TransformOutputs within a Transform. This sets the priority that the service uses for processing TransformOutputs. The default priority is Normal.
+ */
 export type Priority = (typeof Priority)[keyof typeof Priority];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -709,6 +814,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -722,6 +830,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not public network access is allowed for resources under the Media Services account.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const Rotation = {
@@ -751,6 +862,9 @@ export const Rotation = {
     Rotate270: "Rotate270",
 } as const;
 
+/**
+ * The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
+ */
 export type Rotation = (typeof Rotation)[keyof typeof Rotation];
 
 export const SecurityLevel = {
@@ -772,6 +886,9 @@ export const SecurityLevel = {
     SL3000: "SL3000",
 } as const;
 
+/**
+ * The security level.
+ */
 export type SecurityLevel = (typeof SecurityLevel)[keyof typeof SecurityLevel];
 
 export const StorageAccountType = {
@@ -785,6 +902,9 @@ export const StorageAccountType = {
     Secondary: "Secondary",
 } as const;
 
+/**
+ * The type of the storage account.
+ */
 export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
 
 export const StorageAuthentication = {
@@ -832,6 +952,9 @@ export const StretchMode = {
     AutoFit: "AutoFit",
 } as const;
 
+/**
+ * The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize
+ */
 export type StretchMode = (typeof StretchMode)[keyof typeof StretchMode];
 
 export const TrackAttribute = {
@@ -845,6 +968,9 @@ export const TrackAttribute = {
     Language: "Language",
 } as const;
 
+/**
+ * The TrackAttribute to filter the tracks by.
+ */
 export type TrackAttribute = (typeof TrackAttribute)[keyof typeof TrackAttribute];
 
 export const TrackPropertyCompareOperation = {
@@ -858,6 +984,9 @@ export const TrackPropertyCompareOperation = {
     Equal: "Equal",
 } as const;
 
+/**
+ * Track property condition operation
+ */
 export type TrackPropertyCompareOperation = (typeof TrackPropertyCompareOperation)[keyof typeof TrackPropertyCompareOperation];
 
 export const TrackPropertyType = {
@@ -871,6 +1000,9 @@ export const TrackPropertyType = {
     FourCC: "FourCC",
 } as const;
 
+/**
+ * Track property type
+ */
 export type TrackPropertyType = (typeof TrackPropertyType)[keyof typeof TrackPropertyType];
 
 export const VideoSyncMode = {
@@ -892,6 +1024,9 @@ export const VideoSyncMode = {
     Vfr: "Vfr",
 } as const;
 
+/**
+ * The Video Sync Mode
+ */
 export type VideoSyncMode = (typeof VideoSyncMode)[keyof typeof VideoSyncMode];
 
 export const Visibility = {
@@ -905,4 +1040,7 @@ export const Visibility = {
     Visible: "Visible",
 } as const;
 
+/**
+ * When PlayerVisibility is set to "Visible", the text track will be present in the DASH manifest or HLS playlist when requested by a client. When the PlayerVisibility is set to "Hidden", the text will not be available to the client. The default value is "Visible".
+ */
 export type Visibility = (typeof Visibility)[keyof typeof Visibility];

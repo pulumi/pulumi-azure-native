@@ -14,6 +14,9 @@ export const ParameterType = {
     SecureObject: "SecureObject",
 } as const;
 
+/**
+ * Gets or sets the type.
+ */
 export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 export const SkuName = {
@@ -25,6 +28,9 @@ export const SkuName = {
     Premium: "Premium",
 } as const;
 
+/**
+ * Gets or sets the name.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const WorkflowState = {
@@ -35,4 +41,7 @@ export const WorkflowState = {
     Suspended: "Suspended",
 } as const;
 
+/**
+ * Gets or sets the state.
+ */
 export type WorkflowState = (typeof WorkflowState)[keyof typeof WorkflowState];

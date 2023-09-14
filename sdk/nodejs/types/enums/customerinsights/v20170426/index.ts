@@ -10,6 +10,9 @@ export const CalculationWindowTypes = {
     Month: "Month",
 } as const;
 
+/**
+ * The calculation window.
+ */
 export type CalculationWindowTypes = (typeof CalculationWindowTypes)[keyof typeof CalculationWindowTypes];
 
 export const CardinalityTypes = {
@@ -18,6 +21,9 @@ export const CardinalityTypes = {
     ManyToMany: "ManyToMany",
 } as const;
 
+/**
+ * The Relationship Cardinality.
+ */
 export type CardinalityTypes = (typeof CardinalityTypes)[keyof typeof CardinalityTypes];
 
 export const CompletionOperationTypes = {
@@ -26,6 +32,9 @@ export const CompletionOperationTypes = {
     MoveFile: "MoveFile",
 } as const;
 
+/**
+ * The type of completion operation.
+ */
 export type CompletionOperationTypes = (typeof CompletionOperationTypes)[keyof typeof CompletionOperationTypes];
 
 export const ConnectorTypes = {
@@ -37,6 +46,9 @@ export const ConnectorTypes = {
     Outbound: "Outbound",
 } as const;
 
+/**
+ * Type of connector.
+ */
 export type ConnectorTypes = (typeof ConnectorTypes)[keyof typeof ConnectorTypes];
 
 export const EntityType = {
@@ -46,6 +58,9 @@ export const EntityType = {
     Relationship: "Relationship",
 } as const;
 
+/**
+ * Type of target entity.
+ */
 export type EntityType = (typeof EntityType)[keyof typeof EntityType];
 
 export const EntityTypes = {
@@ -55,6 +70,9 @@ export const EntityTypes = {
     Relationship: "Relationship",
 } as const;
 
+/**
+ * Type of entity.
+ */
 export type EntityTypes = (typeof EntityTypes)[keyof typeof EntityTypes];
 
 export const ErrorManagementTypes = {
@@ -63,12 +81,18 @@ export const ErrorManagementTypes = {
     RejectUntilLimit: "RejectUntilLimit",
 } as const;
 
+/**
+ * The type of error management to use for the mapping.
+ */
 export type ErrorManagementTypes = (typeof ErrorManagementTypes)[keyof typeof ErrorManagementTypes];
 
 export const FormatTypes = {
     TextFormat: "TextFormat",
 } as const;
 
+/**
+ * The type mapping format.
+ */
 export type FormatTypes = (typeof FormatTypes)[keyof typeof FormatTypes];
 
 export const FrequencyTypes = {
@@ -79,6 +103,9 @@ export const FrequencyTypes = {
     Month: "Month",
 } as const;
 
+/**
+ * The frequency to update.
+ */
 export type FrequencyTypes = (typeof FrequencyTypes)[keyof typeof FrequencyTypes];
 
 export const InstanceOperationType = {
@@ -86,6 +113,9 @@ export const InstanceOperationType = {
     Delete: "Delete",
 } as const;
 
+/**
+ * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
+ */
 export type InstanceOperationType = (typeof InstanceOperationType)[keyof typeof InstanceOperationType];
 
 export const KpiFunctions = {
@@ -99,6 +129,9 @@ export const KpiFunctions = {
     CountDistinct: "CountDistinct",
 } as const;
 
+/**
+ * The computation function for the KPI.
+ */
 export type KpiFunctions = (typeof KpiFunctions)[keyof typeof KpiFunctions];
 
 export const LinkTypes = {
@@ -106,6 +139,9 @@ export const LinkTypes = {
     CopyIfNull: "CopyIfNull",
 } as const;
 
+/**
+ * Link type.
+ */
 export type LinkTypes = (typeof LinkTypes)[keyof typeof LinkTypes];
 
 export const RoleTypes = {
@@ -117,4 +153,7 @@ export const RoleTypes = {
     DataReader: "DataReader",
 } as const;
 
+/**
+ * Type of roles.
+ */
 export type RoleTypes = (typeof RoleTypes)[keyof typeof RoleTypes];
