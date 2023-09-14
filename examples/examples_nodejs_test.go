@@ -155,8 +155,7 @@ func TestPublicIpUpdateTs(t *testing.T) {
 func TestVnetSubnetsResolution(t *testing.T) {
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
-			Dir:         filepath.Join(getCwd(t), "vnet-subnets-resolution"),
-			SkipRefresh: true,
+			Dir: filepath.Join(getCwd(t), "vnet-subnets-resolution"),
 			EditDirs: []integration.EditDir{
 				{
 					Dir:      "step2",

@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -265,6 +266,50 @@ func TestFindSubResourcePropertiesToMaintain(t *testing.T) {
 		}
 		actual := findSubResourcePropertiesToMaintain(res, bodyParams)
 		expected := map[string]resources.AzureAPIProperty{}
+		assert.Equal(t, expected, actual)
+	})
+}
+
+func TestFindUnsetSubResourceProperties(t *testing.T) {
+	resWithSubResource := &resources.AzureAPIResource{
+		PutParameters: []resources.AzureAPIParameter{
+			{
+				Location: "body",
+				Body: &resources.AzureAPIType{
+					Properties: map[string]resources.AzureAPIProperty{
+						"subResource": {
+							Type:                       "string",
+							MaintainSubResourceIfUnset: true,
+						},
+					},
+				},
+			},
+		},
+	}
+	t.Run("empty", func(t *testing.T) {
+		res := &resources.AzureAPIResource{}
+		oldInputs := resource.PropertyMap{}
+		actual := findUnsetSubResourceProperties(res, oldInputs)
+		var expected []string
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("sub-resource not set", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"existing": resource.NewStringProperty("value"),
+		}
+		actual := findUnsetSubResourceProperties(resWithSubResource, oldInputs)
+		expected := []string{"subResource"}
+		assert.Equal(t, expected, actual)
+	})
+
+	t.Run("sub-resource set", func(t *testing.T) {
+		oldInputs := resource.PropertyMap{
+			"existing":    resource.NewStringProperty("value"),
+			"subResource": resource.NewStringProperty("value"),
+		}
+		actual := findUnsetSubResourceProperties(resWithSubResource, oldInputs)
+		var expected []string
 		assert.Equal(t, expected, actual)
 	})
 }
