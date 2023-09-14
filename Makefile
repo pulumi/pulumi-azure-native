@@ -386,7 +386,7 @@ export FAKE_MODULE
 	cd sdk/nodejs/ && \
 		NODE_OPTIONS=--max-old-space-size=12288 yarn run tsc --diagnostics --incremental && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
-		mkdir -p bin/scripts && cp scripts/install-pulumi-plugin.js bin/scripts && \
+		mkdir -p bin/scripts && \
 		sed -i.bak -e "s/\$${VERSION}/$(VERSION_JS)/g" ./bin/package.json
 	@touch $@
 
