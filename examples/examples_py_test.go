@@ -5,6 +5,7 @@
 package examples
 
 import (
+	"os"
 	"path/filepath"
 	"testing"
 
@@ -29,6 +30,24 @@ func TestAccLoadBalancer(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccLoadBalancerSubResource(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "py-loadbalancer-subresource"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
+func TestAccNSG(t *testing.T) {
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "py-nsg"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccUserAssignedIdentityPython(t *testing.T) {
 	test := getPythonBaseOptions(t).
 		With(integration.ProgramTestOptions{
@@ -40,10 +59,12 @@ func TestAccUserAssignedIdentityPython(t *testing.T) {
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	base := getBaseOptions(t)
+	sdkPath := filepath.Join("..", "sdk", "python", "bin")
+	if _, err := os.Stat(sdkPath); os.IsNotExist(err) {
+		t.Fatalf("python SDK not found at %s, run `make build_python` first", sdkPath)
+	}
 	basePy := base.With(integration.ProgramTestOptions{
-		Dependencies: []string{
-			filepath.Join("..", "sdk", "python", "bin"),
-		},
+		Dependencies: []string{sdkPath},
 	})
 
 	return basePy

@@ -1,0 +1,3 @@
+name: py-nsg
+runtime: python
+description: A Python Pulumi program that creates a network security group along with a security group rule, defined as a separate resource.
