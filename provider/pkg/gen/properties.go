@@ -191,11 +191,6 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 }
 
 func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, isOutput, isType bool) (*pschema.PropertySpec, *resources.AzureAPIProperty, error) {
-	description, err := getPropertyDescription(schema, context)
-	if err != nil {
-		return nil, nil, err
-	}
-
 	// Identify properties which are aso available as standalone resources and mark them to be maintained if not specified inline.
 	// Ignore types as we only support top-level resource properties
 	// Ignore outputs as this is only affecting the input args of a resource, not the resource outputs.
@@ -210,6 +205,11 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 				maintainSubResourceIfUnset = true
 			}
 		}
+	}
+
+	description, err := getPropertyDescription(schema, context, maintainSubResourceIfUnset)
+	if err != nil {
+		return nil, nil, err
 	}
 
 	typeSpec, err := m.genTypeSpec(name, schema, context, isOutput)

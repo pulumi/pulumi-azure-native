@@ -1209,7 +1209,7 @@ func getDiscriminatorValue(resolvedSchema *openapi.Schema) string {
 	return resolvedSchema.ReferenceContext.ReferenceName
 }
 
-func getPropertyDescription(schema *spec.Schema, context *openapi.ReferenceContext) (string, error) {
+func getPropertyDescription(schema *spec.Schema, context *openapi.ReferenceContext, maintainSubResourceIfUnset bool) (string, error) {
 	description := schema.Description
 	if description == "" {
 		resolvedSchema, err := context.ResolveSchema(schema)
@@ -1218,6 +1218,12 @@ func getPropertyDescription(schema *spec.Schema, context *openapi.ReferenceConte
 		}
 
 		description = resolvedSchema.Description
+	}
+	if maintainSubResourceIfUnset {
+		if description != "" {
+			description = description + "\n"
+		}
+		description = description + "These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion."
 	}
 	return description, nil
 }

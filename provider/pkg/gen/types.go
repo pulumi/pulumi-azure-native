@@ -237,7 +237,7 @@ func (m *moduleGenerator) genEnumType(schema *spec.Schema, context *openapi.Refe
 		return nil, err
 	}
 
-	description, err := getPropertyDescription(schema, context)
+	description, err := getPropertyDescription(schema, context, false /* maintainSubResourceIfUnset */)
 	if err != nil {
 		return nil, err
 	}
