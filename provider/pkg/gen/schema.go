@@ -960,17 +960,38 @@ func (g *packageGenerator) formatFunctionDescription(op *spec.Operation, respons
 }
 
 func (g *packageGenerator) formatDescription(desc string, info *spec.Info, resourceSpec *openapi.ResourceSpec, additionalDocs *string) string {
-	description := desc
+	var b strings.Builder
+	b.WriteString(desc)
+
+	b.WriteString("\n<p>")
 	if g.apiVersion == "" {
-		description = fmt.Sprintf("%s\nAzure REST API version: %s.", description, info.Version)
+		fmt.Fprintf(&b, "Azure REST API version: <b>%s</b>.", info.Version)
 	}
 	if resourceSpec != nil && resourceSpec.PreviousVersion != "" {
-		description = fmt.Sprintf("%s Prior API version in Azure Native 1.x: %s", description, resourceSpec.PreviousVersion)
+		fmt.Fprintf(&b, "\n<br/>Prior API version in Azure Native 1.x: %s.", resourceSpec.PreviousVersion)
 	}
+
+	b.WriteString("</p>")
+
+	if resourceSpec != nil && len(resourceSpec.CompatibleVersions) > 0 {
+		sdkVersions := make([]string, len(resourceSpec.CompatibleVersions))
+		for i, v := range resourceSpec.CompatibleVersions {
+			sdkVersion, err := openapi.SdkToApiVersion(v)
+			if err != nil {
+				log.Printf("failed to convert SDK version %q to API version: %v", v, err)
+				sdkVersions = resourceSpec.CompatibleVersions
+				break
+			}
+			sdkVersions[i] = sdkVersion
+		}
+		fmt.Fprintf(&b, "\n<p>Available API versions: %s.</p>", strings.Join(sdkVersions, ", "))
+	}
+
 	if additionalDocs != nil {
-		description = fmt.Sprintf("%s\n\n%s", description, *additionalDocs)
+		fmt.Fprintf(&b, "\n<p>%s</p>", *additionalDocs)
 	}
-	return description
+
+	return b.String()
 }
 
 func (g *packageGenerator) getAsyncStyle(op *spec.Operation) string {
