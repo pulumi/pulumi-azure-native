@@ -95,7 +95,7 @@ const key = new keyvault.Key("mykey", {
 const roleName = new random.RandomString("roleName", {
     length: 10,
     upper: false,
-    number: false,
+    numeric: false,
     special: false,
 }).result;
 
