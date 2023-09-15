@@ -162,6 +162,7 @@ export interface ServiceEndpointPolicyArgs {
     serviceAlias?: pulumi.Input<string>;
     /**
      * A collection of service endpoint policy definitions of the service endpoint policy.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.v20230401.ServiceEndpointPolicyDefinitionArgs>[]>;
     /**

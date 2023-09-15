@@ -288,6 +288,7 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
 
         /// <summary>
         /// List of private endpoint connections.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
         {

@@ -220,6 +220,7 @@ export interface ExpressRouteCircuitPeeringArgs {
     circuitName: pulumi.Input<string>;
     /**
      * The list of circuit connections associated with Azure Private Peering for this circuit.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     connections?: pulumi.Input<pulumi.Input<inputs.network.v20230201.ExpressRouteCircuitConnectionArgs>[]>;
     /**

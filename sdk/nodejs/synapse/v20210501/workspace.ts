@@ -243,6 +243,7 @@ export interface WorkspaceArgs {
     managedVirtualNetworkSettings?: pulumi.Input<inputs.synapse.v20210501.ManagedVirtualNetworkSettingsArgs>;
     /**
      * Private endpoint connections to the workspace
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.synapse.v20210501.PrivateEndpointConnectionArgs>[]>;
     /**

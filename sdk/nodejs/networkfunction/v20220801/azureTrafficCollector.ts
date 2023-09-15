@@ -127,6 +127,7 @@ export interface AzureTrafficCollectorArgs {
     azureTrafficCollectorName?: pulumi.Input<string>;
     /**
      * Collector Policies for Azure Traffic Collector.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     collectorPolicies?: pulumi.Input<pulumi.Input<inputs.networkfunction.v20220801.CollectorPolicyArgs>[]>;
     /**

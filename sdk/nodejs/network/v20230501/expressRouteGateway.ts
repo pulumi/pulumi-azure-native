@@ -141,6 +141,7 @@ export interface ExpressRouteGatewayArgs {
     autoScaleConfiguration?: pulumi.Input<inputs.network.v20230501.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs>;
     /**
      * List of ExpressRoute connections to the ExpressRoute gateway.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     expressRouteConnections?: pulumi.Input<pulumi.Input<inputs.network.v20230501.ExpressRouteConnectionArgs>[]>;
     /**

@@ -140,6 +140,7 @@ export interface RouteFilterArgs {
     routeFilterName?: pulumi.Input<string>;
     /**
      * Collection of RouteFilterRules contained within a route filter.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.network.v20230201.RouteFilterRuleArgs>[]>;
     /**

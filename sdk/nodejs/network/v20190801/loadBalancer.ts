@@ -176,6 +176,7 @@ export interface LoadBalancerArgs {
     inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.v20190801.InboundNatPoolArgs>[]>;
     /**
      * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.v20190801.InboundNatRuleArgs>[]>;
     /**

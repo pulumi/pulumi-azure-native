@@ -134,6 +134,7 @@ export interface VpnGatewayArgs {
     bgpSettings?: pulumi.Input<inputs.network.v20180701.BgpSettingsArgs>;
     /**
      * list of all vpn connections to the gateway.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     connections?: pulumi.Input<pulumi.Input<inputs.network.v20180701.VpnConnectionArgs>[]>;
     /**

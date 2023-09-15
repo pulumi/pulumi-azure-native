@@ -29,6 +29,7 @@ class PowerBIResourceArgs:
         :param pulumi.Input[str] azure_resource_name: The name of the Azure resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: Specifies the private endpoint connections of the resource.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies the tags of the resource.
         :param pulumi.Input[str] tenant_id: Specifies the tenant id of the resource.
         """
@@ -85,6 +86,7 @@ class PowerBIResourceArgs:
     def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
         """
         Specifies the private endpoint connections of the resource.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -137,6 +139,7 @@ class PowerBIResource(pulumi.CustomResource):
         :param pulumi.Input[str] azure_resource_name: The name of the Azure resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: Specifies the private endpoint connections of the resource.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies the tags of the resource.
         :param pulumi.Input[str] tenant_id: Specifies the tenant id of the resource.

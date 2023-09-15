@@ -314,6 +314,7 @@ namespace Pulumi.AzureNative.Network.V20190801
 
         /// <summary>
         /// A list of TapConfigurations of the network interface.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.NetworkInterfaceTapConfigurationArgs> TapConfigurations
         {

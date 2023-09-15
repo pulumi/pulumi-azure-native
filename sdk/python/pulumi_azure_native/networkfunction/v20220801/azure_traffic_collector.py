@@ -27,6 +27,7 @@ class AzureTrafficCollectorArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] azure_traffic_collector_name: Azure Traffic Collector name
         :param pulumi.Input[Sequence[pulumi.Input['CollectorPolicyArgs']]] collector_policies: Collector Policies for Azure Traffic Collector.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -69,6 +70,7 @@ class AzureTrafficCollectorArgs:
     def collector_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollectorPolicyArgs']]]]:
         """
         Collector Policies for Azure Traffic Collector.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "collector_policies")
 
@@ -119,6 +121,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_traffic_collector_name: Azure Traffic Collector name
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CollectorPolicyArgs']]]] collector_policies: Collector Policies for Azure Traffic Collector.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.

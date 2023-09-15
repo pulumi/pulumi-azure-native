@@ -33,6 +33,7 @@ class ExpressRouteGatewayArgs:
         :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Configures this gateway to accept traffic from non Virtual WAN networks.
         :param pulumi.Input['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs'] auto_scale_configuration: Configuration for auto scaling.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]] express_route_connections: List of ExpressRoute connections to the ExpressRoute gateway.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
@@ -108,6 +109,7 @@ class ExpressRouteGatewayArgs:
     def express_route_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]]]:
         """
         List of ExpressRoute connections to the ExpressRoute gateway.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "express_route_connections")
 
@@ -187,6 +189,7 @@ class ExpressRouteGateway(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_non_virtual_wan_traffic: Configures this gateway to accept traffic from non Virtual WAN networks.
         :param pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] auto_scale_configuration: Configuration for auto scaling.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteConnectionArgs']]]] express_route_connections: List of ExpressRoute connections to the ExpressRoute gateway.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.

@@ -161,6 +161,7 @@ export interface NamespaceArgs {
     namespaceName?: pulumi.Input<string>;
     /**
      * List of private endpoint connections.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.relay.v20211101.PrivateEndpointConnectionArgs>[]>;
     /**

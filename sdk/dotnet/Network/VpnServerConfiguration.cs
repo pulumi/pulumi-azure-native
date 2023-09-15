@@ -212,6 +212,7 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// List of all VpnServerConfigurationPolicyGroups.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.VpnServerConfigurationPolicyGroupArgs> ConfigurationPolicyGroups
         {

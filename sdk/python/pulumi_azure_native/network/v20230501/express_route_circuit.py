@@ -42,6 +42,7 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input[bool] allow_classic_operations: Allow classic operations.
         :param pulumi.Input[str] authorization_key: The authorizationKey.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]] authorizations: The list of authorizations.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] circuit_name: The name of the circuit.
         :param pulumi.Input[str] circuit_provisioning_state: The CircuitProvisioningState state of the resource.
@@ -51,6 +52,7 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]] peerings: The list of peerings.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] service_key: The ServiceKey.
         :param pulumi.Input[str] service_provider_notes: The ServiceProviderNotes.
         :param pulumi.Input['ExpressRouteCircuitServiceProviderPropertiesArgs'] service_provider_properties: The ServiceProviderProperties.
@@ -137,6 +139,7 @@ class ExpressRouteCircuitArgs:
     def authorizations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]]:
         """
         The list of authorizations.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "authorizations")
 
@@ -245,6 +248,7 @@ class ExpressRouteCircuitArgs:
     def peerings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitPeeringArgs']]]]:
         """
         The list of peerings.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "peerings")
 
@@ -358,6 +362,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[bool] allow_classic_operations: Allow classic operations.
         :param pulumi.Input[str] authorization_key: The authorizationKey.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitAuthorizationArgs']]]] authorizations: The list of authorizations.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[float] bandwidth_in_gbps: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
         :param pulumi.Input[str] circuit_name: The name of the circuit.
         :param pulumi.Input[str] circuit_provisioning_state: The CircuitProvisioningState state of the resource.
@@ -367,6 +372,7 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ExpressRouteCircuitPeeringArgs']]]] peerings: The list of peerings.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] service_key: The ServiceKey.
         :param pulumi.Input[str] service_provider_notes: The ServiceProviderNotes.
