@@ -260,6 +260,7 @@
   ],
   "DBforMySQL": [
     "2022-09-30-preview",
+    "2023-06-01-preview",
     "2023-06-30"
   ],
   "DBforPostgreSQL": [
