@@ -62,7 +62,6 @@ type BuildSchemaResult struct {
 }
 
 func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
-	buildSchemaResult := BuildSchemaReports{}
 	specsDir := args.Specs.SpecsDir
 	if specsDir == "" {
 		specsDir = path.Join(args.RootDir, "azure-rest-api-specs")
@@ -71,7 +70,6 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	buildSchemaResult.NamingDisambiguations = diagnostics.NamingDisambiguations
 
 	majorVersion, err := strconv.ParseInt(strings.Split(args.Version, ".")[0], 10, 64)
 	if err != nil {
@@ -98,7 +96,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		providers = openapi.SingleVersion(providers)
 	}
 
-	generationResult, err := gen.PulumiSchema(providers, versionMetadata)
+	generationResult, err := gen.PulumiSchema(args.RootDir, providers, versionMetadata)
 	if err != nil {
 		return nil, err
 	}
@@ -110,7 +108,7 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 	if len(args.ExampleLanguages) > 0 {
 		// Ensure the spec is stamped with a version - Go gen needs it.
 		pkgSpec.Version = args.Version
-		err = gen.Examples(pkgSpec, metadata, examples, args.ExampleLanguages)
+		err = gen.Examples(args.RootDir, pkgSpec, metadata, examples, args.ExampleLanguages)
 		if err != nil {
 			return nil, err
 		}
@@ -118,12 +116,15 @@ func BuildSchema(args BuildSchemaArgs) (*BuildSchemaResult, error) {
 		pkgSpec.Version = ""
 	}
 
-	buildSchemaResult.PathChangesResult = pathChanges
-	buildSchemaResult.AllResourcesByVersion = versionMetadata.AllResourcesByVersion
-	buildSchemaResult.AllResourceVersionsByResource = versionMetadata.AllResourceVersionsByResource
-	buildSchemaResult.Active = versionMetadata.Active
-	buildSchemaResult.Pending = versionMetadata.Pending
-	buildSchemaResult.CurationViolations = versionMetadata.CurationViolations
+	buildSchemaResult := BuildSchemaReports{
+		NamingDisambiguations:         diagnostics.NamingDisambiguations,
+		PathChangesResult:             pathChanges,
+		AllResourcesByVersion:         versionMetadata.AllResourcesByVersion,
+		AllResourceVersionsByResource: versionMetadata.AllResourceVersionsByResource,
+		Active:                        versionMetadata.Active,
+		Pending:                       versionMetadata.Pending,
+		CurationViolations:            versionMetadata.CurationViolations,
+	}
 
 	return &BuildSchemaResult{
 		PackageSpec: *pkgSpec,
