@@ -58,6 +58,7 @@ class VirtualHubArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableV2Args']]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[float] virtual_router_asn: VirtualRouter ASN.
         :param pulumi.Input['VirtualRouterAutoScaleConfigurationArgs'] virtual_router_auto_scale_configuration: The VirtualHub Router autoscale configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.
@@ -305,6 +306,7 @@ class VirtualHubArgs:
     def virtual_hub_route_table_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableV2Args']]]]:
         """
         List of all virtual hub route table v2s associated with this VirtualHub.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "virtual_hub_route_table_v2s")
 
@@ -423,6 +425,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[float] virtual_router_asn: VirtualRouter ASN.
         :param pulumi.Input[pulumi.InputType['VirtualRouterAutoScaleConfigurationArgs']] virtual_router_auto_scale_configuration: The VirtualHub Router autoscale configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] virtual_router_ips: VirtualRouter IPs.

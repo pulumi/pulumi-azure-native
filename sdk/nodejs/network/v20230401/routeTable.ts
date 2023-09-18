@@ -150,6 +150,7 @@ export interface RouteTableArgs {
     routeTableName?: pulumi.Input<string>;
     /**
      * Collection of routes contained within a route table.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     routes?: pulumi.Input<pulumi.Input<inputs.network.v20230401.RouteArgs>[]>;
     /**

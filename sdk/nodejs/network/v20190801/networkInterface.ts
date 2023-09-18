@@ -230,6 +230,7 @@ export interface NetworkInterfaceArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of TapConfigurations of the network interface.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     tapConfigurations?: pulumi.Input<pulumi.Input<inputs.network.v20190801.NetworkInterfaceTapConfigurationArgs>[]>;
 }

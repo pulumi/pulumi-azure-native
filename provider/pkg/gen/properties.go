@@ -191,7 +191,23 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 }
 
 func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context *openapi.ReferenceContext, resolvedProperty *openapi.Schema, isOutput, isType bool) (*pschema.PropertySpec, *resources.AzureAPIProperty, error) {
-	description, err := getPropertyDescription(schema, context)
+	// Identify properties which are aso available as standalone resources and mark them to be maintained if not specified inline.
+	// Ignore types as we only support top-level resource properties
+	// Ignore outputs as this is only affecting the input args of a resource, not the resource outputs.
+	// We only consider arrays (with Items) because in order for the sub-resource to be a standalone resource it must be able to have many instances.
+	// There is other kinds of sub-resources where there's only a single instance within the parent resource but these are not handled here.
+	// They are currently handled by the openapi.default module - where we have to add a special case for them *because* they're not managed by the parent and don't have their own delete method.
+	maintainSubResourceIfUnset := false
+	if !isType && !isOutput && schema.Items != nil && schema.Items.Schema != nil {
+		itemsRef := schema.Items.Schema.Ref.String()
+		for _, nestedRef := range m.nestedResourceBodyRefs {
+			if itemsRef == nestedRef {
+				maintainSubResourceIfUnset = true
+			}
+		}
+	}
+
+	description, err := getPropertyDescription(schema, context, maintainSubResourceIfUnset)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -265,13 +281,14 @@ func (m *moduleGenerator) genProperty(name string, schema *spec.Schema, context 
 	}
 
 	metadataProperty := resources.AzureAPIProperty{
-		OneOf:                m.getOneOfValues(typeSpec),
-		Ref:                  schemaProperty.Ref,
-		Items:                m.itemTypeToProperty(typeSpec.Items),
-		AdditionalProperties: m.itemTypeToProperty(typeSpec.AdditionalProperties),
-		ForceNew:             forceNew,
-		IsStringSet:          isStringSet,
-		Default:              defaultValue,
+		OneOf:                      m.getOneOfValues(typeSpec),
+		Ref:                        schemaProperty.Ref,
+		Items:                      m.itemTypeToProperty(typeSpec.Items),
+		AdditionalProperties:       m.itemTypeToProperty(typeSpec.AdditionalProperties),
+		ForceNew:                   forceNew,
+		IsStringSet:                isStringSet,
+		Default:                    defaultValue,
+		MaintainSubResourceIfUnset: maintainSubResourceIfUnset,
 	}
 
 	// Input types only get extra information attached

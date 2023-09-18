@@ -193,6 +193,7 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// List of all vpn connections to the gateway.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.VpnConnectionArgs> Connections
         {
@@ -235,6 +236,7 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// List of all the nat Rules associated with the gateway.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.VpnGatewayNatRuleArgs> NatRules
         {

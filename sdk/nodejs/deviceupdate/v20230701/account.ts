@@ -163,6 +163,7 @@ export interface AccountArgs {
     location?: pulumi.Input<string>;
     /**
      * List of private endpoint connections associated with the account.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.deviceupdate.v20230701.PrivateEndpointConnectionArgs>[]>;
     /**

@@ -266,6 +266,7 @@ namespace Pulumi.AzureNative.Network.V20230501
 
         /// <summary>
         /// The list of circuit connections associated with Azure Private Peering for this circuit.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.ExpressRouteCircuitConnectionArgs> Connections
         {

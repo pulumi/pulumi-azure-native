@@ -200,6 +200,7 @@ export interface VirtualNetworkArgs {
     resourceGuid?: pulumi.Input<string>;
     /**
      * A list of subnets in a Virtual Network.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     subnets?: pulumi.Input<pulumi.Input<inputs.network.v20190801.SubnetArgs>[]>;
     /**
@@ -212,6 +213,7 @@ export interface VirtualNetworkArgs {
     virtualNetworkName?: pulumi.Input<string>;
     /**
      * A list of peerings in a Virtual Network.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.v20190801.VirtualNetworkPeeringArgs>[]>;
 }

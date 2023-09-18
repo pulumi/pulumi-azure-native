@@ -207,6 +207,7 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// Collection of routes contained within a route table.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.RouteArgs> Routes
         {

@@ -280,6 +280,7 @@ namespace Pulumi.AzureNative.Synapse
 
         /// <summary>
         /// Private endpoint connections to the workspace
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.PrivateEndpointConnectionArgs> PrivateEndpointConnections
         {

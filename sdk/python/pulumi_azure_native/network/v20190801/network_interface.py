@@ -47,6 +47,7 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[str] resource_guid: The resource GUID property of the network interface resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTapConfigurationArgs']]] tap_configurations: A list of TapConfigurations of the network interface.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dns_settings is not None:
@@ -237,6 +238,7 @@ class NetworkInterfaceArgs:
     def tap_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkInterfaceTapConfigurationArgs']]]]:
         """
         A list of TapConfigurations of the network interface.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "tap_configurations")
 
@@ -284,6 +286,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] resource_guid: The resource GUID property of the network interface resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkInterfaceTapConfigurationArgs']]]] tap_configurations: A list of TapConfigurations of the network interface.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         ...
     @overload

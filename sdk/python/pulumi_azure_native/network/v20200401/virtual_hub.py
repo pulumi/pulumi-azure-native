@@ -49,6 +49,7 @@ class VirtualHubArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableV2Args']]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Sequence[pulumi.Input['HubVirtualNetworkConnectionArgs']]] virtual_network_connections: List of all vnet connections with this VirtualHub.
         :param pulumi.Input['SubResourceArgs'] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
         :param pulumi.Input['SubResourceArgs'] vpn_gateway: The VpnGateway associated with this VirtualHub.
@@ -248,6 +249,7 @@ class VirtualHubArgs:
     def virtual_hub_route_table_v2s(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualHubRouteTableV2Args']]]]:
         """
         List of all virtual hub route table v2s associated with this VirtualHub.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "virtual_hub_route_table_v2s")
 
@@ -334,6 +336,7 @@ class VirtualHub(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualHubRouteTableV2Args']]]] virtual_hub_route_table_v2s: List of all virtual hub route table v2s associated with this VirtualHub.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['HubVirtualNetworkConnectionArgs']]]] virtual_network_connections: List of all vnet connections with this VirtualHub.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] virtual_wan: The VirtualWAN to which the VirtualHub belongs.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] vpn_gateway: The VpnGateway associated with this VirtualHub.

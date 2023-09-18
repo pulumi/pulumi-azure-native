@@ -321,6 +321,7 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// A list of subnets in a Virtual Network.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.SubnetArgs> Subnets
         {
@@ -351,6 +352,7 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// A list of peerings in a Virtual Network.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.VirtualNetworkPeeringArgs> VirtualNetworkPeerings
         {

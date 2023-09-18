@@ -38,6 +38,7 @@ class ProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]] allowed_endpoint_record_types: The list of allowed endpoint record types.
         :param pulumi.Input['DnsConfigArgs'] dns_config: The DNS settings of the Traffic Manager profile.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]] endpoints: The list of endpoints in the Traffic Manager profile.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[float] max_return: Maximum number of endpoints to be returned for MultiValue routing type.
@@ -121,6 +122,7 @@ class ProfileArgs:
     def endpoints(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointArgs']]]]:
         """
         The list of endpoints in the Traffic Manager profile.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "endpoints")
 
@@ -290,6 +292,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]] allowed_endpoint_record_types: The list of allowed endpoint record types.
         :param pulumi.Input[pulumi.InputType['DnsConfigArgs']] dns_config: The DNS settings of the Traffic Manager profile.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointArgs']]]] endpoints: The list of endpoints in the Traffic Manager profile.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[str] location: The Azure Region where the resource lives
         :param pulumi.Input[float] max_return: Maximum number of endpoints to be returned for MultiValue routing type.

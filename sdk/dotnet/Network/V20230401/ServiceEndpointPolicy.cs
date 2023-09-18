@@ -208,6 +208,7 @@ namespace Pulumi.AzureNative.Network.V20230401
 
         /// <summary>
         /// A collection of service endpoint policy definitions of the service endpoint policy.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.ServiceEndpointPolicyDefinitionArgs> ServiceEndpointPolicyDefinitions
         {

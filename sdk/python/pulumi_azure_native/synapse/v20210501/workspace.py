@@ -49,6 +49,7 @@ class WorkspaceArgs:
         :param pulumi.Input[str] managed_virtual_network: Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
         :param pulumi.Input['ManagedVirtualNetworkSettingsArgs'] managed_virtual_network_settings: Managed Virtual Network Settings
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: Private endpoint connections to the workspace
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[str, 'WorkspacePublicNetworkAccess']] public_network_access: Enable or Disable public network access to workspace
         :param pulumi.Input['PurviewConfigurationArgs'] purview_configuration: Purview Configuration
         :param pulumi.Input[str] sql_administrator_login: Login for workspace SQL active directory administrator
@@ -221,6 +222,7 @@ class WorkspaceArgs:
     def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
         """
         Private endpoint connections to the workspace
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -365,6 +367,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] managed_virtual_network: Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
         :param pulumi.Input[pulumi.InputType['ManagedVirtualNetworkSettingsArgs']] managed_virtual_network_settings: Managed Virtual Network Settings
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: Private endpoint connections to the workspace
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[str, 'WorkspacePublicNetworkAccess']] public_network_access: Enable or Disable public network access to workspace
         :param pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']] purview_configuration: Purview Configuration
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.

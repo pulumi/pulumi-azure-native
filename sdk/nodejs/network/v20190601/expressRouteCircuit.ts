@@ -194,6 +194,7 @@ export interface ExpressRouteCircuitArgs {
     allowClassicOperations?: pulumi.Input<boolean>;
     /**
      * The list of authorizations.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     authorizations?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ExpressRouteCircuitAuthorizationArgs>[]>;
     /**
@@ -230,6 +231,7 @@ export interface ExpressRouteCircuitArgs {
     location?: pulumi.Input<string>;
     /**
      * The list of peerings.
+     * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
     peerings?: pulumi.Input<pulumi.Input<inputs.network.v20190601.ExpressRouteCircuitPeeringArgs>[]>;
     /**

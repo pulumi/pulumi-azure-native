@@ -132,6 +132,7 @@ namespace Pulumi.AzureNative.NetworkFunction.V20220801
 
         /// <summary>
         /// Collector Policies for Azure Traffic Collector.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.CollectorPolicyArgs> CollectorPolicies
         {

@@ -172,6 +172,7 @@ namespace Pulumi.AzureNative.Network
 
         /// <summary>
         /// List of ExpressRoute connections to the ExpressRoute gateway.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.ExpressRouteConnectionArgs> ExpressRouteConnections
         {

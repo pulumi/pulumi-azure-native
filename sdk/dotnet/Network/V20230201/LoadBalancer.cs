@@ -212,6 +212,7 @@ namespace Pulumi.AzureNative.Network.V20230201
 
         /// <summary>
         /// Collection of backend address pools used by a load balancer.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.BackendAddressPoolArgs> BackendAddressPools
         {
@@ -260,6 +261,7 @@ namespace Pulumi.AzureNative.Network.V20230201
 
         /// <summary>
         /// Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.InboundNatRuleArgs> InboundNatRules
         {

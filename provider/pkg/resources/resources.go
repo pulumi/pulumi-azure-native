@@ -61,6 +61,12 @@ type AzureAPIProperty struct {
 	IsStringSet bool `json:"isStringSet,omitempty"`
 	// Default is the default value for the parameter, if any
 	Default interface{} `json:"default,omitempty"`
+	// Some resources are nested beneath other resources, but are also made available as a property on the parent.
+	// When updating the parent, if the list of nested resources is not specified as a property on the parent, the child resources will be deleted.
+	// When refreshing the parent, the list of nested resources will be populated from the current state - resulting in an unwanted diff.
+	// We work around this by setting MaintainSubResourceIfUnset to true for the properties containing a list of nested resources.
+	// When updating or refreshing the parent, if the list of nested resources was not originally specified inline, we'll maintain the existing sub-resources transparently.
+	MaintainSubResourceIfUnset bool `json:"maintainSubResourceIfUnset,omitempty"`
 }
 
 // AzureAPIType represents the shape of an object property.

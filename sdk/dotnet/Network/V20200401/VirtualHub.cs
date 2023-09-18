@@ -294,6 +294,7 @@ namespace Pulumi.AzureNative.Network.V20200401
 
         /// <summary>
         /// List of all virtual hub route table v2s associated with this VirtualHub.
+        /// These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         /// </summary>
         public InputList<Inputs.VirtualHubRouteTableV2Args> VirtualHubRouteTableV2s
         {

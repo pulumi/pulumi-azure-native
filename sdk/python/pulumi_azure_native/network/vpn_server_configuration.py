@@ -40,6 +40,7 @@ class VpnServerConfigurationArgs:
         :param pulumi.Input[str] resource_group_name: The resource group name of the VpnServerConfiguration.
         :param pulumi.Input['AadAuthenticationParametersArgs'] aad_authentication_parameters: The set of aad vpn authentication parameters.
         :param pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]] configuration_policy_groups: List of all VpnServerConfigurationPolicyGroups.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VpnServerConfiguration that is unique within a resource group.
@@ -121,6 +122,7 @@ class VpnServerConfigurationArgs:
     def configuration_policy_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupArgs']]]]:
         """
         List of all VpnServerConfigurationPolicyGroups.
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "configuration_policy_groups")
 
@@ -341,6 +343,7 @@ class VpnServerConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']] aad_authentication_parameters: The set of aad vpn authentication parameters.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnServerConfigurationPolicyGroupArgs']]]] configuration_policy_groups: List of all VpnServerConfigurationPolicyGroups.
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the VpnServerConfiguration that is unique within a resource group.

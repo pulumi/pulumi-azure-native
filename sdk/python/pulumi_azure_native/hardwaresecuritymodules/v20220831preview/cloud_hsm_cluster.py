@@ -36,6 +36,7 @@ class CloudHsmClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['CloudHsmPropertiesArgs']]] hsms: An array of Cloud HSM Cluster's HSMs
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: List of private endpoint connection resources
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The Cloud HSM Cluster's provisioningState
         :param pulumi.Input[str] public_network_access: The Cloud HSM Cluster public network access
         :param pulumi.Input['CloudHsmClusterSecurityDomainPropertiesArgs'] security_domain: Security domain properties information for Cloud HSM cluster
@@ -129,6 +130,7 @@ class CloudHsmClusterArgs:
     def private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]]:
         """
         List of private endpoint connection resources
+        These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -224,6 +226,7 @@ class CloudHsmCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CloudHsmPropertiesArgs']]]] hsms: An array of Cloud HSM Cluster's HSMs
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionArgs']]]] private_endpoint_connections: List of private endpoint connection resources
+               These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[str, 'ProvisioningState']] provisioning_state: The Cloud HSM Cluster's provisioningState
         :param pulumi.Input[str] public_network_access: The Cloud HSM Cluster public network access
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
