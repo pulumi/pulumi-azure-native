@@ -252,7 +252,6 @@ ContainerRegistry:
         AgentPool: 2019-06-01-preview
         Archife: 2023-06-01-preview
         ArchiveVersion: 2023-06-01-preview
-        BuildStep: 2018-02-01-preview
         CacheRule: 2023-01-01-preview
         ConnectedRegistry: 2023-01-01-preview
         CredentialSet: 2023-01-01-preview
@@ -261,12 +260,7 @@ ContainerRegistry:
         PipelineRun: 2023-01-01-preview
         Task: 2019-06-01-preview
         TaskRun: 2019-06-01-preview
-        getBuildLogLink: 2018-02-01-preview
-        getRegistryBuildSourceUploadUrl: 2018-02-01-preview
-        getRegistryCredentials: 2016-06-27-preview
         listAgentPoolQueueStatus: 2019-06-01-preview
-        listBuildStepBuildArguments: 2018-02-01-preview
-        listBuildTaskSourceRepositoryProperties: 2018-02-01-preview
         listRegistryBuildSourceUploadUrl: 2019-06-01-preview
         listRunLogSasUrl: 2019-06-01-preview
         listTaskDetails: 2019-06-01-preview
@@ -398,6 +392,18 @@ DBforMySQL:
         - provider: DBforMySQL
           resourcename: Server
           detail: version 2022-09-30-preview is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: Configuration
+          detail: version 2023-06-01-preview is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: Database
+          detail: version 2023-06-01-preview is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: FirewallRule
+          detail: version 2023-06-01-preview is greater than 2017-12-01
+        - provider: DBforMySQL
+          resourcename: Server
+          detail: version 2023-06-01-preview is greater than 2017-12-01
         - provider: DBforMySQL
           resourcename: PrivateEndpointConnection
           detail: version 2023-06-30 is greater than 2018-06-01
@@ -755,6 +761,7 @@ Kusto:
     tracking: "2022-12-29"
     additions:
         EventHubConnection: 2018-09-07-preview
+        SandboxCustomImage: "2023-08-15"
 LabServices:
     tracking: "2022-08-01"
     additions:
