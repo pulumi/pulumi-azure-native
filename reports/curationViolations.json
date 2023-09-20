@@ -48,6 +48,10 @@
     "Detail": "expected tracking preview but found stable"
   },
   {
+    "Provider": "DevCenter",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "EdgeOrder",
     "Detail": "expected no additions but found some"
   },
