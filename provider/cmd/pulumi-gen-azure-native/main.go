@@ -313,7 +313,7 @@ module github.com/pulumi/pulumi-azure-native-sdk{{ .ModuleVersionPath }}
 module github.com/pulumi/pulumi-azure-native-sdk/{{ .SubmoduleName }}{{ .ModuleVersionPath }}
 {{ end }}
 
-go 1.17
+go 1.18
 
 require (
 	github.com/blang/semver v3.5.1+incompatible
