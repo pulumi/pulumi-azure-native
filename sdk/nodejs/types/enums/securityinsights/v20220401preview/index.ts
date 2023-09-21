@@ -17,4 +17,7 @@ export const EntityTimelineKind = {
     SecurityAlert: "SecurityAlert",
 } as const;
 
+/**
+ * The entity query kind
+ */
 export type EntityTimelineKind = (typeof EntityTimelineKind)[keyof typeof EntityTimelineKind];

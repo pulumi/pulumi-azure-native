@@ -7,12 +7,18 @@ export const BillingType = {
     Workspaces: "Workspaces",
 } as const;
 
+/**
+ * The cluster's billing type.
+ */
 export type BillingType = (typeof BillingType)[keyof typeof BillingType];
 
 export const ClusterSkuNameEnum = {
     CapacityReservation: "CapacityReservation",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type ClusterSkuNameEnum = (typeof ClusterSkuNameEnum)[keyof typeof ClusterSkuNameEnum];
 
 export const IdentityType = {
@@ -21,6 +27,9 @@ export const IdentityType = {
     None: "None",
 } as const;
 
+/**
+ * Type of managed service identity.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const PublicNetworkAccessType = {
@@ -34,6 +43,9 @@ export const PublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The network access type for accessing Log Analytics query.
+ */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const WorkspaceEntityStatus = {
@@ -46,6 +58,9 @@ export const WorkspaceEntityStatus = {
     Updating: "Updating",
 } as const;
 
+/**
+ * The provisioning state of the workspace.
+ */
 export type WorkspaceEntityStatus = (typeof WorkspaceEntityStatus)[keyof typeof WorkspaceEntityStatus];
 
 export const WorkspaceSkuNameEnum = {
@@ -59,4 +74,7 @@ export const WorkspaceSkuNameEnum = {
     LACluster: "LACluster",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type WorkspaceSkuNameEnum = (typeof WorkspaceSkuNameEnum)[keyof typeof WorkspaceSkuNameEnum];

@@ -9,4 +9,7 @@ export const PrivateEndpointServiceConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];

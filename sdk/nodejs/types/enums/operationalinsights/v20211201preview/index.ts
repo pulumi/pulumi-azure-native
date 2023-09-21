@@ -13,6 +13,9 @@ export const PublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The network access type for accessing Log Analytics query.
+ */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const WorkspaceSkuNameEnum = {
@@ -26,4 +29,7 @@ export const WorkspaceSkuNameEnum = {
     LACluster: "LACluster",
 } as const;
 
+/**
+ * The name of the SKU.
+ */
 export type WorkspaceSkuNameEnum = (typeof WorkspaceSkuNameEnum)[keyof typeof WorkspaceSkuNameEnum];

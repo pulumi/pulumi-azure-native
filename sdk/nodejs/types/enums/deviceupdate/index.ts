@@ -12,6 +12,9 @@ export const AuthenticationType = {
     KeyBased: "KeyBased",
 } as const;
 
+/**
+ * Authentication Type
+ */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 export const ManagedServiceIdentityType = {
@@ -21,6 +24,9 @@ export const ManagedServiceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -29,6 +35,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -36,6 +45,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not public network access is allowed for the account.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const SKU = {
@@ -43,4 +55,7 @@ export const SKU = {
     Standard: "Standard",
 } as const;
 
+/**
+ * Device Update Sku
+ */
 export type SKU = (typeof SKU)[keyof typeof SKU];

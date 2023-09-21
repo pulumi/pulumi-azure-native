@@ -7,4 +7,7 @@ export const Kind = {
     ReadOnlyFollowing: "ReadOnlyFollowing",
 } as const;
 
+/**
+ * Kind of the database
+ */
 export type Kind = (typeof Kind)[keyof typeof Kind];

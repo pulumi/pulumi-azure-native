@@ -7,6 +7,9 @@ export const ArmServerKeyType = {
     AzureKeyVault: "AzureKeyVault",
 } as const;
 
+/**
+ * Data encryption type to depict if it is System assigned vs Azure Key vault.
+ */
 export type ArmServerKeyType = (typeof ArmServerKeyType)[keyof typeof ArmServerKeyType];
 
 export const CreateMode = {
@@ -18,6 +21,9 @@ export const CreateMode = {
     Replica: "Replica",
 } as const;
 
+/**
+ * The mode to create a new PostgreSQL server.
+ */
 export type CreateMode = (typeof CreateMode)[keyof typeof CreateMode];
 
 export const GeoRedundantBackupEnum = {
@@ -25,6 +31,9 @@ export const GeoRedundantBackupEnum = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * A value indicating whether Geo-Redundant backup is enabled on the server.
+ */
 export type GeoRedundantBackupEnum = (typeof GeoRedundantBackupEnum)[keyof typeof GeoRedundantBackupEnum];
 
 export const HighAvailabilityMode = {
@@ -33,6 +42,9 @@ export const HighAvailabilityMode = {
     SameZone: "SameZone",
 } as const;
 
+/**
+ * The HA mode for the server.
+ */
 export type HighAvailabilityMode = (typeof HighAvailabilityMode)[keyof typeof HighAvailabilityMode];
 
 export const IdentityType = {
@@ -41,6 +53,9 @@ export const IdentityType = {
     UserAssigned: "UserAssigned",
 } as const;
 
+/**
+ * the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const ReplicationRole = {
@@ -50,6 +65,9 @@ export const ReplicationRole = {
     GeoAsyncReplica: "GeoAsyncReplica",
 } as const;
 
+/**
+ * Replication role of the server
+ */
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
 
 export const ServerVersion = {
@@ -59,6 +77,9 @@ export const ServerVersion = {
     ServerVersion_11: "11",
 } as const;
 
+/**
+ * PostgreSQL Server version.
+ */
 export type ServerVersion = (typeof ServerVersion)[keyof typeof ServerVersion];
 
 export const SkuTier = {
@@ -67,4 +88,7 @@ export const SkuTier = {
     MemoryOptimized: "MemoryOptimized",
 } as const;
 
+/**
+ * The tier of the particular SKU, e.g. Burstable.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

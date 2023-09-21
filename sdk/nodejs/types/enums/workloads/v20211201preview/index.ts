@@ -7,6 +7,9 @@ export const AzureFrontDoorEnabled = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to enable Azure front door
+ */
 export type AzureFrontDoorEnabled = (typeof AzureFrontDoorEnabled)[keyof typeof AzureFrontDoorEnabled];
 
 export const DatabaseTier = {
@@ -15,12 +18,18 @@ export const DatabaseTier = {
     MemoryOptimized: "MemoryOptimized",
 } as const;
 
+/**
+ * Tier of the server SKU
+ */
 export type DatabaseTier = (typeof DatabaseTier)[keyof typeof DatabaseTier];
 
 export const DatabaseType = {
     MySql: "MySql",
 } as const;
 
+/**
+ * Database type
+ */
 export type DatabaseType = (typeof DatabaseType)[keyof typeof DatabaseType];
 
 export const DiskStorageType = {
@@ -29,6 +38,9 @@ export const DiskStorageType = {
     StandardSSD_LRS: "StandardSSD_LRS",
 } as const;
 
+/**
+ * Storage type
+ */
 export type DiskStorageType = (typeof DiskStorageType)[keyof typeof DiskStorageType];
 
 export const EnableBackup = {
@@ -36,6 +48,9 @@ export const EnableBackup = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to enable Azure backup for the workload
+ */
 export type EnableBackup = (typeof EnableBackup)[keyof typeof EnableBackup];
 
 export const EnableSslEnforcement = {
@@ -43,6 +58,9 @@ export const EnableSslEnforcement = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to enable SSL enforcement on the database
+ */
 export type EnableSslEnforcement = (typeof EnableSslEnforcement)[keyof typeof EnableSslEnforcement];
 
 export const FileShareStorageType = {
@@ -52,6 +70,9 @@ export const FileShareStorageType = {
     Premium_LRS: "Premium_LRS",
 } as const;
 
+/**
+ * File share backing storage type
+ */
 export type FileShareStorageType = (typeof FileShareStorageType)[keyof typeof FileShareStorageType];
 
 export const FileShareType = {
@@ -59,6 +80,9 @@ export const FileShareType = {
     AzureFiles: "AzureFiles",
 } as const;
 
+/**
+ * Share type
+ */
 export type FileShareType = (typeof FileShareType)[keyof typeof FileShareType];
 
 export const HAEnabled = {
@@ -66,6 +90,9 @@ export const HAEnabled = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to enable HA for the server
+ */
 export type HAEnabled = (typeof HAEnabled)[keyof typeof HAEnabled];
 
 export const LoadBalancerType = {
@@ -73,6 +100,9 @@ export const LoadBalancerType = {
     LoadBalancer: "LoadBalancer",
 } as const;
 
+/**
+ * Load balancer type
+ */
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
 
 export const ManagedServiceIdentityType = {
@@ -80,18 +110,27 @@ export const ManagedServiceIdentityType = {
     UserAssigned: "UserAssigned",
 } as const;
 
+/**
+ * Type of manage identity
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const OSImageOffer = {
     UbuntuServer: "UbuntuServer",
 } as const;
 
+/**
+ * OS image offer
+ */
 export type OSImageOffer = (typeof OSImageOffer)[keyof typeof OSImageOffer];
 
 export const OSImagePublisher = {
     Canonical: "Canonical",
 } as const;
 
+/**
+ * OS image publisher
+ */
 export type OSImagePublisher = (typeof OSImagePublisher)[keyof typeof OSImagePublisher];
 
 export const OSImageSku = {
@@ -99,12 +138,18 @@ export const OSImageSku = {
     OSImageSku_16_04_LTS: "16.04-LTS",
 } as const;
 
+/**
+ * OS image sku
+ */
 export type OSImageSku = (typeof OSImageSku)[keyof typeof OSImageSku];
 
 export const OSImageVersion = {
     Latest: "latest",
 } as const;
 
+/**
+ * OS image version
+ */
 export type OSImageVersion = (typeof OSImageVersion)[keyof typeof OSImageVersion];
 
 export const PHPVersion = {
@@ -113,6 +158,9 @@ export const PHPVersion = {
     PHPVersion_7_4: "7.4",
 } as const;
 
+/**
+ * PHP version
+ */
 export type PHPVersion = (typeof PHPVersion)[keyof typeof PHPVersion];
 
 export const RedisCacheFamily = {
@@ -120,12 +168,18 @@ export const RedisCacheFamily = {
     P: "P",
 } as const;
 
+/**
+ * Cache family
+ */
 export type RedisCacheFamily = (typeof RedisCacheFamily)[keyof typeof RedisCacheFamily];
 
 export const SAPDatabaseScaleMethod = {
     ScaleUp: "ScaleUp",
 } as const;
 
+/**
+ * The DB scale method.
+ */
 export type SAPDatabaseScaleMethod = (typeof SAPDatabaseScaleMethod)[keyof typeof SAPDatabaseScaleMethod];
 
 export const SAPDatabaseType = {
@@ -133,6 +187,9 @@ export const SAPDatabaseType = {
     DB2: "DB2",
 } as const;
 
+/**
+ * The database type. Eg: HANA, DB2, etc
+ */
 export type SAPDatabaseType = (typeof SAPDatabaseType)[keyof typeof SAPDatabaseType];
 
 export const SAPDeploymentType = {
@@ -140,6 +197,9 @@ export const SAPDeploymentType = {
     ThreeTier: "ThreeTier",
 } as const;
 
+/**
+ * The deployment type. Eg: SingleServer/ThreeTier
+ */
 export type SAPDeploymentType = (typeof SAPDeploymentType)[keyof typeof SAPDeploymentType];
 
 export const SAPEnvironmentType = {
@@ -147,6 +207,9 @@ export const SAPEnvironmentType = {
     Prod: "Prod",
 } as const;
 
+/**
+ * Defines the environment type - Production/Non Production.
+ */
 export type SAPEnvironmentType = (typeof SAPEnvironmentType)[keyof typeof SAPEnvironmentType];
 
 export const SAPHighAvailabilityType = {
@@ -154,6 +217,9 @@ export const SAPHighAvailabilityType = {
     AvailabilityZone: "AvailabilityZone",
 } as const;
 
+/**
+ * The high availability type.
+ */
 export type SAPHighAvailabilityType = (typeof SAPHighAvailabilityType)[keyof typeof SAPHighAvailabilityType];
 
 export const SAPProductType = {
@@ -162,12 +228,18 @@ export const SAPProductType = {
     Other: "Other",
 } as const;
 
+/**
+ * Defines the SAP Product type.
+ */
 export type SAPProductType = (typeof SAPProductType)[keyof typeof SAPProductType];
 
 export const SearchType = {
     Elastic: "Elastic",
 } as const;
 
+/**
+ * Search type
+ */
 export type SearchType = (typeof SearchType)[keyof typeof SearchType];
 
 export const SkuTier = {
@@ -177,6 +249,9 @@ export const SkuTier = {
     Premium: "Premium",
 } as const;
 
+/**
+ * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const WordpressVersions = {
@@ -186,10 +261,16 @@ export const WordpressVersions = {
     WordpressVersions_5_4: "5.4",
 } as const;
 
+/**
+ * Application version
+ */
 export type WordpressVersions = (typeof WordpressVersions)[keyof typeof WordpressVersions];
 
 export const WorkloadKind = {
     WordPress: "WordPress",
 } as const;
 
+/**
+ * Indicates which kind of php workload this resource represent e.g WordPress
+ */
 export type WorkloadKind = (typeof WorkloadKind)[keyof typeof WorkloadKind];

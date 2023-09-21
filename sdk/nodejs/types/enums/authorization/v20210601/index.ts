@@ -12,6 +12,9 @@ export const ParameterType = {
     DateTime: "DateTime",
 } as const;
 
+/**
+ * The data type of the parameter.
+ */
 export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 export const PolicyType = {
@@ -21,4 +24,7 @@ export const PolicyType = {
     Static: "Static",
 } as const;
 
+/**
+ * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
+ */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];

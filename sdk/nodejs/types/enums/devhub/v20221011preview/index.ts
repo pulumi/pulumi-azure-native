@@ -13,6 +13,9 @@ export const DockerfileGenerationMode = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The mode of generation to be used for generating Dockerfiles.
+ */
 export type DockerfileGenerationMode = (typeof DockerfileGenerationMode)[keyof typeof DockerfileGenerationMode];
 
 export const GenerationLanguage = {
@@ -70,6 +73,9 @@ export const GenerationLanguage = {
     Swift: "swift",
 } as const;
 
+/**
+ * The programming language used.
+ */
 export type GenerationLanguage = (typeof GenerationLanguage)[keyof typeof GenerationLanguage];
 
 export const GenerationManifestType = {
@@ -83,6 +89,9 @@ export const GenerationManifestType = {
     Kube: "kube",
 } as const;
 
+/**
+ * Determines the type of manifests to be generated.
+ */
 export type GenerationManifestType = (typeof GenerationManifestType)[keyof typeof GenerationManifestType];
 
 export const ManifestGenerationMode = {
@@ -96,6 +105,9 @@ export const ManifestGenerationMode = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The mode of generation to be used for generating Manifest.
+ */
 export type ManifestGenerationMode = (typeof ManifestGenerationMode)[keyof typeof ManifestGenerationMode];
 
 export const ManifestType = {
@@ -109,6 +121,9 @@ export const ManifestType = {
     Kube: "kube",
 } as const;
 
+/**
+ * Determines the type of manifests within the repository.
+ */
 export type ManifestType = (typeof ManifestType)[keyof typeof ManifestType];
 
 export const WorkflowRunStatus = {
@@ -126,4 +141,7 @@ export const WorkflowRunStatus = {
     Completed: "completed",
 } as const;
 
+/**
+ * Describes the status of the workflow run
+ */
 export type WorkflowRunStatus = (typeof WorkflowRunStatus)[keyof typeof WorkflowRunStatus];

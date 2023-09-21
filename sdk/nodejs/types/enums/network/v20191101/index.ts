@@ -7,4 +7,7 @@ export const State = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The state of the Experiment
+ */
 export type State = (typeof State)[keyof typeof State];

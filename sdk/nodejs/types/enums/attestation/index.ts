@@ -16,6 +16,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccessType = {
@@ -29,6 +32,9 @@ export const PublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
+ */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const TpmAttestationAuthenticationType = {
@@ -42,4 +48,7 @@ export const TpmAttestationAuthenticationType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
+ */
 export type TpmAttestationAuthenticationType = (typeof TpmAttestationAuthenticationType)[keyof typeof TpmAttestationAuthenticationType];

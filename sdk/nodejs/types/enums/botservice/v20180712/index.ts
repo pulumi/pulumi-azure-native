@@ -15,6 +15,9 @@ export const EnterpriseChannelNodeState = {
     DeleteFailed: "DeleteFailed",
 } as const;
 
+/**
+ * The current state of the Enterprise Channel Node.
+ */
 export type EnterpriseChannelNodeState = (typeof EnterpriseChannelNodeState)[keyof typeof EnterpriseChannelNodeState];
 
 export const EnterpriseChannelState = {
@@ -30,6 +33,9 @@ export const EnterpriseChannelState = {
     DeleteFailed: "DeleteFailed",
 } as const;
 
+/**
+ * The current state of the Enterprise Channel.
+ */
 export type EnterpriseChannelState = (typeof EnterpriseChannelState)[keyof typeof EnterpriseChannelState];
 
 export const Kind = {
@@ -39,6 +45,9 @@ export const Kind = {
     Function: "function",
 } as const;
 
+/**
+ * Required. Gets or sets the Kind of the resource.
+ */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
 export const SkuName = {
@@ -46,4 +55,7 @@ export const SkuName = {
     S1: "S1",
 } as const;
 
+/**
+ * The sku name
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];

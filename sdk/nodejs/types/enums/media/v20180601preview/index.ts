@@ -7,6 +7,9 @@ export const LiveEventEncodingType = {
     Basic: "Basic",
 } as const;
 
+/**
+ * The encoding type for Live Event.
+ */
 export type LiveEventEncodingType = (typeof LiveEventEncodingType)[keyof typeof LiveEventEncodingType];
 
 export const LiveEventInputProtocol = {
@@ -14,6 +17,9 @@ export const LiveEventInputProtocol = {
     RTMP: "RTMP",
 } as const;
 
+/**
+ * The streaming protocol for the Live Event.
+ */
 export type LiveEventInputProtocol = (typeof LiveEventInputProtocol)[keyof typeof LiveEventInputProtocol];
 
 export const StreamOptionsFlag = {

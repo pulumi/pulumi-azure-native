@@ -24,6 +24,9 @@ export const CrossRegionRestoreState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * CrossRegionRestore state
+ */
 export type CrossRegionRestoreState = (typeof CrossRegionRestoreState)[keyof typeof CrossRegionRestoreState];
 
 export const CrossSubscriptionRestoreState = {
@@ -32,6 +35,9 @@ export const CrossSubscriptionRestoreState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * CrossSubscriptionRestore state
+ */
 export type CrossSubscriptionRestoreState = (typeof CrossSubscriptionRestoreState)[keyof typeof CrossSubscriptionRestoreState];
 
 export const DataStoreTypes = {
@@ -40,6 +46,9 @@ export const DataStoreTypes = {
     ArchiveStore: "ArchiveStore",
 } as const;
 
+/**
+ * type of datastore; Operational/Vault/Archive
+ */
 export type DataStoreTypes = (typeof DataStoreTypes)[keyof typeof DataStoreTypes];
 
 export const DayOfWeek = {
@@ -60,6 +69,9 @@ export const ImmutabilityState = {
     Locked: "Locked",
 } as const;
 
+/**
+ * Immutability state
+ */
 export type ImmutabilityState = (typeof ImmutabilityState)[keyof typeof ImmutabilityState];
 
 export const Month = {
@@ -83,6 +95,9 @@ export const ResourcePropertiesObjectType = {
     DefaultResourceProperties: "DefaultResourceProperties",
 } as const;
 
+/**
+ * Type of the specific object - used for deserializing
+ */
 export type ResourcePropertiesObjectType = (typeof ResourcePropertiesObjectType)[keyof typeof ResourcePropertiesObjectType];
 
 export const SecretStoreType = {
@@ -90,6 +105,9 @@ export const SecretStoreType = {
     AzureKeyVault: "AzureKeyVault",
 } as const;
 
+/**
+ * Gets or sets the type of secret store
+ */
 export type SecretStoreType = (typeof SecretStoreType)[keyof typeof SecretStoreType];
 
 export const SoftDeleteState = {
@@ -107,6 +125,9 @@ export const SoftDeleteState = {
     AlwaysOn: "AlwaysOn",
 } as const;
 
+/**
+ * State of soft delete
+ */
 export type SoftDeleteState = (typeof SoftDeleteState)[keyof typeof SoftDeleteState];
 
 export const StorageSettingStoreTypes = {
@@ -115,6 +136,9 @@ export const StorageSettingStoreTypes = {
     VaultStore: "VaultStore",
 } as const;
 
+/**
+ * Gets or sets the type of the datastore.
+ */
 export type StorageSettingStoreTypes = (typeof StorageSettingStoreTypes)[keyof typeof StorageSettingStoreTypes];
 
 export const StorageSettingTypes = {
@@ -123,6 +147,9 @@ export const StorageSettingTypes = {
     ZoneRedundant: "ZoneRedundant",
 } as const;
 
+/**
+ * Gets or sets the type.
+ */
 export type StorageSettingTypes = (typeof StorageSettingTypes)[keyof typeof StorageSettingTypes];
 
 export const ValidationType = {
@@ -130,6 +157,9 @@ export const ValidationType = {
     DeepValidation: "DeepValidation",
 } as const;
 
+/**
+ * Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again.
+ */
 export type ValidationType = (typeof ValidationType)[keyof typeof ValidationType];
 
 export const WeekNumber = {

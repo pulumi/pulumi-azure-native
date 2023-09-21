@@ -13,6 +13,11 @@ export const ManagedClusterUpgradeType = {
     NodeImageOnly: "NodeImageOnly",
 } as const;
 
+/**
+ * The upgrade type.
+ * Full requires the KubernetesVersion property to be set.
+ * NodeImageOnly requires the KubernetesVersion property not to be set.
+ */
 export type ManagedClusterUpgradeType = (typeof ManagedClusterUpgradeType)[keyof typeof ManagedClusterUpgradeType];
 
 export const ManagedServiceIdentityType = {
@@ -22,6 +27,9 @@ export const ManagedServiceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
 } as const;
 
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const NodeImageSelectionType = {
@@ -35,4 +43,7 @@ export const NodeImageSelectionType = {
     Consistent: "Consistent",
 } as const;
 
+/**
+ * The node image upgrade type.
+ */
 export type NodeImageSelectionType = (typeof NodeImageSelectionType)[keyof typeof NodeImageSelectionType];

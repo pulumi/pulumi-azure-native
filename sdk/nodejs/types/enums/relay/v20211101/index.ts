@@ -19,6 +19,9 @@ export const EndPointProvisioningState = {
     Failed: "Failed",
 } as const;
 
+/**
+ * Provisioning state of the Private Endpoint Connection.
+ */
 export type EndPointProvisioningState = (typeof EndPointProvisioningState)[keyof typeof EndPointProvisioningState];
 
 export const PrivateLinkConnectionStatus = {
@@ -28,6 +31,9 @@ export const PrivateLinkConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * Status of the connection.
+ */
 export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
 
 export const PublicNetworkAccess = {
@@ -36,6 +42,9 @@ export const PublicNetworkAccess = {
     SecuredByPerimeter: "SecuredByPerimeter",
 } as const;
 
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const Relaytype = {
@@ -43,16 +52,25 @@ export const Relaytype = {
     Http: "Http",
 } as const;
 
+/**
+ * WCF relay type.
+ */
 export type Relaytype = (typeof Relaytype)[keyof typeof Relaytype];
 
 export const SkuName = {
     Standard: "Standard",
 } as const;
 
+/**
+ * Name of this SKU.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const SkuTier = {
     Standard: "Standard",
 } as const;
 
+/**
+ * The tier of this SKU.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];

@@ -14,6 +14,9 @@ export const CloudHsmClusterSkuFamily = {
     B: "B",
 } as const;
 
+/**
+ * Sku family of the Cloud HSM Cluster
+ */
 export type CloudHsmClusterSkuFamily = (typeof CloudHsmClusterSkuFamily)[keyof typeof CloudHsmClusterSkuFamily];
 
 export const CloudHsmClusterSkuName = {
@@ -21,6 +24,9 @@ export const CloudHsmClusterSkuName = {
     Standard_B10: "Standard B10",
 } as const;
 
+/**
+ * Sku name of the Cloud HSM Cluster
+ */
 export type CloudHsmClusterSkuName = (typeof CloudHsmClusterSkuName)[keyof typeof CloudHsmClusterSkuName];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -29,6 +35,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const ProvisioningState = {
@@ -39,6 +48,9 @@ export const ProvisioningState = {
     Canceled: "Canceled",
 } as const;
 
+/**
+ * The Cloud HSM Cluster's provisioningState
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const SkuName = {
@@ -72,4 +84,7 @@ export const SkuName = {
     PayShield10K_LMK2_CPS2500: "payShield10K_LMK2_CPS2500",
 } as const;
 
+/**
+ * SKU of the dedicated HSM
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];

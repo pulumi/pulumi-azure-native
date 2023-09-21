@@ -6,6 +6,9 @@ export const Action = {
     Allow: "Allow",
 } as const;
 
+/**
+ * The action of virtual network rule.
+ */
 export type Action = (typeof Action)[keyof typeof Action];
 
 export const EncryptionType = {
@@ -15,6 +18,9 @@ export const EncryptionType = {
     EncryptionAtRestWithPlatformKey: "EncryptionAtRestWithPlatformKey",
 } as const;
 
+/**
+ * Type of encryption
+ */
 export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -24,6 +30,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Rejected: "Rejected",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const SkuName = {
@@ -37,6 +46,9 @@ export const SkuName = {
     Premium_ZRS: "Premium_ZRS",
 } as const;
 
+/**
+ * The sku name.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const SkuTier = {
@@ -46,6 +58,9 @@ export const SkuTier = {
     Premium: "Premium",
 } as const;
 
+/**
+ * The sku tier.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const StorageTargetType = {
@@ -53,10 +68,16 @@ export const StorageTargetType = {
     None: "None",
 } as const;
 
+/**
+ * Type of storage target
+ */
 export type StorageTargetType = (typeof StorageTargetType)[keyof typeof StorageTargetType];
 
 export const VolumeCreateOption = {
     None: "None",
 } as const;
 
+/**
+ * This enumerates the possible sources of a volume creation.
+ */
 export type VolumeCreateOption = (typeof VolumeCreateOption)[keyof typeof VolumeCreateOption];

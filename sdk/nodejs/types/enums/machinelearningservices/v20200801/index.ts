@@ -7,6 +7,9 @@ export const EncryptionStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates whether or not the encryption is enabled for the workspace.
+ */
 export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
 
 export const PrivateEndpointServiceConnectionStatus = {
@@ -17,6 +20,9 @@ export const PrivateEndpointServiceConnectionStatus = {
     Timeout: "Timeout",
 } as const;
 
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const ResourceIdentityType = {
@@ -26,4 +32,7 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

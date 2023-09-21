@@ -17,6 +17,9 @@ export const EncryptionAtHost = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Whether master virtual machines are encrypted at host.
+ */
 export type EncryptionAtHost = (typeof EncryptionAtHost)[keyof typeof EncryptionAtHost];
 
 export const FipsValidatedModules = {
@@ -24,6 +27,9 @@ export const FipsValidatedModules = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * If FIPS validated crypto modules are used
+ */
 export type FipsValidatedModules = (typeof FipsValidatedModules)[keyof typeof FipsValidatedModules];
 
 export const Visibility = {
@@ -31,4 +37,7 @@ export const Visibility = {
     Public: "Public",
 } as const;
 
+/**
+ * Ingress visibility.
+ */
 export type Visibility = (typeof Visibility)[keyof typeof Visibility];

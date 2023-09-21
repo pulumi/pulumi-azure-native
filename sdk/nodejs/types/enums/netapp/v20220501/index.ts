@@ -9,6 +9,9 @@ export const IdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const KeySource = {
@@ -22,4 +25,7 @@ export const KeySource = {
     Microsoft_KeyVault: "Microsoft.KeyVault",
 } as const;
 
+/**
+ * The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.NetApp, Microsoft.KeyVault
+ */
 export type KeySource = (typeof KeySource)[keyof typeof KeySource];

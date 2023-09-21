@@ -7,6 +7,9 @@ export const LanguageRuntime = {
     JS: "JS",
 } as const;
 
+/**
+ * Unique name for the Managed CCF.
+ */
 export type LanguageRuntime = (typeof LanguageRuntime)[keyof typeof LanguageRuntime];
 
 export const LedgerRoleName = {
@@ -15,6 +18,9 @@ export const LedgerRoleName = {
     Administrator: "Administrator",
 } as const;
 
+/**
+ * LedgerRole associated with the Security Principal of Ledger
+ */
 export type LedgerRoleName = (typeof LedgerRoleName)[keyof typeof LedgerRoleName];
 
 export const LedgerType = {
@@ -23,6 +29,9 @@ export const LedgerType = {
     Private: "Private",
 } as const;
 
+/**
+ * Type of Confidential Ledger
+ */
 export type LedgerType = (typeof LedgerType)[keyof typeof LedgerType];
 
 export const RunningState = {
@@ -33,4 +42,7 @@ export const RunningState = {
     Resuming: "Resuming",
 } as const;
 
+/**
+ * Object representing RunningState for Ledger.
+ */
 export type RunningState = (typeof RunningState)[keyof typeof RunningState];

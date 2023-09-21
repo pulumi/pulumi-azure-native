@@ -17,6 +17,9 @@ export const AuthenticationMode = {
     TaskAuthenticationToken: "TaskAuthenticationToken",
 } as const;
 
+/**
+ * The authentication mode for the Batch account.
+ */
 export type AuthenticationMode = (typeof AuthenticationMode)[keyof typeof AuthenticationMode];
 
 export const AutoStorageAuthenticationMode = {
@@ -30,6 +33,9 @@ export const AutoStorageAuthenticationMode = {
     BatchAccountManagedIdentity: "BatchAccountManagedIdentity",
 } as const;
 
+/**
+ * The authentication mode which the Batch service will use to manage the auto-storage account.
+ */
 export type AutoStorageAuthenticationMode = (typeof AutoStorageAuthenticationMode)[keyof typeof AutoStorageAuthenticationMode];
 
 export const KeySource = {
@@ -43,6 +49,9 @@ export const KeySource = {
     Microsoft_KeyVault: "Microsoft.KeyVault",
 } as const;
 
+/**
+ * Type of the key source.
+ */
 export type KeySource = (typeof KeySource)[keyof typeof KeySource];
 
 export const PoolAllocationMode = {
@@ -56,6 +65,9 @@ export const PoolAllocationMode = {
     UserSubscription: "UserSubscription",
 } as const;
 
+/**
+ * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Azure Active Directory. If the mode is UserSubscription, clients must use Azure Active Directory. The default is BatchService.
+ */
 export type PoolAllocationMode = (typeof PoolAllocationMode)[keyof typeof PoolAllocationMode];
 
 export const PublicNetworkAccessType = {
@@ -69,6 +81,9 @@ export const PublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * If not specified, the default value is 'enabled'.
+ */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const ResourceIdentityType = {
@@ -86,4 +101,7 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The type of identity used for the Batch account.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

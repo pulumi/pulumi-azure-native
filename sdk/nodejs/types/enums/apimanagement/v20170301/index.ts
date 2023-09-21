@@ -7,12 +7,18 @@ export const ApiType = {
     Soap: "soap",
 } as const;
 
+/**
+ * Type of API.
+ */
 export type ApiType = (typeof ApiType)[keyof typeof ApiType];
 
 export const ApimIdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;
 
+/**
+ * The identity type. Currently the only supported type is 'SystemAssigned'.
+ */
 export type ApimIdentityType = (typeof ApimIdentityType)[keyof typeof ApimIdentityType];
 
 export const Confirmation = {
@@ -26,6 +32,9 @@ export const Confirmation = {
     Invite: "invite",
 } as const;
 
+/**
+ * Determines the type of confirmation e-mail that will be sent to the newly created user.
+ */
 export type Confirmation = (typeof Confirmation)[keyof typeof Confirmation];
 
 export const ContentFormat = {
@@ -55,6 +64,9 @@ export const ContentFormat = {
     Wsdl_link: "wsdl-link",
 } as const;
 
+/**
+ * Format of the Content in which the API is getting imported.
+ */
 export type ContentFormat = (typeof ContentFormat)[keyof typeof ContentFormat];
 
 export const HostnameType = {
@@ -64,6 +76,9 @@ export const HostnameType = {
     Scm: "Scm",
 } as const;
 
+/**
+ * Hostname type.
+ */
 export type HostnameType = (typeof HostnameType)[keyof typeof HostnameType];
 
 export const KeyType = {
@@ -71,6 +86,9 @@ export const KeyType = {
     Secondary: "secondary",
 } as const;
 
+/**
+ * The Key to be used to generate token for user.
+ */
 export type KeyType = (typeof KeyType)[keyof typeof KeyType];
 
 export const LoggerType = {
@@ -84,6 +102,9 @@ export const LoggerType = {
     ApplicationInsights: "applicationInsights",
 } as const;
 
+/**
+ * Logger type.
+ */
 export type LoggerType = (typeof LoggerType)[keyof typeof LoggerType];
 
 export const Protocol = {
@@ -104,6 +125,9 @@ export const SamplingType = {
     Adaptive: "adaptive",
 } as const;
 
+/**
+ * Sampling type.
+ */
 export type SamplingType = (typeof SamplingType)[keyof typeof SamplingType];
 
 export const SkuType = {
@@ -125,6 +149,9 @@ export const SkuType = {
     Basic: "Basic",
 } as const;
 
+/**
+ * Name of the Sku.
+ */
 export type SkuType = (typeof SkuType)[keyof typeof SkuType];
 
 export const UserState = {
@@ -146,6 +173,9 @@ export const UserState = {
     Deleted: "deleted",
 } as const;
 
+/**
+ * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+ */
 export type UserState = (typeof UserState)[keyof typeof UserState];
 
 export const VersioningScheme = {
@@ -163,6 +193,9 @@ export const VersioningScheme = {
     Header: "Header",
 } as const;
 
+/**
+ * An value that determines where the API Version identifier will be located in a HTTP request.
+ */
 export type VersioningScheme = (typeof VersioningScheme)[keyof typeof VersioningScheme];
 
 export const VirtualNetworkType = {
@@ -180,4 +213,7 @@ export const VirtualNetworkType = {
     Internal: "Internal",
 } as const;
 
+/**
+ * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
+ */
 export type VirtualNetworkType = (typeof VirtualNetworkType)[keyof typeof VirtualNetworkType];

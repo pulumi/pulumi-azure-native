@@ -7,6 +7,9 @@ export const Access = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The access type of the rule. Valid values are: 'Allow', 'Deny'
+ */
 export type Access = (typeof Access)[keyof typeof Access];
 
 export const AuthorizationUseStatus = {
@@ -14,6 +17,9 @@ export const AuthorizationUseStatus = {
     InUse: "InUse",
 } as const;
 
+/**
+ * AuthorizationUseStatus. Possible values are: 'Available' and 'InUse'.
+ */
 export type AuthorizationUseStatus = (typeof AuthorizationUseStatus)[keyof typeof AuthorizationUseStatus];
 
 export const ExpressRouteCircuitPeeringAdvertisedPublicPrefixState = {
@@ -23,6 +29,9 @@ export const ExpressRouteCircuitPeeringAdvertisedPublicPrefixState = {
     ValidationNeeded: "ValidationNeeded",
 } as const;
 
+/**
+ * AdvertisedPublicPrefixState of the Peering resource. Possible values are 'NotConfigured', 'Configuring', 'Configured', and 'ValidationNeeded'.
+ */
 export type ExpressRouteCircuitPeeringAdvertisedPublicPrefixState = (typeof ExpressRouteCircuitPeeringAdvertisedPublicPrefixState)[keyof typeof ExpressRouteCircuitPeeringAdvertisedPublicPrefixState];
 
 export const ExpressRouteCircuitPeeringState = {
@@ -30,6 +39,9 @@ export const ExpressRouteCircuitPeeringState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * The state of peering. Possible values are: 'Disabled' and 'Enabled'
+ */
 export type ExpressRouteCircuitPeeringState = (typeof ExpressRouteCircuitPeeringState)[keyof typeof ExpressRouteCircuitPeeringState];
 
 export const ExpressRouteCircuitSkuFamily = {
@@ -37,6 +49,9 @@ export const ExpressRouteCircuitSkuFamily = {
     MeteredData: "MeteredData",
 } as const;
 
+/**
+ * The family of the SKU. Possible values are: 'UnlimitedData' and 'MeteredData'.
+ */
 export type ExpressRouteCircuitSkuFamily = (typeof ExpressRouteCircuitSkuFamily)[keyof typeof ExpressRouteCircuitSkuFamily];
 
 export const ExpressRouteCircuitSkuTier = {
@@ -46,6 +61,9 @@ export const ExpressRouteCircuitSkuTier = {
     Local: "Local",
 } as const;
 
+/**
+ * The tier of the SKU. Possible values are 'Standard', 'Premium' or 'Local'.
+ */
 export type ExpressRouteCircuitSkuTier = (typeof ExpressRouteCircuitSkuTier)[keyof typeof ExpressRouteCircuitSkuTier];
 
 export const ExpressRoutePeeringState = {
@@ -53,6 +71,9 @@ export const ExpressRoutePeeringState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * The peering state.
+ */
 export type ExpressRoutePeeringState = (typeof ExpressRoutePeeringState)[keyof typeof ExpressRoutePeeringState];
 
 export const ExpressRoutePeeringType = {
@@ -61,12 +82,18 @@ export const ExpressRoutePeeringType = {
     MicrosoftPeering: "MicrosoftPeering",
 } as const;
 
+/**
+ * The peering type.
+ */
 export type ExpressRoutePeeringType = (typeof ExpressRoutePeeringType)[keyof typeof ExpressRoutePeeringType];
 
 export const RouteFilterRuleType = {
     Community: "Community",
 } as const;
 
+/**
+ * The rule type of the rule. Valid value is: 'Community'
+ */
 export type RouteFilterRuleType = (typeof RouteFilterRuleType)[keyof typeof RouteFilterRuleType];
 
 export const ServiceProviderProvisioningState = {
@@ -76,4 +103,7 @@ export const ServiceProviderProvisioningState = {
     Deprovisioning: "Deprovisioning",
 } as const;
 
+/**
+ * The ServiceProviderProvisioningState state of the resource. Possible values are 'NotProvisioned', 'Provisioning', 'Provisioned', and 'Deprovisioning'.
+ */
 export type ServiceProviderProvisioningState = (typeof ServiceProviderProvisioningState)[keyof typeof ServiceProviderProvisioningState];

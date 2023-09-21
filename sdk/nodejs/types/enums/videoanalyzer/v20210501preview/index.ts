@@ -13,4 +13,7 @@ export const AccountEncryptionKeyType = {
     CustomerKey: "CustomerKey",
 } as const;
 
+/**
+ * The type of key used to encrypt the Account Key.
+ */
 export type AccountEncryptionKeyType = (typeof AccountEncryptionKeyType)[keyof typeof AccountEncryptionKeyType];

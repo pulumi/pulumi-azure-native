@@ -25,6 +25,9 @@ export const AssessmentSizingCriterion = {
     AsOnPremises: "AsOnPremises",
 } as const;
 
+/**
+ * Assessment sizing criterion.
+ */
 export type AssessmentSizingCriterion = (typeof AssessmentSizingCriterion)[keyof typeof AssessmentSizingCriterion];
 
 export const AssessmentStage = {
@@ -33,6 +36,9 @@ export const AssessmentStage = {
     Approved: "Approved",
 } as const;
 
+/**
+ * User configurable setting that describes the status of the assessment.
+ */
 export type AssessmentStage = (typeof AssessmentStage)[keyof typeof AssessmentStage];
 
 export const AutomationArtifactStatus = {
@@ -40,6 +46,9 @@ export const AutomationArtifactStatus = {
     Generated: "Generated",
 } as const;
 
+/**
+ * Gets or sets the status of automation artifacts.
+ */
 export type AutomationArtifactStatus = (typeof AutomationArtifactStatus)[keyof typeof AutomationArtifactStatus];
 
 export const AzureDiskType = {
@@ -50,6 +59,9 @@ export const AzureDiskType = {
     StandardOrPremium: "StandardOrPremium",
 } as const;
 
+/**
+ * Storage type selected for this disk.
+ */
 export type AzureDiskType = (typeof AzureDiskType)[keyof typeof AzureDiskType];
 
 export const AzureHybridUseBenefit = {
@@ -58,6 +70,9 @@ export const AzureHybridUseBenefit = {
     No: "No",
 } as const;
 
+/**
+ * AHUB discount on windows virtual machines.
+ */
 export type AzureHybridUseBenefit = (typeof AzureHybridUseBenefit)[keyof typeof AzureHybridUseBenefit];
 
 export const AzureLocation = {
@@ -100,6 +115,9 @@ export const AzureLocation = {
     USDoDEast: "USDoDEast",
 } as const;
 
+/**
+ * Target Azure location for which the machines should be assessed. These enums are the same as used by Compute API.
+ */
 export type AzureLocation = (typeof AzureLocation)[keyof typeof AzureLocation];
 
 export const AzureOfferCode = {
@@ -145,6 +163,9 @@ export const AzureOfferCode = {
     EA: "EA",
 } as const;
 
+/**
+ * Offer code according to which cost estimation is done.
+ */
 export type AzureOfferCode = (typeof AzureOfferCode)[keyof typeof AzureOfferCode];
 
 export const AzurePricingTier = {
@@ -152,6 +173,9 @@ export const AzurePricingTier = {
     Basic: "Basic",
 } as const;
 
+/**
+ * Pricing tier for Size evaluation.
+ */
 export type AzurePricingTier = (typeof AzurePricingTier)[keyof typeof AzurePricingTier];
 
 export const AzureStorageRedundancy = {
@@ -162,6 +186,9 @@ export const AzureStorageRedundancy = {
     ReadAccessGeoRedundant: "ReadAccessGeoRedundant",
 } as const;
 
+/**
+ * Storage Redundancy type offered by Azure.
+ */
 export type AzureStorageRedundancy = (typeof AzureStorageRedundancy)[keyof typeof AzureStorageRedundancy];
 
 export const AzureVmFamily = {
@@ -189,6 +216,9 @@ export const AzureVmFamily = {
     DC_Series: "DC_Series",
 } as const;
 
+/**
+ * Azure VM family.
+ */
 export type AzureVmFamily = (typeof AzureVmFamily)[keyof typeof AzureVmFamily];
 
 export const ConfigurationType = {
@@ -197,6 +227,9 @@ export const ConfigurationType = {
     ApacheTomcatContextResource: "ApacheTomcatContextResource",
 } as const;
 
+/**
+ * Gets or sets the configuration type.
+ */
 export type ConfigurationType = (typeof ConfigurationType)[keyof typeof ConfigurationType];
 
 export const Currency = {
@@ -228,6 +261,9 @@ export const Currency = {
     CNY: "CNY",
 } as const;
 
+/**
+ * Currency to report prices in.
+ */
 export type Currency = (typeof Currency)[keyof typeof Currency];
 
 export const LoadBalancerType = {
@@ -235,6 +271,9 @@ export const LoadBalancerType = {
     Public: "Public",
 } as const;
 
+/**
+ * Gets or sets the load balancer type.
+ */
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
 
 export const OperatingSystemType = {
@@ -251,6 +290,9 @@ export const Percentile = {
     Percentile99: "Percentile99",
 } as const;
 
+/**
+ * Percentile of performance data used to recommend Azure size.
+ */
 export type Percentile = (typeof Percentile)[keyof typeof Percentile];
 
 export const ProjectStatus = {
@@ -258,6 +300,9 @@ export const ProjectStatus = {
     Inactive: "Inactive",
 } as const;
 
+/**
+ * Assessment project status.
+ */
 export type ProjectStatus = (typeof ProjectStatus)[keyof typeof ProjectStatus];
 
 export const ProvisioningState = {
@@ -269,6 +314,9 @@ export const ProvisioningState = {
     Succeeded: "Succeeded",
 } as const;
 
+/**
+ * Provisioning state of the migrate project.
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const ReservedInstance = {
@@ -277,6 +325,9 @@ export const ReservedInstance = {
     RI3Year: "RI3Year",
 } as const;
 
+/**
+ * Azure reserved instance.
+ */
 export type ReservedInstance = (typeof ReservedInstance)[keyof typeof ReservedInstance];
 
 export const ResourceIdentityType = {
@@ -285,6 +336,9 @@ export const ResourceIdentityType = {
     UserAssigned: "UserAssigned",
 } as const;
 
+/**
+ * The type of identity used for the resource mover service.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const ResourceIdentityTypes = {
@@ -311,6 +365,9 @@ export const Status = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * Private link connection state.
+ */
 export type Status = (typeof Status)[keyof typeof Status];
 
 export const TargetAvailabilityZone = {
@@ -320,12 +377,19 @@ export const TargetAvailabilityZone = {
     NA: "NA",
 } as const;
 
+/**
+ * Gets or sets the target availability zone.
+ */
 export type TargetAvailabilityZone = (typeof TargetAvailabilityZone)[keyof typeof TargetAvailabilityZone];
 
 export const TargetHydrationStorageProviderType = {
     AzureFileShare: "AzureFileShare",
 } as const;
 
+/**
+ * Gets or sets the storage provider type on the target.
+ * Applicable when StorageProjectionType is not ContainerFileSystem.
+ */
 export type TargetHydrationStorageProviderType = (typeof TargetHydrationStorageProviderType)[keyof typeof TargetHydrationStorageProviderType];
 
 export const TargetStorageAccessType = {
@@ -333,6 +397,9 @@ export const TargetStorageAccessType = {
     Exclusive: "Exclusive",
 } as const;
 
+/**
+ * Gets or sets the target storage access type.
+ */
 export type TargetStorageAccessType = (typeof TargetStorageAccessType)[keyof typeof TargetStorageAccessType];
 
 export const TargetStorageProjectionType = {
@@ -340,6 +407,9 @@ export const TargetStorageProjectionType = {
     PersistentVolume: "PersistentVolume",
 } as const;
 
+/**
+ * Gets or sets the target projection type.
+ */
 export type TargetStorageProjectionType = (typeof TargetStorageProjectionType)[keyof typeof TargetStorageProjectionType];
 
 export const TimeRange = {
@@ -349,6 +419,9 @@ export const TimeRange = {
     Custom: "Custom",
 } as const;
 
+/**
+ * Time range of performance data used to recommend a size.
+ */
 export type TimeRange = (typeof TimeRange)[keyof typeof TimeRange];
 
 export const WorkloadDeploymentTarget = {
@@ -357,6 +430,9 @@ export const WorkloadDeploymentTarget = {
     AzureAppServiceNative: "AzureAppServiceNative",
 } as const;
 
+/**
+ * Gets or sets the deployment target platform.
+ */
 export type WorkloadDeploymentTarget = (typeof WorkloadDeploymentTarget)[keyof typeof WorkloadDeploymentTarget];
 
 export const WorkloadDeploymentType = {
@@ -364,6 +440,9 @@ export const WorkloadDeploymentType = {
     ApacheTomcatAKSWorkloadDeployment: "ApacheTomcatAKSWorkloadDeployment",
 } as const;
 
+/**
+ * Gets or sets the instance type.
+ */
 export type WorkloadDeploymentType = (typeof WorkloadDeploymentType)[keyof typeof WorkloadDeploymentType];
 
 export const WorkloadType = {
@@ -371,6 +450,9 @@ export const WorkloadType = {
     ApacheTomcatWorkload: "ApacheTomcatWorkload",
 } as const;
 
+/**
+ * Gets or sets the instance type.
+ */
 export type WorkloadType = (typeof WorkloadType)[keyof typeof WorkloadType];
 
 export const ZoneRedundant = {
@@ -378,4 +460,7 @@ export const ZoneRedundant = {
     Disable: "Disable",
 } as const;
 
+/**
+ * Defines the zone redundant resource setting.
+ */
 export type ZoneRedundant = (typeof ZoneRedundant)[keyof typeof ZoneRedundant];

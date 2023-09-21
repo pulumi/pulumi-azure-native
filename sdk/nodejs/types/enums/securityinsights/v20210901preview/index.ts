@@ -17,6 +17,9 @@ export const EntityTimelineKind = {
     SecurityAlert: "SecurityAlert",
 } as const;
 
+/**
+ * The entity query kind
+ */
 export type EntityTimelineKind = (typeof EntityTimelineKind)[keyof typeof EntityTimelineKind];
 
 export const ThreatIntelligenceResourceKindEnum = {
@@ -26,4 +29,7 @@ export const ThreatIntelligenceResourceKindEnum = {
     Indicator: "indicator",
 } as const;
 
+/**
+ * The kind of the entity.
+ */
 export type ThreatIntelligenceResourceKindEnum = (typeof ThreatIntelligenceResourceKindEnum)[keyof typeof ThreatIntelligenceResourceKindEnum];

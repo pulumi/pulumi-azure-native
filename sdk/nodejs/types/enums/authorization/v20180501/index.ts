@@ -8,6 +8,9 @@ export const PolicyMode = {
     All: "All",
 } as const;
 
+/**
+ * The policy definition mode. Possible values are NotSpecified, Indexed, and All.
+ */
 export type PolicyMode = (typeof PolicyMode)[keyof typeof PolicyMode];
 
 export const PolicyType = {
@@ -16,4 +19,7 @@ export const PolicyType = {
     Custom: "Custom",
 } as const;
 
+/**
+ * The type of policy definition. Possible values are NotSpecified, BuiltIn, and Custom.
+ */
 export type PolicyType = (typeof PolicyType)[keyof typeof PolicyType];

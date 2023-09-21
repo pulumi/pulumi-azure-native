@@ -13,6 +13,9 @@ export const EnforcementMode = {
     DoNotEnforce: "DoNotEnforce",
 } as const;
 
+/**
+ * The policy assignment enforcement mode. Possible values are Default and DoNotEnforce.
+ */
 export type EnforcementMode = (typeof EnforcementMode)[keyof typeof EnforcementMode];
 
 export const ResourceIdentityType = {
@@ -26,4 +29,7 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type. This is the only required field when adding a system assigned identity to a resource.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];

@@ -9,6 +9,9 @@ export const ActionType = {
     Redirect: "Redirect",
 } as const;
 
+/**
+ * Describes the override action to be applied when rule matches.
+ */
 export type ActionType = (typeof ActionType)[keyof typeof ActionType];
 
 export const BackendEnabledState = {
@@ -16,6 +19,9 @@ export const BackendEnabledState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'
+ */
 export type BackendEnabledState = (typeof BackendEnabledState)[keyof typeof BackendEnabledState];
 
 export const CustomRuleEnabledState = {
@@ -23,6 +29,9 @@ export const CustomRuleEnabledState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified.
+ */
 export type CustomRuleEnabledState = (typeof CustomRuleEnabledState)[keyof typeof CustomRuleEnabledState];
 
 export const DynamicCompressionEnabled = {
@@ -30,6 +39,9 @@ export const DynamicCompressionEnabled = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to use dynamic compression for cached content
+ */
 export type DynamicCompressionEnabled = (typeof DynamicCompressionEnabled)[keyof typeof DynamicCompressionEnabled];
 
 export const EnforceCertificateNameCheckEnabledState = {
@@ -37,6 +49,9 @@ export const EnforceCertificateNameCheckEnabledState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to enforce certificate name check on HTTPS requests to all backend pools. No effect on non-HTTPS requests.
+ */
 export type EnforceCertificateNameCheckEnabledState = (typeof EnforceCertificateNameCheckEnabledState)[keyof typeof EnforceCertificateNameCheckEnabledState];
 
 export const FrontDoorEnabledState = {
@@ -44,6 +59,9 @@ export const FrontDoorEnabledState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
+ */
 export type FrontDoorEnabledState = (typeof FrontDoorEnabledState)[keyof typeof FrontDoorEnabledState];
 
 export const FrontDoorForwardingProtocol = {
@@ -52,6 +70,9 @@ export const FrontDoorForwardingProtocol = {
     MatchRequest: "MatchRequest",
 } as const;
 
+/**
+ * Protocol this rule will use when forwarding traffic to backends.
+ */
 export type FrontDoorForwardingProtocol = (typeof FrontDoorForwardingProtocol)[keyof typeof FrontDoorForwardingProtocol];
 
 export const FrontDoorHealthProbeMethod = {
@@ -59,6 +80,9 @@ export const FrontDoorHealthProbeMethod = {
     HEAD: "HEAD",
 } as const;
 
+/**
+ * Configures which HTTP method to use to probe the backends defined under backendPools.
+ */
 export type FrontDoorHealthProbeMethod = (typeof FrontDoorHealthProbeMethod)[keyof typeof FrontDoorHealthProbeMethod];
 
 export const FrontDoorMatchVariable = {
@@ -73,6 +97,9 @@ export const FrontDoorMatchVariable = {
     SocketAddr: "SocketAddr",
 } as const;
 
+/**
+ * Request variable to compare with.
+ */
 export type FrontDoorMatchVariable = (typeof FrontDoorMatchVariable)[keyof typeof FrontDoorMatchVariable];
 
 export const FrontDoorProtocol = {
@@ -80,6 +107,9 @@ export const FrontDoorProtocol = {
     Https: "Https",
 } as const;
 
+/**
+ * Accepted protocol schemes.
+ */
 export type FrontDoorProtocol = (typeof FrontDoorProtocol)[keyof typeof FrontDoorProtocol];
 
 export const FrontDoorQuery = {
@@ -89,6 +119,9 @@ export const FrontDoorQuery = {
     StripAllExcept: "StripAllExcept",
 } as const;
 
+/**
+ * Treatment of URL query terms when forming the cache key.
+ */
 export type FrontDoorQuery = (typeof FrontDoorQuery)[keyof typeof FrontDoorQuery];
 
 export const FrontDoorRedirectProtocol = {
@@ -97,6 +130,9 @@ export const FrontDoorRedirectProtocol = {
     MatchRequest: "MatchRequest",
 } as const;
 
+/**
+ * The protocol of the destination to where the traffic is redirected
+ */
 export type FrontDoorRedirectProtocol = (typeof FrontDoorRedirectProtocol)[keyof typeof FrontDoorRedirectProtocol];
 
 export const FrontDoorRedirectType = {
@@ -106,6 +142,9 @@ export const FrontDoorRedirectType = {
     PermanentRedirect: "PermanentRedirect",
 } as const;
 
+/**
+ * The redirect type the rule will use when redirecting traffic.
+ */
 export type FrontDoorRedirectType = (typeof FrontDoorRedirectType)[keyof typeof FrontDoorRedirectType];
 
 export const HeaderActionType = {
@@ -114,6 +153,9 @@ export const HeaderActionType = {
     Overwrite: "Overwrite",
 } as const;
 
+/**
+ * Which type of manipulation to apply to the header.
+ */
 export type HeaderActionType = (typeof HeaderActionType)[keyof typeof HeaderActionType];
 
 export const HealthProbeEnabled = {
@@ -121,6 +163,9 @@ export const HealthProbeEnabled = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
+ */
 export type HealthProbeEnabled = (typeof HealthProbeEnabled)[keyof typeof HealthProbeEnabled];
 
 export const ManagedRuleEnabledState = {
@@ -128,6 +173,9 @@ export const ManagedRuleEnabledState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
+ */
 export type ManagedRuleEnabledState = (typeof ManagedRuleEnabledState)[keyof typeof ManagedRuleEnabledState];
 
 export const ManagedRuleExclusionMatchVariable = {
@@ -138,6 +186,9 @@ export const ManagedRuleExclusionMatchVariable = {
     RequestBodyJsonArgNames: "RequestBodyJsonArgNames",
 } as const;
 
+/**
+ * The variable type to be excluded.
+ */
 export type ManagedRuleExclusionMatchVariable = (typeof ManagedRuleExclusionMatchVariable)[keyof typeof ManagedRuleExclusionMatchVariable];
 
 export const ManagedRuleExclusionSelectorMatchOperator = {
@@ -148,6 +199,9 @@ export const ManagedRuleExclusionSelectorMatchOperator = {
     EqualsAny: "EqualsAny",
 } as const;
 
+/**
+ * Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to.
+ */
 export type ManagedRuleExclusionSelectorMatchOperator = (typeof ManagedRuleExclusionSelectorMatchOperator)[keyof typeof ManagedRuleExclusionSelectorMatchOperator];
 
 export const ManagedRuleSetActionType = {
@@ -156,6 +210,9 @@ export const ManagedRuleSetActionType = {
     Redirect: "Redirect",
 } as const;
 
+/**
+ * Defines the action to take when a managed rule set score threshold is met.
+ */
 export type ManagedRuleSetActionType = (typeof ManagedRuleSetActionType)[keyof typeof ManagedRuleSetActionType];
 
 export const MatchProcessingBehavior = {
@@ -163,6 +220,9 @@ export const MatchProcessingBehavior = {
     Stop: "Stop",
 } as const;
 
+/**
+ * If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
+ */
 export type MatchProcessingBehavior = (typeof MatchProcessingBehavior)[keyof typeof MatchProcessingBehavior];
 
 export const Operator = {
@@ -180,6 +240,9 @@ export const Operator = {
     RegEx: "RegEx",
 } as const;
 
+/**
+ * Comparison type to use for matching with the variable value.
+ */
 export type Operator = (typeof Operator)[keyof typeof Operator];
 
 export const PolicyEnabledState = {
@@ -187,6 +250,9 @@ export const PolicyEnabledState = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
+ */
 export type PolicyEnabledState = (typeof PolicyEnabledState)[keyof typeof PolicyEnabledState];
 
 export const PolicyMode = {
@@ -194,6 +260,9 @@ export const PolicyMode = {
     Detection: "Detection",
 } as const;
 
+/**
+ * Describes if it is in detection mode or prevention mode at policy level.
+ */
 export type PolicyMode = (typeof PolicyMode)[keyof typeof PolicyMode];
 
 export const PolicyRequestBodyCheck = {
@@ -201,6 +270,9 @@ export const PolicyRequestBodyCheck = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * Describes if policy managed rules will inspect the request body content.
+ */
 export type PolicyRequestBodyCheck = (typeof PolicyRequestBodyCheck)[keyof typeof PolicyRequestBodyCheck];
 
 export const RoutingRuleEnabledState = {
@@ -208,6 +280,9 @@ export const RoutingRuleEnabledState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
+ */
 export type RoutingRuleEnabledState = (typeof RoutingRuleEnabledState)[keyof typeof RoutingRuleEnabledState];
 
 export const RuleType = {
@@ -215,6 +290,9 @@ export const RuleType = {
     RateLimitRule: "RateLimitRule",
 } as const;
 
+/**
+ * Describes type of rule.
+ */
 export type RuleType = (typeof RuleType)[keyof typeof RuleType];
 
 export const RulesEngineMatchVariable = {
@@ -232,6 +310,9 @@ export const RulesEngineMatchVariable = {
     RequestScheme: "RequestScheme",
 } as const;
 
+/**
+ * Match Variable
+ */
 export type RulesEngineMatchVariable = (typeof RulesEngineMatchVariable)[keyof typeof RulesEngineMatchVariable];
 
 export const RulesEngineOperator = {
@@ -248,6 +329,9 @@ export const RulesEngineOperator = {
     EndsWith: "EndsWith",
 } as const;
 
+/**
+ * Describes operator to apply to the match condition.
+ */
 export type RulesEngineOperator = (typeof RulesEngineOperator)[keyof typeof RulesEngineOperator];
 
 export const SessionAffinityEnabledState = {
@@ -255,6 +339,9 @@ export const SessionAffinityEnabledState = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
+ */
 export type SessionAffinityEnabledState = (typeof SessionAffinityEnabledState)[keyof typeof SessionAffinityEnabledState];
 
 export const SkuName = {
@@ -263,6 +350,9 @@ export const SkuName = {
     Premium_AzureFrontDoor: "Premium_AzureFrontDoor",
 } as const;
 
+/**
+ * Name of the pricing tier.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const Transform = {
@@ -274,6 +364,9 @@ export const Transform = {
     RemoveNulls: "RemoveNulls",
 } as const;
 
+/**
+ * Describes what transforms are applied before matching
+ */
 export type Transform = (typeof Transform)[keyof typeof Transform];
 
 export const TransformType = {
@@ -285,4 +378,7 @@ export const TransformType = {
     RemoveNulls: "RemoveNulls",
 } as const;
 
+/**
+ * Describes what transforms applied before matching.
+ */
 export type TransformType = (typeof TransformType)[keyof typeof TransformType];

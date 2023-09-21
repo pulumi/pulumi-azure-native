@@ -69,6 +69,9 @@ export const AzureSkuName = {
     Standard_E16d_v5: "Standard_E16d_v5",
 } as const;
 
+/**
+ * SKU name.
+ */
 export type AzureSkuName = (typeof AzureSkuName)[keyof typeof AzureSkuName];
 
 export const AzureSkuTier = {
@@ -76,6 +79,9 @@ export const AzureSkuTier = {
     Standard: "Standard",
 } as const;
 
+/**
+ * SKU tier.
+ */
 export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
 
 export const BlobStorageEventType = {
@@ -83,6 +89,9 @@ export const BlobStorageEventType = {
     Microsoft_Storage_BlobRenamed: "Microsoft.Storage.BlobRenamed",
 } as const;
 
+/**
+ * The name of blob storage event type to process.
+ */
 export type BlobStorageEventType = (typeof BlobStorageEventType)[keyof typeof BlobStorageEventType];
 
 export const ClusterNetworkAccessFlag = {
@@ -90,6 +99,9 @@ export const ClusterNetworkAccessFlag = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ */
 export type ClusterNetworkAccessFlag = (typeof ClusterNetworkAccessFlag)[keyof typeof ClusterNetworkAccessFlag];
 
 export const ClusterPrincipalRole = {
@@ -97,6 +109,9 @@ export const ClusterPrincipalRole = {
     AllDatabasesViewer: "AllDatabasesViewer",
 } as const;
 
+/**
+ * Cluster principal role.
+ */
 export type ClusterPrincipalRole = (typeof ClusterPrincipalRole)[keyof typeof ClusterPrincipalRole];
 
 export const Compression = {
@@ -104,6 +119,9 @@ export const Compression = {
     GZip: "GZip",
 } as const;
 
+/**
+ * The event hub messages compression type
+ */
 export type Compression = (typeof Compression)[keyof typeof Compression];
 
 export const DataConnectionKind = {
@@ -113,6 +131,9 @@ export const DataConnectionKind = {
     CosmosDb: "CosmosDb",
 } as const;
 
+/**
+ * Kind of the endpoint for the data connection
+ */
 export type DataConnectionKind = (typeof DataConnectionKind)[keyof typeof DataConnectionKind];
 
 export const DatabasePrincipalRole = {
@@ -124,6 +145,9 @@ export const DatabasePrincipalRole = {
     Viewer: "Viewer",
 } as const;
 
+/**
+ * Database principal role.
+ */
 export type DatabasePrincipalRole = (typeof DatabasePrincipalRole)[keyof typeof DatabasePrincipalRole];
 
 export const DatabaseRouting = {
@@ -131,6 +155,9 @@ export const DatabaseRouting = {
     Multi: "Multi",
 } as const;
 
+/**
+ * Indication for database routing information from the data connection, by default only database routing information is allowed
+ */
 export type DatabaseRouting = (typeof DatabaseRouting)[keyof typeof DatabaseRouting];
 
 export const DefaultPrincipalsModificationKind = {
@@ -139,6 +166,9 @@ export const DefaultPrincipalsModificationKind = {
     None: "None",
 } as const;
 
+/**
+ * The default principals modification kind
+ */
 export type DefaultPrincipalsModificationKind = (typeof DefaultPrincipalsModificationKind)[keyof typeof DefaultPrincipalsModificationKind];
 
 export const EngineType = {
@@ -146,6 +176,9 @@ export const EngineType = {
     V3: "V3",
 } as const;
 
+/**
+ * The engine type
+ */
 export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 export const EventGridDataFormat = {
@@ -167,6 +200,9 @@ export const EventGridDataFormat = {
     W3CLOGFILE: "W3CLOGFILE",
 } as const;
 
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
 export type EventGridDataFormat = (typeof EventGridDataFormat)[keyof typeof EventGridDataFormat];
 
 export const EventHubDataFormat = {
@@ -188,6 +224,9 @@ export const EventHubDataFormat = {
     W3CLOGFILE: "W3CLOGFILE",
 } as const;
 
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
 export type EventHubDataFormat = (typeof EventHubDataFormat)[keyof typeof EventHubDataFormat];
 
 export const IdentityType = {
@@ -197,6 +236,9 @@ export const IdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
 } as const;
 
+/**
+ * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const IotHubDataFormat = {
@@ -218,6 +260,9 @@ export const IotHubDataFormat = {
     W3CLOGFILE: "W3CLOGFILE",
 } as const;
 
+/**
+ * The data format of the message. Optionally the data format can be added to each message.
+ */
 export type IotHubDataFormat = (typeof IotHubDataFormat)[keyof typeof IotHubDataFormat];
 
 export const Kind = {
@@ -225,6 +270,9 @@ export const Kind = {
     ReadOnlyFollowing: "ReadOnlyFollowing",
 } as const;
 
+/**
+ * Kind of the database
+ */
 export type Kind = (typeof Kind)[keyof typeof Kind];
 
 export const LanguageExtensionImageName = {
@@ -233,6 +281,9 @@ export const LanguageExtensionImageName = {
     Python3_10_8: "Python3_10_8",
 } as const;
 
+/**
+ * The language extension image name.
+ */
 export type LanguageExtensionImageName = (typeof LanguageExtensionImageName)[keyof typeof LanguageExtensionImageName];
 
 export const LanguageExtensionName = {
@@ -240,6 +291,9 @@ export const LanguageExtensionName = {
     R: "R",
 } as const;
 
+/**
+ * The language extension name.
+ */
 export type LanguageExtensionName = (typeof LanguageExtensionName)[keyof typeof LanguageExtensionName];
 
 export const PrincipalType = {
@@ -248,6 +302,9 @@ export const PrincipalType = {
     User: "User",
 } as const;
 
+/**
+ * Principal type.
+ */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];
 
 export const PublicIPType = {
@@ -255,6 +312,9 @@ export const PublicIPType = {
     DualStack: "DualStack",
 } as const;
 
+/**
+ * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+ */
 export type PublicIPType = (typeof PublicIPType)[keyof typeof PublicIPType];
 
 export const PublicNetworkAccess = {
@@ -262,4 +322,7 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];

@@ -10,6 +10,9 @@ export const ConditionOperator = {
     LessThanOrEqual: "LessThanOrEqual",
 } as const;
 
+/**
+ * The criteria operator.
+ */
 export type ConditionOperator = (typeof ConditionOperator)[keyof typeof ConditionOperator];
 
 export const DimensionOperator = {
@@ -17,6 +20,9 @@ export const DimensionOperator = {
     Exclude: "Exclude",
 } as const;
 
+/**
+ * Operator for dimension values
+ */
 export type DimensionOperator = (typeof DimensionOperator)[keyof typeof DimensionOperator];
 
 export const TimeAggregation = {
@@ -27,4 +33,7 @@ export const TimeAggregation = {
     Total: "Total",
 } as const;
 
+/**
+ * Aggregation type
+ */
 export type TimeAggregation = (typeof TimeAggregation)[keyof typeof TimeAggregation];

@@ -9,4 +9,7 @@ export const PrincipalType = {
     ForeignGroup: "ForeignGroup",
 } as const;
 
+/**
+ * The principal type of the assigned principal ID.
+ */
 export type PrincipalType = (typeof PrincipalType)[keyof typeof PrincipalType];

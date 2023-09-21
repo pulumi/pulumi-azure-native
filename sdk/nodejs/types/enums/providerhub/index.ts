@@ -134,6 +134,9 @@ export const ProvisioningState = {
     RolloutInProgress: "RolloutInProgress",
 } as const;
 
+/**
+ * The provisioned state of the resource.
+ */
 export type ProvisioningState = (typeof ProvisioningState)[keyof typeof ProvisioningState];
 
 export const Readiness = {

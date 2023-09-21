@@ -23,6 +23,9 @@ export const AccountType = {
     BlobStorage: "BlobStorage",
 } as const;
 
+/**
+ * Type of storage accessed on the storage account.
+ */
 export type AccountType = (typeof AccountType)[keyof typeof AccountType];
 
 export const AddonType = {
@@ -30,6 +33,9 @@ export const AddonType = {
     ArcForKubernetes: "ArcForKubernetes",
 } as const;
 
+/**
+ * Addon type.
+ */
 export type AddonType = (typeof AddonType)[keyof typeof AddonType];
 
 export const AzureContainerDataFormat = {
@@ -38,6 +44,9 @@ export const AzureContainerDataFormat = {
     AzureFile: "AzureFile",
 } as const;
 
+/**
+ * Storage format used for the file represented by the share.
+ */
 export type AzureContainerDataFormat = (typeof AzureContainerDataFormat)[keyof typeof AzureContainerDataFormat];
 
 export const ClientPermissionType = {
@@ -46,6 +55,9 @@ export const ClientPermissionType = {
     ReadWrite: "ReadWrite",
 } as const;
 
+/**
+ * Type of access to be allowed for the client.
+ */
 export type ClientPermissionType = (typeof ClientPermissionType)[keyof typeof ClientPermissionType];
 
 export const DataPolicy = {
@@ -53,6 +65,9 @@ export const DataPolicy = {
     Local: "Local",
 } as const;
 
+/**
+ * Data policy of the storage Account.
+ */
 export type DataPolicy = (typeof DataPolicy)[keyof typeof DataPolicy];
 
 export const DataResidencyType = {
@@ -60,6 +75,9 @@ export const DataResidencyType = {
     ZoneReplication: "ZoneReplication",
 } as const;
 
+/**
+ * DataResidencyType enum
+ */
 export type DataResidencyType = (typeof DataResidencyType)[keyof typeof DataResidencyType];
 
 export const DayOfWeek = {
@@ -80,6 +98,9 @@ export const EncryptionAlgorithm = {
     RSAES_PKCS1_v_1_5: "RSAES_PKCS1_v_1_5",
 } as const;
 
+/**
+ * The algorithm used to encrypt "Value".
+ */
 export type EncryptionAlgorithm = (typeof EncryptionAlgorithm)[keyof typeof EncryptionAlgorithm];
 
 export const MonitoringStatus = {
@@ -87,6 +108,9 @@ export const MonitoringStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Current monitoring status of the share.
+ */
 export type MonitoringStatus = (typeof MonitoringStatus)[keyof typeof MonitoringStatus];
 
 export const MsiIdentityType = {
@@ -95,6 +119,9 @@ export const MsiIdentityType = {
     UserAssigned: "UserAssigned",
 } as const;
 
+/**
+ * Identity type
+ */
 export type MsiIdentityType = (typeof MsiIdentityType)[keyof typeof MsiIdentityType];
 
 export const PlatformType = {
@@ -102,6 +129,9 @@ export const PlatformType = {
     Linux: "Linux",
 } as const;
 
+/**
+ * Host OS supported by the Kubernetes role.
+ */
 export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
 
 export const RoleStatus = {
@@ -109,6 +139,9 @@ export const RoleStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Role status.
+ */
 export type RoleStatus = (typeof RoleStatus)[keyof typeof RoleStatus];
 
 export const RoleTypes = {
@@ -121,6 +154,9 @@ export const RoleTypes = {
     Kubernetes: "Kubernetes",
 } as const;
 
+/**
+ * Role type.
+ */
 export type RoleTypes = (typeof RoleTypes)[keyof typeof RoleTypes];
 
 export const SSLStatus = {
@@ -128,6 +164,9 @@ export const SSLStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Signifies whether SSL needs to be enabled or not.
+ */
 export type SSLStatus = (typeof SSLStatus)[keyof typeof SSLStatus];
 
 export const ShareAccessProtocol = {
@@ -135,6 +174,9 @@ export const ShareAccessProtocol = {
     NFS: "NFS",
 } as const;
 
+/**
+ * Access protocol to be used by the share.
+ */
 export type ShareAccessProtocol = (typeof ShareAccessProtocol)[keyof typeof ShareAccessProtocol];
 
 export const ShareAccessType = {
@@ -143,6 +185,9 @@ export const ShareAccessType = {
     Custom: "Custom",
 } as const;
 
+/**
+ * Type of access to be allowed for the user.
+ */
 export type ShareAccessType = (typeof ShareAccessType)[keyof typeof ShareAccessType];
 
 export const ShareStatus = {
@@ -153,6 +198,9 @@ export const ShareStatus = {
     NeedsAttention: "NeedsAttention",
 } as const;
 
+/**
+ * Current status of the share.
+ */
 export type ShareStatus = (typeof ShareStatus)[keyof typeof ShareStatus];
 
 export const ShipmentType = {
@@ -161,6 +209,9 @@ export const ShipmentType = {
     SelfPickup: "SelfPickup",
 } as const;
 
+/**
+ * ShipmentType of the order
+ */
 export type ShipmentType = (typeof ShipmentType)[keyof typeof ShipmentType];
 
 export const SkuName = {
@@ -195,12 +246,18 @@ export const SkuName = {
     EdgeMR_TCP: "EdgeMR_TCP",
 } as const;
 
+/**
+ * SKU name.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const SkuTier = {
     Standard: "Standard",
 } as const;
 
+/**
+ * The SKU tier. This is based on the SKU name.
+ */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
 
 export const StorageAccountStatus = {
@@ -211,6 +268,9 @@ export const StorageAccountStatus = {
     NeedsAttention: "NeedsAttention",
 } as const;
 
+/**
+ * Current status of the storage account
+ */
 export type StorageAccountStatus = (typeof StorageAccountStatus)[keyof typeof StorageAccountStatus];
 
 export const TriggerEventType = {
@@ -218,6 +278,9 @@ export const TriggerEventType = {
     PeriodicTimerEvent: "PeriodicTimerEvent",
 } as const;
 
+/**
+ * Trigger Kind.
+ */
 export type TriggerEventType = (typeof TriggerEventType)[keyof typeof TriggerEventType];
 
 export const UserType = {
@@ -226,4 +289,7 @@ export const UserType = {
     ARM: "ARM",
 } as const;
 
+/**
+ * Type of the user.
+ */
 export type UserType = (typeof UserType)[keyof typeof UserType];

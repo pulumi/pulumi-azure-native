@@ -12,6 +12,9 @@ export const ArcKindEnum = {
     AWS: "AWS",
 } as const;
 
+/**
+ * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
+ */
 export type ArcKindEnum = (typeof ArcKindEnum)[keyof typeof ArcKindEnum];
 
 export const AssessmentModeTypes = {
@@ -19,6 +22,9 @@ export const AssessmentModeTypes = {
     AutomaticByPlatform: "AutomaticByPlatform",
 } as const;
 
+/**
+ * Specifies the assessment mode.
+ */
 export type AssessmentModeTypes = (typeof AssessmentModeTypes)[keyof typeof AssessmentModeTypes];
 
 export const LicenseAssignmentState = {
@@ -26,6 +32,9 @@ export const LicenseAssignmentState = {
     NotAssigned: "NotAssigned",
 } as const;
 
+/**
+ * Describes the license assignment state (Assigned or NotAssigned).
+ */
 export type LicenseAssignmentState = (typeof LicenseAssignmentState)[keyof typeof LicenseAssignmentState];
 
 export const LicenseCoreType = {
@@ -33,6 +42,9 @@ export const LicenseCoreType = {
     VCore: "vCore",
 } as const;
 
+/**
+ * Describes the license core type (pCore or vCore).
+ */
 export type LicenseCoreType = (typeof LicenseCoreType)[keyof typeof LicenseCoreType];
 
 export const LicenseEdition = {
@@ -40,6 +52,9 @@ export const LicenseEdition = {
     Datacenter: "Datacenter",
 } as const;
 
+/**
+ * Describes the edition of the license. The values are either Standard or Datacenter.
+ */
 export type LicenseEdition = (typeof LicenseEdition)[keyof typeof LicenseEdition];
 
 export const LicenseState = {
@@ -47,6 +62,9 @@ export const LicenseState = {
     Deactivated: "Deactivated",
 } as const;
 
+/**
+ * Describes the state of the license.
+ */
 export type LicenseState = (typeof LicenseState)[keyof typeof LicenseState];
 
 export const LicenseTarget = {
@@ -54,12 +72,18 @@ export const LicenseTarget = {
     Windows_Server_2012_R2: "Windows Server 2012 R2",
 } as const;
 
+/**
+ * Describes the license target server.
+ */
 export type LicenseTarget = (typeof LicenseTarget)[keyof typeof LicenseTarget];
 
 export const LicenseType = {
     ESU: "ESU",
 } as const;
 
+/**
+ * The type of the license resource.
+ */
 export type LicenseType = (typeof LicenseType)[keyof typeof LicenseType];
 
 export const PatchModeTypes = {
@@ -69,6 +93,9 @@ export const PatchModeTypes = {
     Manual: "Manual",
 } as const;
 
+/**
+ * Specifies the patch mode.
+ */
 export type PatchModeTypes = (typeof PatchModeTypes)[keyof typeof PatchModeTypes];
 
 export const PublicNetworkAccessType = {
@@ -82,12 +109,18 @@ export const PublicNetworkAccessType = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints.
+ */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
 export const ResourceIdentityType = {
     SystemAssigned: "SystemAssigned",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const StatusLevelTypes = {
@@ -96,4 +129,7 @@ export const StatusLevelTypes = {
     Error: "Error",
 } as const;
 
+/**
+ * The level code.
+ */
 export type StatusLevelTypes = (typeof StatusLevelTypes)[keyof typeof StatusLevelTypes];

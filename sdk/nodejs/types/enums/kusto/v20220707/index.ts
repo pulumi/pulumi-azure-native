@@ -67,6 +67,9 @@ export const AzureSkuName = {
     Standard_E16d_v5: "Standard_E16d_v5",
 } as const;
 
+/**
+ * SKU name.
+ */
 export type AzureSkuName = (typeof AzureSkuName)[keyof typeof AzureSkuName];
 
 export const AzureSkuTier = {
@@ -74,6 +77,9 @@ export const AzureSkuTier = {
     Standard: "Standard",
 } as const;
 
+/**
+ * SKU tier.
+ */
 export type AzureSkuTier = (typeof AzureSkuTier)[keyof typeof AzureSkuTier];
 
 export const ClusterNetworkAccessFlag = {
@@ -81,6 +87,9 @@ export const ClusterNetworkAccessFlag = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
+ */
 export type ClusterNetworkAccessFlag = (typeof ClusterNetworkAccessFlag)[keyof typeof ClusterNetworkAccessFlag];
 
 export const EngineType = {
@@ -88,6 +97,9 @@ export const EngineType = {
     V3: "V3",
 } as const;
 
+/**
+ * The engine type
+ */
 export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 export const IdentityType = {
@@ -97,6 +109,9 @@ export const IdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned, UserAssigned",
 } as const;
 
+/**
+ * The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove all identities.
+ */
 export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const PublicIPType = {
@@ -104,6 +119,9 @@ export const PublicIPType = {
     DualStack: "DualStack",
 } as const;
 
+/**
+ * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
+ */
 export type PublicIPType = (typeof PublicIPType)[keyof typeof PublicIPType];
 
 export const PublicNetworkAccess = {
@@ -111,4 +129,7 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];

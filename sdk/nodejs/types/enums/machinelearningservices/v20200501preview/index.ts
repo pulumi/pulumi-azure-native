@@ -7,6 +7,9 @@ export const DatasetType = {
     File: "file",
 } as const;
 
+/**
+ * Specifies dataset type.
+ */
 export type DatasetType = (typeof DatasetType)[keyof typeof DatasetType];
 
 export const DatastoreTypeArm = {
@@ -20,6 +23,9 @@ export const DatastoreTypeArm = {
     Psqldb: "psqldb",
 } as const;
 
+/**
+ * Specifies datastore type.
+ */
 export type DatastoreTypeArm = (typeof DatastoreTypeArm)[keyof typeof DatastoreTypeArm];
 
 export const Header = {
@@ -29,6 +35,9 @@ export const Header = {
     Combine_all_files_headers: "combine_all_files_headers",
 } as const;
 
+/**
+ * Header type.
+ */
 export type Header = (typeof Header)[keyof typeof Header];
 
 export const SourceType = {
@@ -37,4 +46,7 @@ export const SourceType = {
     Parquet_files: "parquet_files",
 } as const;
 
+/**
+ * Data source type.
+ */
 export type SourceType = (typeof SourceType)[keyof typeof SourceType];

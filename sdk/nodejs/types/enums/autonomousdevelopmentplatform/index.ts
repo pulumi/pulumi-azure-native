@@ -19,4 +19,7 @@ export const StorageSkuName = {
     Standard_Ragzrs: "Standard_Ragzrs",
 } as const;
 
+/**
+ * The SKU name
+ */
 export type StorageSkuName = (typeof StorageSkuName)[keyof typeof StorageSkuName];

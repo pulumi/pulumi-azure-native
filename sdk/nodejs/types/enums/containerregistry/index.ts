@@ -30,6 +30,9 @@ export const Action = {
     Allow: "Allow",
 } as const;
 
+/**
+ * The action of IP ACL rule.
+ */
 export type Action = (typeof Action)[keyof typeof Action];
 
 export const ActionsRequired = {
@@ -37,6 +40,9 @@ export const ActionsRequired = {
     Recreate: "Recreate",
 } as const;
 
+/**
+ * A message indicating if changes on the service provider require any updates on the consumer.
+ */
 export type ActionsRequired = (typeof ActionsRequired)[keyof typeof ActionsRequired];
 
 export const Architecture = {
@@ -47,6 +53,9 @@ export const Architecture = {
     Arm64: "arm64",
 } as const;
 
+/**
+ * The OS architecture.
+ */
 export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 
 export const AuditLogStatus = {
@@ -54,6 +63,9 @@ export const AuditLogStatus = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Indicates whether audit logs are enabled on the connected registry.
+ */
 export type AuditLogStatus = (typeof AuditLogStatus)[keyof typeof AuditLogStatus];
 
 export const BaseImageTriggerType = {
@@ -61,6 +73,9 @@ export const BaseImageTriggerType = {
     Runtime: "Runtime",
 } as const;
 
+/**
+ * The type of the auto trigger for base image dependency updates.
+ */
 export type BaseImageTriggerType = (typeof BaseImageTriggerType)[keyof typeof BaseImageTriggerType];
 
 export const ConnectedRegistryMode = {
@@ -70,6 +85,9 @@ export const ConnectedRegistryMode = {
     Mirror: "Mirror",
 } as const;
 
+/**
+ * The mode of the connected registry resource that indicates the permissions of the registry.
+ */
 export type ConnectedRegistryMode = (typeof ConnectedRegistryMode)[keyof typeof ConnectedRegistryMode];
 
 export const ConnectionStatus = {
@@ -79,12 +97,18 @@ export const ConnectionStatus = {
     Disconnected: "Disconnected",
 } as const;
 
+/**
+ * The private link service connection status.
+ */
 export type ConnectionStatus = (typeof ConnectionStatus)[keyof typeof ConnectionStatus];
 
 export const CredentialName = {
     Credential1: "Credential1",
 } as const;
 
+/**
+ * The name of the credential.
+ */
 export type CredentialName = (typeof CredentialName)[keyof typeof CredentialName];
 
 export const DefaultAction = {
@@ -92,6 +116,9 @@ export const DefaultAction = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The default action of allow or deny when no other rules match.
+ */
 export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
 export const EncryptionStatus = {
@@ -99,6 +126,9 @@ export const EncryptionStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * Indicates whether or not the encryption is enabled for container registry.
+ */
 export type EncryptionStatus = (typeof EncryptionStatus)[keyof typeof EncryptionStatus];
 
 export const ExportPolicyStatus = {
@@ -106,6 +136,9 @@ export const ExportPolicyStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The value that indicates whether the policy is enabled or not.
+ */
 export type ExportPolicyStatus = (typeof ExportPolicyStatus)[keyof typeof ExportPolicyStatus];
 
 export const LogLevel = {
@@ -116,6 +149,9 @@ export const LogLevel = {
     None: "None",
 } as const;
 
+/**
+ * The verbosity of logs persisted on the connected registry.
+ */
 export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
 
 export const NetworkRuleBypassOptions = {
@@ -123,6 +159,9 @@ export const NetworkRuleBypassOptions = {
     None: "None",
 } as const;
 
+/**
+ * Whether to allow trusted Azure services to access a network restricted registry.
+ */
 export type NetworkRuleBypassOptions = (typeof NetworkRuleBypassOptions)[keyof typeof NetworkRuleBypassOptions];
 
 export const OS = {
@@ -130,12 +169,18 @@ export const OS = {
     Linux: "Linux",
 } as const;
 
+/**
+ * The operating system type required for the run.
+ */
 export type OS = (typeof OS)[keyof typeof OS];
 
 export const PackageSourceType = {
     Remote: "remote",
 } as const;
 
+/**
+ * The type of package source for a archive.
+ */
 export type PackageSourceType = (typeof PackageSourceType)[keyof typeof PackageSourceType];
 
 export const PipelineOptions = {
@@ -151,18 +196,27 @@ export const PipelineRunSourceType = {
     AzureStorageBlob: "AzureStorageBlob",
 } as const;
 
+/**
+ * The type of the source.
+ */
 export type PipelineRunSourceType = (typeof PipelineRunSourceType)[keyof typeof PipelineRunSourceType];
 
 export const PipelineRunTargetType = {
     AzureStorageBlob: "AzureStorageBlob",
 } as const;
 
+/**
+ * The type of the target.
+ */
 export type PipelineRunTargetType = (typeof PipelineRunTargetType)[keyof typeof PipelineRunTargetType];
 
 export const PipelineSourceType = {
     AzureStorageBlobContainer: "AzureStorageBlobContainer",
 } as const;
 
+/**
+ * The type of source for the import pipeline.
+ */
 export type PipelineSourceType = (typeof PipelineSourceType)[keyof typeof PipelineSourceType];
 
 export const PolicyStatus = {
@@ -170,6 +224,9 @@ export const PolicyStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The value that indicates whether the policy is enabled or not.
+ */
 export type PolicyStatus = (typeof PolicyStatus)[keyof typeof PolicyStatus];
 
 export const PublicNetworkAccess = {
@@ -177,6 +234,9 @@ export const PublicNetworkAccess = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not public network access is allowed for the container registry.
+ */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const ResourceIdentityType = {
@@ -186,6 +246,9 @@ export const ResourceIdentityType = {
     None: "None",
 } as const;
 
+/**
+ * The identity type.
+ */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
 export const SecretObjectType = {
@@ -193,6 +256,10 @@ export const SecretObjectType = {
     Vaultsecret: "Vaultsecret",
 } as const;
 
+/**
+ * The type of the secret object which determines how the value of the secret object has to be
+ * interpreted.
+ */
 export type SecretObjectType = (typeof SecretObjectType)[keyof typeof SecretObjectType];
 
 export const SkuName = {
@@ -202,6 +269,9 @@ export const SkuName = {
     Premium: "Premium",
 } as const;
 
+/**
+ * The SKU name of the container registry. Required for registry creation.
+ */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const SourceControlType = {
@@ -209,6 +279,9 @@ export const SourceControlType = {
     VisualStudioTeamService: "VisualStudioTeamService",
 } as const;
 
+/**
+ * The type of source control service.
+ */
 export type SourceControlType = (typeof SourceControlType)[keyof typeof SourceControlType];
 
 export const SourceRegistryLoginMode = {
@@ -216,6 +289,11 @@ export const SourceRegistryLoginMode = {
     Default: "Default",
 } as const;
 
+/**
+ * The authentication mode which determines the source registry login scope. The credentials for the source registry
+ * will be generated using the given scope. These credentials will be used to login to
+ * the source registry during the run.
+ */
 export type SourceRegistryLoginMode = (typeof SourceRegistryLoginMode)[keyof typeof SourceRegistryLoginMode];
 
 export const SourceTriggerEvent = {
@@ -231,6 +309,9 @@ export const StepType = {
     EncodedTask: "EncodedTask",
 } as const;
 
+/**
+ * The type of the step.
+ */
 export type StepType = (typeof StepType)[keyof typeof StepType];
 
 export const TaskStatus = {
@@ -238,6 +319,9 @@ export const TaskStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * The current status of task.
+ */
 export type TaskStatus = (typeof TaskStatus)[keyof typeof TaskStatus];
 
 export const TokenCertificateName = {
@@ -252,6 +336,9 @@ export const TokenPasswordName = {
     Password2: "password2",
 } as const;
 
+/**
+ * The password name "password1" or "password2"
+ */
 export type TokenPasswordName = (typeof TokenPasswordName)[keyof typeof TokenPasswordName];
 
 export const TokenStatus = {
@@ -259,6 +346,9 @@ export const TokenStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The status of the token example enabled or disabled.
+ */
 export type TokenStatus = (typeof TokenStatus)[keyof typeof TokenStatus];
 
 export const TokenType = {
@@ -266,6 +356,9 @@ export const TokenType = {
     OAuth: "OAuth",
 } as const;
 
+/**
+ * The type of Auth token.
+ */
 export type TokenType = (typeof TokenType)[keyof typeof TokenType];
 
 export const TriggerStatus = {
@@ -273,12 +366,18 @@ export const TriggerStatus = {
     Enabled: "Enabled",
 } as const;
 
+/**
+ * The current status of trigger.
+ */
 export type TriggerStatus = (typeof TriggerStatus)[keyof typeof TriggerStatus];
 
 export const TrustPolicyType = {
     Notary: "Notary",
 } as const;
 
+/**
+ * The type of trust policy.
+ */
 export type TrustPolicyType = (typeof TrustPolicyType)[keyof typeof TrustPolicyType];
 
 export const UpdateTriggerPayloadType = {
@@ -286,6 +385,9 @@ export const UpdateTriggerPayloadType = {
     Token: "Token",
 } as const;
 
+/**
+ * Type of Payload body for Base image update triggers.
+ */
 export type UpdateTriggerPayloadType = (typeof UpdateTriggerPayloadType)[keyof typeof UpdateTriggerPayloadType];
 
 export const Variant = {
@@ -294,6 +396,9 @@ export const Variant = {
     V8: "v8",
 } as const;
 
+/**
+ * Variant of the CPU.
+ */
 export type Variant = (typeof Variant)[keyof typeof Variant];
 
 export const WebhookAction = {
@@ -311,6 +416,9 @@ export const WebhookStatus = {
     Disabled: "disabled",
 } as const;
 
+/**
+ * The status of the webhook at the time the operation was called.
+ */
 export type WebhookStatus = (typeof WebhookStatus)[keyof typeof WebhookStatus];
 
 export const ZoneRedundancy = {
@@ -318,4 +426,7 @@ export const ZoneRedundancy = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether or not zone redundancy is enabled for this container registry replication
+ */
 export type ZoneRedundancy = (typeof ZoneRedundancy)[keyof typeof ZoneRedundancy];

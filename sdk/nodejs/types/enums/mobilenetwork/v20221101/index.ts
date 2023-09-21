@@ -13,6 +13,9 @@ export const AuthenticationType = {
     Password: "Password",
 } as const;
 
+/**
+ * How to authenticate users who access local diagnostics APIs.
+ */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 
 export const BillingSku = {
@@ -38,6 +41,9 @@ export const BillingSku = {
     G10: "G10",
 } as const;
 
+/**
+ * The SKU defining the throughput and SIM allowances for this packet core control plane deployment.
+ */
 export type BillingSku = (typeof BillingSku)[keyof typeof BillingSku];
 
 export const CoreNetworkType = {
@@ -51,6 +57,9 @@ export const CoreNetworkType = {
     EPC: "EPC",
 } as const;
 
+/**
+ * The core network technology generation (5G core or EPC / 4G core).
+ */
 export type CoreNetworkType = (typeof CoreNetworkType)[keyof typeof CoreNetworkType];
 
 export const ManagedServiceIdentityType = {
@@ -60,6 +69,9 @@ export const ManagedServiceIdentityType = {
     SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
 } as const;
 
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const NaptEnabled = {
@@ -73,6 +85,9 @@ export const NaptEnabled = {
     Disabled: "Disabled",
 } as const;
 
+/**
+ * Whether NAPT is enabled for connections to this attached data network.
+ */
 export type NaptEnabled = (typeof NaptEnabled)[keyof typeof NaptEnabled];
 
 export const PduSessionType = {
@@ -80,6 +95,9 @@ export const PduSessionType = {
     IPv6: "IPv6",
 } as const;
 
+/**
+ * The default PDU session type, which is used if the UE does not request a specific session type.
+ */
 export type PduSessionType = (typeof PduSessionType)[keyof typeof PduSessionType];
 
 export const PlatformType = {
@@ -93,6 +111,9 @@ export const PlatformType = {
     PlatformType_3P_AZURE_STACK_HCI: "3P-AZURE-STACK-HCI",
 } as const;
 
+/**
+ * The platform type where packet core is deployed.
+ */
 export type PlatformType = (typeof PlatformType)[keyof typeof PlatformType];
 
 export const PreemptionCapability = {
@@ -106,6 +127,9 @@ export const PreemptionCapability = {
     MayPreempt: "MayPreempt",
 } as const;
 
+/**
+ * Default QoS Flow preemption capability. The preemption capability of a QoS Flow controls whether it can preempt another QoS Flow with a lower priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+ */
 export type PreemptionCapability = (typeof PreemptionCapability)[keyof typeof PreemptionCapability];
 
 export const PreemptionVulnerability = {
@@ -119,6 +143,9 @@ export const PreemptionVulnerability = {
     Preemptable: "Preemptable",
 } as const;
 
+/**
+ * Default QoS Flow preemption vulnerability. The preemption vulnerability of a QoS Flow controls whether it can be preempted by a QoS Flow with a higher priority level. See 3GPP TS23.501 section 5.7.2.2 for a full description of the ARP parameters.
+ */
 export type PreemptionVulnerability = (typeof PreemptionVulnerability)[keyof typeof PreemptionVulnerability];
 
 export const SdfDirection = {
@@ -136,6 +163,9 @@ export const SdfDirection = {
     Bidirectional: "Bidirectional",
 } as const;
 
+/**
+ * The direction of this flow.
+ */
 export type SdfDirection = (typeof SdfDirection)[keyof typeof SdfDirection];
 
 export const TrafficControlPermission = {
@@ -149,4 +179,7 @@ export const TrafficControlPermission = {
     Blocked: "Blocked",
 } as const;
 
+/**
+ * Determines whether flows that match this data flow policy rule are permitted.
+ */
 export type TrafficControlPermission = (typeof TrafficControlPermission)[keyof typeof TrafficControlPermission];
