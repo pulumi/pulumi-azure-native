@@ -3087,6 +3087,25 @@
       "Secret",
       "SecurityPolicy",
       "getProfileSupportedOptimizationTypes"
+    ],
+    "2023-07-01-preview": [
+      "AFDCustomDomain",
+      "AFDEndpoint",
+      "AFDOrigin",
+      "AFDOriginGroup",
+      "CustomDomain",
+      "Endpoint",
+      "KeyGroup",
+      "Origin",
+      "OriginGroup",
+      "Policy",
+      "Profile",
+      "Route",
+      "Rule",
+      "RuleSet",
+      "Secret",
+      "SecurityPolicy",
+      "getProfileSupportedOptimizationTypes"
     ]
   },
   "CertificateRegistration": {
@@ -3882,6 +3901,18 @@
       "VirtualMachineInstance",
       "VirtualMachineTemplate",
       "VirtualNetwork"
+    ],
+    "2023-10-01": [
+      "Cluster",
+      "Datastore",
+      "Host",
+      "InventoryItem",
+      "ResourcePool",
+      "VCenter",
+      "VMInstanceGuestAgent",
+      "VirtualMachineInstance",
+      "VirtualMachineTemplate",
+      "VirtualNetwork"
     ]
   },
   "Consumption": {
@@ -4006,21 +4037,10 @@
     ]
   },
   "ContainerRegistry": {
-    "2016-06-27-preview": [
-      "Registry",
-      "getRegistryCredentials"
-    ],
+    "": [],
     "2017-03-01": [
       "Registry",
       "listRegistryCredentials"
-    ],
-    "2017-06-01-preview": [
-      "Registry",
-      "Replication",
-      "Webhook",
-      "getWebhookCallbackConfig",
-      "listRegistryCredentials",
-      "listWebhookEvents"
     ],
     "2017-10-01": [
       "Registry",
@@ -4029,14 +4049,6 @@
       "getWebhookCallbackConfig",
       "listRegistryCredentials",
       "listWebhookEvents"
-    ],
-    "2018-02-01-preview": [
-      "BuildStep",
-      "BuildTask",
-      "getBuildLogLink",
-      "getRegistryBuildSourceUploadUrl",
-      "listBuildStepBuildArguments",
-      "listBuildTaskSourceRepositoryProperties"
     ],
     "2018-09-01": [
       "Task",
@@ -4876,6 +4888,16 @@
       "listManagedClusterAdminCredentials",
       "listManagedClusterMonitoringUserCredentials",
       "listManagedClusterUserCredentials"
+    ],
+    "2023-08-01": [
+      "AgentPool",
+      "MaintenanceConfiguration",
+      "ManagedCluster",
+      "PrivateEndpointConnection",
+      "Snapshot",
+      "listManagedClusterAdminCredentials",
+      "listManagedClusterMonitoringUserCredentials",
+      "listManagedClusterUserCredentials"
     ]
   },
   "ContainerStorage": {
@@ -5145,6 +5167,14 @@
     ],
     "2022-09-30-preview": [
       "PrivateEndpointConnection",
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2023-06-01-preview": [
+      "AzureADAdministrator",
+      "Configuration",
+      "Database",
+      "FirewallRule",
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
     ],
@@ -6179,6 +6209,18 @@
       "ScalingPlanPersonalSchedule",
       "ScalingPlanPooledSchedule",
       "Workspace"
+    ],
+    "2023-09-05": [
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPersonalSchedule",
+      "ScalingPlanPooledSchedule",
+      "Workspace"
     ]
   },
   "DevCenter": {
@@ -6259,6 +6301,23 @@
       "Project",
       "ProjectEnvironmentType",
       "Schedule"
+    ],
+    "2023-08-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule",
+      "getCatalogDevBoxDefinitionErrorDetails",
+      "getCatalogSyncErrorDetails",
+      "getCustomizationTaskErrorDetails",
+      "getEnvironmentDefinitionErrorDetails"
     ]
   },
   "DevHub": {
@@ -7451,6 +7510,38 @@
       "TableResourceTable",
       "listDatabaseAccountConnectionStrings",
       "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2023-09-15-preview": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "CassandraResourceCassandraView",
+      "DatabaseAccount",
+      "GraphResourceGraph",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoCluster",
+      "MongoClusterFirewallRule",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listMongoClusterConnectionStrings",
       "listNotebookWorkspaceConnectionInfo"
     ]
   },
@@ -9213,6 +9304,21 @@
       "DatabasePrincipalAssignment",
       "ManagedPrivateEndpoint",
       "PrivateEndpointConnection",
+      "Script",
+      "listClusterFollowerDatabases",
+      "listClusterLanguageExtensions",
+      "listDatabasePrincipals"
+    ],
+    "2023-08-15": [
+      "AttachedDatabaseConfiguration",
+      "Cluster",
+      "ClusterPrincipalAssignment",
+      "DataConnection",
+      "Database",
+      "DatabasePrincipalAssignment",
+      "ManagedPrivateEndpoint",
+      "PrivateEndpointConnection",
+      "SandboxCustomImage",
       "Script",
       "listClusterFollowerDatabases",
       "listClusterLanguageExtensions",
@@ -15260,7 +15366,8 @@
       "ReplicationRecoveryPlan",
       "ReplicationRecoveryServicesProvider",
       "ReplicationStorageClassificationMapping",
-      "ReplicationvCenter"
+      "ReplicationvCenter",
+      "Vault"
     ]
   },
   "RedHatOpenShift": {
@@ -16390,6 +16497,40 @@
       "listSourceControlRepositories"
     ],
     "2023-08-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "ContentPackage",
+      "ContentTemplate",
+      "DataConnector",
+      "DataConnectorDefinition",
+      "EntityQuery",
+      "FileImport",
+      "Hunt",
+      "HuntComment",
+      "HuntRelation",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "IncidentTask",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "WorkspaceManagerAssignment",
+      "WorkspaceManagerConfiguration",
+      "WorkspaceManagerGroup",
+      "WorkspaceManagerMember",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2023-09-01-preview": [
       "Action",
       "AlertRule",
       "AutomationRule",
@@ -18199,6 +18340,11 @@
       "listStorageAccountServiceSAS"
     ]
   },
+  "StorageActions": {
+    "2023-01-01": [
+      "StorageTask"
+    ]
+  },
   "StorageCache": {
     "2019-08-01-preview": [
       "Cache",
@@ -18370,11 +18516,6 @@
       "ServerEndpoint",
       "StorageSyncService",
       "SyncGroup"
-    ]
-  },
-  "StorageTasks": {
-    "2023-01-01": [
-      "StorageTask"
     ]
   },
   "StreamAnalytics": {

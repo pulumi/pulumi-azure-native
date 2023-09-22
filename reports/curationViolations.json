@@ -28,6 +28,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "Provider": "Cdn",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "Provider": "Communication",
     "Detail": "expected tracking preview but found stable"
   },
@@ -46,6 +50,10 @@
   {
     "Provider": "DevCenter",
     "Detail": "expected tracking preview but found stable"
+  },
+  {
+    "Provider": "DevCenter",
+    "Detail": "expected no additions but found some"
   },
   {
     "Provider": "EdgeOrder",

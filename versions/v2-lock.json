@@ -435,6 +435,7 @@
     "AFDOriginGroup": "2023-05-01",
     "CustomDomain": "2023-05-01",
     "Endpoint": "2023-05-01",
+    "KeyGroup": "2023-07-01-preview",
     "Origin": "2023-05-01",
     "OriginGroup": "2023-05-01",
     "Policy": "2023-05-01",
@@ -542,7 +543,6 @@
     "AgentPool": "2019-06-01-preview",
     "Archife": "2023-06-01-preview",
     "ArchiveVersion": "2023-06-01-preview",
-    "BuildStep": "2018-02-01-preview",
     "CacheRule": "2023-01-01-preview",
     "ConnectedRegistry": "2023-01-01-preview",
     "CredentialSet": "2023-01-01-preview",
@@ -557,13 +557,8 @@
     "TaskRun": "2019-06-01-preview",
     "Token": "2022-12-01",
     "Webhook": "2022-12-01",
-    "getBuildLogLink": "2018-02-01-preview",
-    "getRegistryBuildSourceUploadUrl": "2018-02-01-preview",
-    "getRegistryCredentials": "2016-06-27-preview",
     "getWebhookCallbackConfig": "2022-12-01",
     "listAgentPoolQueueStatus": "2019-06-01-preview",
-    "listBuildStepBuildArguments": "2018-02-01-preview",
-    "listBuildTaskSourceRepositoryProperties": "2018-02-01-preview",
     "listRegistryBuildSourceUploadUrl": "2019-06-01-preview",
     "listRegistryCredentials": "2022-12-01",
     "listRunLogSasUrl": "2019-06-01-preview",
@@ -819,7 +814,11 @@
     "Pool": "2023-04-01",
     "Project": "2023-04-01",
     "ProjectEnvironmentType": "2023-04-01",
-    "Schedule": "2023-04-01"
+    "Schedule": "2023-04-01",
+    "getCatalogDevBoxDefinitionErrorDetails": "2023-08-01-preview",
+    "getCatalogSyncErrorDetails": "2023-08-01-preview",
+    "getCustomizationTaskErrorDetails": "2023-08-01-preview",
+    "getEnvironmentDefinitionErrorDetails": "2023-08-01-preview"
   },
   "DevHub": {
     "Workflow": "2022-10-11-preview",
@@ -1220,6 +1219,7 @@
     "EventHubConnection": "2018-09-07-preview",
     "ManagedPrivateEndpoint": "2022-12-29",
     "PrivateEndpointConnection": "2022-12-29",
+    "SandboxCustomImage": "2023-08-15",
     "Script": "2022-12-29",
     "listClusterFollowerDatabases": "2022-12-29",
     "listClusterLanguageExtensions": "2022-12-29",
@@ -2256,6 +2256,9 @@
     "listStorageAccountSAS": "2022-09-01",
     "listStorageAccountServiceSAS": "2022-09-01"
   },
+  "StorageActions": {
+    "StorageTask": "2023-01-01"
+  },
   "StorageCache": {
     "Cache": "2023-05-01",
     "StorageTarget": "2023-05-01",
@@ -2280,9 +2283,6 @@
     "ServerEndpoint": "2022-06-01",
     "StorageSyncService": "2022-06-01",
     "SyncGroup": "2022-06-01"
-  },
-  "StorageTasks": {
-    "StorageTask": "2023-01-01"
   },
   "StreamAnalytics": {
     "Cluster": "2020-03-01",

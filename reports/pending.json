@@ -116,7 +116,9 @@
     "2023-08-01-preview"
   ],
   "Capacity": [],
-  "Cdn": [],
+  "Cdn": [
+    "2023-07-01-preview"
+  ],
   "CertificateRegistration": [],
   "ChangeAnalysis": [],
   "Chaos": [],
@@ -142,22 +144,14 @@
   ],
   "Confluent": [],
   "ConnectedVMwarevSphere": [
-    "2023-03-01-preview"
+    "2023-03-01-preview",
+    "2023-10-01"
   ],
   "Consumption": [
     "2023-11-01"
   ],
   "ContainerInstance": [],
   "ContainerRegistry": [
-    "2017-03-01",
-    "2017-06-01-preview",
-    "2017-10-01",
-    "2018-02-01-preview",
-    "2018-09-01",
-    "2019-04-01",
-    "2019-05-01",
-    "2019-05-01-preview",
-    "2019-06-01-preview",
     "2019-12-01-preview",
     "2020-11-01-preview",
     "2021-06-01-preview",
@@ -225,7 +219,8 @@
     "2023-06-02-preview",
     "2023-06-15-preview",
     "2023-07-01",
-    "2023-07-02-preview"
+    "2023-07-02-preview",
+    "2023-08-01"
   ],
   "ContainerStorage": [],
   "CostManagement": [
@@ -260,6 +255,7 @@
   ],
   "DBforMySQL": [
     "2022-09-30-preview",
+    "2023-06-01-preview",
     "2023-06-30"
   ],
   "DBforPostgreSQL": [
@@ -302,9 +298,12 @@
   "DeploymentManager": [],
   "DesktopVirtualization": [
     "2022-10-14-preview",
-    "2023-07-07-preview"
+    "2023-07-07-preview",
+    "2023-09-05"
   ],
-  "DevCenter": [],
+  "DevCenter": [
+    "2023-08-01-preview"
+  ],
   "DevHub": [],
   "DevOps": [],
   "DevSpaces": [],
@@ -319,7 +318,8 @@
   ],
   "DigitalTwins": [],
   "DocumentDB": [
-    "2023-04-15"
+    "2023-04-15",
+    "2023-09-15-preview"
   ],
   "DomainRegistration": [],
   "Dynamics365Fraudprotection": [],
@@ -476,7 +476,8 @@
     "2022-07-07",
     "2022-11-11",
     "2022-12-29",
-    "2023-05-02"
+    "2023-05-02",
+    "2023-08-15"
   ],
   "LabServices": [
     "2021-10-01-preview",
@@ -750,7 +751,8 @@
     "2023-05-01-preview",
     "2023-06-01-preview",
     "2023-07-01-preview",
-    "2023-08-01-preview"
+    "2023-08-01-preview",
+    "2023-09-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [
@@ -803,13 +805,13 @@
   "Storage": [
     "2023-01-01"
   ],
+  "StorageActions": [],
   "StorageCache": [],
   "StorageMover": [
     "2023-07-01-preview"
   ],
   "StoragePool": [],
   "StorageSync": [],
-  "StorageTasks": [],
   "StreamAnalytics": [
     "2020-03-01-preview",
     "2021-10-01-preview"
