@@ -23,8 +23,8 @@ require (
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/pulumi-java/pkg v0.9.6
 	github.com/pulumi/pulumi-yaml v1.2.2
-	github.com/pulumi/pulumi/pkg/v3 v3.82.1
-	github.com/pulumi/pulumi/sdk/v3 v3.82.1
+	github.com/pulumi/pulumi/pkg/v3 v3.84.0
+	github.com/pulumi/pulumi/sdk/v3 v3.84.0
 	github.com/schollz/progressbar/v3 v3.5.0
 	github.com/segmentio/encoding v0.3.5
 	github.com/sourcegraph/jsonx v0.0.0-20200629203448-1a936bd500cf
