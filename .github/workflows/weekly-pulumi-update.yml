@@ -14,7 +14,8 @@ env:
 
 jobs:
   weekly-pulumi-update:
-    runs-on: ubuntu-latest
+    # Use a more powerful runner to fix pulumi/pulumi-azure-native#2768
+    runs-on: pulumi-ubuntu-8core
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3

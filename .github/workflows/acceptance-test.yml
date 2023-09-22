@@ -64,3 +64,5 @@ jobs:
 
       - name: Lint actions
         uses: reviewdog/action-actionlint@v1.36.0
+        with:
+          actionlint_flags: "-config-file .actionlint.yml"

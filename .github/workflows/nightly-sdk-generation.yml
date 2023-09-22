@@ -30,7 +30,8 @@ env:
   PROVIDER_VERSION: 2.0.0-alpha.0+dev
 jobs:
   generate-sdk:
-    runs-on: ubuntu-latest
+    # Use a more powerful runner to fix pulumi/pulumi-azure-native#2767
+    runs-on: pulumi-ubuntu-8core
     name: generate-sdk
     steps:
       # We do a deep checkout so we're able to push later
